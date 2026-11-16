@@ -46,25 +46,28 @@ const put = (hay, needle, value) => {
   if (i < 0) throw new Error('模板缺少占位符 ' + needle);
   return hay.slice(0, i) + value + hay.slice(i + needle.length);
 };
-const page = (atlasJson, reliefB64, polityB64) => {
+const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   let h = shell;
   h = put(h, '/*CSS*/', css);
   h = put(h, '/*APP*/', app);
   h = put(h, '/*ATLAS*/', atlasJson);
   h = put(h, '/*RELIEF*/', reliefB64);
   h = put(h, '/*POLITY*/', polityB64);
+  h = put(h, '/*STORIES*/', storiesJson);
   return h;
 };
 
-/* 线上版：数据外置 */
-const online = page('', '', '');
+/* 线上版：数据外置（书里的正文按需取） */
+const online = page('', '', '', '');
 writeFileSync(join(root, 'index.html'), online, 'utf8');
 
 /* 单文件版：全部内嵌 */
+const storiesRaw = existsSync(join(root, 'data', 'stories.json')) ? rd('data', 'stories.json') : '';
 const offline = page(
   JSON.stringify(world),
   readFileSync(join(root, 'data', 'relief.jpg')).toString('base64'),
   readFileSync(join(root, 'data', 'polity.bin.gz')).toString('base64'),
+  storiesRaw,
 );
 writeFileSync(join(root, 'index.offline.html'), offline, 'utf8');
 

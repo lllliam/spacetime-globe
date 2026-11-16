@@ -34,6 +34,8 @@ window.__t = {
   get rendererKind(){ const r = glr || fallback; return r && r.kind },
   get polityLoaded(){ return !!(pk && polityState.loaded) },
   pick: pickAt, mapPointAt, setLayer, ensurePolity,
+  openEntity, openBook, closeBook, loadStories,
+  get stories(){ return stories },
   setYear(y){ state.year = y; onYearChanged(); },
   stopSpin(){ spinning = false; },
   redraw(){ invalidate(); },

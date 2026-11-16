@@ -1207,11 +1207,14 @@ function renderSheet() {
   sheetInner.innerHTML =
     '<h2>' + esc(ent.name) + (ent.nameEn && ent.nameEn !== ent.name ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
     '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
+    '<button type="button" id="read-btn">读这一卷 →</button>' +
     '<ul class="facts">' + facts + '</ul>' +
     (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
     (rows ? '<ul>' + rows + '</ul>' : '<p class="empty">这个年份附近没有收录条目。</p>') +
     '<p class="foot">边界按现代国界近似' + (ent.kind === 'polity' ? ' · 历史疆界来自 Cliopatria（CC BY 4.0）' : '') + '</p>';
   sheetEl.classList.add('open');
+  const rb = document.getElementById('read-btn');
+  if (rb) rb.addEventListener('click', openBook);
 }
 
 function openEntity(layerId, id) {
@@ -1295,6 +1298,177 @@ overlayBody.addEventListener('click', (e) => {
 const closeWorld = () => { overlay.hidden = true; };
 el('overlay-close').addEventListener('click', closeWorld);
 elYear.addEventListener('click', openWorld);
+
+/* ───────────── 13.5 阅读视图（一本书） ───────────── */
+/* 书 = 实体在某个时期的一组节：导语（来自维基）+ 按时间分节的事件段落 + 出处。
+   数据在 data/stories.json（条目 id → 中文维基导语）。 */
+let stories = null, storiesLoading = false;
+const bookEl = el('book'), bookBody = el('book-body'), bookCrumb = el('book-crumb');
+
+async function loadStories() {
+  if (stories || storiesLoading) return;
+  storiesLoading = true;
+  try {
+    const inline = inlineText('stories');
+    if (inline.length > 50) stories = JSON.parse(inline);
+    else stories = await (await fetch('data/stories.json')).json();
+  } catch (e) {
+    stories = { entries: {}, polities: {} };
+    console.warn('stories 读取失败', e);
+  }
+  storiesLoading = false;
+}
+
+const proseOf = (entryId) => (stories && stories.entries[entryId] && stories.entries[entryId].x) || '';
+const polityProse = (name) => (stories && stories.polities[name] && stories.polities[name].x) || '';
+const polityZhName = (name) => (stories && stories.polities[name] && stories.polities[name].t) || name;
+
+/* 政权全部切片的并集遮罩：用来把散落在它一生的条目找出来 */
+const polityMaskCache = new Map();
+function polityMaskOf(ent) {
+  const key = ent.entId;
+  if (polityMaskCache.has(key)) return polityMaskCache.get(key);
+  const g = probeCtx;
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.fillStyle = '#000';
+  g.fillRect(0, 0, PW, PH);
+  g.setTransform(PW / MAPW, 0, 0, PH / MAPH, 0, 0);
+  g.fillStyle = '#fff';
+  for (let i = 0; i < pk.nSlice; i++) {
+    if (pk.slices[i * 4] !== ent.entId) continue;
+    g.fill(polityShape(pk, pk.slices[i * 4 + 3]).path, 'evenodd');
+  }
+  const px = g.getImageData(0, 0, PW, PH).data;
+  const mask = new Uint8Array(PW * PH);
+  for (let i = 0, p = 3; i < mask.length; i++, p += 4) mask[i] = px[p] > 128 ? 1 : 0;
+  polityMaskCache.set(key, mask);
+  if (polityMaskCache.size > 40) polityMaskCache.delete(polityMaskCache.keys().next().value);
+  return mask;
+}
+
+/* 这一卷要读哪些条目：国家读它全部的年表，政权读它一生境内的事 */
+function entriesForBook(ent) {
+  if (ent.kind === 'country') {
+    return (entryByRegion.get(ent.regionId) || []).slice();
+  }
+  const mask = polityMaskOf(ent);
+  const out = [];
+  for (const e of entries) {
+    if (e.px === undefined) continue;
+    if (e.t1 < ent.from || e.t0 > ent.to) continue;
+    const col = Math.min(PW - 1, Math.max(0, (e.px / MAPW * PW) | 0));
+    const row = Math.min(PH - 1, Math.max(0, (e.py / MAPH * PH) | 0));
+    if (mask[row * PW + col]) out.push(e);
+  }
+  return out;
+}
+
+function buildChapter(ent) {
+  const list = entriesForBook(ent).sort((a, b) => a.t0 - b.t0);
+  const chapters = [];
+  let cur = null;
+  for (const e of list) {
+    const bucket = Math.floor(e.start / 100) * 100;
+    if (!cur || cur.bucket !== bucket) {
+      cur = { bucket, from: bucket, to: bucket + 99, items: [] };
+      chapters.push(cur);
+    }
+    cur.items.push(e);
+  }
+  const sections = chapters.map((c) => ({
+    heading: c.bucket < 0 ? '前' + (-c.bucket) + '–前' + (-c.bucket - 99) : c.from + '–' + c.to,
+    here: Math.floor(state.year / 100) * 100 === c.bucket,
+    items: c.items.map((e) => ({
+      title: e.zh || e.en,
+      meta: dateOf(e),
+      color: kindColor(e),
+      prose: proseOf(e.id),
+      source: e.source || '',
+      year: e.start,
+    })),
+  }));
+
+  let lede = '';
+  let title = ent.name, when = '';
+  if (ent.kind === 'polity') {
+    title = polityZhName(ent.name);
+    when = fmtYear(ent.from) + '–' + fmtYear(ent.to) + ' · 存续 ' + (ent.to - ent.from) + ' 年 · 境内 ' + list.length + ' 条记录';
+    lede = polityProse(ent.name);
+  } else {
+    const pol = pk ? polityOverCountry(ent.iso) : null;
+    const polZh = pol ? polityZhName(pol.name) : '';
+    when = fmtYear(state.year) + ' 年 · 年表 ' + list.length + ' 条' + (polZh ? ' · 这一年是 ' + polZh : '');
+    if (pol) lede = polityProse(pol.name);
+    if (!lede) lede = '这里收着' + ent.name + '的年表：从最早的一条到最近的记录，按时间排开。';
+  }
+  return { title, when, lede, sections, kind: ent.kind };
+}
+
+function openBook() {
+  const f = state.focus;
+  if (!f) return;
+  const ent = entityById(f.layerId, f.id);
+  if (!ent) return;
+  const paint = () => {
+    const ch = buildChapter(ent);
+    const [a, b, scopeName] = windowOf(state.year);
+    bookCrumb.textContent = (ent.kind === 'polity' ? '政权' : scopeName) + ' · ' + (state.year >= YMAX ? '今天' : fmtYear(state.year) + ' 年');
+    const sections = ch.sections.filter((s) => s.items.length).map((s) => `
+      <h2${s.here ? ' class="here"' : ''}>${esc(s.heading)}<em>${s.items.length} 条</em></h2>
+      ${s.items.map((it) => `
+        <article>
+          <h3>${esc(it.title)}</h3>
+          <p class="meta"><i style="background:${it.color}"></i>${esc(it.meta)}</p>
+          ${it.prose ? `<p>${esc(it.prose)}</p>` : '<p class="noprose">（这一条还没有正文）</p>'}
+          ${it.source ? `<a class="src" href="${esc(it.source)}" target="_blank" rel="noopener">维基百科 ↗</a>` : ''}
+        </article>`).join('')}`).join('');
+    const titles = [...new Set((stories ? ch.sections.flatMap((s) => s.items) : []).map((i) => i.title))].slice(0, 6);
+    bookBody.innerHTML = `
+      <p class="eyebrow">${ch.kind === 'polity' ? '政权档案' : chapterOf(state.year).n}</p>
+      <h1>${esc(ch.title)}</h1>
+      <p class="when">${ch.when}</p>
+      ${ch.lede ? `<p class="lede">${esc(ch.lede)}</p>` : ''}
+      ${sections || '<p class="noprose">这一段还没有收进条目。</p>'}
+      <div class="more">
+        <button type="button" data-act="prev">◀ 上一个时期</button>
+        <button type="button" data-act="next">下一个时期 ▶</button>
+        <button type="button" data-act="close">回到地球</button>
+      </div>
+      <p class="credits">
+        <b>正文</b>：中文维基百科导语（CC BY-SA 4.0），条目名 ${titles.length ? esc(titles.join('、')) : '—'}<br>
+        <b>边界</b>：Cliopatria / Seshat（CC BY 4.0）· <b>国界</b>：Natural Earth（公有领域）<br>
+        正文由导语拼接而成，不是逐段核对过的通史；年份与出处以年表为准。
+      </p>`;
+    bookBody.scrollTop = 0;
+    bookEl.hidden = false;
+    /* 打开就落到「此刻」所在的那一节 */
+    const here = bookBody.querySelector('h2.here');
+    if (here) setTimeout(() => { bookBody.scrollTop = Math.max(0, here.offsetTop - 70); }, 60);
+  };
+  if (!stories) {
+    bookBody.innerHTML = '<p class="eyebrow">正在装订…</p>';
+    bookEl.hidden = false;
+    loadStories().then(paint);
+  } else paint();
+}
+
+function closeBook() { bookEl.hidden = true; }
+el('book-close').addEventListener('click', closeBook);
+bookBody.addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'close') { closeBook(); return; }
+  const ch = chapterOf(state.year);
+  const step = act === 'next' ? 1 : -1;
+  const i = CH.indexOf(ch);
+  const next = CH[clamp(i + step, 0, CH.length - 1)];
+  if (next) {
+    state.year = act === 'next' ? next.a : next.b;
+    onYearChanged();
+    openBook();
+  }
+});
 
 /* ───────────── 14. 时间轴 ───────────── */
 let density = null;

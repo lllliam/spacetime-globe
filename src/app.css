@@ -133,3 +133,49 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #sheet .facts small{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
 #sheet .era2{margin:2px 0 4px;font-size:12px;color:var(--gold)}
 #sheet .era2 small{color:var(--muted);margin-left:6px;font-size:11px;font-variant-numeric:tabular-nums}
+
+/* ── 阅读视图（一本书） ── */
+#book{position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,#0d131b 0%,#0a0f16 60%,#080c12 100%);
+  animation:bookIn .28s cubic-bezier(.22,.9,.28,1)}
+#book[hidden]{display:none}
+@keyframes bookIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#book-bar{flex:none;display:flex;align-items:center;gap:10px;padding:calc(var(--safe-t) + 8px) 14px 8px;
+  border-bottom:1px solid rgba(255,255,255,.06)}
+#book-close{width:32px;height:32px;border-radius:16px;border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.04);color:var(--ink);font:300 20px/1 -apple-system,sans-serif;cursor:pointer;flex:none}
+#book-close:active{background:rgba(255,255,255,.12)}
+#book-crumb{font-size:11px;letter-spacing:.06em;color:var(--muted)}
+#book-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  padding:22px 22px calc(var(--safe-b) + 60px)}
+#book-body .eyebrow{font-size:11px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase}
+#book-body h1{margin:6px 0 2px;font:700 34px/1.15 Georgia,"Songti SC","Noto Serif SC",serif;letter-spacing:-.01em}
+#book-body .when{margin:0 0 18px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+#book-body .when b{color:var(--gold);font-weight:600}
+#book-body .lede{font:400 15px/1.85 Georgia,"Songti SC",serif;color:#e6dfd0;margin:0 0 22px;
+  padding-left:14px;border-left:2px solid rgba(224,178,115,.35)}
+#book-body h2{margin:30px 0 4px;font:600 15px/1.4 -apple-system,"PingFang SC",sans-serif;
+  letter-spacing:.04em;color:var(--gold);display:flex;align-items:baseline;gap:10px}
+#book-body h2 em{font:400 11px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted);letter-spacing:.02em}
+#book-body h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(224,178,115,.28),transparent)}
+#book-body article{margin:0 0 18px}
+#book-body article h3{margin:12px 0 2px;font:600 16px/1.45 "Songti SC",Georgia,serif;color:var(--ink)}
+#book-body article .meta{margin:0 0 8px;font-size:11px;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+#book-body article .meta i{display:inline-block;width:6px;height:6px;border-radius:2px;margin-right:6px;transform:translateY(-1px)}
+#book-body article p{margin:0 0 10px;font-size:14.5px;line-height:1.85;color:#cfc6b4}
+#book-body article .src{font-size:11px;color:var(--gold-dim);text-decoration:none}
+#book-body article .noprose{color:#8b93a1;font-size:13.5px;font-style:italic}
+#book-body .more{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+#book-body .more button{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
+  color:var(--ink);font:500 12.5px/1 -apple-system,sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer}
+#book-body .more button:active{background:rgba(255,255,255,.12)}
+#book-body .credits{margin:30px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);
+  font-size:10.5px;line-height:1.7;color:#6f7a8a}
+#book-body .credits b{color:#8b96a6;font-weight:600}
+
+@media (min-width:720px){ #book-body{padding:30px 28px 80px;max-width:760px;margin:0 auto}
+  #book-body h1{font-size:44px} #book-body .lede{font-size:16px} }
+#book-body h2.here{color:#f0c98a}
+#book-body h2.here::after{background:linear-gradient(90deg,rgba(224,178,115,.8),transparent)}
+#book-body h2.here::before{content:"此刻";font:600 9.5px/1 -apple-system,sans-serif;letter-spacing:.1em;
+  color:#0b1017;background:var(--gold);padding:3px 5px;border-radius:4px;order:-1;transform:translateY(-1px)}
