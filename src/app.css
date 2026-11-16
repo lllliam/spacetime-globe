@@ -252,3 +252,24 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #sheet.full{padding-bottom:0}
 #dock{z-index:9;transition:opacity .28s ease,transform .28s ease}
 body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
+
+/* peek 档：收成一张干净的卡片，而不是被切断的列表 */
+#sheet.peek #sheet-inner .facts,
+#sheet.peek #sheet-inner .rows li:nth-child(n+3),
+#sheet.peek #sheet-inner .era2,
+#sheet.peek #sheet-inner .hint-more,
+#sheet.peek #sheet-inner .book,
+#sheet.peek #sheet-inner .foot{display:none}
+#sheet.peek #sheet-inner{padding-top:2px}
+#sheet.peek #sheet h2{font-size:19px}
+
+/* 细节：行距、分隔、按压手感 */
+#sheet .rows li{transition:background .18s}
+#sheet .rows li:active{background:rgba(255,255,255,.04)}
+#sheet .era small{opacity:.85}
+#hud{gap:2px}
+#hud #year{margin-top:-2px}
+#sub{line-height:1.5}
+#toolbar{gap:8px}
+#loadpill span{font-variant-numeric:tabular-nums}
+'

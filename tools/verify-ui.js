@@ -195,6 +195,27 @@ async function main() {
   await js('window.__t.closeSheet()');
   await sleep(480);
 
+  /* 回归：往下拉不能把抽屉拉到时间轴底下（抓手必须还在可点区域） */
+  await js(`(() => { const t = window.__t; const q = t.screenOf(110*Math.PI/180, 34*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
+  await sleep(620);
+  const grabPt = await js(`(() => { const r = document.getElementById('grab').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+  await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: grabPt.x, y: grabPt.y, button: 'left', clickCount: 1, buttons: 1 });
+  for (let i = 1; i <= 10; i++) {
+    await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: grabPt.x, y: grabPt.y + 30 * i, button: 'left', buttons: 1 });
+    await sleep(30);
+  }
+  await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: grabPt.x, y: grabPt.y + 300, button: 'left', clickCount: 1, buttons: 0 });
+  await sleep(700);
+  const afterDrag = await js(`(() => {
+    const sh = document.getElementById('sheet'), gr = document.getElementById('grab').getBoundingClientRect();
+    const r = sh.getBoundingClientRect();
+    const reachable = r.top < innerHeight - 100 && gr.y > -10 && gr.y < innerHeight - 100;
+    return { detent: window.__t.sheet.detent, top: Math.round(r.top), grabY: Math.round(gr.y), reachable };
+  })()`);
+  check('抽屉往下拉不会藏进时间轴下面', afterDrag.detent === 'hidden' || afterDrag.reachable, afterDrag);
+  await js('window.__t.closeSheet()');
+  await sleep(420);
+
   /* 放大 + 平移后：GL 球、矢量层、拾取必须仍然对齐（曾经的 bug 是 GL 忽略 pan） */
   await js(`(() => { const t = window.__t; t.state.zoom = 2.2; t.view.Rz = t.view.R * 2.2; t.state.panX = -60; t.state.panY = 30; t.redraw(); })()`);
   await sleep(320);

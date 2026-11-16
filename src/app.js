@@ -1536,6 +1536,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.classList.toggle('full', offset <= 1);
+  sheetEl.classList.toggle('peek', offset >= sheetDetents().peek - 1 && offset < sheetDetents().half - 1);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
 }
@@ -1601,7 +1602,10 @@ function sheetDragMove(e) {
   sheetState.lastY = e.clientY;
   sheetState.lastT = now;
   const H = view.h || innerHeight;
-  const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, H);
+  /* 往下最多拉到「抓手刚好在时间轴上方」的位置：
+     以前能一路拉到屏幕外，抽屉就藏到进度条底下再也抓不到了 */
+  const maxOffset = Math.max(0, H - 132);
+  const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, maxOffset);
   applySheetOffset(offset, false);
 }
 
@@ -1610,13 +1614,18 @@ function sheetDragEnd() {
   sheetState.dragging = false;
   sheetEl.classList.remove('dragging');
   const d = sheetDetents();
+  const H = view.h || innerHeight;
   const order = ['full', 'half', 'peek', 'hidden'];
   let target;
-  if (Math.abs(sheetState.vy) > 500) {
+  /* 拉过这个线就算「往下甩掉」 */
+  if (sheetState.vy > 700 && sheetState.offset > d.peek - 60) target = 'hidden';
+  else if (Math.abs(sheetState.vy) > 500) {
     const i = order.indexOf(sheetState.detent);
     target = order[clamp(i + (sheetState.vy < 0 ? -1 : 1), 0, order.length - 1)];
+    if (target === 'hidden' && sheetState.offset < d.peek - 40) target = 'peek';
   } else {
-    target = order.reduce((best, k) => (Math.abs(d[k] - sheetState.offset) < Math.abs(d[best] - sheetState.offset) ? k : best), 'hidden');
+    target = order.reduce((best, k) => (Math.abs(d[k] - sheetState.offset) < Math.abs(d[best] - sheetState.offset) ? k : best), 'peek');
+    if (target === 'hidden') target = 'peek';
   }
   if (target === 'hidden') closeSheet();
   else sheetTo(target);

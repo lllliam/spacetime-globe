@@ -269,6 +269,27 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #dock{z-index:9;transition:opacity .28s ease,transform .28s ease}
 body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
 
+/* peek 档：收成一张干净的卡片，而不是被切断的列表 */
+#sheet.peek #sheet-inner .facts,
+#sheet.peek #sheet-inner .rows li:nth-child(n+3),
+#sheet.peek #sheet-inner .era2,
+#sheet.peek #sheet-inner .hint-more,
+#sheet.peek #sheet-inner .book,
+#sheet.peek #sheet-inner .foot{display:none}
+#sheet.peek #sheet-inner{padding-top:2px}
+#sheet.peek #sheet h2{font-size:19px}
+
+/* 细节：行距、分隔、按压手感 */
+#sheet .rows li{transition:background .18s}
+#sheet .rows li:active{background:rgba(255,255,255,.04)}
+#sheet .era small{opacity:.85}
+#hud{gap:2px}
+#hud #year{margin-top:-2px}
+#sub{line-height:1.5}
+#toolbar{gap:8px}
+#loadpill span{font-variant-numeric:tabular-nums}
+'
+
 </style>
 </head>
 <body>
@@ -1861,6 +1882,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.classList.toggle('full', offset <= 1);
+  sheetEl.classList.toggle('peek', offset >= sheetDetents().peek - 1 && offset < sheetDetents().half - 1);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
 }
@@ -1926,7 +1948,10 @@ function sheetDragMove(e) {
   sheetState.lastY = e.clientY;
   sheetState.lastT = now;
   const H = view.h || innerHeight;
-  const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, H);
+  /* 往下最多拉到「抓手刚好在时间轴上方」的位置：
+     以前能一路拉到屏幕外，抽屉就藏到进度条底下再也抓不到了 */
+  const maxOffset = Math.max(0, H - 132);
+  const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, maxOffset);
   applySheetOffset(offset, false);
 }
 
@@ -1935,13 +1960,18 @@ function sheetDragEnd() {
   sheetState.dragging = false;
   sheetEl.classList.remove('dragging');
   const d = sheetDetents();
+  const H = view.h || innerHeight;
   const order = ['full', 'half', 'peek', 'hidden'];
   let target;
-  if (Math.abs(sheetState.vy) > 500) {
+  /* 拉过这个线就算「往下甩掉」 */
+  if (sheetState.vy > 700 && sheetState.offset > d.peek - 60) target = 'hidden';
+  else if (Math.abs(sheetState.vy) > 500) {
     const i = order.indexOf(sheetState.detent);
     target = order[clamp(i + (sheetState.vy < 0 ? -1 : 1), 0, order.length - 1)];
+    if (target === 'hidden' && sheetState.offset < d.peek - 40) target = 'peek';
   } else {
-    target = order.reduce((best, k) => (Math.abs(d[k] - sheetState.offset) < Math.abs(d[best] - sheetState.offset) ? k : best), 'hidden');
+    target = order.reduce((best, k) => (Math.abs(d[k] - sheetState.offset) < Math.abs(d[best] - sheetState.offset) ? k : best), 'peek');
+    if (target === 'hidden') target = 'peek';
   }
   if (target === 'hidden') closeSheet();
   else sheetTo(target);
