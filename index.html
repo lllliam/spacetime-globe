@@ -480,7 +480,8 @@ const pickCtx = pickCanvas.getContext('2d', { willReadFrequently: true });
 let partition = { layerId: 'country', year: YMAX, shapes: [], pick: new Uint8Array(PW * PH), counts: new Map(), lut: new Uint8Array(256 * 4) };
 let summary = { ev: 0, era: 0, countries: 0, entities: 0 };
 
-const HEAT = [[152, 122, 68], [188, 148, 82], [222, 178, 94], [247, 208, 122], [255, 233, 176]];
+/* 金色 = 这一年这里的记录多；越深越暖，但不要亮成白色（那会读成“高亮”） */
+const HEAT = [[142, 112, 60], [168, 132, 70], [196, 152, 80], [220, 172, 92], [238, 192, 108]];
 const heatIndex = (n) => (n <= 1 ? 0 : n === 2 ? 1 : n <= 4 ? 2 : n <= 7 ? 3 : 4);
 
 function rasterize(layer, year) {
@@ -499,7 +500,7 @@ function rasterize(layer, year) {
   /* 边界只写进 B 通道（lighter 叠加不破坏 R/G 的 id 编码） */
   idCtx.globalCompositeOperation = 'lighter';
   idCtx.strokeStyle = 'rgb(0,0,255)';
-  idCtx.lineWidth = 0.55;
+  idCtx.lineWidth = 0.95;
   for (const s of shapes) {
     const p = layer.id === 'polity' ? polityShape(pk, s.pathId).path : s.path;
     idCtx.stroke(p);
@@ -567,12 +568,12 @@ function buildLut(layer, shapes, counts) {
     if (n) {
       const h = HEAT[heatIndex(n)];
       lut[o] = h[0]; lut[o + 1] = h[1]; lut[o + 2] = h[2];
-      lut[o + 3] = Math.round(255 * (0.80 + Math.min(0.14, n * 0.03)));
+      lut[o + 3] = Math.round(255 * (0.84 + Math.min(0.12, n * 0.02)));
     } else if (layer.id === 'polity') {
-      /* 政权层：无记录也给一点点明暗差，否则整张图糊成一片 */
-      const v = 138 + ((s.id * 47) % 26);
-      lut[o] = v; lut[o + 1] = v + 6; lut[o + 2] = v + 14;
-      lut[o + 3] = 96;
+      /* 政权层：无记录也要能分辨相邻政权，否则整张图糊成一片 */
+      const v = 104 + ((s.id * 53) % 34);
+      lut[o] = v; lut[o + 1] = v + 5; lut[o + 2] = v + 12;
+      lut[o + 3] = 118;
     } else {
       lut[o] = 118; lut[o + 1] = 127; lut[o + 2] = 140; lut[o + 3] = 116;
     }
@@ -711,7 +712,7 @@ void main() {
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
   vec3 col = mix(base, tint.rgb, tint.a);
   float edge = smoothstep(0.25, 0.75, idTex.b);
-  col = mix(col, vec3(0.90, 0.87, 0.78), edge * 0.55);
+  col = mix(col, vec3(0.38, 0.36, 0.31), edge * 0.62);
   if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.96, 0.86), 0.26);
   float l = dot(n, uLight);
   float lam = clamp(l, 0.0, 1.0);
