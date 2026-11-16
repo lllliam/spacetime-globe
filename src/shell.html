@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="地球仪">
+<meta name="theme-color" content="#0b1017">
+<meta name="description" content="拖动时间轴，看同一颗地球上不同年代有记录的地方。">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.png">
+<title>地球仪 · 时空坐标</title>
+<style>
+/*CSS*/
+</style>
+</head>
+<body>
+
+<canvas id="globe" aria-label="地球"></canvas>
+
+<div id="scrim"></div>
+
+<div id="hud">
+  <button id="year" type="button" aria-label="看这一年的世界">今天</button>
+  <div id="sub"></div>
+</div>
+
+<div id="hint"><b>拖动</b>转地球 · <b>双指</b>缩放 · <b>点国家</b>看历史 · <b>点年份</b>看世界</div>
+
+<div id="dock">
+  <div id="sheet" aria-live="polite">
+    <div id="handle"><i></i></div>
+    <div id="sheet-inner"></div>
+  </div>
+  <canvas id="track" aria-label="时间轴"></canvas>
+</div>
+
+<div id="overlay" hidden>
+  <div id="overlay-head">
+    <div>
+      <h1 id="overlay-title">这一年</h1>
+      <p id="overlay-sub"></p>
+    </div>
+    <button id="overlay-close" type="button" aria-label="关闭">×</button>
+  </div>
+  <div id="overlay-body"></div>
+</div>
+
+<div id="boot">
+  <div class="spin"></div>
+  <p>正在铺开地图…</p>
+</div>
+
+<script id="atlas" type="application/json">/*ATLAS*/</script>
+<script id="relief" type="application/octet-stream">/*RELIEF*/</script>
+<script>
+/*APP*/
+</script>
+<script>
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>

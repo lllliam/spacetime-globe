@@ -1,0 +1,5 @@
+# index.html 是构建产物，但要提交（GitHub Pages 直接托管它）
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

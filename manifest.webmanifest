@@ -2,6 +2,7 @@
   "name": "地球仪 · 时空坐标",
   "short_name": "地球仪",
   "description": "拖动时间轴，看同一颗地球上不同年代有记录的地方。",
+  "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -10,6 +11,7 @@
   "theme_color": "#0b1017",
   "icons": [
     { "src": "icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
