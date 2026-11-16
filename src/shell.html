@@ -32,10 +32,6 @@
 <div id="hint"><b>拖动</b>转地球 · <b>双指</b>缩放 · <b>点陆块</b>看它是谁 · <b>点年份</b>看世界</div>
 
 <div id="dock">
-  <div id="sheet" aria-live="polite">
-    <div id="handle"><i></i></div>
-    <div id="sheet-inner"></div>
-  </div>
   <div id="toolbar">
     <div id="layers" role="group" aria-label="划分方式">
       <button type="button" data-layer="country" class="on">国家</button>
@@ -44,6 +40,12 @@
     <div id="loadpill" hidden><i></i><span>政权边界 0%</span></div>
   </div>
   <canvas id="track" aria-label="时间轴"></canvas>
+</div>
+
+<div id="sheet-dim" hidden></div>
+<div id="sheet" aria-live="polite">
+  <div id="grab" aria-label="拖动展开"><i></i></div>
+  <div id="sheet-scroll"><div id="sheet-inner"></div></div>
 </div>
 
 <div id="overlay" hidden>
@@ -55,14 +57,6 @@
     <button id="overlay-close" type="button" aria-label="关闭">×</button>
   </div>
   <div id="overlay-body"></div>
-</div>
-
-<div id="book" hidden>
-  <div id="book-bar">
-    <button id="book-close" type="button" aria-label="关闭">‹</button>
-    <span id="book-crumb"></span>
-  </div>
-  <div id="book-body"></div>
 </div>
 
 <div id="boot">

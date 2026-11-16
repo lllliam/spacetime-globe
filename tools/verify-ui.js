@@ -110,10 +110,12 @@ async function main() {
   /* 点国家 */
   const p = await js(`(() => { const q = window.__t.screenOf(110*Math.PI/180, 34*Math.PI/180); return {x:q.x, y:q.y}; })()`);
   await tap(p.x, p.y);
-  const sheet = await js(`({open: document.getElementById('sheet').classList.contains('open'),
+  const sheet = await js(`({open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
     hasFacts: !!document.querySelector('#sheet .facts')})`);
   check('点国家打开档案（含事实行）', sheet.open && /中国/.test(sheet.title || '') && sheet.hasFacts, sheet);
+  await js(`window.__t.closeSheet()`);
+  await sleep(500);
 
   /* 拖动 */
   const y0 = await js('window.__t.state.yaw');
@@ -143,7 +145,7 @@ async function main() {
   const pp = await js(`(() => { const q = window.__t.screenOf(32*Math.PI/180, 39*Math.PI/180); return {x:q.x, y:q.y, front:q.front}; })()`);
   await tap(pp.x, pp.y);
   const polSheet = await js(`({
-    open: document.getElementById('sheet').classList.contains('open'),
+    open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
     era: (document.querySelector('#sheet .era')||{}).textContent,
     facts: [...document.querySelectorAll('#sheet .facts span')].map(e=>e.textContent).slice(0,4),
@@ -157,6 +159,16 @@ async function main() {
   await js(`window.__t.setLayer('country')`);
   const back = await js(`({shapes: window.__t.partition.shapes.length, iso: !!window.__t.shapeOf(1).iso})`);
   check('可切回国家层', back.shapes > 100 && back.iso, back);
+  /* 抽屉三档：上拉应到 full，且内容变成可滚动的书 */
+  await js(`window.__t.openEntity('country', window.__t.partition.shapes.find(s => s.iso === 'CN').id)`);
+  await sleep(520);
+  const half = await js('({ detent: window.__t.sheet.detent, hasBook: !!document.querySelector("#sheet .book article") })');
+  await js('window.__t.openBook()');
+  await sleep(560);
+  const full = await js('({ detent: window.__t.sheet.detent, scrollable: getComputedStyle(document.getElementById("sheet-scroll")).overflowY, cls: document.getElementById("sheet").className })');
+  check('抽屉上拉到全屏并显示正文', half.detent === 'half' && half.hasBook && full.detent === 'full' && full.scrollable === 'auto', { half, full });
+  await js('window.__t.closeSheet()');
+  await sleep(480);
 
   /* 放大 + 平移后：GL 球、矢量层、拾取必须仍然对齐（曾经的 bug 是 GL 忽略 pan） */
   await js(`(() => { const t = window.__t; t.state.zoom = 2.2; t.view.Rz = t.view.R * 2.2; t.state.panX = -60; t.state.panY = 30; t.redraw(); })()`);

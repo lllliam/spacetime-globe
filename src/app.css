@@ -36,28 +36,6 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 /* ── 底部：抽屉 + 时间轴 ── */
 #dock{position:fixed;left:0;right:0;bottom:0;z-index:6;padding:0 0 var(--safe-b);
   background:linear-gradient(180deg,rgba(11,16,23,0) 0%,rgba(11,16,23,.86) 22%,rgba(11,16,23,.98) 46%,#0b1017 100%)}
-#sheet{max-height:0;overflow:hidden;transition:max-height .28s cubic-bezier(.22,.9,.28,1);
-  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  background:linear-gradient(180deg,rgba(11,16,23,.70) 0%,rgba(11,16,23,.955) 26%,rgba(11,16,23,.99) 100%)}
-#sheet.open{max-height:42vh}
-#sheet-inner{padding:0 20px 10px;max-height:42vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
-  overscroll-behavior:contain}
-#handle{display:flex;justify-content:center;padding:8px 0 4px}
-#handle i{width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.16)}
-#sheet h2{margin:0;font:600 17px/1.35 "Songti SC","Noto Serif SC",Georgia,serif;display:flex;align-items:baseline;gap:8px}
-#sheet h2 em{font:400 11px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted);letter-spacing:.02em}
-#sheet .era{margin:2px 0 9px;font-size:12px;color:var(--gold)}
-#sheet .era small{color:var(--muted);margin-left:6px;font-variant-numeric:tabular-nums;font-size:11px}
-#sheet ul{list-style:none;margin:0;padding:0}
-#sheet li{display:flex;gap:9px;align-items:baseline;padding:7px 0;border-top:1px solid rgba(255,255,255,.06)}
-#sheet li i{width:6px;height:6px;border-radius:2px;flex:none;transform:translateY(-2px)}
-#sheet li span{flex:1;min-width:0;font-size:13px;line-height:1.4}
-#sheet li small{flex:none;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-#sheet .empty{color:var(--muted);font-size:12.5px;padding:8px 0 12px}
-#sheet .note{margin:0 0 6px;font-size:11px;color:var(--muted);letter-spacing:.02em}
-#sheet .foot{margin:9px 0 2px;font-size:10.5px;color:#6c7686;letter-spacing:.02em}
-#sheet .walk{cursor:pointer}
-#sheet .walk:active{opacity:.6}
 
 #track{display:block;width:100%;height:96px;touch-action:none}
 
@@ -126,13 +104,6 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 @media (min-width:720px){ #toolbar{padding:0 28px 2px} }
 
 /* ── 实体档案的事实行 ── */
-#sheet .facts{list-style:none;margin:0 0 10px;padding:0}
-#sheet .facts li{display:flex;gap:8px;align-items:baseline;padding:3px 0;border:0;font-size:12px}
-#sheet .facts .dot{flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transform:translateY(-1px)}
-#sheet .facts span{flex:1;min-width:0;color:#cfc6b4;line-height:1.4}
-#sheet .facts small{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
-#sheet .era2{margin:2px 0 4px;font-size:12px;color:var(--gold)}
-#sheet .era2 small{color:var(--muted);margin-left:6px;font-size:11px;font-variant-numeric:tabular-nums}
 
 /* ── 阅读视图（一本书） ── */
 #book{position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
@@ -183,3 +154,95 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 /* ── 矢量叠加层：边线 / 经纬网 / 地名（按设备分辨率绘制，放大不糊） ── */
 #vec{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2}
 #scrim{z-index:3}
+
+/* ── 抽屉：三档吸附（peek / half / full），上拉即阅读 ── */
+#sheet-dim{position:fixed;inset:0;z-index:7;background:rgba(3,6,10,.5);
+  opacity:0;transition:opacity .3s ease;pointer-events:none}
+#sheet-dim.show{opacity:1;pointer-events:auto}
+
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:8;height:100%;
+  display:flex;flex-direction:column;
+  transform:translateY(100%);
+  border-radius:22px 22px 0 0;
+  background:linear-gradient(180deg,rgba(20,27,36,.92) 0%,rgba(12,17,24,.97) 12%,#0a0f16 100%);
+  -webkit-backdrop-filter:blur(20px) saturate(1.1);backdrop-filter:blur(20px) saturate(1.1);
+  box-shadow:0 -20px 48px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
+  transition:transform .42s cubic-bezier(.22,.95,.3,1);
+  will-change:transform;padding-bottom:var(--safe-b)}
+#sheet.dragging{transition:none}
+#sheet::before{content:"";position:absolute;inset:0 0 auto;height:120px;pointer-events:none;
+  border-radius:22px 22px 0 0;
+  background:linear-gradient(180deg,rgba(224,178,115,.06),transparent)}
+#grab{flex:none;display:flex;justify-content:center;align-items:center;height:26px;
+  touch-action:none;cursor:grab}
+#grab i{width:38px;height:4px;border-radius:2px;background:rgba(255,255,255,.24);
+  transition:background .2s,width .2s}
+#sheet.dragging #grab i{width:46px;background:rgba(224,178,115,.7)}
+#sheet-scroll{flex:1;overflow:hidden;overscroll-behavior:contain;padding:2px 22px 12px;
+  -webkit-overflow-scrolling:touch}
+#sheet.full #sheet-scroll{overflow-y:auto}
+#sheet-inner{padding-bottom:8px}
+
+/* 档案头 */
+#sheet h2{margin:2px 0 0;font:600 21px/1.3 "Songti SC","Noto Serif SC",Georgia,serif;
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+#sheet h2 em{font:400 11.5px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted);letter-spacing:.03em}
+#sheet .era{margin:3px 0 10px;font-size:12px;color:var(--gold);letter-spacing:.02em}
+#sheet .era small{color:var(--muted);margin-left:8px;font-size:11px;font-variant-numeric:tabular-nums}
+
+#sheet .facts{list-style:none;margin:0 0 14px;padding:0}
+#sheet .facts li{display:flex;gap:8px;align-items:baseline;padding:3px 0;border:0;font-size:12px}
+#sheet .facts .dot{flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transform:translateY(-1px)}
+#sheet .facts span{flex:1;min-width:0;color:#cfc6b4;line-height:1.45}
+#sheet .facts small{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+
+#sheet ul{list-style:none;margin:0;padding:0}
+#sheet .rows li{display:flex;gap:9px;align-items:baseline;padding:7px 0;border-top:1px solid rgba(255,255,255,.06)}
+#sheet .rows li i{width:6px;height:6px;border-radius:2px;flex:none;transform:translateY(-2px)}
+#sheet .rows li span{flex:1;min-width:0;font-size:13px;line-height:1.4}
+#sheet .rows li small{flex:none;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+#sheet .era2{margin:10px 0 2px;font-size:12px;color:var(--gold)}
+#sheet .era2 small{color:var(--muted);margin-left:8px;font-size:11px}
+#sheet .empty,#sheet .noprose{color:var(--muted);font-size:12.5px;padding:6px 0 10px}
+#sheet .foot{margin:12px 0 2px;font-size:10.5px;color:#6c7686;letter-spacing:.02em}
+#sheet .hint-more{display:flex;align-items:center;gap:6px;margin:14px 0 4px;color:var(--gold-dim);
+  font-size:11px;letter-spacing:.06em}
+#sheet .hint-more::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(224,178,115,.3),transparent)}
+
+/* 书（在抽屉里，上拉即可读） */
+#sheet .book{margin:6px 0 0}
+#sheet .book .lede{font:400 15px/1.9 Georgia,"Songti SC",serif;color:#e6dfd0;margin:0 0 22px;
+  padding-left:14px;border-left:2px solid rgba(224,178,115,.35)}
+#sheet .book h2.sec{margin:26px 0 6px;font:600 14.5px/1.4 -apple-system,"PingFang SC",sans-serif;
+  letter-spacing:.05em;color:var(--gold);display:flex;align-items:baseline;gap:10px}
+#sheet .book h2.sec em{font:400 11px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted)}
+#sheet .book h2.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(224,178,115,.28),transparent)}
+#sheet .book h2.sec.here{color:#f0c98a}
+#sheet .book h2.sec.here::before{content:"此刻";font:600 9.5px/1 -apple-system,sans-serif;letter-spacing:.1em;
+  color:#0b1017;background:var(--gold);padding:3px 5px;border-radius:4px;order:-1;transform:translateY(-1px)}
+#sheet .book article{margin:0 0 16px}
+#sheet .book article h3{margin:10px 0 2px;font:600 16px/1.45 "Songti SC",Georgia,serif;color:var(--ink)}
+#sheet .book article .meta{margin:0 0 7px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+#sheet .book article .meta i{display:inline-block;width:6px;height:6px;border-radius:2px;margin-right:6px;transform:translateY(-1px)}
+#sheet .book article p{margin:0 0 9px;font-size:14.5px;line-height:1.85;color:#cfc6b4}
+#sheet .book article .src{font-size:11px;color:var(--gold-dim);text-decoration:none}
+#sheet .book .more{margin:24px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+#sheet .book .more button{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
+  color:var(--ink);font:500 12.5px/1 -apple-system,sans-serif;padding:10px 15px;border-radius:999px;cursor:pointer;
+  transition:transform .12s,background .18s}
+#sheet .book .more button:active{transform:scale(.97);background:rgba(255,255,255,.12)}
+#sheet .book .credits{margin:26px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);
+  font-size:10.5px;line-height:1.7;color:#6f7a8a}
+#sheet .book .credits b{color:#8b96a6;font-weight:600}
+
+@media (min-width:720px){ #sheet-scroll{padding:2px 28px 16px;max-width:820px;margin:0 auto;width:100%} }
+@media (prefers-reduced-motion:reduce){ #sheet{transition-duration:.001s} }
+
+/* 图层开关：滑块而不是换色 */
+#layers{position:relative;isolation:isolate}
+#layers::before{content:"";position:absolute;z-index:-1;top:2px;bottom:2px;left:2px;
+  width:calc(50% - 2px);border-radius:999px;background:rgba(224,178,115,.16);
+  box-shadow:0 1px 2px rgba(0,0,0,.35);
+  transition:transform .3s cubic-bezier(.22,.95,.3,1)}
+#layers[data-active="polity"]::before{transform:translateX(100%)}
+#layers button.on{background:none}
