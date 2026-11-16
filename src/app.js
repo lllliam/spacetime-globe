@@ -156,12 +156,14 @@ function polityShape(pk, pathId) {
   let o = pk.pathIdx[pathId];
   const subCount = dv.getUint16(o, true); o += 2;
   const p = new Path2D();
+  const rings = [];
   let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
   for (let s = 0; s < subCount; s++) {
     const n = dv.getUint16(o, true); o += 2;
     let x = dv.getUint16(o, true); o += 2;
     let y = dv.getUint16(o, true); o += 2;
     p.moveTo(x / Q, y / Q);
+    const ring = [[x / Q, y / Q]];
     if (x < x0) x0 = x; if (x > x1) x1 = x;
     if (y < y0) y0 = y; if (y > y1) y1 = y;
     for (let k = 1; k < n; k++) {
@@ -172,12 +174,14 @@ function polityShape(pk, pathId) {
       do { b = bytes[o++]; v |= (b & 127) << sh; sh += 7; } while (b & 128);
       y += v & 1 ? ~(v >> 1) : (v >> 1);
       p.lineTo(x / Q, y / Q);
+      ring.push([x / Q, y / Q]);
       if (x < x0) x0 = x; if (x > x1) x1 = x;
       if (y < y0) y0 = y; if (y > y1) y1 = y;
     }
     p.closePath();
+    rings.push(ring);
   }
-  const shape = { path: p, area: ((x1 - x0) / Q) * ((y1 - y0) / Q) };
+  const shape = { path: p, rings, area: ((x1 - x0) / Q) * ((y1 - y0) / Q) };
   if (pk.cache.size > 900) pk.cache.delete(pk.cache.keys().next().value);
   pk.cache.set(pathId, shape);
   return shape;
@@ -388,6 +392,7 @@ function rebuildPartition() {
   const counts = countEntries(pick);
   const lut = buildLut(layer, shapes, counts);
   partition = { layerId: layer.id, year, shapes, pick, counts, lut };
+  prepareVector();
   if (glr) { glr.uploadId(idCanvas); glr.uploadLut(lut); }
   updateSummary();
   if (state.focus && state.focus.layerId !== layer.id) state.focus = null;
@@ -426,10 +431,15 @@ function buildBaseCanvas() {
   const paths = mapShapes.map((s) => s.p2d);
   g.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
   g.lineJoin = 'round'; g.lineCap = 'round';
-  g.strokeStyle = 'rgba(104,158,178,.34)'; g.lineWidth = 5;
+  /* 大陆架：柔化后的大范围晕边（软化是因为它会被放大 6 倍看） */
+  g.save();
+  if ('filter' in g) g.filter = 'blur(7px)';
+  g.strokeStyle = 'rgba(104,158,178,.50)'; g.lineWidth = 11;
   for (const p of paths) g.stroke(p);
-  g.strokeStyle = 'rgba(150,200,214,.30)'; g.lineWidth = 1.8;
+  g.filter = 'none';
+  g.strokeStyle = 'rgba(126,180,196,.28)'; g.lineWidth = 3.4;
   for (const p of paths) g.stroke(p);
+  g.restore();
 
   const landAll = new Path2D();
   for (const p of paths) landAll.addPath(p);
@@ -456,9 +466,7 @@ function buildBaseCanvas() {
   for (let lat = -60; lat <= 60; lat += 30) { const y = ((90 - lat) / 180) * TH; g.moveTo(0, y); g.lineTo(TW, y); }
   g.stroke();
 
-  g.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
-  g.strokeStyle = 'rgba(246,240,226,.42)'; g.lineWidth = 0.7;
-  for (const p of paths) g.stroke(p);
+  /* 海岸线 / 国界交给矢量叠加层（放大不糊），贴图只负责地形与海色 */
 
   g.setTransform(1, 0, 0, 1, 0, 0);
   const ice = g.createLinearGradient(0, 0, 0, TH * 0.085);
@@ -508,7 +516,7 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a);
+  vec3 col = mix(base, tint.rgb, tint.a * 0.55);
   float edge = smoothstep(0.25, 0.75, idTex.b);
   col = mix(col, vec3(0.38, 0.36, 0.31), edge * 0.62);
   if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.96, 0.86), 0.26);
@@ -717,6 +725,278 @@ function initGL() {
   };
 }
 
+/* ───────────── 6.5 矢量叠加层：边线、经纬网、地名 ─────────────
+   位图贴图放大必然糊，所以「线」和「字」不走贴图：
+   把路径投影到屏幕后按设备分辨率直接用 2D canvas 画，任何缩放都是锐的。 */
+const vecCanvas = el('vec');
+const vctx = vecCanvas.getContext('2d');
+
+/* 路径 → 三维单位向量序列（只在分区重建时算一次） */
+function ringsToVectors(rings) {
+  const out = [];
+  for (const ring of rings) {
+    const n = ring.length;
+    if (n < 3) continue;
+    const xyz = new Float32Array(n * 3);
+    let sx = 0, sy = 0, sz = 0;
+    for (let i = 0; i < n; i++) {
+      const lon = (ring[i][0] / MAPW) * TAU - Math.PI;
+      const lat = Math.PI / 2 - (ring[i][1] / MAPH) * Math.PI;
+      const cl = Math.cos(lat);
+      const x = cl * Math.sin(lon), y = Math.sin(lat), z = cl * Math.cos(lon);
+      xyz[i * 3] = x; xyz[i * 3 + 1] = y; xyz[i * 3 + 2] = z;
+      sx += x; sy += y; sz += z;
+    }
+    out.push({ xyz, anchor: [sx / n, sy / n, sz / n] });
+  }
+  return out;
+}
+
+/* 国家路径的环（初始化时解析一次） */
+function svgRings(pathStr) {
+  const rings = [];
+  let cur = null;
+  const re = /([MLZ])|(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g;
+  let m;
+  while ((m = re.exec(pathStr))) {
+    if (m[1] === 'M') { cur = []; rings.push(cur); }
+    else if (m[1] === undefined && cur) cur.push([+m[2], +m[3]]);
+  }
+  return rings.filter((r) => r.length >= 3);
+}
+
+let vecShapes = [];
+function prepareVector() {
+  const layer = LAYERS[state.layerId];
+  const shapes = partition.shapes;
+  const out = [];
+  for (const s of shapes) {
+    let rings = null;
+    if (layer.id === 'polity') {
+      const sh = polityShape(pk, s.pathId);
+      rings = sh.rings || (sh.rings = sh.pts ? [sh.pts] : []);
+      if (!rings.length && sh.path) rings = [];      // 兜底
+    } else {
+      const src = mapShapes[s.id - 1];
+      rings = src.rings || (src.rings = svgRings(src.path));
+    }
+    if (!rings.length) continue;
+    const vecs = ringsToVectors(rings);
+    if (!vecs.length) continue;
+    const ent = layer.entityOfShape(s);
+    const name = layer.id === 'polity'
+      ? (ent && ent.ent ? (polityZhName(ent.ent.name) || ent.ent.name) : '')
+      : (ent && ent.region ? (ent.region.zh || ent.region.en || '') : '');
+    let area = 0;
+    for (const v of vecs) area = Math.max(area, ringRoughArea(v.xyz));
+    out.push({ id: s.id, vecs, name, area });
+  }
+  /* 大的先画、标签也按大小优先 */
+  out.sort((a, b) => b.area - a.area);
+  vecShapes = out;
+}
+
+function ringRoughArea(xyz) {
+  /* 球面上用向量和的模长做面积代理：0..1，越大说明铺得越开 */
+  let sx = 0, sy = 0, sz = 0;
+  const n = xyz.length / 3;
+  for (let i = 0; i < n; i++) { sx += xyz[i * 3]; sy += xyz[i * 3 + 1]; sz += xyz[i * 3 + 2]; }
+  const spread = Math.sqrt(sx * sx + sy * sy + sz * sz) / n;
+  return 1 - spread;      // 铺得越开越大
+}
+
+/* 投影矩阵（与 GL 完全同一套） */
+function rotation() {
+  const cy = Math.cos(state.yaw), sy = Math.sin(state.yaw);
+  const ct = Math.cos(state.tilt), stt = Math.sin(state.tilt);
+  const Ry = [cy, 0, sy, 0, 1, 0, -sy, 0, cy];
+  const Rx = [1, 0, 0, 0, ct, -stt, 0, stt, ct];
+  return mul3(Rx, Ry);      // 列主序
+}
+
+function drawVector() {
+  if (!vecCanvas.width) return;
+  const dpr = view.dpr;
+  vctx.setTransform(1, 0, 0, 1, 0, 0);
+  vctx.clearRect(0, 0, vecCanvas.width, vecCanvas.height);
+  vctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const M = rotation();
+  const m0 = M[0], m1 = M[3], m2 = M[6];
+  const m3 = M[1], m4 = M[4], m5 = M[7];
+  const m6 = M[2], m7 = M[5], m8 = M[8];
+  const cx = view.cx + state.panX, cy = view.cy + state.panY, Rz = view.Rz;
+
+  /* 球面裁剪 */
+  vctx.save();
+  vctx.beginPath();
+  vctx.arc(cx, cy, Rz - 0.4, 0, TAU);
+  vctx.clip();
+
+  /* 经纬网：缩得越近越密 */
+  const stepDeg = state.zoom >= 3 ? 10 : state.zoom >= 1.8 ? 15 : 30;
+  vctx.lineWidth = 1;
+  vctx.strokeStyle = 'rgba(255,255,255,.075)';
+  vctx.beginPath();
+  const sample = 3;
+  for (let lonDeg = -180; lonDeg < 180; lonDeg += stepDeg) {
+    let started = false;
+    for (let latDeg = -90; latDeg <= 90; latDeg += sample) {
+      const lon = (lonDeg / 180) * Math.PI, lat = (latDeg / 180) * Math.PI;
+      const cl = Math.cos(lat);
+      const x = cl * Math.sin(lon), y = Math.sin(lat), z = cl * Math.cos(lon);
+      const px = x * m0 + y * m1 + z * m2;
+      const py = x * m3 + y * m4 + z * m5;
+      const pz = x * m6 + y * m7 + z * m8;
+      if (pz <= 0) { started = false; continue; }
+      const sx = cx + px * Rz, sy = cy - py * Rz;
+      if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+    }
+  }
+  for (let latDeg = -60; latDeg <= 60; latDeg += stepDeg) {
+    let started = false;
+    for (let lonDeg = -180; lonDeg <= 180; lonDeg += sample) {
+      const lon = (lonDeg / 180) * Math.PI, lat = (latDeg / 180) * Math.PI;
+      const cl = Math.cos(lat);
+      const x = cl * Math.sin(lon), y = Math.sin(lat), z = cl * Math.cos(lon);
+      const px = x * m0 + y * m1 + z * m2;
+      const py = x * m3 + y * m4 + z * m5;
+      const pz = x * m6 + y * m7 + z * m8;
+      if (pz <= 0) { started = false; continue; }
+      const sx = cx + px * Rz, sy = cy - py * Rz;
+      if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+    }
+  }
+  vctx.stroke();
+
+  /* 面：整环都在正面才填（贴着轮廓的边缘交给贴图兜底），这样放大后边界是锐的 */
+  const lut = partition.lut;
+  for (const sh of vecShapes) {
+    const o = sh.id * 4;
+    if (!lut[o + 3]) continue;
+    vctx.beginPath();
+    let ok = true, any = false;
+    for (const ring of sh.vecs) {
+      const xyz = ring.xyz, n = xyz.length / 3;
+      let started = false, back = false;
+      for (let i = 0; i < n; i++) {
+        const x = xyz[i * 3], y = xyz[i * 3 + 1], z = xyz[i * 3 + 2];
+        const px = x * m0 + y * m1 + z * m2;
+        const py = x * m3 + y * m4 + z * m5;
+        const pz = x * m6 + y * m7 + z * m8;
+        if (pz <= 0.08) { back = true; break; }
+        const sx = cx + px * Rz, sy = cy - py * Rz;
+        if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+        any = true;
+      }
+      if (back) { ok = false; break; }
+      if (started) vctx.closePath();
+    }
+    if (!ok || !any) continue;
+    vctx.fillStyle = 'rgba(' + lut[o] + ',' + lut[o + 1] + ',' + lut[o + 2] + ',' + (lut[o + 3] / 255 * 0.92).toFixed(3) + ')';
+    vctx.fill('evenodd');
+  }
+
+  /* 边线 */
+  const isPolity = state.layerId === 'polity';
+  vctx.lineJoin = 'round';
+  vctx.lineCap = 'round';
+  vctx.strokeStyle = isPolity ? 'rgba(64,58,48,.55)' : 'rgba(38,50,58,.55)';
+  vctx.lineWidth = Math.min(1.1, 0.55 + state.zoom * 0.12);
+  vctx.beginPath();
+  const drawn = [];
+  for (const sh of vecShapes) {
+    let anyFront = false;
+    for (const ring of sh.vecs) {
+      const xyz = ring.xyz, n = xyz.length / 3;
+      let started = false, minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+      for (let i = 0; i < n; i++) {
+        const x = xyz[i * 3], y = xyz[i * 3 + 1], z = xyz[i * 3 + 2];
+        const px = x * m0 + y * m1 + z * m2;
+        const py = x * m3 + y * m4 + z * m5;
+        const pz = x * m6 + y * m7 + z * m8;
+        if (pz <= 0.02) { started = false; continue; }
+        const sx = cx + px * Rz, sy = cy - py * Rz;
+        if (sx < minX) minX = sx; if (sx > maxX) maxX = sx;
+        if (sy < minY) minY = sy; if (sy > maxY) maxY = sy;
+        if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+        anyFront = true;
+      }
+      if (anyFront && maxX > minX) drawn.push({ id: sh.id, x: (minX + maxX) / 2, y: (minY + maxY) / 2, w: maxX - minX, h: maxY - minY, name: sh.name, area: 0 });
+    }
+    /* 一个实体只留一个标签：取屏幕上最大的那块 */
+    let best = null;
+    for (let i = drawn.length - 1; i >= 0; i--) {
+      if (drawn[i].id !== sh.id) continue;
+      const a = drawn[i].w * drawn[i].h;
+      if (!best || a > best.w * best.h) best = drawn[i];
+    }
+    if (best) best.area = best.w * best.h;
+  }
+  vctx.stroke();
+
+  /* 选中描边 */
+  if (state.focus) {
+    vctx.beginPath();
+    vctx.strokeStyle = 'rgba(255,226,164,.95)';
+    vctx.lineWidth = Math.min(2.4, 1.2 + state.zoom * 0.25);
+    let any = false;
+    for (const sh of vecShapes) {
+      if (sh.id !== state.focus.id) continue;
+      for (const ring of sh.vecs) {
+        const xyz = ring.xyz, n = xyz.length / 3;
+        let started = false;
+        for (let i = 0; i < n; i++) {
+          const x = xyz[i * 3], y = xyz[i * 3 + 1], z = xyz[i * 3 + 2];
+          const px = x * m0 + y * m1 + z * m2;
+          const py = x * m3 + y * m4 + z * m5;
+          const pz = x * m6 + y * m7 + z * m8;
+          if (pz <= 0.02) { started = false; continue; }
+          const sx = cx + px * Rz, sy = cy - py * Rz;
+          if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+          any = true;
+        }
+      }
+    }
+    if (any) vctx.stroke();
+  }
+
+  /* 地名：按投影面积决定显不显示，贪心避让 */
+  const placed = [];
+  window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
+  const maxLabels = innerWidth < 500 ? 16 : 28;
+  const uiTop = 150, uiBottom = view.h - 200;
+  const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
+  vctx.textAlign = 'center';
+  vctx.textBaseline = 'middle';
+  for (const d of cand) {
+    if (placed.length >= maxLabels) break;
+    if (d.y < uiTop || d.y > uiBottom) continue;
+    const area = d.area;
+    const need = state.zoom > 2 ? 220 : state.zoom > 1.3 ? 800 : 3000;
+    if (area < need) continue;
+    const w = Math.min(d.w * 0.86, d.name.length * 13 + 10);
+    const h = 16;
+    let overlap = false;
+    for (const p of placed) {
+      if (Math.abs(d.x - p.x) < (w + p.w) / 2 && Math.abs(d.y - p.y) < (h + p.h) / 2) { overlap = true; break; }
+    }
+    if (overlap) continue;
+    placed.push({ x: d.x, y: d.y, w, h });
+    window.__labelStats.placed = placed.length;
+    vctx.font = isPolity
+      ? 'italic 600 11.5px Georgia,"Songti SC",serif'
+      : '600 11.5px -apple-system,"PingFang SC",sans-serif';
+    vctx.shadowColor = 'rgba(0,0,0,.75)';
+    vctx.shadowBlur = 4;
+    vctx.fillStyle = isPolity ? 'rgba(255,238,206,.94)' : 'rgba(248,244,236,.94)';
+    vctx.fillText(d.name, d.x, d.y);
+    vctx.shadowBlur = 0;
+  }
+
+  vctx.restore();
+}
+
 /* ───────────── 7. Canvas2D 兜底 ───────────── */
 let fallback = null;
 function initFallback() {
@@ -800,6 +1080,8 @@ function layout() {
   view.Rz = view.R * state.zoom;
   const r = glr || fallback;
   if (r) r.resize(w, h, dpr);
+  vecCanvas.width = Math.max(1, Math.round(w * dpr));
+  vecCanvas.height = Math.max(1, Math.round(h * dpr));
   draw();
 }
 
@@ -1030,6 +1312,7 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
+  drawVector();
 }
 
 /* ───────────── 11. 交互 ───────────── */

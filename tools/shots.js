@@ -43,7 +43,13 @@ async function main() {
   await send('Runtime.enable'); await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send('Page.reload');
-  await sleep(3000);
+  await sleep(2500);
+  /* 等启动遮罩彻底消失，别拍到「正在铺开地图」 */
+  for (let i = 0; i < 80; i++) {
+    const gone = await send('Runtime.evaluate', { expression: '!document.getElementById("boot")', returnByValue: true });
+    if (gone.result.value) break;
+    await sleep(200);
+  }
 
   const js = async (e) => {
     const r = await send('Runtime.evaluate', { expression: e, returnByValue: true, awaitPromise: true });
