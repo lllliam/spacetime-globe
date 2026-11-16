@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="地球仪">
 <meta name="theme-color" content="#0b1017">
-<meta name="description" content="拖动时间轴，看同一颗地球上不同年代有记录的地方。">
+<meta name="description" content="一颗地球，一条时间轴：看同一片土地在不同年代属于谁、发生过什么。">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.png">
@@ -28,12 +28,19 @@
   <div id="sub"></div>
 </div>
 
-<div id="hint"><b>拖动</b>转地球 · <b>双指</b>缩放 · <b>点国家</b>看历史 · <b>点年份</b>看世界</div>
+<div id="hint"><b>拖动</b>转地球 · <b>双指</b>缩放 · <b>点陆块</b>看它是谁 · <b>点年份</b>看世界</div>
 
 <div id="dock">
   <div id="sheet" aria-live="polite">
     <div id="handle"><i></i></div>
     <div id="sheet-inner"></div>
+  </div>
+  <div id="toolbar">
+    <div id="layers" role="group" aria-label="划分方式">
+      <button type="button" data-layer="country" class="on">国家</button>
+      <button type="button" data-layer="polity">政权</button>
+    </div>
+    <div id="loadpill" hidden><i></i><span>政权边界 0%</span></div>
   </div>
   <canvas id="track" aria-label="时间轴"></canvas>
 </div>
@@ -56,6 +63,7 @@
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
 <script id="relief" type="application/octet-stream">/*RELIEF*/</script>
+<script id="politypack" type="application/octet-stream">/*POLITY*/</script>
 <script>
 /*APP*/
 </script>

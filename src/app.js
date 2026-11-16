@@ -1,24 +1,21 @@
 /* ═══════════════════════════════════════════════════════════════
-   地球仪 · 时空坐标 —— 单文件应用（零依赖）
-   数据：内嵌 atlas（1512 条年表 / 105 个地区 / 177 块现代国界）
-   渲染：WebGL 球体（正投影），无 WebGL 时退回 Canvas2D
+   地球仪 · 时空坐标 · v2
+   架构：球是空间索引，时间轴是时间索引，两者交叉出「此刻此地」的切片；
+        切片里挂着实体（国家 / 政权），实体之间用关系连成图。
+        所有界面都是这张图的投影，共享同一个会话状态 {year, layer, focus}。
    ═══════════════════════════════════════════════════════════════ */
 (() => {
 'use strict';
 
-/* ───────────── 0. 数据 ───────────── */
-const ATLAS = JSON.parse(document.getElementById('atlas').textContent);
-const RELIEF_SRC = 'data:image/jpeg;base64,' +
-  document.getElementById('relief').textContent.replace(/[^A-Za-z0-9+/=]/g, '');
-
+/* ───────────── 0. 基础 ───────────── */
 const TAU = Math.PI * 2;
 const clamp = (n, a, b) => (n < a ? a : n > b ? b : n);
 const lerp = (a, b, t) => a + (b - a) * t;
 
-/* ───────────── 1. 时间刻度 ───────────── */
 const THIS_YEAR = new Date().getFullYear();
 const YMAX = Math.max(2026, THIS_YEAR);
 const YMIN = -3500;
+const POLITY_END = 2024;                 // Cliopatria 覆盖到此
 
 const CH = [
   { n: '史前',   a: -3500, b: -800, w: .190 },
@@ -29,15 +26,13 @@ const CH = [
   { n: '工业',   a: 1800,  b: 1900, w: .077 },
   { n: '现代',   a: 1900,  b: YMAX, w: .077 },
 ];
-const cum = (() => { const out = []; let s = 0; for (const c of CH) { out.push(s); s += c.w; } return out; })();
+const cum = (() => { const o = []; let s = 0; for (const c of CH) { o.push(s); s += c.w; } return o; })();
 
 function posOfYear(y) {
   y = clamp(y, YMIN, YMAX);
   for (let i = 0; i < CH.length; i++) {
     const c = CH[i];
-    if (y <= c.b || i === CH.length - 1) {
-      return cum[i] + clamp((y - c.a) / (c.b - c.a), 0, 1) * c.w;
-    }
+    if (y <= c.b || i === CH.length - 1) return cum[i] + clamp((y - c.a) / (c.b - c.a), 0, 1) * c.w;
   }
   return 1;
 }
@@ -45,19 +40,17 @@ function yearOfPos(p) {
   p = clamp(p, 0, 1);
   for (let i = 0; i < CH.length; i++) {
     const c = CH[i];
-    if (p <= cum[i] + c.w || i === CH.length - 1) {
-      return Math.round(c.a + clamp((p - cum[i]) / c.w, 0, 1) * (c.b - c.a));
-    }
+    if (p <= cum[i] + c.w || i === CH.length - 1) return Math.round(c.a + clamp((p - cum[i]) / c.w, 0, 1) * (c.b - c.a));
   }
   return YMAX;
 }
-function chapterOf(y) { for (const c of CH) if (y <= c.b) return c; return CH[CH.length - 1]; }
+const chapterOf = (y) => { for (const c of CH) if (y <= c.b) return c; return CH[CH.length - 1]; };
 
-/* 年份换算：天文纪年（前 1 年 = 0），便于连续比较 */
 const ord = (y) => (y < 0 ? y + 1 : y);
 const MONTHS = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
 const tOf = (y, m, d) => ord(y) + (m ? (MONTHS[m - 1] + (d || 1) - 1) / 365.25 : 0);
 const fmtYear = (y) => (y < 0 ? '前' + (-y) : String(y));
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 const TODAY_SPAN = 30;
 function windowOf(y) {
@@ -65,159 +58,383 @@ function windowOf(y) {
   return [y, y, chapterOf(y).n];
 }
 
-/* ───────────── 2. 年表索引 ───────────── */
-const regionById = new Map(ATLAS.regions.map((r) => [r.id, r]));
-const regionByIso = new Map(ATLAS.regions.filter((r) => r.iso).map((r) => [r.iso, r]));
-const topGroup = (r) => {
-  let cur = r, guard = 0;
-  while (cur && cur.parent && guard++ < 8) cur = regionById.get(cur.parent) || cur;
-  return cur || r;
-};
+/* ───────────── 1. 素材装载 ───────────── */
+const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
+const PW = 1024, PH = 512;             // 拾取栅格
+const MAPW = 1000, MAPH = 500;
+const Q = 4;                           // 政权几何的量化倍数
 
-const entries = ATLAS.entries.map((e) => {
-  const t0 = tOf(e.start, e.sm, e.sd);
-  let t1 = e.point ? t0 : tOf(e.end, e.em, e.ed);
-  if (!(t1 >= t0)) t1 = t0;
-  return { ...e, t0, t1, regionRef: regionById.get(e.region) || null };
-});
+const el = (id) => document.getElementById(id);
+const canvas = el('globe');
+const track = el('track'), tctx = track.getContext('2d');
+const elYear = el('year'), elSub = el('sub');
+const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
+const hintEl = el('hint'), overlay = el('overlay');
+const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overlayBody = el('overlay-body');
+const bootEl = el('boot'), layersEl = el('layers'), loadPill = el('loadpill');
 
-const entriesByRegion = new Map();
-for (const e of entries) {
-  let arr = entriesByRegion.get(e.region);
-  if (!arr) entriesByRegion.set(e.region, (arr = []));
-  arr.push(e);
-}
-for (const arr of entriesByRegion.values()) arr.sort((a, b) => a.t0 - b.t0);
+const inlineText = (id) => { const n = el(id); return n ? n.textContent.trim() : ''; };
 
-const KIND = {
-  era: ['朝代 / 政权', '#6f93b8'],
-  war: ['战争', '#c0766d'],
-  movement: ['思潮', '#9a86b8'],
-  colonial: ['殖民', '#c08355'],
-  religion: ['宗教', '#b79a5f'],
-  economy: ['经济', '#6aa88c'],
-  politics: ['政治', '#bf7f93'],
-  technology: ['科技', '#6da3a9'],
-  literature: ['文学', '#a888b8'],
-  other: ['其他', '#8a9a7a'],
-};
-const kindOf = (e) => KIND[e.kind] || KIND.other;
-const kindColor = (e) => kindOf(e)[1];
-
-function dateOf(e) {
-  if (e.point) return fmtYear(e.start) + ' 年';
-  if (e.start === e.end) return fmtYear(e.start) + ' 年';
-  return fmtYear(e.start) + '–' + fmtYear(e.end);
-}
-const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-/* 某个年份窗口内的条目 */
-function entriesInWindow(regionId, y) {
-  const [a, b] = windowOf(y), oa = ord(a), ob = ord(b);
-  const arr = entriesByRegion.get(regionId) || [];
-  const out = [];
-  for (const e of arr) if (e.t1 >= oa && e.t0 <= ob) out.push(e);
+function b64ToBytes(b64) {
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
   return out;
 }
-function nearestEntries(regionId, y, n) {
-  const arr = entriesByRegion.get(regionId) || [];
-  const t = ord(y);
-  return arr
-    .map((e) => ({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 }))
-    .sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0)
-    .slice(0, n)
-    .map((p) => p.e);
+async function gunzip(buf) {
+  if (typeof DecompressionStream === 'undefined') return null;
+  const stream = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
+  return new Response(stream).arrayBuffer();
 }
-function summaryAt(y) {
-  const [a, b] = windowOf(y), oa = ord(a), ob = ord(b);
-  const byRegion = new Map();
-  let ev = 0, era = 0;
-  const countries = new Set();
+async function fetchWithProgress(url, onProgress) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
+  const total = Number(res.headers.get('content-length') || 0);
+  if (!res.body || !total) return res.arrayBuffer();
+  const reader = res.body.getReader();
+  const chunks = [];
+  let got = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value); got += value.length;
+    onProgress && onProgress(got / total);
+  }
+  const out = new Uint8Array(got);
+  let off = 0;
+  for (const c of chunks) { out.set(c, off); off += c.length; }
+  return out.buffer;
+}
+
+/* 世界数据：地区 + 年表 + 现代国界 */
+async function loadWorld() {
+  const inline = inlineText('atlas');
+  if (inline.length > 100) return JSON.parse(inline);
+  const res = await fetch('data/world.json');
+  if (!res.ok) throw new Error('data/world.json 读取失败');
+  return res.json();
+}
+
+/* 政权包：自解释二进制 SGP1 */
+function parsePolityBin(buf) {
+  const dv = new DataView(buf);
+  const magic = String.fromCharCode(dv.getUint8(0), dv.getUint8(1), dv.getUint8(2), dv.getUint8(3));
+  if (magic !== 'SGP1') throw new Error('政权包格式不对: ' + magic);
+  const nEnt = dv.getUint32(4, true), nSlice = dv.getUint32(8, true), nPath = dv.getUint32(12, true);
+  const entOff = dv.getUint32(16, true), sliceOff = dv.getUint32(20, true);
+  const pathIdxOff = dv.getUint32(24, true);
+  const dec = new TextDecoder();
+  const entities = new Array(nEnt);
+  let o = entOff;
+  for (let i = 0; i < nEnt; i++) {
+    const len = dv.getUint16(o, true); o += 2;
+    const name = dec.decode(new Uint8Array(buf, o, len)); o += len;
+    const from = dv.getInt16(o, true); o += 2;
+    const to = dv.getInt16(o, true); o += 2;
+    entities[i] = { id: i, name, from, to };
+  }
+  const slices = new Int32Array(nSlice * 4);
+  o = sliceOff;
+  for (let i = 0; i < nSlice; i++) {
+    slices[i * 4] = dv.getUint16(o, true);
+    slices[i * 4 + 1] = dv.getInt16(o + 2, true);
+    slices[i * 4 + 2] = dv.getInt16(o + 4, true);
+    slices[i * 4 + 3] = dv.getUint16(o + 6, true);
+    o += 8;
+  }
+  const pathIdx = new Uint32Array(nPath + 1);
+  for (let i = 0; i <= nPath; i++) pathIdx[i] = dv.getUint32(pathIdxOff + i * 4, true);
+  const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+  return { bytes, dv, entities, slices, nSlice, pathIdx, nPath, cache: new Map() };
+}
+
+/* 解码一条路径 → Path2D + bbox（带 LRU 缓存，一帧只要几十条） */
+function polityShape(pk, pathId) {
+  let hit = pk.cache.get(pathId);
+  if (hit) { pk.cache.delete(pathId); pk.cache.set(pathId, hit); return hit; }
+  const bytes = pk.bytes, dv = pk.dv;
+  let o = pk.pathIdx[pathId];
+  const subCount = dv.getUint16(o, true); o += 2;
+  const p = new Path2D();
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+  for (let s = 0; s < subCount; s++) {
+    const n = dv.getUint16(o, true); o += 2;
+    let x = dv.getUint16(o, true); o += 2;
+    let y = dv.getUint16(o, true); o += 2;
+    p.moveTo(x / Q, y / Q);
+    if (x < x0) x0 = x; if (x > x1) x1 = x;
+    if (y < y0) y0 = y; if (y > y1) y1 = y;
+    for (let k = 1; k < n; k++) {
+      let v = 0, sh = 0, b;
+      do { b = bytes[o++]; v |= (b & 127) << sh; sh += 7; } while (b & 128);
+      x += v & 1 ? ~(v >> 1) : (v >> 1);
+      v = 0; sh = 0;
+      do { b = bytes[o++]; v |= (b & 127) << sh; sh += 7; } while (b & 128);
+      y += v & 1 ? ~(v >> 1) : (v >> 1);
+      p.lineTo(x / Q, y / Q);
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+    p.closePath();
+  }
+  const shape = { path: p, area: ((x1 - x0) / Q) * ((y1 - y0) / Q) };
+  if (pk.cache.size > 900) pk.cache.delete(pk.cache.keys().next().value);
+  pk.cache.set(pathId, shape);
+  return shape;
+}
+
+/* ───────────── 2. 世界索引 ───────────── */
+let world = null, regions = [], regionById = new Map(), regionByIso = new Map(), entries = [], mapShapes = [];
+let entryByRegion = new Map();
+let pk = null;                          // 政权包
+let polityState = { loading: false, loaded: false, error: null };
+
+function initWorld(w) {
+  world = w;
+  regions = w.regions;
+  regionById = new Map(regions.map((r) => [r.id, r]));
+  regionByIso = new Map(regions.filter((r) => r.iso).map((r) => [r.iso, r]));
+  entries = w.entries.map((e) => {
+    const t0 = tOf(e.start, e.sm, e.sd);
+    let t1 = e.point ? t0 : tOf(e.end, e.em, e.ed);
+    if (!(t1 >= t0)) t1 = t0;
+    return { ...e, t0, t1 };
+  });
+  entryByRegion = new Map();
+  for (const e of entries) {
+    let a = entryByRegion.get(e.region);
+    if (!a) entryByRegion.set(e.region, (a = []));
+    a.push(e);
+  }
+  mapShapes = w.map.map(([iso, path], i) => ({ id: i + 1, iso, path, area: 0 }));
+  for (const s of mapShapes) {
+    let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    for (const m of s.path.matchAll(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g)) {
+      const x = +m[1], y = +m[2];
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+    s.area = (x1 - x0) * (y1 - y0);
+    s.p2d = new Path2D(s.path);
+  }
+}
+
+/* ───────────── 3. 图层 ───────────── */
+/* 图层 = f(年) → 一组 {id, 形状, 实体}。渲染、拾取、着色、关系全部只认这一层。 */
+const LAYERS = {
+  country: {
+    id: 'country', name: '国家', range: [YMIN, YMAX],
+    currentYear: (y) => y,
+    shapes(year) {
+      return mapShapes.map((s) => ({ id: s.id, path: s.p2d, area: s.area, iso: s.iso }));
+    },
+    entityOfShape(s) {
+      const r = regionByIso.get(s.iso);
+      return r ? { kind: 'country', region: r } : null;
+    },
+  },
+  polity: {
+    id: 'polity', name: '政权', range: [-3400, POLITY_END],
+    currentYear: (y) => clamp(y, -3400, POLITY_END),
+    shapes(year) {
+      if (!pk) return [];
+      const y = clamp(year, -3400, POLITY_END);
+      const out = [];
+      for (let i = 0; i < pk.nSlice; i++) {
+        if (pk.slices[i * 4 + 1] > y || pk.slices[i * 4 + 2] < y) continue;
+        out.push({ id: out.length + 1, ent: pk.entities[pk.slices[i * 4]], pathId: pk.slices[i * 4 + 3] });
+      }
+      /* 小的画在上层：点在帝国里点到小王国的概率更高，也符合“实际统治层级” */
+      out.sort((a, b) => polityShape(pk, b.pathId).area - polityShape(pk, a.pathId).area);
+      out.forEach((s, i) => { s.id = i + 1; });
+      return out;
+    },
+    entityOfShape(s) { return { kind: 'polity', ent: s.ent }; },
+  },
+};
+
+const state = {
+  year: YMAX,
+  layerId: 'country',
+  yaw: -1.42,
+  tilt: 0.30,
+  zoom: 1,
+  panX: 0,
+  panY: 0,
+  focus: null,          // {layerId, id}
+  stale: false,         // 政权层沿用上一年（超出数据范围）
+};
+
+const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1 };
+
+/* ───────────── 4. 分区（栅格化 + 拾取 + 着色表） ───────────── */
+const idCanvas = document.createElement('canvas');
+idCanvas.width = TW; idCanvas.height = TH;
+const idCtx = idCanvas.getContext('2d', { willReadFrequently: true });
+const pickCanvas = document.createElement('canvas');
+pickCanvas.width = PW; pickCanvas.height = PH;
+const pickCtx = pickCanvas.getContext('2d', { willReadFrequently: true });
+
+let partition = { layerId: 'country', year: YMAX, shapes: [], pick: new Uint8Array(PW * PH), counts: new Map(), lut: new Uint8Array(256 * 4) };
+let summary = { ev: 0, era: 0, countries: 0, entities: 0 };
+
+const HEAT = [[152, 122, 68], [188, 148, 82], [222, 178, 94], [247, 208, 122], [255, 233, 176]];
+const heatIndex = (n) => (n <= 1 ? 0 : n === 2 ? 1 : n <= 4 ? 2 : n <= 7 ? 3 : 4);
+
+function rasterize(layer, year) {
+  const shapes = layer.shapes(year);
+  idCtx.setTransform(1, 0, 0, 1, 0, 0);
+  idCtx.globalCompositeOperation = 'source-over';
+  idCtx.fillStyle = '#000';
+  idCtx.fillRect(0, 0, TW, TH);
+  idCtx.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
+  idCtx.lineJoin = 'round';
+  for (const s of shapes) {
+    const p = layer.id === 'polity' ? polityShape(pk, s.pathId).path : s.path;
+    idCtx.fillStyle = 'rgb(' + s.id + ',255,0)';
+    idCtx.fill(p, 'evenodd');
+  }
+  /* 边界只写进 B 通道（lighter 叠加不破坏 R/G 的 id 编码） */
+  idCtx.globalCompositeOperation = 'lighter';
+  idCtx.strokeStyle = 'rgb(0,0,255)';
+  idCtx.lineWidth = 0.55;
+  for (const s of shapes) {
+    const p = layer.id === 'polity' ? polityShape(pk, s.pathId).path : s.path;
+    idCtx.stroke(p);
+  }
+  idCtx.globalCompositeOperation = 'source-over';
+
+  /* 拾取栅格 */
+  pickCtx.setTransform(1, 0, 0, 1, 0, 0);
+  pickCtx.imageSmoothingEnabled = false;
+  pickCtx.clearRect(0, 0, PW, PH);
+  pickCtx.drawImage(idCanvas, 0, 0, PW, PH);
+  const px = pickCtx.getImageData(0, 0, PW, PH).data;
+  const pick = new Uint8Array(PW * PH);
+  for (let i = 0, p = 0; i < pick.length; i++, p += 4) {
+    const cover = px[p + 1];
+    if (cover > 100) pick[i] = Math.round((px[p] * 255) / cover);
+  }
+  despeckle(pick);
+  return { shapes, pick };
+}
+
+/* 边界上两个 id 混色会算出第三个 id（既点错也连出假邻居），这里把 1px 的杂点擦掉 */
+function despeckle(pick) {
+  const out = pick;
+  const cand = [0, 0, 0, 0];
+  for (let y = 1; y < PH - 1; y++) {
+    const row = y * PW;
+    for (let x = 1; x < PW - 1; x++) {
+      const i = row + x, v = pick[i];
+      cand[0] = pick[i - 1]; cand[1] = pick[i + 1];
+      cand[2] = pick[i - PW]; cand[3] = pick[i + PW];
+      if (cand[0] === v || cand[1] === v || cand[2] === v || cand[3] === v) continue;
+      let best = 0, bestN = 0;
+      for (let k = 0; k < 4; k++) {
+        const c = cand[k];
+        if (!c) continue;
+        let cnt = 0;
+        for (let j = 0; j < 4; j++) if (cand[j] === c) cnt++;
+        if (cnt > bestN) { bestN = cnt; best = c; }
+      }
+      if (bestN >= 3) out[i] = best;
+    }
+  }
+}
+
+/* 条目代表点落在哪个 id 上 → 每个 id 的“记录数” */
+function countEntries(pick) {
+  const counts = new Map();
+  for (const e of entries) {
+    if (e.px === undefined) continue;
+    if (e.t1 < ord(state.year) - 400 || e.t0 > ord(state.year)) continue; // 粗过滤，正式判定在档案页
+    const x = Math.min(PW - 1, Math.max(0, (e.px / MAPW * PW) | 0));
+    const y = Math.min(PH - 1, Math.max(0, (e.py / MAPH * PH) | 0));
+    const id = pick[y * PW + x];
+    if (id) counts.set(id, (counts.get(id) || 0) + 1);
+  }
+  return counts;
+}
+
+function buildLut(layer, shapes, counts) {
+  const lut = new Uint8Array(256 * 4);
+  for (const s of shapes) {
+    const n = counts.get(s.id) || 0;
+    const o = s.id * 4;
+    if (n) {
+      const h = HEAT[heatIndex(n)];
+      lut[o] = h[0]; lut[o + 1] = h[1]; lut[o + 2] = h[2];
+      lut[o + 3] = Math.round(255 * (0.80 + Math.min(0.14, n * 0.03)));
+    } else if (layer.id === 'polity') {
+      /* 政权层：无记录也给一点点明暗差，否则整张图糊成一片 */
+      const v = 138 + ((s.id * 47) % 26);
+      lut[o] = v; lut[o + 1] = v + 6; lut[o + 2] = v + 14;
+      lut[o + 3] = 96;
+    } else {
+      lut[o] = 118; lut[o + 1] = 127; lut[o + 2] = 140; lut[o + 3] = 116;
+    }
+  }
+  return lut;
+}
+
+function rebuildPartition() {
+  const layer = LAYERS[state.layerId];
+  const year = layer.currentYear(state.year);
+  state.stale = year !== state.year;
+  const t0 = performance.now();
+  const { shapes, pick } = rasterize(layer, year);
+  const counts = countEntries(pick);
+  const lut = buildLut(layer, shapes, counts);
+  partition = { layerId: layer.id, year, shapes, pick, counts, lut };
+  if (glr) { glr.uploadId(idCanvas); glr.uploadLut(lut); }
+  updateSummary();
+  if (state.focus && state.focus.layerId !== layer.id) state.focus = null;
+  return performance.now() - t0;
+}
+
+function updateSummary() {
+  let ev = 0;
+  const set = new Set();
+  const [a, b] = windowOf(state.year), oa = ord(a), ob = ord(b);
   for (const e of entries) {
     if (e.t1 < oa || e.t0 > ob) continue;
-    let rec = byRegion.get(e.region);
-    if (!rec) byRegion.set(e.region, (rec = { ev: 0, era: 0 }));
-    if (e.kind === 'era') { rec.era++; era++; } else { rec.ev++; ev++; }
-    const r = e.regionRef;
-    if (r && r.iso) countries.add(r.iso);
+    if (e.kind === 'era') ev += 0; else ev++;
+    set.add(e.region);
   }
-  return { byRegion, ev, era, countries };
+  summary = { ev, era: 0, countries: set.size, entities: partition.shapes.length };
 }
 
-/* ───────────── 3. 地图几何 ───────────── */
-const shapes = ATLAS.map;                       // [[iso, svgPath], ...]
-const ISO_OF_ID = [''];                          // id → iso（0 号空）
-const ID_OF_ISO = new Map();
-const shapePaths = shapes.map(([, p]) => new Path2D(p));
-for (let i = 0; i < shapes.length; i++) {
-  const iso = shapes[i][0];
-  const id = i + 1;
-  ISO_OF_ID[id] = /^[A-Z]{2}$/.test(iso) ? iso : '';
-  if (ISO_OF_ID[id] && !ID_OF_ISO.has(iso)) ID_OF_ISO.set(iso, id);
-}
-
-/* ───────────── 4. 材质与命中图 ───────────── */
-const TW = 2048, TH = 1024;                 // 等距圆柱贴图
-const MAPW = 1000, MAPH = 500;              // SVG 坐标空间
-let baseCanvas = null;      // 地表颜色
-let idCanvas = null;        // 国界 id 图（R=id, G=覆盖率）
-let idMap = null;           // 拾取用的一字节 id 表
-let reliefImg = null;
+/* ───────────── 5. 材质 ───────────── */
+let baseCanvas = null, reliefImg = null;
+let glr = null;
 
 function newCanvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
-
-function buildIdMap() {
-  const c = newCanvas(TW, TH);
-  const g = c.getContext('2d', { willReadFrequently: true });
-  g.fillStyle = '#000';
-  g.fillRect(0, 0, TW, TH);
-  g.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
-  g.lineJoin = 'round'; g.lineCap = 'round'; g.lineWidth = 0.6;
-  for (let i = 0; i < shapePaths.length; i++) {
-    const col = 'rgb(' + (i + 1) + ',255,0)';
-    g.fillStyle = col; g.strokeStyle = col;
-    g.fill(shapePaths[i], 'evenodd');
-    g.stroke(shapePaths[i]);
-  }
-  const px = g.getImageData(0, 0, TW, TH).data;
-  const map = new Uint8Array(TW * TH);
-  for (let i = 0, p = 0; i < map.length; i++, p += 4) {
-    const cover = px[p + 1];
-    if (cover > 128) map[i] = Math.round((px[p] * 255) / cover);
-  }
-  idCanvas = c; idMap = map;
-}
 
 function buildBaseCanvas() {
   const c = newCanvas(TW, TH);
   const g = c.getContext('2d');
-
-  /* 海：赤道略亮，两极压暗 */
   const sea = g.createLinearGradient(0, 0, 0, TH);
   sea.addColorStop(0.00, '#08161f');
   sea.addColorStop(0.22, '#123047');
   sea.addColorStop(0.50, '#1d4963');
   sea.addColorStop(0.78, '#123047');
   sea.addColorStop(1.00, '#08161f');
-  g.fillStyle = sea;
-  g.fillRect(0, 0, TW, TH);
+  g.fillStyle = sea; g.fillRect(0, 0, TW, TH);
 
+  const paths = mapShapes.map((s) => s.p2d);
   g.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
   g.lineJoin = 'round'; g.lineCap = 'round';
-
-  /* 大陆架：沿国界线加粗描边，被陆地填色盖掉内侧，只留外圈 */
   g.strokeStyle = 'rgba(104,158,178,.34)'; g.lineWidth = 5;
-  for (const p of shapePaths) g.stroke(p);
+  for (const p of paths) g.stroke(p);
   g.strokeStyle = 'rgba(150,200,214,.30)'; g.lineWidth = 1.8;
-  for (const p of shapePaths) g.stroke(p);
+  for (const p of paths) g.stroke(p);
 
-  /* 陆地底色 */
   const landAll = new Path2D();
-  for (const p of shapePaths) landAll.addPath(p);
+  for (const p of paths) landAll.addPath(p);
   g.fillStyle = '#c9bd9f';
-  for (const p of shapePaths) g.fill(p, 'evenodd');
+  for (const p of paths) g.fill(p, 'evenodd');
 
-  /* 地形浮雕（乘算，只作用在陆地上） */
   if (reliefImg) {
     g.save();
     g.clip(landAll, 'evenodd');
@@ -231,7 +448,6 @@ function buildBaseCanvas() {
     g.restore();
   }
 
-  /* 缩回设备坐标，画经纬网与海岸线 */
   g.setTransform(1, 0, 0, 1, 0, 0);
   g.strokeStyle = 'rgba(255,255,255,.055)'; g.lineWidth = 1;
   g.beginPath();
@@ -240,10 +456,9 @@ function buildBaseCanvas() {
   g.stroke();
 
   g.setTransform(TW / MAPW, 0, 0, TH / MAPH, 0, 0);
-  g.strokeStyle = 'rgba(246,240,226,.50)'; g.lineWidth = 0.75;
-  for (const p of shapePaths) g.stroke(p);
+  g.strokeStyle = 'rgba(246,240,226,.42)'; g.lineWidth = 0.7;
+  for (const p of paths) g.stroke(p);
 
-  /* 极冠（很轻的一层，只压住极点附近的强反差） */
   g.setTransform(1, 0, 0, 1, 0, 0);
   const ice = g.createLinearGradient(0, 0, 0, TH * 0.085);
   ice.addColorStop(0, 'rgba(228,238,246,.62)');
@@ -259,50 +474,7 @@ function buildBaseCanvas() {
   baseCanvas = c;
 }
 
-/* ───────────── 5. 状态 ───────────── */
-const state = {
-  year: YMAX,
-  yaw: -1.42,        // 初始看向东亚
-  tilt: 0.30,
-  zoom: 1,
-  panX: 0,
-  panY: 0,
-  selRegion: null,
-  selIso: null,
-};
-
-const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1 };
-
-/* ───────────── 6. 着色查找表（随年份变化） ───────────── */
-const HEAT = [[152, 122, 68], [188, 148, 82], [222, 178, 94], [247, 208, 122], [255, 233, 176]];
-const heatIndex = (n) => (n <= 1 ? 0 : n === 2 ? 1 : n <= 4 ? 2 : n <= 7 ? 3 : 4);
-const lut = new Uint8Array(256 * 4);
-let summary = summaryAt(state.year);
-
-function rebuildLut() {
-  lut.fill(0);
-  for (let id = 1; id < ISO_OF_ID.length; id++) {
-    const iso = ISO_OF_ID[id];
-    if (!iso) continue;
-    const region = regionByIso.get(iso);
-    const rec = region ? summary.byRegion.get(region.id) : null;
-    const n = rec ? rec.ev : 0;
-    const e = rec ? rec.era : 0;
-    const o = id * 4;
-    if (n) {
-      const hc = HEAT[heatIndex(n)];
-      lut[o] = hc[0]; lut[o + 1] = hc[1]; lut[o + 2] = hc[2];
-      lut[o + 3] = Math.round(255 * (0.80 + Math.min(0.14, n * 0.02)));
-    } else if (e) {
-      lut[o] = 214; lut[o + 1] = 176; lut[o + 2] = 126; lut[o + 3] = 74;
-    } else {
-      lut[o] = 118; lut[o + 1] = 127; lut[o + 2] = 140; lut[o + 3] = 116;
-    }
-  }
-  if (glr) glr.uploadLut(lut);
-}
-
-/* ───────────── 7. WebGL 渲染器 ───────────── */
+/* ───────────── 6. WebGL ───────────── */
 const VERT = `
 attribute vec3 aPos;
 attribute vec2 aUv;
@@ -332,13 +504,13 @@ uniform float uSel;
 void main() {
   vec3 n = normalize(vN);
   vec3 base = texture2D(uBase, vUv).rgb;
-  float idr = texture2D(uId, vUv).r;
-  float idx = floor(idr * 255.0 + 0.5);
+  vec4 idTex = texture2D(uId, vUv);
+  float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
   vec3 col = mix(base, tint.rgb, tint.a);
-  if (uSel > 0.5 && abs(idx - uSel) < 0.5) {
-    col = mix(col, vec3(1.0, 0.94, 0.80), 0.20);
-  }
+  float edge = smoothstep(0.25, 0.75, idTex.b);
+  col = mix(col, vec3(0.90, 0.87, 0.78), edge * 0.55);
+  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.96, 0.86), 0.26);
   float l = dot(n, uLight);
   float lam = clamp(l, 0.0, 1.0);
   vec3 lit = col * (0.42 + 0.78 * pow(lam, 0.7));
@@ -376,13 +548,21 @@ void main() {
   gl_FragColor = vec4(uAtm, a);
 }`;
 
-const glr = (() => {
-  const canvas = document.getElementById('globe');
+function mul3(a, b) {
+  const out = new Array(9);
+  for (let r = 0; r < 3; r++) {
+    for (let c = 0; c < 3; c++) {
+      out[c * 3 + r] = a[r * 3] * b[c] + a[r * 3 + 1] * b[3 + c] + a[r * 3 + 2] * b[6 + c];
+    }
+  }
+  return out;
+}
+
+function initGL() {
   const opts = { alpha: true, antialias: true, depth: true, premultipliedAlpha: true, preserveDrawingBuffer: true, powerPreference: 'high-performance' };
   let gl = null;
   try { gl = canvas.getContext('webgl2', opts) || canvas.getContext('webgl', opts); } catch (_) { gl = null; }
   if (!gl) return null;
-
   const shader = (type, src) => {
     const s = gl.createShader(type);
     gl.shaderSource(s, src); gl.compileShader(s);
@@ -397,12 +577,9 @@ const glr = (() => {
     if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.warn('link', gl.getProgramInfoLog(p)); return null; }
     return p;
   };
-
-  const prog = program(VERT, FRAG);
-  const progAtm = program(VERT_ATM, FRAG_ATM);
+  const prog = program(VERT, FRAG), progAtm = program(VERT_ATM, FRAG_ATM);
   if (!prog || !progAtm) return null;
 
-  /* 球体网格：经纬网格细到看不见折线 */
   const LON = 192, LAT = 96;
   const verts = new Float32Array((LON + 1) * (LAT + 1) * 5);
   let k = 0;
@@ -411,11 +588,8 @@ const glr = (() => {
     const cy = Math.sin(lat), cr = Math.cos(lat);
     for (let i = 0; i <= LON; i++) {
       const u = i / LON, lon = (u - 0.5) * TAU;
-      verts[k++] = cr * Math.sin(lon);
-      verts[k++] = cy;
-      verts[k++] = cr * Math.cos(lon);
-      verts[k++] = u;
-      verts[k++] = v;
+      verts[k++] = cr * Math.sin(lon); verts[k++] = cy; verts[k++] = cr * Math.cos(lon);
+      verts[k++] = u; verts[k++] = v;
     }
   }
   const idx = new Uint16Array(LON * LAT * 6);
@@ -427,38 +601,25 @@ const glr = (() => {
       idx[m++] = b; idx[m++] = c; idx[m++] = d;
     }
   }
-
   const vbo = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-  gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, vbo); gl.bufferData(gl.ARRAY_BUFFER, verts, gl.STATIC_DRAW);
   const ibo = gl.createBuffer();
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
-
-  const aPos = gl.getAttribLocation(prog, 'aPos');
-  const aUv = gl.getAttribLocation(prog, 'aUv');
-
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, idx, gl.STATIC_DRAW);
+  const aPos = gl.getAttribLocation(prog, 'aPos'), aUv = gl.getAttribLocation(prog, 'aUv');
   const quad = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, quad);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
   const aPosAtm = gl.getAttribLocation(progAtm, 'aPos');
 
   const U = {
-    rot: gl.getUniformLocation(prog, 'uRot'),
-    center: gl.getUniformLocation(prog, 'uCenter'),
-    viewport: gl.getUniformLocation(prog, 'uViewport'),
-    scale: gl.getUniformLocation(prog, 'uScale'),
-    base: gl.getUniformLocation(prog, 'uBase'),
-    id: gl.getUniformLocation(prog, 'uId'),
-    lut: gl.getUniformLocation(prog, 'uLut'),
-    light: gl.getUniformLocation(prog, 'uLight'),
+    rot: gl.getUniformLocation(prog, 'uRot'), center: gl.getUniformLocation(prog, 'uCenter'),
+    viewport: gl.getUniformLocation(prog, 'uViewport'), scale: gl.getUniformLocation(prog, 'uScale'),
+    base: gl.getUniformLocation(prog, 'uBase'), id: gl.getUniformLocation(prog, 'uId'),
+    lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     sel: gl.getUniformLocation(prog, 'uSel'),
-    atmCenter: gl.getUniformLocation(progAtm, 'uCenter'),
-    atmViewport: gl.getUniformLocation(progAtm, 'uViewport'),
-    atmScale: gl.getUniformLocation(progAtm, 'uScale'),
-    atmColor: gl.getUniformLocation(progAtm, 'uAtm'),
+    atmCenter: gl.getUniformLocation(progAtm, 'uCenter'), atmViewport: gl.getUniformLocation(progAtm, 'uViewport'),
+    atmScale: gl.getUniformLocation(progAtm, 'uScale'), atmColor: gl.getUniformLocation(progAtm, 'uAtm'),
   };
-
   const tex = (unit, nearest) => {
     const t = gl.createTexture();
     gl.activeTexture(gl.TEXTURE0 + unit);
@@ -475,39 +636,29 @@ const glr = (() => {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     return t;
   };
-  const tBase = tex(0, false);
-  const tId = tex(1, true);
-  const tLut = tex(2, true);
-
+  const tBase = tex(0, false), tId = tex(1, true), tLut = tex(2, true);
   const aniso = (() => {
-    const ext = gl.getExtension('EXT_texture_filter_anisotropic') ||
-      gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic') ||
-      gl.getExtension('MOZ_EXT_texture_filter_anisotropic');
+    const ext = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
     if (!ext) return;
     const max = gl.getParameter(ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
     gl.bindTexture(gl.TEXTURE_2D, tBase);
     gl.texParameterf(gl.TEXTURE_2D, ext.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, max));
   })();
 
-  const glr = {
+  return {
     kind: 'webgl',
-    canvas,
     uploadBase(cv) {
-      gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, tBase);
+      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tBase);
       gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv);
       gl.generateMipmap(gl.TEXTURE_2D);
-      if (aniso) { /* 已在上面设置 */ }
     },
     uploadId(cv) {
-      gl.activeTexture(gl.TEXTURE1);
-      gl.bindTexture(gl.TEXTURE_2D, tId);
+      gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tId);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv);
     },
     uploadLut(arr) {
-      gl.activeTexture(gl.TEXTURE2);
-      gl.bindTexture(gl.TEXTURE_2D, tLut);
+      gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, tLut);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 256, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, arr);
     },
     resize(w, h, dpr) {
@@ -519,14 +670,11 @@ const glr = (() => {
       gl.viewport(0, 0, W, H);
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
       const cy = Math.cos(st.yaw), sy = Math.sin(st.yaw);
       const ct = Math.cos(st.tilt), stt = Math.sin(st.tilt);
-      /* M = Rx(tilt) · Ry(yaw)，行主序给出、mul3 转成列主序 */
       const Ry = [cy, 0, sy, 0, 1, 0, -sy, 0, cy];
       const Rx = [1, 0, 0, 0, ct, -stt, 0, stt, ct];
       const rot = new Float32Array(mul3(Rx, Ry));
-
       const center = [v.cx * v.dpr, (v.h - v.cy) * v.dpr];
       const scale = v.Rz * v.dpr;
 
@@ -537,16 +685,13 @@ const glr = (() => {
       gl.enableVertexAttribArray(aUv);
       gl.vertexAttribPointer(aUv, 2, gl.FLOAT, false, 20, 12);
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-
       gl.uniformMatrix3fv(U.rot, false, rot);
       gl.uniform2f(U.center, center[0], center[1]);
       gl.uniform2f(U.viewport, W, H);
       gl.uniform1f(U.scale, scale);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
-      gl.uniform1f(U.sel, st.selIso ? (ID_OF_ISO.get(st.selIso) || 0) : 0);
-      gl.uniform1i(U.base, 0);
-      gl.uniform1i(U.id, 1);
-      gl.uniform1i(U.lut, 2);
+      gl.uniform1f(U.sel, st.focus ? st.focus.id : 0);
+      gl.uniform1i(U.base, 0); gl.uniform1i(U.id, 1); gl.uniform1i(U.lut, 2);
       gl.disable(gl.BLEND);
       gl.enable(gl.DEPTH_TEST);
       gl.depthFunc(gl.LEQUAL);
@@ -555,7 +700,6 @@ const glr = (() => {
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
       gl.disable(gl.DEPTH_TEST);
 
-      /* 大气光环 */
       gl.useProgram(progAtm);
       gl.bindBuffer(gl.ARRAY_BUFFER, quad);
       gl.enableVertexAttribArray(aPosAtm);
@@ -570,85 +714,58 @@ const glr = (() => {
       gl.disable(gl.BLEND);
     },
   };
-  return glr;
-})();
-
-/* 行主序 3x3 相乘，返回列主序（给 WebGL） */
-function mul3(a, b) {
-  const out = new Array(9);
-  for (let r = 0; r < 3; r++) {
-    for (let c = 0; c < 3; c++) {
-      out[c * 3 + r] = a[r * 3] * b[c] + a[r * 3 + 1] * b[3 + c] + a[r * 3 + 2] * b[6 + c];
-    }
-  }
-  return out;
 }
 
-/* ───────────── 8. Canvas2D 兜底渲染 ───────────── */
-const fallback = (() => {
-  if (glr) return null;
-  const cv = document.getElementById('globe');
+/* ───────────── 7. Canvas2D 兜底 ───────────── */
+let fallback = null;
+function initFallback() {
+  const cv = canvas;
   const ctx = cv.getContext('2d');
   if (!ctx) return null;
   const off = newCanvas(1, 1);
   const octx = off.getContext('2d');
-  let src = null, sphere = null, W = TW, H = TH;
-
+  let src = null, sphere = null;
   return {
     kind: 'canvas2d',
-    prepare() {
-      const g = baseCanvas.getContext('2d', { willReadFrequently: true });
-      src = g.getImageData(0, 0, TW, TH).data;
-    },
-    resize(w, h, dpr) {
-      cv.width = Math.max(1, Math.round(w * dpr));
-      cv.height = Math.max(1, Math.round(h * dpr));
-    },
+    prepare() { src = baseCanvas.getContext('2d', { willReadFrequently: true }).getImageData(0, 0, TW, TH).data; },
+    resize(w, h, dpr) { cv.width = Math.max(1, Math.round(w * dpr)); cv.height = Math.max(1, Math.round(h * dpr)); },
     draw(v, st) {
       if (!src) return;
       const D = clamp(Math.round(v.Rz * 2 * v.dpr), 160, 520);
       if (off.width !== D) { off.width = D; off.height = D; sphere = octx.createImageData(D, D); }
-      const buf = sphere.data;
-      const c0 = D / 2, rad = D / 2 - 0.5;
+      const buf = sphere.data, c0 = D / 2, rad = D / 2 - 0.5;
       const ct = Math.cos(st.tilt), stt = Math.sin(st.tilt);
       const cy = Math.cos(st.yaw), sy = Math.sin(st.yaw);
-      const selId = st.selIso ? (ID_OF_ISO.get(st.selIso) || 0) : 0;
+      const sel = st.focus ? st.focus.id : 0;
       const lx = -0.52, ly = 0.44, lz = 0.73;
-
       for (let py = 0; py < D; py++) {
         const ny = (py + 0.5 - c0) / rad, ys = -ny;
         for (let px = 0; px < D; px++) {
-          const nx = (px + 0.5 - c0) / rad;
-          const rr = nx * nx + ny * ny, o = (py * D + px) << 2;
+          const nx = (px + 0.5 - c0) / rad, rr = nx * nx + ny * ny, o = (py * D + px) << 2;
           if (rr >= 1) { buf[o + 3] = 0; continue; }
           const nz = Math.sqrt(1 - rr);
-          /* 世界坐标 → 模型坐标（M^T） */
           const y1 = ys * ct + nz * stt, z1 = -ys * stt + nz * ct;
           const mx = nx * cy - z1 * sy, mz = nx * sy + z1 * cy;
           const lat = Math.asin(clamp(y1, -1, 1));
           let u = Math.atan2(mx, mz) / TAU + 0.5;
           if (u < 0) u += 1; else if (u >= 1) u -= 1;
           const vv = 0.5 - lat / Math.PI;
-          const col = Math.min(W - 1, Math.max(0, u * W | 0));
-          const row = Math.min(H - 1, Math.max(0, ((vv * H) | 0)));
-          const si = (row * W + col) << 2;
+          const col = Math.min(TW - 1, Math.max(0, (u * TW) | 0));
+          const row = Math.min(TH - 1, Math.max(0, (vv * TH) | 0));
+          const si = (row * TW + col) << 2;
           let r = src[si], g = src[si + 1], b = src[si + 2];
-
-          const id = idMap[row * W + col];
+          const id = partition.pick[((row >> 1) * PW) + (col >> 1)];
           if (id) {
-            const lo = id << 2, a = lut[lo + 3] / 255;
-            r += (lut[lo] - r) * a;
-            g += (lut[lo + 1] - g) * a;
-            b += (lut[lo + 2] - b) * a;
-            if (selId && id === selId) {
-              r = r * 0.8 + 51; g = g * 0.8 + 48.8; b = b * 0.8 + 40.8;
-            }
+            const lo = id << 2, a = partition.lut[lo + 3] / 255;
+            r += (partition.lut[lo] - r) * a;
+            g += (partition.lut[lo + 1] - g) * a;
+            b += (partition.lut[lo + 2] - b) * a;
+            if (sel && id === sel) { r = r * 0.74 + 65; g = g * 0.74 + 61; b = b * 0.74 + 55; }
           }
           const l = nx * lx + ys * ly + nz * lz;
           const lam = l > 0 ? l : 0;
           const d0 = clamp((l + 0.24) / 0.62, 0, 1), ds = d0 * d0 * (3 - 2 * d0);
-          const lit = 0.42 + 0.78 * Math.pow(lam, 0.7);
-          const dark = 0.32;
+          const lit = 0.42 + 0.78 * Math.pow(lam, 0.7), dark = 0.32;
           r = r * dark + r * (lit - dark) * ds;
           g = g * dark + g * (lit - dark) * ds;
           b = b * dark + b * (lit - dark) * ds;
@@ -663,32 +780,14 @@ const fallback = (() => {
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, cv.width, cv.height);
       const Rz = v.Rz * v.dpr;
-      const x = (v.cx + st.panX) * v.dpr - Rz;
-      const y = (v.cy + st.panY) * v.dpr - Rz;
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(off, x, y, Rz * 2, Rz * 2);
+      ctx.drawImage(off, (v.cx + st.panX) * v.dpr - Rz, (v.cy + st.panY) * v.dpr - Rz, Rz * 2, Rz * 2);
     },
   };
-})();
+}
 
-/* ───────────── 9. 布局 ───────────── */
-const canvas = document.getElementById('globe');
-const track = document.getElementById('track');
-const tctx = track.getContext('2d');
-const elYear = document.getElementById('year');
-const elSub = document.getElementById('sub');
-const sheetEl = document.getElementById('sheet');
-const sheetInner = document.getElementById('sheet-inner');
-const hintEl = document.getElementById('hint');
-const overlay = document.getElementById('overlay');
-const overlayTitle = document.getElementById('overlay-title');
-const overlaySub = document.getElementById('overlay-sub');
-const overlayBody = document.getElementById('overlay-body');
-const bootEl = document.getElementById('boot');
-
-const renderer = glr || fallback;
-
+/* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
   const w = innerWidth, h = innerHeight;
   const dpr = Math.min(devicePixelRatio || 1, 3);
@@ -698,7 +797,8 @@ function layout() {
   view.R = Math.min(w * 0.435, h * 0.30, 320);
   clampPan();
   view.Rz = view.R * state.zoom;
-  if (renderer) renderer.resize(w, h, dpr);
+  const r = glr || fallback;
+  if (r) r.resize(w, h, dpr);
   draw();
 }
 
@@ -710,75 +810,237 @@ function clampPan() {
   state.panY = clamp(state.panY, -my, my);
 }
 
-/* ───────────── 10. 拾取 ───────────── */
-function pick(sx, sy) {
-  if (!idMap) return 0;
+/* 屏幕坐标 → 1000×500 地图坐标 */
+function mapPointAt(sx, sy) {
   const Rz = view.R * state.zoom;
   const dx = (sx - view.cx - state.panX) / Rz;
   const dy = -(sy - view.cy - state.panY) / Rz;
   const rr = dx * dx + dy * dy;
-  if (rr >= 1) return 0;
+  if (rr >= 1) return null;
   const wz = Math.sqrt(1 - rr);
   const ct = Math.cos(state.tilt), stt = Math.sin(state.tilt);
   const cy = Math.cos(state.yaw), sy2 = Math.sin(state.yaw);
-  /* p_m = Ry^-1 · Rx^-1 · p_w */
-  const y1 = dy * ct + wz * stt;
-  const z1 = -dy * stt + wz * ct;
-  const mx = dx * cy - z1 * sy2;
-  const mz = dx * sy2 + z1 * cy;
+  const y1 = dy * ct + wz * stt, z1 = -dy * stt + wz * ct;
+  const mx = dx * cy - z1 * sy2, mz = dx * sy2 + z1 * cy;
   const lat = Math.asin(clamp(y1, -1, 1));
   let u = Math.atan2(mx, mz) / TAU + 0.5;
   if (u < 0) u += 1; else if (u >= 1) u -= 1;
-  const vv = 0.5 - lat / Math.PI;
-  const col = Math.min(TW - 1, Math.max(0, Math.floor(u * TW)));
-  const row = Math.min(TH - 1, Math.max(0, Math.floor(vv * TH)));
-  return idMap[row * TW + col];
+  return { x: u * MAPW, y: (0.5 - lat / Math.PI) * MAPH };
 }
 
-/* ───────────── 11. 渲染调度（空闲即停，省电） ───────────── */
+function pickAt(sx, sy) {
+  const p = mapPointAt(sx, sy);
+  if (!p) return 0;
+  const col = Math.min(PW - 1, Math.max(0, (p.x / MAPW * PW) | 0));
+  const row = Math.min(PH - 1, Math.max(0, (p.y / MAPH * PH) | 0));
+  /* 3×3 多数表决：两个 id 交界处的混色会算出第三个 id，表决把它压掉 */
+  const tally = new Map();
+  for (let dy = -1; dy <= 1; dy++) {
+    const r = row + dy;
+    if (r < 0 || r >= PH) continue;
+    for (let dx = -1; dx <= 1; dx++) {
+      const c = col + dx;
+      if (c < 0 || c >= PW) continue;
+      const v = partition.pick[r * PW + c];
+      if (v) tally.set(v, (tally.get(v) || 0) + 1);
+    }
+  }
+  let best = 0, bestN = 0;
+  for (const [v, n] of tally) if (n > bestN) { best = v; bestN = n; }
+  return best;
+}
+
+/* ───────────── 9. 实体 ───────────── */
+function entityById(layerId, id) {
+  const layer = LAYERS[layerId];
+  const shape = partition.shapes.find((s) => s.id === id);
+  if (!shape) return null;
+  const base = layer.entityOfShape(shape);
+  if (!base) return null;
+  if (base.kind === 'country') {
+    const r = base.region;
+    return {
+      kind: 'country', id, layerId,
+      name: r.zh || r.en || r.iso, nameEn: r.en || '', iso: r.iso,
+      from: null, to: null, regionId: r.id,
+      total: (entryByRegion.get(r.id) || []).length,
+    };
+  }
+  const e = base.ent;
+  return {
+    kind: 'polity', id, layerId,
+    name: e.name, nameEn: e.name,
+    from: e.from, to: e.to, entId: e.id,
+    total: null,
+  };
+}
+
+/* 某实体在当前年份窗口内的条目 */
+function entriesOfEntity(ent) {
+  if (!ent) return [];
+  const [a, b] = windowOf(state.year), oa = ord(a), ob = ord(b);
+  if (ent.kind === 'country') {
+    return entries.filter((e) => e.region === ent.regionId && e.t1 >= oa && e.t0 <= ob);
+  }
+  /* 政权：条目代表点落在它的疆域内，且时间与存续期相交 */
+  const out = [];
+  for (const e of entries) {
+    if (e.px === undefined) continue;
+    if (e.t1 < Math.max(oa, ent.from) || e.t0 > Math.min(ob, ent.to)) continue;
+    if (pickAtMap(e.px, e.py) !== ent.id) continue;
+    out.push(e);
+  }
+  return out;
+}
+function pickAtMap(mx, my) {
+  const col = Math.min(PW - 1, Math.max(0, (mx / MAPW * PW) | 0));
+  const row = Math.min(PH - 1, Math.max(0, (my / MAPH * PH) | 0));
+  return partition.pick[row * PW + col];
+}
+
+/* 相邻实体（同一年、共享边界的其它 id） */
+function neighboursOf(id, limit = 6) {
+  const seen = new Map();
+  const pick = partition.pick;
+  for (let y = 1; y < PH - 1; y++) {
+    for (let x = 1; x < PW - 1; x++) {
+      const i = y * PW + x;
+      if (pick[i] !== id) continue;
+      const n = [pick[i - 1], pick[i + 1], pick[i - PW], pick[i + PW]];
+      for (const v of n) if (v && v !== id) seen.set(v, (seen.get(v) || 0) + 1);
+    }
+  }
+  /* 阈值 + 面积占比，滤掉栅格化噪声连出来的“假邻居” */
+  const mine = [...pick].filter((v) => v === id).length;
+  const minShare = Math.max(24, mine * 0.01);
+  return [...seen.entries()]
+    .filter(([, n]) => n >= minShare)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([v]) => v);
+}
+
+/* 政权 → 今天的国家（空间重叠） */
+const probeCanvas = newCanvas(PW, PH);
+const probeCtx = probeCanvas.getContext('2d', { willReadFrequently: true });
+
+function countriesUnderPolity(ent, limit = 4) {
+  const g = probeCtx;
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.globalCompositeOperation = 'source-over';
+  g.fillStyle = '#000';
+  g.fillRect(0, 0, PW, PH);
+  g.setTransform(PW / MAPW, 0, 0, PH / MAPH, 0, 0);
+  g.fillStyle = '#fff';
+  for (const s of partition.shapes) {
+    if (s.id !== ent.id) continue;
+    g.fill(polityShape(pk, s.pathId).path, 'evenodd');
+  }
+  const px = g.getImageData(0, 0, PW, PH).data;
+  const tally = new Map();
+  for (let i = 0, p = 0; i < PW * PH; i++, p += 4) {
+    if (px[p] < 128) continue;
+    const cid = countryPick[i];
+    if (cid) tally.set(cid, (tally.get(cid) || 0) + 1);
+  }
+  let total = 0;
+  for (const v of tally.values()) total += v;
+  return [...tally.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit)
+    .map(([id, n]) => ({ iso: mapShapes[id - 1] ? mapShapes[id - 1].iso : '', pct: n / Math.max(1, total) }));
+}
+
+/* 某一年的政权栅格（独立于主分区，512×256，几毫秒） */
+const polityProbeCache = { year: NaN, shapes: [], pick: null };
+function polityProbe(year) {
+  if (!pk) return null;
+  if (polityProbeCache.year === year) return polityProbeCache;
+  const shapes = LAYERS.polity.shapes(year);
+  const g = probeCtx;
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.fillStyle = '#000';
+  g.fillRect(0, 0, PW, PH);
+  g.setTransform(PW / MAPW, 0, 0, PH / MAPH, 0, 0);
+  for (const s of shapes) {
+    g.fillStyle = 'rgb(' + s.id + ',255,0)';
+    g.fill(polityShape(pk, s.pathId).path, 'evenodd');
+  }
+  const px = g.getImageData(0, 0, PW, PH).data;
+  const pick = new Uint8Array(PW * PH);
+  for (let i = 0, p = 0; i < pick.length; i++, p += 4) {
+    const cover = px[p + 1];
+    if (cover > 100) pick[i] = Math.round((px[p] * 255) / cover);
+  }
+  polityProbeCache.year = year;
+  polityProbeCache.shapes = shapes;
+  polityProbeCache.pick = pick;
+  return polityProbeCache;
+}
+
+/* 国家 → 这一年的政权（取代表点所在 id） */
+function polityOverCountry(iso) {
+  if (!pk) return null;
+  const centre = regionCentroid(iso);
+  if (!centre) return null;
+  const probe = polityProbe(LAYERS.polity.currentYear(state.year));
+  if (!probe) return null;
+  const col = Math.min(PW - 1, Math.max(0, (centre[0] / MAPW * PW) | 0));
+  const row = Math.min(PH - 1, Math.max(0, (centre[1] / MAPH * PH) | 0));
+  const id = probe.pick[row * PW + col];
+  if (!id) return null;
+  const s = probe.shapes.find((x) => x.id === id);
+  return s ? s.ent : null;
+}
+function regionCentroid(iso) {
+  const r = regionByIso.get(iso);
+  if (!r) return null;
+  const e = entries.find((x) => x.px !== undefined && x.region === r.id);
+  return e ? [e.px, e.py] : null;
+}
+
+/* 现代国家的拾取栅格（政权页要用，静态建一次） */
+let countryPick = new Uint8Array(PW * PH);
+function buildCountryPick() {
+  const save = state.layerId;
+  const { pick } = rasterize(LAYERS.country, 2026);
+  countryPick = pick;
+  state.layerId = save;
+}
+
+/* ───────────── 10. 渲染调度 ───────────── */
 let dirty = true, spinning = true, lastT = 0, rafId = 0;
-const SPIN_MS = 22000;                 // 打开后自转这么久，之后静止
-const spinStopAt = performance.now() + SPIN_MS;
+const SPIN_MS = 20000;
+let spinStopAt = performance.now() + SPIN_MS;
 
 function invalidate() {
   dirty = true;
   if (!rafId) { lastT = 0; rafId = requestAnimationFrame(frame); }
 }
-
 function frame(t) {
   const dt = lastT ? Math.min(0.05, (t - lastT) / 1000) : 0;
-  lastT = t;
-  rafId = 0;
-
+  lastT = t; rafId = 0;
   let busy = false;
   if (spinning && performance.now() > spinStopAt) spinning = false;
-  if (spinning && pointerCount() === 0 && !pinch) {
-    state.yaw -= 0.055 * dt;
-    dirty = true;
-    busy = true;
-  }
+  if (spinning && pointers.size === 0 && !pinch) { state.yaw -= 0.055 * dt; dirty = true; busy = true; }
   if (applyMomentum(dt)) { dirty = true; busy = true; }
   if (dirty) { dirty = false; draw(); }
   if (busy || dirty) rafId = requestAnimationFrame(frame);
 }
-
 function draw() {
-  if (!renderer || !baseCanvas) return;
-  renderer.draw(view, state);
+  const r = glr || fallback;
+  if (!r || !baseCanvas) return;
+  r.draw(view, state);
 }
 
-/* ───────────── 12. 交互 ───────────── */
+/* ───────────── 11. 交互 ───────────── */
 const pointers = new Map();
 let drag = null, pinch = null, momentum = { yaw: 0, tilt: 0 };
-const pointerCount = () => pointers.size;
 
 function applyMomentum(dt) {
   if (!momentum.yaw && !momentum.tilt) return false;
   state.yaw += momentum.yaw * dt;
   state.tilt = clamp(state.tilt + momentum.tilt * dt, -0.62, 1.02);
   const damp = Math.pow(0.0016, dt);
-  momentum.yaw *= damp;
-  momentum.tilt *= damp;
+  momentum.yaw *= damp; momentum.tilt *= damp;
   if (Math.abs(momentum.yaw) < 0.01) momentum.yaw = 0;
   if (Math.abs(momentum.tilt) < 0.01) momentum.tilt = 0;
   return true;
@@ -790,20 +1052,18 @@ canvas.addEventListener('pointerdown', (e) => {
   hideHint();
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, x0: e.clientX, y0: e.clientY, t: performance.now(), moved: 0 });
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0 });
   if (pointers.size === 1) {
-    drag = { x: e.clientX, y: e.clientY, yaw: state.yaw, tilt: state.tilt, last: performance.now(), vy: 0, vt: 0 };
+    drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
   } else if (pointers.size === 2) {
     const [a, b] = [...pointers.values()];
     pinch = {
       d: Math.hypot(a.x - b.x, a.y - b.y) || 1,
-      zoom: state.zoom,
-      px: state.panX, py: state.panY,
+      zoom: state.zoom, px: state.panX, py: state.panY,
       cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2,
     };
-    drag = null;
-    momentum.yaw = momentum.tilt = 0;
+    drag = null; momentum.yaw = momentum.tilt = 0;
   }
 }, { passive: true });
 
@@ -813,7 +1073,6 @@ canvas.addEventListener('pointermove', (e) => {
   const dx = e.clientX - p.x, dy = e.clientY - p.y;
   p.moved += Math.abs(dx) + Math.abs(dy);
   p.x = e.clientX; p.y = e.clientY;
-
   if (pointers.size === 2 && pinch) {
     const [a, b] = [...pointers.values()];
     const d = Math.hypot(a.x - b.x, a.y - b.y) || 1;
@@ -822,8 +1081,7 @@ canvas.addEventListener('pointermove', (e) => {
     state.panX = (pinch.cx - view.cx) - k * (pinch.cx - view.cx - pinch.px);
     state.panY = (pinch.cy - view.cy) - k * (pinch.cy - view.cy - pinch.py);
     state.zoom = z;
-    clampPan();
-    view.Rz = view.R * state.zoom;
+    clampPan(); view.Rz = view.R * state.zoom;
     invalidate();
     return;
   }
@@ -832,12 +1090,9 @@ canvas.addEventListener('pointermove', (e) => {
   const dts = Math.max(0.008, (now - drag.last) / 1000);
   drag.last = now;
   const k = 1 / (view.R * state.zoom);
-  const dyaw = dx * k;
-  const dtilt = dy * k;
-  state.yaw += dyaw;
-  state.tilt = clamp(state.tilt + dtilt, -0.62, 1.02);
-  drag.vy = dyaw / dts;
-  drag.vt = dtilt / dts;
+  state.yaw += dx * k;
+  state.tilt = clamp(state.tilt + dy * k, -0.62, 1.02);
+  drag.vy = dx * k / dts; drag.vt = dy * k / dts;
   invalidate();
 }, { passive: true });
 
@@ -847,8 +1102,8 @@ function endPointer(e) {
   if (pointers.size < 2) pinch = null;
   if (!p) return;
   if (pointers.size === 0 && drag) {
-    momentum.yaw = clamp(drag.vy * 0.55, -3, 3);
-    momentum.tilt = clamp(drag.vt * 0.35, -1.4, 1.4);
+    momentum.yaw = clamp(drag.vy * 0.5, -3, 3);
+    momentum.tilt = clamp(drag.vt * 0.3, -1.4, 1.4);
     drag = null;
     invalidate();
   }
@@ -865,8 +1120,7 @@ canvas.addEventListener('pointercancel', endPointer);
 
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
-  const f = Math.exp(-e.deltaY * 0.0016);
-  zoomTo(clamp(state.zoom * f, 1, 6), e.clientX, e.clientY);
+  zoomTo(clamp(state.zoom * Math.exp(-e.deltaY * 0.0016), 1, 6), e.clientX, e.clientY);
 }, { passive: false });
 
 let zoomAnim = 0;
@@ -897,103 +1151,127 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
-  const id = pick(sx, sy);
+  const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
-  const iso = ISO_OF_ID[id] || '';
-  if (!iso) { closeSheet(); return; }
-  const region = regionByIso.get(iso);
-  openRegion(region ? region.id : null, iso);
+  openEntity(state.layerId, id);
 }
 
-/* ───────────── 13. 抽屉 ───────────── */
-function regionName(r) { return r ? (r.zh || r.en || r.id) : ''; }
+/* ───────────── 12. 抽屉（统一实体模板） ───────────── */
+const KIND_LABEL = { country: '现代国家', polity: '政权' };
 
 function renderSheet() {
-  const { selRegion, selIso } = state;
-  const region = selRegion ? regionById.get(selRegion) : regionByIso.get(selIso);
+  const f = state.focus;
+  if (!f) return;
+  const ent = entityById(f.layerId, f.id);
+  if (!ent) { closeSheet(); return; }
+  const listAll = entriesOfEntity(ent);
   const [a, b, scopeName] = windowOf(state.year);
-  let list = region ? entriesInWindow(region.id, state.year) : [];
-  let fallbackMode = false;
-  if (!list.length && region) {
-    list = nearestEntries(region.id, state.year, 8);
-    fallbackMode = list.length > 0;
-  }
-  list.sort((x, z) => (z.kind === 'era') - (x.kind === 'era') || z.t0 - x.t0);
-  const era = list.find((e) => e.kind === 'era');
-  const rest = list.filter((e) => e !== era).slice(0, 10);
   const span = a === b ? fmtYear(a) + ' 年' : fmtYear(a) + '–' + fmtYear(b);
+  listAll.sort((x, z) => (z.kind === 'era') - (x.kind === 'era') || z.t0 - x.t0);
+  const era = listAll.find((e) => e.kind === 'era');
+  /* 同一件事会在多个国家各有一条（“奥斯曼统治”×4），档案里只留一条 */
+  const seenTitle = new Set();
+  const rest = listAll.filter((e) => e !== era && e !== era).filter((e) => {
+    const key = e.zh || e.en;
+    if (seenTitle.has(key)) return false;
+    seenTitle.add(key);
+    return true;
+  }).slice(0, 8);
 
-  const title = region ? regionName(region) : (selIso || '未知地区');
-  const en = region && region.en && region.en !== title ? region.en : '';
-  const total = region ? (entriesByRegion.get(region.id) || []).length : 0;
-
-  if (!region) {
-    sheetInner.innerHTML =
-      '<h2>' + esc(title) + '</h2>' +
-      '<p class="empty">年表还没有收录这个地区。</p>';
+  let facts = '';
+  if (ent.kind === 'polity') {
+    facts += '<li><i class="dot"></i><span>存续</span><small>' + fmtYear(ent.from) + '–' + fmtYear(ent.to) + '</small></li>';
+    const today = countriesUnderPolity(ent);
+    if (today.length) {
+      facts += '<li><i class="dot"></i><span>今天的疆域主要在 ' + today.map((t) => esc(isoName(t.iso))).join(' · ') + '</span><small></small></li>';
+    }
+    const nb = neighboursOf(ent.id);
+    if (nb.length) {
+      const names = nb.map((id) => {
+        const s = partition.shapes.find((x) => x.id === id);
+        return s ? esc(s.ent.name) : '';
+      }).filter(Boolean);
+      if (names.length) facts += '<li><i class="dot"></i><span>同期邻居 ' + names.slice(0, 4).join('、') + '</span><small></small></li>';
+    }
   } else {
-    const rows = rest.map((e) =>
-      '<li><i style="background:' + kindColor(e) + '"></i><span>' + esc(e.zh || e.en) +
-      '</span><small>' + dateOf(e) + '</small></li>').join('');
-    sheetInner.innerHTML =
-      '<h2>' + esc(title) + (en ? '<em>' + esc(en) + '</em>' : '') + '</h2>' +
-      (era ? '<p class="era">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>'
-      : '<p class="era">' + esc(scopeName) + '<small>' + span + '</small></p>') +
-      (fallbackMode ? '<p class="note">' + esc(scopeName) + '没有记录 · 下面是最近的条目</p>' : '') +
-      (rows ? '<ul>' + rows + '</ul>' : '<p class="empty">这个年份附近还没有条目。</p>') +
-      '<p class="foot">共 ' + total + ' 条记录 · 边界按现代国界近似</p>';
+    facts += '<li><i class="dot"></i><span>年表收录</span><small>' + ent.total + ' 条</small></li>';
+    const pol = polityOverCountry(ent.iso);
+    if (pol) facts += '<li><i class="dot"></i><span>' + fmtYear(state.year) + ' 年这里是 ' + esc(pol.name) + '</span><small></small></li>';
   }
+
+  const rows = rest.map((e) =>
+    '<li><i style="background:' + kindColor(e) + '"></i><span>' + esc(e.zh || e.en) +
+    '</span><small>' + dateOf(e) + '</small></li>').join('');
+
+  sheetInner.innerHTML =
+    '<h2>' + esc(ent.name) + (ent.nameEn && ent.nameEn !== ent.name ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
+    '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
+    '<ul class="facts">' + facts + '</ul>' +
+    (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
+    (rows ? '<ul>' + rows + '</ul>' : '<p class="empty">这个年份附近没有收录条目。</p>') +
+    '<p class="foot">边界按现代国界近似' + (ent.kind === 'polity' ? ' · 历史疆界来自 Cliopatria（CC BY 4.0）' : '') + '</p>';
   sheetEl.classList.add('open');
 }
-function openRegion(regionId, iso) {
-  state.selRegion = regionId || null;
-  state.selIso = iso || null;
+
+function openEntity(layerId, id) {
+  state.focus = { layerId, id };
   renderSheet();
   invalidate();
 }
 function closeSheet() {
-  if (!state.selRegion && !state.selIso) return;
-  state.selRegion = null; state.selIso = null;
+  if (!state.focus) return;
+  state.focus = null;
   sheetEl.classList.remove('open');
   invalidate();
 }
-document.getElementById('handle').addEventListener('click', closeSheet);
+el('handle').addEventListener('click', closeSheet);
 
-/* ───────────── 14. 全景列表 ───────────── */
+function isoName(iso) {
+  if (world && world.isoNames && world.isoNames[iso]) return world.isoNames[iso];
+  const r = regionByIso.get(iso);
+  return r ? (r.zh || r.en || iso) : iso;
+}
+const KIND = {
+  era: ['朝代 / 政权', '#6f93b8'], war: ['战争', '#c0766d'], movement: ['思潮', '#9a86b8'],
+  colonial: ['殖民', '#c08355'], religion: ['宗教', '#b79a5f'], economy: ['经济', '#6aa88c'],
+  politics: ['政治', '#bf7f93'], technology: ['科技', '#6da3a9'], literature: ['文学', '#a888b8'],
+  other: ['其他', '#8a9a7a'],
+};
+const kindOf = (e) => KIND[e.kind] || KIND.other;
+const kindColor = (e) => kindOf(e)[1];
+function dateOf(e) { return e.point ? fmtYear(e.start) + ' 年' : fmtYear(e.start) + '–' + fmtYear(e.end); }
+
+/* ───────────── 13. 全景列表 ───────────── */
 function openWorld() {
   const [a, b, scope] = windowOf(state.year);
   const oa = ord(a), ob = ord(b), t = ord(state.year);
   const list = [];
-  for (const e of entries) {
-    if (e.t1 < oa || e.t0 > ob) continue;
-    list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
-  }
+  for (const e of entries) if (e.t1 >= oa && e.t0 <= ob) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
   list.sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0);
   const cap = 90;
   const groups = new Map();
   for (const row of list.slice(0, cap)) {
-    const g = topGroup(row.e.regionRef || {});
-    const key = g.zh || g.en || '其他';
+    let g = row.e.regionRef || regionById.get(row.e.region);
+    let guard = 0;
+    while (g && g.parent && guard++ < 8) g = regionById.get(g.parent) || g;
+    const key = (g && (g.zh || g.en)) || '其他';
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row.e);
   }
   overlayTitle.textContent = state.year >= YMAX ? '今天' : fmtYear(state.year) + ' 年';
-  overlaySub.innerHTML = scope + ' · <b>' + summary.countries.size + '</b> 个国家 · <b>' +
-    (summary.ev + summary.era) + '</b> 条记录' + (list.length > cap ? ' · 显示前 ' + cap + ' 条' : '');
-
+  overlaySub.innerHTML = scope + ' · <b>' + summary.entities + '</b> 个' + LAYERS[state.layerId].name +
+    ' · <b>' + (summary.ev) + '</b> 条事件' + (list.length > cap ? ' · 前 ' + cap + ' 条' : '');
   if (!list.length) {
-    overlayBody.innerHTML = '<p class="wempty">这一年还没有收录条目。拖动时间轴换个年代试试。</p>';
+    overlayBody.innerHTML = '<p class="wempty">这一年还没有收录条目。</p>';
   } else {
-    const order = [...groups.entries()].sort((a, b) => b[1].length - a[1].length);
     let html = '';
-    for (const [gname, rows] of order) {
+    for (const [gname, rows] of [...groups.entries()].sort((x, y) => y[1].length - x[1].length)) {
       html += '<div class="wgroup">' + esc(gname) + ' · ' + rows.length + '</div>';
       for (const e of rows) {
-        const r = e.regionRef;
-        const meta = (r ? regionName(r) : '世界') + ' · ' + kindOf(e)[0];
-        html += '<div class="wrow" data-region="' + esc(r ? r.id : '') + '" data-iso="' + esc(r && r.iso ? r.iso : '') + '">' +
+        const r = regionById.get(e.region) || {};
+        html += '<div class="wrow" data-region="' + esc(r.id || '') + '">' +
           '<i style="background:' + kindColor(e) + '"></i>' +
-          '<div class="t">' + esc(e.zh || e.en) + '<span class="m">' + esc(meta) + '</span></div>' +
+          '<div class="t">' + esc(e.zh || e.en) + '<span class="m">' + esc(r.zh || '') + ' · ' + kindOf(e)[0] + '</span></div>' +
           '<div class="y">' + esc(dateOf(e)) + '</div></div>';
       }
     }
@@ -1002,20 +1280,22 @@ function openWorld() {
   overlay.hidden = false;
   overlayBody.scrollTop = 0;
 }
-
 overlayBody.addEventListener('click', (e) => {
   const row = e.target.closest('.wrow');
   if (!row) return;
   const regionId = row.getAttribute('data-region');
-  const iso = row.getAttribute('data-iso');
+  const r = regionById.get(regionId);
   closeWorld();
-  if (regionId) openRegion(regionId, iso || null);
+  if (r && r.iso) {
+    const shape = mapShapes.find((s) => s.iso === r.iso);
+    if (shape) { setLayer('country'); openEntity('country', shape.id); }
+  }
 });
-function closeWorld() { overlay.hidden = true; }
-document.getElementById('overlay-close').addEventListener('click', closeWorld);
+const closeWorld = () => { overlay.hidden = true; };
+el('overlay-close').addEventListener('click', closeWorld);
 elYear.addEventListener('click', openWorld);
 
-/* ───────────── 15. 时间轴 ───────────── */
+/* ───────────── 14. 时间轴 ───────────── */
 let density = null;
 function buildDensity() {
   const N = YMAX - YMIN + 1;
@@ -1051,11 +1331,8 @@ function drawTrack() {
   if (!density) buildDensity();
   const w = trackW;
   tctx.clearRect(0, 0, w, T_H);
-
   const labelY = 13, top = 24, areaH = 24, railY = 62, footY = 82;
   const x0 = xOfPos(0), x1 = xOfPos(1);
-
-  /* 章节带 */
   const active = chapterOf(state.year);
   for (let i = 0; i < CH.length; i++) {
     const c = CH[i];
@@ -1069,8 +1346,6 @@ function drawTrack() {
       tctx.fillText(c.n, (a + b) / 2, labelY);
     }
   }
-
-  /* 数据密度 */
   const N = YMAX - YMIN + 1, steps = 200, lmax = Math.log1p(density.mx);
   tctx.beginPath();
   tctx.moveTo(x0, top + areaH);
@@ -1081,38 +1356,25 @@ function drawTrack() {
   }
   tctx.lineTo(x1, top + areaH);
   tctx.closePath();
-  tctx.fillStyle = 'rgba(224,178,115,.12)';
-  tctx.fill();
-  tctx.strokeStyle = 'rgba(224,178,115,.26)';
-  tctx.lineWidth = 1;
-  tctx.stroke();
+  tctx.fillStyle = 'rgba(224,178,115,.12)'; tctx.fill();
+  tctx.strokeStyle = 'rgba(224,178,115,.26)'; tctx.lineWidth = 1; tctx.stroke();
 
-  /* 轨道 */
-  tctx.strokeStyle = 'rgba(255,255,255,.14)';
-  tctx.lineWidth = 2;
-  tctx.lineCap = 'round';
+  tctx.strokeStyle = 'rgba(255,255,255,.14)'; tctx.lineWidth = 2; tctx.lineCap = 'round';
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(x1, railY); tctx.stroke();
-
   const px = xOfPos(posOfYear(state.year));
   tctx.strokeStyle = 'rgba(224,178,115,.45)';
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(px, railY); tctx.stroke();
-  tctx.strokeStyle = 'rgba(224,178,115,.30)';
-  tctx.lineWidth = 1;
+  tctx.strokeStyle = 'rgba(224,178,115,.30)'; tctx.lineWidth = 1;
   tctx.beginPath(); tctx.moveTo(px, top - 2); tctx.lineTo(px, railY - 8); tctx.stroke();
 
-  /* 端点刻度 */
   tctx.font = '10px -apple-system,system-ui,sans-serif';
-  tctx.textAlign = 'left';
-  tctx.fillStyle = 'rgba(142,153,168,.7)';
+  tctx.textAlign = 'left'; tctx.fillStyle = 'rgba(142,153,168,.7)';
   tctx.fillText('前 3500', x0, footY);
-  tctx.textAlign = 'right';
-  tctx.fillStyle = 'rgba(224,178,115,.95)';
+  tctx.textAlign = 'right'; tctx.fillStyle = 'rgba(224,178,115,.95)';
   tctx.fillText('今天', x1, footY);
-  tctx.textAlign = 'center';
-  tctx.fillStyle = 'rgba(142,153,168,.55)';
+  tctx.textAlign = 'center'; tctx.fillStyle = 'rgba(142,153,168,.55)';
   tctx.fillText('元年', xOfPos(posOfYear(0)), footY);
 
-  /* 拇指 */
   tctx.fillStyle = '#e0b273';
   tctx.beginPath(); tctx.arc(px, railY, 8, 0, TAU); tctx.fill();
   tctx.fillStyle = '#0b1017';
@@ -1125,41 +1387,57 @@ function posFromX(clientX) {
 }
 let scrubbing = false;
 function setYearFromX(clientX) {
-  const y = yearOfPos(posFromX(clientX));
-  if (y !== state.year) {
-    state.year = y;
-    onYearChanged();
-  }
+  let y = yearOfPos(posFromX(clientX));
+  if (state.layerId === 'polity') y = Math.min(y, POLITY_END);
+  if (y !== state.year) { state.year = y; onYearChanged(); }
 }
 track.addEventListener('pointerdown', (e) => {
-  hideHint();
-  scrubbing = true;
+  hideHint(); scrubbing = true;
   try { track.setPointerCapture(e.pointerId); } catch (_) { }
   setYearFromX(e.clientX);
-  drawTrack();
 }, { passive: true });
 track.addEventListener('pointermove', (e) => { if (scrubbing) setYearFromX(e.clientX); }, { passive: true });
 track.addEventListener('pointerup', () => { scrubbing = false; });
 track.addEventListener('pointercancel', () => { scrubbing = false; });
 
-/* ───────────── 16. HUD / 年份联动 ───────────── */
+/* ───────────── 15. 图层开关 ───────────── */
+function setLayer(id) {
+  if (state.layerId === id) return;
+  state.layerId = id;
+  for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
+  if (id === 'polity' && !polityState.loaded) ensurePolity();
+  if (id === 'polity' && state.year > POLITY_END) { /* 允许，图上沿用 2024 边界 */ }
+  state.focus = null;
+  sheetEl.classList.remove('open');
+  rebuildPartition();
+  syncHud();
+  drawTrack();
+  invalidate();
+}
+layersEl.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (b) setLayer(b.dataset.layer);
+});
+
+/* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
   elYear.textContent = y >= YMAX ? '今天' : fmtYear(y) + ' 年';
-  const [a, b, scope] = windowOf(y);
-  let txt;
-  if (y >= YMAX) txt = scope;
-  else txt = chapterOf(y).n;
-  elSub.innerHTML = txt + ' · <b>' + summary.countries.size + '</b> 个国家 · <b>' +
-    (summary.ev + summary.era) + '</b> 条记录';
+  let txt = y >= YMAX ? '近 ' + TODAY_SPAN + ' 年' : chapterOf(y).n;
+  if (state.layerId === 'polity') {
+    txt = state.stale ? '政权数据截至 ' + POLITY_END + ' 年' : chapterOf(y).n;
+    elSub.innerHTML = txt + ' · <b>' + summary.entities + '</b> 个政权';
+  } else {
+    elSub.innerHTML = txt + ' · <b>' + summary.countries + '</b> 个国家 · <b>' + summary.ev + '</b> 条记录';
+  }
+  for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === state.layerId);
 }
 function onYearChanged() {
-  summary = summaryAt(state.year);
-  rebuildLut();
+  rebuildPartition();
   syncHud();
   drawTrack();
   if (!overlay.hidden) openWorld();
-  if (state.selRegion || state.selIso) renderSheet();
+  if (state.focus) renderSheet();
   invalidate();
 }
 
@@ -1175,11 +1453,11 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'Home') { state.year = YMIN; onYearChanged(); e.preventDefault(); }
   else if (e.key === 'End') { state.year = YMAX; onYearChanged(); e.preventDefault(); }
   else if (e.key === 'Escape') { closeWorld(); closeSheet(); }
-  else if (e.key === '+' || e.key === '=') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
+  else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
 });
 
-/* ───────────── 18. 尺寸变化 ───────────── */
+/* ───────────── 18. 尺寸 ───────────── */
 let resizeTimer = 0;
 addEventListener('resize', () => {
   clearTimeout(resizeTimer);
@@ -1189,29 +1467,64 @@ addEventListener('orientationchange', () => setTimeout(() => { layout(); layoutT
 document.addEventListener('visibilitychange', () => { lastT = 0; });
 
 /* ───────────── 19. 启动 ───────────── */
-function loadRelief() {
-  return new Promise((resolve) => {
+async function loadRelief() {
+  const inline = inlineText('relief');
+  const src = inline.length > 100 ? 'data:image/jpeg;base64,' + inline.replace(/[^A-Za-z0-9+/=]/g, '') : 'data/relief.jpg';
+  await new Promise((res) => {
     const img = new Image();
-    img.onload = () => { reliefImg = img; resolve(); };
-    img.onerror = () => resolve();
-    img.src = RELIEF_SRC;
+    img.onload = () => { reliefImg = img; res(); };
+    img.onerror = () => res();
+    img.src = src;
   });
 }
-const nextFrame = () => new Promise((r) => setTimeout(r, 0));
+
+async function ensurePolity() {
+  if (polityState.loaded || polityState.loading) return;
+  polityState.loading = true;
+  loadPill.hidden = false;
+  const label = loadPill.querySelector('span');
+  try {
+    const inline = inlineText('politypack');
+    let buf;
+    if (inline.length > 100) {
+      label.textContent = '政权边界解压…';
+      const raw = b64ToBytes(inline);
+      buf = (await gunzip(raw)) || raw;
+    } else {
+      label.textContent = '政权边界 0%';
+      const gz = await fetchWithProgress('data/polity.bin.gz', (p) => { label.textContent = '政权边界 ' + Math.round(p * 100) + '%'; });
+      label.textContent = '政权边界解压…';
+      buf = (await gunzip(gz));
+      if (!buf) buf = await (await fetch('data/polity.bin')).arrayBuffer();
+    }
+    pk = parsePolityBin(buf);
+    polityState.loaded = true;
+    if (state.layerId === 'polity') { rebuildPartition(); syncHud(); drawTrack(); invalidate(); }
+  } catch (err) {
+    polityState.error = err.message;
+    label.textContent = '政权边界加载失败';
+    console.warn('polity load failed', err);
+    setTimeout(() => { loadPill.hidden = true; }, 2600);
+    return;
+  } finally {
+    polityState.loading = false;
+  }
+  loadPill.hidden = true;
+}
 
 (async function boot() {
-  await nextFrame();
-  buildIdMap();
-  await nextFrame();
+  const world_ = await loadWorld();
+  initWorld(world_);
   await loadRelief();
   buildBaseCanvas();
-  if (fallback) fallback.prepare();
+  glr = initGL();
+  if (!glr) fallback = initFallback();
   if (glr) { glr.uploadBase(baseCanvas); glr.uploadId(idCanvas); }
+  if (fallback) fallback.prepare();
 
   buildDensity();
-  summary = summaryAt(state.year);
-  rebuildLut();
-
+  buildCountryPick();
+  rebuildPartition();
   layout();
   layoutTrack();
   drawTrack();
@@ -1219,8 +1532,11 @@ const nextFrame = () => new Promise((r) => setTimeout(r, 0));
   draw();
 
   bootEl.classList.add('gone');
-  setTimeout(() => bootEl.remove(), 600);
+  setTimeout(() => { if (bootEl.parentNode) bootEl.remove(); }, 600);
   invalidate();
+
+  /* 空闲时后台把政权边界拉下来，切换图层就不用等 */
+  setTimeout(() => { ensurePolity(); }, 2600);
 })();
 
 })();

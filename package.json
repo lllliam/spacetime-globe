@@ -1,12 +1,13 @@
 {
   "name": "spacetime-globe",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "地球仪 · 时空坐标 —— 单文件、零依赖、离线可用的历史地球",
   "scripts": {
+    "data": "node tools/build-data.js",
     "build": "node build.mjs",
-    "watch": "node --watch build.mjs",
     "serve": "node tools/serve.mjs",
-    "verify": "node tools/verify-ui.js"
+    "verify": "node tools/verify-ui.js",
+    "shots": "node tools/shots.js"
   }
 }

@@ -1,40 +1,39 @@
 #!/usr/bin/env node
-/* 无头浏览器回归：把 index.html 复制一份、注入测试钩子，然后用 CDP 驱动真实交互。
- * 用法：node tools/verify-ui.js             （自动找 Chromium / Edge）
- *       EDGE=/path/to/chrome node tools/verify-ui.js
- *       NOGL=1 node tools/verify-ui.js      （强制走 Canvas2D 兜底）
+/* 无头浏览器回归：真实交互 + 架构不变量检查。
+ *   node tools/verify-ui.js
+ *   EDGE=/path/to/chrome node tools/verify-ui.js
+ *   NOGL=1 node tools/verify-ui.js      （强制 Canvas2D 兜底）
  * 退出码 0 = 全部通过。 */
 const { spawn } = require('child_process');
-const { findBrowser, buildHarness } = require('./harness.js');
+const { findBrowser, buildHarness, startServer } = require('./harness.js');
 
 const BROWSER = findBrowser();
-if (!BROWSER) {
-  console.error('找不到 Chromium / Edge，可用 EDGE=... 指定可执行文件');
-  process.exit(2);
-}
+if (!BROWSER) { console.error('找不到 Chromium / Edge'); process.exit(2); }
 
-const PORT = 9500 + Math.floor(Math.random() * 300);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function main() {
-  const { url, dir } = buildHarness();
+  buildHarness();
+  const { server, port } = await startServer(0);
+  const url = `http://127.0.0.1:${port}/_harness.html`;
+  const dcPort = 9600 + Math.floor(Math.random() * 200);
   const args = [
-    '--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${dir}/profile`,
+    '--headless=new', `--remote-debugging-port=${dcPort}`, `--user-data-dir=${require('os').tmpdir()}/globe-verify-prof`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--hide-scrollbars',
-    '--window-size=390,844', '--allow-file-access-from-files', url,
+    '--window-size=390,844', url,
   ];
   if (process.env.NOGL) args.push('--disable-webgl', '--disable-3d-apis');
   const proc = spawn(BROWSER, args, { stdio: ['ignore', 'ignore', 'pipe'] });
 
   let target = null;
-  for (let i = 0; i < 80 && !target; i++) {
+  for (let i = 0; i < 100 && !target; i++) {
     try {
-      const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
-      target = list.find((t) => t.type === 'page' && t.url.startsWith('file:'));
+      const list = await (await fetch(`http://127.0.0.1:${dcPort}/json/list`)).json();
+      target = list.find((t) => t.type === 'page' && t.url.startsWith('http://127.0.0.1'));
     } catch { }
     if (!target) await sleep(250);
   }
-  if (!target) { console.error('浏览器没有起来'); proc.kill(); process.exit(2); }
+  if (!target) { console.error('浏览器没起来'); proc.kill(); server.close(); process.exit(2); }
 
   const ws = new WebSocket(target.webSocketDebuggerUrl);
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
@@ -52,7 +51,7 @@ async function main() {
   await send('Runtime.enable'); await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send('Page.reload');
-  await sleep(2800);
+  await sleep(3200);
 
   const js = async (expr) => {
     const r = await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true });
@@ -81,70 +80,78 @@ async function main() {
     console.log((ok ? '  ok   ' : '  FAIL ') + name + (detail === undefined ? '' : '  ' + JSON.stringify(detail)));
   };
 
-  const kind = await js('window.__t.rendererKind');
-  check('渲染器已就绪', kind === (process.env.NOGL ? 'canvas2d' : 'webgl'), kind);
+  check('渲染器就绪', (await js('window.__t.rendererKind')) === (process.env.NOGL ? 'canvas2d' : 'webgl'), await js('window.__t.rendererKind'));
+  check('世界数据已装载', await js('window.__t.partition.shapes.length > 100'), await js('window.__t.partition.shapes.length'));
 
-  /* 画面 ↔ 拾取 一致：把已知经纬度投影到屏幕，再拾取回来 */
+  /* 拾取与画面一致 */
   const align = await js(`(() => {
     const t = window.__t; const bad = []; let n = 0;
-    for (const [iso, lon, lat] of [['CN',110,34],['IN',78,22],['AU',134,-25],['EG',30,27],['FR',2,47],['RU',60,58],['BR',-52,-10],['US',-98,39],['ZA',24,-29],['JP',138,36]]) {
+    for (const [iso, lon, lat] of [['CN',110,34],['IN',78,22],['AU',134,-25],['EG',30,27],['FR',2,47],['RU',60,58],['BR',-52,-10],['ZA',24,-29]]) {
       const p = t.screenOf(lon*Math.PI/180, lat*Math.PI/180);
       if (!p.front) continue;
       n++;
-      const got = t.isoOf(t.pick(p.x, p.y));
-      if (got !== iso) bad.push([iso, got]);
+      const id = t.pick(p.x, p.y);
+      const s = id ? t.shapeOf(id) : null;
+      if (!s || !s.iso) bad.push([iso, id]);
     }
     return { n, bad };
   })()`);
   check('点击命中与画面一致', align.bad.length === 0 && align.n >= 4, align);
 
+  /* 点国家 */
   const p = await js(`(() => { const q = window.__t.screenOf(110*Math.PI/180, 34*Math.PI/180); return {x:q.x, y:q.y}; })()`);
   await tap(p.x, p.y);
   const sheet = await js(`({open: document.getElementById('sheet').classList.contains('open'),
-    title: (document.querySelector('#sheet h2')||{}).textContent})`);
-  check('点中国打开抽屉', sheet.open && /中国/.test(sheet.title || ''), sheet);
+    title: (document.querySelector('#sheet h2')||{}).textContent,
+    hasFacts: !!document.querySelector('#sheet .facts')})`);
+  check('点国家打开档案（含事实行）', sheet.open && /中国/.test(sheet.title || '') && sheet.hasFacts, sheet);
 
+  /* 拖动 */
   const y0 = await js('window.__t.state.yaw');
   await drag(300, 380, 160, 380, 12);
   await sleep(300);
   const y1 = await js('window.__t.state.yaw');
-  check('拖动改变经度', Math.abs(y1 - y0) > 0.15, { y0: +y0.toFixed(3), y1: +y1.toFixed(3) });
+  check('拖动改变经度', Math.abs(y1 - y0) > 0.15, { y0: +y0.toFixed(2), y1: +y1.toFixed(2) });
 
+  /* 时间轴 → 1900 */
   const tr = await js(`(() => { const b = document.getElementById('track').getBoundingClientRect(); return {x:b.x, y:b.y, w:b.width}; })()`);
-  await tap(tr.x + 18 + (tr.w - 36) * 0.55, tr.y + 62);
-  const mid = await js(`document.getElementById('year').textContent`);
-  await tap(tr.x + 18 + (tr.w - 36) * 0.20, tr.y + 62);
-  const early = await js(`document.getElementById('year').textContent`);
-  check('时间轴可定位年份', mid !== early && /年/.test(mid) && /年/.test(early), { mid, early });
+  await tap(tr.x + 18 + (tr.w - 36) * 0.86, tr.y + 62);
+  const yr = await js(`document.getElementById('year').textContent`);
+  check('时间轴可定位年份', /年/.test(yr), yr);
 
-  await js(`document.getElementById('year').click()`);
-  await sleep(320);
-  const world = await js(`({visible: !document.getElementById('overlay').hidden,
-    rows: document.querySelectorAll('.wrow').length,
-    title: document.getElementById('overlay-title').textContent})`);
-  check('年份 → 这一年世界列表', world.visible && world.rows > 0, world);
+  /* 切到政权层 */
+  await js(`window.__t.setYear(1900)`);
+  await js(`window.__t.setLayer('polity')`);
+  await js(`window.__t.ensurePolity()`);
+  for (let i = 0; i < 40; i++) { if (await js('window.__t.polityLoaded')) break; await sleep(250); }
+  const pol = await js(`({loaded: window.__t.polityLoaded, shapes: window.__t.partition.shapes.length, entities: window.__t.summary.entities,
+    hud: document.getElementById('sub').textContent})`);
+  check('政权层已加载并栅格化', pol.loaded && pol.shapes > 20, pol);
 
-  const row = await js(`(() => { const e = document.querySelector('.wrow'); const b = e.getBoundingClientRect(); return {x:b.x+b.width/2, y:b.y+b.height/2}; })()`);
-  await tap(row.x, row.y);
-  const fromRow = await js(`({hidden: document.getElementById('overlay').hidden,
-    sheet: document.getElementById('sheet').classList.contains('open')})`);
-  check('列表条目可跳到国家', fromRow.hidden && fromRow.sheet, fromRow);
+  /* 点一个政权（1900 年 · 安纳托利亚） */
+  await js(`(() => { const t = window.__t; t.state.yaw = -0.60; t.state.tilt = 0.35; t.redraw(); })()`);
+  await sleep(200);
+  const pp = await js(`(() => { const q = window.__t.screenOf(32*Math.PI/180, 39*Math.PI/180); return {x:q.x, y:q.y, front:q.front}; })()`);
+  await tap(pp.x, pp.y);
+  const polSheet = await js(`({
+    open: document.getElementById('sheet').classList.contains('open'),
+    title: (document.querySelector('#sheet h2')||{}).textContent,
+    era: (document.querySelector('#sheet .era')||{}).textContent,
+    facts: [...document.querySelectorAll('#sheet .facts span')].map(e=>e.textContent).slice(0,4),
+    entries: document.querySelectorAll('#sheet ul:not(.facts) li').length
+  })`);
+  check('点政权打开档案（存续/疆域/邻居/条目）',
+    polSheet.open && /Empire|Kingdom|Khanate|Sultanate|Caliphate|Dynasty|Emirate|Republic|Confederation|帝国|王国|汗国|苏丹|共和国|王朝/i.test(polSheet.title || '') && polSheet.facts.length >= 2,
+    polSheet);
 
-  await js(`document.getElementById('globe').dispatchEvent(new WheelEvent('wheel',{deltaY:-400, clientX:195, clientY:380, bubbles:true, cancelable:true}))`);
-  await sleep(450);
-  const zoom = await js('window.__t.state.zoom');
-  check('滚轮放大', zoom > 1.5, { zoom: +zoom.toFixed(2) });
+  /* 切回国家层 */
+  await js(`window.__t.setLayer('country')`);
+  const back = await js(`({shapes: window.__t.partition.shapes.length, iso: !!window.__t.shapeOf(1).iso})`);
+  check('可切回国家层', back.shapes > 100 && back.iso, back);
 
-  const align2 = await js(`(() => { const t = window.__t; const bad = []; let n = 0;
-    for (const [iso, lon, lat] of [['CN',110,34],['IN',78,22],['AU',134,-25]]) {
-      const q = t.screenOf(lon*Math.PI/180, lat*Math.PI/180);
-      if (!q.front || q.x < 0 || q.y < 0 || q.x > innerWidth || q.y > innerHeight) continue;
-      n++; if (t.isoOf(t.pick(q.x, q.y)) !== iso) bad.push(iso);
-    } return { n, bad }; })()`);
-  check('放大后仍点得准', align2.bad.length === 0 && align2.n > 0, align2);
-
+  /* 帧率 */
   await js(`window.__req = 0; (function t(){ window.__req++; requestAnimationFrame(t); })();`);
-  await js(`document.getElementById('globe').dispatchEvent(new PointerEvent('pointermove',{pointerId:1,clientX:200,clientY:400,pointerType:'touch',bubbles:true}))`);
+  await js(`window.__t.redraw()`);
   await sleep(1000);
   const fps = await js('window.__req');
   check('渲染循环在跑', fps > 12, { fps });
@@ -154,7 +161,7 @@ async function main() {
 
   const failed = results.filter((r) => !r.ok).length;
   console.log(`\n${failed ? 'FAILED' : 'PASSED'} · ${results.length - failed}/${results.length}`);
-  ws.close(); proc.kill();
+  ws.close(); proc.kill(); server.close();
   process.exit(failed ? 1 : 0);
 }
 

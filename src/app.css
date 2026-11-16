@@ -37,7 +37,8 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #dock{position:fixed;left:0;right:0;bottom:0;z-index:6;padding:0 0 var(--safe-b);
   background:linear-gradient(180deg,rgba(11,16,23,0) 0%,rgba(11,16,23,.86) 22%,rgba(11,16,23,.98) 46%,#0b1017 100%)}
 #sheet{max-height:0;overflow:hidden;transition:max-height .28s cubic-bezier(.22,.9,.28,1);
-  background:linear-gradient(180deg,rgba(11,16,23,0) 0%,rgba(11,16,23,.93) 26%,rgba(11,16,23,.985) 100%)}
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  background:linear-gradient(180deg,rgba(11,16,23,.70) 0%,rgba(11,16,23,.955) 26%,rgba(11,16,23,.99) 100%)}
 #sheet.open{max-height:42vh}
 #sheet-inner{padding:0 20px 10px;max-height:42vh;overflow-y:auto;-webkit-overflow-scrolling:touch;
   overscroll-behavior:contain}
@@ -106,3 +107,29 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
   #year{font-size:52px}
   #hint{bottom:calc(var(--safe-b) + 128px)}
 }
+
+/* ── 图层开关 + 加载指示 ── */
+#toolbar{display:flex;align-items:center;gap:10px;padding:0 18px 2px}
+#layers{margin-left:auto;display:flex;gap:0;border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;padding:2px;background:rgba(255,255,255,.03)}
+#layers button{appearance:none;border:0;background:none;color:var(--muted);
+  font:500 11.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.02em;
+  padding:6px 13px;border-radius:999px;cursor:pointer;transition:color .18s,background .18s}
+#layers button.on{background:rgba(224,178,115,.14);color:var(--gold)}
+#layers button:active{opacity:.7}
+#loadpill{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--muted);
+  letter-spacing:.02em;font-variant-numeric:tabular-nums}
+#loadpill[hidden]{display:none}
+#loadpill i{width:11px;height:11px;border-radius:50%;border:1.5px solid rgba(224,178,115,.25);
+  border-top-color:var(--gold);animation:sp .8s linear infinite;display:block}
+
+@media (min-width:720px){ #toolbar{padding:0 28px 2px} }
+
+/* ── 实体档案的事实行 ── */
+#sheet .facts{list-style:none;margin:0 0 10px;padding:0}
+#sheet .facts li{display:flex;gap:8px;align-items:baseline;padding:3px 0;border:0;font-size:12px}
+#sheet .facts .dot{flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold-dim);transform:translateY(-1px)}
+#sheet .facts span{flex:1;min-width:0;color:#cfc6b4;line-height:1.4}
+#sheet .facts small{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+#sheet .era2{margin:2px 0 4px;font-size:12px;color:var(--gold)}
+#sheet .era2 small{color:var(--muted);margin-left:6px;font-size:11px;font-variant-numeric:tabular-nums}

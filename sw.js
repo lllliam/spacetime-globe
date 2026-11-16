@@ -1,12 +1,14 @@
-// 离线缓存：index.html 走「网络优先」，其余资源走缓存优先。
-// 这样改完部署，用户下次打开就能拿到新版本；断网时仍能完整打开。
-const CACHE = 'globe-v2';
-const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon.png', './icon-512.png'];
+// 离线缓存：index.html 网络优先（改完部署下次打开就是新版），数据与图标缓存优先。
+const CACHE = 'globe-v3';
+const PRECACHE = [
+  './', './index.html', './manifest.webmanifest', './icon.png', './icon-512.png',
+  './data/world.json', './data/relief.jpg',
+];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE)
-      .then((c) => Promise.all(ASSETS.map((u) => c.add(u).catch(() => {}))))
+      .then((c) => Promise.all(PRECACHE.map((u) => c.add(u).catch(() => {}))))
       .then(() => self.skipWaiting())
   );
 });

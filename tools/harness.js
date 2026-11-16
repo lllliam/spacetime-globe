@@ -1,7 +1,10 @@
-/* 测试基础设施：找到 Chromium 内核浏览器，并把 index.html 复制一份注入调试钩子。
- * 只给 tools/ 下的脚本用，不参与构建。 */
+/* 测试基础设施（不参与构建）
+ * - findBrowser()   找 Chromium / Edge
+ * - buildHarness()  把 index.html 复制成 _harness.html 并注入调试钩子（同目录，data/ 相对路径可用）
+ * - startServer()   起一个静态服务器（应用现在走 fetch 取数据，必须 http 而不是 file://）
+ */
 const fs = require('fs');
-const os = require('os');
+const http = require('http');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -24,13 +27,18 @@ function findBrowser() {
 }
 
 const HOOK = `
+/* ===== TEST HOOK ===== */
 window.__t = {
-  get state(){return state}, get view(){return view}, get summary(){return summary},
-  get rendererKind(){return renderer && renderer.kind},
-  pick, isoOf: (id) => ISO_OF_ID[id] || '',
-  setYear: (y) => { state.year = y; onYearChanged(); },
+  get state(){ return state }, get view(){ return view }, get partition(){ return partition },
+  get pk(){ return pk }, get summary(){ return summary },
+  get rendererKind(){ const r = glr || fallback; return r && r.kind },
+  get polityLoaded(){ return !!(pk && polityState.loaded) },
+  pick: pickAt, mapPointAt, setLayer, ensurePolity,
+  setYear(y){ state.year = y; onYearChanged(); },
   stopSpin(){ spinning = false; },
   redraw(){ invalidate(); },
+  shapeOf(id){ return partition.shapes.find(s => s.id === id) || null; },
+  decodeShape(pathId){ return polityShape(pk, pathId); },
   screenOf(lon, lat){
     const st = state, v = view;
     const ct = Math.cos(st.tilt), stt = Math.sin(st.tilt);
@@ -44,7 +52,7 @@ window.__t = {
 };
 `;
 
-function buildHarness(name = 'harness') {
+function buildHarness() {
   let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   const marker = '/* ───────────── 19. 启动 ───────────── */';
   if (!html.includes(marker)) throw new Error('index.html 里找不到启动标记，先跑 npm run build');
@@ -53,15 +61,39 @@ function buildHarness(name = 'harness') {
 addEventListener('error',(e)=>window.__errs.push('error: '+(e.message||e.type)+' @'+(e.lineno||0)),true);
 addEventListener('unhandledrejection',(e)=>window.__errs.push('rej: '+(e.reason&&e.reason.message||String(e.reason))));
 </script></head>`);
-  const dir = path.join(os.tmpdir(), 'globe-verify');
-  fs.mkdirSync(dir, { recursive: true });
-  const file = path.join(dir, name + '.html');
+  const file = path.join(ROOT, '_harness.html');
   fs.writeFileSync(file, html, 'utf8');
-  for (const asset of ['manifest.webmanifest', 'icon.png', 'icon-512.png']) {
-    const src = path.join(ROOT, asset);
-    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(dir, asset));
-  }
-  return { url: 'file:///' + file.replace(/\\/g, '/'), dir, file };
+  return file;
 }
 
-module.exports = { ROOT, findBrowser, buildHarness };
+const TYPES = {
+  '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.gz': 'application/gzip', '.bin': 'application/octet-stream',
+};
+
+function startServer(port = 0) {
+  return new Promise((resolve) => {
+    const srv = http.createServer((req, res) => {
+      try {
+        const u = new URL(req.url, 'http://x');
+        const rel = decodeURIComponent(u.pathname).replace(/^\/+/, '') || 'index.html';
+        const file = path.resolve(ROOT, rel);
+        if (!file.startsWith(ROOT)) throw new Error('bad');
+        const data = fs.readFileSync(file);
+        res.writeHead(200, {
+          'content-type': TYPES[path.extname(file)] || 'application/octet-stream',
+          'content-length': data.length,
+          'cache-control': 'no-cache',
+        });
+        res.end(data);
+      } catch {
+        res.writeHead(404); res.end('404');
+      }
+    });
+    srv.listen(port, '127.0.0.1', () => resolve({ server: srv, port: srv.address().port }));
+  });
+}
+
+module.exports = { ROOT, findBrowser, buildHarness, startServer };
