@@ -51,7 +51,16 @@ async function main() {
   await send('Runtime.enable'); await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await send('Page.reload');
-  await sleep(3200);
+  await sleep(2500);
+  /* 等真正启动完成（取数据 + 建材质可能需要几秒，别在启动阶段就跑断言） */
+  for (let i = 0; i < 100; i++) {
+    const ready = await send('Runtime.evaluate', {
+      expression: '!!(window.__t && window.__t.rendererKind && window.__t.partition.shapes.length > 0 && !document.getElementById("boot"))',
+      returnByValue: true,
+    });
+    if (ready.result.value) break;
+    await sleep(250);
+  }
 
   const js = async (expr) => {
     const r = await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true });
@@ -148,6 +157,19 @@ async function main() {
   await js(`window.__t.setLayer('country')`);
   const back = await js(`({shapes: window.__t.partition.shapes.length, iso: !!window.__t.shapeOf(1).iso})`);
   check('可切回国家层', back.shapes > 100 && back.iso, back);
+
+  /* 放大 + 平移后：GL 球、矢量层、拾取必须仍然对齐（曾经的 bug 是 GL 忽略 pan） */
+  await js(`(() => { const t = window.__t; t.state.zoom = 2.2; t.view.Rz = t.view.R * 2.2; t.state.panX = -60; t.state.panY = 30; t.redraw(); })()`);
+  await sleep(320);
+  const panned = await js(`(() => {
+    const t = window.__t;
+    const q = t.screenOf(110*Math.PI/180, 34*Math.PI/180);
+    const id = t.pick(q.x, q.y);
+    const s = id ? t.shapeOf(id) : null;
+    return { screen: [Math.round(q.x), Math.round(q.y)], picked: s && s.iso, panX: t.state.panX, panY: t.state.panY };
+  })()`);
+  check('平移后拾取仍与画面一致', panned.picked === 'CN', panned);
+  await js(`(() => { const t = window.__t; t.state.panX = 0; t.state.panY = 0; t.state.zoom = 1.9; t.view.Rz = t.view.R * 1.9; t.redraw(); })()`);
 
   /* 帧率 */
   await js(`window.__req = 0; (function t(){ window.__req++; requestAnimationFrame(t); })();`);

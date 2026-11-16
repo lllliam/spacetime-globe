@@ -469,6 +469,25 @@ function buildBaseCanvas() {
   /* 海岸线 / 国界交给矢量叠加层（放大不糊），贴图只负责地形与海色 */
 
   g.setTransform(1, 0, 0, 1, 0, 0);
+
+  /* 低频斑驳：电脑版用一个 24px 网格的噪声场给陆地/海面加手感，
+     这里用一张小噪声图放大后叠加（双线性插值出来正好是低频斑块） */
+  const noise = newCanvas(64, 32);
+  const ng = noise.getContext('2d');
+  const nd = ng.createImageData(64, 32);
+  for (let i = 0; i < nd.data.length; i += 4) {
+    const v = 128 + (Math.random() - 0.5) * 70;
+    nd.data[i] = nd.data[i + 1] = nd.data[i + 2] = v;
+    nd.data[i + 3] = 255;
+  }
+  ng.putImageData(nd, 0, 0);
+  g.globalCompositeOperation = 'overlay';
+  g.globalAlpha = 0.06;
+  g.imageSmoothingEnabled = true;
+  g.drawImage(noise, 0, 0, TW, TH);
+  g.globalAlpha = 1;
+  g.globalCompositeOperation = 'source-over';
+
   const ice = g.createLinearGradient(0, 0, 0, TH * 0.085);
   ice.addColorStop(0, 'rgba(228,238,246,.62)');
   ice.addColorStop(.55, 'rgba(228,238,246,.18)');
@@ -516,17 +535,27 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a * 0.55);
-  float edge = smoothstep(0.25, 0.75, idTex.b);
-  col = mix(col, vec3(0.38, 0.36, 0.31), edge * 0.62);
+  vec3 col = mix(base, tint.rgb, tint.a * 0.42);
   if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.96, 0.86), 0.26);
-  float l = dot(n, uLight);
-  float lam = clamp(l, 0.0, 1.0);
-  vec3 lit = col * (0.42 + 0.78 * pow(lam, 0.7));
-  float day = smoothstep(-0.24, 0.38, l);
-  col = mix(col * 0.32, lit, day);
-  float rim = pow(1.0 - clamp(n.z, 0.0, 1.0), 3.2);
-  col += vec3(0.30, 0.46, 0.64) * rim * 0.45;
+
+  /* 光照：照电脑版 globeBuild/globeDraw 的模型
+     diffuse = (0.47 + 0.60·soft)·(0.88 + 0.12·nz)，暗面用环境色混合而不是单纯压黑 */
+  float lam = dot(n, uLight);
+  float soft = clamp((lam + 0.30) / 1.24, 0.0, 1.0);
+  soft = soft * soft * (3.0 - 2.0 * soft);
+  float diffuse = (0.47 + 0.60 * soft) * (0.88 + 0.12 * n.z);
+  vec3 ambient = vec3(10.0, 13.0, 20.0) / 255.0;
+  col = col * diffuse + ambient * (1.0 - diffuse);
+
+  /* 轮廓光：(1-nz)⁴ */
+  float rimK = pow(1.0 - clamp(n.z, 0.0, 1.0), 4.0) * (0.05 + 0.42 * soft);
+  col += vec3(210.0, 204.0, 194.0) / 255.0 * rimK;
+
+  /* 水面光泽：只在海里，宽而柔的一层 */
+  float ocean = 1.0 - step(0.002, idTex.r);
+  float spec = min(1.0, pow(max(lam, 0.0), 14.0) * 30.0);
+  col += vec3(0.55, 0.75, 0.95) * spec * 0.26 * ocean;
+
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -684,7 +713,8 @@ function initGL() {
       const Ry = [cy, 0, sy, 0, 1, 0, -sy, 0, cy];
       const Rx = [1, 0, 0, 0, ct, -stt, 0, stt, ct];
       const rot = new Float32Array(mul3(Rx, Ry));
-      const center = [v.cx * v.dpr, (v.h - v.cy) * v.dpr];
+      /* 平移必须和矢量叠加层一致，否则缩放后两层会错位 */
+      const center = [(v.cx + st.panX) * v.dpr, (v.h - v.cy - st.panY) * v.dpr];
       const scale = v.Rz * v.dpr;
 
       gl.useProgram(prog);
@@ -827,6 +857,22 @@ function drawVector() {
   const m6 = M[2], m7 = M[5], m8 = M[8];
   const cx = view.cx + state.panX, cy = view.cy + state.panY, Rz = view.Rz;
 
+  /* 球下投影：让球「站」在背景上，这是质感的一大半 */
+  vctx.save();
+  const shY = cy + Rz * 1.01;
+  const g = vctx.createRadialGradient(cx, shY, Rz * 0.15, cx, shY, Rz * 0.95);
+  g.addColorStop(0, 'rgba(0,0,0,.42)');
+  g.addColorStop(0.55, 'rgba(0,0,0,.16)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  vctx.translate(cx, shY);
+  vctx.scale(1.05, 0.22);
+  vctx.translate(-cx, -shY);
+  vctx.fillStyle = g;
+  vctx.beginPath();
+  vctx.arc(cx, shY, Rz * 0.95, 0, TAU);
+  vctx.fill();
+  vctx.restore();
+
   /* 球面裁剪 */
   vctx.save();
   vctx.beginPath();
@@ -901,8 +947,8 @@ function drawVector() {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  vctx.strokeStyle = isPolity ? 'rgba(64,58,48,.55)' : 'rgba(38,50,58,.55)';
-  vctx.lineWidth = Math.min(1.1, 0.55 + state.zoom * 0.12);
+  vctx.strokeStyle = isPolity ? 'rgba(58,50,38,.72)' : 'rgba(28,40,52,.72)';
+  vctx.lineWidth = Math.min(0.95, 0.5 + state.zoom * 0.08);
   vctx.beginPath();
   const drawn = [];
   for (const sh of vecShapes) {
