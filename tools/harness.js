@@ -36,6 +36,7 @@ window.__t = {
   pick: pickAt, mapPointAt, setLayer, ensurePolity,
   openEntity, openBook, closeBook, loadStories, closeSheet,
   get sheet(){ return sheetState },
+  entriesForBook, polityMaskOf, buildChapter, entityById, entityByKey, focusKeyOf,
   get stories(){ return stories },
   get vecCount(){ return vecShapes.length },
   get vecShapes(){ return vecShapes },

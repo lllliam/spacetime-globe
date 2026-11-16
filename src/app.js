@@ -397,6 +397,7 @@ function rebuildPartition() {
   if (glr) { glr.uploadId(idCanvas); glr.uploadLut(lut); }
   updateSummary();
   if (state.focus && state.focus.layerId !== layer.id) state.focus = null;
+  reanchorFocus();
   return performance.now() - t0;
 }
 
@@ -1181,29 +1182,50 @@ function pickAt(sx, sy) {
   return best;
 }
 
-/* ───────────── 9. 实体 ───────────── */
-function entityById(layerId, id) {
-  const layer = LAYERS[layerId];
-  const shape = partition.shapes.find((s) => s.id === id);
+/* ───────────── 9. 实体 ─────────────
+   实体的身份不能绑在 shape id 上：换年份会重建分区，同一个 id 就指向另一个政权了。
+   focus 里存 key（国家是 ISO、政权是 entId），shape id 每次重建后重新解析。 */
+function focusKeyOf(layerId, shape) {
   if (!shape) return null;
-  const base = layer.entityOfShape(shape);
-  if (!base) return null;
-  if (base.kind === 'country') {
-    const r = base.region;
+  if (layerId === 'country') return shape.iso || null;
+  return shape.ent ? shape.ent.id : null;
+}
+
+function entityByKey(layerId, key, shapeId) {
+  if (layerId === 'country') {
+    const r = regionByIso.get(key);
+    if (!r) return null;
+    const s = mapShapes.find((x) => x.iso === key);
     return {
-      kind: 'country', id, layerId,
+      kind: 'country', id: shapeId || (s ? s.id : 0), layerId, key,
       name: r.zh || r.en || r.iso, nameEn: r.en || '', iso: r.iso,
       from: null, to: null, regionId: r.id,
       total: (entryByRegion.get(r.id) || []).length,
     };
   }
-  const e = base.ent;
+  const e = pk && pk.entities.find((x) => x.id === key);
+  if (!e) return null;
   return {
-    kind: 'polity', id, layerId,
+    kind: 'polity', id: shapeId || 0, layerId, key,
     name: e.name, nameEn: e.name,
     from: e.from, to: e.to, entId: e.id,
     total: null,
   };
+}
+
+function entityById(layerId, id) {
+  const shape = partition.shapes.find((s) => s.id === id);
+  if (!shape) return null;
+  return entityByKey(layerId, focusKeyOf(layerId, shape), id);
+}
+
+/* 分区重建后：按 key 找回同一个实体在新分区里的 shape id */
+function reanchorFocus() {
+  const f = state.focus;
+  if (!f) return;
+  if (f.layerId !== state.layerId) { state.focus = null; return; }
+  const shape = partition.shapes.find((s) => focusKeyOf(f.layerId, s) === f.key);
+  f.id = shape ? shape.id : 0;
 }
 
 /* 某实体在当前年份窗口内的条目 */
@@ -1514,6 +1536,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.classList.toggle('full', offset <= 1);
+  document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
 }
 
@@ -1614,7 +1637,7 @@ dimEl.addEventListener('click', () => closeSheet());
 function renderEntity() {
   const f = state.focus;
   if (!f) return;
-  const ent = entityById(f.layerId, f.id);
+  const ent = entityByKey(f.layerId, f.key, f.id);
   if (!ent) { closeSheet(); return; }
 
   const listAll = entriesOfEntity(ent);
@@ -1692,7 +1715,10 @@ function renderEntity() {
 }
 
 function openEntity(layerId, id) {
-  state.focus = { layerId, id };
+  const shape = partition.shapes.find((s) => s.id === id);
+  const key = focusKeyOf(layerId, shape);
+  if (key === null) { closeSheet(); return; }
+  state.focus = { layerId, id, key };
   renderEntity();
   if (!stories) loadStories().then(() => { if (state.focus) renderEntity(); });
   if (sheetState.detent === 'hidden') {
@@ -1863,10 +1889,11 @@ function polityMaskOf(ent) {
   if (polityMaskCache.has(key)) return polityMaskCache.get(key);
   const g = probeCtx;
   g.setTransform(1, 0, 0, 1, 0, 0);
-  g.fillStyle = '#000';
-  g.fillRect(0, 0, PW, PH);
+  /* 一定要先清成透明：之前这里涂了不透明黑，alpha 全 255，
+     结果遮罩判成「整张世界地图都算在内」，书里塞进 263 条不相关的条目 */
+  g.clearRect(0, 0, PW, PH);
   g.setTransform(PW / MAPW, 0, 0, PH / MAPH, 0, 0);
-  g.fillStyle = '#fff';
+  g.fillStyle = 'rgba(255,255,255,1)';
   for (let i = 0; i < pk.nSlice; i++) {
     if (pk.slices[i * 4] !== ent.entId) continue;
     g.fill(polityShape(pk, pk.slices[i * 4 + 3]).path, 'evenodd');

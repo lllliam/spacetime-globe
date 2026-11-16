@@ -155,6 +155,31 @@ async function main() {
     polSheet.open && /Empire|Kingdom|Khanate|Sultanate|Caliphate|Dynasty|Emirate|Republic|Confederation|帝国|王国|汗国|苏丹|共和国|王朝/i.test(polSheet.title || '') && polSheet.facts.length >= 2,
     polSheet);
 
+  /* 回归：政权一本书不该把全世界都塞进来（曾经因为遮罩用了不透明黑底，判成整张地图） */
+  const bookPol = await js(`(() => {
+    const t = window.__t;
+    const ent = t.entityByKey('polity', 23, 0) || null;
+    const id = t.pick(t.screenOf(20*Math.PI/180, 48*Math.PI/180).x, t.screenOf(20*Math.PI/180, 48*Math.PI/180).y);
+    const e2 = id ? t.entityById('polity', id) : null;
+    const use = e2 || ent;
+    if (!use) return null;
+    const mask = t.polityMaskOf(use);
+    let on = 0; for (let i = 0; i < mask.length; i++) if (mask[i]) on++;
+    return { name: use.name, entries: t.entriesForBook(use).length, maskPct: +(on / mask.length * 100).toFixed(2) };
+  })()`);
+  check('政权年表只收它自己的疆域', !!bookPol && bookPol.entries < 80 && bookPol.maskPct < 8, bookPol);
+
+  /* 回归：换年份后抽屉仍然停在同一个实体（focus 存的是 key，不是 shape id） */
+  const stable = await js(`(() => {
+    const t = window.__t;
+    const before = t.state.focus && t.state.focus.key;
+    const titleBefore = (document.querySelector('#sheet-inner h2') || {}).textContent;
+    t.setYear(1200);
+    const titleAfter = (document.querySelector('#sheet-inner h2') || {}).textContent;
+    return { before, after: t.state.focus && t.state.focus.key, titleBefore, titleAfter };
+  })()`);
+  check('换年份后抽屉不跳到别的实体', stable.before === stable.after && stable.titleBefore === stable.titleAfter, stable);
+
   /* 切回国家层 */
   await js(`window.__t.setLayer('country')`);
   const back = await js(`({shapes: window.__t.partition.shapes.length, iso: !!window.__t.shapeOf(1).iso})`);

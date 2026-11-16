@@ -246,3 +246,9 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
   transition:transform .3s cubic-bezier(.22,.95,.3,1)}
 #layers[data-active="polity"]::before{transform:translateX(100%)}
 #layers button.on{background:none}
+
+/* 半屏时保住时间轴：抽屉底部让出时间轴高度，时间轴浮在抽屉之上 */
+#sheet{padding-bottom:calc(96px + var(--safe-b))}
+#sheet.full{padding-bottom:0}
+#dock{z-index:9;transition:opacity .28s ease,transform .28s ease}
+body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
