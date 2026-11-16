@@ -1534,12 +1534,16 @@ function sheetDetents() {
 }
 
 function applySheetOffset(offset, animate = true) {
+  /* offset 必须是有限数：一旦是 NaN，transform 无效，抽屉就再也拖不动了 */
+  const H = view.h || innerHeight;
+  if (!Number.isFinite(offset)) offset = Number.isFinite(sheetState.offset) ? sheetState.offset : H;
   sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
   sheetEl.style.transform = 'translateY(' + Math.round(offset) + 'px)';
-  const H = view.h || innerHeight;
   const d = sheetDetents();
   const show = offset < H - 2;
+  /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
+  dimEl.classList.toggle('show', show);
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--dock-h', dockHeight() + 'px');
@@ -1550,9 +1554,12 @@ function applySheetOffset(offset, animate = true) {
 }
 
 function sheetTo(detent, animate = true) {
+  const d = sheetDetents();
+  /* 只认四个真档位；'custom' 这种自由位置就停在原地，不能把 offset 变成 NaN */
+  if (!(detent in d)) { applySheetOffset(sheetState.offset, animate); return; }
   const prev = sheetState.detent;
   sheetState.detent = detent;
-  applySheetOffset(sheetDetents()[detent], animate);
+  applySheetOffset(d[detent], animate);
   /* 抽屉上来了，地球往上让一点，选中的那块别被盖住 */
   const H = view.h || innerHeight;
   const target = detent === 'full' ? H * 0.15 : detent === 'half' ? H * 0.075 : detent === 'peek' ? H * 0.04 : 0;
@@ -1585,13 +1592,13 @@ function scrollToHere() {
   }, 120);
 }
 
-/* 手势：抓手上拖 / 内容在顶部时下拉 / 半屏时任意位置上下拖 */
-function sheetDragStart(e) {
+/* 手势：抓手上拖（随时可用）/ 内容在顶部时下拉 / 半屏时任意位置上下拖 */
+function sheetDragStart(e, fromGrab) {
   if (e.target.closest('button, a, input')) return;
-  const d = sheetDetents();
-  const atTop = sheetScroll.scrollTop <= 0;
-  if (!atTop && sheetState.detent !== 'full') return;
-  if (!atTop && sheetState.detent === 'full') return;
+  if (e.pointerType === 'mouse' && e.buttons === 0) return;
+  if (!Number.isFinite(sheetState.offset)) sheetState.offset = sheetDetents().hidden;
+  /* 抓手是「永远能拖」的：全屏且内容已经滚下去时，也只有它能收起来 */
+  if (!fromGrab && sheetScroll.scrollTop > 0) return;
   sheetState.dragging = true;
   sheetState.startY = e.clientY;
   sheetState.startOffset = sheetState.offset;
@@ -1635,15 +1642,15 @@ function sheetDragEnd() {
   }
 }
 
-grabEl.addEventListener('pointerdown', sheetDragStart);
-sheetScroll.addEventListener('pointerdown', (e) => {
-  const atTop = sheetScroll.scrollTop <= 0;
-  if (!atTop) return;
-  sheetDragStart(e);
-});
+grabEl.addEventListener('pointerdown', (e) => sheetDragStart(e, true));
+sheetScroll.addEventListener('pointerdown', (e) => sheetDragStart(e, false));
 sheetScroll.addEventListener('pointermove', sheetDragMove);
 sheetScroll.addEventListener('pointerup', sheetDragEnd);
 sheetScroll.addEventListener('pointercancel', sheetDragEnd);
+/* 兜底：指针在别处松开（甩出屏幕、切后台）也要结束拖动，否则会一直粘着手势 */
+addEventListener('pointerup', sheetDragEnd);
+addEventListener('pointercancel', sheetDragEnd);
+addEventListener('blur', sheetDragEnd);
 dimEl.addEventListener('click', () => closeSheet());
 
 /* 内容：档案头 + 书，一列到底 */
@@ -1739,6 +1746,7 @@ function openEntity(layerId, id) {
     sheetTo('half');
     sheetScroll.scrollTop = 0;
   } else {
+    /* 已经开着：保持当前高度（自由位置也保持不变），只换内容 */
     sheetTo(sheetState.detent);
   }
   invalidate();
@@ -1760,7 +1768,9 @@ sheetInner.addEventListener('click', (e) => {
   const i = CH.indexOf(chapterOf(state.year));
   const next = CH[clamp(i + (act === 'next' ? 1 : -1), 0, CH.length - 1)];
   if (next) {
-    state.year = act === 'next' ? next.a : next.b;
+    /* 相邻两章的边界年份可能重号（上一章的末年是下一章的首年），别原地不动 */
+    const want = act === 'next' ? next.a : next.b;
+    state.year = want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want;
     onYearChanged();
     sheetScroll.scrollTop = 0;
   }
@@ -2090,8 +2100,8 @@ function setLayer(id) {
   layersEl.dataset.active = id;
   if (id === 'polity' && !polityState.loaded) ensurePolity();
   if (id === 'polity' && state.year > POLITY_END) { /* 允许，图上沿用 2024 边界 */ }
-  state.focus = null;
-  sheetEl.classList.remove('open');
+  /* 换划分方式时，抽屉里那张卡片描述的已经是另一套东西了：收起来，别留残影 */
+  closeSheet();
   rebuildPartition();
   syncHud();
   drawTrack();

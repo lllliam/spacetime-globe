@@ -216,6 +216,34 @@ async function main() {
   await js('window.__t.closeSheet()');
   await sleep(420);
 
+  /* 回归：把抽屉停在自由位置后再点别的国家，它还得能拖
+     （曾经 sheetTo('custom') 把 offset 算成 NaN，transform 失效，抽屉就彻底拖不动了） */
+  await js(`(() => { const t = window.__t; const q = t.screenOf(110*Math.PI/180, 34*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
+  await sleep(640);
+  const gp = await js(`(() => { const r = document.getElementById('grab').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+  const dragBy = async (dy) => {
+    /* 每次都重新取抓手位置：抽屉动了之后抓手跟着动 */
+    const g2 = await js(`(() => { const r = document.getElementById('grab').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+    await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: g2.x, y: g2.y, button: 'left', clickCount: 1, buttons: 1 });
+    for (let i = 1; i <= 8; i++) {
+      await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: g2.x, y: g2.y + (dy * i) / 8, button: 'left', buttons: 1 });
+      await sleep(24);
+    }
+    await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: g2.x, y: g2.y + dy, button: 'left', clickCount: 1, buttons: 0 });
+    await sleep(620);
+    return js(`(() => ({ detent: window.__t.sheet.detent, offset: window.__t.sheet.offset, tf: document.getElementById('sheet').style.transform }))()`);
+  };
+  const free1 = await dragBy(160);
+  /* 换一个国家（抽屉开着） */
+  await js(`(() => { const t = window.__t; const q = t.screenOf(78*Math.PI/180, 22*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
+  await sleep(600);
+  const free2 = await dragBy(-90);
+  const okFinite = Number.isFinite(free1.offset) && Number.isFinite(free2.offset);
+  const moved = Math.abs(free2.offset - free1.offset) > 20 && !/NaN/.test(free2.tf);
+  check('自由位置后再点别国，抽屉还能拖', okFinite && moved && free2.detent !== 'hidden', { free1, free2 });
+  await js('window.__t.closeSheet()');
+  await sleep(420);
+
   /* 放大 + 平移后：GL 球、矢量层、拾取必须仍然对齐（曾经的 bug 是 GL 忽略 pan） */
   await js(`(() => { const t = window.__t; t.state.zoom = 2.2; t.view.Rz = t.view.R * 2.2; t.state.panX = -60; t.state.panY = 30; t.redraw(); })()`);
   await sleep(320);

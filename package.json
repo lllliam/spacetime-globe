@@ -9,6 +9,7 @@
     "serve": "node tools/serve.mjs",
     "verify": "node tools/verify-ui.js",
     "shots": "node tools/shots.js",
-    "stories": "node tools/fetch-stories.js"
+    "stories": "node tools/fetch-stories.js",
+    "smoke": "node tools/smoke.js"
   }
 }
