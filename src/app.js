@@ -1515,16 +1515,22 @@ function tapGlobe(sx, sy) {
    内容只有一份，展开只是同一根滚动轴露得更多。 */
 const KIND_LABEL = { country: '现代国家', polity: '政权' };
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
+const dockEl = el('dock');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
+
+/* 时间轴（含工具栏）的实际高度：抽屉的 peek 档必须比它高，
+   否则抽屉会缩进时间轴后面，抓手就抓不到了 */
+function dockHeight() {
+  const h = dockEl ? dockEl.getBoundingClientRect().height : 0;
+  return Math.round(h || 130);
+}
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  return {
-    hidden: H,
-    peek: H - clamp(H * 0.24, 160, 215),
-    half: H - clamp(H * 0.58, 400, 640),
-    full: 0,
-  };
+  const dock = dockHeight();
+  const peek = Math.min(H - 120, H - dock - 116);   // 时间轴上方还留 116px
+  const half = Math.min(peek - 64, H - clamp(H * 0.58, 400, 640));
+  return { hidden: H, peek: Math.max(H * 0.35, peek), half: Math.max(H * 0.3, half), full: 0 };
 }
 
 function applySheetOffset(offset, animate = true) {
@@ -1532,11 +1538,13 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.style.transition = animate ? '' : 'none';
   sheetEl.style.transform = 'translateY(' + Math.round(offset) + 'px)';
   const H = view.h || innerHeight;
+  const d = sheetDetents();
   const show = offset < H - 2;
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
+  sheetEl.style.setProperty('--dock-h', dockHeight() + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
-  sheetEl.classList.toggle('peek', offset >= sheetDetents().peek - 1 && offset < sheetDetents().half - 1);
+  sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
 }
@@ -1601,10 +1609,9 @@ function sheetDragMove(e) {
   sheetState.vy = (e.clientY - sheetState.lastY) / dt * 1000;
   sheetState.lastY = e.clientY;
   sheetState.lastT = now;
-  const H = view.h || innerHeight;
-  /* 往下最多拉到「抓手刚好在时间轴上方」的位置：
-     以前能一路拉到屏幕外，抽屉就藏到进度条底下再也抓不到了 */
-  const maxOffset = Math.max(0, H - 132);
+  const d = sheetDetents();
+  /* 下限是 peek 再给 44px 的「拉过头」余量：再往下就关闭，但抓手永远出不了屏幕 */
+  const maxOffset = d.peek + 44;
   const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, maxOffset);
   applySheetOffset(offset, false);
 }
@@ -1614,21 +1621,18 @@ function sheetDragEnd() {
   sheetState.dragging = false;
   sheetEl.classList.remove('dragging');
   const d = sheetDetents();
-  const H = view.h || innerHeight;
-  const order = ['full', 'half', 'peek', 'hidden'];
-  let target;
-  /* 拉过这个线就算「往下甩掉」 */
-  if (sheetState.vy > 700 && sheetState.offset > d.peek - 60) target = 'hidden';
-  else if (Math.abs(sheetState.vy) > 500) {
-    const i = order.indexOf(sheetState.detent);
-    target = order[clamp(i + (sheetState.vy < 0 ? -1 : 1), 0, order.length - 1)];
-    if (target === 'hidden' && sheetState.offset < d.peek - 40) target = 'peek';
-  } else {
-    target = order.reduce((best, k) => (Math.abs(d[k] - sheetState.offset) < Math.abs(d[best] - sheetState.offset) ? k : best), 'peek');
-    if (target === 'hidden') target = 'peek';
+  const off = sheetState.offset;
+  /* 拉过 peek 线、或者往下甩得够快 → 收起 */
+  if (off > d.peek + 8 || (sheetState.vy > 760 && off > d.peek - 90)) { closeSheet(); return; }
+  /* 只在离档位 44px 以内才吸附，否则就停在松手的地方（可以停在任意高度） */
+  const near = ['full', 'half', 'peek'].find((k) => Math.abs(d[k] - off) < 44);
+  if (near) sheetTo(near);
+  else {
+    sheetState.detent = off <= 1 ? 'full' : off >= d.peek ? 'peek' : 'custom';
+    applySheetOffset(off, true);
+    const H = view.h || innerHeight;
+    animateLift(off <= 1 ? H * 0.15 : off < d.half ? H * 0.09 : H * 0.045);
   }
-  if (target === 'hidden') closeSheet();
-  else sheetTo(target);
 }
 
 grabEl.addEventListener('pointerdown', sheetDragStart);
@@ -2009,7 +2013,7 @@ function drawTrack() {
   if (!density) buildDensity();
   const w = trackW;
   tctx.clearRect(0, 0, w, T_H);
-  const labelY = 13, top = 24, areaH = 24, railY = 62, footY = 82;
+  const labelY = 16, top = 27, areaH = 24, railY = 66, footY = 86;
   const x0 = xOfPos(0), x1 = xOfPos(1);
   const active = chapterOf(state.year);
   for (let i = 0; i < CH.length; i++) {

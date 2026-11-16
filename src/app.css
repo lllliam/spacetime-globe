@@ -26,12 +26,12 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #sub{font-size:11.5px;color:var(--muted);letter-spacing:.03em;font-variant-numeric:tabular-nums}
 #sub b{color:var(--gold);font-weight:600}
 
-/* ── 引导 ── */
-#hint{position:fixed;left:0;right:0;bottom:calc(var(--safe-b) + 116px);z-index:5;pointer-events:none;
-  text-align:center;font-size:11.5px;letter-spacing:.02em;color:var(--muted);opacity:.95;
-  transition:opacity .8s ease,transform .8s ease}
-#hint b{color:var(--gold);font-weight:600}
-#hint.gone{opacity:0;transform:translateY(6px)}
+/* ── 引导（长在 HUD 里，永远不会压到下面的按钮） ── */
+#hint{margin-top:6px;max-width:21em;font-size:11px;line-height:1.6;letter-spacing:.02em;
+  color:var(--muted);opacity:.95;pointer-events:none;
+  transition:opacity .7s ease,transform .7s ease}
+#hint b{color:var(--gold-dim);font-weight:600}
+#hint.gone{opacity:0;transform:translateY(-4px)}
 
 /* ── 底部：抽屉 + 时间轴 ── */
 #dock{position:fixed;left:0;right:0;bottom:0;z-index:6;padding:0 0 var(--safe-b);
@@ -248,7 +248,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #layers button.on{background:none}
 
 /* 半屏时保住时间轴：抽屉底部让出时间轴高度，时间轴浮在抽屉之上 */
-#sheet{padding-bottom:calc(96px + var(--safe-b))}
+/* 见文件末尾的 --dock-h 规则 */
 #sheet.full{padding-bottom:0}
 #dock{z-index:9;transition:opacity .28s ease,transform .28s ease}
 body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
@@ -272,4 +272,15 @@ body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
 #sub{line-height:1.5}
 #toolbar{gap:8px}
 #loadpill span{font-variant-numeric:tabular-nums}
-'
+
+/* 抽屉打开时把时间轴底衬做实，抽屉内容从它下面穿过去也看不出来 */
+body.sheet-open #dock{background:linear-gradient(180deg,rgba(10,15,22,0) 0,rgba(10,15,22,1) 4px,#0a0f16 100%)}
+/* 抽屉内容不要被时间轴硬切一刀，上缘做 18px 渐隐 */
+#dock::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,15,22,0),rgba(10,15,22,1));
+  opacity:0;transition:opacity .25s ease}
+body.sheet-open #dock::before{opacity:1}
+
+/* 抽屉底部让位给时间轴：高度用 JS 量出来的 --dock-h，别写死 */
+#sheet{padding-bottom:calc(var(--dock-h, 130px))}
+#sheet.full{padding-bottom:0}
