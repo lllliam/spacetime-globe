@@ -1,0 +1,236 @@
+[
+  {
+    "id": "china-early",
+    "title": "中国早期国家与帝国",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "east-asia-networks",
+    "title": "东亚的国家、城市与交流",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "china-late-qing",
+    "title": "晚清：危机中的转型",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 8
+  },
+  {
+    "id": "east-asia-modern",
+    "title": "东亚的现代转型",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "south-asia-early",
+    "title": "南亚的城市、帝国与信仰",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "south-asia-modern",
+    "title": "南亚：帝国、殖民与独立",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 5
+  },
+  {
+    "id": "southeast-asia-networks",
+    "title": "东南亚：河流、海路与王国",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "southeast-asia-modern",
+    "title": "东南亚的殖民与国家建构",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "central-asia",
+    "title": "中亚：绿洲、草原与欧亚网络",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "west-asia-ancient",
+    "title": "西亚：城市、文字与帝国",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "islamic-networks",
+    "title": "伊斯兰世界的城市与知识网络",
+    "continents": [
+      "亚洲",
+      "非洲",
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "ottoman-persia",
+    "title": "奥斯曼与萨法维：帝国的治理",
+    "continents": [
+      "亚洲",
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "west-asia-modern",
+    "title": "现代西亚：改革、边界与社会",
+    "continents": [
+      "亚洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "nile-civilizations",
+    "title": "尼罗河与红海的国家和社会",
+    "continents": [
+      "非洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "north-africa",
+    "title": "北非与地中海的交汇",
+    "continents": [
+      "非洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "west-africa",
+    "title": "西非与中非：城镇、商路与王国",
+    "continents": [
+      "非洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "east-southern-africa",
+    "title": "东非与南部非洲的交流世界",
+    "continents": [
+      "非洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "africa-modern",
+    "title": "非洲：殖民统治与独立道路",
+    "continents": [
+      "非洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "europe-classical",
+    "title": "希腊与罗马：公民、帝国与日常",
+    "continents": [
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "europe-medieval",
+    "title": "中世纪欧洲的多种秩序",
+    "continents": [
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "europe-early-modern",
+    "title": "欧洲：远航、革命与工业社会",
+    "continents": [
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "europe-modern",
+    "title": "欧洲：战争、重建与整合",
+    "continents": [
+      "欧洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "north-america-indigenous",
+    "title": "北美原住民的社会与交流",
+    "continents": [
+      "北美洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "north-america-modern",
+    "title": "北美：殖民、共和国与权利",
+    "continents": [
+      "北美洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "mesoamerica-andes",
+    "title": "中美洲与安第斯的文明",
+    "continents": [
+      "北美洲",
+      "南美洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "latin-america",
+    "title": "拉丁美洲：殖民、独立与社会变迁",
+    "continents": [
+      "北美洲",
+      "南美洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "oceania",
+    "title": "大洋洲：航海、土地与主权",
+    "continents": [
+      "大洋洲"
+    ],
+    "chapters": 4
+  },
+  {
+    "id": "global-connections",
+    "title": "当代世界的连接与分歧",
+    "continents": [
+      "亚洲",
+      "欧洲",
+      "非洲",
+      "北美洲",
+      "南美洲",
+      "大洋洲"
+    ],
+    "chapters": 4
+  }
+]

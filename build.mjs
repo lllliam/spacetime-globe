@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /* 构建两个产物：
- *   index.html          线上版：壳 + 代码，数据走 data/ 按需加载（首屏 ~150 KB）
- *   index.offline.html  单文件版：数据全内嵌，双击即开、可离线（约 6 MB）
+ *   index.html          线上版：壳 + 代码，地球数据走 data/ 按需加载，专题内嵌（HTML 约550 KB）
+ *   index.offline.html  单文件版：数据全内嵌，双击即开、可离线（约3.4 MB）
  *
  * 数据来自 data/：world.json / polity.bin.gz / relief.jpg
  */
-import { readFileSync, writeFileSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, statSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -18,7 +18,9 @@ const readingMarker = '/* ───────────── 19. 启动 ─
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
 const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + readingMarker);
-const topics = JSON.parse(rd('data', 'topics.json'));
+const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
+  .map((f) => JSON.parse(rd('data', 'topics', f)));
+writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
 for (const t of topics) {
   if (topicIds.has(t.id) || !t.id || !t.title || !Number.isFinite(t.from) || t.from > t.to || !t.chapters.length) throw new Error('专题结构不合法');
@@ -90,7 +92,7 @@ const offline = page(
 writeFileSync(join(root, 'index.offline.html'), offline, 'utf8');
 
 const kb = (n) => (n / 1024).toFixed(0) + ' KB';
-console.log(`index.html          ${kb(statSync(join(root, 'index.html')).size)}   （数据外置，首屏只需 world.json）`);
+console.log(`index.html          ${kb(statSync(join(root, 'index.html')).size)}   （专题内嵌，地球数据按需加载）`);
 console.log(`index.offline.html  ${kb(statSync(join(root, 'index.offline.html')).size)}   （全内嵌，双击可开）`);
 console.log(`  data/world.json       ${kb(statSync(join(root, 'data/world.json')).size)}`);
 console.log(`  data/polity.bin.gz    ${kb(statSync(join(root, 'data/polity.bin.gz')).size)}`);

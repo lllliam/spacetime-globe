@@ -196,6 +196,13 @@ let polityState = { loading: false, loaded: false, error: null };
 function initWorld(w) {
   world = w;
   regions = w.regions;
+  // 地图有轮廓但旧年表未单列的区域，也能打开档案并进入已编写的地区专题。
+  const knownIsos = new Set(regions.map((r) => r.iso));
+  for (const [iso] of w.map) {
+    if (!/^[A-Z]{2}$/.test(iso) || knownIsos.has(iso)) continue;
+    regions.push({id:'g-map-' + iso, iso, zh:(w.isoNames || {})[iso] || iso, en:iso, parent:'g-world'});
+    knownIsos.add(iso);
+  }
   regionById = new Map(regions.map((r) => [r.id, r]));
   regionByIso = new Map(regions.filter((r) => r.iso).map((r) => [r.iso, r]));
   entries = w.entries.map((e) => {

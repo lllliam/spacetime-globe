@@ -357,3 +357,10 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #sheet-scroll{scrollbar-width:thin;scrollbar-color:#39414d transparent}
 #sheet:not(.full) #sheet-scroll{flex:none;height:var(--sheet-scroll-height,300px)}
 #book{animation:none;overflow:hidden}
+.reading-refs{white-space:nowrap;margin-left:5px;font:11px/1.4 -apple-system,system-ui,sans-serif;vertical-align:super}
+.reading-refs a{color:var(--gold);text-decoration:none}
+.reading-connections{margin:32px 0;border-top:1px solid var(--line)}
+.reading-sources a{scroll-margin-block:20px}
+.reading-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+.reading-filters button{appearance:none;cursor:pointer;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--muted);font:inherit;font-size:12px;line-height:1.6;padding:7px 12px}
+.reading-filters button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(224,178,115,.09)}

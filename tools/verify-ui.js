@@ -16,9 +16,9 @@ async function main() {
   buildHarness();
   const { server, port } = await startServer(0);
   const url = `http://127.0.0.1:${port}/_harness.html`;
-  const dcPort = 9600 + Math.floor(Math.random() * 200);
+  const profile = require('path').join(require('os').tmpdir(), 'globe-verify-' + process.pid);
   const args = [
-    '--headless=new', `--remote-debugging-port=${dcPort}`, `--user-data-dir=${require('os').tmpdir()}/globe-verify-${process.pid}`,
+    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--hide-scrollbars',
     '--window-size=390,844', url,
   ];
@@ -28,8 +28,9 @@ async function main() {
   let target = null;
   for (let i = 0; i < 100 && !target; i++) {
     try {
+      const dcPort = Number(require('fs').readFileSync(require('path').join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/)[0]);
       const list = await (await fetch(`http://127.0.0.1:${dcPort}/json/list`)).json();
-      target = list.find((t) => t.type === 'page' && t.url.startsWith('http://127.0.0.1'));
+      target = list.find((t) => t.type === 'page' && t.url === url);
     } catch { }
     if (!target) await sleep(250);
   }
@@ -125,6 +126,11 @@ async function main() {
   check('点国家打开档案（含事实行）', sheet.open && /中国/.test(sheet.title || '') && sheet.hasFacts, sheet);
   await js(`window.__t.closeSheet()`);
   await sleep(500);
+  // Canvas 兜底在繁忙机器上可能少帧，等待实际弹簧位置而非固定延迟。
+  for (let i=0;i<60;i++) {
+    if (await js('Math.abs(__t.sheet.offset-innerHeight)<1')) break;
+    await sleep(50);
+  }
 
   /* 拖动 */
   const y0 = await js('window.__t.state.yaw');
@@ -323,12 +329,12 @@ async function main() {
   await sleep(500);
   const original = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
   await js(`document.querySelector('[data-read-topic]').click()`);
-  const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('.reading-card').length,dock:getComputedStyle(document.getElementById('dock')).visibility})`);
-  check('晚清专题有六个节点且收起时间轴', topic.open && topic.cards===6 && topic.dock==='hidden' && /晚清/.test(topic.title), topic);
+  const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,dock:getComputedStyle(document.getElementById('dock')).visibility})`);
+  check('晚清专题有八个节点且收起时间轴', topic.open && topic.cards===8 && topic.dock==='hidden' && /晚清/.test(topic.title), topic);
   await js(`document.getElementById('book-body').scrollTop=240`);
   const indexScroll = await js('document.getElementById("book-body").scrollTop');
   await js(`document.querySelector('[data-reading-detail="boxers"]').click()`);
-  check('节点打开解释与独立来源', await js(`document.querySelectorAll('#book-body article').length===3 && document.querySelectorAll('.reading-sources a').length>0`));
+  check('节点打开解释与独立来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>0`));
   await js(`document.getElementById('book-body').scrollTop=180`);
   const detailScroll = await js('document.getElementById("book-body").scrollTop');
   await send('Input.dispatchKeyEvent', {type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
@@ -345,10 +351,46 @@ async function main() {
   check('退出阅读恢复原年份相机与选中地区', original===restored, {original,restored});
   await js(`document.querySelector('[data-read-topic]').click()`);
   check('重新进入保留专题进度', await js(`Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
+  /* 全球内容：年代选择、跨洲导航、目录与阅读栈都不改变地球。 */
+  const eraMatches = await js(`[
+    ['CN',-221,'china-early'],['CN',1200,'east-asia-networks'],['CN',1900,'china-late-qing'],
+    ['EG',-2500,'nile-civilizations'],['ML',1500,'west-africa'],['PE',1500,'mesoamerica-andes'],
+    ['US',1150,'north-america-indigenous'],['AU',1788,'oceania'],['IN',2026,null]
+  ].map(([iso,year,expected])=>({iso,year,expected,actual:(__t.topicForEntity({kind:'country',iso},year)||{}).id||null}))`);
+  check('六洲专题按地区和真实覆盖年代推荐',eraMatches.every(x=>x.actual===x.expected),eraMatches);
+  check('新增区域轮廓可点击并有中文名称',await js(`(()=>{const s=__t.partition.shapes.find(s=>s.iso==='ML');const e=__t.entityById('country',s.id);return !!e&&e.name!=='ML'})()`));
+  const polityMatches=await js(`[['Qing Dynasty',1900,'china-late-qing'],['Ottoman Empire',1600,'ottoman-persia'],['Mali Empire',1400,'west-africa'],['Aztec Triple Alliance',1500,'mesoamerica-andes']].map(([name,year,expected])=>({name,expected,actual:(__t.topicForEntity({kind:'polity',name},year)||{}).id}))`);
+  check('历史政权使用数据包实际名称匹配',polityMatches.every(x=>x.actual===x.expected),polityMatches);
+  await js(`document.querySelector('[data-reading-detail="boxers"]').click();document.getElementById('book-body').scrollTop=420`);
+  const linkedScroll=await js('document.getElementById("book-body").scrollTop');
+  check('正文段落来源索引可以定位出处',await js(`(()=>{const a=document.querySelector('.reading-refs a');return !!a&&!!document.getElementById(a.getAttribute('href').slice(1))})()`));
+  await js(`document.querySelector('[data-reading-topic="east-asia-modern"]').click()`);
+  check('跨专题直接进入相关篇章且地球不跳年',await js(`__t.reading.topic.id==='east-asia-modern' && __t.reading.detail==='meiji' && __t.state.year===1900`));
+  await js(`document.getElementById('reading-back').click()`);
+  check('返回上篇恢复原章节和阅读位置',await js(`__t.reading.topic.id==='china-late-qing' && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${linkedScroll})<2`));
+  await js(`document.querySelector('[data-reading-catalog]').click()`);
+  check('全球目录可达且地图定位不冒充事件',await js(`__t.reading.catalog && document.querySelectorAll('[data-reading-topic]').length===28 && document.getElementById('reading-map').disabled`));
+  await js(`document.querySelector('[data-reading-continent="非洲"]').click()`);
+  const africaCatalog=await js(`({ids:[...document.querySelectorAll('[data-reading-topic]')].map(b=>b.dataset.readingTopic),filter:document.querySelector('[data-reading-continent="非洲"]').getAttribute('aria-pressed')})`);
+  check('目录按大洲筛选并保留跨洲专题',africaCatalog.ids.includes('west-africa')&&africaCatalog.ids.includes('islamic-networks')&&!africaCatalog.ids.includes('china-early')&&africaCatalog.filter==='true',africaCatalog);
+  await js(`document.getElementById('book-body').scrollTop=350`);
+  const catalogScroll=await js('document.getElementById("book-body").scrollTop');
+  await js(`document.querySelector('[data-reading-topic="west-africa"]').click()`);
+  check('目录可进入非洲专题，保持原地球状态',await js(`__t.reading.topic.id==='west-africa'&&!__t.reading.catalog&&__t.state.year===1900`));
+  await js(`document.getElementById('reading-back').click()`);
+  check('从专题返回原大洲目录与位置',await js(`__t.reading.catalog&&__t.reading.catalogContinent==='非洲'&&Math.abs(document.getElementById('book-body').scrollTop-${catalogScroll})<2`));
+  await js(`document.getElementById('reading-back').click()`);
+  check('目录返回原文，不丢失章节',await js(`__t.reading.detail==='boxers'&&!__t.reading.catalog`));
+  await js(`document.getElementById('reading-back').click()`);
   // 窄屏截图与横屏：无水平溢出，返回按钮仍可触达。
   await send('Emulation.setDeviceMetricsOverride', {width:320,height:740,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   check('320px 手机阅读无横向溢出', await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth && document.getElementById('book-bar').scrollWidth<=innerWidth`));
+  await js(`document.querySelector('[data-reading-catalog]').click()`);
+  check('320px 全球目录筛选与卡片无横向溢出',await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth && document.querySelector('.reading-filters').scrollWidth<=document.getElementById('book-body').clientWidth`));
+  const catalogShot=await send('Page.captureScreenshot',{format:'png'});
+  require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-world.png'),Buffer.from(catalogShot.data,'base64'));
+  await js(`document.getElementById('reading-back').click()`);
   await js(`document.getElementById('book-body').scrollTop=0;document.activeElement.blur()`);
   const shot = await send('Page.captureScreenshot', {format:'png'});
   require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-topic.png'), Buffer.from(shot.data,'base64'));
@@ -358,7 +400,7 @@ async function main() {
   await send('Emulation.setDeviceMetricsOverride', {width:844,height:390,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   check('横屏阅读与返回按钮有效', await js(`document.getElementById('book-body').clientHeight>150 && document.getElementById('reading-back').getBoundingClientRect().top>=0`));
-  await js('__t.closeReader(); __t.closeSheet(); __t.setYear(1900)');
+  await js('__t.closeReader(); __t.closeSheet(); __t.setYear(2026)');
   await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
   await js(`__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='IN').id)`);
   await sleep(450);
@@ -396,14 +438,34 @@ async function main() {
     await sleep(200);
   }
   await js(`__t.setYear(1900);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
-  check('离线单文件可打开晚清专题', await js(`document.querySelectorAll('.reading-card').length===6 && !document.getElementById('book').hidden`));
+  check('离线单文件可打开晚清专题', await js(`document.querySelectorAll('[data-reading-detail].reading-card').length===8 && !document.getElementById('book').hidden`));
   check('离线单文件图标已内嵌', await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
+  await js(`document.querySelector('[data-reading-catalog]').click()`);
+  const offlineAll=await js(`(()=>{
+    const bad=[];let count=0;
+    for(const t of __t.topics){
+      document.querySelector('[data-reading-topic="'+t.id+'"]').click();
+      for(const c of t.chapters){
+        const b=document.querySelector('[data-reading-detail="'+c.id+'"]');
+        if(!b){bad.push(t.id+'/'+c.id+': navigation');break;}
+        b.click(); count++;
+        const body=document.getElementById('book-body');
+        if(__t.reading.detail!==c.id||body.querySelectorAll('article').length<4||body.querySelectorAll('.reading-sources a').length<2||body.scrollWidth>body.clientWidth)bad.push(t.id+'/'+c.id+': body');
+      }
+      document.getElementById('reading-back').click();
+      document.getElementById('reading-back').click();
+      if(!__t.reading.catalog){bad.push(t.id+': return');break;}
+    }
+    return {count,bad,topics:__t.topics.length};
+  })()`);
+  check('全部117篇可断网逐篇导航、显示来源并返回目录',offlineAll.count===117&&offlineAll.topics===28&&!offlineAll.bad.length,offlineAll);
 
   const errs = await js('window.__errs');
   check('控制台无异常', errs.length === 0, errs.slice(0, 4));
 
   const failed = results.filter((r) => !r.ok).length;
   console.log(`\n${failed ? 'FAILED' : 'PASSED'} · ${results.length - failed}/${results.length}`);
+  await Promise.race([send('Browser.close').catch(()=>{}),sleep(1500)]);
   ws.close(); proc.kill(); server.close();
   process.exit(failed ? 1 : 0);
 }

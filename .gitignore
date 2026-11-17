@@ -5,4 +5,5 @@ node_modules/
 Thumbs.db
 _harness.html
 _harness.offline.html
+tmp/
 data/enrich.pilot.json

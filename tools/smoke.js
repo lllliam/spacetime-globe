@@ -7,17 +7,23 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 (async () => {
   buildHarness();
   const { server, port } = await startServer(0);
-  const dc = 9900 + Math.floor(Math.random() * 80);
+  const profile = require('path').join(os.tmpdir(), 'globe-smoke-' + process.pid);
+  const startUrl = `http://127.0.0.1:${port}/_harness.html`;
   const proc = spawn(findBrowser(), [
-    '--headless=new', `--remote-debugging-port=${dc}`, `--user-data-dir=${os.tmpdir()}/globe-smoke-${process.pid}`,
+    '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
     '--no-first-run', '--disable-gpu', '--hide-scrollbars', '--window-size=390,844',
-    `http://127.0.0.1:${port}/_harness.html`,
+    startUrl,
   ], { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
   let t = null;
   for (let i = 0; i < 100 && !t; i++) {
-    try { const l = await (await fetch(`http://127.0.0.1:${dc}/json/list`)).json(); t = l.find((x) => x.type === 'page' && x.url.includes('_harness')); } catch { }
+    try {
+      const dc = Number(require('fs').readFileSync(require('path').join(profile,'DevToolsActivePort'),'utf8').split(/\r?\n/)[0]);
+      const l = await (await fetch(`http://127.0.0.1:${dc}/json/list`)).json();
+      t = l.find((x) => x.type === 'page' && x.url === startUrl);
+    } catch { }
     if (!t) await sleep(200);
   }
+  if (!t) { proc.kill(); server.close(); throw Error('测试浏览器启动失败'); }
   const ws = new WebSocket(t.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
   let n = 0; const pend = new Map(); const errs = [];
@@ -81,9 +87,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await tap(p2.x, p2.y);
   await js(`document.querySelector('[data-read-topic]').click()`);
   await sleep(400);
-  ok('专题入口打开独立阅读', await js(`!document.getElementById('book').hidden && document.querySelectorAll('.reading-card').length===6`));
+  ok('专题入口打开独立阅读', await js(`!document.getElementById('book').hidden && document.querySelectorAll('[data-reading-detail].reading-card').length===8`));
   await js(`document.querySelector('[data-reading-detail]').click()`);
-  ok('专题节点包含解释与来源', await js(`document.querySelectorAll('#book-body article').length===3 && document.querySelectorAll('.reading-sources a').length>0`));
+  ok('专题节点包含解释与来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>=2`));
   await js(`document.getElementById('reading-back').click();document.getElementById('reading-back').click()`);
   ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1900 && __t.sheet.detent==='half'`));
   await js('__t.closeSheet()');
@@ -157,5 +163,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   ok('全程无控制台异常', errs.length === 0, errs.slice(0, 3));
   console.log(`\n${fail === 0 ? 'PASSED' : 'FAILED'} · ${pass}/${pass + fail}`);
+  await Promise.race([send('Browser.close').catch(()=>{}),sleep(1500)]);
   ws.close(); proc.kill(); server.close();
+  process.exitCode = fail ? 1 : 0;
 })();

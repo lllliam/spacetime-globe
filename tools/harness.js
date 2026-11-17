@@ -39,6 +39,7 @@ window.__t = {
   entriesForBook, polityMaskOf, buildChapter, entityById, entityByKey, focusKeyOf,
   get stories(){ return stories },
   get reading(){ return reading },
+  get topics(){return TOPICS}, topicsForEntity, topicForEntity,
   readingGoBack, closeReader, previewReadingMap, resumeReader,
   get vecCount(){ return vecShapes.length },
   get vecShapes(){ return vecShapes },
