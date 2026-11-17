@@ -741,7 +741,12 @@ function initWorld(w) {
     if (!a) entryByRegion.set(e.region, (a = []));
     a.push(e);
   }
-  mapShapes = w.map.map(([iso, path], i) => ({ id: i + 1, iso, path, area: 0 }));
+  const countryPaths = new Map();
+  for (const [iso, path] of w.map) {
+    const key = iso === 'TW' ? 'CN' : iso;
+    countryPaths.set(key, (countryPaths.get(key) || '') + path);
+  }
+  mapShapes = [...countryPaths].map(([iso, path], i) => ({ id: i + 1, iso, path, area: 0 }));
   for (const s of mapShapes) {
     let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
     for (const m of s.path.matchAll(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g)) {
@@ -1018,11 +1023,6 @@ function buildBaseCanvas() {
     g.globalAlpha = 1;
     g.drawImage(earthImg, 0, 0, TW, TH);
   }
-  if (cloudsImg) {
-    g.globalAlpha = 0.82;
-    g.drawImage(cloudsImg, 0, 0, TW, TH);
-    g.globalAlpha = 1;
-  }
   baseCanvas = c;
 }
 
@@ -1030,7 +1030,7 @@ function buildBaseCanvas() {
 const VERT = `
 attribute vec3 aPos;
 attribute vec2 aUv;
-uniform mat3 uRot;
+uniform highp mat3 uRot;
 uniform vec2 uCenter;
 uniform vec2 uViewport;
 uniform float uScale;
@@ -1053,6 +1053,9 @@ uniform sampler2D uId;
 uniform sampler2D uLut;
 uniform vec3 uLight;
 uniform float uSel;
+uniform sampler2D uCloud;
+uniform float uCloudOffset;
+uniform highp mat3 uRot;
 void main() {
   vec3 n = normalize(vN);
   vec3 base = texture2D(uBase, vUv).rgb;
@@ -1067,7 +1070,15 @@ void main() {
   float lam = dot(n, normalize(uLight));
   float daylight = smoothstep(-0.20, 0.45, lam);
   float diffuse = max(lam, 0.0) * 1.05;
-  col *= 0.045 + 0.14 * daylight + diffuse;
+  vec3 sun = normalize(uLight);
+  vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
+  vec3 localN = vec3(sin((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927),
+    sin((0.5 - vUv.y) * 3.1415927), cos((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927));
+  vec3 shadowRay = normalize(localN + localSun * 0.012 / max(lam, 0.2));
+  vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
+    0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
+  float shadow = texture2D(uCloud, vec2(fract(shadowUv.x + uCloudOffset), shadowUv.y)).a;
+  col *= (0.025 + 0.11 * daylight + diffuse) * (1.0 - shadow * daylight * 0.25);
   float ocean = (1.0 - step(0.002, idTex.r)) *
     smoothstep(0.02, 0.16, base.b - base.r);
   vec3 halfLight = normalize(normalize(uLight) + vec3(0.0, 0.0, 1.0));
@@ -1078,6 +1089,24 @@ void main() {
   col = mix(col, vec3(0.15, 0.42, 0.78), rim * daylight * 0.48);
 
   gl_FragColor = vec4(col, 1.0);
+}`;
+
+const FRAG_CLOUD = `
+precision mediump float;
+varying vec2 vUv;
+varying vec3 vN;
+uniform sampler2D uCloud;
+uniform float uCloudOffset;
+uniform vec3 uLight;
+void main() {
+  vec3 n = normalize(vN);
+  float density = texture2D(uCloud, vec2(fract(vUv.x + uCloudOffset), vUv.y)).a;
+  float lam = dot(n, normalize(uLight));
+  float light = smoothstep(-0.16, 0.38, lam);
+  vec3 color = mix(vec3(0.10, 0.17, 0.27), vec3(0.96, 0.98, 1.0), light);
+  color *= 0.6 + 0.4 * max(lam, 0.0);
+  float horizon = smoothstep(0.0, 0.10, n.z);
+  gl_FragColor = vec4(color, density * 0.88 * horizon);
 }`;
 
 const VERT_ATM = `
@@ -1096,13 +1125,16 @@ const FRAG_ATM = `
 precision mediump float;
 varying vec2 vP;
 uniform vec3 uAtm;
+uniform vec3 uLight;
 void main() {
   float r = length(vP);
   float a = 0.0;
   if (r > 0.94) {
     float inner = smoothstep(0.985, 1.002, r);
     float t = clamp(1.0 - (r - 1.0) / 0.13, 0.0, 1.0);
-    a = inner * pow(t, 3.0) * 0.28;
+    vec3 limb = normalize(vec3(vP, 0.08));
+    float sun = smoothstep(-0.25, 0.55, dot(limb, normalize(uLight)));
+    a = inner * pow(t, 4.0) * (0.025 + 0.42 * sun);
   }
   gl_FragColor = vec4(uAtm, a);
 }`;
@@ -1136,8 +1168,8 @@ function initGL() {
     if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { console.warn('link', gl.getProgramInfoLog(p)); return null; }
     return p;
   };
-  const prog = program(VERT, FRAG), progAtm = program(VERT_ATM, FRAG_ATM);
-  if (!prog || !progAtm) return null;
+  const prog = program(VERT, FRAG), progAtm = program(VERT_ATM, FRAG_ATM), progCloud = program(VERT, FRAG_CLOUD);
+  if (!prog || !progAtm || !progCloud) return null;
 
   const LON = 192, LAT = 96;
   const verts = new Float32Array((LON + 1) * (LAT + 1) * 5);
@@ -1176,9 +1208,15 @@ function initGL() {
     base: gl.getUniformLocation(prog, 'uBase'), id: gl.getUniformLocation(prog, 'uId'),
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     sel: gl.getUniformLocation(prog, 'uSel'),
+    cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
+    atmLight: gl.getUniformLocation(progAtm, 'uLight'),
     atmCenter: gl.getUniformLocation(progAtm, 'uCenter'), atmViewport: gl.getUniformLocation(progAtm, 'uViewport'),
     atmScale: gl.getUniformLocation(progAtm, 'uScale'), atmColor: gl.getUniformLocation(progAtm, 'uAtm'),
   };
+  const cloudUniforms = Object.fromEntries(['uRot','uCenter','uViewport','uScale','uCloud','uCloudOffset','uLight']
+    .map(name => [name, gl.getUniformLocation(progCloud, name)]));
+  const cloudPos = gl.getAttribLocation(progCloud, 'aPos');
+  const cloudUv = gl.getAttribLocation(progCloud, 'aUv');
   const tex = (unit, nearest) => {
     const t = gl.createTexture();
     gl.activeTexture(gl.TEXTURE0 + unit);
@@ -1196,6 +1234,11 @@ function initGL() {
     return t;
   };
   const tBase = tex(0, false), tId = tex(1, true), tLut = tex(2, true);
+  const tCloud = tex(3, false);
+  const cloudCanvas = newCanvas(1024, 512);
+  if (cloudsImg) cloudCanvas.getContext('2d').drawImage(cloudsImg, 0, 0, 1024, 512);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cloudCanvas);
+  gl.generateMipmap(gl.TEXTURE_2D);
   const aniso = (() => {
     const ext = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
     if (!ext) return;
@@ -1250,6 +1293,9 @@ function initGL() {
       gl.uniform2f(U.viewport, W, H);
       gl.uniform1f(U.scale, scale);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
+      gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
+      gl.uniform1i(U.cloud, 3);
+      gl.uniform1f(U.cloudOffset, cloudDrift);
       gl.uniform1f(U.sel, st.focus ? st.focus.id : 0);
       gl.uniform1i(U.base, 0); gl.uniform1i(U.id, 1); gl.uniform1i(U.lut, 2);
       gl.disable(gl.BLEND);
@@ -1258,6 +1304,25 @@ function initGL() {
       gl.clearDepth(1);
       gl.disable(gl.CULL_FACE);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+      // A raised, separately lit shell gives the clouds their own silhouette.
+      gl.useProgram(progCloud);
+      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+      gl.enableVertexAttribArray(cloudPos);
+      gl.vertexAttribPointer(cloudPos, 3, gl.FLOAT, false, 20, 0);
+      gl.enableVertexAttribArray(cloudUv);
+      gl.vertexAttribPointer(cloudUv, 2, gl.FLOAT, false, 20, 12);
+      gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
+      gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
+      gl.uniform2f(cloudUniforms.uViewport, W, H);
+      gl.uniform1f(cloudUniforms.uScale, scale * 1.007);
+      gl.uniform1i(cloudUniforms.uCloud, 3);
+      gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
+      gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.depthMask(false);
+      gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+      gl.depthMask(true);
       gl.disable(gl.DEPTH_TEST);
 
       gl.useProgram(progAtm);
@@ -1267,6 +1332,7 @@ function initGL() {
       gl.uniform2f(U.atmCenter, center[0], center[1]);
       gl.uniform2f(U.atmViewport, W, H);
       gl.uniform1f(U.atmScale, scale);
+      gl.uniform3f(U.atmLight, -0.52, 0.44, 0.73);
       gl.uniform3f(U.atmColor, 0.42, 0.58, 0.78);
       gl.enable(gl.BLEND);
       gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE, gl.ONE, gl.ONE);
@@ -1912,7 +1978,7 @@ function buildCountryPick() {
 /* ───────────── 10. 渲染调度 ───────────── */
 let dirty = true, spinning = true, lastT = 0, rafId = 0;
 const reducedGlobeMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let spinStep = 0;
+let spinStep = 0, cloudDrift = 0;
 
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
@@ -1934,6 +2000,7 @@ function frame(t) {
   } else if (shouldSpin()) {
     spinStep += dt;
     if (spinStep >= 1 / 32) {
+      cloudDrift = (cloudDrift + spinStep * 0.0008) % 1;
       state.yaw = (state.yaw - 0.04 * spinStep) % TAU;
       dirty = true; spinStep = 0;
     }

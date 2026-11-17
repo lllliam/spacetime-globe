@@ -36,6 +36,8 @@ window.__t = {
   pick: pickAt, mapPointAt, setLayer, ensurePolity,
   openEntity, openBook, closeBook, loadStories, closeSheet,
   get sheet(){ return sheetState },
+  get sheetSettled(){ return !sheetMotion },
+  get cloudDrift(){ return cloudDrift },
   entriesForBook, polityMaskOf, buildChapter, entityById, entityByKey, focusKeyOf,
   get stories(){ return stories },
   get reading(){ return reading },

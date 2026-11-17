@@ -77,7 +77,8 @@ async function main() {
     await send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', clickCount: 1, buttons: 1 });
     await sleep(30);
     await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x, y, button: 'left', clickCount: 1, buttons: 0 });
-    await sleep(320);
+    await sleep(500);
+    for (let i=0;i<40;i++) { if (await js('__t.sheetSettled')) break; await sleep(75); }
   };
   const drag = async (x0, y0, x1, y1, steps = 10) => {
     await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: x0, y: y0, button: 'left', clickCount: 1, buttons: 1 });
@@ -108,8 +109,10 @@ async function main() {
   check('世界数据已装载', await js('window.__t.partition.shapes.length > 100'), await js('window.__t.partition.shapes.length'));
 
   const camera = () => js('({yaw:__t.state.yaw, zoom:__t.state.zoom, x:__t.state.panX, y:__t.state.panY})');
+  const initialCloud = await js('__t.cloudDrift');
   const initial = await camera();
   await sleep(350);
+  check('独立云层随自转缓慢移动', (await js('__t.cloudDrift')) > initialCloud);
   check('默认倍率下地球慢速自转', Math.abs((await camera()).yaw - initial.yaw) > 0.004);
   const finger = (type, x, y, halfGap = 40) => send('Input.dispatchTouchEvent', {
     type, touchPoints: type === 'touchEnd' ? [] : [{x:x-halfGap,y,id:1},{x:x+halfGap,y,id:2}],
@@ -241,6 +244,8 @@ async function main() {
   await sleep(350);
   await designShot('globe');
   check('首页保留球下留白',await js("!document.getElementById('home-story') && getComputedStyle(document.body).backgroundColor==='rgb(5, 8, 13)'"));
+  await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
+  await sleep(300);
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");
   await hold(globePoint,true);
   check('长按球体只打开观察方式',await js("!document.getElementById('view-panel').hidden && __t.sheet.detent==='hidden'"));
@@ -347,7 +352,7 @@ async function main() {
   /* 手势结果明确：小幅回弹、快扫触发、长拖展开/关闭，不留下自由位置。 */
   const openCountry = async (iso='CN') => {
     await js(`__t.openEntity('country', __t.partition.shapes.find(s=>s.iso===${JSON.stringify(iso)}).id)`);
-    await sleep(650);
+    for (let i=0;i<40;i++) { if (await js('__t.sheetSettled')) break; await sleep(75); }
   };
   const sheetGesture = async (dy, interval=32, steps=8, touch=false, target='grab', cancel=false, pause=0) => {
     const pt = await js(`(()=>{const r=document.querySelector(${JSON.stringify(target==='grab'?'#grab':'.sheet-overview')}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+Math.min(r.height/2,24)}})()`);
@@ -364,7 +369,7 @@ async function main() {
     const following=await js('({offset:__t.sheet.offset,start:__t.sheet.startOffset,dragging:__t.sheet.dragging,velocity:__t.sheet.vy,intent:document.getElementById("sheet").dataset.gesture})');
     if(touch) await send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',timestamp:base+(steps*interval+pause+12)/1000,touchPoints:[]});
     else await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:pt.x,y:pt.y+dy,button:'left',buttons:0,clickCount:1});
-    await sleep(650);
+    for (let i=0;i<40;i++) { if (await js('__t.sheetSettled')) break; await sleep(75); }
     return {...following,...await js('({detent:__t.sheet.detent,finalOffset:__t.sheet.offset,reading:!document.getElementById("book").hidden})')};
   };
   await openCountry();
