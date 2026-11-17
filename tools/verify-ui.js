@@ -240,25 +240,7 @@ async function main() {
   await js("__t.setYear(1900);document.activeElement.blur()");
   await sleep(350);
   await designShot('globe');
-  check('iPhone 17 Pro 竖屏上专题入口位于球下与安全区内',await js(`(() => {
-    const b = document.getElementById('home-story'), r = b.getBoundingClientRect(), v = __t.view;
-    return innerWidth === 402 && v.cyBase > innerHeight / 2 && r.top > v.cyBase + v.R &&
-      r.bottom < innerHeight && getComputedStyle(b).visibility === 'visible' &&
-      document.getElementById('sheet').getBoundingClientRect().top >= innerHeight - 1;
-  })()`));
-  await tap(...Object.values(await pointOf('#home-story')));
-  check('球下入口直接打开当年正文',await js("__t.reading.detail==='boxers' && __t.reading.active && __t.state.year===1900"));
-  await js("document.getElementById('reading-map').click()");
-  check('首页正文能定位地图',await js("__t.reading.preview && __t.state.zoom>1 && !document.getElementById('reading-resume').hidden"));
-  await js("__t.resumeReader();__t.closeReader()");
-  check('从首页正文返回恢复原年份、倍率与选区',await js("__t.state.year===1900 && __t.state.zoom===1 && __t.state.focus===null && __t.sheet.detent==='hidden'"));
-  await js("__t.setYear(2026)");
-  await tap(...Object.values(await pointOf('#home-story')));
-  check('无当年正文时进入全球专题目录',await js("__t.reading.active && __t.reading.catalog && document.querySelectorAll('[data-reading-continent]').length===7"));
-  await js("document.getElementById('reading-back').click();__t.setYear(1900)");
-  check('首页打开的目录可直接返回地球',await js("!__t.reading.active && __t.state.year===1900"));
-  await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
-  await sleep(300);
+  check('首页保留球下留白',await js("!document.getElementById('home-story') && getComputedStyle(document.body).backgroundColor==='rgb(5, 8, 13)'"));
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");
   await hold(globePoint,true);
   check('长按球体只打开观察方式',await js("!document.getElementById('view-panel').hidden && __t.sheet.detent==='hidden'"));

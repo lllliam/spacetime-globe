@@ -66,6 +66,8 @@ const put = (hay, needle, value) => {
 const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   let h = shell;
   h = put(h, '/*CSS*/', css);
+  h = put(h, '/*CLOUDS*/', readFileSync(join(root, 'data/clouds.png')).toString('base64'));
+  h = put(h, '/*EARTH*/', readFileSync(join(root, 'data/earth.jpg')).toString('base64'));
   h = put(h, '/*APP*/', app);
   h = put(h, '/*ATLAS*/', atlasJson);
   h = put(h, '/*RELIEF*/', reliefB64);

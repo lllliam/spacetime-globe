@@ -5,33 +5,13 @@ const VIEW_MODES = [
   {id:'nature', title:'自然地理', note:'观察地形与海陆', layer:'country'},
 ];
 const chrome = {timeline:false, panel:false, labels:true, grid:false, natural:false, followTime:true, playing:false, timer:0, playTimer:0};
-const timeDock = el('dock'), viewPanel = el('view-panel'), homeStory = el('home-story');
-const storiesByYear = new Map();
-for (const topic of TOPICS) {
-  for (const chapter of topic.chapters) {
-    const featured = storiesByYear.get(chapter.year);
-    if (!featured || (topic.priority || 0) > (featured.topic.priority || 0)) {
-      storiesByYear.set(chapter.year, { topic, chapter });
-    }
-  }
-}
-function syncHomeStory() {
-  if (scrubbing || chrome.playing) return;
-  const featured = storiesByYear.get(state.year);
-  const label = featured ? featured.chapter.title : '浏览历史专题';
-  if (homeStory.textContent !== label) homeStory.textContent = label;
-}
-function syncHomeZoom() {
-  document.body.classList.toggle('globe-zoomed', state.zoom > 1);
-}
-homeStory.addEventListener('click', () => openHomeReading(storiesByYear.get(state.year)));
+const timeDock = el('dock'), viewPanel = el('view-panel');
 el('year-input').max = YMAX;
 track.setAttribute('aria-valuemax',YMAX);
 try { const p=JSON.parse(localStorage.getItem('globe.display.v4')||'{}'); chrome.labels=p.labels!==false; chrome.grid=p.grid===true; } catch {}
 el('view-modes').innerHTML = VIEW_MODES.map(m=>'<button type="button" data-view="'+m.id+'" aria-pressed="false"><i></i><span><strong>'+m.title+'</strong><small>'+m.note+'</small></span></button>').join('');
 function saveDisplay() { try { localStorage.setItem('globe.display.v4',JSON.stringify({labels:chrome.labels,grid:chrome.grid})); } catch {} }
 function syncChrome() {
-  syncHomeStory();
   const mode=chrome.natural?'nature':state.layerId==='polity'?'history':'modern';
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));

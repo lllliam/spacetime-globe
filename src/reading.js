@@ -35,7 +35,7 @@ function rememberReading() {
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
-  for (const id of ['hud', 'home-story', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
+  for (const id of ['hud', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
   document.body.classList.toggle('reading-open', inert);
 }
 function openBook(topicId, fromOffset = null) {
@@ -44,11 +44,6 @@ function openBook(topicId, fromOffset = null) {
   if (!ent) return;
   const topic = typeof topicId === 'string' ? TOPICS.find((t) => t.id === topicId) || null : topicForEntity(ent);
   beginReading(ent, topic, null, fromOffset ?? sheetState.offset);
-}
-function openHomeReading(featured) {
-  if (reading.active) return;
-  beginReading(null, featured?.topic || null, featured?.chapter.id || null, 18);
-  reading.trigger = el('home-story');
 }
 function beginReading(ent, topic, chapter, fromOffset) {
   pauseGlobe();

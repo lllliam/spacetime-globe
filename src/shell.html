@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="地球仪">
-<meta name="theme-color" content="#0b1017">
+<meta name="theme-color" content="#05080d">
 <meta name="description" content="一颗地球，一条时间轴：看同一片土地在不同年代属于谁、发生过什么。">
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png?v=3">
 <link rel="manifest" href="manifest.webmanifest?v=3">
@@ -21,7 +21,6 @@
 
 <canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开观察方式"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
-<button id="home-story" type="button" aria-controls="book">浏览历史专题</button>
 
 <div id="scrim"></div>
 
@@ -80,6 +79,8 @@
 <button id="reading-resume" type="button" hidden>返回阅读 ↑</button>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
+<script id="clouds" type="application/octet-stream">/*CLOUDS*/</script>
+<script id="earth" type="application/octet-stream">/*EARTH*/</script>
 <script id="relief" type="application/octet-stream">/*RELIEF*/</script>
 <script id="politypack" type="application/octet-stream">/*POLITY*/</script>
 <script id="stories" type="application/json">/*STORIES*/</script>

@@ -411,7 +411,7 @@ function updateSummary() {
 }
 
 /* ───────────── 5. 材质 ───────────── */
-let baseCanvas = null, reliefImg = null;
+let baseCanvas = null, earthImg = null, cloudsImg = null, reliefImg = null;
 let glr = null;
 
 function newCanvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
@@ -489,6 +489,16 @@ function buildBaseCanvas() {
   ice2.addColorStop(1, 'rgba(232,240,246,0)');
   g.fillStyle = ice2; g.fillRect(0, TH * 0.915, TW, TH * 0.085);
 
+  if (earthImg) {
+    g.globalCompositeOperation = "source-over";
+    g.globalAlpha = 1;
+    g.drawImage(earthImg, 0, 0, TW, TH);
+  }
+  if (cloudsImg) {
+    g.globalAlpha = 0.82;
+    g.drawImage(cloudsImg, 0, 0, TW, TH);
+    g.globalAlpha = 1;
+  }
   baseCanvas = c;
 }
 
@@ -525,26 +535,23 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a * 0.42);
-  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.96, 0.86), 0.26);
+  vec3 col = mix(base, tint.rgb, tint.a * 0.065);
+  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(0.85, 0.91, 1.0), 0.23);
 
-  /* 光照：照电脑版 globeBuild/globeDraw 的模型
-     diffuse = (0.47 + 0.60·soft)·(0.88 + 0.12·nz)，暗面用环境色混合而不是单纯压黑 */
-  float lam = dot(n, uLight);
-  float soft = clamp((lam + 0.30) / 1.24, 0.0, 1.0);
-  soft = soft * soft * (3.0 - 2.0 * soft);
-  float diffuse = (0.47 + 0.60 * soft) * (0.88 + 0.12 * n.z);
-  vec3 ambient = vec3(10.0, 13.0, 20.0) / 255.0;
-  col = col * diffuse + ambient * (1.0 - diffuse);
-
-  /* 轮廓光：(1-nz)⁴ */
-  float rimK = pow(1.0 - clamp(n.z, 0.0, 1.0), 4.0) * (0.05 + 0.42 * soft);
-  col += vec3(210.0, 204.0, 194.0) / 255.0 * rimK;
-
-  /* 水面光泽：只在海里，宽而柔的一层 */
-  float ocean = 1.0 - step(0.002, idTex.r);
-  float spec = min(1.0, pow(max(lam, 0.0), 24.0) * 2.0);
-  col += vec3(0.55, 0.75, 0.95) * spec * 0.12 * ocean;
+  // Work in linear light so the terminator and ocean highlights remain smooth.
+  col = pow(col, vec3(2.2));
+  float lam = dot(n, normalize(uLight));
+  float daylight = smoothstep(-0.20, 0.45, lam);
+  float diffuse = max(lam, 0.0) * 1.05;
+  col *= 0.045 + 0.14 * daylight + diffuse;
+  float ocean = (1.0 - step(0.002, idTex.r)) *
+    smoothstep(0.02, 0.16, base.b - base.r);
+  vec3 halfLight = normalize(normalize(uLight) + vec3(0.0, 0.0, 1.0));
+  float spec = pow(max(dot(n, halfLight), 0.0), 70.0);
+  col += vec3(0.60, 0.77, 1.0) * spec * ocean * 0.32 * daylight;
+  col = pow(max(col, vec3(0.0)), vec3(1.0 / 2.2));
+  float rim = pow(1.0 - max(n.z, 0.0), 3.2);
+  col = mix(col, vec3(0.15, 0.42, 0.78), rim * daylight * 0.48);
 
   gl_FragColor = vec4(col, 1.0);
 }`;
@@ -569,9 +576,9 @@ void main() {
   float r = length(vP);
   float a = 0.0;
   if (r > 0.94) {
-    float inner = smoothstep(0.94, 1.04, r);
-    float t = clamp(1.0 - (r - 1.0) / 0.55, 0.0, 1.0);
-    a = inner * pow(t, 4.0) * 0.18;
+    float inner = smoothstep(0.985, 1.002, r);
+    float t = clamp(1.0 - (r - 1.0) / 0.13, 0.0, 1.0);
+    a = inner * pow(t, 3.0) * 0.28;
   }
   gl_FragColor = vec4(uAtm, a);
 }`;
@@ -940,7 +947,7 @@ function drawVector() {
       if (started) vctx.closePath();
     }
     if (!ok || !any) continue;
-    vctx.fillStyle = 'rgba(' + lut[o] + ',' + lut[o + 1] + ',' + lut[o + 2] + ',' + (lut[o + 3] / 255 * 0.22).toFixed(3) + ')';
+    vctx.fillStyle = 'rgba(' + lut[o] + ',' + lut[o + 1] + ',' + lut[o + 2] + ',' + (lut[o + 3] / 255 * 0.035).toFixed(3) + ')';
     vctx.fill('evenodd');
   }
 
@@ -948,7 +955,7 @@ function drawVector() {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  vctx.strokeStyle = chrome.natural ? 'transparent' : isPolity ? 'rgba(228,210,174,.52)' : 'rgba(191,210,215,.30)';
+  vctx.strokeStyle = chrome.natural ? 'transparent' : isPolity ? 'rgba(228,210,174,.34)' : 'rgba(191,210,215,.15)';
   vctx.lineWidth = Math.min(0.95, 0.5 + state.zoom * 0.08);
   vctx.beginPath();
   const drawn = [];
@@ -1011,7 +1018,7 @@ function drawVector() {
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
-  const maxLabels = !chrome.labels || chrome.natural ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
+  const maxLabels = !chrome.labels || chrome.natural || (state.zoom === 1 && !state.focus) ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
   const uiTop = chrome.timeline ? timeDock.getBoundingClientRect().bottom + 8 : 95;
   const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
@@ -1133,7 +1140,7 @@ function layout() {
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
   view.Rz = view.R * state.zoom;
-  syncHomeZoom();
+
   const r = glr || fallback;
   if (r) r.resize(w, h, dpr);
   vecCanvas.width = Math.max(1, Math.round(w * dpr));
@@ -1504,7 +1511,7 @@ canvas.addEventListener('pointermove', (e) => {
     state.panY = (a.y+b.y)/2 - view.cy - k * (pinch.cy - view.cy - pinch.py);
     state.zoom = z;
     constrainPan(true); view.Rz = view.R * state.zoom;
-    syncHomeZoom();
+
     invalidate();
     return;
   }
@@ -1574,7 +1581,7 @@ function zoomTo(z, ax, ay) {
     state.panY = dy - ratio * (dy - py0);
     constrainPan();
     view.Rz = R * state.zoom;
-    syncHomeZoom();
+
     invalidate();
   };
   if (z === from && !zoomAnim) { settlePan(); return; }
@@ -2313,7 +2320,7 @@ track.addEventListener('pointermove', (e) => {
 function endScrub(e) {
   if (e.pointerId !== scrubPointer) return;
   if (e.type === 'pointerup') setYearFromX(e.clientX, true);
-  scrubbing = false; scrubPointer = null; syncHomeStory(); scheduleTimelineHide();
+  scrubbing = false; scrubPointer = null; scheduleTimelineHide();
 }
 for (const type of ['pointerup','pointercancel','lostpointercapture']) track.addEventListener(type,endScrub);
 
@@ -2380,6 +2387,20 @@ reducedGlobeMotion.addEventListener('change', invalidate);
 async function loadRelief() {
   const inline = inlineText('relief');
   const src = inline.length > 100 ? 'data:image/jpeg;base64,' + inline.replace(/[^A-Za-z0-9+/=]/g, '') : 'data/relief.jpg';
+  const cloudInline = inlineText('clouds');
+  await new Promise(resolve => {
+    const image = new Image();
+    image.onload = () => { cloudsImg = image; resolve(); };
+    image.onerror = resolve;
+    image.src = cloudInline.length > 100 ? 'data:image/png;base64,' + cloudInline.trim() : 'data/clouds.png';
+  });
+  const earthInline = inlineText('earth');
+  await new Promise(resolve => {
+    const image = new Image();
+    image.onload = () => { earthImg = image; resolve(); };
+    image.onerror = resolve;
+    image.src = earthInline.length > 100 ? 'data:image/jpeg;base64,' + earthInline.trim() : 'data/earth.jpg';
+  });
   await new Promise((res) => {
     const img = new Image();
     img.onload = () => { reliefImg = img; res(); };
