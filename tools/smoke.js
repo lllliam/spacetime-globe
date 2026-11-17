@@ -106,13 +106,13 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   /* 5. 展开时间轴后直接拖动，再返回地图 */
   const yearBefore = polSheet.year;
-  await js("document.getElementById('year').click()");
+  await js("document.getElementById('year').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true}))");
   await sleep(350);
-  const trackBox=await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x+r.width*.62,y:r.y+62}})()");
+  const trackBox=await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x+r.width*.62,y:r.y+42}})()");
   await tap(trackBox.x,trackBox.y);
   const afterScrub=await st();
   ok('时间轴定位后显示新年份',afterScrub.year!==yearBefore&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
-  await js("document.getElementById('time-close').click()");
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
 
   /* 6. 切图层：抽屉应收起且不留残影 */
   await js(`window.__t.setLayer('country')`);
@@ -136,10 +136,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   ok('双指放大生效', (await js('window.__t.state.zoom')) > 1.2, { zoom: +(await js('window.__t.state.zoom')).toFixed(2) });
 
   /* 8. 年份按钮 → 全景列表 → 关 */
-  await js("document.getElementById('view-toggle').click();document.getElementById('world-open').click()");
+  await js("document.getElementById('year').click()");
   await sleep(400);
   const ov = await js(`({ open: !document.getElementById('overlay').hidden, h: document.getElementById('overlay-body').innerHTML.length })`);
-  ok('视图面板打开全景列表', ov.open && ov.h > 200, ov);
+  ok('年份轻点打开全景列表', ov.open && ov.h > 200, ov);
   await js(`document.getElementById('overlay-close').click()`);
   await sleep(400);
   ok('全景列表可关闭', await js(`document.getElementById('overlay').hidden`), null);

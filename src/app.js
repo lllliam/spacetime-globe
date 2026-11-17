@@ -69,7 +69,7 @@ const canvas = el('globe');
 const track = el('track'), tctx = track.getContext('2d');
 const elYear = el('year'), elSub = el('sub');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
-const hintEl = el('hint'), overlay = el('overlay');
+const overlay = el('overlay');
 const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overlayBody = el('overlay-body');
 const bootEl = el('boot'), layersEl = el('layers'), loadPill = el('loadpill');
 
@@ -1012,7 +1012,8 @@ function drawVector() {
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
   const maxLabels = !chrome.labels || chrome.natural ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
-  const uiTop = 115, uiBottom = chrome.timeline ? timeDock.getBoundingClientRect().top - 15 : view.h - 55;
+  const uiTop = chrome.timeline ? timeDock.getBoundingClientRect().bottom + 8 : 95;
+  const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
@@ -1407,7 +1408,7 @@ let globeTapTimer=0;
 let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
-  hideHint();
+  if (e.button !== 0) return;
   clearTimeout(globeTapTimer);
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
@@ -1522,14 +1523,11 @@ function tapGlobe(sx, sy) {
    半屏展示此刻摘要，抓手上拉或点击专题入口，进入独立阅读层。 */
 const KIND_LABEL = { country: '现代国家', polity: '政权' };
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
-const dockEl = el('dock');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-/* 时间轴（含工具栏）的实际高度：抽屉的 peek 档必须比它高，
-   否则抽屉会缩进时间轴后面，抓手就抓不到了 */
+/* 抽屉底部保留屏幕边缘的呼吸空间。 */
 function dockHeight() {
-  if (!chrome.timeline) return 16;
-  return Math.round(dockEl.getBoundingClientRect().height + 12);
+  return 16;
 }
 
 function sheetDetents() {
@@ -1854,9 +1852,8 @@ function openWorld() {
   const list = [];
   for (const e of entries) if (e.t1 >= oa && e.t0 <= ob) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
   list.sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0);
-  const cap = 90;
   const groups = new Map();
-  for (const row of list.slice(0, cap)) {
+  for (const row of list) {
     let g = row.e.regionRef || regionById.get(row.e.region);
     let guard = 0;
     while (g && g.parent && guard++ < 8) g = regionById.get(g.parent) || g;
@@ -1868,7 +1865,7 @@ function openWorld() {
   const eraName = chapterOf(state.year).n;
   const eraTxt = ERA_INTRO[eraName] || '';
   overlaySub.innerHTML = scope + ' · <b>' + summary.entities + '</b> 个' + LAYERS[state.layerId].name +
-    ' · <b>' + (summary.ev) + '</b> 条事件' + (list.length > cap ? ' · 前 ' + cap + ' 条' : '');
+    ' · <b>' + (summary.ev) + '</b> 条事件';
   if (!list.length) {
     overlayBody.innerHTML = (eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '') +
       '<p class="wempty">这一年还没有收录条目。</p>';
@@ -2138,7 +2135,7 @@ function buildDensity() {
   density = { sm, mx: mx || 1 };
 }
 
-const T_PADL = 18, T_PADR = 18, T_H = 96;
+const T_PADL = 28, T_PADR = 28, T_H = 72;
 let trackW = 0;
 function layoutTrack() {
   trackW = track.clientWidth || innerWidth;
@@ -2153,14 +2150,14 @@ function drawTrack() {
   if (!density) buildDensity();
   const w = trackW;
   tctx.clearRect(0, 0, w, T_H);
-  const labelY = 16, top = 27, areaH = 24, railY = 66, footY = 86;
+  const labelY = 18, top = 28, areaH = 11, railY = 42, footY = 62;
   const x0 = xOfPos(0), x1 = xOfPos(1);
   const active = chapterOf(state.year);
   for (let i = 0; i < CH.length; i++) {
     const c = CH[i];
     const a = xOfPos(cum[i]), b = xOfPos(cum[i] + c.w);
     tctx.fillStyle = i % 2 ? 'rgba(255,255,255,.028)' : 'rgba(255,255,255,.012)';
-    tctx.fillRect(a, top - 3, b - a, areaH + 6);
+    tctx.fillRect(a, railY - 3, b - a, 6);
     if (b - a > 34 || c === active) {
       tctx.font = '10.5px -apple-system,system-ui,sans-serif';
       tctx.textAlign = 'center';
@@ -2178,13 +2175,22 @@ function drawTrack() {
   }
   tctx.lineTo(x1, top + areaH);
   tctx.closePath();
-  tctx.fillStyle = 'rgba(224,178,115,.12)'; tctx.fill();
-  tctx.strokeStyle = 'rgba(224,178,115,.26)'; tctx.lineWidth = 1; tctx.stroke();
+  tctx.fillStyle = 'rgba(224,178,115,.06)'; tctx.fill();
+  tctx.strokeStyle = 'rgba(224,178,115,.13)'; tctx.lineWidth = 1; tctx.stroke();
 
-  tctx.strokeStyle = 'rgba(255,255,255,.14)'; tctx.lineWidth = 2; tctx.lineCap = 'round';
+  const rail = tctx.createLinearGradient(x0, 0, x1, 0);
+  rail.addColorStop(0, '#a9b6bf00');
+  rail.addColorStop(.13, '#a9b6bf66');
+  rail.addColorStop(.87, '#a9b6bf66');
+  rail.addColorStop(1, '#a9b6bf00');
+  tctx.strokeStyle = rail; tctx.lineWidth = 1; tctx.lineCap = 'round';
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(x1, railY); tctx.stroke();
   const px = xOfPos(posOfYear(state.year));
-  tctx.strokeStyle = 'rgba(224,178,115,.45)';
+  const elapsed = tctx.createLinearGradient(x0,0,x1,0);
+  elapsed.addColorStop(0,'#d6b98400');
+  elapsed.addColorStop(.18,'#d6b98499');
+  elapsed.addColorStop(1,'#d6b98499');
+  tctx.strokeStyle = elapsed;
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(px, railY); tctx.stroke();
   tctx.strokeStyle = 'rgba(224,178,115,.30)'; tctx.lineWidth = 1;
   tctx.beginPath(); tctx.moveTo(px, top - 2); tctx.lineTo(px, railY - 8); tctx.stroke();
@@ -2198,9 +2204,9 @@ function drawTrack() {
   tctx.fillText('元年', xOfPos(posOfYear(0)), footY);
 
   tctx.fillStyle = '#e0b273';
-  tctx.beginPath(); tctx.arc(px, railY, 8, 0, TAU); tctx.fill();
+  tctx.beginPath(); tctx.arc(px, railY, 5, 0, TAU); tctx.fill();
   tctx.fillStyle = '#0b1017';
-  tctx.beginPath(); tctx.arc(px, railY, 3, 0, TAU); tctx.fill();
+  tctx.beginPath(); tctx.arc(px, railY, 1.5, 0, TAU); tctx.fill();
 }
 
 function posFromX(clientX) {
@@ -2221,7 +2227,7 @@ function setYearFromX(clientX, flush = false) {
 }
 track.addEventListener('pointerdown', (e) => {
   if (!e.isPrimary || e.button !== 0) return;
-  hideHint(); stopTime(); scrubbing = true; scrubPointer = e.pointerId;
+  stopTime(); scrubbing = true; scrubPointer = e.pointerId;
   try { track.setPointerCapture(e.pointerId); } catch (_) {}
   setYearFromX(e.clientX);
 });
@@ -2257,7 +2263,7 @@ layersEl.addEventListener('click', (e) => {
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
-  elYear.textContent = y >= YMAX ? '今天' : fmtYear(y) + ' 年';
+  elYear.innerHTML = y >= YMAX ? '今天' : '<span>' + fmtYear(y) + '</span><small> 年</small>';
   syncChrome();
 }
 function onYearChanged() {
@@ -2269,8 +2275,6 @@ function onYearChanged() {
   invalidate();
 }
 
-function hideHint() { hintEl.classList.add('gone'); }
-setTimeout(hideHint, 6000);
 
 /* ───────────── 17. 键盘 ───────────── */
 addEventListener('keydown', (e) => {

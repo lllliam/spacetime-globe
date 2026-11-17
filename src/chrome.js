@@ -5,7 +5,7 @@ const VIEW_MODES = [
   {id:'nature', title:'自然地理', note:'观察地形与海陆', layer:'country'},
 ];
 const chrome = {timeline:false, panel:false, labels:true, grid:false, natural:false, followTime:true, playing:false, timer:0, playTimer:0};
-const timeDock = el('dock'), viewPanel = el('view-panel'), viewToggle = el('view-toggle');
+const timeDock = el('dock'), viewPanel = el('view-panel');
 el('year-input').max = YMAX;
 track.setAttribute('aria-valuemax',YMAX);
 try { const p=JSON.parse(localStorage.getItem('globe.display.v4')||'{}'); chrome.labels=p.labels!==false; chrome.grid=p.grid===true; } catch {}
@@ -16,16 +16,19 @@ function syncChrome() {
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
   el('toggle-grid').setAttribute('aria-checked',String(chrome.grid));
-  el('time-current').textContent=elYear.textContent;
+  elYear.setAttribute('aria-label', elYear.textContent + '的全球事件，长按或按 Shift+Enter 展开时间轴');
   track.setAttribute('aria-valuenow',state.year);
   track.setAttribute('aria-valuetext',elYear.textContent);
   el('time-play').textContent=chrome.playing?'暂停':state.year>=YMAX?'从头播放':'播放';
   el('time-play').setAttribute('aria-pressed',String(chrome.playing));
-  if(chrome.natural) elSub.textContent='自然地理 · 现代海陆底图';
-  else if(state.layerId==='country') elSub.textContent='现代国家 · 现代边界参考';
-  else if(polityState.loading&&!polityState.loaded) elSub.textContent='正在加载历史疆域';
-  else if(polityState.error&&!polityState.loaded) elSub.textContent='历史疆域加载失败 · 在视图中重试';
-  else elSub.textContent=state.year<-3400?'此前暂无疆域数据':state.year>POLITY_END?'疆域资料截至2024年':'历史疆域';
+  let status = '';
+  if (state.layerId === 'polity') {
+    if (state.year < -3400) status = '此前暂无疆域资料';
+    else if (state.year > POLITY_END) status = '疆域资料截至 ' + POLITY_END + ' 年';
+    else if (polityState.error) status = '历史疆域加载失败';
+  }
+  elSub.textContent = status;
+  elSub.hidden = !status;
 }
 function stopTime() { clearInterval(chrome.playTimer); chrome.playing=false; syncChrome(); }
 function scheduleTimelineHide() {
@@ -37,26 +40,24 @@ function scheduleTimelineHide() {
   },6500);
 }
 function showTimeline() {
-  closeView(false); closeSheet();
+  closeWorld(); closeView(false); closeSheet();
   chrome.timeline=true; document.body.classList.add('time-open'); timeDock.inert=false;
-  elYear.setAttribute('aria-expanded','true'); layoutTrack(); drawTrack(); scheduleTimelineHide();
+  layoutTrack(); drawTrack(); scheduleTimelineHide();
 }
 function hideTimeline(focus=false) {
   clearTimeout(chrome.timer); stopTime();
   chrome.timeline=false; document.body.classList.remove('time-open'); timeDock.inert=true;
   el('year-form').hidden=true; el('time-input-toggle').setAttribute('aria-expanded','false');
-  elYear.setAttribute('aria-expanded','false');
   if(focus||timeDock.contains(document.activeElement)) elYear.focus({preventScroll:true});
 }
 function closeView(focus=true) {
   chrome.panel=false; viewPanel.hidden=true; el('view-shade').hidden=true;
-  viewToggle.setAttribute('aria-expanded','false');
-  if(focus) viewToggle.focus({preventScroll:true});
+  if(focus) canvas.focus({preventScroll:true});
 }
 function showView() {
+  if (reading.active || !overlay.hidden) return;
   hideTimeline(false); closeSheet(); chrome.panel=true;
   viewPanel.hidden=false; el('view-shade').hidden=false;
-  viewToggle.setAttribute('aria-expanded','true');
   viewPanel.querySelector('[aria-pressed="true"]').focus({preventScroll:true});
 }
 function selectView(mode) {
@@ -83,15 +84,70 @@ function resetView() {
   momentum.yaw=momentum.tilt=0;
   Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
 }
-elYear.addEventListener('click',()=>chrome.timeline?hideTimeline():showTimeline());
-el('time-close').addEventListener('click',()=>hideTimeline(true));
-viewToggle.addEventListener('click',()=>chrome.panel?closeView():showView());
+// Long press and ordinary activation are mutually exclusive. Dragging and extra
+// pointers cancel the hold before the globe's own rotation or pinch can finish.
+function bindHold(target, onHold, canStart = () => true) {
+  let press = null;
+  let ignoreClickUntil = 0;
+  function cancel(suppressClick = false) {
+    if (!press) return;
+    clearTimeout(press.timer);
+    if (suppressClick) ignoreClickUntil = performance.now() + 400;
+    press = null;
+  }
+  target.addEventListener('pointerdown', e => {
+    if (!e.isPrimary) { cancel(); return; }
+    if (e.button !== 0 || !canStart(e)) return;
+    ignoreClickUntil = 0;
+    const timer = setTimeout(() => {
+      ignoreClickUntil = Infinity;
+      onHold();
+    }, 500);
+    press = {id:e.pointerId, x:e.clientX, y:e.clientY, timer};
+    try { target.setPointerCapture(e.pointerId); } catch {}
+  });
+  target.addEventListener('pointermove', e => {
+    if (press?.id === e.pointerId && Math.hypot(e.clientX-press.x,e.clientY-press.y)>9) cancel(true);
+  });
+  for (const event of ['pointerup','pointercancel','lostpointercapture']) {
+    target.addEventListener(event, e => {
+      if (press?.id === e.pointerId) cancel(ignoreClickUntil === Infinity || event !== 'pointerup');
+    });
+  }
+  target.addEventListener('contextmenu', e => e.preventDefault());
+  return event => event.detail > 0 && performance.now() < ignoreClickUntil;
+}
+const ignoreYearClick = bindHold(elYear, showTimeline);
+elYear.addEventListener('click', e => {
+  if (ignoreYearClick(e)) return;
+  hideTimeline(false);
+  closeView(false);
+  closeSheet();
+  openWorld();
+  el('overlay-close').focus({preventScroll:true});
+});
+elYear.addEventListener('keydown', e => {
+  if (e.shiftKey && e.key === 'Enter' && !e.repeat) {
+    e.preventDefault();
+    showTimeline();
+    track.focus({preventScroll:true});
+  }
+});
+bindHold(canvas, showView, e => !!mapPointAt(e.clientX,e.clientY));
+canvas.addEventListener('contextmenu', e => {
+  if (e.button === 2 && mapPointAt(e.clientX,e.clientY)) showView();
+});
+canvas.addEventListener('keydown', e => {
+  if (e.key === 'ContextMenu' || (e.shiftKey && e.key === 'F10')) {
+    e.preventDefault();
+    showView();
+  }
+});
 el('view-close').addEventListener('click',()=>closeView());
 el('view-shade').addEventListener('click',()=>closeView());
 viewPanel.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)selectView(b.dataset.view);});
 for(const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) el(id).addEventListener('click',()=>{chrome[key]=!chrome[key];saveDisplay();syncChrome();invalidate();});
 el('reset-view').addEventListener('click',resetView);
-el('world-open').addEventListener('click',()=>{closeView(false);openWorld();});
 timeDock.addEventListener('pointerdown',scheduleTimelineHide);
 timeDock.addEventListener('pointerup',scheduleTimelineHide);
 timeDock.addEventListener('keydown',scheduleTimelineHide);
@@ -130,4 +186,3 @@ addEventListener('keydown',e=>{
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 },true);
-if(inlineText('atlas'))el('classic-link').href='classic.offline.html';

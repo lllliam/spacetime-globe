@@ -19,17 +19,15 @@
 </head>
 <body>
 
-<canvas id="globe" aria-label="地球"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开观察方式"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
 
 <div id="hud">
-  <button id="year" type="button" aria-label="展开时间轴" aria-expanded="false" aria-controls="dock">今天</button>
-  <div id="sub"></div>
+  <button id="year" type="button" aria-label="今天的全球事件，长按或按 Shift+Enter 展开时间轴" aria-controls="overlay dock">今天</button>
+  <div id="sub" role="status" hidden></div>
 </div>
-<button id="view-toggle" type="button" aria-label="观察方式与显示选项" aria-expanded="false" aria-controls="view-panel"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Zm0 4 9 5 9-5M3 16l9 5 9-5"/></svg><span>视图</span></button>
-<div id="hint">拖动旋转 · 双指缩放</div>
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-label="观察地球">
   <header><h2>观察地球</h2><button id="view-close" type="button" aria-label="关闭视图选项">×</button></header>
@@ -38,11 +36,10 @@
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i></i></button>
   </div>
-  <nav><button id="world-open" type="button">这一年的世界 <span>›</span></button><button id="reset-view" type="button">恢复视角 <span>›</span></button><a id="classic-link" href="classic.html">使用经典界面 <span>↗</span></a></nav>
+  <nav><button id="reset-view" type="button">恢复视角</button></nav>
   <p id="view-note">历史边界为资料重建，未覆盖的地区不代表无人居住。海岸与地形采用现代底图。</p>
 </section>
 <section id="dock" aria-label="时间控制" inert>
-  <header class="time-head"><span id="time-current">今天</span><button id="time-close" type="button" aria-label="收起时间轴">×</button></header>
   <canvas id="track" role="slider" tabindex="0" aria-label="历史年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="2026"></canvas>
   <div class="time-steps"><button type="button" data-year-step="-10">−10</button><button type="button" data-year-step="-1">−1</button><button id="time-play" type="button" aria-pressed="false">播放</button><button type="button" data-year-step="1">+1</button><button type="button" data-year-step="10">+10</button></div>
   <div class="time-actions"><button id="time-input-toggle" type="button" aria-expanded="false">输入年份</button><label class="time-speed">步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label><button id="time-today" type="button">回到今天</button></div>
@@ -55,7 +52,7 @@
   <div id="sheet-scroll"><div id="sheet-inner"></div></div>
 </div>
 
-<div id="overlay" hidden>
+<div id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" hidden>
   <div id="overlay-head">
     <div>
       <h1 id="overlay-title">这一年</h1>

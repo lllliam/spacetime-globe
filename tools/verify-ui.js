@@ -144,12 +144,26 @@ async function main() {
   const y1 = await js('window.__t.state.yaw');
   check('拖动改变经度', Math.abs(y1 - y0) > 0.15, { y0: +y0.toFixed(2), y1: +y1.toFixed(2) });
 
-  /* 沉浸首页与真实时间轴输入。 */
-  check('首页时间轴默认隐藏', await js("document.getElementById('dock').inert"));
-  await js("document.getElementById('year').click()");
-  await sleep(400);
+  /* 同一年份的轻点与长按，以及地球自己的观察入口。 */
+  const pointOf = selector => js(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);
+  const hold = async (point, touch=false) => {
+    const {x,y}=point;
+    if(touch) await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
+    else await send('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});
+    await sleep(600);
+    if(touch) await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+    else await send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});
+    await sleep(350);
+  };
+  check('首页没有常驻图层按钮，时间轴默认隐藏', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && document.getElementById('dock').inert"));
+  await js("__t.setYear(1900)");
+  await tap(...Object.values(await pointOf('#year')));
+  check('轻点年份打开当年全球事件表', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年' && document.querySelectorAll('.wrow').length>0"));
+  await js("document.getElementById('overlay-close').click()");
+  await hold(await pointOf('#year'),true);
+  check('触屏长按年份仅展开时间轴', await js("!document.getElementById('dock').inert && document.getElementById('overlay').hidden"));
   const tr = await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x,y:r.y,w:r.width}})()");
-  await drag(tr.x + tr.w * .98, tr.y + 62, tr.x + tr.w * .85, tr.y + 62);
+  await drag(tr.x + tr.w * .94,tr.y + 42,tr.x + tr.w * .78,tr.y + 42);
   await js("__t.ensurePolity()");
   for(let i=0;i<40;i++){if(await js("__t.polityLoaded"))break;await sleep(200);}
   check('拖动时间轴自动显示当年历史疆域', await js("__t.state.layerId==='polity' && __t.state.year<1900 && __t.partition.shapes.length>0"));
@@ -158,8 +172,8 @@ async function main() {
   check('输入历史年份改变真实边界几何',await js("__t.state.year===1900 && JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))!=="+JSON.stringify(historySignature)));
   const designShot = async name => {
     if (!process.env.ATLAS_SHOTS) return;
-    const shot = await send('Page.captureScreenshot',{format:'png'});
-    require('fs').writeFileSync(require('path').join(__dirname,'../docs/design',name+'.png'), Buffer.from(shot.data,'base64'));
+    const shot=await send('Page.captureScreenshot',{format:'png'});
+    require('fs').writeFileSync(require('path').join(__dirname,'../docs/design',name+'.png'),Buffer.from(shot.data,'base64'));
   };
   await designShot('timeline');
   await js("document.getElementById('time-play').click()");
@@ -168,17 +182,22 @@ async function main() {
   await js("document.getElementById('time-play').click()");
   await sleep(6900);
   check('闲置自动收起时间轴且保留年份',await js("document.getElementById('dock').inert && __t.state.year===1910"));
-  await js("__t.setYear(1900)");
+  await js("__t.setYear(1900);document.activeElement.blur()");
   await designShot('globe');
-  await js("document.getElementById('view-toggle').click()");
-  await sleep(350);
+  const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");
+  await hold(globePoint,true);
+  check('长按球体只打开观察方式',await js("!document.getElementById('view-panel').hidden && __t.sheet.detent==='hidden'"));
   await designShot('views');
-  check('视图面板提供经典版入口', await js("document.getElementById('classic-link').getAttribute('href')==='classic.html'"));
   await js("document.querySelector('[data-view=nature]').click()");
   check('自然地理表面关闭行政着色', await js("__t.partition.lut.every(v=>v===0)"));
-  await js("document.getElementById('view-toggle').click();document.querySelector('[data-view=modern]').click();document.getElementById('year').click();document.querySelectorAll('[data-year-step]')[0].click()");
+  await send('Input.dispatchMouseEvent',{type:'mousePressed',...globePoint,button:'right',buttons:2,clickCount:1});
+  await send('Input.dispatchMouseEvent',{type:'mouseReleased',...globePoint,button:'right',buttons:0,clickCount:1});
+  check('桌面右键可打开观察方式',await js("!document.getElementById('view-panel').hidden"));
+  await js("document.querySelector('[data-view=modern]').click()");
+  await hold(await pointOf('#year'));
+  await js("document.querySelectorAll('[data-year-step]')[0].click()");
   check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1890"));
-  await js("document.getElementById('time-close').click()");
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
 
   /* 切到政权层 */
   await js(`window.__t.setYear(1900)`);
@@ -498,7 +517,6 @@ async function main() {
   })()`);
   check('全部117篇可断网逐篇导航、显示来源并返回目录',offlineAll.count===117&&offlineAll.topics===28&&!offlineAll.bad.length,offlineAll);
 
-  check('新版离线文件指向同目录的经典离线版',await js("document.getElementById('classic-link').getAttribute('href')==='classic.offline.html'"));
   const errs = await js('window.__errs');
   check('控制台无异常', errs.length === 0, errs.slice(0, 4));
 

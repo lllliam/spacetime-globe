@@ -384,30 +384,32 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 /* 沉浸首页：两个入口，工具按需出现。 */
 body{background:radial-gradient(ellipse at 50% 48%,#11202c 0%,#080f17 56%,#050a10 100%)}
 #scrim{height:130px;background:linear-gradient(#080f17d9,transparent);pointer-events:none}
-#hud{top:calc(var(--safe-t) + 26px);left:0;right:0;align-items:center;padding:0;gap:9px;pointer-events:none;z-index:9}
-#hud #year{pointer-events:auto;margin:0;border:1px solid #ad925568;border-radius:28px;padding:5px 16px 7px;background:#0d18215c;font:400 28px/1.15 Georgia,"Songti SC",serif;letter-spacing:0;text-align:center;min-height:44px;max-width:calc(100vw - 136px)}
-#year::after{content:'⌄';font:16px/1 system-ui;vertical-align:4px;margin-left:10px;color:#cab98c}
-#year[aria-expanded="true"]{border-color:#d5b16d;background:#15222c}
-#sub{font-size:11px;color:#8a98a5;letter-spacing:.08em;line-height:1.5}
-#view-toggle{position:fixed;right:16px;top:calc(var(--safe-t) + 27px);z-index:9;display:flex;align-items:center;gap:7px;padding:10px 6px;border:0;background:none;color:#d2d5d3;font:12px/1.5 system-ui;cursor:pointer;min-height:44px}
-#view-toggle:hover,#view-toggle[aria-expanded="true"]{color:var(--gold)}
-#hint{position:fixed;left:20px;right:20px;bottom:calc(var(--safe-b) + 30px);margin:0;max-width:none;text-align:center;z-index:4;font-size:11px;color:#7f8e9b;letter-spacing:.09em;pointer-events:none}
-#dock{left:50%;right:auto;bottom:calc(var(--safe-b) + 14px);width:min(680px,calc(100% - 24px));padding:10px 12px 9px;border-radius:23px;border:1px solid #a1b1bd35;background:linear-gradient(135deg,#132330f5,#0b1520f5);backdrop-filter:blur(20px);box-shadow:0 16px 70px #0008;transform:translate(-50%,24px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s,transform .3s,visibility .3s;z-index:9}
-body.time-open #dock{transform:translate(-50%,0);opacity:1;visibility:visible;pointer-events:auto}
-body.sheet-open #dock{background:#0d1924}
+#hud{top:calc(var(--safe-t) + 24px);left:0;right:0;align-items:center;padding:0;gap:3px;pointer-events:none;z-index:9}
+#hud #year{pointer-events:auto;margin:0;padding:2px 18px 5px;min-height:48px;border:0;background:none;
+  color:#edece5;font:400 36px/1.2 system-ui,"PingFang SC","Microsoft YaHei UI",sans-serif;
+  font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.045em;text-align:center;cursor:pointer;touch-action:none}
+#hud #year small{font-size:.48em;font-weight:400;letter-spacing:0;color:#9ba7ae}
+#hud #year::after{content:none}
+#hud #year:active{opacity:.82}
+#sub{font-size:11px;color:#a9b6bd;letter-spacing:.04em;line-height:1.5}
+#dock{position:fixed;left:50%;right:auto;top:calc(var(--safe-t) + 86px);bottom:auto;width:min(664px,100%);padding:0 12px 8px;
+  border:0;border-radius:0;background:linear-gradient(180deg,#0b141ded 67%,#0b141d00);
+  mask-image:linear-gradient(90deg,transparent,black 7%,black 93%,transparent);
+  transform:translate(-50%,-9px) scaleX(.92);transform-origin:center top;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s,transform .28s,visibility .28s;z-index:9}
+body.time-open #dock{transform:translate(-50%,0) scaleX(1);opacity:1;visibility:visible;pointer-events:auto}
+body.sheet-open #dock{background:linear-gradient(180deg,#0b141ded 67%,#0b141d00)}
 #dock::before{display:none}
-.time-head{display:flex;align-items:center;justify-content:center;min-height:39px;position:relative}
-#time-current{font:400 24px/1.3 Georgia,"Songti SC",serif;color:var(--ink);font-variant-numeric:tabular-nums}
-.time-head button,#view-close{position:absolute;right:0;top:0;width:44px;height:44px;border:0;background:none;color:#a8b1b7;font:300 27px/1 system-ui;cursor:pointer}
-#track{height:96px}
-.time-steps{display:flex;gap:8px;justify-content:space-between}
-.time-steps button{flex:1;min-width:0;min-height:42px;border:1px solid #a7b5bf38;background:#adbdc909;border-radius:11px;color:#d6d7d2;font:15px/1 system-ui;cursor:pointer}
-.time-steps #time-play{flex:1.6;border-color:#bca06375;color:#e4c997;background:#bca06317;font-size:13px}
-.time-actions{display:flex;align-items:center;justify-content:space-between;gap:6px;padding-top:4px}
-.time-actions button{border:0;background:none;color:#9eabb4;min-height:44px;padding:7px 4px;font:11px/1.4 system-ui;cursor:pointer}
-.time-speed{font-size:10px;color:#788b98;display:flex;gap:5px;align-items:center}
-.time-speed select{font:11px system-ui;color:#b8c3c8;background:#101d28;border:0;border-radius:5px;padding:6px 2px;min-height:36px}
-#year-form{padding:7px 6px 2px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+#view-close{position:absolute;right:0;top:0;width:44px;height:44px;border:0;background:none;color:#a8b1b7;font:300 27px/1 system-ui;cursor:pointer}
+#track{height:72px}
+.time-steps{display:flex;justify-content:center;gap:4px;padding:0 20px}
+.time-steps button{min-width:44px;min-height:40px;border:0;background:transparent;color:#aebbc2;font:13px/1 system-ui;cursor:pointer}
+.time-steps #time-play{min-width:68px;color:#d6b984;font-size:12px}
+.time-actions{display:flex;align-items:center;justify-content:center;gap:clamp(8px,4vw,24px);padding:0 22px}
+.time-actions button{border:0;background:none;color:#a6b3ba;min-height:40px;padding:4px;font:11px/1.4 system-ui;cursor:pointer}
+.time-speed{font-size:10px;color:#8d9ba5;display:flex;gap:4px;align-items:center}
+.time-speed select{font:11px system-ui;color:#b8c3c8;background:#111c26;border:0;border-radius:5px;padding:6px 2px;min-height:32px}
+#year-form{max-width:330px;margin:0 auto;padding:7px 20px 2px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
 #year-form[hidden]{display:none}
 #year-form>div{display:flex;gap:8px;margin-top:8px}
 #year-input{width:0;flex:1;background:#070e17;border:1px solid #8d9ba944;border-radius:8px;min-height:44px;padding:8px 12px;color:var(--ink);font:16px system-ui}
@@ -439,29 +441,27 @@ body.sheet-open #dock{background:#0d1924}
 #view-panel nav button,#view-panel nav a{display:flex;align-items:center;justify-content:space-between;min-height:45px;padding:9px 0;text-align:left;border:0;border-bottom:1px solid #8e9da81c;background:none;color:#cbd1d1;font:13px/1.6 system-ui;text-decoration:none;cursor:pointer}
 #view-panel nav span{color:#8799a5;font-size:18px}
 #view-note{font:10px/1.8 system-ui;color:#6f8595;margin:16px 0 0}
-body.reading-open #view-toggle,body.reading-open #hint,body.reading-open #toolbar{visibility:hidden}
+body.reading-open #toolbar{visibility:hidden}
 #reading-resume{bottom:calc(var(--safe-b) + 28px)}
 button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible{outline:2px solid #c7ab70;outline-offset:4px}
 @keyframes toolIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-@media(min-width:720px){#hud{top:32px}#hud #year{font-size:34px}#view-toggle{right:34px;top:35px;font-size:13px}#view-panel{right:32px;top:94px}#dock{bottom:24px;padding:12px 20px}.time-steps button{min-height:44px}#sub{font-size:12px}}
-@media(max-height:500px){#hud{top:12px;gap:3px}#hud #year{font-size:24px;min-height:40px}#view-toggle{top:11px}#sub{font-size:10px}#dock{bottom:6px;padding:4px 12px}.time-head{display:none}#track{height:80px}.time-steps button{min-height:36px}.time-actions{padding:0}.time-actions button{min-height:32px}#view-panel{top:62px;max-height:calc(100dvh - 75px)}#hint{bottom:15px}body.time-open #hint{opacity:0}}
+@media(min-width:720px){#hud{top:30px}#hud #year{font-size:43px}#dock{top:96px}#view-panel{right:32px;top:94px}}
+@media(max-height:500px){#hud{top:6px}#hud #year{font-size:29px;min-height:42px}#dock{top:54px}#view-panel{top:54px;max-height:calc(100dvh - 68px)}}
 @media(prefers-reduced-motion:reduce){#dock,.view-switches i,.view-switches i::after{transition:none}#view-panel{animation:none}}
 
 </style>
 </head>
 <body>
 
-<canvas id="globe" aria-label="地球"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开观察方式"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
 
 <div id="hud">
-  <button id="year" type="button" aria-label="展开时间轴" aria-expanded="false" aria-controls="dock">今天</button>
-  <div id="sub"></div>
+  <button id="year" type="button" aria-label="今天的全球事件，长按或按 Shift+Enter 展开时间轴" aria-controls="overlay dock">今天</button>
+  <div id="sub" role="status" hidden></div>
 </div>
-<button id="view-toggle" type="button" aria-label="观察方式与显示选项" aria-expanded="false" aria-controls="view-panel"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Zm0 4 9 5 9-5M3 16l9 5 9-5"/></svg><span>视图</span></button>
-<div id="hint">拖动旋转 · 双指缩放</div>
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-label="观察地球">
   <header><h2>观察地球</h2><button id="view-close" type="button" aria-label="关闭视图选项">×</button></header>
@@ -470,11 +470,10 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i></i></button>
   </div>
-  <nav><button id="world-open" type="button">这一年的世界 <span>›</span></button><button id="reset-view" type="button">恢复视角 <span>›</span></button><a id="classic-link" href="classic.html">使用经典界面 <span>↗</span></a></nav>
+  <nav><button id="reset-view" type="button">恢复视角</button></nav>
   <p id="view-note">历史边界为资料重建，未覆盖的地区不代表无人居住。海岸与地形采用现代底图。</p>
 </section>
 <section id="dock" aria-label="时间控制" inert>
-  <header class="time-head"><span id="time-current">今天</span><button id="time-close" type="button" aria-label="收起时间轴">×</button></header>
   <canvas id="track" role="slider" tabindex="0" aria-label="历史年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="2026"></canvas>
   <div class="time-steps"><button type="button" data-year-step="-10">−10</button><button type="button" data-year-step="-1">−1</button><button id="time-play" type="button" aria-pressed="false">播放</button><button type="button" data-year-step="1">+1</button><button type="button" data-year-step="10">+10</button></div>
   <div class="time-actions"><button id="time-input-toggle" type="button" aria-expanded="false">输入年份</button><label class="time-speed">步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label><button id="time-today" type="button">回到今天</button></div>
@@ -487,7 +486,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   <div id="sheet-scroll"><div id="sheet-inner"></div></div>
 </div>
 
-<div id="overlay" hidden>
+<div id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" hidden>
   <div id="overlay-head">
     <div>
       <h1 id="overlay-title">这一年</h1>
@@ -590,7 +589,7 @@ const canvas = el('globe');
 const track = el('track'), tctx = track.getContext('2d');
 const elYear = el('year'), elSub = el('sub');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
-const hintEl = el('hint'), overlay = el('overlay');
+const overlay = el('overlay');
 const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overlayBody = el('overlay-body');
 const bootEl = el('boot'), layersEl = el('layers'), loadPill = el('loadpill');
 
@@ -1533,7 +1532,8 @@ function drawVector() {
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
   const maxLabels = !chrome.labels || chrome.natural ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
-  const uiTop = 115, uiBottom = chrome.timeline ? timeDock.getBoundingClientRect().top - 15 : view.h - 55;
+  const uiTop = chrome.timeline ? timeDock.getBoundingClientRect().bottom + 8 : 95;
+  const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
@@ -1928,7 +1928,7 @@ let globeTapTimer=0;
 let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
-  hideHint();
+  if (e.button !== 0) return;
   clearTimeout(globeTapTimer);
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
@@ -2043,14 +2043,11 @@ function tapGlobe(sx, sy) {
    半屏展示此刻摘要，抓手上拉或点击专题入口，进入独立阅读层。 */
 const KIND_LABEL = { country: '现代国家', polity: '政权' };
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
-const dockEl = el('dock');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-/* 时间轴（含工具栏）的实际高度：抽屉的 peek 档必须比它高，
-   否则抽屉会缩进时间轴后面，抓手就抓不到了 */
+/* 抽屉底部保留屏幕边缘的呼吸空间。 */
 function dockHeight() {
-  if (!chrome.timeline) return 16;
-  return Math.round(dockEl.getBoundingClientRect().height + 12);
+  return 16;
 }
 
 function sheetDetents() {
@@ -2375,9 +2372,8 @@ function openWorld() {
   const list = [];
   for (const e of entries) if (e.t1 >= oa && e.t0 <= ob) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
   list.sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0);
-  const cap = 90;
   const groups = new Map();
-  for (const row of list.slice(0, cap)) {
+  for (const row of list) {
     let g = row.e.regionRef || regionById.get(row.e.region);
     let guard = 0;
     while (g && g.parent && guard++ < 8) g = regionById.get(g.parent) || g;
@@ -2389,7 +2385,7 @@ function openWorld() {
   const eraName = chapterOf(state.year).n;
   const eraTxt = ERA_INTRO[eraName] || '';
   overlaySub.innerHTML = scope + ' · <b>' + summary.entities + '</b> 个' + LAYERS[state.layerId].name +
-    ' · <b>' + (summary.ev) + '</b> 条事件' + (list.length > cap ? ' · 前 ' + cap + ' 条' : '');
+    ' · <b>' + (summary.ev) + '</b> 条事件';
   if (!list.length) {
     overlayBody.innerHTML = (eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '') +
       '<p class="wempty">这一年还没有收录条目。</p>';
@@ -2659,7 +2655,7 @@ function buildDensity() {
   density = { sm, mx: mx || 1 };
 }
 
-const T_PADL = 18, T_PADR = 18, T_H = 96;
+const T_PADL = 28, T_PADR = 28, T_H = 72;
 let trackW = 0;
 function layoutTrack() {
   trackW = track.clientWidth || innerWidth;
@@ -2674,14 +2670,14 @@ function drawTrack() {
   if (!density) buildDensity();
   const w = trackW;
   tctx.clearRect(0, 0, w, T_H);
-  const labelY = 16, top = 27, areaH = 24, railY = 66, footY = 86;
+  const labelY = 18, top = 28, areaH = 11, railY = 42, footY = 62;
   const x0 = xOfPos(0), x1 = xOfPos(1);
   const active = chapterOf(state.year);
   for (let i = 0; i < CH.length; i++) {
     const c = CH[i];
     const a = xOfPos(cum[i]), b = xOfPos(cum[i] + c.w);
     tctx.fillStyle = i % 2 ? 'rgba(255,255,255,.028)' : 'rgba(255,255,255,.012)';
-    tctx.fillRect(a, top - 3, b - a, areaH + 6);
+    tctx.fillRect(a, railY - 3, b - a, 6);
     if (b - a > 34 || c === active) {
       tctx.font = '10.5px -apple-system,system-ui,sans-serif';
       tctx.textAlign = 'center';
@@ -2699,13 +2695,22 @@ function drawTrack() {
   }
   tctx.lineTo(x1, top + areaH);
   tctx.closePath();
-  tctx.fillStyle = 'rgba(224,178,115,.12)'; tctx.fill();
-  tctx.strokeStyle = 'rgba(224,178,115,.26)'; tctx.lineWidth = 1; tctx.stroke();
+  tctx.fillStyle = 'rgba(224,178,115,.06)'; tctx.fill();
+  tctx.strokeStyle = 'rgba(224,178,115,.13)'; tctx.lineWidth = 1; tctx.stroke();
 
-  tctx.strokeStyle = 'rgba(255,255,255,.14)'; tctx.lineWidth = 2; tctx.lineCap = 'round';
+  const rail = tctx.createLinearGradient(x0, 0, x1, 0);
+  rail.addColorStop(0, '#a9b6bf00');
+  rail.addColorStop(.13, '#a9b6bf66');
+  rail.addColorStop(.87, '#a9b6bf66');
+  rail.addColorStop(1, '#a9b6bf00');
+  tctx.strokeStyle = rail; tctx.lineWidth = 1; tctx.lineCap = 'round';
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(x1, railY); tctx.stroke();
   const px = xOfPos(posOfYear(state.year));
-  tctx.strokeStyle = 'rgba(224,178,115,.45)';
+  const elapsed = tctx.createLinearGradient(x0,0,x1,0);
+  elapsed.addColorStop(0,'#d6b98400');
+  elapsed.addColorStop(.18,'#d6b98499');
+  elapsed.addColorStop(1,'#d6b98499');
+  tctx.strokeStyle = elapsed;
   tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(px, railY); tctx.stroke();
   tctx.strokeStyle = 'rgba(224,178,115,.30)'; tctx.lineWidth = 1;
   tctx.beginPath(); tctx.moveTo(px, top - 2); tctx.lineTo(px, railY - 8); tctx.stroke();
@@ -2719,9 +2724,9 @@ function drawTrack() {
   tctx.fillText('元年', xOfPos(posOfYear(0)), footY);
 
   tctx.fillStyle = '#e0b273';
-  tctx.beginPath(); tctx.arc(px, railY, 8, 0, TAU); tctx.fill();
+  tctx.beginPath(); tctx.arc(px, railY, 5, 0, TAU); tctx.fill();
   tctx.fillStyle = '#0b1017';
-  tctx.beginPath(); tctx.arc(px, railY, 3, 0, TAU); tctx.fill();
+  tctx.beginPath(); tctx.arc(px, railY, 1.5, 0, TAU); tctx.fill();
 }
 
 function posFromX(clientX) {
@@ -2742,7 +2747,7 @@ function setYearFromX(clientX, flush = false) {
 }
 track.addEventListener('pointerdown', (e) => {
   if (!e.isPrimary || e.button !== 0) return;
-  hideHint(); stopTime(); scrubbing = true; scrubPointer = e.pointerId;
+  stopTime(); scrubbing = true; scrubPointer = e.pointerId;
   try { track.setPointerCapture(e.pointerId); } catch (_) {}
   setYearFromX(e.clientX);
 });
@@ -2778,7 +2783,7 @@ layersEl.addEventListener('click', (e) => {
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
-  elYear.textContent = y >= YMAX ? '今天' : fmtYear(y) + ' 年';
+  elYear.innerHTML = y >= YMAX ? '今天' : '<span>' + fmtYear(y) + '</span><small> 年</small>';
   syncChrome();
 }
 function onYearChanged() {
@@ -2790,8 +2795,6 @@ function onYearChanged() {
   invalidate();
 }
 
-function hideHint() { hintEl.classList.add('gone'); }
-setTimeout(hideHint, 6000);
 
 /* ───────────── 17. 键盘 ───────────── */
 addEventListener('keydown', (e) => {
@@ -3148,7 +3151,7 @@ const VIEW_MODES = [
   {id:'nature', title:'自然地理', note:'观察地形与海陆', layer:'country'},
 ];
 const chrome = {timeline:false, panel:false, labels:true, grid:false, natural:false, followTime:true, playing:false, timer:0, playTimer:0};
-const timeDock = el('dock'), viewPanel = el('view-panel'), viewToggle = el('view-toggle');
+const timeDock = el('dock'), viewPanel = el('view-panel');
 el('year-input').max = YMAX;
 track.setAttribute('aria-valuemax',YMAX);
 try { const p=JSON.parse(localStorage.getItem('globe.display.v4')||'{}'); chrome.labels=p.labels!==false; chrome.grid=p.grid===true; } catch {}
@@ -3159,16 +3162,19 @@ function syncChrome() {
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
   el('toggle-grid').setAttribute('aria-checked',String(chrome.grid));
-  el('time-current').textContent=elYear.textContent;
+  elYear.setAttribute('aria-label', elYear.textContent + '的全球事件，长按或按 Shift+Enter 展开时间轴');
   track.setAttribute('aria-valuenow',state.year);
   track.setAttribute('aria-valuetext',elYear.textContent);
   el('time-play').textContent=chrome.playing?'暂停':state.year>=YMAX?'从头播放':'播放';
   el('time-play').setAttribute('aria-pressed',String(chrome.playing));
-  if(chrome.natural) elSub.textContent='自然地理 · 现代海陆底图';
-  else if(state.layerId==='country') elSub.textContent='现代国家 · 现代边界参考';
-  else if(polityState.loading&&!polityState.loaded) elSub.textContent='正在加载历史疆域';
-  else if(polityState.error&&!polityState.loaded) elSub.textContent='历史疆域加载失败 · 在视图中重试';
-  else elSub.textContent=state.year<-3400?'此前暂无疆域数据':state.year>POLITY_END?'疆域资料截至2024年':'历史疆域';
+  let status = '';
+  if (state.layerId === 'polity') {
+    if (state.year < -3400) status = '此前暂无疆域资料';
+    else if (state.year > POLITY_END) status = '疆域资料截至 ' + POLITY_END + ' 年';
+    else if (polityState.error) status = '历史疆域加载失败';
+  }
+  elSub.textContent = status;
+  elSub.hidden = !status;
 }
 function stopTime() { clearInterval(chrome.playTimer); chrome.playing=false; syncChrome(); }
 function scheduleTimelineHide() {
@@ -3180,26 +3186,24 @@ function scheduleTimelineHide() {
   },6500);
 }
 function showTimeline() {
-  closeView(false); closeSheet();
+  closeWorld(); closeView(false); closeSheet();
   chrome.timeline=true; document.body.classList.add('time-open'); timeDock.inert=false;
-  elYear.setAttribute('aria-expanded','true'); layoutTrack(); drawTrack(); scheduleTimelineHide();
+  layoutTrack(); drawTrack(); scheduleTimelineHide();
 }
 function hideTimeline(focus=false) {
   clearTimeout(chrome.timer); stopTime();
   chrome.timeline=false; document.body.classList.remove('time-open'); timeDock.inert=true;
   el('year-form').hidden=true; el('time-input-toggle').setAttribute('aria-expanded','false');
-  elYear.setAttribute('aria-expanded','false');
   if(focus||timeDock.contains(document.activeElement)) elYear.focus({preventScroll:true});
 }
 function closeView(focus=true) {
   chrome.panel=false; viewPanel.hidden=true; el('view-shade').hidden=true;
-  viewToggle.setAttribute('aria-expanded','false');
-  if(focus) viewToggle.focus({preventScroll:true});
+  if(focus) canvas.focus({preventScroll:true});
 }
 function showView() {
+  if (reading.active || !overlay.hidden) return;
   hideTimeline(false); closeSheet(); chrome.panel=true;
   viewPanel.hidden=false; el('view-shade').hidden=false;
-  viewToggle.setAttribute('aria-expanded','true');
   viewPanel.querySelector('[aria-pressed="true"]').focus({preventScroll:true});
 }
 function selectView(mode) {
@@ -3226,15 +3230,70 @@ function resetView() {
   momentum.yaw=momentum.tilt=0;
   Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
 }
-elYear.addEventListener('click',()=>chrome.timeline?hideTimeline():showTimeline());
-el('time-close').addEventListener('click',()=>hideTimeline(true));
-viewToggle.addEventListener('click',()=>chrome.panel?closeView():showView());
+// Long press and ordinary activation are mutually exclusive. Dragging and extra
+// pointers cancel the hold before the globe's own rotation or pinch can finish.
+function bindHold(target, onHold, canStart = () => true) {
+  let press = null;
+  let ignoreClickUntil = 0;
+  function cancel(suppressClick = false) {
+    if (!press) return;
+    clearTimeout(press.timer);
+    if (suppressClick) ignoreClickUntil = performance.now() + 400;
+    press = null;
+  }
+  target.addEventListener('pointerdown', e => {
+    if (!e.isPrimary) { cancel(); return; }
+    if (e.button !== 0 || !canStart(e)) return;
+    ignoreClickUntil = 0;
+    const timer = setTimeout(() => {
+      ignoreClickUntil = Infinity;
+      onHold();
+    }, 500);
+    press = {id:e.pointerId, x:e.clientX, y:e.clientY, timer};
+    try { target.setPointerCapture(e.pointerId); } catch {}
+  });
+  target.addEventListener('pointermove', e => {
+    if (press?.id === e.pointerId && Math.hypot(e.clientX-press.x,e.clientY-press.y)>9) cancel(true);
+  });
+  for (const event of ['pointerup','pointercancel','lostpointercapture']) {
+    target.addEventListener(event, e => {
+      if (press?.id === e.pointerId) cancel(ignoreClickUntil === Infinity || event !== 'pointerup');
+    });
+  }
+  target.addEventListener('contextmenu', e => e.preventDefault());
+  return event => event.detail > 0 && performance.now() < ignoreClickUntil;
+}
+const ignoreYearClick = bindHold(elYear, showTimeline);
+elYear.addEventListener('click', e => {
+  if (ignoreYearClick(e)) return;
+  hideTimeline(false);
+  closeView(false);
+  closeSheet();
+  openWorld();
+  el('overlay-close').focus({preventScroll:true});
+});
+elYear.addEventListener('keydown', e => {
+  if (e.shiftKey && e.key === 'Enter' && !e.repeat) {
+    e.preventDefault();
+    showTimeline();
+    track.focus({preventScroll:true});
+  }
+});
+bindHold(canvas, showView, e => !!mapPointAt(e.clientX,e.clientY));
+canvas.addEventListener('contextmenu', e => {
+  if (e.button === 2 && mapPointAt(e.clientX,e.clientY)) showView();
+});
+canvas.addEventListener('keydown', e => {
+  if (e.key === 'ContextMenu' || (e.shiftKey && e.key === 'F10')) {
+    e.preventDefault();
+    showView();
+  }
+});
 el('view-close').addEventListener('click',()=>closeView());
 el('view-shade').addEventListener('click',()=>closeView());
 viewPanel.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)selectView(b.dataset.view);});
 for(const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) el(id).addEventListener('click',()=>{chrome[key]=!chrome[key];saveDisplay();syncChrome();invalidate();});
 el('reset-view').addEventListener('click',resetView);
-el('world-open').addEventListener('click',()=>{closeView(false);openWorld();});
 timeDock.addEventListener('pointerdown',scheduleTimelineHide);
 timeDock.addEventListener('pointerup',scheduleTimelineHide);
 timeDock.addEventListener('keydown',scheduleTimelineHide);
@@ -3273,7 +3332,6 @@ addEventListener('keydown',e=>{
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 },true);
-if(inlineText('atlas'))el('classic-link').href='classic.offline.html';
 
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {
