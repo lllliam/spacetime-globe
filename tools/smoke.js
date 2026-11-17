@@ -76,19 +76,18 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await sleep(300);
   }
 
-  /* 2. 「下一个时期」 */
+  /* 2. 专题节点与阅读返回 */
   const p2 = await at(110, 34);
   await tap(p2.x, p2.y);
-  const before = await st();
-  await js(`document.querySelector('#sheet .more button[data-act="next"]').click()`);
-  await sleep(700);
-  const after = await st();
-  ok('「下一个时期」换年份且抽屉还在', after.year !== before.year && after.open, { from: before.year, to: after.year, open: after.open });
-
-  /* 3. 「回到地球」 */
-  await js(`document.querySelector('#sheet .more button[data-act="close"]').click()`);
-  await sleep(650);
-  ok('「回到地球」收起抽屉', !(await st()).open);
+  await js(`document.querySelector('[data-read-topic]').click()`);
+  await sleep(400);
+  ok('专题入口打开独立阅读', await js(`!document.getElementById('book').hidden && document.querySelectorAll('.reading-card').length===6`));
+  await js(`document.querySelector('[data-reading-detail]').click()`);
+  ok('专题节点包含解释与来源', await js(`document.querySelectorAll('#book-body article').length===3 && document.querySelectorAll('.reading-sources a').length>0`));
+  await js(`document.getElementById('reading-back').click();document.getElementById('reading-back').click()`);
+  ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1900 && __t.sheet.detent==='half'`));
+  await js('__t.closeSheet()');
+  await sleep(500);
 
   /* 4. 政权层 + 点政权 */
   await js(`window.__t.setLayer('polity')`);

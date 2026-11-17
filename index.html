@@ -313,6 +313,52 @@ body.sheet-open #dock::before{opacity:1}
 #overlay .eracard{margin:2px 0 16px}
 #overlay .eracard p{font-size:13px}
 
+/* 阅读入口与独立阅读层：时间轴只承担定位。 */
+#sheet-scroll{overflow-y:auto;touch-action:pan-y}
+#grab{touch-action:none}
+#sheet .moment-summary{margin:6px 0 12px;font-size:13px;line-height:1.75;color:#cfc6b4}
+.topic-entry,.reading-card{display:block;width:100%;text-align:left;border:1px solid rgba(224,178,115,.2);
+  background:linear-gradient(130deg,rgba(224,178,115,.09),rgba(224,178,115,.025));
+  color:var(--ink);border-radius:12px;padding:14px 16px;cursor:pointer;font:inherit}
+.topic-entry{margin:0 0 16px}
+.topic-entry small,.reading-card small{display:block;color:var(--gold);font-size:10.5px;letter-spacing:.04em;margin-bottom:6px}
+.topic-entry strong,.reading-card strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
+.topic-entry strong span,.reading-card strong span{float:right;color:var(--gold)}
+.topic-entry>span,.reading-card>span{display:block;margin-top:6px;font-size:12px;line-height:1.7;color:var(--muted)}
+.topic-entry:active,.reading-card:active{background:rgba(224,178,115,.16)}
+#sheet.peek .moment-summary,#sheet.peek .topic-entry{display:none}
+body.reading-open #dock,body.reading-open #hud{visibility:hidden}
+#book{background:#0c121a}
+#book-bar{padding-bottom:10px}
+#book-bar button,.reading-next button{appearance:none;border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);background:rgba(255,255,255,.025);font:500 12px/1.4 -apple-system,system-ui,sans-serif;
+  padding:8px 12px;cursor:pointer;flex:none}
+#book-crumb{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0}
+#book-bar #reading-map{font-size:11px;color:var(--gold);border-color:transparent;padding:8px 4px}
+#book-bar #reading-map:disabled{opacity:.4;cursor:default}
+#book-body{width:100%;min-height:0;margin:0 auto;max-width:760px;user-select:text;-webkit-user-select:text;outline:none}
+#book-body h1{font-size:30px;line-height:1.35;margin-bottom:12px;outline:none}
+#book-body .lede{font-size:15px;line-height:1.95}
+#book-body .reading-scope{font-size:11.5px;line-height:1.8;color:var(--muted);padding:12px 0;border-block:1px solid var(--line)}
+#book-body .reading-card{margin:12px 0;padding:16px}
+#book-body h2{margin:26px 0 12px;font-size:16px;line-height:1.7}
+#book-body article{margin:0 0 30px}
+#book-body article p{line-height:2;font-size:16px}
+#book-body .reading-sources{border-top:1px solid var(--line);margin-top:30px}
+#book-body .reading-sources p{color:var(--muted);font-size:11.5px}
+#book-body .reading-sources a{display:block;color:var(--gold);font-size:12px;line-height:1.8;padding:8px 0;text-underline-offset:3px}
+.reading-next{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.reading-next button{line-height:1.8;text-align:left;max-width:100%;border-radius:12px}
+.reading-empty{padding:32px 0;color:var(--muted);line-height:1.8}
+#reading-resume{position:fixed;z-index:19;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 140px);
+  width:max-content;max-width:calc(100% - 32px);border:1px solid var(--gold-dim);border-radius:999px;
+  background:#17202c;color:var(--gold);padding:12px 18px;font:500 12px/1.5 -apple-system,system-ui,sans-serif;
+  box-shadow:0 6px 30px #0008;cursor:pointer}
+#reading-resume[hidden]{display:none}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(max-width:360px){#book-bar{gap:4px;padding-inline:8px}#book-crumb{font-size:10px}#book-body{padding-inline:18px}}
+@media(prefers-reduced-motion:reduce){#book{animation:none}}
+
 </style>
 </head>
 <body>
@@ -361,10 +407,21 @@ body.sheet-open #dock::before{opacity:1}
   <p>正在铺开地图…</p>
 </div>
 
+<section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
+  <header id="book-bar">
+    <button id="reading-back" type="button">← 返回地球</button>
+    <span id="book-crumb"></span>
+    <button id="reading-map" type="button">在地球上看 ↗</button>
+  </header>
+  <div id="book-body" tabindex="0"></div>
+</section>
+<button id="reading-resume" type="button" hidden>返回阅读 ↑</button>
+
 <script id="atlas" type="application/json"></script>
 <script id="relief" type="application/octet-stream"></script>
 <script id="politypack" type="application/octet-stream"></script>
 <script id="stories" type="application/json"></script>
+<script id="topics" type="application/json">[{"id":"china-late-qing","title":"晚清：危机中的转型","subtitle":"中国 · 1840—1912","from":1840,"to":1912,"countryIsos":["CN"],"polityNames":["Qing","Qing dynasty","Qing Dynasty","Qing Empire","Great Qing"],"scope":"以晚清中国的政治与社会变化为主线。现代中国区域入口与清朝疆域并不等同；地图标记是事件地点，不代表事件覆盖范围。","summary":"从通商口岸的扩展到帝制结束，这七十余年里，外部战争、内部冲突、企业兴办与政治改革相互交织。清廷尝试用新技术、新军队和新制度维持统治，改革也改变了社会参与政治的方式。六个节点串起这些变化：战争怎样改写对外关系，内战怎样冲击社会，工业尝试带来什么，败局为何推动改革，以及王朝最终如何走向结束。这里呈现的是一条理解线索；晚清的变化并非只有一种解释，也并非注定走向同一结局。","chapters":[{"id":"ports","year":1842,"date":"1840—1844","title":"战争怎样改变通商规则？","summary":"从鸦片冲突到条约口岸，对外贸易也成为司法与主权问题。","place":{"label":"南京 · 条约签订地","lon":118.8,"lat":32.06},"sections":[{"title":"背景：贸易中的冲突","text":"英国商人向中国走私鸦片，清廷试图禁绝。围绕鸦片、贸易与外交地位的冲突，最终演变为战争。禁烟是直接背景，不能用它概括全部中英矛盾。"},{"title":"变化：条约重写规则","text":"1842 年《南京条约》结束第一次鸦片战争，五口通商成为新的对外关系框架。美国随后于 1844 年签订《望厦条约》，取得通商和领事裁判等特权；列强通过条约争取各自利益。"},{"title":"影响：从港口进入日常","text":"口岸逐渐成为商人、传教士和居民交往的空间。对居民来说，变化不仅是商品流通，还包括不同法律权利并存。理解后来的冲突，需要同时关注贸易机会与不平等的制度安排。"}],"sources":[{"title":"美国国务院历史办公室 · 第一次鸦片战争与望厦条约","url":"https://history.state.gov/milestones/1830-1860/china-1"}]},{"id":"civil-war","year":1853,"date":"1851—1864","title":"外部压力之外，内部发生了什么？","summary":"太平天国与清廷的长期战争，把理解晚清的视线带到内陆。","place":{"label":"南京 · 太平天国都城","lon":118.8,"lat":32.06},"sections":[{"title":"背景：另一场危机","text":"对外战争并不是清廷面对的唯一挑战。洪秀全领导的太平天国兴起，1853 年占领南京并建都，形成与清廷长期对抗的力量。"},{"title":"经过：战争深入社会","text":"战事持续多年，直到 1864 年清军攻陷天京。战争造成广泛破坏与人口损失。只看条约与外交，无法理解内陆居民在这一时期的遭遇。"},{"title":"读历史时再追问一步","text":"不同地区承受战争的方式并不相同：城镇、田地与商业网络受到的冲击，需要结合地方材料考察。这里先确立一个视角：晚清的转型同时发生在对外关系与社会内部。"}],"sources":[{"title":"澳大利亚国家图书馆 · 太平天国及通商口岸资料","url":"https://www.library.gov.au/learn/digital-classroom/celestial-empire/contact-and-conflict"}]},{"id":"industry","year":1872,"date":"约 1860—1895","title":"自强怎样走进工厂与航运？","summary":"洋务实践留下的不只是舰船，也有新的企业与技术组织。","place":{"label":"上海 · 近代企业与航运中心之一","lon":121.47,"lat":31.23},"sections":[{"title":"起点：国家参与技术变革","text":"十九世纪后半叶的自强实践，把国家力量带入近代工业与技术领域。军工厂、现代企业和航运事业成为探索新能力的载体。"},{"title":"选择：企业怎样组织","text":"这些尝试并非只是购买机器，还涉及官府与商人如何合作、企业由谁管理。轮船招商局等案例，是考察官商关系的重要入口。"},{"title":"影响：用什么衡量自强","text":"一场战争的胜负很重要，却不能单独概括企业与技术发展的全部结果。阅读这一段，可以分别追问军事能力、经营方式与技术积累发生了什么变化，而不急于给整个时期贴上成功或失败的标签。"}],"sources":[{"title":"剑桥中国经济史 · 晚清的国家与企业（章节摘要）","url":"https://www.cambridge.org/core/books/abs/cambridge-economic-history-of-china/state-and-enterprises-in-late-qing-china/905877745C74FA03578B4C4A80CC45AE"}]},{"id":"defeat","year":1895,"date":"1894—1895","title":"甲午败局改变了什么？","summary":"东亚战争的结果，使领土与区域关系再次发生变化。","place":{"label":"下关 · 马关条约签订地","lon":130.94,"lat":33.96},"sections":[{"title":"事件：中日之间的战争","text":"1894—1895 年的甲午战争中，清朝败于日本。结束战争的《马关条约》要求清廷进一步作出领土让步。"},{"title":"把视野放到东亚","text":"这一事件涉及中国、日本与朝鲜半岛，不能只放在一个现代国家的年表里阅读。在地图上定位条约签订地，可以先建立空间方位，再沿专题回到中国内部的变化。"},{"title":"理解上的边界","text":"战败与此后的改革讨论存在联系，但一场战争本身不能解释所有政治变化。要继续理解改革与革命，还需要看参与者的主张、组织与行动。"}],"sources":[{"title":"史密森尼国家亚洲艺术博物馆 · 中国历史年表（甲午战争）","url":"https://asia-archive.si.edu/learn/for-educators/teaching-china-with-the-smithsonian/interactives/timelines/timeline-of-chinese-history-art-and-culture/"}]},{"id":"boxers","year":1900,"date":"1899—1901","title":"地方冲突怎样成为国际战争？","summary":"义和团、清廷与列强的行动在同一场危机中交错。","place":{"label":"北京 · 1900 年危机的重要地点","lon":116.4,"lat":39.9},"sections":[{"title":"背景：各方利益并不相同","text":"十九世纪末，列强争夺在华贸易与势力范围。美国在 1899—1900 年提出门户开放政策，以维护商业机会。列强之间既竞争，也有共同利益。"},{"title":"升级：从排外行动到武装冲突","text":"义和团攻击传教士和中国基督徒；清廷的支持使冲突进一步升级。北京使馆被围，外国军队介入，地方与宗教冲突卷入国际战争。"},{"title":"理解：区分不同的人","text":"用“中国”和“外国”两个词不足以解释这场危机。清廷、义和团、中国教民与各国政府并不是意志一致的两支队伍。把行动者区分开，才能理解冲突如何升级，也能看见平民受到的伤害。"}],"sources":[{"title":"美国国务院历史办公室 · 门户开放与义和团危机","url":"https://history.state.gov/milestones/1899-1913/hay-and-china"}]},{"id":"revolution","year":1911,"date":"1901—1912","title":"改革为何没有保住王朝？","summary":"新政、立宪与革命，是相互竞争的政治道路。","place":{"label":"武汉 · 武昌起义所在地","lon":114.3,"lat":30.59},"sections":[{"title":"背景：清廷继续改革","text":"清廷尝试改革军队与政治制度，1905 年废除科举，并推动地方议会等变化。君主立宪与共和革命的主张同时发展，海外华人也参与支持。"},{"title":"转折：武昌起义之后","text":"1911 年武昌起义后，更多省份脱离清廷。革命力量与朝廷之间的军事、政治交涉，最终通向 1912 年共和国的建立与清帝退位。"},{"title":"结果并不是所有问题的终点","text":"帝制结束解决了国家最高权力形式的问题，却不等于地方与中央、军队与政治之间的矛盾随之消失。理解革命既要看制度断裂，也要追问哪些问题进入了下一个时期。"}],"sources":[{"title":"美国国务院历史办公室 · 1911 年中国革命","url":"https://history.state.gov/milestones/1899-1913/chinese-rev"},{"title":"史密森尼 · 1912 年共和国建立","url":"https://asia-archive.si.edu/learn/for-educators/teaching-china-with-the-smithsonian/interactives/timelines/timeline-of-chinese-history-art-and-culture/"}]}]}]</script>
 <script>
 /* ═══════════════════════════════════════════════════════════════
    地球仪 · 时空坐标 · v2
@@ -1879,8 +1936,7 @@ function tapGlobe(sx, sy) {
 }
 
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
-   一个组件承担三件事：半屏的「档案」、上拉后的「一本书」、以及两者之间的连续手势。
-   内容只有一份，展开只是同一根滚动轴露得更多。 */
+   半屏展示此刻摘要，抓手上拉或点击专题入口，进入独立阅读层。 */
 const KIND_LABEL = { country: '现代国家', polity: '政权' };
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const dockEl = el('dock');
@@ -1922,6 +1978,7 @@ function applySheetOffset(offset, animate = true) {
 }
 
 function sheetTo(detent, animate = true) {
+  if (detent === 'full') { openBook(); return; }
   const d = sheetDetents();
   /* 只认四个真档位；'custom' 这种自由位置就停在原地，不能把 offset 变成 NaN */
   if (!(detent in d)) { applySheetOffset(sheetState.offset, animate); return; }
@@ -1962,6 +2019,7 @@ function scrollToHere() {
 
 /* 手势：抓手上拖（随时可用）/ 内容在顶部时下拉 / 半屏时任意位置上下拖 */
 function sheetDragStart(e, fromGrab) {
+  if (!fromGrab) return; // 内容区用于原生滚动，拖动抽屉只从抓手开始。
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons === 0) return;
   if (!Number.isFinite(sheetState.offset)) sheetState.offset = sheetDetents().hidden;
@@ -1969,6 +2027,7 @@ function sheetDragStart(e, fromGrab) {
   if (!fromGrab && sheetScroll.scrollTop > 0) return;
   sheetState.dragging = true;
   sheetState.startY = e.clientY;
+  sheetState.startDetent = sheetState.detent;
   sheetState.startOffset = sheetState.offset;
   sheetState.lastY = e.clientY;
   sheetState.lastT = performance.now();
@@ -2001,6 +2060,12 @@ function sheetDragEnd() {
   if (off > d.peek + 8 || (sheetState.vy > 760 && off > d.peek - 90)) { closeSheet(); return; }
   /* 只在离档位 44px 以内才吸附，否则就停在松手的地方（可以停在任意高度） */
   const near = ['full', 'half', 'peek'].find((k) => Math.abs(d[k] - off) < 44);
+  if (near === 'full') {
+    sheetState.detent = sheetState.startDetent;
+    applySheetOffset(sheetState.startOffset, false);
+    openBook();
+    return;
+  }
   if (near) sheetTo(near);
   else {
     sheetState.detent = off <= 1 ? 'full' : off >= d.peek ? 'peek' : 'custom';
@@ -2068,41 +2133,25 @@ function renderEntity() {
       .map((e) => '<li class="near"><i style="background:' + kindColor(e) + '"></i><span>' + esc(e.zh || e.en) +
         '</span><small>' + dateOf(e) + '</small></li>').join('');
 
-  const ch = buildChapter(ent);
-  const sections = ch.sections.filter((s) => s.items.length).map((s) => `
-      <h2 class="sec${s.here ? ' here' : ''}">${esc(s.heading)}<em>${s.items.length} 条</em></h2>
-      ${s.note ? `<p class="secnote">${esc(s.note)}</p>` : ''}
-      ${s.items.map((it) => `
-        <article>
-          <h3>${esc(it.title)}</h3>
-          <p class="meta"><i style="background:${it.color}"></i>${esc(it.meta)}</p>
-          ${it.prose ? `<p>${esc(it.prose)}</p>` : `<p class="noprose">尚无正文${it.sit ? ' · ' + esc(it.sit) : ''}</p>`}
-          ${it.source ? `<a class="src" href="${esc(it.source)}" target="_blank" rel="noopener">维基百科 ↗</a>` : ''}
-        </article>`).join('')}`).join('');
-  const titles = [...new Set((stories ? ch.sections.flatMap((s) => s.items) : []).map((i) => i.title))].slice(0, 6);
-
+  const topic = topicForEntity(ent);
+  const title = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
+  const readingTitle = topic ? topic.title : ent.name + ' · ' + chapterOf(state.year).n;
+  const readingMeta = topic ? topic.subtitle : '按时期阅读 · 事件与来源';
+  const current = entriesOfEntity(ent);
+  const summaryText = topic && state.year >= topic.from && state.year <= topic.to
+    ? topic.chapters.reduce((best, c) => Math.abs(c.year - state.year) < Math.abs(best.year - state.year) ? c : best).summary
+    : current.length ? '当前时间范围内收录 ' + current.length + ' 条，以下为部分记录。' : '当前年份暂无收录，以下列出距离这一年最近的记录。';
   sheetInner.innerHTML =
-    '<h2>' + esc(ch.title || ent.name) +
-      ((ch.sub || (ent.nameEn && ent.nameEn !== ent.name && ent.nameEn !== ch.title)) ? '<em>' + esc(ch.sub || ent.nameEn) + '</em>' : '') + '</h2>' +
+    '<h2>' + esc(title) + (ent.nameEn && ent.nameEn !== title ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
     '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
+    '<p class="moment-summary">' + esc(summaryText) + '</p>' +
+    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><small>' + esc(readingMeta) +
+      '</small><strong>' + esc(readingTitle) + ' <span>→</span></strong><span>上拉或点击，进入阅读</span></button>' +
     '<ul class="facts">' + facts + '</ul>' +
     (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
-    (rows ? '<ul class="rows">' + rows + '</ul>' : '<p class="empty">这个年份附近没有收录条目。</p>') +
-    '<p class="hint-more">上拉：读这一卷</p>' +
-    '<div class="book">' +
-      (ch.era && ch.era.intro ? '<div class="eracard"><b>' + esc(ch.era.name) + '</b><p>' + esc(ch.era.intro) + '</p></div>' : '') +
-      '<p class="lede">' + esc(ch.lede || '') + '</p>' +
-      (sections || '<p class="noprose">这一段还没有收进条目。</p>') +
-      '<div class="more">' +
-        '<button type="button" data-act="prev">◀ 上一个时期</button>' +
-        '<button type="button" data-act="next">下一个时期 ▶</button>' +
-        '<button type="button" data-act="close">回到地球</button>' +
-      '</div>' +
-      '<p class="credits"><b>正文</b>：中文维基百科导语（CC BY-SA 4.0）' + (titles.length ? '，条目名 ' + esc(titles.join('、')) : '') + '<br>' +
-        '<b>边界</b>：Cliopatria / Seshat（CC BY 4.0）· <b>国界</b>：Natural Earth（公有领域）<br>' +
-        '正文由导语拼接而成，不是逐段核对过的通史；年份与出处以年表为准。</p>' +
-    '</div>' +
-    '<p class="foot">边界按现代国界近似' + (ent.kind === 'polity' ? ' · 历史疆界来自 Cliopatria' : '') + '</p>';
+    (rows ? '<ul class="rows">' + rows + '</ul>' : '<p class="empty">这一年附近没有收录条目。</p>') +
+    '<p class="foot">' + (ent.kind === 'polity' ? '历史疆界：Cliopatria · 条目位置按地区近似关联' : '以现代国家作为区域入口，不表示当年的疆界') + '</p>';
+
 }
 
 function openEntity(layerId, id) {
@@ -2148,8 +2197,7 @@ sheetInner.addEventListener('click', (e) => {
 });
 
 /* 兼容旧调用 */
-const openBook = () => { if (state.focus) sheetTo('full'); };
-const closeBook = closeSheet;
+const closeBook = () => closeReader();
 const renderSheet = renderEntity;
 
 function isoName(iso) {
@@ -2374,8 +2422,8 @@ function sectionNote(items) {
 }
 
 
-function buildChapter(ent) {
-  const list = entriesForBook(ent).sort((a, b) => a.t0 - b.t0);
+function buildChapter(ent, period = null) {
+  const list = entriesForBook(ent).filter((e) => !period || (e.start <= period.b && (e.point ? e.start : e.end) >= period.a)).sort((a, b) => a.t0 - b.t0);
   const chapters = [];
   let cur = null;
   for (const e of list) {
@@ -2392,6 +2440,7 @@ function buildChapter(ent) {
     items: c.items.map((e) => {
       const r = regionById.get(e.region) || {};
       return {
+        id: e.id,
         title: e.zh || e.en,
         meta: dateOf(e),
         color: kindColor(e),
@@ -2589,6 +2638,7 @@ setTimeout(hideHint, 6000);
 
 /* ───────────── 17. 键盘 ───────────── */
 addEventListener('keydown', (e) => {
+  if (handleReadingKey(e)) return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   const step = e.shiftKey ? 20 : 1;
   if (e.key === 'ArrowLeft') { state.year = clamp(state.year - step, YMIN, YMAX); onYearChanged(); e.preventDefault(); }
@@ -2608,6 +2658,237 @@ addEventListener('resize', () => {
 });
 addEventListener('orientationchange', () => setTimeout(() => { layout(); layoutTrack(); drawTrack(); }, 260));
 document.addEventListener('visibilitychange', () => { lastT = 0; });
+
+/* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
+const TOPICS = JSON.parse(inlineText('topics') || '[]');
+const bookEl = el('book'), bookBody = el('book-body');
+const readingBack = el('reading-back'), readingMap = el('reading-map'), readingResume = el('reading-resume');
+const reading = { active: false, preview: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
+const readingPositions = new Map();
+
+function topicForEntity(ent) {
+  return TOPICS.find((t) => ent.kind === 'country' ? t.countryIsos.includes(ent.iso) : t.polityNames.includes(ent.name)) || null;
+}
+function pauseGlobe() {
+  spinning = false;
+  momentum.yaw = momentum.tilt = 0;
+  cancelAnimationFrame(zoomAnim);
+  cancelAnimationFrame(liftRaf);
+  cancelAnimationFrame(rafId);
+  rafId = 0;
+}
+function readingKey() { return (reading.topic ? reading.topic.id : reading.ent.layerId + ':' + reading.ent.key + ':' + chapterOf(reading.year).n); }
+function rememberReading() {
+  if (!reading.ent) return;
+  if (reading.detail) reading.detailScroll = bookBody.scrollTop;
+  else reading.scroll = bookBody.scrollTop;
+  readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
+}
+function readingBackground(inert) {
+  for (const id of ['hud', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
+  document.body.classList.toggle('reading-open', inert);
+}
+function openBook(topicId) {
+  if (reading.active) return;
+  const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  if (!ent) return;
+  pauseGlobe();
+  reading.snapshot = {
+    year: state.year, layerId: state.layerId, focus: { ...state.focus },
+    yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
+    detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop,
+  };
+  reading.ent = { ...ent };
+  reading.topic = typeof topicId === 'string' ? TOPICS.find((t) => t.id === topicId) || null : topicForEntity(ent);
+  reading.year = state.year;
+  reading.trigger = document.activeElement;
+  const saved = readingPositions.get(readingKey());
+  reading.detail = saved ? saved.detail : null;
+  reading.scroll = saved ? saved.scroll : 0;
+  reading.detailScroll = saved ? saved.detailScroll : 0;
+  reading.active = true;
+  reading.preview = false;
+  showReader();
+  // 正文到达后只更新通用资料页；专题内容无需网络。
+  loadStories().then(() => {
+    if (reading.active && !reading.preview && !reading.topic) { rememberReading(); renderReading(); }
+  });
+}
+function showReader() {
+  reading.preview = false;
+  readingResume.hidden = true;
+  bookEl.hidden = false;
+  readingBackground(true);
+  renderReading();
+  readingBack.focus({ preventScroll: true });
+}
+function readingItems() {
+  if (reading.topic) return reading.topic.chapters;
+  return buildChapter(reading.ent, chapterOf(reading.year)).sections.flatMap((s) => s.items);
+}
+function sourcesMarkup(sources) {
+  return '<section class="reading-sources"><h2>来源与继续阅读</h2><p>正文可离线阅读，来源链接需联网打开。</p>' +
+    sources.map((s) => '<a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.title) + ' ↗</a>').join('') + '</section>';
+}
+function renderReading() {
+  const topic = reading.topic, items = readingItems();
+  const item = reading.detail !== null ? items.find((c) => String(c.id) === String(reading.detail)) : null;
+  if (!item) reading.detail = null;
+  const title = topic ? topic.title : reading.ent.name + ' · ' + chapterOf(reading.year).n;
+  el('book-crumb').textContent = item ? title : (topic ? topic.subtitle : '时期资料');
+  readingBack.textContent = item ? '← 返回专题' : '← 返回地球';
+  if (!topic && item) readingBack.textContent = '← 返回时期';
+  let html;
+  if (item) {
+    const sections = topic ? item.sections : [{ title: '条目正文', text: item.prose || '这条记录暂未收录可核对的正文。可以查看来源，或返回时期浏览其他条目。' }];
+    const sources = topic ? item.sources : (item.source ? [{ title: item.title + ' · 年表原始来源', url: item.source }] : []);
+    html = '<p class="eyebrow">' + (topic ? '专题节点' : '年表资料') + ' · ' + (items.indexOf(item) + 1) + ' / ' + items.length + '</p>' +
+      '<h1 id="reading-title" tabindex="-1">' + esc(item.title) + '</h1><p class="when">' + esc(item.date || item.meta) + '</p>' +
+      (item.summary ? '<p class="lede">' + esc(item.summary) + '</p>' : '') +
+      sections.map((s) => '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + '</p></article>').join('') +
+      sourcesMarkup(sources) + '<nav class="reading-next">' +
+      (items.indexOf(item) > 0 ? '<button type="button" data-reading-detail="' + esc(items[items.indexOf(item) - 1].id) + '">← 上一篇</button>' : '') +
+      (items.indexOf(item) < items.length - 1 ? '<button type="button" data-reading-detail="' + esc(items[items.indexOf(item) + 1].id) + '">下一篇：' + esc(items[items.indexOf(item) + 1].title) + ' →</button>' : '<button type="button" data-reading-index>读完了，回到专题 ↑</button>') + '</nav>';
+  } else {
+    const ch = topic ? null : buildChapter(reading.ent, chapterOf(reading.year));
+    html = '<p class="eyebrow">' + (topic ? '历史专题 · ' + items.length + ' 个节点' : '时期资料 · ' + items.length + ' 条记录') + '</p>' +
+      '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><p class="when">' + esc(topic ? topic.subtitle : chapterOf(reading.year).a + '—' + chapterOf(reading.year).b + ' · ' + reading.ent.name) + '</p>' +
+      '<p class="lede">' + esc(topic ? topic.summary : ch.lede) + '</p>' +
+      '<p class="reading-scope">' + esc(topic ? topic.scope : '本页按所选时期筛选年表资料；跨越时期的长时段记录也会保留。条目导语与专题叙事分别标注。') + '</p>' +
+      '<h2>' + (topic ? '沿着六个问题读下去' : '这一时期的记录') + '</h2>' +
+      items.map((c, i) => '<button type="button" class="reading-card" data-reading-detail="' + esc(c.id) + '"><small>' + String(i + 1).padStart(2, '0') + ' / ' + esc(c.date || c.meta) +
+        '</small><strong>' + esc(c.title) + ' <span>→</span></strong>' + (c.summary ? '<span>' + esc(c.summary) + '</span>' : '') + '</button>').join('') +
+      (!items.length ? '<p class="reading-empty">这一时期还没有收录条目，可以切换到相邻时期。</p>' : '') +
+      (!topic ? periodNavigation() : '') +
+      '<p class="credits">' + (topic ? '专题文字为依据所列资料编写的概述，因果联系为解释线索，不替代完整史学论证。每篇附独立来源。' : '正文：中文维基百科导语（CC BY-SA 4.0），条目详情附原始来源；地理关联采用地区代表点，存在近似。') + '</p>';
+  }
+  bookBody.innerHTML = html;
+  bookBody.scrollTop = item ? reading.detailScroll : reading.scroll;
+  readingMap.disabled = !items.length;
+}
+function periodNavigation() {
+  const i = CH.indexOf(chapterOf(reading.year));
+  return '<nav class="reading-next">' +
+    (i > 0 ? '<button type="button" data-reading-period="' + (i - 1) + '">← ' + esc(CH[i - 1].n) + '</button>' : '') +
+    (i < CH.length - 1 ? '<button type="button" data-reading-period="' + (i + 1) + '">' + esc(CH[i + 1].n) + ' →</button>' : '') + '</nav>';
+}
+function openReadingDetail(id) {
+  if (!reading.detail) reading.scroll = bookBody.scrollTop;
+  reading.detail = id;
+  reading.detailScroll = 0;
+  renderReading();
+  el('reading-title').focus({ preventScroll: true });
+}
+function readingIndex() {
+  reading.detail = null;
+  renderReading();
+  const first = bookBody.querySelector('[data-reading-detail]');
+  if (first) first.focus({ preventScroll: true });
+}
+function readingGoBack() {
+  if (reading.detail !== null) readingIndex();
+  else closeReader();
+}
+function closeReader() {
+  if (!reading.active) return;
+  rememberReading();
+  const s = reading.snapshot;
+  reading.active = reading.preview = false;
+  bookEl.hidden = true;
+  readingResume.hidden = true;
+  readingBackground(false);
+  pauseGlobe();
+  Object.assign(state, { year: s.year, layerId: s.layerId, focus: { ...s.focus }, yaw: s.yaw, tilt: s.tilt, zoom: s.zoom, panX: s.panX, panY: s.panY, lift: s.lift });
+  onYearChanged();
+  layout();
+  sheetState.detent = s.detent;
+  applySheetOffset(s.detent === 'custom' ? clamp(s.offset, 0, sheetDetents().peek) : sheetDetents()[s.detent], false);
+  sheetScroll.scrollTop = s.scroll;
+  if (reading.trigger && reading.trigger.isConnected && reading.trigger !== document.body) reading.trigger.focus({ preventScroll: true });
+  else { const button = sheetInner.querySelector('[data-read-topic]'); if (button) button.focus({ preventScroll: true }); }
+  invalidate();
+}
+function previewReadingMap() {
+  const items = readingItems();
+  const item = items.find((c) => String(c.id) === String(reading.detail)) || items.reduce((best, c) => !best || Math.abs((c.year || reading.year) - reading.year) < Math.abs((best.year || reading.year) - reading.year) ? c : best, null);
+  if (!item) return;
+  rememberReading();
+  reading.preview = true;
+  bookEl.hidden = true;
+  readingBackground(false);
+  closeSheet();
+  closeWorld();
+  pauseGlobe();
+  state.year = clamp(item.year || reading.year, YMIN, YMAX);
+  // 精确事件地点仅来自专题编辑数据；通用年表只展示原地区的近似位置。
+  if (item.place) {
+    state.layerId = 'country';
+    state.yaw = -item.place.lon * Math.PI / 180;
+    state.tilt = clamp(item.place.lat * Math.PI / 180, -0.62, 1.02);
+    state.zoom = 2.2;
+    state.panX = state.panY = state.lift = 0;
+  } else {
+    state.layerId = reading.ent.layerId;
+  }
+  onYearChanged();
+  layout();
+  const entityShape = partition.shapes.find((s) => focusKeyOf(state.layerId, s) === reading.ent.key);
+  const id = item.place ? pickAt(view.cx, view.cy) : entityShape && entityShape.id;
+  const shape = partition.shapes.find((s) => s.id === id);
+  if (shape) state.focus = { layerId: state.layerId, id, key: focusKeyOf(state.layerId, shape) };
+  rebuildPartition();
+  invalidate();
+  readingResume.textContent = (item.place ? item.place.label : reading.ent.name + ' · 区域示意') + ' · 返回阅读 ↑';
+  readingResume.hidden = false;
+  readingResume.focus({ preventScroll: true });
+}
+function resumeReader() {
+  if (!reading.active) return;
+  pauseGlobe();
+  closeWorld();
+  showReader();
+}
+function handleReadingKey(e) {
+  if (!reading.active) return false;
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    if (reading.preview) resumeReader(); else readingGoBack();
+    return true;
+  }
+  if (reading.preview) return false;
+  if (e.key === 'Tab') {
+    const focusable = [...bookEl.querySelectorAll('button:not(:disabled), a[href], [tabindex="0"]')];
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  return true;
+}
+sheetInner.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-read-topic]');
+  if (b) openBook(b.dataset.readTopic);
+});
+bookBody.addEventListener('click', (e) => {
+  const b = e.target.closest('button');
+  if (!b) return;
+  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail);
+  else if (b.hasAttribute('data-reading-index')) readingIndex();
+  else if (b.hasAttribute('data-reading-period')) {
+    rememberReading();
+    const period = CH[Number(b.dataset.readingPeriod)];
+    if (!period) return;
+    reading.year = period.a + 1;
+    const saved = readingPositions.get(readingKey());
+    reading.detail = saved ? saved.detail : null;
+    reading.scroll = saved ? saved.scroll : 0;
+    reading.detailScroll = saved ? saved.detailScroll : 0;
+    renderReading();
+    el('reading-title').focus({ preventScroll: true });
+  }
+});
+readingBack.addEventListener('click', readingGoBack);
+readingMap.addEventListener('click', previewReadingMap);
+readingResume.addEventListener('click', resumeReader);
 
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {

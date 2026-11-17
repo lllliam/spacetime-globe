@@ -53,6 +53,12 @@
 
 ## 开发
 
+### v2.1：独立阅读层
+
+点陆地看此刻摘要 → 点击专题入口或从抓手上拉 → 阅读专题 → 打开节点详情。正文可主动定位到地图，再回到原文；最终返回地球会恢复进入前的年份与视角。阅读时隐藏时间轴，详情与概览各自保留滚动位置。
+
+首份专题是《中国 · 1840—1912：晚清的危机与转型》，含六个节点与独立来源。其他地区按时期阅读现有年表资料。专题数据为 `data/topics.json`，阅读逻辑为 `src/reading.js`，两种构建产物均可使用。设计细节见 [docs/READING.md](docs/READING.md)。
+
 ```bash
 npm run data       # 从时空坐标_v1.4.html 重打数据 → data/world.json + data/polity.bin(.gz)
 npm run build      # src/ + data/ → index.html（线上）与 index.offline.html（单文件）

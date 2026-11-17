@@ -296,3 +296,49 @@ body.sheet-open #dock::before{opacity:1}
 #sheet .secnote{margin:2px 0 12px;font-size:11.5px;line-height:1.6;color:#7f8899;letter-spacing:.02em}
 #overlay .eracard{margin:2px 0 16px}
 #overlay .eracard p{font-size:13px}
+
+/* 阅读入口与独立阅读层：时间轴只承担定位。 */
+#sheet-scroll{overflow-y:auto;touch-action:pan-y}
+#grab{touch-action:none}
+#sheet .moment-summary{margin:6px 0 12px;font-size:13px;line-height:1.75;color:#cfc6b4}
+.topic-entry,.reading-card{display:block;width:100%;text-align:left;border:1px solid rgba(224,178,115,.2);
+  background:linear-gradient(130deg,rgba(224,178,115,.09),rgba(224,178,115,.025));
+  color:var(--ink);border-radius:12px;padding:14px 16px;cursor:pointer;font:inherit}
+.topic-entry{margin:0 0 16px}
+.topic-entry small,.reading-card small{display:block;color:var(--gold);font-size:10.5px;letter-spacing:.04em;margin-bottom:6px}
+.topic-entry strong,.reading-card strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
+.topic-entry strong span,.reading-card strong span{float:right;color:var(--gold)}
+.topic-entry>span,.reading-card>span{display:block;margin-top:6px;font-size:12px;line-height:1.7;color:var(--muted)}
+.topic-entry:active,.reading-card:active{background:rgba(224,178,115,.16)}
+#sheet.peek .moment-summary,#sheet.peek .topic-entry{display:none}
+body.reading-open #dock,body.reading-open #hud{visibility:hidden}
+#book{background:#0c121a}
+#book-bar{padding-bottom:10px}
+#book-bar button,.reading-next button{appearance:none;border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);background:rgba(255,255,255,.025);font:500 12px/1.4 -apple-system,system-ui,sans-serif;
+  padding:8px 12px;cursor:pointer;flex:none}
+#book-crumb{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0}
+#book-bar #reading-map{font-size:11px;color:var(--gold);border-color:transparent;padding:8px 4px}
+#book-bar #reading-map:disabled{opacity:.4;cursor:default}
+#book-body{width:100%;min-height:0;margin:0 auto;max-width:760px;user-select:text;-webkit-user-select:text;outline:none}
+#book-body h1{font-size:30px;line-height:1.35;margin-bottom:12px;outline:none}
+#book-body .lede{font-size:15px;line-height:1.95}
+#book-body .reading-scope{font-size:11.5px;line-height:1.8;color:var(--muted);padding:12px 0;border-block:1px solid var(--line)}
+#book-body .reading-card{margin:12px 0;padding:16px}
+#book-body h2{margin:26px 0 12px;font-size:16px;line-height:1.7}
+#book-body article{margin:0 0 30px}
+#book-body article p{line-height:2;font-size:16px}
+#book-body .reading-sources{border-top:1px solid var(--line);margin-top:30px}
+#book-body .reading-sources p{color:var(--muted);font-size:11.5px}
+#book-body .reading-sources a{display:block;color:var(--gold);font-size:12px;line-height:1.8;padding:8px 0;text-underline-offset:3px}
+.reading-next{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.reading-next button{line-height:1.8;text-align:left;max-width:100%;border-radius:12px}
+.reading-empty{padding:32px 0;color:var(--muted);line-height:1.8}
+#reading-resume{position:fixed;z-index:19;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 140px);
+  width:max-content;max-width:calc(100% - 32px);border:1px solid var(--gold-dim);border-radius:999px;
+  background:#17202c;color:var(--gold);padding:12px 18px;font:500 12px/1.5 -apple-system,system-ui,sans-serif;
+  box-shadow:0 6px 30px #0008;cursor:pointer}
+#reading-resume[hidden]{display:none}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(max-width:360px){#book-bar{gap:4px;padding-inline:8px}#book-crumb{font-size:10px}#book-body{padding-inline:18px}}
+@media(prefers-reduced-motion:reduce){#book{animation:none}}

@@ -38,6 +38,8 @@ window.__t = {
   get sheet(){ return sheetState },
   entriesForBook, polityMaskOf, buildChapter, entityById, entityByKey, focusKeyOf,
   get stories(){ return stories },
+  get reading(){ return reading },
+  readingGoBack, closeReader, previewReadingMap, resumeReader,
   get vecCount(){ return vecShapes.length },
   get vecShapes(){ return vecShapes },
   prepareVector, drawVector, svgRings, rotation,
@@ -59,8 +61,8 @@ window.__t = {
 };
 `;
 
-function buildHarness() {
-  let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+function buildHarness(offline = false) {
+  let html = fs.readFileSync(path.join(ROOT, offline ? 'index.offline.html' : 'index.html'), 'utf8');
   const marker = '/* ───────────── 19. 启动 ───────────── */';
   if (!html.includes(marker)) throw new Error('index.html 里找不到启动标记，先跑 npm run build');
   html = html.replace(marker, HOOK + '\n' + marker);
@@ -68,7 +70,7 @@ function buildHarness() {
 addEventListener('error',(e)=>window.__errs.push('error: '+(e.message||e.type)+' @'+(e.lineno||0)),true);
 addEventListener('unhandledrejection',(e)=>window.__errs.push('rej: '+(e.reason&&e.reason.message||String(e.reason))));
 </script></head>`);
-  const file = path.join(ROOT, '_harness.html');
+  const file = path.join(ROOT, offline ? '_harness.offline.html' : '_harness.html');
   fs.writeFileSync(file, html, 'utf8');
   return file;
 }

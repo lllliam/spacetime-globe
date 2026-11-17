@@ -63,10 +63,21 @@
   <p>正在铺开地图…</p>
 </div>
 
+<section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
+  <header id="book-bar">
+    <button id="reading-back" type="button">← 返回地球</button>
+    <span id="book-crumb"></span>
+    <button id="reading-map" type="button">在地球上看 ↗</button>
+  </header>
+  <div id="book-body" tabindex="0"></div>
+</section>
+<button id="reading-resume" type="button" hidden>返回阅读 ↑</button>
+
 <script id="atlas" type="application/json">/*ATLAS*/</script>
 <script id="relief" type="application/octet-stream">/*RELIEF*/</script>
 <script id="politypack" type="application/octet-stream">/*POLITY*/</script>
 <script id="stories" type="application/json">/*STORIES*/</script>
+<script id="topics" type="application/json">/*TOPICS*/</script>
 <script>
 /*APP*/
 </script>

@@ -1,5 +1,5 @@
 // 离线缓存：index.html 网络优先（改完部署下次打开就是新版），数据与图标缓存优先。
-const CACHE = 'globe-v3';
+const CACHE = 'globe-v4-reading';
 const PRECACHE = [
   './', './index.html', './manifest.webmanifest', './icon.png', './icon-512.png',
   './data/world.json', './data/relief.jpg',

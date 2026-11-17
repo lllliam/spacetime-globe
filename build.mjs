@@ -10,11 +10,26 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const rd = (...p) => readFileSync(join(root, ...p), 'utf8');
+const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
 
 const shell = rd('src', 'shell.html');
 const css = rd('src', 'app.css');
-const app = rd('src', 'app.js');
+const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
+const appSource = rd('src', 'app.js');
+if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
+const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + readingMarker);
+const topics = JSON.parse(rd('data', 'topics.json'));
+const topicIds = new Set();
+for (const t of topics) {
+  if (topicIds.has(t.id) || !t.id || !t.title || !Number.isFinite(t.from) || t.from > t.to || !t.chapters.length) throw new Error('专题结构不合法');
+  topicIds.add(t.id);
+  const chapterIds = new Set();
+  for (const c of t.chapters) {
+    if (chapterIds.has(c.id) || !c.id || !c.sections.length || !c.sources.length || c.year < t.from || c.year > t.to) throw new Error('专题章节不合法');
+    chapterIds.add(c.id);
+    for (const s of c.sources) if (!/^https:\/\//.test(s.url)) throw new Error('专题来源必须是 HTTPS');
+  }
+}
 
 /* ── 数据合法性检查：坏数据在构建时就报错，别到手机上白屏 ── */
 const problems = [];
@@ -54,6 +69,7 @@ const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   h = put(h, '/*RELIEF*/', reliefB64);
   h = put(h, '/*POLITY*/', polityB64);
   h = put(h, '/*STORIES*/', storiesJson);
+  h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
   return h;
 };
 
