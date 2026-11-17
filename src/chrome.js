@@ -5,13 +5,33 @@ const VIEW_MODES = [
   {id:'nature', title:'自然地理', note:'观察地形与海陆', layer:'country'},
 ];
 const chrome = {timeline:false, panel:false, labels:true, grid:false, natural:false, followTime:true, playing:false, timer:0, playTimer:0};
-const timeDock = el('dock'), viewPanel = el('view-panel');
+const timeDock = el('dock'), viewPanel = el('view-panel'), homeStory = el('home-story');
+const storiesByYear = new Map();
+for (const topic of TOPICS) {
+  for (const chapter of topic.chapters) {
+    const featured = storiesByYear.get(chapter.year);
+    if (!featured || (topic.priority || 0) > (featured.topic.priority || 0)) {
+      storiesByYear.set(chapter.year, { topic, chapter });
+    }
+  }
+}
+function syncHomeStory() {
+  if (scrubbing || chrome.playing) return;
+  const featured = storiesByYear.get(state.year);
+  const label = featured ? featured.chapter.title : '浏览历史专题';
+  if (homeStory.textContent !== label) homeStory.textContent = label;
+}
+function syncHomeZoom() {
+  document.body.classList.toggle('globe-zoomed', state.zoom > 1);
+}
+homeStory.addEventListener('click', () => openHomeReading(storiesByYear.get(state.year)));
 el('year-input').max = YMAX;
 track.setAttribute('aria-valuemax',YMAX);
 try { const p=JSON.parse(localStorage.getItem('globe.display.v4')||'{}'); chrome.labels=p.labels!==false; chrome.grid=p.grid===true; } catch {}
 el('view-modes').innerHTML = VIEW_MODES.map(m=>'<button type="button" data-view="'+m.id+'" aria-pressed="false"><i></i><span><strong>'+m.title+'</strong><small>'+m.note+'</small></span></button>').join('');
 function saveDisplay() { try { localStorage.setItem('globe.display.v4',JSON.stringify({labels:chrome.labels,grid:chrome.grid})); } catch {} }
 function syncChrome() {
+  syncHomeStory();
   const mode=chrome.natural?'nature':state.layerId==='polity'?'history':'modern';
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
@@ -43,23 +63,26 @@ function scheduleTimelineHide() {
 function showTimeline() {
   closeWorld(); closeView(false); closeSheet();
   chrome.timeline=true; document.body.classList.add('time-open'); timeDock.inert=false;
-  layoutTrack(); drawTrack(); scheduleTimelineHide();
+  layoutTrack(); drawTrack(); scheduleTimelineHide(); invalidate();
 }
 function hideTimeline(focus=false) {
   clearTimeout(chrome.timer); stopTime();
   chrome.timeline=false; document.body.classList.remove('time-open'); timeDock.inert=true;
   el('year-form').hidden=true; el('time-input-toggle').setAttribute('aria-expanded','false');
   if(focus||timeDock.contains(document.activeElement)) elYear.focus({preventScroll:true});
+  invalidate();
 }
 function closeView(focus=true) {
   chrome.panel=false; viewPanel.hidden=true; el('view-shade').hidden=true;
   if(focus) canvas.focus({preventScroll:true});
+  invalidate();
 }
 function showView() {
   if (reading.active || !overlay.hidden) return;
   hideTimeline(false); closeSheet(); chrome.panel=true;
   viewPanel.hidden=false; el('view-shade').hidden=false;
   viewPanel.querySelector('[aria-pressed="true"]').focus({preventScroll:true});
+  invalidate();
 }
 function selectView(mode) {
   const m=VIEW_MODES.find(m=>m.id===mode); if(!m)return;
@@ -81,7 +104,7 @@ function commitYear(year) {
 }
 function stepYear(delta) { let y=state.year+delta; if(y===0)y=delta<0?-1:1; commitYear(y); scheduleTimelineHide(); }
 function resetView() {
-  closeView(false); closeSheet(); cancelAnimationFrame(zoomAnim); spinning=false;
+  closeView(false); closeSheet(); cancelZoom(); stopPanReturn();
   momentum.yaw=momentum.tilt=0;
   Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
 }

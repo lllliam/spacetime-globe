@@ -1123,27 +1123,42 @@ function initFallback() {
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
   const w = innerWidth, h = innerHeight;
+  const heightChanged = h !== view.h;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
   view.cx = w / 2;
-  view.cyBase = h * 0.46;
+  view.cyBase = h * (h > w ? 0.515 : 0.46);
   view.cy = view.cyBase - (state.lift || 0);
   view.R = Math.min(w * 0.455, h * 0.34, 410);
-  clampPan();
+  document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
+  constrainPan();
   view.Rz = view.R * state.zoom;
+  syncHomeZoom();
   const r = glr || fallback;
   if (r) r.resize(w, h, dpr);
   vecCanvas.width = Math.max(1, Math.round(w * dpr));
   vecCanvas.height = Math.max(1, Math.round(h * dpr));
+  if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging) {
+    applySheetOffset(h, false);
+  }
   draw();
 }
 
-function clampPan() {
-  const Rz = view.R * state.zoom;
-  const mx = Math.max(0, Rz - view.w * 0.5 + 18);
-  const my = Math.max(0, Rz - view.h * 0.5 + 18);
-  state.panX = clamp(state.panX, -mx, mx);
-  state.panY = clamp(state.panY, -my, my);
+function panLimit() {
+  // Leave a circle of map around the viewing center, even when panning near the limb.
+  return Math.min(view.R * (state.zoom - 1) * 2, view.R * state.zoom - view.R * 0.55);
+}
+
+function constrainPan(elastic = false) {
+  const distance = Math.hypot(state.panX, state.panY);
+  const limit = panLimit();
+  if (distance <= limit) return;
+  const slack = 44;
+  const excess = distance - limit;
+  const offset = elastic ? slack * excess / (slack * 2 + excess) : 0;
+  const scale = (limit + offset) / distance;
+  state.panX *= scale;
+  state.panY *= scale;
 }
 
 /* 屏幕坐标 → 1000×500 地图坐标 */
@@ -1364,9 +1379,16 @@ function buildCountryPick() {
 }
 
 /* ───────────── 10. 渲染调度 ───────────── */
-let dirty = true, spinning = false, lastT = 0, rafId = 0;
-const SPIN_MS = 20000;
-let spinStopAt = performance.now() + SPIN_MS;
+let dirty = true, spinning = true, lastT = 0, rafId = 0;
+const reducedGlobeMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let spinStep = 0;
+
+function shouldSpin() {
+  return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
+    !pointers.size && !zoomAnim && !panReturn && !globeTapTimer && !state.focus &&
+    !reading.active && overlay.hidden && !chrome.timeline && !chrome.panel &&
+    sheetState.detent === 'hidden' && !sheetMotion;
+}
 
 function invalidate() {
   dirty = true;
@@ -1376,9 +1398,18 @@ function frame(t) {
   const dt = lastT ? Math.min(0.05, (t - lastT) / 1000) : 0;
   lastT = t; rafId = 0;
   let busy = false;
-  if (spinning && performance.now() > spinStopAt) spinning = false;
-  if (spinning && pointers.size === 0 && !pinch) { state.yaw -= 0.055 * dt; dirty = true; busy = true; }
-  if (applyMomentum(dt)) { dirty = true; busy = true; }
+  if (applyMomentum(dt)) {
+    dirty = true; busy = true; spinStep = 0;
+  } else if (shouldSpin()) {
+    spinStep += dt;
+    if (spinStep >= 1 / 32) {
+      state.yaw = (state.yaw - 0.04 * spinStep) % TAU;
+      dirty = true; spinStep = 0;
+    }
+    busy = true;
+  } else {
+    spinStep = 0;
+  }
   if (dirty) { dirty = false; draw(); }
   if (busy || dirty) rafId = requestAnimationFrame(frame);
 }
@@ -1392,6 +1423,32 @@ function draw() {
 /* ───────────── 11. 交互 ───────────── */
 const pointers = new Map();
 let drag = null, pinch = null, momentum = { yaw: 0, tilt: 0 };
+let panReturn = 0;
+
+function stopPanReturn() {
+  cancelAnimationFrame(panReturn);
+  panReturn = 0;
+}
+
+function settlePan() {
+  stopPanReturn();
+  const x = state.panX, y = state.panY;
+  constrainPan();
+  const targetX = state.panX, targetY = state.panY;
+  if ((x === targetX && y === targetY) || reducedGlobeMotion.matches) { invalidate(); return; }
+  state.panX = x;
+  state.panY = y;
+  const start = performance.now();
+  const step = (t) => {
+    const progress = clamp((t - start) / 300, 0, 1);
+    const k = 1 - (1 - progress) ** 3;
+    state.panX = lerp(x, targetX, k);
+    state.panY = lerp(y, targetY, k);
+    panReturn = progress < 1 ? requestAnimationFrame(step) : 0;
+    invalidate();
+  };
+  panReturn = requestAnimationFrame(step);
+}
 
 function applyMomentum(dt) {
   if (!momentum.yaw && !momentum.tilt) return false;
@@ -1410,6 +1467,9 @@ let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
   clearTimeout(globeTapTimer);
+  globeTapTimer = 0;
+  cancelZoom();
+  stopPanReturn();
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0 });
@@ -1443,7 +1503,8 @@ canvas.addEventListener('pointermove', (e) => {
     state.panX = (a.x+b.x)/2 - view.cx - k * (pinch.cx - view.cx - pinch.px);
     state.panY = (a.y+b.y)/2 - view.cy - k * (pinch.cy - view.cy - pinch.py);
     state.zoom = z;
-    clampPan(); view.Rz = view.R * state.zoom;
+    constrainPan(true); view.Rz = view.R * state.zoom;
+    syncHomeZoom();
     invalidate();
     return;
   }
@@ -1460,26 +1521,35 @@ canvas.addEventListener('pointermove', (e) => {
 
 function endPointer(e) {
   const p = pointers.get(e.pointerId);
-  pointers.delete(e.pointerId);
-  if (pointers.size < 2) pinch = null;
   if (!p) return;
+  pointers.delete(e.pointerId);
   if (pointers.size === 0 && drag) {
     const fresh = e.type === 'pointerup' && performance.now()-drag.last<110;
     momentum.yaw = fresh ? clamp(drag.vy * .32,-2,2) : 0;
     momentum.tilt = fresh ? clamp(drag.vt * .22,-1,1) : 0;
     drag = null;
-    invalidate();
+  }
+  if (pointers.size === 0) {
+    const snapToFit = pinch && state.zoom > 1 && state.zoom <= 1.04;
+    pinch = null;
+    if (snapToFit) zoomTo(1);
+    else settlePan();
   }
   if (e.type === 'pointerup' && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
     if (isDouble) { zoomTo(state.zoom > 1.4 ? 1 : 2.4, e.clientX, e.clientY); lastTapAt = 0; return; }
-    globeTapTimer=setTimeout(()=>tapGlobe(e.clientX,e.clientY),280);
+    globeTapTimer=setTimeout(()=>{
+      globeTapTimer = 0;
+      tapGlobe(e.clientX,e.clientY);
+      invalidate();
+    },280);
   }
 }
 canvas.addEventListener('pointerup', endPointer);
 canvas.addEventListener('pointercancel', endPointer);
+canvas.addEventListener('lostpointercapture', endPointer);
 
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
@@ -1487,6 +1557,10 @@ canvas.addEventListener('wheel', (e) => {
 }, { passive: false });
 
 let zoomAnim = 0;
+function cancelZoom() {
+  cancelAnimationFrame(zoomAnim);
+  zoomAnim = 0;
+}
 function zoomTo(z, ax, ay) {
   z = clamp(z, 1, 6);
   const from = state.zoom, R = view.R;
@@ -1498,17 +1572,19 @@ function zoomTo(z, ax, ay) {
     const ratio = state.zoom / from;
     state.panX = dx - ratio * (dx - px0);
     state.panY = dy - ratio * (dy - py0);
-    clampPan();
+    constrainPan();
     view.Rz = R * state.zoom;
+    syncHomeZoom();
     invalidate();
   };
-  if (z === from) return;
-  cancelAnimationFrame(zoomAnim);
+  if (z === from && !zoomAnim) { settlePan(); return; }
+  cancelZoom();
+  stopPanReturn();
   const t0 = performance.now();
   const step = (t) => {
     const k = clamp((t - t0) / 220, 0, 1);
     apply(k < 1 ? 1 - Math.pow(1 - k, 3) : 1);
-    if (k < 1) zoomAnim = requestAnimationFrame(step);
+    zoomAnim = k < 1 ? requestAnimationFrame(step) : 0;
   };
   zoomAnim = requestAnimationFrame(step);
 }
@@ -1586,6 +1662,7 @@ function sheetTo(detent, animate = true) {
       if (Math.abs(target - offset) < .6 && Math.abs(sheetVelocity) < 8) {
         applySheetOffset(target, false);
         sheetMotion = sheetVelocity = 0;
+        invalidate();
         return;
       }
       applySheetOffset(offset, false);
@@ -1640,7 +1717,6 @@ function sheetDragStart(e) {
   if (e.currentTarget === sheetScroll && !e.target.closest('.sheet-overview')) return;
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
-  spinning = false;
   momentum.yaw = momentum.tilt = 0;
   sheetState.dragging = true;
   sheetState.pointerId = e.pointerId;
@@ -1897,7 +1973,7 @@ overlayBody.addEventListener('click', (e) => {
     if (shape) { setLayer('country'); openEntity('country', shape.id); }
   }
 });
-const closeWorld = () => { overlay.hidden = true; };
+const closeWorld = () => { if (!overlay.hidden) { overlay.hidden = true; invalidate(); } };
 el('overlay-close').addEventListener('click', closeWorld);
 // 年份入口由 chrome.js 打开时间轴；全景资料从视图面板进入。
 
@@ -2237,7 +2313,7 @@ track.addEventListener('pointermove', (e) => {
 function endScrub(e) {
   if (e.pointerId !== scrubPointer) return;
   if (e.type === 'pointerup') setYearFromX(e.clientX, true);
-  scrubbing = false; scrubPointer = null; scheduleTimelineHide();
+  scrubbing = false; scrubPointer = null; syncHomeStory(); scheduleTimelineHide();
 }
 for (const type of ['pointerup','pointercancel','lostpointercapture']) track.addEventListener(type,endScrub);
 
@@ -2297,7 +2373,8 @@ addEventListener('resize', () => {
   resizeTimer = setTimeout(() => { layout(); layoutTrack(); drawTrack(); }, 90);
 });
 addEventListener('orientationchange', () => setTimeout(() => { layout(); layoutTrack(); drawTrack(); }, 260));
-document.addEventListener('visibilitychange', () => { lastT = 0; });
+document.addEventListener('visibilitychange', () => { lastT = 0; if (!document.hidden) invalidate(); });
+reducedGlobeMotion.addEventListener('change', invalidate);
 
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {

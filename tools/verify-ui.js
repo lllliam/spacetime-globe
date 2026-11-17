@@ -50,7 +50,7 @@ async function main() {
     const m = { id: ++n, method, params }; pending.set(m.id, { res, rej }); ws.send(JSON.stringify(m));
   });
   await send('Runtime.enable'); await send('Page.enable');
-  await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
+  await send('Emulation.setDeviceMetricsOverride', { width: 402, height: 874, deviceScaleFactor: 3, mobile: true });
   await send('Page.reload');
   await sleep(2500);
   /* 等真正启动完成（取数据 + 建材质可能需要几秒，别在启动阶段就跑断言） */
@@ -106,6 +106,60 @@ async function main() {
 
   check('渲染器就绪', (await js('window.__t.rendererKind')) === (process.env.NOGL ? 'canvas2d' : 'webgl'), await js('window.__t.rendererKind'));
   check('世界数据已装载', await js('window.__t.partition.shapes.length > 100'), await js('window.__t.partition.shapes.length'));
+
+  const camera = () => js('({yaw:__t.state.yaw, zoom:__t.state.zoom, x:__t.state.panX, y:__t.state.panY})');
+  const initial = await camera();
+  await sleep(350);
+  check('默认倍率下地球慢速自转', Math.abs((await camera()).yaw - initial.yaw) > 0.004);
+  const finger = (type, x, y, halfGap = 40) => send('Input.dispatchTouchEvent', {
+    type, touchPoints: type === 'touchEnd' ? [] : [{x:x-halfGap,y,id:1},{x:x+halfGap,y,id:2}],
+  });
+  await finger('touchStart', 201, 450);
+  const yawWhilePressed = (await camera()).yaw;
+  await finger('touchMove', 248, 480);
+  const elasticFit = await camera();
+  await sleep(150);
+  check('双指平移时有阻尼并暂停自转', elasticFit.x > 5 && elasticFit.x < 47 && elasticFit.zoom === 1 &&
+    (await camera()).yaw === yawWhilePressed, elasticFit);
+  await finger('touchEnd');
+  await sleep(600);
+  const returned = await camera();
+  check('默认倍率松手后回到居中并恢复自转', Math.hypot(returned.x, returned.y) < 0.1 &&
+    Math.abs(returned.yaw - yawWhilePressed) > 0.003, returned);
+
+  await finger('touchStart', 201, 450);
+  await finger('touchMove', 201, 450, 85);
+  await finger('touchMove', 224, 471, 85);
+  await sleep(120);
+  const localView = await camera();
+  await finger('touchEnd');
+  await sleep(450);
+  const heldView = await camera();
+  check('放大平移后保留正在看的区域并停止自转', heldView.zoom > 2 && Math.hypot(heldView.x, heldView.y) > 10 &&
+    Math.hypot(heldView.x - localView.x, heldView.y - localView.y) < 0.1 && heldView.yaw === localView.yaw, heldView);
+
+  await finger('touchStart', 201, 450, 85);
+  await finger('touchMove', 299, 730, 85);
+  await finger('touchMove', 299, 820, 85);
+  await sleep(120);
+  const beforeEdgeReturn = await camera();
+  await finger('touchEnd');
+  await sleep(420);
+  const edge = await camera();
+  check('放大后拉出边界只回弹到可视范围', Math.hypot(edge.x, edge.y) > 80 &&
+    Math.hypot(beforeEdgeReturn.x, beforeEdgeReturn.y) - Math.hypot(edge.x, edge.y) > 4 &&
+    !!(await js('__t.mapPointAt(__t.view.cx,__t.view.cy)')), edge);
+
+  await finger('touchStart', 201, 450, 85);
+  await finger('touchMove', 201, 450, 40);
+  await finger('touchEnd');
+  await sleep(500);
+  const fit = await camera();
+  check('缩小到默认倍率后重新自转', fit.zoom === 1 && Math.hypot(fit.x, fit.y) < .1 &&
+    Math.abs(fit.yaw - heldView.yaw) > .003, fit);
+  await js('__t.stopSpin(); document.getElementById("reset-view").click()');
+  await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
+  await sleep(250);
 
   /* 拾取与画面一致 */
   const align = await js(`(() => {
@@ -171,7 +225,7 @@ async function main() {
   await js("document.getElementById('time-input-toggle').click();document.getElementById('year-input').value=1900;document.getElementById('year-form').requestSubmit()");
   check('输入历史年份改变真实边界几何',await js("__t.state.year===1900 && JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))!=="+JSON.stringify(historySignature)));
   const designShot = async name => {
-    if (!process.env.ATLAS_SHOTS) return;
+    if (process.env.ATLAS_SHOTS !== '1' && process.env.ATLAS_SHOTS !== name) return;
     const shot=await send('Page.captureScreenshot',{format:'png'});
     require('fs').writeFileSync(require('path').join(__dirname,'../docs/design',name+'.png'),Buffer.from(shot.data,'base64'));
   };
@@ -182,8 +236,29 @@ async function main() {
   await js("document.getElementById('time-play').click()");
   await sleep(6900);
   check('闲置自动收起时间轴且保留年份',await js("document.getElementById('dock').inert && __t.state.year===1910"));
+  await send('Emulation.setDeviceMetricsOverride', {width:402,height:874,deviceScaleFactor:3,mobile:true});
   await js("__t.setYear(1900);document.activeElement.blur()");
+  await sleep(350);
   await designShot('globe');
+  check('iPhone 17 Pro 竖屏上专题入口位于球下与安全区内',await js(`(() => {
+    const b = document.getElementById('home-story'), r = b.getBoundingClientRect(), v = __t.view;
+    return innerWidth === 402 && v.cyBase > innerHeight / 2 && r.top > v.cyBase + v.R &&
+      r.bottom < innerHeight && getComputedStyle(b).visibility === 'visible' &&
+      document.getElementById('sheet').getBoundingClientRect().top >= innerHeight - 1;
+  })()`));
+  await tap(...Object.values(await pointOf('#home-story')));
+  check('球下入口直接打开当年正文',await js("__t.reading.detail==='boxers' && __t.reading.active && __t.state.year===1900"));
+  await js("document.getElementById('reading-map').click()");
+  check('首页正文能定位地图',await js("__t.reading.preview && __t.state.zoom>1 && !document.getElementById('reading-resume').hidden"));
+  await js("__t.resumeReader();__t.closeReader()");
+  check('从首页正文返回恢复原年份、倍率与选区',await js("__t.state.year===1900 && __t.state.zoom===1 && __t.state.focus===null && __t.sheet.detent==='hidden'"));
+  await js("__t.setYear(2026)");
+  await tap(...Object.values(await pointOf('#home-story')));
+  check('无当年正文时进入全球专题目录',await js("__t.reading.active && __t.reading.catalog && document.querySelectorAll('[data-reading-continent]').length===7"));
+  await js("document.getElementById('reading-back').click();__t.setYear(1900)");
+  check('首页打开的目录可直接返回地球',await js("!__t.reading.active && __t.state.year===1900"));
+  await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
+  await sleep(300);
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");
   await hold(globePoint,true);
   check('长按球体只打开观察方式',await js("!document.getElementById('view-panel').hidden && __t.sheet.detent==='hidden'"));

@@ -1,4 +1,4 @@
-/* 沉浸首页：两个入口，工具按需出现。 */
+/* 沉浸首页，工具按需出现。 */
 body{background:radial-gradient(ellipse at 50% 48%,#11202c 0%,#080f17 56%,#050a10 100%)}
 #scrim{height:130px;background:linear-gradient(#080f17d9,transparent);pointer-events:none}
 #hud{top:calc(var(--safe-t) + 24px);left:0;right:0;align-items:center;padding:0;gap:3px;pointer-events:none;z-index:9}
@@ -8,6 +8,16 @@ body{background:radial-gradient(ellipse at 50% 48%,#11202c 0%,#080f17 56%,#050a1
 #hud #year::after{content:none}
 #hud #year:active{opacity:.82}
 #sub{font-size:11px;color:#a9b6bd;letter-spacing:.04em;line-height:1.5}
+#home-story{position:fixed;top:min(calc(var(--globe-foot, 72dvh) + clamp(24px, 6dvh, 62px)),
+  calc(100dvh - var(--safe-b) - 56px));left:50%;transform:translateX(-50%);
+  max-width:min(82vw,32em);min-height:44px;padding:6px 10px;border:0;background:none;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#b1a797;cursor:pointer;
+  font:400 13px/1.7 system-ui,"PingFang SC","Microsoft YaHei UI",sans-serif;letter-spacing:.035em;
+  transition:color .18s,opacity .22s,visibility .22s;z-index:5}
+#home-story:hover,#home-story:focus-visible{color:#e1d3ba}
+body:is(.time-open,.sheet-open,.reading-open,.globe-zoomed) #home-story,
+body:has(#view-panel:not([hidden]),#overlay:not([hidden]),#reading-resume:not([hidden])) #home-story{
+  opacity:0;visibility:hidden;pointer-events:none}
 #dock{position:fixed;left:50%;right:auto;top:calc(var(--safe-t) + 86px);bottom:auto;width:min(664px,100%);padding:0 12px 8px;
   border:0;border-radius:0;background:linear-gradient(180deg,#0b141ded 67%,#0b141d00);
   mask-image:linear-gradient(90deg,transparent,black 7%,black 93%,transparent);
@@ -63,4 +73,4 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 @keyframes toolIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media(min-width:720px){#hud{top:30px}#hud #year{font-size:43px}#dock{top:96px}#view-panel{right:32px;top:94px}}
 @media(max-height:500px){#hud{top:6px}#hud #year{font-size:29px;min-height:42px}#dock{top:54px}#view-panel{top:54px;max-height:calc(100dvh - 68px)}}
-@media(prefers-reduced-motion:reduce){#dock,.view-switches i,.view-switches i::after{transition:none}#view-panel{animation:none}}
+@media(prefers-reduced-motion:reduce){#dock,#home-story,.view-switches i,.view-switches i::after{transition:none}#view-panel{animation:none}}

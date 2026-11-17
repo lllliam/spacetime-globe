@@ -16,53 +16,65 @@ function topicForEntity(ent, year = state.year) {
 function pauseGlobe() {
   stopSheetMotion();
   sheetVelocity = 0;
-  spinning = false;
   momentum.yaw = momentum.tilt = 0;
-  cancelAnimationFrame(zoomAnim);
+  cancelZoom();
+  stopPanReturn();
   cancelAnimationFrame(liftRaf);
   cancelAnimationFrame(rafId);
   rafId = 0;
 }
-function readingKey() { return (reading.topic ? reading.topic.id : reading.ent.layerId + ':' + reading.ent.key + ':' + chapterOf(reading.year).n); }
+function readingKey() {
+  if (reading.topic) return reading.ent ? reading.topic.id : 'home:' + reading.topic.id;
+  return reading.ent.layerId + ':' + reading.ent.key + ':' + chapterOf(reading.year).n;
+}
 function rememberReading() {
-  if (!reading.ent) return;
   if (reading.catalog) { reading.catalogScroll = bookBody.scrollTop; return; }
+  if (!reading.ent && !reading.topic) return;
   if (reading.detail) reading.detailScroll = bookBody.scrollTop;
   else reading.scroll = bookBody.scrollTop;
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
-  for (const id of ['hud', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
+  for (const id of ['hud', 'home-story', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
   document.body.classList.toggle('reading-open', inert);
 }
 function openBook(topicId, fromOffset = null) {
   if (reading.active) return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
+  const topic = typeof topicId === 'string' ? TOPICS.find((t) => t.id === topicId) || null : topicForEntity(ent);
+  beginReading(ent, topic, null, fromOffset ?? sheetState.offset);
+}
+function openHomeReading(featured) {
+  if (reading.active) return;
+  beginReading(null, featured?.topic || null, featured?.chapter.id || null, 18);
+  reading.trigger = el('home-story');
+}
+function beginReading(ent, topic, chapter, fromOffset) {
   pauseGlobe();
   reading.snapshot = {
-    year: state.year, layerId: state.layerId, focus: { ...state.focus },
+    year: state.year, layerId: state.layerId, focus: state.focus && { ...state.focus },
     yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
     natural: chrome.natural, detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop,
   };
-  reading.ent = { ...ent };
+  reading.ent = ent && { ...ent };
   reading.trail = [];
   reading.linkEntry = false;
-  reading.catalog = false;
+  reading.catalog = !ent && !topic;
   reading.catalogContinent = '全部';
   reading.catalogScroll = 0;
-  reading.topic = typeof topicId === 'string' ? TOPICS.find((t) => t.id === topicId) || null : topicForEntity(ent);
+  reading.topic = topic;
   reading.year = state.year;
   reading.trigger = document.activeElement;
-  const saved = readingPositions.get(readingKey());
-  reading.detail = saved ? saved.detail : null;
+  const saved = reading.catalog ? null : readingPositions.get(readingKey());
+  reading.detail = chapter || (saved ? saved.detail : null);
   reading.scroll = saved ? saved.scroll : 0;
-  reading.detailScroll = saved ? saved.detailScroll : 0;
+  reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
   reading.preview = false;
-  showReader(fromOffset === null ? sheetState.offset : fromOffset);
+  showReader(fromOffset);
   // 正文到达后只更新通用资料页；专题内容无需网络。
-  loadStories().then(() => {
+  if (ent) loadStories().then(() => {
     if (reading.active && !reading.preview && !reading.topic) { rememberReading(); renderReading(); }
   });
 }
@@ -98,7 +110,7 @@ function referencesMarkup(refs) {
 function connectionsMarkup(topic, item) {
   if (!topic) return '';
   const links = item ? (item.connections || []) : (topic.connections || []);
-  const related = item ? [] : topicsForEntity(reading.ent, reading.year).filter((t) => t.id !== topic.id).map((t) => ({topicId:t.id,label:t.title,reason:'同一时期的相关区域专题',relation:'context'}));
+  const related = item || !reading.ent ? [] : topicsForEntity(reading.ent, reading.year).filter((t) => t.id !== topic.id).map((t) => ({topicId:t.id,label:t.title,reason:'同一时期的相关区域专题',relation:'context'}));
   const valid = [...links, ...related].filter((l) => TOPICS.some((t) => t.id === l.topicId));
   if (!valid.length) return '';
   return '<section class="reading-connections"><h2>把视野放远一点</h2>' + valid.map((l) => '<button type="button" class="reading-card" data-reading-topic="' + esc(l.topicId) + '" data-reading-chapter="' + esc(l.chapterId || '') + '"><small>' +
@@ -136,7 +148,7 @@ function renderReadingCatalog() {
   const topics = TOPICS.filter(t => selected === '全部' || t.continents.includes(selected)).sort((a,b)=>a.from-b.from || a.id.localeCompare(b.id));
   const year = y => y < 0 ? '前' + Math.abs(y) : '公元' + y;
   el('book-crumb').textContent = '全球专题目录';
-  readingBack.textContent = '← 返回阅读';
+  readingBack.textContent = reading.trail.length ? '← 返回阅读' : '← 返回地球';
   readingMap.disabled = true;
   bookBody.innerHTML = '<p class="eyebrow">六大洲 · ' + TOPICS.length + ' 组专题 · ' + TOPICS.reduce((n,t)=>n+t.chapters.length,0) + ' 篇正文</p>' +
     '<h1 id="reading-title" tabindex="-1">沿着问题，读遍世界</h1><p class="lede">选择一个地区，从具体问题走进它的历史。</p>' +
@@ -222,7 +234,7 @@ function closeReader() {
   readingResume.hidden = true;
   readingBackground(false);
   pauseGlobe();
-  Object.assign(state, { year: s.year, layerId: s.layerId, focus: { ...s.focus }, yaw: s.yaw, tilt: s.tilt, zoom: s.zoom, panX: s.panX, panY: s.panY, lift: s.lift });
+  Object.assign(state, { year: s.year, layerId: s.layerId, focus: s.focus, yaw: s.yaw, tilt: s.tilt, zoom: s.zoom, panX: s.panX, panY: s.panY, lift: s.lift });
   onYearChanged();
   layout();
   sheetState.detent = s.detent;
@@ -252,18 +264,19 @@ function previewReadingMap() {
     state.tilt = clamp(item.place.lat * Math.PI / 180, -0.62, 1.02);
     state.zoom = 2.2;
     state.panX = state.panY = state.lift = 0;
-  } else {
+  } else if (reading.ent) {
     state.layerId = reading.ent.layerId;
   }
   onYearChanged();
   layout();
-  const entityShape = partition.shapes.find((s) => focusKeyOf(state.layerId, s) === reading.ent.key);
+  const entityShape = reading.ent && partition.shapes.find((s) => focusKeyOf(state.layerId, s) === reading.ent.key);
   const id = item.place ? pickAt(view.cx, view.cy) : entityShape && entityShape.id;
   const shape = partition.shapes.find((s) => s.id === id);
   if (shape) state.focus = { layerId: state.layerId, id, key: focusKeyOf(state.layerId, shape) };
   rebuildPartition();
   invalidate();
-  readingResume.textContent = (item.place ? item.place.label : reading.ent.name + ' · 区域示意') + ' · 返回阅读 ↑';
+  const placeLabel = item.place?.label || (reading.ent ? reading.ent.name + ' · 区域示意' : '地图');
+  readingResume.textContent = placeLabel + ' · 返回阅读 ↑';
   readingResume.hidden = false;
   readingResume.focus({ preventScroll: true });
 }
