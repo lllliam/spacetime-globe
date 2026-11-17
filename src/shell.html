@@ -47,9 +47,18 @@
 </section>
   <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
-<div id="sheet" aria-live="polite">
-  <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true">上滑阅读 · 下滑关闭</span></div>
-  <div id="sheet-scroll"><div id="sheet-inner"></div></div>
+<div id="sheet">
+  <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+  <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
+  <section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
+    <header id="book-bar">
+      <button id="reading-back" type="button" hidden aria-label="返回">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
+      </button>
+      <button id="reading-grab" type="button" aria-label="收起阅读"><span></span></button>
+    </header>
+    <div id="book-body" tabindex="0"></div>
+  </section>
 </div>
 
 <div id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" hidden>
@@ -68,16 +77,8 @@
   <p>正在铺开地图…</p>
 </div>
 
-<section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
-  <header id="book-bar">
-    <button id="reading-back" type="button" hidden>
-      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
-    </button>
-    <button id="reading-grab" type="button" aria-label="收起阅读"><span></span></button>
-  </header>
-  <div id="book-body" tabindex="0"></div>
-</section>
-<button id="reading-resume" type="button" hidden>返回阅读 ↑</button>
+<div id="reading-pin" hidden role="status"><i aria-hidden="true"></i><span><strong></strong><small></small></span></div>
+<button id="reading-resume" type="button" hidden>继续阅读 <span aria-hidden="true">↑</span></button>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
 <script id="clouds" type="application/octet-stream">/*CLOUDS*/</script>

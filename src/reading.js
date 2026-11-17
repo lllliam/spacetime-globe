@@ -3,11 +3,12 @@ const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
 const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
 const readingBack = el('reading-back'), readingGrab = el('reading-grab'), readingResume = el('reading-resume');
+const readingPin = el('reading-pin');
 const reading = { active: false, preview: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
 const readingPositions = new Map();
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let readerMotion = null, readerDrag = null, readerLastDrag = -Infinity;
+let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 
 function topicsForEntity(ent, year = state.year) {
   return TOPICS.filter((t) => year >= t.from && year <= t.to &&
@@ -39,7 +40,10 @@ function rememberReading() {
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
-  for (const id of ['globe', 'hud', 'dock', 'toolbar', 'sheet', 'sheet-dim', 'overlay', 'reading-resume']) el(id).inert = inert;
+  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay']) {
+    el(id).inert = inert;
+  }
+  timeDock.inert = inert || !chrome.timeline;
   document.body.classList.toggle('reading-open', inert);
 }
 function openBook(topicId, fromOffset = null) {
@@ -80,56 +84,78 @@ function beginReading(ent, topic, chapter, fromOffset) {
     }
   });
 }
-function showReader(fromOffset = 18) {
+function showReader(fromOffset) {
   hideTimeline(false);
   closeView(false);
-  reading.preview = false;
   readingResume.hidden = true;
   bookEl.hidden = false;
   readerLastDrag = -Infinity;
   readingBackground(true);
   renderReading();
-  const offset = clamp(fromOffset, 0, innerHeight);
-  animateReader(offset, 0, clamp(offset * .7, 180, 360));
-  readingGrab.focus({ preventScroll: true });
+  animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
+  el('reading-title').focus({ preventScroll: true });
 }
 function readerRestOffset() {
   const { detent, offset } = reading.snapshot;
   const detents = sheetDetents();
   return detent === 'custom' ? clamp(offset, 0, detents.peek) : detents[detent];
 }
-function readerFrame(offset) {
-  const radius = clamp(offset / 112, 0, 1) * 22;
-  return { transform: 'translateY(' + offset + 'px)', borderRadius: radius + 'px ' + radius + 'px 0 0' };
+function readerPosition(offset, range = readerRestOffset()) {
+  const progress = clamp(offset / Math.max(1, range), 0, 1);
+  const fade = (start, end) => {
+    const mix = clamp((progress - start) / (end - start), 0, 1);
+    return mix * mix * (3 - 2 * mix);
+  };
+  const summary = reading.preview ? 0 : fade(.42, .96);
+  const article = reading.preview ? 1 : 1 - fade(.15, .68);
+  const hud = clamp((progress - .30) / .65, 0, 1);
+  applySheetOffset(offset, false);
+  sheetEl.style.setProperty('--reader-summary', summary);
+  sheetEl.style.setProperty('--reader-article', article);
+  sheetEl.style.setProperty('--reader-safe', reading.preview ? 1 - clamp(offset / 100, 0, 1) : 1 - progress);
+  sheetEl.style.setProperty('--reader-grip', progress);
+  sheetEl.style.borderRadius = (progress * 22) + 'px ' + (progress * 22) + 'px 0 0';
+  document.body.style.setProperty('--reader-hud', reading.preview ? 1 : hud);
+  document.body.classList.toggle('reader-revealing', reading.preview || hud > 0);
+  if (summary > 0 && sheetScroll.scrollTop !== reading.snapshot.scroll) sheetScroll.scrollTop = reading.snapshot.scroll;
 }
-function animateReader(from, to, duration, onFinish) {
-  readerMotion?.cancel();
-  readerMotion = null;
+function stopReaderMotion() {
+  cancelAnimationFrame(readerMotion);
+  readerMotion = 0;
+}
+function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false } = {}) {
+  stopReaderMotion();
+  const paint = (offset) => readerPosition(offset, fromSummary ? from : undefined);
+  paint(from);
   if (reducedReadingMotion.matches || Math.abs(to - from) < 1) {
-    Object.assign(bookEl.style, readerFrame(to));
+    paint(to);
     onFinish?.();
     return;
   }
-  const motion = bookEl.animate([readerFrame(from), readerFrame(to)], {
-    duration, easing: 'cubic-bezier(.2,.8,.25,1)', fill: 'forwards',
-  });
-  readerMotion = motion;
-  motion.finished.then(() => {
-    if (readerMotion !== motion) return;
-    Object.assign(bookEl.style, readerFrame(to));
-    readerMotion = null;
-    motion.cancel();
-    onFinish?.();
-  }, () => {});
+  let offset = from, last = performance.now();
+  velocity = clamp(velocity, -1600, 1600);
+  const tick = (now) => {
+    const dt = clamp((now - last) / 1000, .001, .032);
+    last = now;
+    velocity += ((to - offset) * 330 - velocity * 34) * dt;
+    offset += velocity * dt;
+    if (Math.abs(offset - to) < .6 && Math.abs(velocity) < 8) {
+      readerMotion = 0;
+      paint(to);
+      onFinish?.();
+      return;
+    }
+    paint(clamp(offset, 0, sheetDetents().hidden));
+    readerMotion = requestAnimationFrame(tick);
+  };
+  readerMotion = requestAnimationFrame(tick);
 }
-function collapseReader() {
+function collapseReader(velocity = 0) {
   if (!reading.active || reading.preview) return;
-  const from = Math.max(0, bookEl.getBoundingClientRect().top);
-  const to = readerRestOffset();
-  animateReader(from, to, clamp(Math.abs(to - from) * .65, 160, 300), closeReader);
+  animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
 function readerDragStart(e) {
-  if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
+  if (reading.preview || readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
   readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
     moved: false, dy: 0, samples: [{ y: e.clientY, t: e.timeStamp }] };
 }
@@ -143,15 +169,14 @@ function readerDragMove(e) {
     if (Math.abs(drag.dy) < 6) return;
     drag.moved = true;
     drag.offset = bookEl.getBoundingClientRect().top;
-    readerMotion?.cancel();
-    readerMotion = null;
+    stopReaderMotion();
     // 触屏已由按下的控件隐式捕获；转移捕获会把丢失捕获事件冒泡到这里。
     if (e.pointerType === 'mouse') bookBar.setPointerCapture(e.pointerId);
   }
   const max = readerRestOffset();
   const offset = drag.offset + drag.dy;
   const eased = offset > max ? max + 24 * (1 - Math.exp((max - offset) / 48)) : Math.max(0, offset);
-  Object.assign(bookEl.style, readerFrame(eased));
+  readerPosition(eased);
   bookBar.classList.toggle('collapse-ready', eased >= clamp(max * .32, 80, 132));
   drag.samples.push({ y: e.clientY, t: e.timeStamp });
   drag.samples = drag.samples.filter((sample) => e.timeStamp - sample.t < 110);
@@ -167,8 +192,8 @@ function readerDragEnd(e) {
   const velocity = e.timeStamp - last.t < 110 && last.t > first.t ? (last.y - first.y) / (last.t - first.t) * 1000 : 0;
   const offset = bookEl.getBoundingClientRect().top;
   const threshold = clamp(readerRestOffset() * .32, 80, 132);
-  if (e.type === 'pointerup' && drag.dy > 0 && (offset >= threshold || (drag.dy > 24 && velocity > 620))) collapseReader();
-  else animateReader(offset, 0, 220);
+  if (e.type === 'pointerup' && drag.dy > 0 && (offset >= threshold || (drag.dy > 24 && velocity > 620))) collapseReader(velocity);
+  else animateReader(offset, 0);
 }
 function readingItems() {
   if (reading.topic) return reading.topic.chapters;
@@ -353,65 +378,99 @@ function readingGoBack() {
   if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
     rememberReading(); Object.assign(reading, reading.trail.pop()); renderReading(); readingBack.focus({preventScroll:true});
   } else if (reading.detail !== null) readingIndex();
-  else closeReader();
+  else collapseReader();
+}
+function restoreReadingGlobe() {
+  const { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift, natural, detent } = reading.snapshot;
+  chrome.natural = natural;
+  sheetState.detent = detent;
+  Object.assign(state, { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift });
+  onYearChanged();
+  layout();
 }
 function closeReader() {
   if (!reading.active) return;
-  rememberReading();
-  const s = reading.snapshot;
-  chrome.natural = s.natural;
-  reading.active = reading.preview = false;
-  bookEl.hidden = true;
-  readerMotion?.cancel();
-  readerMotion = readerDrag = null;
+  if (!reading.preview) rememberReading();
+  stopReaderMotion();
+  readerDrag = null;
   bookBar.classList.remove('collapse-ready');
-  Object.assign(bookEl.style, readerFrame(0));
-  readingResume.hidden = true;
+  if (reading.preview) restoreReadingGlobe();
+  const { detent, scroll } = reading.snapshot;
+  reading.active = reading.preview = false;
+  reading.place = null;
+  bookEl.hidden = readingResume.hidden = readingPin.hidden = true;
+  document.body.classList.remove('reading-map-open', 'reader-revealing');
+  sheetEl.style.borderRadius = '';
+  for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
+  document.body.style.removeProperty('--reader-hud');
+  sheetState.detent = detent;
+  applySheetOffset(readerRestOffset(), false);
+  sheetScroll.scrollTop = scroll;
   readingBackground(false);
-  pauseGlobe();
-  Object.assign(state, { year: s.year, layerId: s.layerId, focus: s.focus, yaw: s.yaw, tilt: s.tilt, zoom: s.zoom, panX: s.panX, panY: s.panY, lift: s.lift });
-  onYearChanged();
-  layout();
-  sheetState.detent = s.detent;
-  applySheetOffset(s.detent === 'custom' ? clamp(s.offset, 0, sheetDetents().peek) : sheetDetents()[s.detent], false);
-  sheetScroll.scrollTop = s.scroll;
-  if (reading.trigger && reading.trigger.isConnected && reading.trigger !== document.body) reading.trigger.focus({ preventScroll: true });
-  else { const button = sheetInner.querySelector('[data-read-topic]'); if (button) button.focus({ preventScroll: true }); }
+  const fallback = sheetInner.querySelector('[data-read-topic]') || grabEl;
+  (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
   invalidate();
+}
+function drawReadingPin() {
+  if (!reading.preview || !reading.place) return;
+  const { lon, lat } = reading.place;
+  const longitude = lon * Math.PI / 180, latitude = lat * Math.PI / 180;
+  const x = Math.cos(latitude) * Math.sin(longitude);
+  const y = Math.sin(latitude);
+  const z = Math.cos(latitude) * Math.cos(longitude);
+  const m = rotation();
+  const sx = view.cx + state.panX + (m[0] * x + m[3] * y + m[6] * z) * view.Rz;
+  const sy = view.cy + state.panY - (m[1] * x + m[4] * y + m[7] * z) * view.Rz;
+  readingPin.hidden = m[2] * x + m[5] * y + m[8] * z <= 0 || sx < 12 || sx > view.w - 12 || sy < 16 || sy > view.h - 42;
+  if (readingPin.hidden) return;
+  readingPin.style.transform = 'translate(' + sx + 'px,' + sy + 'px)';
+  readingPin.classList.toggle('align-left', sx > view.w / 2);
 }
 function previewReadingMap() {
   const item = reading.topic?.chapters.find((c) => c.id === reading.detail);
-  if (!item?.place) return;
+  if (reading.preview || !item?.place) return;
   rememberReading();
-  reading.preview = true;
-  bookEl.hidden = true;
-  readingBackground(false);
-  closeSheet();
-  closeWorld();
   pauseGlobe();
+  closeWorld();
+  reading.preview = true;
+  reading.place = item.place;
+  const [name, role] = item.place.label.split(' · ', 2);
+  readingPin.querySelector('strong').textContent = name;
+  readingPin.querySelector('small').textContent = role || '';
+  document.body.classList.add('reading-map-open');
+  state.focus = null;
+  sheetState.detent = 'hidden';
   state.year = clamp(item.year, YMIN, YMAX);
-  state.layerId = 'country';
-  chrome.natural = false;
+  chrome.natural = true;
   state.yaw = -item.place.lon * Math.PI / 180;
-  state.tilt = clamp(item.place.lat * Math.PI / 180, -0.62, 1.02);
-  state.zoom = 2.2;
+  state.tilt = item.place.lat * Math.PI / 180;
+  state.zoom = 1.8;
   state.panX = state.panY = state.lift = 0;
   onYearChanged();
   layout();
-  const id = pickAt(view.cx, view.cy);
-  const shape = partition.shapes.find((s) => s.id === id);
-  if (shape) state.focus = { layerId: state.layerId, id, key: focusKeyOf(state.layerId, shape) };
-  rebuildPartition();
-  invalidate();
-  readingResume.textContent = item.place.label + ' · 返回阅读 ↑';
-  readingResume.hidden = false;
-  readingResume.focus({ preventScroll: true });
+  animateReader(sheetState.offset, sheetDetents().hidden, { onFinish: () => {
+    bookEl.hidden = true;
+    readingBackground(false);
+    el('hud').inert = true;
+    readingResume.hidden = false;
+    readingResume.focus({ preventScroll: true });
+  } });
 }
 function resumeReader() {
-  if (!reading.active) return;
+  if (!reading.preview || !bookEl.hidden) return;
   pauseGlobe();
-  closeWorld();
-  showReader();
+  readingResume.hidden = true;
+  bookEl.hidden = false;
+  readingBackground(true);
+  animateReader(sheetState.offset, 0, { onFinish: () => {
+    reading.preview = false;
+    reading.place = null;
+    readingPin.hidden = true;
+    document.body.classList.remove('reading-map-open');
+    restoreReadingGlobe();
+    readerPosition(0);
+    (el('reading-map') || el('reading-title')).focus({ preventScroll: true });
+  } });
 }
 function handleReadingKey(e) {
   if (!reading.active) return false;
@@ -420,7 +479,7 @@ function handleReadingKey(e) {
     if (reading.preview) resumeReader(); else readingGoBack();
     return true;
   }
-  if (reading.preview) return false;
+  if (reading.preview) return ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key);
   if (e.key === 'Tab') {
     const focusable = [...bookEl.querySelectorAll('button:not(:disabled):not([hidden]), [tabindex="0"], a[href]')];
     const first = focusable[0], last = focusable[focusable.length - 1];

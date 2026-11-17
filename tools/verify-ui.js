@@ -78,6 +78,9 @@ async function main() {
     if (r.exceptionDetails) throw new Error('页面异常: ' + r.exceptionDetails.text + ' ' + JSON.stringify(r.exceptionDetails.exception || {}));
     return r.result.value;
   };
+  const waitReader = async () => {
+    for (let i = 0; i < 40 && !await js('__t.readerSettled'); i++) await sleep(40);
+  };
   const tap = async (x, y) => {
     await send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', clickCount: 1, buttons: 1 });
     await sleep(30);
@@ -189,8 +192,8 @@ async function main() {
   await tap(p.x, p.y);
   const sheet = await js(`({open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
-    hasFacts: !!document.querySelector('#sheet .facts')})`);
-  check('点国家打开档案（含事实行）', sheet.open && /中国/.test(sheet.title || '') && sheet.hasFacts, sheet);
+    entries: document.querySelectorAll('#sheet [data-read-topic]').length})`);
+  check('点国家打开只有一个阅读入口的摘要', sheet.open && sheet.title === '中国' && sheet.entries === 1, sheet);
   await js(`window.__t.closeSheet()`);
   await sleep(500);
   // Canvas 兜底在繁忙机器上可能少帧，等待实际弹簧位置而非固定延迟。
@@ -285,11 +288,11 @@ async function main() {
     open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
     era: (document.querySelector('#sheet .era')||{}).textContent,
-    facts: [...document.querySelectorAll('#sheet .facts span')].map(e=>e.textContent).slice(0,4),
-    entries: document.querySelectorAll('#sheet ul:not(.facts) li').length
+    entries: document.querySelectorAll('#sheet [data-read-topic]').length
   })`);
-  check('点政权打开档案（存续/疆域/邻居/条目）',
-    polSheet.open && /Empire|Kingdom|Khanate|Sultanate|Caliphate|Dynasty|Emirate|Republic|Confederation|帝国|王国|汗国|苏丹|共和国|王朝/i.test(polSheet.title || '') && polSheet.facts.length >= 2,
+  check('点政权打开对应年份的摘要',
+    polSheet.open && /Empire|Kingdom|Khanate|Sultanate|Caliphate|Dynasty|Emirate|Republic|Confederation|帝国|王国|汗国|苏丹|共和国|王朝/i.test(polSheet.title || '') &&
+    polSheet.entries === 1 && polSheet.era.includes('1900'),
     polSheet);
 
   /* 回归：政权一本书不该把全世界都塞进来（曾经因为遮罩用了不透明黑底，判成整张地图） */
@@ -402,7 +405,7 @@ async function main() {
   await openCountry();
   const held=await sheetGesture(-60,8,4,true,'grab',false,240);
   check('拖动后停住再松手不会沿用旧速度', !held.reading && held.detent==='half',held);
-  // 正文区能滚动，标题区才拖窗，不与浏览器原生滚动争抢。
+  // 阅读入口的区域保留原生手势，不把掠过按钮的滑动当成点击。
   await send('Emulation.setDeviceMetricsOverride', {width:320,height:480,deviceScaleFactor:2,mobile:true});
   await sleep(240);
   await openCountry();
@@ -413,7 +416,7 @@ async function main() {
   await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
   await sleep(350);
   const scroll=await js('({top:document.getElementById("sheet-scroll").scrollTop,reading:__t.reading.active,detent:__t.sheet.detent})');
-  check('条目区保留原生滚动且不误触全屏',scroll.top>0 && !scroll.reading && scroll.detent==='half',scroll);
+  check('滑过摘要入口不会误触全屏', !scroll.reading && scroll.detent==='half',scroll);
   await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
   // 动画中途接住：按下不应跳到弹簧目标值。
   await js('__t.closeSheet()');
@@ -459,7 +462,7 @@ async function main() {
   await js(`document.querySelector('[data-read-topic]').click()`);
   const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,dock:getComputedStyle(document.getElementById('dock')).visibility})`);
   check('晚清专题有八个节点且收起时间轴', topic.open && topic.cards===8 && topic.dock==='hidden' && /晚清/.test(topic.title), topic);
-  await sleep(380);
+  await waitReader();
   await readingShot('late-qing');
   await js(`document.getElementById('book-body').scrollTop=240`);
   const indexScroll = await js('document.getElementById("book-body").scrollTop');
@@ -470,14 +473,28 @@ async function main() {
   await send('Input.dispatchKeyEvent', {type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
   check('阅读时方向键不改变地球年份', await js('__t.state.year===1900'));
   await js(`document.getElementById('reading-map').click()`);
-  const mapPreview = await js(`({preview:__t.reading.preview,hidden:document.getElementById('book').hidden,resume:!document.getElementById('reading-resume').hidden,year:__t.state.year,yaw:__t.state.yaw,layer:__t.state.layerId})`);
-  check('主动定位事件地点并保留返回入口', mapPreview.preview && mapPreview.hidden && mapPreview.resume && mapPreview.year===1900 && Math.abs(mapPreview.yaw+116.4*Math.PI/180)<.001, mapPreview);
+  await waitReader();
+  const mapPreview = await js(`({preview:__t.reading.preview,hidden:document.getElementById('book').hidden,resume:!document.getElementById('reading-resume').hidden,year:__t.state.year,
+    sheet:document.getElementById('sheet').getBoundingClientRect().top, height:innerHeight, focus:__t.state.focus,
+    pin:document.getElementById('reading-pin').textContent, pinVisible:!document.getElementById('reading-pin').hidden,
+    point:__t.mapPointAt(__t.view.cx,__t.view.cy)})`);
+  check('地点预览显示北京标记，旧摘要完全退出', mapPreview.preview && mapPreview.hidden && mapPreview.resume &&
+    mapPreview.year===1900 && mapPreview.sheet>=mapPreview.height-1 && !mapPreview.focus && mapPreview.pinVisible &&
+    /北京/.test(mapPreview.pin) && Math.abs(mapPreview.point.x-(.5+116.4/360)*1000)<1 &&
+    Math.abs(mapPreview.point.y-(.5-39.9/180)*500)<1, mapPreview);
+  await readingShot('beijing-place');
+  const pinBefore = await js('document.getElementById("reading-pin").style.transform');
+  await drag(170, 410, 220, 415, 6);
+  check('旋转地球时标记跟随经纬度，摘要保持收起', await js(`
+    document.getElementById('reading-pin').style.transform !== ${JSON.stringify(pinBefore)} && __t.sheet.detent==='hidden' && !__t.state.focus
+  `));
   await js(`document.getElementById('reading-resume').click()`);
+  await waitReader();
   check('从地图返回同一篇与同一位置', await js(`!document.getElementById('book').hidden && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${detailScroll})<2`));
   await js(`document.getElementById('reading-back').click()`);
   check('详情返回专题恢复滚动位置', await js(`__t.reading.detail===null && Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
   await js(`document.getElementById('reading-grab').click()`);
-  await sleep(350);
+  await waitReader();
   const restored = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
   check('退出阅读恢复原年份相机与选中地区', original===restored, {original,restored});
   await js(`document.querySelector('[data-read-topic]').click()`);
@@ -546,7 +563,7 @@ async function main() {
   await sleep(500);
   const grab = await js(`(()=>{const r=document.getElementById('grab').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}})()`);
   await drag(grab.x,grab.y,grab.x,4,14);
-  await sleep(400);
+  await waitReader();
   check('抓手上拉打开中国年表', await js(`!document.getElementById('book').hidden && document.getElementById('reading-title').textContent==='中国'`));
   check('中国现代年表把事件与时代背景分开，单年只显示一次', await js(`
     document.querySelector('[aria-label="事件"] [data-reading-detail="i-140"] small').textContent==='1900'
@@ -562,10 +579,13 @@ async function main() {
       await send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:start.x,y:start.y+distance*i/6}]});
       await sleep(48);
     }
-    const top = await js('document.getElementById("book").getBoundingClientRect().top');
+    const during = await js(`({top:document.getElementById('book').getBoundingClientRect().top,
+      summary:Number(getComputedStyle(document.getElementById('sheet-scroll')).opacity),
+      article:Number(getComputedStyle(document.getElementById('book-body')).opacity),
+      sameSurface:document.getElementById('book').parentElement===document.getElementById('sheet')})`);
     await send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});
-    await sleep(350);
-    return { top, ...await js(`({hidden:document.getElementById('book').hidden,offset:__t.sheet.offset,detent:__t.sheet.detent,scroll:document.getElementById('book-body').scrollTop})`) };
+    await waitReader();
+    return { ...during, ...await js(`({hidden:document.getElementById('book').hidden,offset:__t.sheet.offset,detent:__t.sheet.detent,scroll:document.getElementById('book-body').scrollTop})`) };
   };
   const softRead = await touchReader('#reading-grab', 30);
   check('全屏小幅下拉跟手，松手后回弹', Math.abs(softRead.top-30)<2 && !softRead.hidden, softRead);
@@ -577,8 +597,14 @@ async function main() {
   await readingShot('reading-article');
   const scrollRead = await touchReader('#book-body', -160);
   check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
-  const startHalf = await js('({offset:__t.sheet.offset,year:__t.state.year,key:__t.state.focus.key})');
-  const collapse = await touchReader('#reading-grab', 155);
+  await js(`document.getElementById('reading-map').click()`);
+  await waitReader();
+  check('从2026年阅读跳到1900年地点时保持地图年份一致', await js(`__t.state.year===1900 && document.getElementById('year').textContent==='1900' && !__t.state.focus`));
+  await js(`document.getElementById('reading-resume').click()`);
+  await waitReader();
+  const startHalf = await js('({offset:__t.reading.snapshot.offset,year:__t.state.year,key:__t.state.focus.key})');
+  const collapse = await touchReader('#reading-grab', 310);
+  check('拖动中在同一抽屉内衔接正文与摘要', collapse.sameSurface && collapse.summary>.1 && collapse.article>.1, collapse);
   check('从正文下拉回到原半窗、年份与地区', collapse.hidden && collapse.detent==='half' && Math.abs(collapse.offset-startHalf.offset)<2 &&
     await js(`__t.state.year===${startHalf.year} && __t.state.focus.key===${JSON.stringify(startHalf.key)}`),collapse);
   await js('__t.closeSheet()');

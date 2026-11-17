@@ -91,6 +91,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await js(`document.querySelector('[data-reading-detail]').click()`);
   ok('专题节点包含解释与来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>=2`));
   await js(`document.getElementById('reading-back').click();document.getElementById('reading-back').click()`);
+  for (let i = 0; i < 40 && !await js('__t.readerSettled'); i++) await sleep(40);
   ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1900 && __t.sheet.detent==='half'`));
   await js('__t.closeSheet()');
   await sleep(500);

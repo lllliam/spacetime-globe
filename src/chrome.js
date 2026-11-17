@@ -41,6 +41,7 @@ function scheduleTimelineHide() {
   },6500);
 }
 function showTimeline() {
+  if (reading.preview) return;
   closeWorld(); closeView(false); closeSheet();
   chrome.timeline=true; document.body.classList.add('time-open'); timeDock.inert=false;
   layoutTrack(); drawTrack(); scheduleTimelineHide(); invalidate();
@@ -58,6 +59,7 @@ function closeView(focus=true) {
   invalidate();
 }
 function showView() {
+  if (reading.preview) return;
   if (reading.active || !overlay.hidden) return;
   hideTimeline(false); closeSheet(); chrome.panel=true;
   viewPanel.hidden=false; el('view-shade').hidden=false;

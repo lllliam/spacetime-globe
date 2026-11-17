@@ -1216,7 +1216,7 @@ function layout() {
   if (r) r.resize(w, h, dpr);
   vecCanvas.width = Math.max(1, Math.round(w * dpr));
   vecCanvas.height = Math.max(1, Math.round(h * dpr));
-  if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging) {
+  if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging && bookEl.hidden) {
     applySheetOffset(h, false);
   }
   draw();
@@ -1497,6 +1497,7 @@ function draw() {
   if (!r || !baseCanvas) return;
   r.draw(view, state);
   drawVector();
+  drawReadingPin();
 }
 
 /* ───────────── 11. 交互 ───────────── */
@@ -1669,6 +1670,7 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
+  if (reading.preview) return;
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id);
@@ -1688,7 +1690,7 @@ function sheetDetents() {
   const H = view.h || innerHeight;
   const dock = dockHeight();
   const peek = Math.min(H - 120, H - dock - 116);   // 时间轴上方还留 116px
-  const half = Math.min(peek - 64, H - clamp(H * 0.58, 400, 640));
+  const half = Math.min(peek - 64, H - clamp(H * 0.36, 216, 360));
   return { hidden: H, peek: Math.max(H * 0.35, peek), half: Math.max(H * 0.3, half), full: 0 };
 }
 
@@ -1786,7 +1788,7 @@ function animateLift(target) {
 /* 抓手与摘要头都可拖；下面的条目保持原生滚动，互不争抢。 */
 function setSheetIntent(intent) {
   sheetEl.dataset.gesture = intent;
-  el('sheet-gesture').textContent = intent === 'expand' ? '松开，展开阅读' : intent === 'dismiss' ? '松开，收起' : '上滑阅读 · 下滑关闭';
+  el('sheet-gesture').textContent = intent === 'expand' ? '松开，展开阅读' : intent === 'dismiss' ? '松开，收起' : '';
 }
 function sheetDragStart(e) {
   if (sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
@@ -1877,64 +1879,21 @@ function renderEntity() {
   const ent = entityByKey(f.layerId, f.key, f.id);
   if (!ent) { closeSheet(); return; }
 
-  const listAll = entriesOfEntity(ent);
-  listAll.sort((x, z) => (z.kind === 'era') - (x.kind === 'era') || z.t0 - x.t0);
-  const era = listAll.find((e) => e.kind === 'era');
-  const seenTitle = new Set();
-  const rest = listAll.filter((e) => e !== era).filter((e) => {
-    const key = e.zh || e.en;
-    if (seenTitle.has(key)) return false;
-    seenTitle.add(key);
-    return true;
-  }).slice(0, 6);
-
-  let facts = '';
-  if (ent.kind === 'polity') {
-    facts += '<li><i class="dot"></i><span>存续</span><small>' + fmtYear(ent.from) + '–' + fmtYear(ent.to) + '</small></li>';
-    const today = countriesUnderPolity(ent);
-    if (today.length) facts += '<li><i class="dot"></i><span>今天的疆域主要在 ' + today.map((t) => esc(isoName(t.iso))).join(' · ') + '</span><small></small></li>';
-    const nb = neighboursOf(ent.id);
-    if (nb.length) {
-      const names = nb.map((id) => { const s = partition.shapes.find((x) => x.id === id); return s ? esc(s.ent.name) : ''; }).filter(Boolean);
-      if (names.length) facts += '<li><i class="dot"></i><span>同期邻居 ' + names.slice(0, 4).join('、') + '</span><small></small></li>';
-    }
-  } else {
-    facts += '<li><i class="dot"></i><span>年表收录</span><small>' + ent.total + ' 条</small></li>';
-    const pol = polityOverCountry(ent.iso);
-    if (pol) facts += '<li><i class="dot"></i><span>' + fmtYear(state.year) + ' 年这里是 ' + esc(polityZhName(pol.name)) + '</span><small></small></li>';
-  }
-
-  const sheetRow = (entry, near = false) => {
-    const item = timelineItem(entry);
-    return '<li' + (near ? ' class="near"' : '') + '><i style="background:' + kindColor(item) + '"></i><span>' +
-      esc(item.title || item.zh || item.en) + '</span><small>' + esc(item.date || dateOf(item)) + '</small></li>';
-  };
-  const rows = rest.map((e) => sheetRow(e)).join('') ||
-    /* 当年没有条目：退到最近几条，别给一个空抽屉 */
-    (entryByRegion.get(ent.regionId) || [])
-      .slice()
-      .sort((x, z) => Math.abs(x.t0 - ord(state.year)) - Math.abs(z.t0 - ord(state.year)))
-      .slice(0, 4)
-      .map((e) => sheetRow(e, true)).join('');
-
   const topic = topicForEntity(ent);
   const title = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
+  const entries = topic ? [] : (ent.kind === 'country' ? (entryByRegion.get(ent.regionId) || []) : entriesOfEntity(ent));
+  const distance = (item) => Math.max(item.start - state.year, state.year - (item.point ? item.start : item.end), 0);
+  const nearest = entries.map(timelineItem).filter((item) => item.kind !== 'era' && !item.context)
+    .reduce((best, item) => !best || distance(item) < distance(best) ? item : best, null);
   const readingTitle = topic ? topic.title : '查看年表';
-  const readingMeta = topic ? topic.subtitle : '';
-  const summaryText = topic
-    ? topic.chapters.reduce((best, c) => Math.abs(c.year - state.year) < Math.abs(best.year - state.year) ? c : best).summary
-    : '';
-  sheetInner.innerHTML =
-    '<div class="sheet-overview"><h2>' + esc(title) + (ent.nameEn && ent.nameEn !== title ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
-    '<p class="era">' + fmtYear(state.year) + ' 年 · ' + esc(chapterOf(state.year).n) + '</p>' +
-    (summaryText ? '<p class="moment-summary">' + esc(summaryText) + '</p>' : '') + '</div>' +
-    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><strong>' + esc(readingTitle) + '</strong>' +
-      (readingMeta ? '<small>' + esc(readingMeta) + '</small>' : '') + readingArrow + '</button>' +
-    '<ul class="facts">' + facts + '</ul>' +
-    (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
-    (rows ? '<ul class="rows">' + rows + '</ul>' : '<p class="empty">这一年附近没有收录条目。</p>') +
-    '<p class="foot">' + (ent.kind === 'polity' ? '历史疆界：Cliopatria · 条目位置按地区近似关联' : '以现代国家作为区域入口，不表示当年的疆界') + '</p>';
+  const readingMeta = topic ? topic.subtitle : nearest
+    ? readingDate(nearest) + ' · ' + (nearest.title || nearest.zh || nearest.en) : '';
 
+  sheetInner.innerHTML =
+    '<div class="sheet-overview"><h2>' + esc(title) + '</h2>' +
+    '<p class="era">' + fmtYear(state.year) + ' 年 · ' + esc(chapterOf(state.year).n) + '</p></div>' +
+    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><strong>' + esc(readingTitle) + '</strong>' +
+    (readingMeta ? '<small>' + esc(readingMeta) + '</small>' : '') + readingArrow + '</button>';
 }
 
 function openEntity(layerId, id) {

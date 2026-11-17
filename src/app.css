@@ -138,9 +138,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #sheet-inner{padding-bottom:8px}
 
 /* 档案头 */
-#sheet h2{margin:2px 0 0;font:600 21px/1.3 "Songti SC","Noto Serif SC",Georgia,serif;
-  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-#sheet h2 em{font:400 11.5px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted);letter-spacing:.03em}
+.sheet-overview h2{margin:2px 0 0;font:600 21px/1.3 "Songti SC","Noto Serif SC",Georgia,serif}
 #sheet .era{margin:3px 0 10px;font-size:12px;color:var(--gold);letter-spacing:.02em}
 #sheet .era small{color:var(--muted);margin-left:8px;font-size:11px;font-variant-numeric:tabular-nums}
 
@@ -215,7 +213,7 @@ body.sheet-full #dock{opacity:0;pointer-events:none;z-index:5}
 #sheet.peek #sheet-inner .book,
 #sheet.peek #sheet-inner .foot{display:none}
 #sheet.peek #sheet-inner{padding-top:2px}
-#sheet.peek #sheet h2{font-size:19px}
+#sheet.peek .sheet-overview h2{font-size:19px}
 
 /* 细节：行距、分隔、按压手感 */
 #sheet .rows li{transition:background .18s}
@@ -254,7 +252,6 @@ body.sheet-open #dock::before{opacity:1}
 /* 阅读入口与独立阅读层：时间轴只承担定位。 */
 #sheet-scroll{overflow-y:auto;touch-action:pan-y}
 #grab{touch-action:none}
-#sheet .moment-summary{margin:6px 0 12px;font-size:13px;line-height:1.75;color:#cfc6b4}
 .topic-entry{position:relative;display:block;width:100%;min-height:50px;text-align:left;
   border:0;border-block:1px solid var(--line);background:transparent;
   color:var(--ink);padding:11px 24px 11px 0;margin:4px 0 14px;cursor:pointer;font:inherit}
@@ -262,13 +259,38 @@ body.sheet-open #dock::before{opacity:1}
 .topic-entry strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
 .topic-entry .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}
 .topic-entry:active{background:rgba(224,178,115,.07)}
-#sheet.peek .moment-summary,#sheet.peek .topic-entry{display:none}
-body.reading-open #dock,body.reading-open #hud{visibility:hidden}
-#reading-resume{position:fixed;z-index:19;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 140px);
-  width:max-content;max-width:calc(100% - 32px);border:1px solid var(--gold-dim);border-radius:999px;
-  background:#17202c;color:var(--gold);padding:12px 18px;font:500 12px/1.5 -apple-system,system-ui,sans-serif;
-  box-shadow:0 6px 30px #0008;cursor:pointer}
-#reading-resume[hidden]{display:none}
+#sheet.peek .topic-entry{display:none}
+body.reading-open #dock{visibility:hidden}
+body.reading-open #hud{opacity:var(--reader-hud,0);visibility:hidden}
+body.reading-open.reader-revealing #hud{visibility:visible}
+body.reading-open #sheet{z-index:12;overflow:hidden}
+body.reading-open #sheet-dim{transition:none}
+body.reading-open #grab,body.reading-open #sheet-scroll{opacity:var(--reader-summary,0)}
+body.reading-open #grab i{visibility:hidden}
+body.reading-map-open #sheet{pointer-events:none}
+#reading-resume{
+  position:fixed;z-index:10;left:50%;bottom:calc(var(--safe-b) + 24px);transform:translateX(-50%);
+  min-height:44px;padding:0 18px;border:0;border-radius:24px;background:#0b111bd9;color:var(--ink);
+  font:500 13px/1.4 system-ui,sans-serif;white-space:nowrap;cursor:pointer;
+}
+#reading-resume span{color:var(--gold);margin-left:5px}
+#reading-pin{
+  position:fixed;z-index:5;left:0;top:0;width:0;height:0;pointer-events:none;
+  color:var(--ink);font:500 12px/1.4 system-ui,sans-serif;
+}
+#reading-pin i{
+  position:absolute;inset:-5px auto auto -5px;width:10px;height:10px;
+  border-radius:50%;background:var(--gold);border:1px solid #fff1d5;box-shadow:0 0 0 4px #e0b27340,0 1px 8px #000a;
+}
+#reading-pin span{
+  position:absolute;left:14px;top:0;transform:translateY(-50%);width:max-content;max-width:calc(50vw - 32px);
+  padding:5px 8px;border-radius:6px;background:#0b111bdd;
+}
+#reading-pin.align-left span{left:auto;right:14px}
+#reading-pin strong{display:block;font-size:12px;font-weight:600}
+#reading-pin small{display:block;color:#aab4c0;font-size:10px;text-wrap:balance}
+#reading-pin small:empty{display:none}
+#reading-pin[hidden],#reading-resume[hidden]{display:none}
 button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
 /* 抽屉跟手与松手反馈。位置动画由 JS 弹簧驱动，避免 CSS 目标值抢走手指。 */
@@ -286,19 +308,18 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #sheet:not(.full) #sheet-scroll{flex:none;height:var(--sheet-scroll-height,300px)}
 /* 展开的阅读抽屉 */
 #book{
-  --reading-paper:#0c121a;
   --reading-text:#e8e3d8;
   --reading-muted:#a5adba;
   --reading-rule:rgba(219,225,236,.16);
   --reading-serif:"Songti SC","Noto Serif SC",SimSun,Georgia,serif;
   --reading-gutter:clamp(20px,6vw,36px);
-  position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
-  overflow:hidden;background:var(--reading-paper);color:var(--reading-text);
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  overflow:hidden;color:var(--reading-text);
 }
 #book[hidden],#reading-back[hidden]{display:none}
 #book-bar{
   flex:none;position:relative;display:grid;place-items:end center;
-  height:calc(var(--safe-t) + 44px);touch-action:none;user-select:none;
+  height:calc(var(--safe-t) * var(--reader-safe,1) + 44px);touch-action:none;user-select:none;
 }
 #reading-grab,#reading-back{
   display:grid;place-items:center;min-height:44px;appearance:none;cursor:pointer;
@@ -306,10 +327,15 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 }
 #reading-grab{width:80px;cursor:grab}
 #reading-grab:active{cursor:grabbing}
-#reading-grab span{width:36px;height:4px;border-radius:10px;background:#89939e}
+#reading-grab span{
+  width:40px;height:4px;border-radius:10px;background:rgba(255,255,255,.24);
+  transform:translateY(calc(-7px * var(--reader-grip,0)));
+  transition:background-color .16s;
+}
 #book-bar.collapse-ready #reading-grab span{background:var(--gold)}
 #reading-back{position:absolute;bottom:0;left:max(8px,calc((100% - 700px)/2 + 10px));width:44px}
 #reading-back svg{width:21px;height:21px}
+#reading-back,#book-body{opacity:var(--reader-article,1)}
 #book-body{
   width:100%;max-width:700px;min-height:0;flex:1;margin:0 auto;
   padding:22px var(--reading-gutter) calc(var(--safe-b) + 44px);
@@ -379,6 +405,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #book-body .credits{margin:20px 0 0;color:var(--reading-muted);font-size:12px;line-height:1.7}
 @media (hover:hover){.reading-row:hover,.reading-link:hover{background:rgba(224,178,115,.045)}}
 @media (max-width:520px){#book-body{scrollbar-width:none}}
+@media (prefers-reduced-motion:reduce){#reading-grab span{transition:none}}
 #book button:focus-visible,#book a:focus-visible{outline:1px solid var(--gold);outline-offset:-2px}
 
 .reading-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}

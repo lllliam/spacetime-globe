@@ -18,7 +18,8 @@
 
 | 版本 | 主要变化 |
 | --- | --- |
-| **4.5** | 重做半窗与阅读界面，支持下拉回到原半窗。年表分开显示事件和时代背景，专题正文提供地点定位和出处。 |
+| **4.5.1** | 摘要和阅读共用抽屉，下拉时连续过渡。地点预览在地球上标出具体地点，保留原文阅读位置。 |
+| [4.5](https://github.com/lllliam/spacetime-globe/tree/2ddcb08) | 重做半窗与阅读界面。年表分开显示事件和时代背景，更新中国现代年表。 |
 | [4.4.2](https://github.com/lllliam/spacetime-globe/tree/b2e2723) | 修复放大后云层出现多边形缺口的问题。 |
 | [4.4.1](https://github.com/lllliam/spacetime-globe/tree/03aeafd) | 修复太平洋方向的竖向贴图接缝。 |
 | [4.4](https://github.com/lllliam/spacetime-globe/tree/65664a8) | 云层独立于地表缓慢移动，加入云影与受光方向一致的大气渐变，改进日夜交界。 |
