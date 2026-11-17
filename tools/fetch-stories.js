@@ -85,7 +85,7 @@ function clip(s, max = 320) {
 async function zhTitleOf(enTitle) {
   const u = 'https://en.wikipedia.org/w/api.php?' + qs({
     action: 'query', prop: 'langlinks', lllang: 'zh', titles: enTitle,
-    redirects: 1, variant: 'zh-cn', format: 'json', origin: '*',
+    redirects: 1, converttitles: 1, variant: 'zh-cn', format: 'json', origin: '*',
   });
   const j = await getJSON(u);
   const pages = (j && j.query && j.query.pages) || {};
@@ -95,7 +95,7 @@ async function zhTitleOf(enTitle) {
 async function extractOf(title, sentences = 3) {
   const u = 'https://zh.wikipedia.org/w/api.php?' + qs({
     action: 'query', prop: 'extracts', exintro: 1, explaintext: 1, exsentences: sentences,
-    redirects: 1, titles: title, variant: 'zh-cn', format: 'json', origin: '*',
+    redirects: 1, converttitles: 1, titles: title, variant: 'zh-cn', format: 'json', origin: '*',
   });
   const j = await getJSON(u);
   const pages = (j && j.query && j.query.pages) || {};
@@ -107,7 +107,7 @@ async function searchHit(query) {
     const u = 'https://zh.wikipedia.org/w/api.php?' + qs({
       action: 'query', generator: 'search', gsrsearch: q, gsrlimit: 3, gsrnamespace: 0,
       prop: 'extracts', exintro: 1, explaintext: 1, exsentences: 3,
-      redirects: 1, variant: 'zh-cn', format: 'json', origin: '*',
+      redirects: 1, converttitles: 1, variant: 'zh-cn', format: 'json', origin: '*',
     });
     const j = await getJSON(u);
     const pages = (j && j.query && j.query.pages) || {};

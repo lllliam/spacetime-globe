@@ -1703,23 +1703,26 @@ function renderEntity() {
   const ch = buildChapter(ent);
   const sections = ch.sections.filter((s) => s.items.length).map((s) => `
       <h2 class="sec${s.here ? ' here' : ''}">${esc(s.heading)}<em>${s.items.length} 条</em></h2>
+      ${s.note ? `<p class="secnote">${esc(s.note)}</p>` : ''}
       ${s.items.map((it) => `
         <article>
           <h3>${esc(it.title)}</h3>
           <p class="meta"><i style="background:${it.color}"></i>${esc(it.meta)}</p>
-          ${it.prose ? `<p>${esc(it.prose)}</p>` : '<p class="noprose">（这一条还没有正文）</p>'}
+          ${it.prose ? `<p>${esc(it.prose)}</p>` : `<p class="noprose">尚无正文${it.sit ? ' · ' + esc(it.sit) : ''}</p>`}
           ${it.source ? `<a class="src" href="${esc(it.source)}" target="_blank" rel="noopener">维基百科 ↗</a>` : ''}
         </article>`).join('')}`).join('');
   const titles = [...new Set((stories ? ch.sections.flatMap((s) => s.items) : []).map((i) => i.title))].slice(0, 6);
 
   sheetInner.innerHTML =
-    '<h2>' + esc(ent.name) + (ent.nameEn && ent.nameEn !== ent.name ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
+    '<h2>' + esc(ch.title || ent.name) +
+      ((ch.sub || (ent.nameEn && ent.nameEn !== ent.name && ent.nameEn !== ch.title)) ? '<em>' + esc(ch.sub || ent.nameEn) + '</em>' : '') + '</h2>' +
     '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
     '<ul class="facts">' + facts + '</ul>' +
     (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
     (rows ? '<ul class="rows">' + rows + '</ul>' : '<p class="empty">这个年份附近没有收录条目。</p>') +
     '<p class="hint-more">上拉：读这一卷</p>' +
     '<div class="book">' +
+      (ch.era && ch.era.intro ? '<div class="eracard"><b>' + esc(ch.era.name) + '</b><p>' + esc(ch.era.intro) + '</p></div>' : '') +
       '<p class="lede">' + esc(ch.lede || '') + '</p>' +
       (sections || '<p class="noprose">这一段还没有收进条目。</p>') +
       '<div class="more">' +
@@ -1814,12 +1817,15 @@ function openWorld() {
     groups.get(key).push(row.e);
   }
   overlayTitle.textContent = state.year >= YMAX ? '今天' : fmtYear(state.year) + ' 年';
+  const eraName = chapterOf(state.year).n;
+  const eraTxt = ERA_INTRO[eraName] || '';
   overlaySub.innerHTML = scope + ' · <b>' + summary.entities + '</b> 个' + LAYERS[state.layerId].name +
     ' · <b>' + (summary.ev) + '</b> 条事件' + (list.length > cap ? ' · 前 ' + cap + ' 条' : '');
   if (!list.length) {
-    overlayBody.innerHTML = '<p class="wempty">这一年还没有收录条目。</p>';
+    overlayBody.innerHTML = (eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '') +
+      '<p class="wempty">这一年还没有收录条目。</p>';
   } else {
-    let html = '';
+    let html = eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '';
     for (const [gname, rows] of [...groups.entries()].sort((x, y) => y[1].length - x[1].length)) {
       html += '<div class="wgroup">' + esc(gname) + ' · ' + rows.length + '</div>';
       for (const e of rows) {
@@ -1882,7 +1888,11 @@ function titleMatches(query, title) {
   const norm = (s) => s.replace(/[（(].*?[)）]/g, '').replace(/[\s·・、,，.。:：;；'"“”‘’\-—–_/|]/g, '');
   const A = norm(q), B = norm(t);
   if (A === B) return true;
-  if (B.includes(A) || A.includes(B)) return true;
+  /* 包含关系也要看比例：『近世奥斯曼埃及』包含『埃及』，但不是同一个条目 */
+  if (B.includes(A) || A.includes(B)) {
+    const short = Math.min(A.length, B.length), long = Math.max(A.length, B.length);
+    return short / long >= 0.6;
+  }
   const grams = (s) => { const g = new Set(); for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2)); return g; };
   const ga = grams(A), gb = grams(B);
   if (!ga.size || !gb.size) return false;
@@ -1891,19 +1901,45 @@ function titleMatches(query, title) {
   return hit / ga.size >= 0.5;
 }
 
+/* 正文去掉百科腔的水分：外语原名、罗马化、IPA 这些塞在括号里的东西读起来很累 */
+function polishProse(s) {
+  if (!s) return '';
+  return s
+    .replace(/[（(][^（()）]{0,160}(罗马化|羅馬化|国际音标|國際音標|IPA|发音|發音|转写|轉寫)[^（()）]{0,160}[)）]/g, '')
+    /* 外语原名那一段（「（匈牙利语：mohácsi csata…；土耳其语：…）」）对读者是噪音 */
+    .replace(/[（(][^（()）]{0,40}(语|語)[：:][^（()）]{0,260}[)）]/g, '')
+    .replace(/^[，,、；;：:\s]+/, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 const proseOf = (entryId) => {
   if (!stories || !stories.entries[entryId]) return '';
   const rec = stories.entries[entryId];
   const e = entries.find((x) => x.id === entryId);
   if (rec.t && e && !titleMatches(e.zh, rec.t)) return '';
-  return rec.x || '';
+  return polishProse(rec.x || '');
 };
 const polityProse = (name) => {
   const rec = stories && stories.polities[name];
-  if (!rec || !rec.t || !rec.x) return '';
-  return titleMatches(name, rec.t) || rec.t.length <= 24 ? rec.x : '';
+  if (!rec || !rec.x || !rec.t) return '';
+  /* 只有中文件名通过了「像不像它」的检查，正文才敢用 */
+  const zh = polityZhName(name);
+  if (zh === name) return '';
+  return rec.t === zh || rec.t.startsWith(zh) ? rec.x : '';
 };
-const polityZhName = (name) => (stories && stories.polities[name] && stories.polities[name].t) || name;
+/* 政权中文名：宁可显示英文原名，也不要显示「鄂圖曼帝國的分裂」这种错配或繁体标题 */
+const TRAD_CHARS = /[國帝國戰歷羅馬爾圖亞歐蘭蘇聯韓華灣廣義門開關長飛車東鄉親漢滿臺萬與為無獨產權變壓經濟軍農陽陰]/;
+const BAD_NAME_WORDS = /分裂|解體|解体|滅亡|灭亡|歷史|历史|列表|戰爭|战争|戰役|战役|運動|运动|條約|条约|時期|时期|王朝列表/;
+function polityZhName(name) {
+  const rec = stories && stories.polities[name];
+  const t = rec && rec.t;
+  if (!t || t === name) return name;
+  if (BAD_NAME_WORDS.test(t)) return name;
+  if (TRAD_CHARS.test(t)) return name;
+  if (t.length > 14) return name;
+  return t;
+}
 
 /* 政权全部切片的并集遮罩：用来把散落在它一生的条目找出来 */
 const polityMaskCache = new Map();
@@ -1946,6 +1982,30 @@ function entriesForBook(ent) {
   return out;
 }
 
+/* 七个时期的短引言：给每一段历史一个说话的口吻。
+   不是史料，是入口——真正的内容在条目里。 */
+const ERA_INTRO = {
+  '史前': '还没有文字，也没有国界。人在河谷、海岸和草原上定居，耕作、驯养、迁徙。后来所有的帝国，都从这些村落里长出来。',
+  '古代': '文字出现之后，最早写下的其实是账目和年岁。城邦、王朝、法典与祭祀把人绑在土地上，战争也从抢掠变成了占领。',
+  '古典': '几个大帝国几乎同时成形：地中海、伊朗高原、印度河、黄河流域。它们未必互通，却都在回答同一个问题——怎么治理上千万人。',
+  '中世纪': '旧帝国散架，新的信仰共同体接上来：基督教、伊斯兰教、佛教各自连成一片。商队和帆船穿过沙漠与海洋，比军队走得更远。',
+  '大航海': '船队把各大洋缝到一起。白银、香料、奴隶与病菌同时流动，美洲的帝国在几十年里崩塌，世界第一次有了「全球」这件事。',
+  '工业': '蒸汽、铁路、电报与工厂。生产力第一次跑在人口前面，帝国扩张到极限，民族国家从帝国的裂缝里长出来。',
+  '现代': '两次世界大战、殖民体系瓦解、冷战与全球化。国家的数量翻了几倍，地图上很多边界，停在 1945 年之后的某一天。',
+};
+
+/* 一节的开头写一行「这一百年是什么」：条数、跨度、当时是什么朝代/政权。
+   全部由数据算出来，不编史。 */
+function sectionNote(items) {
+  if (!items.length) return '';
+  const yrs = items.map((i) => i.year);
+  const lo = Math.min(...yrs), hi = Math.max(...items.map((i) => i.end || i.year));
+  const span = lo === hi ? fmtYear(lo) : fmtYear(lo) + '–' + fmtYear(hi);
+  const era = items.find((i) => i.kind === 'era');
+  return items.length + ' 条 · ' + span + (era ? ' · 同期本地是' + era.title : '');
+}
+
+
 function buildChapter(ent) {
   const list = entriesForBook(ent).sort((a, b) => a.t0 - b.t0);
   const chapters = [];
@@ -1961,30 +2021,51 @@ function buildChapter(ent) {
   const sections = chapters.map((c) => ({
     heading: c.bucket < 0 ? '前' + Math.ceil(-c.bucket / 100) + ' 世纪' : c.from + '–' + c.to,
     here: Math.floor(state.year / 100) * 100 === c.bucket,
-    items: c.items.map((e) => ({
-      title: e.zh || e.en,
-      meta: dateOf(e),
-      color: kindColor(e),
-      prose: proseOf(e.id),
-      source: e.source || '',
-      year: e.start,
-    })),
+    items: c.items.map((e) => {
+      const r = regionById.get(e.region) || {};
+      return {
+        title: e.zh || e.en,
+        meta: dateOf(e),
+        color: kindColor(e),
+        prose: proseOf(e.id),
+        source: e.source || '',
+        year: e.start,
+        end: e.point ? e.start : e.end,
+        kind: e.kind,
+        /* 没有正文时补一句「它在哪、算什么」——信息是真的，只是不展开 */
+        sit: [r.zh ? '今天的' + r.zh : '', kindOf(e)[0]].filter(Boolean).join(' · '),
+      };
+    }),
   }));
+  for (const s of sections) s.note = sectionNote(s.items);
 
   let lede = '';
-  let title = ent.name, when = '';
+  let title = ent.name, sub = '', when = '';
   if (ent.kind === 'polity') {
-    title = polityZhName(ent.name);
+    const zh = polityZhName(ent.name);
+    title = zh;
+    sub = zh !== ent.name ? ent.name : '';
     when = fmtYear(ent.from) + '–' + fmtYear(ent.to) + ' · 存续 ' + (ent.to - ent.from) + ' 年 · 境内 ' + list.length + ' 条记录';
     lede = polityProse(ent.name);
+    if (!lede && list.length) lede = '这个政权存在了 ' + (ent.to - ent.from) + ' 年，境内留下了 ' + list.length +
+      ' 条记录：最早是「' + (list[0].zh || list[0].en) + '」（' + fmtYear(list[0].start) + ' 年），最近是「' +
+      (list[list.length - 1].zh || list[list.length - 1].en) + '」（' + fmtYear(list[list.length - 1].start) + ' 年）。';
   } else {
     const pol = pk ? polityOverCountry(ent.iso) : null;
     const polZh = pol ? polityZhName(pol.name) : '';
     when = fmtYear(state.year) + ' 年 · 年表 ' + list.length + ' 条' + (polZh ? ' · 这一年是 ' + polZh : '');
     if (pol) lede = polityProse(pol.name);
-    if (!lede) lede = '这里收着' + ent.name + '的年表：从最早的一条到最近的记录，按时间排开。';
+    if (!lede && list.length) {
+      const first = list[0], last = list[list.length - 1];
+      lede = ent.name + '的年表从' + fmtYear(first.start) + ' 年的「' + (first.zh || first.en) + '」一直记到' +
+        fmtYear(last.start) + ' 年的「' + (last.zh || last.en) + '」，共 ' + list.length + ' 条。';
+    } else if (!lede) {
+      lede = '这里收着' + ent.name + '的年表：从最早的一条到最近的记录，按时间排开。';
+    }
   }
-  return { title, when, lede, sections, kind: ent.kind };
+  const eraName = chapterOf(state.year).n;
+  const era = { name: eraName, intro: ERA_INTRO[eraName] || '' };
+  return { title, sub, when, lede, sections, era, kind: ent.kind };
 }
 
 /* ───────────── 14. 时间轴 ───────────── */
