@@ -342,3 +342,18 @@ body.reading-open #dock,body.reading-open #hud{visibility:hidden}
 button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 @media(max-width:360px){#book-bar{gap:4px;padding-inline:8px}#book-crumb{font-size:10px}#book-body{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){#book{animation:none}}
+
+/* 抽屉跟手与松手反馈。位置动画由 JS 弹簧驱动，避免 CSS 目标值抢走手指。 */
+#sheet{transition:none}
+#grab{position:relative;min-height:48px;height:48px;outline-offset:-5px;cursor:grab;user-select:none}
+#grab i{width:40px;height:4px;align-self:flex-start;margin-top:13px;transition:background .16s,width .16s}
+#sheet-gesture{position:absolute;left:0;right:0;top:25px;text-align:center;
+  color:var(--muted);font-size:9px;line-height:1.4;letter-spacing:.06em;pointer-events:none;opacity:.78}
+.sheet-overview{touch-action:none;cursor:grab}
+#sheet.dragging,#sheet.dragging .sheet-overview,#sheet.dragging #grab{cursor:grabbing}
+#sheet[data-gesture="expand"] #grab i{width:52px;background:var(--gold)}
+#sheet[data-gesture="dismiss"] #grab i{width:30px;background:#c3ad91}
+#sheet[data-gesture="expand"] #sheet-gesture,#sheet[data-gesture="dismiss"] #sheet-gesture{color:var(--gold);opacity:1}
+#sheet-scroll{scrollbar-width:thin;scrollbar-color:#39414d transparent}
+#sheet:not(.full) #sheet-scroll{flex:none;height:var(--sheet-scroll-height,300px)}
+#book{animation:none;overflow:hidden}

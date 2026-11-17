@@ -1546,30 +1546,68 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--dock-h', dockHeight() + 'px');
+  sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - dockHeight() - 48) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
 }
 
+// 位移由同一套弹簧积分驱动：动画途中再次按下可直接接住，不读取 CSS 目标位置。
+let sheetMotion = 0, sheetVelocity = 0;
+function stopSheetMotion() {
+  cancelAnimationFrame(sheetMotion);
+  sheetMotion = 0;
+}
 function sheetTo(detent, animate = true) {
-  if (detent === 'full') { openBook(); return; }
-  const d = sheetDetents();
-  /* 只认四个真档位；'custom' 这种自由位置就停在原地，不能把 offset 变成 NaN */
-  if (!(detent in d)) { applySheetOffset(sheetState.offset, animate); return; }
-  const prev = sheetState.detent;
+  if (detent === 'full') { enterSheetReading(); return; }
+  if (!['hidden', 'half', 'peek'].includes(detent)) detent = 'half';
+  stopSheetMotion();
   sheetState.detent = detent;
-  applySheetOffset(d[detent], animate);
-  /* 抽屉上来了，地球往上让一点，选中的那块别被盖住 */
+  setSheetIntent('idle');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!animate || reduced) {
+    applySheetOffset(sheetDetents()[detent], false);
+    sheetVelocity = 0;
+  } else {
+    let last = performance.now();
+    const step = (t) => {
+      const dt = Math.min(.032, Math.max(.001, (t - last) / 1000));
+      last = t;
+      const target = sheetDetents()[sheetState.detent];
+      sheetVelocity += ((target - sheetState.offset) * 330 - sheetVelocity * 34) * dt;
+      const offset = sheetState.offset + sheetVelocity * dt;
+      if (Math.abs(target - offset) < .6 && Math.abs(sheetVelocity) < 8) {
+        applySheetOffset(target, false);
+        sheetMotion = sheetVelocity = 0;
+        return;
+      }
+      applySheetOffset(offset, false);
+      sheetMotion = requestAnimationFrame(step);
+    };
+    sheetMotion = requestAnimationFrame(step);
+  }
   const H = view.h || innerHeight;
-  const target = detent === 'full' ? H * 0.15 : detent === 'half' ? H * 0.075 : detent === 'peek' ? H * 0.04 : 0;
-  animateLift(target);
-  if (detent === 'full' && prev !== 'full') scrollToHere();
+  animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
+}
+function enterSheetReading() {
+  if (!state.focus) return;
+  const fromOffset = sheetState.offset;
+  stopSheetMotion();
+  sheetVelocity = 0;
+  // 阅读结束后回到明确的半屏位置，而不是松手时的中间高度。
+  sheetState.detent = 'half';
+  applySheetOffset(sheetDetents().half, false);
+  setSheetIntent('idle');
+  openBook(undefined, fromOffset);
 }
 
 let liftRaf = 0;
 function animateLift(target) {
   cancelAnimationFrame(liftRaf);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    state.lift = target; view.cy = (view.cyBase || view.cy) - target; invalidate(); return;
+  }
   const from = state.lift || 0;
   if (Math.abs(target - from) < 0.5) { state.lift = target; view.cy = (view.cyBase || view.cy) - target; invalidate(); return; }
   const t0 = performance.now(), dur = 420;
@@ -1584,81 +1622,92 @@ function animateLift(target) {
   liftRaf = requestAnimationFrame(step);
 }
 
-/* 展开时滚到「此刻」那一节 */
-function scrollToHere() {
-  setTimeout(() => {
-    const here = sheetInner.querySelector('h2.sec.here');
-    if (here) sheetScroll.scrollTo({ top: Math.max(0, here.offsetTop - 80), behavior: 'smooth' });
-  }, 120);
+/* 抓手与摘要头都可拖；下面的条目保持原生滚动，互不争抢。 */
+function setSheetIntent(intent) {
+  sheetEl.dataset.gesture = intent;
+  el('sheet-gesture').textContent = intent === 'expand' ? '松开，展开阅读' : intent === 'dismiss' ? '松开，收起' : '上滑阅读 · 下滑关闭';
 }
-
-/* 手势：抓手上拖（随时可用）/ 内容在顶部时下拉 / 半屏时任意位置上下拖 */
-function sheetDragStart(e, fromGrab) {
-  if (!fromGrab) return; // 内容区用于原生滚动，拖动抽屉只从抓手开始。
+function sheetDragStart(e) {
+  if (sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
-  if (e.pointerType === 'mouse' && e.buttons === 0) return;
-  if (!Number.isFinite(sheetState.offset)) sheetState.offset = sheetDetents().hidden;
-  /* 抓手是「永远能拖」的：全屏且内容已经滚下去时，也只有它能收起来 */
-  if (!fromGrab && sheetScroll.scrollTop > 0) return;
+  if (e.pointerType === 'mouse' && e.buttons !== 1) return;
+  if (e.currentTarget === sheetScroll && !e.target.closest('.sheet-overview')) return;
+  stopSheetMotion();
+  cancelAnimationFrame(liftRaf);
+  spinning = false;
+  momentum.yaw = momentum.tilt = 0;
   sheetState.dragging = true;
-  sheetState.startY = e.clientY;
-  sheetState.startDetent = sheetState.detent;
+  sheetState.pointerId = e.pointerId;
+  sheetState.startY = sheetState.lastY = e.clientY;
   sheetState.startOffset = sheetState.offset;
-  sheetState.lastY = e.clientY;
-  sheetState.lastT = performance.now();
-  sheetState.vy = 0;
+  sheetState.lastT = e.timeStamp;
+  sheetState.samples = [{ y: e.clientY, t: sheetState.lastT }];
+  sheetState.distance = sheetState.vy = 0;
   sheetEl.classList.add('dragging');
-  try { sheetScroll.setPointerCapture(e.pointerId); } catch (_) { }
+  setSheetIntent('idle');
+  try { sheetEl.setPointerCapture(e.pointerId); } catch (_) { }
 }
-
+function sheetGestureIntent(distance, velocity = 0) {
+  const up = clamp(sheetDetents().half * .34, 88, 140);
+  const down = clamp((sheetDetents().hidden - sheetDetents().half) * .23, 90, 132);
+  if (distance < -up || (distance < -24 && velocity < -620)) return 'expand';
+  if (distance > down || (distance > 24 && velocity > 620)) return 'dismiss';
+  return 'idle';
+}
 function sheetDragMove(e) {
-  if (!sheetState.dragging) return;
-  const now = performance.now();
-  const dt = Math.max(10, now - sheetState.lastT);
-  sheetState.vy = (e.clientY - sheetState.lastY) / dt * 1000;
+  if (!sheetState.dragging || e.pointerId !== sheetState.pointerId) return;
+  const now = e.timeStamp;
+  sheetState.distance = e.clientY - sheetState.startY;
   sheetState.lastY = e.clientY;
   sheetState.lastT = now;
-  const d = sheetDetents();
-  /* 下限是 peek 再给 44px 的「拉过头」余量：再往下就关闭，但抓手永远出不了屏幕 */
-  const maxOffset = d.peek + 44;
-  const offset = clamp(sheetState.startOffset + (e.clientY - sheetState.startY), 0, maxOffset);
+  sheetState.samples.push({ y: e.clientY, t: now });
+  sheetState.samples = sheetState.samples.filter((p) => now - p.t < 110);
+  const first = sheetState.samples[0];
+  sheetState.vy = now > first.t ? (e.clientY - first.y) / (now - first.t) * 1000 : 0;
+  let offset = sheetState.startOffset + sheetState.distance;
+  // 顶部越界时有阻力，底部仍然跟手，避免突然卡在 peek 档。
+  if (offset < 0) offset = -52 * (1 - Math.exp(offset / 100));
+  offset = Math.min(offset, sheetDetents().hidden + 24);
   applySheetOffset(offset, false);
+  state.lift = (1 - clamp(offset / view.h, 0, 1)) * view.h * .13;
+  view.cy = (view.cyBase || view.cy) - state.lift;
+  invalidate();
+  // 提示以距离为准，快速轻扫由松手速度补充判断。
+  setSheetIntent(sheetGestureIntent(sheetState.distance));
 }
-
-function sheetDragEnd() {
+function sheetDragEnd(e) {
   if (!sheetState.dragging) return;
+  if (e && e.pointerId !== undefined && e.pointerId !== sheetState.pointerId) return;
+  const cancelled = e && ['pointercancel', 'lostpointercapture', 'blur'].includes(e.type);
   sheetState.dragging = false;
   sheetEl.classList.remove('dragging');
-  const d = sheetDetents();
-  const off = sheetState.offset;
-  /* 拉过 peek 线、或者往下甩得够快 → 收起 */
-  if (off > d.peek + 8 || (sheetState.vy > 760 && off > d.peek - 90)) { closeSheet(); return; }
-  /* 只在离档位 44px 以内才吸附，否则就停在松手的地方（可以停在任意高度） */
-  const near = ['full', 'half', 'peek'].find((k) => Math.abs(d[k] - off) < 44);
-  if (near === 'full') {
-    sheetState.detent = sheetState.startDetent;
-    applySheetOffset(sheetState.startOffset, false);
-    openBook();
-    return;
-  }
-  if (near) sheetTo(near);
-  else {
-    sheetState.detent = off <= 1 ? 'full' : off >= d.peek ? 'peek' : 'custom';
-    applySheetOffset(off, true);
-    const H = view.h || innerHeight;
-    animateLift(off <= 1 ? H * 0.15 : off < d.half ? H * 0.09 : H * 0.045);
-  }
+  sheetState.suppressClick = Math.abs(sheetState.distance) > 6;
+  if (sheetState.suppressClick) setTimeout(() => { sheetState.suppressClick = false; }, 350);
+  try { sheetEl.releasePointerCapture(sheetState.pointerId); } catch (_) { }
+  // 停住再松手不继承旧速度；系统取消手势时只回弹，不执行阅读或关闭。
+  const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
+  const velocity = elapsed < 110 ? sheetState.vy : 0;
+  sheetVelocity = clamp(velocity, -1600, 1600);
+  const intent = cancelled ? 'idle' : sheetGestureIntent(sheetState.distance, velocity);
+  if (intent === 'expand') enterSheetReading();
+  else if (intent === 'dismiss') closeSheet();
+  else sheetTo('half');
 }
 
-grabEl.addEventListener('pointerdown', (e) => sheetDragStart(e, true));
-sheetScroll.addEventListener('pointerdown', (e) => sheetDragStart(e, false));
-sheetScroll.addEventListener('pointermove', sheetDragMove);
-sheetScroll.addEventListener('pointerup', sheetDragEnd);
-sheetScroll.addEventListener('pointercancel', sheetDragEnd);
-/* 兜底：指针在别处松开（甩出屏幕、切后台）也要结束拖动，否则会一直粘着手势 */
+grabEl.addEventListener('pointerdown', sheetDragStart);
+sheetScroll.addEventListener('pointerdown', sheetDragStart);
+sheetEl.addEventListener('pointermove', sheetDragMove);
+sheetEl.addEventListener('pointerup', sheetDragEnd);
+sheetEl.addEventListener('pointercancel', sheetDragEnd);
+sheetEl.addEventListener('lostpointercapture', sheetDragEnd);
 addEventListener('pointerup', sheetDragEnd);
-addEventListener('pointercancel', sheetDragEnd);
 addEventListener('blur', sheetDragEnd);
+grabEl.addEventListener('click', () => { if (!sheetState.suppressClick) enterSheetReading(); });
+grabEl.addEventListener('keydown', (e) => {
+  if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+  e.preventDefault(); e.stopPropagation();
+  if (e.key === 'ArrowDown') closeSheet(); else enterSheetReading();
+});
 dimEl.addEventListener('click', () => closeSheet());
 
 /* 内容：档案头 + 书，一列到底 */
@@ -1717,9 +1766,9 @@ function renderEntity() {
     ? topic.chapters.reduce((best, c) => Math.abs(c.year - state.year) < Math.abs(best.year - state.year) ? c : best).summary
     : current.length ? '当前时间范围内收录 ' + current.length + ' 条，以下为部分记录。' : '当前年份暂无收录，以下列出距离这一年最近的记录。';
   sheetInner.innerHTML =
-    '<h2>' + esc(title) + (ent.nameEn && ent.nameEn !== title ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
+    '<div class="sheet-overview"><h2>' + esc(title) + (ent.nameEn && ent.nameEn !== title ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
     '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
-    '<p class="moment-summary">' + esc(summaryText) + '</p>' +
+    '<p class="moment-summary">' + esc(summaryText) + '</p></div>' +
     '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><small>' + esc(readingMeta) +
       '</small><strong>' + esc(readingTitle) + ' <span>→</span></strong><span>上拉或点击，进入阅读</span></button>' +
     '<ul class="facts">' + facts + '</ul>' +

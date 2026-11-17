@@ -9,9 +9,9 @@
 <meta name="apple-mobile-web-app-title" content="地球仪">
 <meta name="theme-color" content="#0b1017">
 <meta name="description" content="一颗地球，一条时间轴：看同一片土地在不同年代属于谁、发生过什么。">
-<link rel="apple-touch-icon" href="icon.png">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icon.png?v=3">
+<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
 <title>地球仪 · 时空坐标</title>
 <style>
 /*CSS*/
@@ -43,7 +43,7 @@
 
 <div id="sheet-dim" hidden></div>
 <div id="sheet" aria-live="polite">
-  <div id="grab" aria-label="拖动展开"><i></i></div>
+  <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true">上滑阅读 · 下滑关闭</span></div>
   <div id="sheet-scroll"><div id="sheet-inner"></div></div>
 </div>
 

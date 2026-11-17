@@ -7,12 +7,12 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 (async () => {
   buildHarness();
   const { server, port } = await startServer(0);
-  const dc = 9996;
+  const dc = 9900 + Math.floor(Math.random() * 80);
   const proc = spawn(findBrowser(), [
-    '--headless=new', `--remote-debugging-port=${dc}`, `--user-data-dir=${os.tmpdir()}/globe-smoke2`,
+    '--headless=new', `--remote-debugging-port=${dc}`, `--user-data-dir=${os.tmpdir()}/globe-smoke-${process.pid}`,
     '--no-first-run', '--disable-gpu', '--hide-scrollbars', '--window-size=390,844',
     `http://127.0.0.1:${port}/_harness.html`,
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
+  ], { windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
   let t = null;
   for (let i = 0; i < 100 && !t; i++) {
     try { const l = await (await fetch(`http://127.0.0.1:${dc}/json/list`)).json(); t = l.find((x) => x.type === 'page' && x.url.includes('_harness')); } catch { }

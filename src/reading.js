@@ -9,6 +9,8 @@ function topicForEntity(ent) {
   return TOPICS.find((t) => ent.kind === 'country' ? t.countryIsos.includes(ent.iso) : t.polityNames.includes(ent.name)) || null;
 }
 function pauseGlobe() {
+  stopSheetMotion();
+  sheetVelocity = 0;
   spinning = false;
   momentum.yaw = momentum.tilt = 0;
   cancelAnimationFrame(zoomAnim);
@@ -27,7 +29,7 @@ function readingBackground(inert) {
   for (const id of ['hud', 'dock', 'sheet', 'overlay', 'reading-resume']) el(id).inert = inert;
   document.body.classList.toggle('reading-open', inert);
 }
-function openBook(topicId) {
+function openBook(topicId, fromOffset = null) {
   if (reading.active) return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
@@ -47,18 +49,26 @@ function openBook(topicId) {
   reading.detailScroll = saved ? saved.detailScroll : 0;
   reading.active = true;
   reading.preview = false;
-  showReader();
+  showReader(fromOffset === null ? sheetState.offset : fromOffset);
   // 正文到达后只更新通用资料页；专题内容无需网络。
   loadStories().then(() => {
     if (reading.active && !reading.preview && !reading.topic) { rememberReading(); renderReading(); }
   });
 }
-function showReader() {
+function showReader(fromOffset = 18) {
   reading.preview = false;
   readingResume.hidden = true;
   bookEl.hidden = false;
   readingBackground(true);
   renderReading();
+  bookEl.getAnimations().forEach((a) => a.cancel());
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const offset = clamp(fromOffset, 0, innerHeight);
+    bookEl.animate([
+      { transform: 'translateY(' + offset + 'px)', opacity: .86, borderRadius: '22px 22px 0 0' },
+      { transform: 'translateY(0)', opacity: 1, borderRadius: '0' },
+    ], { duration: clamp(offset * .7, 180, 360), easing: 'cubic-bezier(.2,.85,.25,1)' });
+  }
   readingBack.focus({ preventScroll: true });
 }
 function readingItems() {
@@ -134,6 +144,7 @@ function closeReader() {
   const s = reading.snapshot;
   reading.active = reading.preview = false;
   bookEl.hidden = true;
+  bookEl.getAnimations().forEach((a) => a.cancel());
   readingResume.hidden = true;
   readingBackground(false);
   pauseGlobe();

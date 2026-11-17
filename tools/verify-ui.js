@@ -89,6 +89,15 @@ async function main() {
     console.log((ok ? '  ok   ' : '  FAIL ') + name + (detail === undefined ? '' : '  ' + JSON.stringify(detail)));
   };
 
+  const fs = require('fs'), path = require('path');
+  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '../manifest.webmanifest'), 'utf8'));
+  const iconSizes = [['icon.png',180],['icon-192.png',192],['icon-512.png',512],['favicon.png',64]];
+  check('主屏幕与浏览器图标尺寸正确且为不透明 PNG', iconSizes.every(([f,n])=>{
+    const b=fs.readFileSync(path.join(__dirname,'..',f));
+    return b.readUInt32BE(16)===n && b.readUInt32BE(20)===n && b[25]===2;
+  }));
+  check('PWA 图标引用含新版本与 maskable 支持', manifest.icons.every(i=>i.src.endsWith('?v=3')) && manifest.icons.some(i=>i.purpose.includes('maskable')));
+
   check('渲染器就绪', (await js('window.__t.rendererKind')) === (process.env.NOGL ? 'canvas2d' : 'webgl'), await js('window.__t.rendererKind'));
   check('世界数据已装载', await js('window.__t.partition.shapes.length > 100'), await js('window.__t.partition.shapes.length'));
 
@@ -217,34 +226,84 @@ async function main() {
   await js('window.__t.closeSheet()');
   await sleep(420);
 
-  /* 回归：把抽屉停在自由位置后再点别的国家，它还得能拖
-     （曾经 sheetTo('custom') 把 offset 算成 NaN，transform 失效，抽屉就彻底拖不动了） */
-  await js(`(() => { const t = window.__t; const q = t.screenOf(110*Math.PI/180, 34*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
-  await sleep(640);
-  const gp = await js(`(() => { const r = document.getElementById('grab').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
-  const dragBy = async (dy) => {
-    /* 每次都重新取抓手位置：抽屉动了之后抓手跟着动 */
-    const g2 = await js(`(() => { const r = document.getElementById('grab').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
-    await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: g2.x, y: g2.y, button: 'left', clickCount: 1, buttons: 1 });
-    for (let i = 1; i <= 8; i++) {
-      await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: g2.x, y: g2.y + (dy * i) / 8, button: 'left', buttons: 1 });
-      await sleep(24);
-    }
-    await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: g2.x, y: g2.y + dy, button: 'left', clickCount: 1, buttons: 0 });
-    await sleep(620);
-    return js(`(() => ({ detent: window.__t.sheet.detent, offset: window.__t.sheet.offset, tf: document.getElementById('sheet').style.transform }))()`);
+  /* 手势结果明确：小幅回弹、快扫触发、长拖展开/关闭，不留下自由位置。 */
+  const openCountry = async (iso='CN') => {
+    await js(`__t.openEntity('country', __t.partition.shapes.find(s=>s.iso===${JSON.stringify(iso)}).id)`);
+    await sleep(650);
   };
-  const free1 = await dragBy(160);
-  /* 换一个国家（抽屉开着） */
-  await js(`(() => { const t = window.__t; const q = t.screenOf(78*Math.PI/180, 22*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
+  const sheetGesture = async (dy, interval=32, steps=8, touch=false, target='grab', cancel=false, pause=0) => {
+    const pt = await js(`(()=>{const r=document.querySelector(${JSON.stringify(target==='grab'?'#grab':'.sheet-overview')}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+Math.min(r.height/2,24)}})()`);
+    const base = Date.now()/1000;
+    if(touch) await send('Input.dispatchTouchEvent',{type:'touchStart',timestamp:base,touchPoints:[{x:pt.x,y:pt.y}]});
+    else await send('Input.dispatchMouseEvent',{type:'mousePressed',x:pt.x,y:pt.y,button:'left',buttons:1,clickCount:1});
+    for(let i=1;i<=steps;i++) {
+      const y=pt.y+dy*i/steps;
+      if(touch) await send('Input.dispatchTouchEvent',{type:'touchMove',timestamp:base+i*interval/1000,touchPoints:[{x:pt.x,y}]});
+      else await send('Input.dispatchMouseEvent',{type:'mouseMoved',x:pt.x,y,button:'left',buttons:1});
+      await sleep(interval);
+    }
+    if(pause) await sleep(pause);
+    const following=await js('({offset:__t.sheet.offset,start:__t.sheet.startOffset,dragging:__t.sheet.dragging,velocity:__t.sheet.vy,intent:document.getElementById("sheet").dataset.gesture})');
+    if(touch) await send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',timestamp:base+(steps*interval+pause+12)/1000,touchPoints:[]});
+    else await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:pt.x,y:pt.y+dy,button:'left',buttons:0,clickCount:1});
+    await sleep(650);
+    return {...following,...await js('({detent:__t.sheet.detent,finalOffset:__t.sheet.offset,reading:!document.getElementById("book").hidden})')};
+  };
+  await openCountry();
+  const popupShot = await send('Page.captureScreenshot', {format:'png'});
+  require('fs').writeFileSync(require('path').join(__dirname,'../docs/sheet-gestures.png'),Buffer.from(popupShot.data,'base64'));
+  const soft=await sheetGesture(26,65,6,true);
+  check('触摸小幅下拖跟手，松手回弹半屏', soft.dragging && Math.abs(soft.offset-soft.start-26)<3 && soft.detent==='half' && Math.abs(soft.finalOffset-soft.start)<2,soft);
+  const cancel=await sheetGesture(-150,30,8,true,'grab',true);
+  check('系统取消手势只回弹，不误触全屏', !cancel.reading && cancel.detent==='half' && Math.abs(cancel.finalOffset-cancel.start)<2,cancel);
+  const expand=await sheetGesture(-155,60,10,true,'header');
+  check('摘要头上拖过阈值进入全屏', expand.reading && expand.intent==='expand',expand);
+  await js('__t.closeReader()');
+  await sleep(200);
+  const down=await sheetGesture(155,60,10,true);
+  check('缓慢下拖过阈值隐藏半窗', down.detent==='hidden' && !down.reading,down);
+  await openCountry('IN');
+  const flickUp=await sheetGesture(-60,8,4,true);
+  check('短距离快速上扫也能全屏', flickUp.reading,flickUp);
+  await js('__t.closeReader()');
+  await sleep(200);
+  const flickDown=await sheetGesture(60,8,4,true);
+  check('短距离快速下扫也能关闭', flickDown.detent==='hidden',flickDown);
+  await openCountry();
+  const held=await sheetGesture(-60,8,4,true,'grab',false,240);
+  check('拖动后停住再松手不会沿用旧速度', !held.reading && held.detent==='half',held);
+  // 正文区能滚动，标题区才拖窗，不与浏览器原生滚动争抢。
+  await js('document.getElementById("sheet-scroll").scrollTop=0');
+  const row=await js(`(()=>{const r=document.querySelector('.topic-entry').getBoundingClientRect();return {x:r.x+r.width/2,y:r.bottom+12}})()`);
+  await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:row.x,y:row.y}]});
+  for(let i=1;i<=6;i++){await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:row.x,y:row.y-i*18}]});await sleep(30);}
+  await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+  await sleep(350);
+  const scroll=await js('({top:document.getElementById("sheet-scroll").scrollTop,reading:__t.reading.active,detent:__t.sheet.detent})');
+  check('条目区保留原生滚动且不误触全屏',scroll.top>0 && !scroll.reading && scroll.detent==='half',scroll);
+  // 动画中途接住：按下不应跳到弹簧目标值。
+  await js('__t.closeSheet()');
   await sleep(600);
-  const free2 = await dragBy(-90);
-  const okFinite = Number.isFinite(free1.offset) && Number.isFinite(free2.offset);
-  const moved = Math.abs(free2.offset - free1.offset) > 20 && !/NaN/.test(free2.tf);
-  check('自由位置后再点别国，抽屉还能拖', okFinite && moved && free2.detent !== 'hidden', { free1, free2 });
-  await js('window.__t.closeSheet()');
-  await sleep(420);
-
+  await js(`__t.openEntity('country', __t.partition.shapes.find(s=>s.iso==='CN').id)`);
+  await sleep(100);
+  const catchState=await js(`(()=>{
+    const t=__t, g=document.getElementById('grab'), before=t.sheet.offset;
+    g.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true,pointerId:55,pointerType:'mouse',buttons:1,isPrimary:true,clientY:before+15}));
+    const after=t.sheet.offset, dragging=t.sheet.dragging;
+    document.getElementById('sheet').dispatchEvent(new PointerEvent('pointercancel',{bubbles:true,pointerId:55}));
+    return {before,after,dragging};
+  })()`);
+  check('动画中途可接住，按下不跳位置',catchState.dragging && Math.abs(catchState.before-catchState.after)<1,catchState);
+  await sleep(650);
+  await js('__t.closeSheet()');
+  await sleep(600);
+  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await openCountry();
+  // 聚焦抓手后，再验证键盘与减少动态效果。
+  await js('document.getElementById("grab").focus()');
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowDown',windowsVirtualKeyCode:40});
+  check('减少动态效果时即时收起，抓手支持键盘',await js('__t.sheet.detent==="hidden" && __t.sheet.offset===innerHeight'));
+  await send('Emulation.setEmulatedMedia',{features:[]});
   /* 放大 + 平移后：GL 球、矢量层、拾取必须仍然对齐（曾经的 bug 是 GL 忽略 pan） */
   await js(`(() => { const t = window.__t; t.state.zoom = 2.2; t.view.Rz = t.view.R * 2.2; t.state.panX = -60; t.state.panY = 30; t.redraw(); })()`);
   await sleep(320);
@@ -338,6 +397,7 @@ async function main() {
   }
   await js(`__t.setYear(1900);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
   check('离线单文件可打开晚清专题', await js(`document.querySelectorAll('.reading-card').length===6 && !document.getElementById('book').hidden`));
+  check('离线单文件图标已内嵌', await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
 
   const errs = await js('window.__errs');
   check('控制台无异常', errs.length === 0, errs.slice(0, 4));
