@@ -70,9 +70,10 @@
 
 <section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
   <header id="book-bar">
-    <button id="reading-back" type="button">← 返回地球</button>
-    <span id="book-crumb"></span>
-    <button id="reading-map" type="button">在地球上看 ↗</button>
+    <button id="reading-back" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
+    </button>
+    <button id="reading-grab" type="button" aria-label="收起阅读"><span></span></button>
   </header>
   <div id="book-body" tabindex="0"></div>
 </section>
@@ -85,6 +86,7 @@
 <script id="politypack" type="application/octet-stream">/*POLITY*/</script>
 <script id="stories" type="application/json">/*STORIES*/</script>
 <script id="topics" type="application/json">/*TOPICS*/</script>
+<script id="timeline-notes" type="application/json">/*TIMELINE_NOTES*/</script>
 <script>
 /*APP*/
 </script>

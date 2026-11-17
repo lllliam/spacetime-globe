@@ -38,7 +38,7 @@ window.__t = {
   get sheet(){ return sheetState },
   get sheetSettled(){ return !sheetMotion },
   get cloudDrift(){ return cloudDrift },
-  entriesForBook, polityMaskOf, buildChapter, entityById, entityByKey, focusKeyOf,
+  entriesForBook, polityMaskOf, entityById, entityByKey, focusKeyOf,
   get stories(){ return stories },
   get reading(){ return reading },
   get topics(){return TOPICS}, topicsForEntity, topicForEntity,

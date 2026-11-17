@@ -1676,7 +1676,6 @@ function tapGlobe(sx, sy) {
 
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
    半屏展示此刻摘要，抓手上拉或点击专题入口，进入独立阅读层。 */
-const KIND_LABEL = { country: '现代国家', polity: '政权' };
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
@@ -1879,8 +1878,6 @@ function renderEntity() {
   if (!ent) { closeSheet(); return; }
 
   const listAll = entriesOfEntity(ent);
-  const [a, b, scopeName] = windowOf(state.year);
-  const span = a === b ? fmtYear(a) + ' 年' : fmtYear(a) + '–' + fmtYear(b);
   listAll.sort((x, z) => (z.kind === 'era') - (x.kind === 'era') || z.t0 - x.t0);
   const era = listAll.find((e) => e.kind === 'era');
   const seenTitle = new Set();
@@ -1907,31 +1904,32 @@ function renderEntity() {
     if (pol) facts += '<li><i class="dot"></i><span>' + fmtYear(state.year) + ' 年这里是 ' + esc(polityZhName(pol.name)) + '</span><small></small></li>';
   }
 
-  const rows = rest.map((e) =>
-    '<li><i style="background:' + kindColor(e) + '"></i><span>' + esc(e.zh || e.en) +
-    '</span><small>' + dateOf(e) + '</small></li>').join('') ||
+  const sheetRow = (entry, near = false) => {
+    const item = timelineItem(entry);
+    return '<li' + (near ? ' class="near"' : '') + '><i style="background:' + kindColor(item) + '"></i><span>' +
+      esc(item.title || item.zh || item.en) + '</span><small>' + esc(item.date || dateOf(item)) + '</small></li>';
+  };
+  const rows = rest.map((e) => sheetRow(e)).join('') ||
     /* 当年没有条目：退到最近几条，别给一个空抽屉 */
     (entryByRegion.get(ent.regionId) || [])
       .slice()
       .sort((x, z) => Math.abs(x.t0 - ord(state.year)) - Math.abs(z.t0 - ord(state.year)))
       .slice(0, 4)
-      .map((e) => '<li class="near"><i style="background:' + kindColor(e) + '"></i><span>' + esc(e.zh || e.en) +
-        '</span><small>' + dateOf(e) + '</small></li>').join('');
+      .map((e) => sheetRow(e, true)).join('');
 
   const topic = topicForEntity(ent);
   const title = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
-  const readingTitle = topic ? topic.title : ent.name + ' · ' + chapterOf(state.year).n;
-  const readingMeta = topic ? topic.subtitle : '按时期阅读 · 事件与来源';
-  const current = entriesOfEntity(ent);
-  const summaryText = topic && state.year >= topic.from && state.year <= topic.to
+  const readingTitle = topic ? topic.title : '查看年表';
+  const readingMeta = topic ? topic.subtitle : '';
+  const summaryText = topic
     ? topic.chapters.reduce((best, c) => Math.abs(c.year - state.year) < Math.abs(best.year - state.year) ? c : best).summary
-    : current.length ? '当前时间范围内收录 ' + current.length + ' 条，以下为部分记录。' : '当前年份暂无收录，以下列出距离这一年最近的记录。';
+    : '';
   sheetInner.innerHTML =
     '<div class="sheet-overview"><h2>' + esc(title) + (ent.nameEn && ent.nameEn !== title ? '<em>' + esc(ent.nameEn) + '</em>' : '') + '</h2>' +
-    '<p class="era">' + KIND_LABEL[ent.kind] + ' · ' + esc(scopeName) + '<small>' + span + '</small></p>' +
-    '<p class="moment-summary">' + esc(summaryText) + '</p></div>' +
-    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><small>' + esc(readingMeta) +
-      '</small><strong>' + esc(readingTitle) + ' <span>→</span></strong><span>上拉或点击，进入阅读</span></button>' +
+    '<p class="era">' + fmtYear(state.year) + ' 年 · ' + esc(chapterOf(state.year).n) + '</p>' +
+    (summaryText ? '<p class="moment-summary">' + esc(summaryText) + '</p>' : '') + '</div>' +
+    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><strong>' + esc(readingTitle) + '</strong>' +
+      (readingMeta ? '<small>' + esc(readingMeta) + '</small>' : '') + readingArrow + '</button>' +
     '<ul class="facts">' + facts + '</ul>' +
     (era ? '<p class="era2">' + esc(era.zh || era.en) + '<small>' + dateOf(era) + '</small></p>' : '') +
     (rows ? '<ul class="rows">' + rows + '</ul>' : '<p class="empty">这一年附近没有收录条目。</p>') +
@@ -1998,7 +1996,7 @@ const KIND = {
 };
 const kindOf = (e) => KIND[e.kind] || KIND.other;
 const kindColor = (e) => kindOf(e)[1];
-function dateOf(e) { return e.point ? fmtYear(e.start) + ' 年' : fmtYear(e.start) + '–' + fmtYear(e.end); }
+function dateOf(e) { return e.point || e.start === e.end ? fmtYear(e.start) + ' 年' : fmtYear(e.start) + '–' + fmtYear(e.end); }
 
 /* ───────────── 13. 全景列表 ───────────── */
 function openWorld() {
@@ -2120,14 +2118,6 @@ const proseOf = (entryId) => {
   if (rec.t && e && !titleMatches(e.zh, rec.t)) return '';
   return polishProse(rec.x || '');
 };
-const polityProse = (name) => {
-  const rec = stories && stories.polities[name];
-  if (!rec || !rec.x || !rec.t) return '';
-  /* 只有中文件名通过了「像不像它」的检查，正文才敢用 */
-  const zh = polityZhName(name);
-  if (zh === name) return '';
-  return rec.t === zh || rec.t.startsWith(zh) ? rec.x : '';
-};
 /* 政权中文名：宁可显示英文原名，也不要显示「鄂圖曼帝國的分裂」这种错配或繁体标题 */
 const TRAD_CHARS = /[國帝國戰歷羅馬爾圖亞歐蘭蘇聯韓華灣廣義門開關長飛車東鄉親漢滿臺萬與為無獨產權變壓經濟軍農陽陰]/;
 const BAD_NAME_WORDS = /分裂|解體|解体|滅亡|灭亡|歷史|历史|列表|戰爭|战争|戰役|战役|運動|运动|條約|条约|時期|时期|王朝列表/;
@@ -2196,79 +2186,6 @@ const ERA_INTRO = {
 
 /* 一节的开头写一行「这一百年是什么」：条数、跨度、当时是什么朝代/政权。
    全部由数据算出来，不编史。 */
-function sectionNote(items) {
-  if (!items.length) return '';
-  const yrs = items.map((i) => i.year);
-  const lo = Math.min(...yrs), hi = Math.max(...items.map((i) => i.end || i.year));
-  const span = lo === hi ? fmtYear(lo) : fmtYear(lo) + '–' + fmtYear(hi);
-  const era = items.find((i) => i.kind === 'era');
-  return items.length + ' 条 · ' + span + (era ? ' · 同期本地是' + era.title : '');
-}
-
-
-function buildChapter(ent, period = null) {
-  const list = entriesForBook(ent).filter((e) => !period || (e.start <= period.b && (e.point ? e.start : e.end) >= period.a)).sort((a, b) => a.t0 - b.t0);
-  const chapters = [];
-  let cur = null;
-  for (const e of list) {
-    const bucket = Math.floor(e.start / 100) * 100;
-    if (!cur || cur.bucket !== bucket) {
-      cur = { bucket, from: bucket, to: bucket + 99, items: [] };
-      chapters.push(cur);
-    }
-    cur.items.push(e);
-  }
-  const sections = chapters.map((c) => ({
-    heading: c.bucket < 0 ? '前' + Math.ceil(-c.bucket / 100) + ' 世纪' : c.from + '–' + c.to,
-    here: Math.floor(state.year / 100) * 100 === c.bucket,
-    items: c.items.map((e) => {
-      const r = regionById.get(e.region) || {};
-      return {
-        id: e.id,
-        title: e.zh || e.en,
-        meta: dateOf(e),
-        color: kindColor(e),
-        prose: proseOf(e.id),
-        source: e.source || '',
-        year: e.start,
-        end: e.point ? e.start : e.end,
-        kind: e.kind,
-        /* 没有正文时补一句「它在哪、算什么」——信息是真的，只是不展开 */
-        sit: [r.zh ? '今天的' + r.zh : '', kindOf(e)[0]].filter(Boolean).join(' · '),
-      };
-    }),
-  }));
-  for (const s of sections) s.note = sectionNote(s.items);
-
-  let lede = '';
-  let title = ent.name, sub = '', when = '';
-  if (ent.kind === 'polity') {
-    const zh = polityZhName(ent.name);
-    title = zh;
-    sub = zh !== ent.name ? ent.name : '';
-    when = fmtYear(ent.from) + '–' + fmtYear(ent.to) + ' · 存续 ' + (ent.to - ent.from) + ' 年 · 境内 ' + list.length + ' 条记录';
-    lede = polityProse(ent.name);
-    if (!lede && list.length) lede = '这个政权存在了 ' + (ent.to - ent.from) + ' 年，境内留下了 ' + list.length +
-      ' 条记录：最早是「' + (list[0].zh || list[0].en) + '」（' + fmtYear(list[0].start) + ' 年），最近是「' +
-      (list[list.length - 1].zh || list[list.length - 1].en) + '」（' + fmtYear(list[list.length - 1].start) + ' 年）。';
-  } else {
-    const pol = pk ? polityOverCountry(ent.iso) : null;
-    const polZh = pol ? polityZhName(pol.name) : '';
-    when = fmtYear(state.year) + ' 年 · 年表 ' + list.length + ' 条' + (polZh ? ' · 这一年是 ' + polZh : '');
-    if (pol) lede = polityProse(pol.name);
-    if (!lede && list.length) {
-      const first = list[0], last = list[list.length - 1];
-      lede = ent.name + '的年表从' + fmtYear(first.start) + ' 年的「' + (first.zh || first.en) + '」一直记到' +
-        fmtYear(last.start) + ' 年的「' + (last.zh || last.en) + '」，共 ' + list.length + ' 条。';
-    } else if (!lede) {
-      lede = '这里收着' + ent.name + '的年表：从最早的一条到最近的记录，按时间排开。';
-    }
-  }
-  const eraName = chapterOf(state.year).n;
-  const era = { name: eraName, intro: ERA_INTRO[eraName] || '' };
-  return { title, sub, when, lede, sections, era, kind: ent.kind };
-}
-
 /* ───────────── 14. 时间轴 ───────────── */
 let density = null;
 function buildDensity() {

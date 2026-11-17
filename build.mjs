@@ -20,6 +20,7 @@ if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插�
 const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + rd('src', 'chrome.js') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));
+const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
 for (const t of topics) {
@@ -42,6 +43,16 @@ let world = null;
 if (!problems.length) {
   world = JSON.parse(rd('data', 'world.json'));
   const ids = new Set(world.regions.map((r) => r.id));
+  const entries = new Map(world.entries.map((e) => [e.id, e]));
+  for (const [id, note] of Object.entries(timelineNotes)) {
+    const entry = entries.get(id);
+    if (!entry || (note.start ?? entry.start) > (note.end ?? entry.end ?? entry.start)) problems.push('无效的年表条目：' + id);
+    if (!note.paragraphs?.length || !note.sources?.length || note.sources.some((s) => !s.title || !/^https:\/\//.test(s.url))) problems.push('年表正文或来源缺失：' + id);
+    if (note.related) {
+      const topic = topics.find((t) => t.id === note.related.topicId);
+      if (!topic || (note.related.chapterId && !topic.chapters.some((c) => c.id === note.related.chapterId))) problems.push('无效的年表延伸阅读：' + id);
+    }
+  }
   for (const e of world.entries) {
     if (!ids.has(e.region)) problems.push(`条目 ${e.id} 指向不存在的地区 ${e.region}`);
     if (typeof e.start !== 'number') problems.push(`条目 ${e.id} start 不是数字`);
@@ -74,6 +85,7 @@ const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   h = put(h, '/*POLITY*/', polityB64);
   h = put(h, '/*STORIES*/', storiesJson);
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
+  h = put(h, '/*TIMELINE_NOTES*/', JSON.stringify(timelineNotes).replace(/</g, '\\u003c'));
   return h;
 };
 

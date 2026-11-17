@@ -105,52 +105,6 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 
 /* ── 实体档案的事实行 ── */
 
-/* ── 阅读视图（一本书） ── */
-#book{position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
-  background:linear-gradient(180deg,#0d131b 0%,#0a0f16 60%,#080c12 100%);
-  animation:bookIn .28s cubic-bezier(.22,.9,.28,1)}
-#book[hidden]{display:none}
-@keyframes bookIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-#book-bar{flex:none;display:flex;align-items:center;gap:10px;padding:calc(var(--safe-t) + 8px) 14px 8px;
-  border-bottom:1px solid rgba(255,255,255,.06)}
-#book-close{width:32px;height:32px;border-radius:16px;border:1px solid rgba(255,255,255,.13);
-  background:rgba(255,255,255,.04);color:var(--ink);font:300 20px/1 -apple-system,sans-serif;cursor:pointer;flex:none}
-#book-close:active{background:rgba(255,255,255,.12)}
-#book-crumb{font-size:11px;letter-spacing:.06em;color:var(--muted)}
-#book-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
-  padding:22px 22px calc(var(--safe-b) + 60px)}
-#book-body .eyebrow{font-size:11px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase}
-#book-body h1{margin:6px 0 2px;font:700 34px/1.15 Georgia,"Songti SC","Noto Serif SC",serif;letter-spacing:-.01em}
-#book-body .when{margin:0 0 18px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-#book-body .when b{color:var(--gold);font-weight:600}
-#book-body .lede{font:400 15px/1.85 Georgia,"Songti SC",serif;color:#e6dfd0;margin:0 0 22px;
-  padding-left:14px;border-left:2px solid rgba(224,178,115,.35)}
-#book-body h2{margin:30px 0 4px;font:600 15px/1.4 -apple-system,"PingFang SC",sans-serif;
-  letter-spacing:.04em;color:var(--gold);display:flex;align-items:baseline;gap:10px}
-#book-body h2 em{font:400 11px/1 -apple-system,sans-serif;font-style:normal;color:var(--muted);letter-spacing:.02em}
-#book-body h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(224,178,115,.28),transparent)}
-#book-body article{margin:0 0 18px}
-#book-body article h3{margin:12px 0 2px;font:600 16px/1.45 "Songti SC",Georgia,serif;color:var(--ink)}
-#book-body article .meta{margin:0 0 8px;font-size:11px;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
-#book-body article .meta i{display:inline-block;width:6px;height:6px;border-radius:2px;margin-right:6px;transform:translateY(-1px)}
-#book-body article p{margin:0 0 10px;font-size:14.5px;line-height:1.85;color:#cfc6b4}
-#book-body article .src{font-size:11px;color:var(--gold-dim);text-decoration:none}
-#book-body article .noprose{color:#8b93a1;font-size:13.5px;font-style:italic}
-#book-body .more{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:10px}
-#book-body .more button{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
-  color:var(--ink);font:500 12.5px/1 -apple-system,sans-serif;padding:9px 14px;border-radius:999px;cursor:pointer}
-#book-body .more button:active{background:rgba(255,255,255,.12)}
-#book-body .credits{margin:30px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);
-  font-size:10.5px;line-height:1.7;color:#6f7a8a}
-#book-body .credits b{color:#8b96a6;font-weight:600}
-
-@media (min-width:720px){ #book-body{padding:30px 28px 80px;max-width:760px;margin:0 auto}
-  #book-body h1{font-size:44px} #book-body .lede{font-size:16px} }
-#book-body h2.here{color:#f0c98a}
-#book-body h2.here::after{background:linear-gradient(90deg,rgba(224,178,115,.8),transparent)}
-#book-body h2.here::before{content:"此刻";font:600 9.5px/1 -apple-system,sans-serif;letter-spacing:.1em;
-  color:#0b1017;background:var(--gold);padding:3px 5px;border-radius:4px;order:-1;transform:translateY(-1px)}
-
 /* ── 矢量叠加层：边线 / 经纬网 / 地名（按设备分辨率绘制，放大不糊） ── */
 #vec{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2}
 #scrim{z-index:3}
@@ -301,47 +255,21 @@ body.sheet-open #dock::before{opacity:1}
 #sheet-scroll{overflow-y:auto;touch-action:pan-y}
 #grab{touch-action:none}
 #sheet .moment-summary{margin:6px 0 12px;font-size:13px;line-height:1.75;color:#cfc6b4}
-.topic-entry,.reading-card{display:block;width:100%;text-align:left;border:1px solid rgba(224,178,115,.2);
-  background:linear-gradient(130deg,rgba(224,178,115,.09),rgba(224,178,115,.025));
-  color:var(--ink);border-radius:12px;padding:14px 16px;cursor:pointer;font:inherit}
-.topic-entry{margin:0 0 16px}
-.topic-entry small,.reading-card small{display:block;color:var(--gold);font-size:10.5px;letter-spacing:.04em;margin-bottom:6px}
-.topic-entry strong,.reading-card strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
-.topic-entry strong span,.reading-card strong span{float:right;color:var(--gold)}
-.topic-entry>span,.reading-card>span{display:block;margin-top:6px;font-size:12px;line-height:1.7;color:var(--muted)}
-.topic-entry:active,.reading-card:active{background:rgba(224,178,115,.16)}
+.topic-entry{position:relative;display:block;width:100%;min-height:50px;text-align:left;
+  border:0;border-block:1px solid var(--line);background:transparent;
+  color:var(--ink);padding:11px 24px 11px 0;margin:4px 0 14px;cursor:pointer;font:inherit}
+.topic-entry small{display:block;color:var(--gold);font-size:11px;margin-top:4px}
+.topic-entry strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
+.topic-entry .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.topic-entry:active{background:rgba(224,178,115,.07)}
 #sheet.peek .moment-summary,#sheet.peek .topic-entry{display:none}
 body.reading-open #dock,body.reading-open #hud{visibility:hidden}
-#book{background:#0c121a}
-#book-bar{padding-bottom:10px}
-#book-bar button,.reading-next button{appearance:none;border:1px solid var(--line);border-radius:999px;
-  color:var(--ink);background:rgba(255,255,255,.025);font:500 12px/1.4 -apple-system,system-ui,sans-serif;
-  padding:8px 12px;cursor:pointer;flex:none}
-#book-crumb{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0}
-#book-bar #reading-map{font-size:11px;color:var(--gold);border-color:transparent;padding:8px 4px}
-#book-bar #reading-map:disabled{opacity:.4;cursor:default}
-#book-body{width:100%;min-height:0;margin:0 auto;max-width:760px;user-select:text;-webkit-user-select:text;outline:none}
-#book-body h1{font-size:30px;line-height:1.35;margin-bottom:12px;outline:none}
-#book-body .lede{font-size:15px;line-height:1.95}
-#book-body .reading-scope{font-size:11.5px;line-height:1.8;color:var(--muted);padding:12px 0;border-block:1px solid var(--line)}
-#book-body .reading-card{margin:12px 0;padding:16px}
-#book-body h2{margin:26px 0 12px;font-size:16px;line-height:1.7}
-#book-body article{margin:0 0 30px}
-#book-body article p{line-height:2;font-size:16px}
-#book-body .reading-sources{border-top:1px solid var(--line);margin-top:30px}
-#book-body .reading-sources p{color:var(--muted);font-size:11.5px}
-#book-body .reading-sources a{display:block;color:var(--gold);font-size:12px;line-height:1.8;padding:8px 0;text-underline-offset:3px}
-.reading-next{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.reading-next button{line-height:1.8;text-align:left;max-width:100%;border-radius:12px}
-.reading-empty{padding:32px 0;color:var(--muted);line-height:1.8}
 #reading-resume{position:fixed;z-index:19;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 140px);
   width:max-content;max-width:calc(100% - 32px);border:1px solid var(--gold-dim);border-radius:999px;
   background:#17202c;color:var(--gold);padding:12px 18px;font:500 12px/1.5 -apple-system,system-ui,sans-serif;
   box-shadow:0 6px 30px #0008;cursor:pointer}
 #reading-resume[hidden]{display:none}
 button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-@media(max-width:360px){#book-bar{gap:4px;padding-inline:8px}#book-crumb{font-size:10px}#book-body{padding-inline:18px}}
-@media(prefers-reduced-motion:reduce){#book{animation:none}}
 
 /* 抽屉跟手与松手反馈。位置动画由 JS 弹簧驱动，避免 CSS 目标值抢走手指。 */
 #sheet{transition:none}
@@ -356,11 +284,103 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #sheet[data-gesture="expand"] #sheet-gesture,#sheet[data-gesture="dismiss"] #sheet-gesture{color:var(--gold);opacity:1}
 #sheet-scroll{scrollbar-width:thin;scrollbar-color:#39414d transparent}
 #sheet:not(.full) #sheet-scroll{flex:none;height:var(--sheet-scroll-height,300px)}
-#book{animation:none;overflow:hidden}
-.reading-refs{white-space:nowrap;margin-left:5px;font:11px/1.4 -apple-system,system-ui,sans-serif;vertical-align:super}
+/* 展开的阅读抽屉 */
+#book{
+  --reading-paper:#0c121a;
+  --reading-text:#e8e3d8;
+  --reading-muted:#a5adba;
+  --reading-rule:rgba(219,225,236,.16);
+  --reading-serif:"Songti SC","Noto Serif SC",SimSun,Georgia,serif;
+  --reading-gutter:clamp(20px,6vw,36px);
+  position:fixed;inset:0;z-index:25;display:flex;flex-direction:column;
+  overflow:hidden;background:var(--reading-paper);color:var(--reading-text);
+}
+#book[hidden],#reading-back[hidden]{display:none}
+#book-bar{
+  flex:none;position:relative;display:grid;place-items:end center;
+  height:calc(var(--safe-t) + 44px);touch-action:none;user-select:none;
+}
+#reading-grab,#reading-back{
+  display:grid;place-items:center;min-height:44px;appearance:none;cursor:pointer;
+  border:0;background:transparent;color:var(--reading-text);touch-action:none;
+}
+#reading-grab{width:80px;cursor:grab}
+#reading-grab:active{cursor:grabbing}
+#reading-grab span{width:36px;height:4px;border-radius:10px;background:#89939e}
+#book-bar.collapse-ready #reading-grab span{background:var(--gold)}
+#reading-back{position:absolute;bottom:0;left:max(8px,calc((100% - 700px)/2 + 10px));width:44px}
+#reading-back svg{width:21px;height:21px}
+#book-body{
+  width:100%;max-width:700px;min-height:0;flex:1;margin:0 auto;
+  padding:22px var(--reading-gutter) calc(var(--safe-b) + 44px);
+  overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  user-select:text;-webkit-user-select:text;outline:none;
+}
+#book-body h1{
+  margin:0 0 9px;color:var(--ink);
+  font:600 clamp(27px,7.7vw,40px)/1.28 var(--reading-serif);
+  letter-spacing:.015em;overflow-wrap:anywhere;text-wrap:balance;outline:none;
+}
+.reading-meta{
+  display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;
+  gap:0 12px;margin-bottom:22px;
+}
+#book-body .when{margin:0;color:var(--reading-muted);font-size:13px;font-variant-numeric:tabular-nums}
+#book-body .lede{
+  margin:0 0 24px;padding-left:13px;border-left:1px solid var(--gold);
+  color:var(--reading-text);font-size:14px;line-height:1.85;
+}
+.reading-note{margin:0 0 18px;color:var(--reading-muted);font-size:13px;line-height:1.8}
+.reading-note button,#reading-map,.reading-next button{
+  appearance:none;border:0;background:transparent;color:var(--gold);
+  font:inherit;cursor:pointer;
+}
+.reading-note button{min-height:32px;padding:0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--reading-rule)}
+#reading-map{min-height:44px;margin-block:-12px;padding:0;font-size:13px}
+.reading-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--reading-rule)}
+.reading-list li{border-bottom:1px solid var(--reading-rule)}
+.reading-row,.reading-link{
+  width:100%;min-height:56px;appearance:none;border:0;background:transparent;
+  text-align:left;color:var(--reading-text);font:inherit;cursor:pointer;
+}
+.reading-row{
+  display:grid;align-items:baseline;grid-template-columns:clamp(74px,24vw,110px) minmax(0,1fr) 16px;
+  gap:10px;padding:14px 0;
+}
+.reading-row small,.reading-link small{font-size:12px;color:var(--gold);font-variant-numeric:tabular-nums}
+.reading-row-copy,.reading-link{overflow-wrap:anywhere}
+.reading-row-copy strong,.reading-link strong{display:block;font:600 17px/1.52 var(--reading-serif)}
+.reading-row-copy>span,.reading-link>span{display:block;margin-top:3px;color:var(--reading-muted);font-size:12.5px;line-height:1.65}
+.reading-row[aria-current="date"] .reading-row-copy strong{color:var(--gold)}
+.reading-arrow{display:block;width:16px;height:16px;color:var(--gold);align-self:center}
+.reading-row:active,.reading-link:active{background:rgba(224,178,115,.07)}
+.reading-context,.reading-connections,.reading-sources{margin-top:30px}
+#book-body h2{margin:0 0 10px;color:var(--gold);font:600 15px/1.5 var(--reading-serif)}
+#book-body .reading-context h2,.reading-context small{color:var(--reading-muted)}
+.reading-context .reading-row{min-height:48px;padding-block:11px}
+#book-body article{margin:0 0 26px}
+#book-body article p{margin:0;color:var(--reading-text);font-size:16px;line-height:1.95}
+.reading-sources{padding-top:18px;border-top:1px solid var(--reading-rule)}
+.reading-sources a{
+  display:block;min-height:36px;padding:7px 0;color:var(--reading-muted);
+  font-size:13px;line-height:1.65;text-underline-offset:3px;scroll-margin-block:18px;
+}
+.reading-refs{white-space:nowrap;margin-left:4px;font-size:11px;vertical-align:super}
 .reading-refs a{color:var(--gold);text-decoration:none}
-.reading-connections{margin:32px 0;border-top:1px solid var(--line)}
-.reading-sources a{scroll-margin-block:20px}
+.reading-next{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px}
+.reading-next button{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;
+  padding:0;text-align:left;font-size:13px;line-height:1.6;
+}
+.reading-next .reading-previous svg{transform:rotate(180deg)}
+.reading-link{position:relative;padding:14px 24px 14px 0;border-bottom:1px solid var(--reading-rule)}
+.reading-link small{display:block;margin-bottom:3px}
+.reading-link .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+#book-body .credits{margin:20px 0 0;color:var(--reading-muted);font-size:12px;line-height:1.7}
+@media (hover:hover){.reading-row:hover,.reading-link:hover{background:rgba(224,178,115,.045)}}
+@media (max-width:520px){#book-body{scrollbar-width:none}}
+#book button:focus-visible,#book a:focus-visible{outline:1px solid var(--gold);outline-offset:-2px}
+
 .reading-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
 .reading-filters button{appearance:none;cursor:pointer;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--muted);font:inherit;font-size:12px;line-height:1.6;padding:7px 12px}
 .reading-filters button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(224,178,115,.09)}

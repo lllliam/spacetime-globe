@@ -49,6 +49,11 @@ async function main() {
   const send = (method, params = {}) => new Promise((res, rej) => {
     const m = { id: ++n, method, params }; pending.set(m.id, { res, rej }); ws.send(JSON.stringify(m));
   });
+  const readingShot = async (name) => {
+    if (!process.env.READING_SHOTS) return;
+    const shot = await send('Page.captureScreenshot', { format: 'png' });
+    require('fs').writeFileSync(require('path').join(process.env.READING_SHOTS, name + '.png'), Buffer.from(shot.data, 'base64'));
+  };
   await send('Runtime.enable'); await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: 402, height: 874, deviceScaleFactor: 3, mobile: true });
   await send('Page.reload');
@@ -398,14 +403,18 @@ async function main() {
   const held=await sheetGesture(-60,8,4,true,'grab',false,240);
   check('拖动后停住再松手不会沿用旧速度', !held.reading && held.detent==='half',held);
   // 正文区能滚动，标题区才拖窗，不与浏览器原生滚动争抢。
+  await send('Emulation.setDeviceMetricsOverride', {width:320,height:480,deviceScaleFactor:2,mobile:true});
+  await sleep(240);
+  await openCountry();
   await js('document.getElementById("sheet-scroll").scrollTop=0');
-  const row=await js(`(()=>{const r=document.querySelector('.topic-entry').getBoundingClientRect();return {x:r.x+r.width/2,y:r.bottom+12}})()`);
+  const row=await js(`(()=>{const r=document.querySelector('.topic-entry').getBoundingClientRect();return {x:r.x+r.width/2,y:r.top+r.height/2}})()`);
   await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:row.x,y:row.y}]});
   for(let i=1;i<=6;i++){await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:row.x,y:row.y-i*18}]});await sleep(30);}
   await send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
   await sleep(350);
   const scroll=await js('({top:document.getElementById("sheet-scroll").scrollTop,reading:__t.reading.active,detent:__t.sheet.detent})');
   check('条目区保留原生滚动且不误触全屏',scroll.top>0 && !scroll.reading && scroll.detent==='half',scroll);
+  await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
   // 动画中途接住：按下不应跳到弹簧目标值。
   await js('__t.closeSheet()');
   await sleep(600);
@@ -450,6 +459,8 @@ async function main() {
   await js(`document.querySelector('[data-read-topic]').click()`);
   const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,dock:getComputedStyle(document.getElementById('dock')).visibility})`);
   check('晚清专题有八个节点且收起时间轴', topic.open && topic.cards===8 && topic.dock==='hidden' && /晚清/.test(topic.title), topic);
+  await sleep(380);
+  await readingShot('late-qing');
   await js(`document.getElementById('book-body').scrollTop=240`);
   const indexScroll = await js('document.getElementById("book-body").scrollTop');
   await js(`document.querySelector('[data-reading-detail="boxers"]').click()`);
@@ -465,7 +476,8 @@ async function main() {
   check('从地图返回同一篇与同一位置', await js(`!document.getElementById('book').hidden && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${detailScroll})<2`));
   await js(`document.getElementById('reading-back').click()`);
   check('详情返回专题恢复滚动位置', await js(`__t.reading.detail===null && Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
-  await js(`document.getElementById('reading-back').click()`);
+  await js(`document.getElementById('reading-grab').click()`);
+  await sleep(350);
   const restored = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
   check('退出阅读恢复原年份相机与选中地区', original===restored, {original,restored});
   await js(`document.querySelector('[data-read-topic]').click()`);
@@ -488,7 +500,7 @@ async function main() {
   await js(`document.getElementById('reading-back').click()`);
   check('返回上篇恢复原章节和阅读位置',await js(`__t.reading.topic.id==='china-late-qing' && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${linkedScroll})<2`));
   await js(`document.querySelector('[data-reading-catalog]').click()`);
-  check('全球目录可达且地图定位不冒充事件',await js(`__t.reading.catalog && document.querySelectorAll('[data-reading-topic]').length===28 && document.getElementById('reading-map').disabled`));
+  check('全球目录可达且没有地图定位入口',await js(`__t.reading.catalog && document.querySelectorAll('[data-reading-topic]').length===28 && !document.getElementById('reading-map')`));
   await js(`document.querySelector('[data-reading-continent="非洲"]').click()`);
   const africaCatalog=await js(`({ids:[...document.querySelectorAll('[data-reading-topic]')].map(b=>b.dataset.readingTopic),filter:document.querySelector('[data-reading-continent="非洲"]').getAttribute('aria-pressed')})`);
   check('目录按大洲筛选并保留跨洲专题',africaCatalog.ids.includes('west-africa')&&africaCatalog.ids.includes('islamic-networks')&&!africaCatalog.ids.includes('china-early')&&africaCatalog.filter==='true',africaCatalog);
@@ -520,14 +532,14 @@ async function main() {
   await sleep(300);
   check('横屏阅读与返回按钮有效', await js(`document.getElementById('book-body').clientHeight>150 && document.getElementById('reading-back').getBoundingClientRect().top>=0`));
   await js('__t.closeReader(); __t.closeSheet(); __t.setYear(2026)');
-  await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
+  await send('Emulation.setDeviceMetricsOverride', {width:402,height:874,deviceScaleFactor:3,mobile:true});
   await js(`__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='IN').id)`);
   await sleep(450);
   await js(`document.querySelector('[data-read-topic]').click()`);
   const yearBeforeReading = await js('__t.state.year');
-  const genericBefore = await js('document.getElementById("reading-title").textContent');
+  const genericBefore = await js('document.querySelector(".reading-meta .when").textContent');
   await js(`document.querySelector('[data-reading-period]').click()`);
-  check('其他地区有时期阅读且切换不改地球年份', await js(`__t.state.year===${yearBeforeReading} && document.getElementById('reading-title').textContent!==${JSON.stringify(genericBefore)}`));
+  check('其他地区有时期阅读且切换不改地球年份', await js(`__t.state.year===${yearBeforeReading} && document.querySelector('.reading-meta .when').textContent!==${JSON.stringify(genericBefore)}`));
   await js('__t.closeReader(); __t.closeSheet()');
   // 真正手势：从抓手向上拉打开阅读，再退出时恢复半屏。
   await js(`__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id)`);
@@ -535,9 +547,40 @@ async function main() {
   const grab = await js(`(()=>{const r=document.getElementById('grab').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}})()`);
   await drag(grab.x,grab.y,grab.x,4,14);
   await sleep(400);
-  check('抓手上拉打开专题阅读', await js(`!document.getElementById('book').hidden`));
-  await js('__t.closeReader()');
-  check('上拉阅读退出恢复半屏抽屉', await js('__t.sheet.detent==="half" && __t.sheet.offset>100'));
+  check('抓手上拉打开中国年表', await js(`!document.getElementById('book').hidden && document.getElementById('reading-title').textContent==='中国'`));
+  check('中国现代年表把事件与时代背景分开，单年只显示一次', await js(`
+    document.querySelector('[aria-label="事件"] [data-reading-detail="i-140"] small').textContent==='1900'
+    && !!document.querySelector('.reading-context [data-reading-detail="i-041"]')
+    && !document.querySelector('[aria-label="事件"] [data-reading-detail="i-041"]')
+    && document.querySelector('.reading-note [data-reading-detail]').dataset.readingDetail==='i-085'
+  `));
+  await readingShot('china-timeline');
+  const touchReader = async (target, distance, cancel = false) => {
+    const start = await js(`(()=>{const el=document.querySelector(${JSON.stringify(target)}),r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+(el.id==='book-body'?220:22)}})()`);
+    await send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[start]});
+    for (let i=1;i<=6;i++) {
+      await send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:start.x,y:start.y+distance*i/6}]});
+      await sleep(48);
+    }
+    const top = await js('document.getElementById("book").getBoundingClientRect().top');
+    await send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});
+    await sleep(350);
+    return { top, ...await js(`({hidden:document.getElementById('book').hidden,offset:__t.sheet.offset,detent:__t.sheet.detent,scroll:document.getElementById('book-body').scrollTop})`) };
+  };
+  const softRead = await touchReader('#reading-grab', 30);
+  check('全屏小幅下拉跟手，松手后回弹', Math.abs(softRead.top-30)<2 && !softRead.hidden, softRead);
+  const cancelledRead = await touchReader('#reading-grab', 150, true);
+  check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden, cancelledRead);
+  await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
+  check('通用条目提供正文出处与精选延伸阅读', await js(`!!document.querySelector('.reading-sources a') && !!document.querySelector('[data-reading-chapter="boxers"]') && !document.getElementById('reading-map')`));
+  await js(`document.querySelector('[data-reading-chapter="boxers"]').click()`);
+  await readingShot('reading-article');
+  const scrollRead = await touchReader('#book-body', -160);
+  check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
+  const startHalf = await js('({offset:__t.sheet.offset,year:__t.state.year,key:__t.state.focus.key})');
+  const collapse = await touchReader('#reading-grab', 155);
+  check('从正文下拉回到原半窗、年份与地区', collapse.hidden && collapse.detent==='half' && Math.abs(collapse.offset-startHalf.offset)<2 &&
+    await js(`__t.state.year===${startHalf.year} && __t.state.focus.key===${JSON.stringify(startHalf.key)}`),collapse);
   await js('__t.closeSheet()');
 
   /* 帧率 */
