@@ -510,12 +510,14 @@ uniform highp mat3 uRot;
 uniform vec2 uCenter;
 uniform vec2 uViewport;
 uniform float uScale;
+uniform float uRadius;
 varying vec2 vUv;
 varying vec3 vN;
 void main() {
-  vec3 p = uRot * aPos;
+  vec3 p = (uRot * aPos) * uRadius;
   vec2 screen = uCenter + vec2(p.x, p.y) * uScale;
-  gl_Position = vec4((screen / uViewport) * 2.0 - 1.0, -p.z, 1.0);
+  // Keep both shells inside the clip volume, with cloud height present in depth as well as position.
+  gl_Position = vec4((screen / uViewport) * 2.0 - 1.0, -p.z * 0.5, 1.0);
   vUv = aUv;
   vN = p;
 }`;
@@ -683,13 +685,14 @@ function initGL() {
     viewport: gl.getUniformLocation(prog, 'uViewport'), scale: gl.getUniformLocation(prog, 'uScale'),
     base: gl.getUniformLocation(prog, 'uBase'), id: gl.getUniformLocation(prog, 'uId'),
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
+    radius: gl.getUniformLocation(prog, 'uRadius'),
     sel: gl.getUniformLocation(prog, 'uSel'),
     cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
     atmLight: gl.getUniformLocation(progAtm, 'uLight'),
     atmCenter: gl.getUniformLocation(progAtm, 'uCenter'), atmViewport: gl.getUniformLocation(progAtm, 'uViewport'),
     atmScale: gl.getUniformLocation(progAtm, 'uScale'), atmColor: gl.getUniformLocation(progAtm, 'uAtm'),
   };
-  const cloudUniforms = Object.fromEntries(['uRot','uCenter','uViewport','uScale','uCloud','uCloudOffset','uLight']
+  const cloudUniforms = Object.fromEntries(['uRot','uCenter','uViewport','uScale','uRadius','uCloud','uCloudOffset','uLight']
     .map(name => [name, gl.getUniformLocation(progCloud, name)]));
   const cloudPos = gl.getAttribLocation(progCloud, 'aPos');
   const cloudUv = gl.getAttribLocation(progCloud, 'aUv');
@@ -768,6 +771,7 @@ function initGL() {
       gl.uniform2f(U.center, center[0], center[1]);
       gl.uniform2f(U.viewport, W, H);
       gl.uniform1f(U.scale, scale);
+      gl.uniform1f(U.radius, 1);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
       gl.uniform1i(U.cloud, 3);
@@ -790,7 +794,8 @@ function initGL() {
       gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
       gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
       gl.uniform2f(cloudUniforms.uViewport, W, H);
-      gl.uniform1f(cloudUniforms.uScale, scale * 1.007);
+      gl.uniform1f(cloudUniforms.uScale, scale);
+      gl.uniform1f(cloudUniforms.uRadius, 1.007);
       gl.uniform1i(cloudUniforms.uCloud, 3);
       gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
       gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
