@@ -13,11 +13,11 @@ const root = dirname(fileURLToPath(import.meta.url));
 const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
 
 const shell = rd('src', 'shell.html');
-const css = rd('src', 'app.css');
+const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
-const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + readingMarker);
+const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + rd('src', 'chrome.js') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');

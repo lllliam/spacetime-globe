@@ -104,16 +104,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const polSheet = await st();
   ok('政权层点开抽屉', polSheet.open && /[A-Za-z]/.test(polSheet.title || ''), { title: polSheet.title, detent: polSheet.detent });
 
-  /* 5. 抽屉开着拖时间轴 */
+  /* 5. 展开时间轴后直接拖动，再返回地图 */
   const yearBefore = polSheet.year;
-  await js(`(() => { const tr = document.getElementById('track'); const r = tr.getBoundingClientRect();
-    const x = r.left + r.width * 0.62, y = r.top + 66;
-    tr.dispatchEvent(new PointerEvent('pointerdown', { clientX: x, clientY: y, bubbles: true, pointerId: 1, buttons: 1 }));
-    window.dispatchEvent(new PointerEvent('pointerup', { clientX: x, clientY: y, bubbles: true, pointerId: 1 }));
-  })()`);
-  await sleep(800);
-  const afterScrub = await st();
-  ok('抽屉开着也能拖时间轴', afterScrub.year !== yearBefore && afterScrub.open, { before: yearBefore, after: afterScrub.year, focus: afterScrub.focus });
+  await js("document.getElementById('year').click()");
+  await sleep(350);
+  const trackBox=await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x+r.width*.62,y:r.y+62}})()");
+  await tap(trackBox.x,trackBox.y);
+  const afterScrub=await st();
+  ok('时间轴定位后显示新年份',afterScrub.year!==yearBefore&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
+  await js("document.getElementById('time-close').click()");
 
   /* 6. 切图层：抽屉应收起且不留残影 */
   await js(`window.__t.setLayer('country')`);
@@ -137,10 +136,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   ok('双指放大生效', (await js('window.__t.state.zoom')) > 1.2, { zoom: +(await js('window.__t.state.zoom')).toFixed(2) });
 
   /* 8. 年份按钮 → 全景列表 → 关 */
-  const yb = await js(`(() => { const r = document.getElementById('year').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
-  await tap(yb.x, yb.y);
+  await js("document.getElementById('view-toggle').click();document.getElementById('world-open').click()");
+  await sleep(400);
   const ov = await js(`({ open: !document.getElementById('overlay').hidden, h: document.getElementById('overlay-body').innerHTML.length })`);
-  ok('点年份打开全景列表', ov.open && ov.h > 200, ov);
+  ok('视图面板打开全景列表', ov.open && ov.h > 200, ov);
   await js(`document.getElementById('overlay-close').click()`);
   await sleep(400);
   ok('全景列表可关闭', await js(`document.getElementById('overlay').hidden`), null);

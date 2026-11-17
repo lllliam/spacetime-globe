@@ -25,22 +25,30 @@
 <div id="scrim"></div>
 
 <div id="hud">
-  <button id="year" type="button" aria-label="看这一年的世界">今天</button>
+  <button id="year" type="button" aria-label="展开时间轴" aria-expanded="false" aria-controls="dock">今天</button>
   <div id="sub"></div>
-  <div id="hint"><b>拖动</b>旋转 · <b>双指</b>缩放 · <b>点陆块</b>看它是谁</div>
 </div>
-
-<div id="dock">
-  <div id="toolbar">
-    <div id="layers" role="group" aria-label="划分方式">
-      <button type="button" data-layer="country" class="on">国家</button>
-      <button type="button" data-layer="polity">政权</button>
-    </div>
-    <div id="loadpill" hidden><i></i><span>政权边界 0%</span></div>
+<button id="view-toggle" type="button" aria-label="观察方式与显示选项" aria-expanded="false" aria-controls="view-panel"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Zm0 4 9 5 9-5M3 16l9 5 9-5"/></svg><span>视图</span></button>
+<div id="hint">拖动旋转 · 双指缩放</div>
+<div id="view-shade" hidden></div>
+<section id="view-panel" hidden role="dialog" aria-label="观察地球">
+  <header><h2>观察地球</h2><button id="view-close" type="button" aria-label="关闭视图选项">×</button></header>
+  <div id="view-modes" role="group" aria-label="边界与底图"></div>
+  <div class="view-switches">
+    <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i></i></button>
+    <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i></i></button>
   </div>
-  <canvas id="track" aria-label="时间轴"></canvas>
-</div>
-
+  <nav><button id="world-open" type="button">这一年的世界 <span>›</span></button><button id="reset-view" type="button">恢复视角 <span>›</span></button><a id="classic-link" href="classic.html">使用经典界面 <span>↗</span></a></nav>
+  <p id="view-note">历史边界为资料重建，未覆盖的地区不代表无人居住。海岸与地形采用现代底图。</p>
+</section>
+<section id="dock" aria-label="时间控制" inert>
+  <header class="time-head"><span id="time-current">今天</span><button id="time-close" type="button" aria-label="收起时间轴">×</button></header>
+  <canvas id="track" role="slider" tabindex="0" aria-label="历史年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="2026"></canvas>
+  <div class="time-steps"><button type="button" data-year-step="-10">−10</button><button type="button" data-year-step="-1">−1</button><button id="time-play" type="button" aria-pressed="false">播放</button><button type="button" data-year-step="1">+1</button><button type="button" data-year-step="10">+10</button></div>
+  <div class="time-actions"><button id="time-input-toggle" type="button" aria-expanded="false">输入年份</button><label class="time-speed">步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label><button id="time-today" type="button">回到今天</button></div>
+  <form id="year-form" hidden><label for="year-input">年份（负数为公元前）</label><div><input id="year-input" type="number" inputmode="text" min="-3500" max="2026" step="1" required aria-describedby="year-error"><button type="submit">前往</button></div><p id="year-error" role="status"></p></form>
+</section>
+  <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet" aria-live="polite">
   <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true">上滑阅读 · 下滑关闭</span></div>

@@ -43,7 +43,7 @@ function openBook(topicId, fromOffset = null) {
   reading.snapshot = {
     year: state.year, layerId: state.layerId, focus: { ...state.focus },
     yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
-    detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop,
+    natural: chrome.natural, detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop,
   };
   reading.ent = { ...ent };
   reading.trail = [];
@@ -67,6 +67,8 @@ function openBook(topicId, fromOffset = null) {
   });
 }
 function showReader(fromOffset = 18) {
+  hideTimeline(false);
+  closeView(false);
   reading.preview = false;
   readingResume.hidden = true;
   bookEl.hidden = false;
@@ -213,6 +215,7 @@ function closeReader() {
   if (!reading.active) return;
   rememberReading();
   const s = reading.snapshot;
+  chrome.natural = s.natural;
   reading.active = reading.preview = false;
   bookEl.hidden = true;
   bookEl.getAnimations().forEach((a) => a.cancel());
@@ -244,6 +247,7 @@ function previewReadingMap() {
   // 精确事件地点仅来自专题编辑数据；通用年表只展示原地区的近似位置。
   if (item.place) {
     state.layerId = 'country';
+    chrome.natural = false;
     state.yaw = -item.place.lon * Math.PI / 180;
     state.tilt = clamp(item.place.lat * Math.PI / 180, -0.62, 1.02);
     state.zoom = 2.2;

@@ -4,7 +4,7 @@
 
 - 功能源码在 `src/`，专题源文件在 `data/topics/*.json`，覆盖计划在 `data/content-plan.json`；`data/topics.json` 为构建生成的汇总；不要直接编辑生成的 HTML。
 - 修改后运行 `node build.mjs`，同步生成 `index.html` 与 `index.offline.html`。涉及交互时运行适当的浏览器回归。
-- 保持地球、时间轴与图层开关的首屏结构；阅读通过摘要抽屉进入独立阅读层。细节见 `docs/READING.md`。
+- 首页以球体、年份和视图入口为主。时间轴与视图面板按需展开，阅读通过摘要抽屉进入独立阅读层。细节见 `docs/READING.md`。
 
 ## 网站同步（用户明确要求）
 

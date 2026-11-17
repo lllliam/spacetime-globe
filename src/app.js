@@ -246,10 +246,10 @@ const LAYERS = {
   },
   polity: {
     id: 'polity', name: '政权', range: [-3400, POLITY_END],
-    currentYear: (y) => clamp(y, -3400, POLITY_END),
+    currentYear: (y) => y,
     shapes(year) {
-      if (!pk) return [];
-      const y = clamp(year, -3400, POLITY_END);
+      if (!pk || year < -3400 || year > POLITY_END) return [];
+      const y = year;
       const out = [];
       for (let i = 0; i < pk.nSlice; i++) {
         if (pk.slices[i * 4 + 1] > y || pk.slices[i * 4 + 2] < y) continue;
@@ -289,10 +289,6 @@ const pickCtx = pickCanvas.getContext('2d', { willReadFrequently: true });
 
 let partition = { layerId: 'country', year: YMAX, shapes: [], pick: new Uint8Array(PW * PH), counts: new Map(), lut: new Uint8Array(256 * 4) };
 let summary = { ev: 0, era: 0, countries: 0, entities: 0 };
-
-/* 金色 = 这一年这里的记录多；越深越暖，但不要亮成白色（那会读成“高亮”） */
-const HEAT = [[142, 112, 60], [168, 132, 70], [196, 152, 80], [220, 172, 92], [238, 192, 108]];
-const heatIndex = (n) => (n <= 1 ? 0 : n === 2 ? 1 : n <= 4 ? 2 : n <= 7 ? 3 : 4);
 
 function rasterize(layer, year) {
   const shapes = layer.shapes(year);
@@ -370,23 +366,17 @@ function countEntries(pick) {
   return counts;
 }
 
-function buildLut(layer, shapes, counts) {
+function buildLut(layer, shapes) {
   const lut = new Uint8Array(256 * 4);
+  if (chrome.natural) return lut;
   for (const s of shapes) {
-    const n = counts.get(s.id) || 0;
     const o = s.id * 4;
-    if (n) {
-      const h = HEAT[heatIndex(n)];
-      lut[o] = h[0]; lut[o + 1] = h[1]; lut[o + 2] = h[2];
-      lut[o + 3] = Math.round(255 * (0.84 + Math.min(0.12, n * 0.02)));
-    } else if (layer.id === 'polity') {
-      /* 政权层：无记录也要能分辨相邻政权，否则整张图糊成一片 */
-      const v = 104 + ((s.id * 53) % 34);
-      lut[o] = v; lut[o + 1] = v + 5; lut[o + 2] = v + 12;
-      lut[o + 3] = 118;
-    } else {
-      lut[o] = 118; lut[o + 1] = 127; lut[o + 2] = 140; lut[o + 3] = 116;
-    }
+    // 用实体名称决定颜色，跨年份保持稳定；颜色用于区分辖域，不代表史料数量。
+    const key = layer.id === 'polity' ? s.ent.name : s.iso;
+    let hash=0; for(const c of key||'')hash=(hash*31+c.charCodeAt(0))>>>0;
+    const palette=[[183,154,104],[133,159,154],[158,141,126],[126,145,164],[164,157,118],[158,126,117]];
+    const color=key==='Qing Dynasty' ? palette[0] : palette[hash%palette.length];
+    lut[o]=color[0];lut[o+1]=color[1];lut[o+2]=color[2];lut[o+3]=layer.id==='polity'?185:100;
   }
   return lut;
 }
@@ -394,11 +384,11 @@ function buildLut(layer, shapes, counts) {
 function rebuildPartition() {
   const layer = LAYERS[state.layerId];
   const year = layer.currentYear(state.year);
-  state.stale = year !== state.year;
+  state.stale = layer.id==='polity' && (year < -3400 || year > POLITY_END);
   const t0 = performance.now();
   const { shapes, pick } = rasterize(layer, year);
   const counts = countEntries(pick);
-  const lut = buildLut(layer, shapes, counts);
+  const lut = buildLut(layer, shapes);
   partition = { layerId: layer.id, year, shapes, pick, counts, lut };
   prepareVector();
   if (glr) { glr.uploadId(idCanvas); glr.uploadLut(lut); }
@@ -432,7 +422,7 @@ function buildBaseCanvas() {
   const sea = g.createLinearGradient(0, 0, 0, TH);
   sea.addColorStop(0.00, '#08161f');
   sea.addColorStop(0.22, '#123047');
-  sea.addColorStop(0.50, '#1d4963');
+  sea.addColorStop(0.50, '#193b50');
   sea.addColorStop(0.78, '#123047');
   sea.addColorStop(1.00, '#08161f');
   g.fillStyle = sea; g.fillRect(0, 0, TW, TH);
@@ -443,16 +433,16 @@ function buildBaseCanvas() {
   /* 大陆架：柔化后的大范围晕边（软化是因为它会被放大 6 倍看） */
   g.save();
   if ('filter' in g) g.filter = 'blur(7px)';
-  g.strokeStyle = 'rgba(104,158,178,.50)'; g.lineWidth = 11;
+  g.strokeStyle = 'rgba(104,158,178,.30)'; g.lineWidth = 9;
   for (const p of paths) g.stroke(p);
   g.filter = 'none';
-  g.strokeStyle = 'rgba(126,180,196,.28)'; g.lineWidth = 3.4;
+  g.strokeStyle = 'rgba(126,180,196,.19)'; g.lineWidth = 3.4;
   for (const p of paths) g.stroke(p);
   g.restore();
 
   const landAll = new Path2D();
   for (const p of paths) landAll.addPath(p);
-  g.fillStyle = '#c9bd9f';
+  g.fillStyle = '#7e918a';
   for (const p of paths) g.fill(p, 'evenodd');
 
   if (reliefImg) {
@@ -467,15 +457,6 @@ function buildBaseCanvas() {
     g.drawImage(reliefImg, 0, 0, TW, TH);
     g.restore();
   }
-
-  g.setTransform(1, 0, 0, 1, 0, 0);
-  g.strokeStyle = 'rgba(255,255,255,.055)'; g.lineWidth = 1;
-  g.beginPath();
-  for (let lon = -180; lon <= 180; lon += 30) { const x = ((lon + 180) / 360) * TW; g.moveTo(x, 0); g.lineTo(x, TH); }
-  for (let lat = -60; lat <= 60; lat += 30) { const y = ((90 - lat) / 180) * TH; g.moveTo(0, y); g.lineTo(TW, y); }
-  g.stroke();
-
-  /* 海岸线 / 国界交给矢量叠加层（放大不糊），贴图只负责地形与海色 */
 
   g.setTransform(1, 0, 0, 1, 0, 0);
 
@@ -562,8 +543,8 @@ void main() {
 
   /* 水面光泽：只在海里，宽而柔的一层 */
   float ocean = 1.0 - step(0.002, idTex.r);
-  float spec = min(1.0, pow(max(lam, 0.0), 14.0) * 30.0);
-  col += vec3(0.55, 0.75, 0.95) * spec * 0.26 * ocean;
+  float spec = min(1.0, pow(max(lam, 0.0), 24.0) * 2.0);
+  col += vec3(0.55, 0.75, 0.95) * spec * 0.12 * ocean;
 
   gl_FragColor = vec4(col, 1.0);
 }`;
@@ -590,7 +571,7 @@ void main() {
   if (r > 0.94) {
     float inner = smoothstep(0.94, 1.04, r);
     float t = clamp(1.0 - (r - 1.0) / 0.55, 0.0, 1.0);
-    a = inner * pow(t, 3.0) * 0.42;
+    a = inner * pow(t, 4.0) * 0.18;
   }
   gl_FragColor = vec4(uAtm, a);
 }`;
@@ -805,6 +786,14 @@ function svgRings(pathStr) {
 }
 
 let vecShapes = [];
+// 常见政权的简短球面标签，档案仍保留数据源里的完整名称。
+const globePolityNames = {
+  'Qing Dynasty':'清朝', 'Russian Empire':'俄罗斯帝国', 'British Raj':'英属印度',
+  'British Empire':'大英帝国', 'Ottoman Empire':'奥斯曼帝国', 'Korean Empire':'大韩帝国',
+  'Empire of Japan':'日本帝国', 'Japan':'日本', 'Ming Dynasty':'明朝', 'Yuan Dynasty':'元朝',
+  'Tang Dynasty':'唐朝', 'Mongol Empire':'蒙古帝国', 'Roman Empire':'罗马帝国',
+  'Byzantine Empire':'拜占庭帝国', 'Mughal Empire':'莫卧儿帝国', 'Qajar Dynasty':'卡扎尔王朝',
+};
 function prepareVector() {
   const layer = LAYERS[state.layerId];
   const shapes = partition.shapes;
@@ -824,7 +813,7 @@ function prepareVector() {
     if (!vecs.length) continue;
     const ent = layer.entityOfShape(s);
     const name = layer.id === 'polity'
-      ? (ent && ent.ent ? (polityZhName(ent.ent.name) || ent.ent.name) : '')
+      ? (ent && ent.ent ? (globePolityNames[ent.ent.name] || polityZhName(ent.ent.name) || ent.ent.name) : '')
       : (ent && ent.region ? (ent.region.zh || ent.region.en || '') : '');
     let area = 0;
     for (const v of vecs) area = Math.max(area, ringRoughArea(v.xyz));
@@ -890,6 +879,7 @@ function drawVector() {
 
   /* 经纬网：缩得越近越密 */
   const stepDeg = state.zoom >= 3 ? 10 : state.zoom >= 1.8 ? 15 : 30;
+  if (chrome.grid) {
   vctx.lineWidth = 1;
   vctx.strokeStyle = 'rgba(255,255,255,.075)';
   vctx.beginPath();
@@ -924,6 +914,8 @@ function drawVector() {
   }
   vctx.stroke();
 
+  }
+
   /* 面：整环都在正面才填（贴着轮廓的边缘交给贴图兜底），这样放大后边界是锐的 */
   const lut = partition.lut;
   for (const sh of vecShapes) {
@@ -948,7 +940,7 @@ function drawVector() {
       if (started) vctx.closePath();
     }
     if (!ok || !any) continue;
-    vctx.fillStyle = 'rgba(' + lut[o] + ',' + lut[o + 1] + ',' + lut[o + 2] + ',' + (lut[o + 3] / 255 * 0.92).toFixed(3) + ')';
+    vctx.fillStyle = 'rgba(' + lut[o] + ',' + lut[o + 1] + ',' + lut[o + 2] + ',' + (lut[o + 3] / 255 * 0.22).toFixed(3) + ')';
     vctx.fill('evenodd');
   }
 
@@ -956,7 +948,7 @@ function drawVector() {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  vctx.strokeStyle = isPolity ? 'rgba(58,50,38,.72)' : 'rgba(28,40,52,.72)';
+  vctx.strokeStyle = chrome.natural ? 'transparent' : isPolity ? 'rgba(228,210,174,.52)' : 'rgba(191,210,215,.30)';
   vctx.lineWidth = Math.min(0.95, 0.5 + state.zoom * 0.08);
   vctx.beginPath();
   const drawn = [];
@@ -1019,8 +1011,8 @@ function drawVector() {
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
-  const maxLabels = innerWidth < 500 ? 16 : 28;
-  const uiTop = 150, uiBottom = view.h - 200;
+  const maxLabels = !chrome.labels || chrome.natural ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
+  const uiTop = 115, uiBottom = chrome.timeline ? timeDock.getBoundingClientRect().top - 15 : view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
@@ -1030,8 +1022,15 @@ function drawVector() {
     const area = d.area;
     const need = state.zoom > 2 ? 220 : state.zoom > 1.3 ? 800 : 3000;
     if (area < need) continue;
-    const w = Math.min(d.w * 0.86, d.name.length * 13 + 10);
+    vctx.font = isPolity
+      ? '600 11.5px Georgia,"Songti SC",serif'
+      : '600 11.5px system-ui,sans-serif';
+    const w = vctx.measureText(d.name).width + 12;
     const h = 16;
+    const edgeX = Math.abs(d.x - cx) + w / 2;
+    const edgeY = Math.abs(d.y - cy) + h / 2;
+    if (edgeX * edgeX + edgeY * edgeY > (Rz - 5) ** 2) continue;
+    if (d.x-w/2<4 || d.x+w/2>view.w-4 || w>d.w*1.2) continue;
     let overlap = false;
     for (const p of placed) {
       if (Math.abs(d.x - p.x) < (w + p.w) / 2 && Math.abs(d.y - p.y) < (h + p.h) / 2) { overlap = true; break; }
@@ -1039,9 +1038,6 @@ function drawVector() {
     if (overlap) continue;
     placed.push({ x: d.x, y: d.y, w, h });
     window.__labelStats.placed = placed.length;
-    vctx.font = isPolity
-      ? 'italic 600 11.5px Georgia,"Songti SC",serif'
-      : '600 11.5px -apple-system,"PingFang SC",sans-serif';
     vctx.shadowColor = 'rgba(0,0,0,.75)';
     vctx.shadowBlur = 4;
     vctx.fillStyle = isPolity ? 'rgba(255,238,206,.94)' : 'rgba(248,244,236,.94)';
@@ -1129,9 +1125,9 @@ function layout() {
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
   view.cx = w / 2;
-  view.cyBase = clamp(h * 0.42, h * 0.32, h * 0.50);
+  view.cyBase = h * 0.46;
   view.cy = view.cyBase - (state.lift || 0);
-  view.R = Math.min(w * 0.435, h * 0.30, 320);
+  view.R = Math.min(w * 0.455, h * 0.34, 410);
   clampPan();
   view.Rz = view.R * state.zoom;
   const r = glr || fallback;
@@ -1367,7 +1363,7 @@ function buildCountryPick() {
 }
 
 /* ───────────── 10. 渲染调度 ───────────── */
-let dirty = true, spinning = true, lastT = 0, rafId = 0;
+let dirty = true, spinning = false, lastT = 0, rafId = 0;
 const SPIN_MS = 20000;
 let spinStopAt = performance.now() + SPIN_MS;
 
@@ -1407,10 +1403,12 @@ function applyMomentum(dt) {
   return true;
 }
 
+let globeTapTimer=0;
 let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
   hideHint();
+  clearTimeout(globeTapTimer);
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0 });
@@ -1418,6 +1416,8 @@ canvas.addEventListener('pointerdown', (e) => {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
   } else if (pointers.size === 2) {
+    lastTapAt = 0;
+    for (const point of pointers.values()) point.moved = 10;
     const [a, b] = [...pointers.values()];
     pinch = {
       d: Math.hypot(a.x - b.x, a.y - b.y) || 1,
@@ -1438,9 +1438,9 @@ canvas.addEventListener('pointermove', (e) => {
     const [a, b] = [...pointers.values()];
     const d = Math.hypot(a.x - b.x, a.y - b.y) || 1;
     const z = clamp((pinch.zoom * d) / pinch.d, 1, 6);
-    const k = z / state.zoom;
-    state.panX = (pinch.cx - view.cx) - k * (pinch.cx - view.cx - pinch.px);
-    state.panY = (pinch.cy - view.cy) - k * (pinch.cy - view.cy - pinch.py);
+    const k = z / pinch.zoom;
+    state.panX = (a.x+b.x)/2 - view.cx - k * (pinch.cx - view.cx - pinch.px);
+    state.panY = (a.y+b.y)/2 - view.cy - k * (pinch.cy - view.cy - pinch.py);
     state.zoom = z;
     clampPan(); view.Rz = view.R * state.zoom;
     invalidate();
@@ -1453,7 +1453,7 @@ canvas.addEventListener('pointermove', (e) => {
   const k = 1 / (view.R * state.zoom);
   state.yaw += dx * k;
   state.tilt = clamp(state.tilt + dy * k, -0.62, 1.02);
-  drag.vy = dx * k / dts; drag.vt = dy * k / dts;
+  drag.vy = lerp(drag.vy, dx * k / dts,.4); drag.vt = lerp(drag.vt,dy * k / dts,.4);
   invalidate();
 }, { passive: true });
 
@@ -1463,17 +1463,18 @@ function endPointer(e) {
   if (pointers.size < 2) pinch = null;
   if (!p) return;
   if (pointers.size === 0 && drag) {
-    momentum.yaw = clamp(drag.vy * 0.5, -3, 3);
-    momentum.tilt = clamp(drag.vt * 0.3, -1.4, 1.4);
+    const fresh = e.type === 'pointerup' && performance.now()-drag.last<110;
+    momentum.yaw = fresh ? clamp(drag.vy * .32,-2,2) : 0;
+    momentum.tilt = fresh ? clamp(drag.vt * .22,-1,1) : 0;
     drag = null;
     invalidate();
   }
   if (e.type === 'pointerup' && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
-    const isDouble = now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
+    const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
     if (isDouble) { zoomTo(state.zoom > 1.4 ? 1 : 2.4, e.clientX, e.clientY); lastTapAt = 0; return; }
-    tapGlobe(e.clientX, e.clientY);
+    globeTapTimer=setTimeout(()=>tapGlobe(e.clientX,e.clientY),280);
   }
 }
 canvas.addEventListener('pointerup', endPointer);
@@ -1527,8 +1528,8 @@ const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 /* 时间轴（含工具栏）的实际高度：抽屉的 peek 档必须比它高，
    否则抽屉会缩进时间轴后面，抓手就抓不到了 */
 function dockHeight() {
-  const h = dockEl ? dockEl.getBoundingClientRect().height : 0;
-  return Math.round(h || 130);
+  if (!chrome.timeline) return 16;
+  return Math.round(dockEl.getBoundingClientRect().height + 12);
 }
 
 function sheetDetents() {
@@ -1901,7 +1902,7 @@ overlayBody.addEventListener('click', (e) => {
 });
 const closeWorld = () => { overlay.hidden = true; };
 el('overlay-close').addEventListener('click', closeWorld);
-elYear.addEventListener('click', openWorld);
+// 年份入口由 chrome.js 打开时间轴；全景资料从视图面板进入。
 
 /* ───────────── 13.5 阅读视图（一本书） ───────────── */
 /* 书 = 实体在某个时期的一组节：导语（来自维基）+ 按时间分节的事件段落 + 出处。
@@ -2206,20 +2207,33 @@ function posFromX(clientX) {
   const r = track.getBoundingClientRect();
   return clamp((clientX - r.left - T_PADL) / (r.width - T_PADL - T_PADR), 0, 1);
 }
+let scrubPointer = null, scrubFrame = 0, pendingYear = null;
 let scrubbing = false;
-function setYearFromX(clientX) {
-  let y = yearOfPos(posFromX(clientX));
-  if (state.layerId === 'polity') y = Math.min(y, POLITY_END);
-  if (y !== state.year) { state.year = y; onYearChanged(); }
+function setYearFromX(clientX, flush = false) {
+  pendingYear = yearOfPos(posFromX(clientX));
+  const apply = () => {
+    scrubFrame = 0;
+    if (pendingYear !== state.year) commitYear(pendingYear);
+    pendingYear = null;
+  };
+  if (flush) { cancelAnimationFrame(scrubFrame); apply(); }
+  else if (!scrubFrame) scrubFrame = requestAnimationFrame(apply);
 }
 track.addEventListener('pointerdown', (e) => {
-  hideHint(); scrubbing = true;
-  try { track.setPointerCapture(e.pointerId); } catch (_) { }
+  if (!e.isPrimary || e.button !== 0) return;
+  hideHint(); stopTime(); scrubbing = true; scrubPointer = e.pointerId;
+  try { track.setPointerCapture(e.pointerId); } catch (_) {}
   setYearFromX(e.clientX);
-}, { passive: true });
-track.addEventListener('pointermove', (e) => { if (scrubbing) setYearFromX(e.clientX); }, { passive: true });
-track.addEventListener('pointerup', () => { scrubbing = false; });
-track.addEventListener('pointercancel', () => { scrubbing = false; });
+});
+track.addEventListener('pointermove', (e) => {
+  if (e.pointerId === scrubPointer) setYearFromX(e.clientX);
+});
+function endScrub(e) {
+  if (e.pointerId !== scrubPointer) return;
+  if (e.type === 'pointerup') setYearFromX(e.clientX, true);
+  scrubbing = false; scrubPointer = null; scheduleTimelineHide();
+}
+for (const type of ['pointerup','pointercancel','lostpointercapture']) track.addEventListener(type,endScrub);
 
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {
@@ -2228,7 +2242,6 @@ function setLayer(id) {
   for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
   layersEl.dataset.active = id;
   if (id === 'polity' && !polityState.loaded) ensurePolity();
-  if (id === 'polity' && state.year > POLITY_END) { /* 允许，图上沿用 2024 边界 */ }
   /* 换划分方式时，抽屉里那张卡片描述的已经是另一套东西了：收起来，别留残影 */
   closeSheet();
   rebuildPartition();
@@ -2245,15 +2258,7 @@ layersEl.addEventListener('click', (e) => {
 function syncHud() {
   const y = state.year;
   elYear.textContent = y >= YMAX ? '今天' : fmtYear(y) + ' 年';
-  let txt = y >= YMAX ? '近 ' + TODAY_SPAN + ' 年' : chapterOf(y).n;
-  if (state.layerId === 'polity') {
-    txt = state.stale ? '政权数据截至 ' + POLITY_END + ' 年' : chapterOf(y).n;
-    elSub.innerHTML = txt + ' · <b>' + summary.entities + '</b> 个政权';
-  } else {
-    elSub.innerHTML = txt + ' · <b>' + summary.countries + '</b> 个国家 · <b>' + summary.ev + '</b> 条记录';
-  }
-  for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === state.layerId);
-  layersEl.dataset.active = state.layerId;
+  syncChrome();
 }
 function onYearChanged() {
   rebuildPartition();
@@ -2270,12 +2275,12 @@ setTimeout(hideHint, 6000);
 /* ───────────── 17. 键盘 ───────────── */
 addEventListener('keydown', (e) => {
   if (handleReadingKey(e)) return;
-  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || chrome.panel) return;
   const step = e.shiftKey ? 20 : 1;
-  if (e.key === 'ArrowLeft') { state.year = clamp(state.year - step, YMIN, YMAX); onYearChanged(); e.preventDefault(); }
-  else if (e.key === 'ArrowRight') { state.year = clamp(state.year + step, YMIN, YMAX); onYearChanged(); e.preventDefault(); }
-  else if (e.key === 'Home') { state.year = YMIN; onYearChanged(); e.preventDefault(); }
-  else if (e.key === 'End') { state.year = YMAX; onYearChanged(); e.preventDefault(); }
+  if (e.key === 'ArrowLeft') { stepYear(-step); e.preventDefault(); }
+  else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
+  else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
+  else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
   else if (e.key === 'Escape') { closeWorld(); closeSheet(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
@@ -2305,7 +2310,9 @@ async function loadRelief() {
 async function ensurePolity() {
   if (polityState.loaded || polityState.loading) return;
   polityState.loading = true;
-  loadPill.hidden = false;
+  polityState.error = null;
+  syncChrome();
+  loadPill.hidden = state.layerId !== 'polity';
   const label = loadPill.querySelector('span');
   try {
     const inline = inlineText('politypack');
@@ -2332,6 +2339,7 @@ async function ensurePolity() {
     return;
   } finally {
     polityState.loading = false;
+    syncChrome();
   }
   loadPill.hidden = true;
 }

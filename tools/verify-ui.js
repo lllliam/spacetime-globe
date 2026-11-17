@@ -60,6 +60,11 @@ async function main() {
       returnByValue: true,
     });
     if (ready.result.value) break;
+    const errors=await send('Runtime.evaluate',{expression:'window.__errs',returnByValue:true});
+    if (errors.result.value?.length) {
+      console.error('启动失败',errors.result.value);
+      ws.close();proc.kill();server.close();process.exit(2);
+    }
     await sleep(250);
   }
 
@@ -139,11 +144,41 @@ async function main() {
   const y1 = await js('window.__t.state.yaw');
   check('拖动改变经度', Math.abs(y1 - y0) > 0.15, { y0: +y0.toFixed(2), y1: +y1.toFixed(2) });
 
-  /* 时间轴 → 1900 */
-  const tr = await js(`(() => { const b = document.getElementById('track').getBoundingClientRect(); return {x:b.x, y:b.y, w:b.width}; })()`);
-  await tap(tr.x + 18 + (tr.w - 36) * 0.86, tr.y + 62);
-  const yr = await js(`document.getElementById('year').textContent`);
-  check('时间轴可定位年份', /年/.test(yr), yr);
+  /* 沉浸首页与真实时间轴输入。 */
+  check('首页时间轴默认隐藏', await js("document.getElementById('dock').inert"));
+  await js("document.getElementById('year').click()");
+  await sleep(400);
+  const tr = await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x,y:r.y,w:r.width}})()");
+  await drag(tr.x + tr.w * .98, tr.y + 62, tr.x + tr.w * .85, tr.y + 62);
+  await js("__t.ensurePolity()");
+  for(let i=0;i<40;i++){if(await js("__t.polityLoaded"))break;await sleep(200);}
+  check('拖动时间轴自动显示当年历史疆域', await js("__t.state.layerId==='polity' && __t.state.year<1900 && __t.partition.shapes.length>0"));
+  const historySignature = await js("JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))");
+  await js("document.getElementById('time-input-toggle').click();document.getElementById('year-input').value=1900;document.getElementById('year-form').requestSubmit()");
+  check('输入历史年份改变真实边界几何',await js("__t.state.year===1900 && JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))!=="+JSON.stringify(historySignature)));
+  const designShot = async name => {
+    if (!process.env.ATLAS_SHOTS) return;
+    const shot = await send('Page.captureScreenshot',{format:'png'});
+    require('fs').writeFileSync(require('path').join(__dirname,'../docs/design',name+'.png'), Buffer.from(shot.data,'base64'));
+  };
+  await designShot('timeline');
+  await js("document.getElementById('time-play').click()");
+  await sleep(850);
+  check('播放推进年份并保持时间轴',await js("__t.state.year===1910 && document.getElementById('time-play').getAttribute('aria-pressed')==='true'"));
+  await js("document.getElementById('time-play').click()");
+  await sleep(6900);
+  check('闲置自动收起时间轴且保留年份',await js("document.getElementById('dock').inert && __t.state.year===1910"));
+  await js("__t.setYear(1900)");
+  await designShot('globe');
+  await js("document.getElementById('view-toggle').click()");
+  await sleep(350);
+  await designShot('views');
+  check('视图面板提供经典版入口', await js("document.getElementById('classic-link').getAttribute('href')==='classic.html'"));
+  await js("document.querySelector('[data-view=nature]').click()");
+  check('自然地理表面关闭行政着色', await js("__t.partition.lut.every(v=>v===0)"));
+  await js("document.getElementById('view-toggle').click();document.querySelector('[data-view=modern]').click();document.getElementById('year').click();document.querySelectorAll('[data-year-step]')[0].click()");
+  check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1890"));
+  await js("document.getElementById('time-close').click()");
 
   /* 切到政权层 */
   await js(`window.__t.setYear(1900)`);
@@ -159,6 +194,7 @@ async function main() {
   await sleep(200);
   const pp = await js(`(() => { const q = window.__t.screenOf(32*Math.PI/180, 39*Math.PI/180); return {x:q.x, y:q.y, front:q.front}; })()`);
   await tap(pp.x, pp.y);
+  await sleep(220);
   const polSheet = await js(`({
     open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
@@ -256,8 +292,10 @@ async function main() {
     return {...following,...await js('({detent:__t.sheet.detent,finalOffset:__t.sheet.offset,reading:!document.getElementById("book").hidden})')};
   };
   await openCountry();
+  if(process.env.UPDATE_SHOTS) {
   const popupShot = await send('Page.captureScreenshot', {format:'png'});
   require('fs').writeFileSync(require('path').join(__dirname,'../docs/sheet-gestures.png'),Buffer.from(popupShot.data,'base64'));
+  }
   const soft=await sheetGesture(26,65,6,true);
   check('触摸小幅下拖跟手，松手回弹半屏', soft.dragging && Math.abs(soft.offset-soft.start-26)<3 && soft.detent==='half' && Math.abs(soft.finalOffset-soft.start)<2,soft);
   const cancel=await sheetGesture(-150,30,8,true,'grab',true);
@@ -389,14 +427,14 @@ async function main() {
   await js(`document.querySelector('[data-reading-catalog]').click()`);
   check('320px 全球目录筛选与卡片无横向溢出',await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth && document.querySelector('.reading-filters').scrollWidth<=document.getElementById('book-body').clientWidth`));
   const catalogShot=await send('Page.captureScreenshot',{format:'png'});
-  require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-world.png'),Buffer.from(catalogShot.data,'base64'));
+  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-world.png'),Buffer.from(catalogShot.data,'base64'));
   await js(`document.getElementById('reading-back').click()`);
   await js(`document.getElementById('book-body').scrollTop=0;document.activeElement.blur()`);
   const shot = await send('Page.captureScreenshot', {format:'png'});
-  require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-topic.png'), Buffer.from(shot.data,'base64'));
+  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-topic.png'), Buffer.from(shot.data,'base64'));
   await js(`document.querySelector('[data-reading-detail="ports"]').click()`);
   const detailShot = await send('Page.captureScreenshot', {format:'png'});
-  require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-detail.png'), Buffer.from(detailShot.data,'base64'));
+  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-detail.png'), Buffer.from(detailShot.data,'base64'));
   await send('Emulation.setDeviceMetricsOverride', {width:844,height:390,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   check('横屏阅读与返回按钮有效', await js(`document.getElementById('book-body').clientHeight>150 && document.getElementById('reading-back').getBoundingClientRect().top>=0`));
@@ -460,6 +498,7 @@ async function main() {
   })()`);
   check('全部117篇可断网逐篇导航、显示来源并返回目录',offlineAll.count===117&&offlineAll.topics===28&&!offlineAll.bad.length,offlineAll);
 
+  check('新版离线文件指向同目录的经典离线版',await js("document.getElementById('classic-link').getAttribute('href')==='classic.offline.html'"));
   const errs = await js('window.__errs');
   check('控制台无异常', errs.length === 0, errs.slice(0, 4));
 
