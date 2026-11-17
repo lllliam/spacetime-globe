@@ -2263,7 +2263,7 @@ layersEl.addEventListener('click', (e) => {
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
-  elYear.innerHTML = y >= YMAX ? '今天' : '<span>' + fmtYear(y) + '</span><small> 年</small>';
+  elYear.textContent = y >= YMAX ? '今天' : fmtYear(y);
   syncChrome();
 }
 function onYearChanged() {

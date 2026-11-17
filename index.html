@@ -388,7 +388,6 @@ body{background:radial-gradient(ellipse at 50% 48%,#11202c 0%,#080f17 56%,#050a1
 #hud #year{pointer-events:auto;margin:0;padding:2px 18px 5px;min-height:48px;border:0;background:none;
   color:#edece5;font:400 36px/1.2 system-ui,"PingFang SC","Microsoft YaHei UI",sans-serif;
   font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.045em;text-align:center;cursor:pointer;touch-action:none}
-#hud #year small{font-size:.48em;font-weight:400;letter-spacing:0;color:#9ba7ae}
 #hud #year::after{content:none}
 #hud #year:active{opacity:.82}
 #sub{font-size:11px;color:#a9b6bd;letter-spacing:.04em;line-height:1.5}
@@ -2783,7 +2782,7 @@ layersEl.addEventListener('click', (e) => {
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
-  elYear.innerHTML = y >= YMAX ? '今天' : '<span>' + fmtYear(y) + '</span><small> 年</small>';
+  elYear.textContent = y >= YMAX ? '今天' : fmtYear(y);
   syncChrome();
 }
 function onYearChanged() {
@@ -3162,9 +3161,10 @@ function syncChrome() {
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
   el('toggle-grid').setAttribute('aria-checked',String(chrome.grid));
-  elYear.setAttribute('aria-label', elYear.textContent + '的全球事件，长按或按 Shift+Enter 展开时间轴');
+  const spokenYear = state.year >= YMAX ? '今天' : fmtYear(state.year) + '年';
+  elYear.setAttribute('aria-label', spokenYear + '的全球事件，长按或按 Shift+Enter 展开时间轴');
   track.setAttribute('aria-valuenow',state.year);
-  track.setAttribute('aria-valuetext',elYear.textContent);
+  track.setAttribute('aria-valuetext',spokenYear);
   el('time-play').textContent=chrome.playing?'暂停':state.year>=YMAX?'从头播放':'播放';
   el('time-play').setAttribute('aria-pressed',String(chrome.playing));
   let status = '';

@@ -16,9 +16,10 @@ function syncChrome() {
   for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
   el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
   el('toggle-grid').setAttribute('aria-checked',String(chrome.grid));
-  elYear.setAttribute('aria-label', elYear.textContent + '的全球事件，长按或按 Shift+Enter 展开时间轴');
+  const spokenYear = state.year >= YMAX ? '今天' : fmtYear(state.year) + '年';
+  elYear.setAttribute('aria-label', spokenYear + '的全球事件，长按或按 Shift+Enter 展开时间轴');
   track.setAttribute('aria-valuenow',state.year);
-  track.setAttribute('aria-valuetext',elYear.textContent);
+  track.setAttribute('aria-valuetext',spokenYear);
   el('time-play').textContent=chrome.playing?'暂停':state.year>=YMAX?'从头播放':'播放';
   el('time-play').setAttribute('aria-pressed',String(chrome.playing));
   let status = '';
