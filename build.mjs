@@ -19,11 +19,12 @@ const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
-const app = appSource.replace(readingMarker, ['reading.js', 'subject-reader.js', 'event-map.js', 'chrome.js', 'year-control.js']
+const app = appSource.replace(readingMarker, ['reading.js', 'subject-reader.js', 'event-map.js', 'year-discovery.js', 'chrome.js', 'year-control.js']
   .map((file) => rd('src', file)).join('\n') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));
 const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
+const worldReading = JSON.parse(rd('data', 'world-reading.json'));
 const subjectBooks = loadSubjectBooks(root);
 const {names: polityNames} = loadPolityNames(root);
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
@@ -66,6 +67,19 @@ if (!problems.length) {
   world = JSON.parse(rd('data', 'world.json'));
   const ids = new Set(world.regions.map((r) => r.id));
   const entries = new Map(world.entries.map((e) => [e.id, e]));
+  const books = new Map(subjectBooks.map((book) => [book.id, book]));
+  const chapterEvents = new Set(subjectBooks.flatMap((book) => book.chapters.flatMap((chapter) => chapter.eventIds || [])));
+  for (const [id, path] of Object.entries(worldReading)) {
+    const [bookId, chapterId, extra] = path.split('/');
+    const event = entries.get(id);
+    const book = books.get(bookId);
+    const target = chapterId ? book?.chapters.find((chapter) => chapter.id === chapterId) : book;
+    const start = timelineNotes[id]?.start ?? event?.start;
+    const end = timelineNotes[id]?.end ?? (event?.point ? event.start : event?.end);
+    if (chapterEvents.has(id) || extra !== undefined || !event || !target || start > (target.to ?? Infinity) || end < target.from) {
+      problems.push('年份阅读入口无效：' + id + ' → ' + path);
+    }
+  }
   for (const [id, chapter] of worldEventChapters) {
     const event = entries.get(id);
     if (!event || chapter.year < event.start || chapter.year > (event.point ? event.start : event.end)) {
@@ -122,6 +136,7 @@ const page = (atlasJson, reliefB64, polityB64) => {
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
   h = put(h, '/*SUBJECT_BOOKS*/', JSON.stringify(subjectBooks).replace(/</g, '\\u003c'));
   h = put(h, '/*TIMELINE_NOTES*/', JSON.stringify(timelineNotes).replace(/</g, '\\u003c'));
+  h = put(h, '/*WORLD_READING*/', JSON.stringify(worldReading).replace(/</g, '\\u003c'));
   return h;
 };
 

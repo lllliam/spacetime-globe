@@ -53,7 +53,7 @@ function openBook(fromOffset = null) {
   if (!ent) return;
   beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent));
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo = null, entryYear = state.year} = {}) {
   pauseGlobe();
   reading.snapshot = {
     year: state.year, layerId: state.layerId, focus: state.focus && { ...state.focus },
@@ -69,8 +69,9 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null) {
   reading.catalogScroll = 0;
   reading.topic = topic;
   reading.subject = subject;
-  reading.year = state.year;
+  reading.year = entryYear;
   reading.trigger = document.activeElement;
+  reading.returnTo = returnTo;
   const saved = reading.catalog || subject ? null : readingPositions.get(readingKey());
   reading.detail = chapter || (saved ? saved.detail : null);
   reading.scroll = saved ? saved.scroll : 0;
@@ -80,7 +81,6 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null) {
 }
 function showReader(fromOffset) {
   closeYearControl();
-  stopTime();
   closeView(false);
   bookEl.hidden = false;
   readerLastDrag = -Infinity;
@@ -397,7 +397,7 @@ function readingGoBack() {
   } else if (reading.detail !== null) readingIndex();
   else collapseReader();
 }
-function closeReader() {
+function closeReader({restore = true} = {}) {
   if (!reading.active) return;
   rememberReading();
   stopReaderMotion();
@@ -416,6 +416,9 @@ function closeReader() {
   applySheetOffset(readerRestOffset(), false);
   sheetScroll.scrollTop = scroll;
   readingBackground(false);
+  const returnTo = reading.returnTo;
+  reading.returnTo = null;
+  if (restore && returnTo) { returnTo(); invalidate(); return; }
   const fallback = sheetInner.querySelector('[data-read-subject]') || grabEl;
   (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
   invalidate();

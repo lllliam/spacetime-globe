@@ -1649,7 +1649,7 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
-  if (worldEvent) return;
+  if (worldEvent || chrome.natural) return;
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id, mapPointAt(sx, sy));
@@ -1912,57 +1912,6 @@ const KIND = {
 };
 const kindOf = (e) => KIND[e.kind] || KIND.other;
 const kindColor = (e) => kindOf(e)[1];
-function dateOf(e) { return e.point || e.start === e.end ? fmtYear(e.start) + ' 年' : fmtYear(e.start) + '–' + fmtYear(e.end); }
-
-/* ───────────── 13. 全景列表 ───────────── */
-function openWorld() {
-  const [a, b] = windowOf(state.year);
-  const oa = ord(a), endOfRange = ord(b) + 1, t = ord(state.year);
-  const list = [];
-  for (const e of entries) if (e.t1 >= oa && e.t0 < endOfRange) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
-  list.sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0);
-  const groups = new Map();
-  for (const row of list) {
-    let g = row.e.regionRef || regionById.get(row.e.region);
-    let guard = 0;
-    while (g && g.parent && guard++ < 8) g = regionById.get(g.parent) || g;
-    const key = g?.zh || '其他';
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(row.e);
-  }
-  overlayTitle.textContent = state.year >= YMAX ? '近 30 年的世界' : fmtYear(state.year) + ' 年的世界';
-  overlaySub.textContent = '点一项查看地点或相关地区';
-  overlaySub.hidden = !list.length;
-  if (!list.length) {
-    overlayBody.innerHTML = '<p class="wempty">这个时段还没有收录条目。</p>';
-  } else {
-    let html = '';
-    for (const [gname, rows] of [...groups.entries()].sort((x, y) => y[1].length - x[1].length)) {
-      html += '<h2 class="wgroup">' + esc(gname) + '</h2>';
-      for (const e of rows) {
-        const r = regionById.get(e.region) || {};
-        const year = clamp(state.year, e.start, e.point ? e.start : e.end);
-        const story = worldEventTarget(e, year)?.chapter.mapStory;
-        const place = story?.title || r.zh || '地点未详';
-        html += '<button type="button" class="wrow" data-event="' + esc(e.id) + '">' +
-          '<span class="t">' + esc(timelineItem(e).title || e.zh) + '<span class="m">' + esc(place) + '</span></span>' +
-          '<span class="y">' + esc(dateOf(e)) + '</span></button>';
-      }
-    }
-    overlayBody.innerHTML = html;
-  }
-  overlay.hidden = false;
-  overlayBody.scrollTop = 0;
-}
-overlayBody.addEventListener('click', (e) => {
-  const row = e.target.closest('[data-event]');
-  if (!row) return;
-  openWorldEvent(entries.find((entry) => String(entry.id) === row.dataset.event), row);
-});
-const closeWorld = () => { if (!overlay.hidden) { overlay.hidden = true; invalidate(); } };
-el('overlay-close').addEventListener('click', closeWorld);
-// 年份入口由 chrome.js 打开时间轴；全景资料从视图面板进入。
-
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {
   if (state.layerId === id) return;
@@ -2005,6 +1954,10 @@ addEventListener('keydown', (e) => {
     return;
   }
   if (worldEvent && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+  if (!overlay.hidden) {
+    if (e.key === 'Escape') { e.preventDefault(); closeWorld(true); }
+    return;
+  }
   if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || chrome.panel) return;
   const step = e.shiftKey ? 20 : 1;
   if (e.key === 'ArrowLeft') { stepYear(-step); e.preventDefault(); }

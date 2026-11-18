@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开观察方式"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开地球视图" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
@@ -38,23 +38,27 @@
   <div id="sub" role="status" hidden></div>
 </div>
 <div id="view-shade" hidden></div>
-<section id="view-panel" hidden role="dialog" aria-label="观察地球">
-  <header><h2>观察地球</h2><button id="view-close" type="button" aria-label="关闭视图选项">×</button></header>
-  <div id="view-modes" role="group" aria-label="边界与底图"></div>
-  <div class="view-switches">
-    <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i></i></button>
-    <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i></i></button>
+<section id="view-panel" hidden role="dialog" aria-modal="true" aria-labelledby="view-title">
+  <header id="view-head">
+    <h2 id="view-title">地球视图</h2>
+    <button id="view-close" type="button" aria-label="关闭地球视图">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+    </button>
+  </header>
+  <div id="view-modes" role="group" aria-label="地图显示方式">
+    <button type="button" data-view="history" aria-pressed="true" aria-describedby="view-caption">随年份</button>
+    <button type="button" data-view="modern" aria-pressed="false" aria-describedby="view-caption">现代边界</button>
+    <button type="button" data-view="nature" aria-pressed="false" aria-describedby="view-caption">地形</button>
   </div>
-  <nav><button id="reset-view" type="button">恢复视角</button></nav>
-  <details class="view-time">
-    <summary>时间播放</summary>
-    <div>
-      <button id="time-play" type="button" aria-pressed="false">播放</button>
-      <label>步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label>
-      <button id="time-today" type="button">回到今天</button>
+  <p id="view-caption" role="status"></p>
+  <details id="view-options">
+    <summary>显示选项<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+    <div class="view-switches">
+      <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
+      <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
+      <button id="reset-view" type="button">恢复视角</button>
     </div>
   </details>
-  <p id="view-note">历史边界为资料重建，未覆盖的地区不代表无人居住。海岸与地形采用现代底图。</p>
 </section>
   <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
@@ -78,7 +82,9 @@
       <h1 id="overlay-title">这一年</h1>
       <p id="overlay-sub"></p>
     </div>
-    <button id="overlay-close" type="button" aria-label="关闭">×</button>
+    <button id="overlay-close" type="button" aria-label="返回地球">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+    </button>
   </div>
   <div id="overlay-body"></div>
 </div>
@@ -108,6 +114,7 @@
 <script id="topics" type="application/json">/*TOPICS*/</script>
 <script id="subject-books" type="application/json">/*SUBJECT_BOOKS*/</script>
 <script id="timeline-notes" type="application/json">/*TIMELINE_NOTES*/</script>
+<script id="world-reading" type="application/json">/*WORLD_READING*/</script>
 <script>
 /*APP*/
 </script>

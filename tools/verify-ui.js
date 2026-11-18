@@ -223,9 +223,27 @@ async function main() {
   check('首页默认只显示原有年份', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && !document.querySelector('#dock,#track') && !__t.yearControl.browsing"));
   await js("__t.setYear(1900)");
   await tap(...Object.values(await pointOf('#year')));
-  check('轻点年份打开当年全球事件表', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年的世界' && document.querySelectorAll('.wrow').length>0"));
+  check('轻点年份打开当年事件与阅读入口', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年' && document.querySelector('[data-world-read=i-140]')"));
   const worldView = () => js('JSON.stringify([__t.state.year,__t.state.layerId,__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])');
   const originalWorldView = await worldView();
+  await readingShot('year-discovery');
+  const directRead = '[data-world-read=i-140]';
+  const directScroll = await js(`document.querySelector('${directRead}').scrollIntoView({block:'center'});document.getElementById('overlay-body').scrollTop`);
+  await tap(...Object.values(await pointOf(directRead)));
+  await waitReader();
+  check('从年份事件直接打开清朝对应章，保持地球年份与镜头',originalWorldView===await worldView() && await js(`
+    __t.reading.subject?.id==='qing' && __t.reading.detail==='reforms' && !__t.worldEvent && document.getElementById('overlay').hidden`));
+  await js(`document.getElementById('reading-grab').click()`);
+  await waitReader();
+  check('收起由年份进入的书卷，原事件仍在同一位置并恢复焦点',await js(`
+    !document.getElementById('overlay').hidden && document.getElementById('overlay-body').scrollTop===${directScroll} &&
+      document.activeElement.matches('${directRead}')`));
+  check('长期背景折叠，与具体事件区分，而且可进入书卷',await js(`(() => {
+    const row=document.querySelector('[data-event=i-kr-empire]');
+    const background=row.closest('details');
+    const link=background.querySelector('[data-world-read=i-041]');
+    return !background.open && background.querySelector('summary').textContent==='长期背景' && link.textContent.includes('清朝');
+  })()`));
   const worldRow = 'button[data-event="i-140"]';
   await js(`document.querySelector('${worldRow}').scrollIntoView({block:'center'})`);
   const worldScroll = await js('document.getElementById("overlay-body").scrollTop');
@@ -431,23 +449,39 @@ async function main() {
   await sleep(300);
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");
   await hold(globePoint,true);
-  check('长按球体只打开观察方式',await js("!document.getElementById('view-panel').hidden && __t.sheet.detent==='hidden'"));
+  const panelOpened = await js(`({visible:!document.getElementById('view-panel').hidden,detent:__t.sheet.detent,
+    focus:document.activeElement.dataset.view,point:!!__t.mapPointAt(${globePoint.x},${globePoint.y})})`);
+  check('长按松手后保持地球视图打开，不触发地区摘要',panelOpened.visible && panelOpened.detent==='hidden' && panelOpened.focus==='history',panelOpened);
   await designShot('views');
+  await readingShot('globe-view-sheet');
+  const mapBeforeSwitch = await camera();
   await js("document.querySelector('[data-view=nature]').click()");
-  check('自然地理表面关闭行政着色', await js("__t.partition.lut.every(v=>v===0)"));
+  check('地形立刻关闭行政着色，面板留在原处', await js("__t.partition.lut.every(v=>v===0) && !document.getElementById('view-panel').hidden") &&
+    JSON.stringify(await camera())===JSON.stringify(mapBeforeSwitch));
+  await js("document.querySelector('#view-options summary').click();document.getElementById('toggle-grid').click()");
+  check('显示选项按需展开，经纬线开关即时生效并保存',await js(`document.getElementById('toggle-grid').getAttribute('aria-checked')==='true' &&
+    JSON.parse(localStorage.getItem('globe.display.v4')).grid && document.getElementById('toggle-labels').disabled`));
+  await js("document.getElementById('toggle-grid').click();document.querySelector('#view-options summary').click()");
+  const panelGrip = await js(`(() => { const r=document.getElementById('view-head').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}; })()`);
+  await drag(panelGrip.x,panelGrip.y,panelGrip.x,panelGrip.y+28);
+  check('小幅下拖回弹，继续预览地球',await js("!document.getElementById('view-panel').hidden && document.getElementById('view-panel').style.transform==='translateY(0px)'"));
+  await drag(panelGrip.x,panelGrip.y,panelGrip.x,panelGrip.y+105);
+  check('上沿下拉关闭视图并把焦点交回地球',await js("document.getElementById('view-panel').hidden && document.activeElement.id==='globe'"));
+  await tap(globePoint.x,globePoint.y);
+  check('地形视图轻点球体不会打开看不见的国家边界',await js("__t.sheet.detent==='hidden'"));
   await send('Input.dispatchMouseEvent',{type:'mousePressed',...globePoint,button:'right',buttons:2,clickCount:1});
   await send('Input.dispatchMouseEvent',{type:'mouseReleased',...globePoint,button:'right',buttons:0,clickCount:1});
   check('桌面右键可打开观察方式',await js("!document.getElementById('view-panel').hidden"));
-  await js("document.querySelector('[data-view=modern]').click()");
+  await js("document.querySelector('[data-view=modern]').click();document.getElementById('view-close').click()");
   await hold(await pointOf('#year'));
   await yearKey('ArrowLeft');
   check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1899"));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
-  await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.querySelector('.view-time').open=true;document.getElementById('time-play').click()");
-  await sleep(830);
-  check('次级播放入口可推进年份，地球首页保持收起状态',await js(`__t.state.year>=1909 && !__t.yearControl.browsing &&
-    document.getElementById('view-panel').hidden && document.getElementById('time-play').getAttribute('aria-pressed')==='true'`));
-  await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.getElementById('time-play').click();document.getElementById('view-close').click()");
+  await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.querySelector('[data-view=history]').click()");
+  check('随年份可在原年份恢复历史疆域，并把该方式作为当前选择',await js(`__t.state.year===1899 && __t.state.layerId==='polity' &&
+    document.querySelector('[data-view=history]').getAttribute('aria-pressed')==='true'`));
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
+  await sleep(260);
 
   /* 切到政权层 */
   await js(`window.__t.setYear(1900)`);

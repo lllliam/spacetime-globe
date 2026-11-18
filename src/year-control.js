@@ -20,7 +20,7 @@ function yearControlOpen() {
 function syncYearControl(year) {
   elYear.textContent = yearDisplay(year);
   const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
-  elYear.setAttribute('aria-label', spoken + '的全球事件。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
+  elYear.setAttribute('aria-label', spoken + '的事件与阅读。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
     yearPosition = ord(year);
     updateYearStride();
@@ -130,7 +130,6 @@ function dismissYearFromGlobe() {
 
 function showYearControl() {
   if (yearBrowsing) return;
-  stopTime();
   cancelYearTap();
   closeWorld();
   closeView(false);
@@ -146,7 +145,6 @@ function showYearControl() {
 
 function openYearInput() {
   closeYearControl({ finish: true });
-  stopTime();
   closeView(false);
   closeSheet();
   yearInput.value = state.year === YMAX ? String(YMAX) : fmtYear(state.year);
@@ -159,7 +157,6 @@ function openYearInput() {
 
 function openYearWorld() {
   closeYearControl({ finish: true });
-  stopTime();
   closeView(false);
   closeSheet();
   openWorld();

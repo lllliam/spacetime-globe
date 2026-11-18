@@ -1,21 +1,21 @@
-/* 时间和观察方式是两个独立入口，后续边界类型通过 VIEW_MODES 扩展。 */
-const VIEW_MODES = [
-  {id:'history', title:'历史疆域', note:'政权边界随年份变化 · 前3400—2024', layer:'polity'},
-  {id:'modern', title:'现代国家', note:'以现代边界定位历史', layer:'country'},
-  {id:'nature', title:'自然地理', note:'观察地形与海陆', layer:'country'},
-];
-const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:true, playing:false, playTimer:0};
-const viewPanel = el('view-panel');
-try { const p=JSON.parse(localStorage.getItem('globe.display.v4')||'{}'); chrome.labels=p.labels!==false; chrome.grid=p.grid===true; } catch {}
-el('view-modes').innerHTML = VIEW_MODES.map(m=>'<button type="button" data-view="'+m.id+'" aria-pressed="false"><i></i><span><strong>'+m.title+'</strong><small>'+m.note+'</small></span></button>').join('');
-function saveDisplay() { try { localStorage.setItem('globe.display.v4',JSON.stringify({labels:chrome.labels,grid:chrome.grid})); } catch {} }
+/* 地球视图只决定表面显示，年份仍由年份入口控制。 */
+const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:true};
+const viewPanel = el('view-panel'), viewHead = el('view-head'), viewShade = el('view-shade');
+const viewModes = [...viewPanel.querySelectorAll('[data-view]')];
+let viewMotion = null, viewDrag = null, viewOpeningPress = false;
+try {
+  const display = JSON.parse(localStorage.getItem('globe.display.v4') || '{}');
+  chrome.labels = display.labels !== false;
+  chrome.grid = display.grid === true;
+} catch {}
+
 function syncChrome() {
-  const mode=chrome.natural?'nature':state.layerId==='polity'?'history':'modern';
-  for(const b of viewPanel.querySelectorAll('[data-view]')) b.setAttribute('aria-pressed',String(b.dataset.view===mode));
-  el('toggle-labels').setAttribute('aria-checked',String(chrome.labels));
-  el('toggle-grid').setAttribute('aria-checked',String(chrome.grid));
-  el('time-play').textContent=chrome.playing?'暂停':state.year>=YMAX?'从头播放':'播放';
-  el('time-play').setAttribute('aria-pressed',String(chrome.playing));
+  const mode = chrome.natural ? 'nature' : chrome.followTime ? 'history' : 'modern';
+  for (const button of viewModes) button.setAttribute('aria-pressed', String(button.dataset.view === mode));
+  el('toggle-labels').setAttribute('aria-checked', String(chrome.labels));
+  el('toggle-labels').disabled = chrome.natural;
+  el('toggle-grid').setAttribute('aria-checked', String(chrome.grid));
+
   let status = '';
   if (state.layerId === 'polity') {
     if (state.year < -3400) status = '此前暂无疆域资料';
@@ -24,112 +24,181 @@ function syncChrome() {
   }
   elSub.textContent = status;
   elSub.hidden = !status;
+  el('view-caption').textContent = mode === 'nature' ? '浏览海陆与地形。'
+    : mode === 'modern' ? '以今天的边界定位，选年后仍使用这张底图。'
+    : status ? status + '。'
+    : state.layerId === 'country' ? '今天显示现代边界，选择过往年份可查看历史疆域。'
+    : '随年份显示历史疆域，点选可阅读。';
 }
-function stopTime() { clearInterval(chrome.playTimer); chrome.playing=false; syncChrome(); }
-function closeView(focus=true) {
-  chrome.panel=false; viewPanel.hidden=true; el('view-shade').hidden=true;
-  if(focus) canvas.focus({preventScroll:true});
-  invalidate();
-}
-function showView() {
-  if (worldEvent) return;
-  if (reading.active || !overlay.hidden) return;
-  closeYearControl(); closeSheet(); chrome.panel=true;
-  viewPanel.hidden=false; el('view-shade').hidden=false;
-  viewPanel.querySelector('[aria-pressed="true"]').focus({preventScroll:true});
-  invalidate();
-}
-function selectView(mode) {
-  const m=VIEW_MODES.find(m=>m.id===mode); if(!m)return;
-  stopTime(); chrome.followTime=false; chrome.natural=mode==='nature';
-  if(state.layerId===m.layer) onYearChanged(); else setLayer(m.layer);
-  if(mode==='history'&&!polityState.loaded) ensurePolity();
-  closeView();
-}
-function commitYear(year) {
-  if(!Number.isFinite(year))return;
-  year=clamp(Math.round(year),YMIN,YMAX); if(year===0)year=1;
-  if(chrome.followTime) {
-    chrome.natural=false;
-    const layer=year>POLITY_END?'country':'polity';
-    state.year=year;
-    if(state.layerId!==layer) {setLayer(layer);return;}
+
+function moveView(from, to, duration, onFinish) {
+  viewMotion?.cancel();
+  const translate = y => 'translateY(' + y + 'px)';
+  viewPanel.style.transform = translate(to);
+  if (reducedReadingMotion.matches) {
+    viewMotion = null;
+    onFinish?.();
+    return;
   }
-  state.year=year; onYearChanged();
+  const motion = viewPanel.animate([{transform:translate(from)}, {transform:translate(to)}], {
+    duration, easing:'cubic-bezier(.22,.76,.24,1)',
+  });
+  viewMotion = motion;
+  motion.onfinish = () => {
+    if (viewMotion !== motion) return;
+    viewMotion = null;
+    onFinish?.();
+  };
+}
+
+function closeView(focus = true) {
+  if (!chrome.panel) return;
+  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
+  chrome.panel = false;
+  viewDrag = null;
+  viewPanel.inert = true;
+  canvas.inert = el('hud').inert = false;
+  if (focus) canvas.focus({preventScroll:true});
+  moveView(offset, viewPanel.offsetHeight, 200, () => {
+    viewPanel.hidden = viewShade.hidden = true;
+    invalidate();
+  });
+}
+
+function focusActiveView() {
+  viewModes.find(button => button.getAttribute('aria-pressed') === 'true').focus({preventScroll:true});
+}
+
+function showView(fromHold = false) {
+  if (worldEvent || reading.active || !overlay.hidden || chrome.panel) return;
+  closeYearControl();
+  closeSheet();
+  cancelZoom();
+  stopPanReturn();
+  momentum.yaw = momentum.tilt = 0;
+  pointers.clear();
+  drag = pinch = null;
+  chrome.panel = true;
+  viewOpeningPress = fromHold;
+  viewPanel.style.transform = '';
+  viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
+  el('view-options').open = false;
+  viewPanel.scrollTop = 0;
+  canvas.inert = el('hud').inert = true;
+  syncChrome();
+  focusActiveView();
+  moveView(viewPanel.offsetHeight, 0, 290);
+  invalidate();
+}
+
+function selectView(mode) {
+  if (!viewModes.some(button => button.dataset.view === mode)) return;
+  chrome.followTime = mode === 'history';
+  chrome.natural = mode === 'nature';
+  commitYear(state.year);
+}
+
+function commitYear(year) {
+  if (!Number.isFinite(year)) return;
+  year = clamp(Math.round(year), YMIN, YMAX);
+  state.year = year === 0 ? 1 : year;
+  const layer = chrome.followTime && state.year <= POLITY_END ? 'polity' : 'country';
+  if (state.layerId !== layer) setLayer(layer);
+  else onYearChanged();
 }
 function stepYear(delta) { commitYear(yearAtIndex(ord(state.year) + delta)); }
+
 function resetView() {
-  closeView(false); closeSheet(); cancelZoom(); stopPanReturn();
-  momentum.yaw=momentum.tilt=0;
+  closeSheet(); cancelZoom(); stopPanReturn();
+  momentum.yaw = momentum.tilt = 0;
   Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
 }
-// Long press and ordinary activation are mutually exclusive. Dragging and extra
-// pointers cancel the hold before the globe's own rotation or pinch can finish.
-function bindHold(target, onHold, canStart = () => true) {
-  let press = null;
-  let ignoreClickUntil = 0;
-  function cancel(suppressClick = false) {
-    if (!press) return;
-    clearTimeout(press.timer);
-    if (suppressClick) ignoreClickUntil = performance.now() + 400;
-    press = null;
-  }
-  target.addEventListener('pointerdown', e => {
-    if (!e.isPrimary) { cancel(); return; }
-    if (e.button !== 0 || !canStart(e)) return;
-    ignoreClickUntil = 0;
-    const timer = setTimeout(() => {
-      ignoreClickUntil = Infinity;
-      onHold();
-    }, 500);
-    press = {id:e.pointerId, x:e.clientX, y:e.clientY, timer};
-    try { target.setPointerCapture(e.pointerId); } catch {}
-  });
-  target.addEventListener('pointermove', e => {
-    if (press?.id === e.pointerId && Math.hypot(e.clientX-press.x,e.clientY-press.y)>9) cancel(true);
-  });
-  for (const event of ['pointerup','pointercancel','lostpointercapture']) {
-    target.addEventListener(event, e => {
-      if (press?.id === e.pointerId) cancel(ignoreClickUntil === Infinity || event !== 'pointerup');
-    });
-  }
-  target.addEventListener('contextmenu', e => e.preventDefault());
-  return event => event.detail > 0 && performance.now() < ignoreClickUntil;
+
+let globeHold = null;
+function cancelGlobeHold() {
+  clearTimeout(globeHold?.timer);
+  globeHold = null;
 }
-bindHold(canvas, showView, e => !!mapPointAt(e.clientX,e.clientY));
-canvas.addEventListener('contextmenu', e => {
-  if (e.button === 2 && mapPointAt(e.clientX,e.clientY)) showView();
+canvas.addEventListener('pointerdown', event => {
+  cancelGlobeHold();
+  if (!event.isPrimary || event.button !== 0 || !mapPointAt(event.clientX, event.clientY)) return;
+  globeHold = {x:event.clientX, y:event.clientY, timer:setTimeout(() => { cancelGlobeHold(); showView(true); }, 500)};
 });
-canvas.addEventListener('keydown', e => {
-  if (e.key === 'ContextMenu' || (e.shiftKey && e.key === 'F10')) {
-    e.preventDefault();
+canvas.addEventListener('pointermove', event => {
+  if (globeHold && Math.hypot(event.clientX - globeHold.x, event.clientY - globeHold.y) > 9) cancelGlobeHold();
+});
+for (const type of ['pointerup','pointercancel','lostpointercapture']) canvas.addEventListener(type, cancelGlobeHold);
+canvas.addEventListener('contextmenu', event => {
+  event.preventDefault();
+  if (event.button === 2 && mapPointAt(event.clientX, event.clientY)) showView();
+});
+canvas.addEventListener('keydown', event => {
+  if (event.key === 'ContextMenu' || (event.shiftKey && event.key === 'F10')) {
+    event.preventDefault();
     showView();
   }
 });
-el('view-close').addEventListener('click',()=>closeView());
-el('view-shade').addEventListener('click',()=>closeView());
-viewPanel.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)selectView(b.dataset.view);});
-for(const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) el(id).addEventListener('click',()=>{chrome[key]=!chrome[key];saveDisplay();syncChrome();invalidate();});
-el('reset-view').addEventListener('click',resetView);
-el('time-play').addEventListener('click',()=>{
-  if(chrome.playing){stopTime();return;}
-  if(state.year>=YMAX)commitYear(YMIN);
-  chrome.playing=true; syncChrome(); closeView();
-  chrome.playTimer=setInterval(()=>{
-    if(document.hidden){stopTime();return;}
-    stepYear(Number(el('time-speed').value));
-    if(state.year>=YMAX)stopTime();
-  },700);
+
+viewHead.addEventListener('pointerdown', event => {
+  if (!chrome.panel || !event.isPrimary || event.button !== 0 || event.target.closest('button')) return;
+  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
+  viewPanel.style.transform = 'translateY(' + offset + 'px)';
+  viewMotion?.cancel();
+  viewMotion = null;
+  viewDrag = {id:event.pointerId, start:event.clientY - offset, offset};
+  viewHead.setPointerCapture(event.pointerId);
 });
-el('time-today').addEventListener('click',()=>{stopTime();chrome.followTime=true;commitYear(YMAX);closeView();});
-canvas.addEventListener('pointerdown',()=>closeView(false));
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTime();});
-// 观察面板限定Tab范围，Esc先关闭当前工具；输入年份时不把方向键交给地球。
-addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&chrome.panel){e.preventDefault();e.stopImmediatePropagation();closeView();return;}
-  if(chrome.panel&&e.key==='Tab'){
-    const a=[...viewPanel.querySelectorAll('button,a[href],summary,select')].filter(n=>n.getClientRects().length),first=a[0],last=a[a.length-1];
-    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+viewHead.addEventListener('pointermove', event => {
+  if (viewDrag?.id !== event.pointerId) return;
+  viewDrag.offset = Math.max(0, event.clientY - viewDrag.start);
+  viewPanel.style.transform = 'translateY(' + viewDrag.offset + 'px)';
+});
+for (const type of ['pointerup','pointercancel','lostpointercapture']) {
+  viewHead.addEventListener(type, event => {
+    if (viewDrag?.id !== event.pointerId) return;
+    const {offset} = viewDrag;
+    viewDrag = null;
+    if (type === 'pointerup' && offset >= 68) closeView();
+    else moveView(offset, 0, 200);
+  });
+}
+
+el('view-close').addEventListener('click', () => closeView());
+// 长按抬手时的合成点击不能操作刚出现的面板。
+addEventListener('pointerdown', () => { viewOpeningPress = false; }, true);
+addEventListener('click', event => {
+  if (!chrome.panel || !viewOpeningPress || !event.detail) return;
+  viewOpeningPress = false;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  if (!viewPanel.contains(document.activeElement)) focusActiveView();
+}, true);
+viewShade.addEventListener('pointerdown', event => {
+  if (event.isPrimary && event.button === 0) closeView();
+});
+for (const button of viewModes) button.addEventListener('click', () => selectView(button.dataset.view));
+for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
+  el(id).addEventListener('click', () => {
+    chrome[key] = !chrome[key];
+    try { localStorage.setItem('globe.display.v4', JSON.stringify({labels:chrome.labels, grid:chrome.grid})); } catch {}
+    syncChrome();
+    invalidate();
+  });
+}
+el('reset-view').addEventListener('click', resetView);
+document.addEventListener('visibilitychange', () => { if (document.hidden) cancelGlobeHold(); });
+
+addEventListener('keydown', event => {
+  if (!chrome.panel) return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    closeView();
+  } else if (event.key === 'Tab') {
+    const focusable = [...viewPanel.querySelectorAll('button:not(:disabled),summary')].filter(node => node.getClientRects().length);
+    const first = focusable[0], last = focusable.at(-1);
+    if (!viewPanel.contains(document.activeElement)) { event.preventDefault(); focusActiveView(); }
+    else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
-},true);
+}, true);

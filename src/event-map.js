@@ -178,18 +178,18 @@ function openWorldEvent(event, row) {
   const story = target?.chapter.mapStory;
   const region = event.regionRef || regionById.get(event.region);
   showEventMap({ event, target, row, scroll: overlayBody.scrollTop, year,
-    readingTarget: target ? subjectsByEvent.get(event.id) : null,
+    readingTarget: worldReadingTarget(event, year),
     title: timelineItem(event).title || event.zh,
     summary: story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
     participants: story?.participants, places: target && chapterPlaces(target.chapter),
-    back: state.year >= YMAX ? '返回近 30 年' : '返回 ' + fmtYear(state.year) + ' 年' });
+    back: state.year >= YMAX ? '返回近 ' + TODAY_SPAN + ' 年' : '返回 ' + fmtYear(state.year) + ' 年' });
 }
 
 function openReadingMap(map) {
   if (worldEvent || !reading.active) return;
   rememberReading();
-  const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail };
-  closeReader();
+  const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail, returnTo: reading.returnTo };
+  closeReader({restore: false});
   showEventMap({ ...map, historical: map.year >= -3400 && map.year <= POLITY_END, back: '返回本章',
     resume() {
       Object.assign(reading, session, {active:true});
@@ -217,15 +217,13 @@ function returnToWorld() {
   onYearChanged();
   layout();
   if (resume) { resume(); return; }
-  overlay.hidden = false;
-  overlayBody.scrollTop = scroll;
-  row.focus({ preventScroll: true });
+  restoreWorld(row, scroll);
 }
 
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
-  if (target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book);
+  if (target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, { entryYear:target.year });
 });
 eventMapPoints.addEventListener('click', (e) => {
   const mark = e.target.closest('[data-place]');
