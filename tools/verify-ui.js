@@ -367,6 +367,66 @@ async function main() {
   check('加载层与页面边缘同色，收起的半窗停止绘制',await js(`__t.bootBackground===getComputedStyle(document.body).backgroundColor &&
     getComputedStyle(document.documentElement).backgroundColor===__t.bootBackground &&
     getComputedStyle(document.getElementById('sheet')).visibility==='hidden'`));
+  const mapCamera = await js(`(() => {
+    const s = __t.state;
+    const camera = {yaw:s.yaw,tilt:s.tilt,zoom:s.zoom,panX:s.panX,panY:s.panY};
+    __t.setLayer('country');
+    Object.assign(s,{yaw:-1.8,tilt:.55,zoom:4.8,panX:0,panY:0});
+    Object.defineProperty(navigator,'standalone',{value:true,configurable:true});
+    return camera;
+  })()`);
+  const phoneSize = {width:402,height:812,screenWidth:402,screenHeight:874,deviceScaleFactor:3,mobile:true};
+  await send('Emulation.setDeviceMetricsOverride',phoneSize);
+  await js("document.documentElement.style.setProperty('--safe-t','62px');window.dispatchEvent(new Event('pageshow'))");
+  await sleep(300);
+  check('从主屏幕打开后按实际画布尺寸渲染，系统保留区渐隐衔接',await js(`(() => {
+    const globe=document.getElementById('globe'), vec=document.getElementById('vec');
+    return document.body.classList.contains('short-standalone-viewport') && __t.view.h===812 &&
+      globe.height===2436 && vec.height===2436 && getComputedStyle(document.body,'::after').pointerEvents==='none';
+  })()`));
+  await readingShot('globe-short-viewport');
+  await send('Emulation.setDeviceMetricsOverride',{...phoneSize,height:874});
+  await js(`window.__viewportHeightDescriptor=Object.getOwnPropertyDescriptor(window,'innerHeight');
+    Object.defineProperty(window,'innerHeight',{value:812,configurable:true});window.dispatchEvent(new Event('pageshow'))`);
+  await sleep(300);
+  check('恢复全屏时以 CSS 画布为准并移除渐隐',await js(`__t.view.h===874 && document.getElementById('vec').height===2622 &&
+    !document.body.classList.contains('short-standalone-viewport')`));
+  const labelAvoidance = await js(`(() => {
+    const ctx = document.getElementById('vec').getContext('2d'), hud = document.getElementById('hud');
+    const drawText = ctx.fillText;
+    let labels=[];
+    ctx.fillText = function(name,x,y){labels.push({name,x,y,width:this.measureText(name).width});};
+    try {
+      const rect = document.getElementById('year').getBoundingClientRect();
+      const x = (rect.left+rect.right)/2,y = (rect.top+rect.bottom)/2;
+      hud.style.visibility='hidden';
+      __t.drawVector();
+      const candidate = labels.sort((a,b)=>Math.hypot(a.x-x,a.y-y)-Math.hypot(b.x-x,b.y-y))[0];
+      if(!candidate) return {before:false,after:false};
+      __t.state.panX += x-candidate.x;
+      __t.state.panY += y-candidate.y;
+      labels=[];
+      __t.drawVector();
+      const before = labels.some((label)=>label.name===candidate.name && Math.abs(label.y-y)<1);
+      hud.style.visibility='';
+      labels=[];
+      __t.drawVector();
+      const after = labels.some((label)=>label.name===candidate.name);
+      return {name:candidate.name,before,after,remaining:labels.length};
+    } finally {
+      ctx.fillText=drawText;
+      hud.style.visibility='';
+      __t.redraw();
+    }
+  })()`);
+  check('地名与实测年份框相交时避让，其他地名保留',labelAvoidance.before && !labelAvoidance.after && labelAvoidance.remaining>0,labelAvoidance);
+  await sleep(80);
+  await readingShot('globe-year-labels');
+  await js(`if(window.__viewportHeightDescriptor) Object.defineProperty(window,'innerHeight',window.__viewportHeightDescriptor);
+    else delete window.innerHeight;
+    delete window.__viewportHeightDescriptor;delete navigator.standalone;document.documentElement.style.removeProperty('--safe-t');
+    Object.assign(__t.state,${JSON.stringify(mapCamera)});window.dispatchEvent(new Event('pageshow'));`);
+  await js("__t.setLayer('polity')");
   await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");

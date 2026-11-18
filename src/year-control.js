@@ -301,4 +301,5 @@ document.addEventListener('pointerdown', (event) => {
   if (event.isPrimary && event.target !== canvas && !yearControl.contains(event.target)) closeYearControl({ finish: true });
 }, true);
 addEventListener('resize', updateYearStride);
+yearStrip.addEventListener('transitionend', invalidate);
 document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });

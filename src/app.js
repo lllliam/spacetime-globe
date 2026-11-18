@@ -263,7 +263,7 @@ const state = {
   lift: 0,         // 政权层沿用上一年（超出数据范围）
 };
 
-const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1 };
+const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0 };
 
 /* ───────────── 4. 分区（栅格化 + 拾取 + 着色表） ───────────── */
 const idCanvas = document.createElement('canvas');
@@ -901,7 +901,22 @@ function rotation() {
   return mul3(Rx, Ry);      // 列主序
 }
 
-function drawVector() {
+function globeHudBounds() {
+  if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
+  const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
+  const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
+  if (!elSub.hidden) visible.push(elSub);
+  if (yearError.textContent) visible.push(yearError);
+  return visible.map((node) => node.getBoundingClientRect()).filter((rect) => rect.width && rect.height);
+}
+
+function overlapsGlobeHud(bounds, x, y, w, h) {
+  const gap = 5;
+  return bounds.some((rect) => x < rect.right + gap && x + w > rect.left - gap &&
+    y < rect.bottom + gap && y + h > rect.top - gap);
+}
+
+function drawVector(hudBounds = globeHudBounds()) {
   if (!vecCanvas.width) return;
   const dpr = view.dpr;
   vctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -1071,7 +1086,7 @@ function drawVector() {
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
   const maxLabels = !chrome.labels || chrome.natural || (state.zoom === 1 && !state.focus) ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
-  const uiTop = 95;
+  const uiTop = view.safeTop + 12;
   const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
@@ -1087,6 +1102,7 @@ function drawVector() {
       : '600 11.5px system-ui,sans-serif';
     const w = vctx.measureText(d.name).width + 12;
     const h = 16;
+    if (overlapsGlobeHud(hudBounds, d.x - w / 2, d.y - h / 2, w, h)) continue;
     const edgeX = Math.abs(d.x - cx) + w / 2;
     const edgeY = Math.abs(d.y - cy) + h / 2;
     if (edgeX * edgeX + edgeY * edgeY > (Rz - 5) ** 2) continue;
@@ -1181,10 +1197,19 @@ function initFallback() {
 
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
-  const w = innerWidth, h = innerHeight;
+  const { width, height } = canvas.getBoundingClientRect();
+  const w = Math.round(width), h = Math.round(height);
+  if (!w || !h) return;
   const heightChanged = h !== view.h;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
+  view.safeTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-t')) || 0;
+  // Some iOS home-screen launches reserve a strip outside the web viewport.
+  // Blend the drawable map into the page color when it cannot reach that strip.
+  const missingHeight = screen.height - h;
+  const shortStandalone = navigator.standalone === true && screen.height > screen.width &&
+    Math.abs(screen.width - w) <= 2 && missingHeight >= 24 && missingHeight <= 96;
+  document.body.classList.toggle('short-standalone-viewport', shortStandalone);
   view.cx = w / 2;
   view.cyBase = h * (h > w ? 0.515 : 0.46);
   view.cy = view.cyBase - (state.lift || 0);
@@ -1194,9 +1219,10 @@ function layout() {
   view.Rz = view.R * state.zoom;
 
   const r = glr || fallback;
-  if (r) r.resize(w, h, dpr);
-  vecCanvas.width = Math.max(1, Math.round(w * dpr));
-  vecCanvas.height = Math.max(1, Math.round(h * dpr));
+  const pixelsWide = Math.round(w * dpr), pixelsHigh = Math.round(h * dpr);
+  if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
+  if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
+  if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
   if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging && bookEl.hidden) {
     applySheetOffset(h, false);
   }
@@ -1454,8 +1480,9 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  drawVector();
-  drawEventMap();
+  const hudBounds = state.zoom !== 1 || state.focus || worldEvent ? globeHudBounds() : [];
+  drawVector(hudBounds);
+  drawEventMap(hudBounds);
 }
 
 /* ───────────── 11. 交互 ───────────── */
@@ -2033,13 +2060,20 @@ addEventListener('keydown', (e) => {
 });
 
 /* ───────────── 18. 尺寸 ───────────── */
-let resizeTimer = 0;
-addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => { layout(); }, 90);
+let viewportFrame = 0;
+function scheduleViewportLayout() {
+  if (viewportFrame) return;
+  viewportFrame = requestAnimationFrame(() => { viewportFrame = 0; layout(); });
+}
+addEventListener('resize', scheduleViewportLayout);
+addEventListener('orientationchange', scheduleViewportLayout);
+addEventListener('pageshow', scheduleViewportLayout);
+window.visualViewport?.addEventListener('resize', scheduleViewportLayout);
+new ResizeObserver(scheduleViewportLayout).observe(canvas);
+document.addEventListener('visibilitychange', () => {
+  lastT = 0;
+  if (!document.hidden) { scheduleViewportLayout(); invalidate(); }
 });
-addEventListener('orientationchange', () => setTimeout(() => { layout(); }, 260));
-document.addEventListener('visibilitychange', () => { lastT = 0; if (!document.hidden) invalidate(); });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
 /* ───────────── 19. 启动 ───────────── */

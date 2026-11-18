@@ -56,14 +56,15 @@ function prepareWorldEventPlaces(places) {
   state.tilt = Math.asin(clamp(direction[1], -1, 1));
   state.zoom = clamp(.5 / Math.max(maxAngle, .02), 1, 6);
 }
-function drawWorldEventPlaces(points, rotationMatrix) {
+function drawWorldEventPlaces(points, rotationMatrix, hudBounds) {
   const occupied = [];
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
   for (const { entry, p } of visible) {
     const { mark, leader, button } = entry;
-    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < 55 || p.y > view.h - 162;
+    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < view.safeTop + 12 || p.y > view.h - 162 ||
+      overlapsGlobeHud(hudBounds, p.x - 6, p.y - 6, 12, 12);
     if (mark.hidden) continue;
     const w = 18 + entry.name.length * 13, h = 32;
     const left = p.x < view.cx ? [-w - 10, 10] : [10, -w - 10];
@@ -74,7 +75,8 @@ function drawWorldEventPlaces(points, rotationMatrix) {
     ];
     const fits = ([dx, dy]) => {
       const x = p.x + dx, y = p.y + dy;
-      return x > 4 && x + w < view.w - 4 && y > 48 && y + h < view.h - 155 &&
+      return x > 4 && x + w < view.w - 4 && y > view.safeTop + 6 && y + h < view.h - 155 &&
+        !overlapsGlobeHud(hudBounds, x, y, w, h) &&
         !occupied.some((box) => x < box.x + box.w + 4 && x + w + 4 > box.x && y < box.y + box.h && y + h > box.y) &&
         !visible.some(({ entry: other, p: point }) => other !== entry && point.front &&
           point.x > x - 6 && point.x < x + w + 6 && point.y > y - 6 && point.y < y + h + 6);
@@ -93,11 +95,11 @@ function drawWorldEventPlaces(points, rotationMatrix) {
   }
 }
 
-function drawEventMap() {
+function drawEventMap(hudBounds) {
   if (!worldEvent || reading.active) return;
   const matrix = rotation();
   if (worldEvent.points) {
-    drawWorldEventPlaces(worldEvent.points, matrix);
+    drawWorldEventPlaces(worldEvent.points, matrix, hudBounds);
     return;
   }
   if (!worldEvent.regionVector) return;
