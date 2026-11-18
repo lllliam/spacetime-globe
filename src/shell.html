@@ -94,6 +94,13 @@
   <p>正在铺开地图…</p>
 </div>
 
+<header id="event-map-top" hidden>
+  <button id="event-map-return" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+    <span></span>
+  </button>
+  <p id="event-map-year" aria-label="观察年份"></p>
+</header>
 <div id="event-map-points" hidden></div>
 <section id="event-map-panel" aria-labelledby="event-map-title" hidden>
   <div class="event-map-head"><h2 id="event-map-title"></h2><button id="event-map-read" type="button" hidden>阅读正文</button></div>
@@ -102,7 +109,6 @@
     <summary><span id="event-participant-names"></span><span class="event-participant-action">参与方</span></summary>
     <dl id="event-participant-roles"></dl>
   </details>
-  <button id="event-map-return" type="button"></button>
 </section>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
@@ -113,6 +119,7 @@
 <script id="polity-names" type="application/json">/*POLITY_NAMES*/</script>
 <script id="topics" type="application/json">/*TOPICS*/</script>
 <script id="subject-books" type="application/json">/*SUBJECT_BOOKS*/</script>
+<script id="historical-scenes" type="application/json">/*HISTORICAL_SCENES*/</script>
 <script id="timeline-notes" type="application/json">/*TIMELINE_NOTES*/</script>
 <script id="world-reading" type="application/json">/*WORLD_READING*/</script>
 <script>

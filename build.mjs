@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { loadSubjectBooks } from './tools/subject-books.mjs';
 import { loadPolityNames } from './tools/polity-names.mjs';
+import { loadHistoricalScenes } from './tools/historical-scenes.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
@@ -26,6 +27,7 @@ const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('
 const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
 const worldReading = JSON.parse(rd('data', 'world-reading.json'));
 const subjectBooks = loadSubjectBooks(root);
+const historicalScenes = loadHistoricalScenes(root, subjectBooks, topics);
 const {names: polityNames} = loadPolityNames(root);
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
@@ -135,6 +137,7 @@ const page = (atlasJson, reliefB64, polityB64) => {
   h = put(h, '/*POLITY_NAMES*/', JSON.stringify([...polityNames]).replace(/</g, '\\u003c'));
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
   h = put(h, '/*SUBJECT_BOOKS*/', JSON.stringify(subjectBooks).replace(/</g, '\\u003c'));
+  h = put(h, '/*HISTORICAL_SCENES*/', JSON.stringify(historicalScenes).replace(/</g, '\\u003c'));
   h = put(h, '/*TIMELINE_NOTES*/', JSON.stringify(timelineNotes).replace(/</g, '\\u003c'));
   h = put(h, '/*WORLD_READING*/', JSON.stringify(worldReading).replace(/</g, '\\u003c'));
   return h;

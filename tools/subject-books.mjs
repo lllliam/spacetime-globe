@@ -54,14 +54,6 @@ export function loadSubjectBooks(root) {
         require(year >= chapter.from && year <= (chapter.to ?? Infinity) && !boundEvents.has(id), label + ' 事件 ' + id);
         boundEvents.add(id);
       }
-      if (chapter.map) {
-        const map = chapter.map;
-        require(map.title && map.summary && refs(map.refs) && validYear(map.year) && map.year >= chapter.from &&
-          map.year <= (chapter.to ?? Infinity) && map.places?.length &&
-          new Set(map.places.map((p) => p.id)).size === map.places.length &&
-          map.places.every((p) => p.id && p.name && p.role && Number.isFinite(p.lon) && Math.abs(p.lon) <= 180 &&
-            Number.isFinite(p.lat) && Math.abs(p.lat) <= 90), label + ' 地图');
-      }
       for (const link of chapter.related || []) {
         const target = link.book ? byId.get(link.book) : topics.get(link.topic);
         require(link.label && target && (!link.chapter || target.chapters.some((c) => c.id === link.chapter)), label + ' 关联');

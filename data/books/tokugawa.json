@@ -157,43 +157,17 @@
           ]
         }
       ],
-      "map": {
-        "year": 1853,
-        "title": "佩里来航时的江户湾",
-        "summary": "江户是幕府所在地，舰队出现在湾口浦贺一带，国书在附近久里滨递交。",
-        "places": [
-          {
-            "id": "edo",
-            "name": "江户",
-            "lon": 139.75,
-            "lat": 35.68,
-            "role": "幕府所在城市"
-          },
-          {
-            "id": "uraga",
-            "name": "浦贺",
-            "lon": 139.72,
-            "lat": 35.25,
-            "role": "舰队锚泊海域附近"
-          },
-          {
-            "id": "kurihama",
-            "name": "久里滨",
-            "lon": 139.71,
-            "lat": 35.23,
-            "role": "美方国书递交处附近"
-          }
-        ],
-        "refs": [
-          3,
-          4
-        ]
-      },
       "related": [
         {
           "topic": "east-asia-modern",
           "chapter": "meiji",
           "label": "幕府结束后，明治新政府怎样重组日本"
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "tokugawa-opening",
+          "after": 1
         }
       ]
     }

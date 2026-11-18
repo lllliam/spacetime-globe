@@ -895,6 +895,7 @@ function rotation() {
 }
 
 function globeHudBounds() {
+  if (worldEvent && !reading.active) return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
   const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
@@ -1078,7 +1079,8 @@ function drawVector(hudBounds = globeHudBounds()) {
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
-  const maxLabels = !chrome.labels || chrome.natural || (state.zoom === 1 && !state.focus) ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
+  const maxLabels = !chrome.labels || chrome.natural || worldEvent?.sceneId || (state.zoom === 1 && !state.focus)
+    ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
   const uiTop = view.safeTop + 12;
   const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
@@ -1649,7 +1651,8 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
-  if (worldEvent || chrome.natural) return;
+  if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
+  if (chrome.natural) return;
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id, mapPointAt(sx, sy));

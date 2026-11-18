@@ -1,4 +1,5 @@
 const subjectBooks = JSON.parse(inlineText('subject-books'));
+const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
 const subjectsById = new Map(subjectBooks.map((book) => [book.id, book]));
 const subjectsByPolity = new Map(subjectBooks.flatMap((book) => book.polityIds.map((id, i) =>
   [id, { book, name: book.polities[i] }])));
@@ -114,37 +115,46 @@ function renderSubjectOutline(book) {
     subjectNeighbors() + subjectLibraryLink();
 }
 
-function subjectMapForChapter(chapter) {
-  if (chapter.map) return chapter.map;
-  const target = chapter.eventIds?.map((id) => eventMapTargets.get(id)).find(Boolean);
-  if (!target) return null;
-  const story = target.chapter.mapStory;
-  return { year: target.chapter.year, title: story.title, summary: story.summary,
-    places: chapterPlaces(target.chapter), participants: story.participants };
+function sceneButton(scene) {
+  const places = scene.places.slice(0, 2).map(place => place.name).join('、') + (scene.places.length > 2 ? '等地点' : '');
+  return '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) + '">' +
+    '<span><strong>在地球上看 · ' + esc(scene.title) + '</strong><small>' +
+    esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small></span>' +
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/><path d="M3.5 12h17M5.5 7.5h13m-13 9h13"/></svg></button>';
 }
 
 function renderSubjectChapter(book, chapter) {
   const index = book.chapters.indexOf(chapter);
   const next = book.chapters[index + 1];
   const previous = book.chapters[index - 1];
-  const map = !worldEvent && subjectMapForChapter(chapter);
-  const refs = [...new Set(chapter.paragraphs.flatMap((p) => p.refs).concat(chapter.map?.refs || []))];
+  const scenes = (chapter.sceneRefs || []).map(ref => ({after:ref.after, scene:historicalScenes.get(ref.id)}));
+  const refs = [...new Set(chapter.paragraphs.flatMap((p) => p.refs))];
   const references = new Map(refs.map((id, i) => [id, i]));
+  const sources = refs.map(id => book.sources[id]);
+  const urls = new Set(sources.map(source => source.url));
+  for (const {scene} of scenes) {
+    for (const source of scene.sources) {
+      if (urls.has(source.url)) continue;
+      urls.add(source.url);
+      sources.push(source);
+    }
+  }
   const related = (chapter.related || []).map((link) => {
     const attrs = link.book ? ' data-subject-book="' + esc(link.book) + '" data-subject-chapter="' + esc(link.chapter || '') + '"'
       : ' data-reading-topic="' + esc(link.topic) + '" data-reading-chapter="' + esc(link.chapter || '') + '"';
     return '<button type="button"' + attrs + '>' + esc(link.label) + readingArrow + '</button>';
   }).join('');
-  return '<p class="subject-book-label">' + esc(book.title) + '</p>' + readingHeading(chapter.title, subjectYears(chapter)) +
-    '<article class="subject-prose">' + chapter.paragraphs.map((paragraph) =>
-      '<p>' + esc(paragraph.text) + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>').join('') + '</article>' +
+  return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
+    readingHeading(chapter.title, subjectYears(chapter)) +
+    '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) =>
+      '<p>' + esc(paragraph.text) + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
+      (!worldEvent ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '')).join('') + '</article>' +
     (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
       (next ? subjectChapterButton(next.id, '下一章 · ' + next.title) : '') +
       (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' : '') +
-    (map || related ? '<details class="subject-secondary"><summary>地图与延伸阅读</summary><nav class="reading-next">' +
-      (map ? '<button type="button" data-subject-map>看 ' + fmtYear(map.year) + ' 年地图 · ' + esc(map.title) + readingArrow + '</button>' : '') +
+    (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
       related + '</nav></details>' : '') +
-    sourcesMarkup(refs.map((id) => book.sources[id]));
+    sourcesMarkup(sources);
 }
 
 function renderSubjectLibrary() {
@@ -176,9 +186,9 @@ function handleSubjectButton(button) {
   } else if (button.hasAttribute('data-atlas-entity')) {
     const entity = entityByKey('polity', Number(button.dataset.atlasEntity));
     if (entity) followSubject({ entity, book: subjectBookForEntity(entity, reading.year) });
-  } else if (button.hasAttribute('data-subject-map')) {
+  } else if (button.hasAttribute('data-subject-scene')) {
     const chapter = reading.subject?.chapters.find((c) => c.id === reading.detail);
-    const map = chapter && subjectMapForChapter(chapter);
-    if (map) openReadingMap(map);
+    const id = button.dataset.subjectScene;
+    if (chapter?.sceneRefs?.some(ref => ref.id === id)) openReadingScene(historicalScenes.get(id), button);
   }
 }

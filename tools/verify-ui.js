@@ -679,20 +679,44 @@ async function main() {
     !!document.querySelector('.reading-refs a') && !!document.querySelector('.reading-sources a')`));
   await js(`document.querySelector('.subject-chapter-next [data-reading-detail=two-capitals]').click()`);
   check('正文可沿章节顺读，地球不自动跳年',await js(`__t.reading.detail==='two-capitals' && __t.state.year===1500`));
-  await readingShot('ming-chapter');
-  await js(`document.querySelector('[data-subject-map]').closest('details').open=true;
-    document.querySelector('[data-subject-map]').scrollIntoView({block:'center'})`);
+  const jingnan = '[data-subject-scene=jingnan-campaign]';
+  const yongle = '[data-subject-scene=yongle-capitals]';
+  check('两处场景分别跟随正文段落，阅读时地球不自动打开',await js(`(() => {
+    const first=document.querySelector('${jingnan}'), second=document.querySelector('${yongle}');
+    return !__t.worldEvent && first.previousElementSibling.textContent.includes('燕王') &&
+      second.previousElementSibling.textContent.includes('首都北移') && first.nextElementSibling.tagName==='P';
+  })()`));
+  await js(`document.querySelector('${jingnan}').scrollIntoView({block:'center'})`);
+  await readingShot('ming-inline-scene');
   const chapterScroll = await js('document.getElementById("book-body").scrollTop');
-  await js(`document.querySelector('[data-subject-map]').click()`);
+  await js(`document.querySelector('${jingnan}').click()`);
   await sleep(300);
-  check('从靖难之役打开 1402 年地图并标出北平与南京', await js(`__t.state.year===1402 && __t.state.layerId==='polity' &&
-    !__t.reading.active && ['北平','南京'].every(name=>[...document.querySelectorAll('.event-map-point button')].some(n=>n.textContent===name))`));
-  await readingShot('ming-chapter-map');
+  check('进入 1402 年场景，固定年份与返回正文在顶部，北平和南京可点选', await js(`
+    __t.worldEvent.sceneId==='jingnan-campaign' && __t.state.year===1402 && __t.state.layerId==='polity' &&
+    !__t.reading.active && document.getElementById('event-map-year').textContent==='1402' &&
+    document.getElementById('event-map-return').textContent.trim()==='返回正文' &&
+    getComputedStyle(document.getElementById('hud')).visibility==='hidden' &&
+    ['北平','南京'].every(name=>[...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].some(n=>n.textContent===name))`));
+  await readingShot('ming-observation');
+  await js(`document.querySelector('.event-map-point button[data-place=nanjing]').click()`);
+  check('点选南京时显示其历史作用并隐藏多余操作',await js(`document.getElementById('event-map-note').textContent.includes('建文帝朝廷') &&
+    document.getElementById('event-map-participants').hidden && document.getElementById('event-map-read').hidden`));
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',windowsVirtualKeyCode:39});
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'F2',windowsVirtualKeyCode:113});
+  const beforeSceneDrag=await camera();
+  await drag(115,285,171,295);
+  check('观察可旋转，键盘不会改变历史场景年份或进入输入', (await camera()).yaw!==beforeSceneDrag.yaw &&
+    await js(`__t.state.year===1402 && document.getElementById('year-form').hidden`));
   await js(`document.getElementById('event-map-return').click()`);
   await waitReader();
   check('从地图返回原章和原滚动位置，同时恢复地球镜头',original===await cameraSnapshot() &&
     await js(`__t.reading.detail==='two-capitals' && Math.abs(document.getElementById('book-body').scrollTop-${chapterScroll})<2 &&
-      document.activeElement.hasAttribute('data-subject-map')`));
+      __t.reading.year===1500 && document.activeElement.matches('${jingnan}')`));
+  await js(`document.querySelector('${yongle}').click()`);
+  check('同章可明确选择第二个场景',await js(`__t.state.year===1421 && __t.worldEvent.sceneId==='yongle-capitals' &&
+    document.getElementById('event-map-title').textContent==='永乐迁都'`));
+  await js(`document.getElementById('event-map-return').click()`);
+  await waitReader();
   await js('__t.closeReader();__t.closeSheet()');
   await openMing(1600);
   const ming1600=await readOutline();
@@ -839,7 +863,8 @@ async function main() {
         row.click(); count++;
         const prose=document.querySelectorAll('.subject-prose p');
         if(prose.length!==chapter.paragraphs.length || !document.querySelector('.reading-sources a') ||
-          (chapter.map && !document.querySelector('[data-subject-map]')))bad.push(book.id+'/'+chapter.id);
+          (chapter.sceneRefs || []).some(ref=>!document.querySelector('[data-subject-scene="'+ref.id+'"]')))
+          bad.push(book.id+'/'+chapter.id);
         document.getElementById('reading-back').click();
       }
       document.getElementById('reading-back').click();

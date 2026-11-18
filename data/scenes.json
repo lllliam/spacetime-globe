@@ -1,0 +1,408 @@
+[
+  {
+    "id": "achaemenid-darius",
+    "year": -500,
+    "title": "苏萨与波斯波利斯",
+    "summary": "波斯王室在帝国不同地点处理政务、修建宫殿和举行仪式。",
+    "places": [
+      {
+        "id": "susa",
+        "name": "苏萨",
+        "lon": 48.25,
+        "lat": 32.19,
+        "role": "大流士主持修建王宫的城市"
+      },
+      {
+        "id": "persepolis",
+        "name": "波斯波利斯",
+        "lon": 52.89,
+        "lat": 29.94,
+        "role": "王室举行仪式的中心，也出土了大量口粮泥版"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：阿契美尼德波斯帝国",
+        "url": "https://www.metmuseum.org/de/essays/the-achaemenid-persian-empire-550-330-b-c"
+      },
+      {
+        "title": "芝加哥大学古代文化研究所：波斯波利斯城防泥版",
+        "url": "https://isac.uchicago.edu/publications/persepolis-fortification-tablets"
+      }
+    ]
+  },
+  {
+    "id": "aztec-league",
+    "year": 1428,
+    "title": "特斯科科湖边的三个盟城",
+    "summary": "特诺奇蒂特兰、特斯科科和特拉科潘分别位于湖中、湖东和湖西。坐标对应遗址或历史城区。",
+    "places": [
+      {
+        "id": "tenochtitlan",
+        "name": "特诺奇蒂特兰",
+        "lon": -99.131,
+        "lat": 19.435,
+        "role": "同盟中心之一，今墨西哥城大神庙遗址附近"
+      },
+      {
+        "id": "texcoco",
+        "name": "特斯科科",
+        "lon": -98.88,
+        "lat": 19.51,
+        "role": "湖东的同盟城邦"
+      },
+      {
+        "id": "tlacopan",
+        "name": "特拉科潘",
+        "lon": -99.19,
+        "lat": 19.46,
+        "role": "湖西的同盟城邦，今塔库瓦一带"
+      }
+    ],
+    "sources": [
+      {
+        "title": "墨西哥国立人类学与历史研究所：特诺奇蒂特兰大神庙遗址",
+        "url": "https://www.difusion.inah.gob.mx/images/guias/115_zona-arqueologica-templo-mayor.pdf"
+      },
+      {
+        "title": "大都会艺术博物馆：特诺奇蒂特兰",
+        "url": "https://www.metmuseum.org/essays/tenochtitlan"
+      },
+      {
+        "title": "墨西哥国立人类学与历史研究所：墨西哥的历史与多样性",
+        "url": "https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A843/datastream/OBJ/view"
+      }
+    ]
+  },
+  {
+    "id": "inca-cajamarca",
+    "year": 1533,
+    "title": "从卡哈马卡到库斯科",
+    "summary": "阿塔瓦尔帕在卡哈马卡被扣押。此后西班牙人及其盟友沿印加交通网络进入帝国都城库斯科。",
+    "places": [
+      {
+        "id": "cajamarca",
+        "name": "卡哈马卡",
+        "lon": -78.51,
+        "lat": -7.16,
+        "role": "阿塔瓦尔帕被扣押和处死的城市"
+      },
+      {
+        "id": "cusco",
+        "name": "库斯科",
+        "lon": -71.98,
+        "lat": -13.52,
+        "role": "印加都城，1533 年失守"
+      }
+    ],
+    "sources": [
+      {
+        "title": "史密森尼国家美洲印第安人博物馆：道路的行政与礼仪功能",
+        "url": "https://americanindian.si.edu/inkaroad/engineering/activity/great-inka-road.html"
+      },
+      {
+        "title": "史密森尼国家美洲印第安人博物馆：征服与道路",
+        "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html"
+      }
+    ]
+  },
+  {
+    "id": "khmer-capitals",
+    "year": 928,
+    "title": "吴哥与贡开的早期都城遗址",
+    "summary": "十世纪一度出现两个王权中心。贡开成为阇耶跋摩四世的都城，王权后来又回到吴哥。",
+    "places": [
+      {
+        "id": "angkor",
+        "name": "吴哥",
+        "lon": 103.87,
+        "lat": 13.44,
+        "role": "早期王权中心所在区域"
+      },
+      {
+        "id": "koh-ker",
+        "name": "贡开",
+        "lon": 104.54,
+        "lat": 13.78,
+        "role": "阇耶跋摩四世营建的政治中心"
+      }
+    ],
+    "sources": [
+      {
+        "title": "联合国教科文组织：吴哥世界遗产",
+        "url": "https://whc.unesco.org/en/list/668/"
+      },
+      {
+        "title": "柬埔寨世界遗产申报资料：贡开遗址与早期高棉都城",
+        "url": "https://whc.unesco.org/document/186494"
+      }
+    ]
+  },
+  {
+    "id": "mali-pilgrimage",
+    "year": 1324,
+    "title": "曼萨穆萨的朝觐与沿途联系",
+    "summary": "地图标出朝觐经停地、目的地和回国后与王室营建传统有关的城市。",
+    "places": [
+      {
+        "id": "cairo",
+        "name": "开罗",
+        "lon": 31.24,
+        "lat": 30.05,
+        "role": "朝觐经过的城市，留下关于马里王室的见闻"
+      },
+      {
+        "id": "mecca",
+        "name": "麦加",
+        "lon": 39.83,
+        "lat": 21.42,
+        "role": "朝觐目的地"
+      },
+      {
+        "id": "timbuktu",
+        "name": "廷巴克图",
+        "lon": -3.01,
+        "lat": 16.77,
+        "role": "与曼萨穆萨回国后的宗教营建传统相连"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：西部与中部苏丹 1000—1400 年",
+        "url": "https://www.metmuseum.org/ru/toah/ht/07/afu.html"
+      },
+      {
+        "title": "大都会艺术博物馆：萨赫勒过去如何被看见",
+        "url": "https://www.metmuseum.org/it/perspectives/visualizing-a-sahelian-past"
+      }
+    ]
+  },
+  {
+    "id": "jingnan-campaign",
+    "year": 1402,
+    "title": "靖难之役",
+    "summary": "北平是燕王起兵的根据地，南京是建文帝朝廷所在。",
+    "places": [
+      {
+        "id": "beiping",
+        "name": "北平",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "朱棣以北平为根据地，于 1399 年起兵。"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "建文帝朝廷所在，1402 年燕军攻入这座都城。"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：中国 1400—1600 年",
+        "url": "https://www.metmuseum.org/zh/toah/ht/08/eac"
+      },
+      {
+        "title": "大都会艺术博物馆：永乐朝的宫廷艺术与对外交往",
+        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf"
+      },
+      {
+        "title": "哥伦比亚大学：带注释的中国历史年表",
+        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
+      },
+      {
+        "title": "故宫博物院：永乐皇帝",
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+      },
+      {
+        "title": "故宫博物院：靖难之役",
+        "url": "https://www.dpm.org.cn/lemmas/243017.html"
+      }
+    ],
+    "from": 1399,
+    "to": 1402
+  },
+  {
+    "id": "yongle-capitals",
+    "year": 1421,
+    "title": "永乐迁都",
+    "summary": "北京成为京师，南京仍是陪都。两城延续了不同的行政职能。",
+    "places": [
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "永乐十九年正式成为京师，紫禁城已在前一年建成。"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "明初京师，迁都后保留陪都地位。"
+      }
+    ],
+    "sources": [
+      {
+        "title": "故宫博物院：永乐皇帝",
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+      },
+      {
+        "title": "故宫博物院：《燕王府与紫禁城》",
+        "url": "https://www.dpm.org.cn/court/talk/203529.html"
+      }
+    ]
+  },
+  {
+    "id": "mughal-akbar",
+    "year": 1585,
+    "title": "阿克巴的两处宫廷中心",
+    "summary": "法泰赫普尔西格里是阿克巴主持营建的都城。1585 年，拉合尔成为主要驻地。",
+    "places": [
+      {
+        "id": "sikri",
+        "name": "法泰赫普尔西格里",
+        "lon": 77.66,
+        "lat": 27.1,
+        "role": "阿克巴在十六世纪七十年代营建的都城"
+      },
+      {
+        "id": "lahore",
+        "name": "拉合尔",
+        "lon": 74.31,
+        "lat": 31.59,
+        "role": "阿克巴此后主要驻留的城市"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：1600 年以前的莫卧儿艺术",
+        "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600"
+      },
+      {
+        "title": "联合国教科文组织：法泰赫普尔西格里",
+        "url": "https://whc.unesco.org/en/list/255/"
+      }
+    ]
+  },
+  {
+    "id": "ottoman-constantinople",
+    "year": 1453,
+    "title": "海峡上的君士坦丁堡",
+    "summary": "奥斯曼旧都埃迪尔内与后来成为帝国首都的君士坦丁堡，同处巴尔干与海峡相接的地带。",
+    "places": [
+      {
+        "id": "edirne",
+        "name": "埃迪尔内",
+        "lon": 26.56,
+        "lat": 41.68,
+        "role": "攻取君士坦丁堡前的奥斯曼政治中心"
+      },
+      {
+        "id": "constantinople",
+        "name": "君士坦丁堡",
+        "lon": 28.98,
+        "lat": 41.01,
+        "role": "1453 年被穆罕默德二世攻克，随后成为新都"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：巴尔干半岛 1400—1600 年",
+        "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb"
+      },
+      {
+        "title": "美国国会图书馆：奥斯曼土耳其研究参考",
+        "url": "https://guides.loc.gov/ottoman-turkish/reference"
+      }
+    ]
+  },
+  {
+    "id": "tang-frontier",
+    "year": 756,
+    "title": "安史之乱中的东北军镇与两京",
+    "summary": "安禄山从范阳起兵，叛军先占洛阳，再进入长安。",
+    "places": [
+      {
+        "id": "fanyang",
+        "name": "范阳",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "安禄山起兵时的东北军镇，约在今天的北京城区"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.62,
+        "lat": 34.73,
+        "role": "叛军先取得的东都，标出隋唐洛阳城区域"
+      },
+      {
+        "id": "changan",
+        "name": "长安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "756 年失守的唐都，标出隋唐长安城区"
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：中国 500—1000 年",
+        "url": "https://www.metmuseum.org/de/toah/ht/06/eac.html"
+      },
+      {
+        "title": "哥伦比亚大学：中国带注释历史年表",
+        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
+      }
+    ]
+  },
+  {
+    "id": "tokugawa-opening",
+    "year": 1853,
+    "title": "佩里来航时的江户湾",
+    "summary": "江户是幕府所在地，舰队出现在湾口浦贺一带，国书在附近久里滨递交。",
+    "places": [
+      {
+        "id": "edo",
+        "name": "江户",
+        "lon": 139.75,
+        "lat": 35.68,
+        "role": "幕府所在城市"
+      },
+      {
+        "id": "uraga",
+        "name": "浦贺",
+        "lon": 139.72,
+        "lat": 35.25,
+        "role": "舰队锚泊海域附近"
+      },
+      {
+        "id": "kurihama",
+        "name": "久里滨",
+        "lon": 139.71,
+        "lat": 35.23,
+        "role": "美方国书递交处附近"
+      }
+    ],
+    "sources": [
+      {
+        "title": "日本国立国会图书馆：开国",
+        "url": "https://www.ndl.go.jp/modern/cha1/description01.html"
+      },
+      {
+        "title": "日本国立公文书馆：幕末年表",
+        "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html"
+      }
+    ]
+  },
+  {
+    "id": "nanjing-treaty-ports",
+    "topicEvent": "i-138"
+  },
+  {
+    "id": "boxer-crisis-1900",
+    "topicEvent": "i-140"
+  }
+]

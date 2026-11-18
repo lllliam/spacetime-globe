@@ -237,7 +237,7 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 }
 
 elYear.addEventListener('click', (event) => {
-  if (worldEvent) { returnToWorld(); return; }
+  if (worldEvent) return;
   if (reading.active || !yearForm.hidden) return;
   if (event.detail === 0) { openYearWorld(); return; }
   if (suppressYearClick) return;

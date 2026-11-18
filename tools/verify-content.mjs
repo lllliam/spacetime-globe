@@ -4,6 +4,7 @@ import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadSubjectBooks} from './subject-books.mjs';
 import {loadPolityNames} from './polity-names.mjs';
+import {loadHistoricalScenes} from './historical-scenes.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const subjectBooks = loadSubjectBooks(root);
 const polityNames = loadPolityNames(root);
@@ -11,6 +12,7 @@ const bookChapters = subjectBooks.reduce((total, book) => total + book.chapters.
 const read = (f) => JSON.parse(readFileSync(join(root, f), 'utf8'));
 const plan = read('data/content-plan.json');
 const topics = readdirSync(join(root, 'data/topics')).filter(f=>f.endsWith('.json')).map(f=>read('data/topics/'+f));
+const historicalScenes = loadHistoricalScenes(root, subjectBooks, topics);
 const byId = new Map(topics.map(t=>[t.id,t]));
 const problems = [], warnings = [], texts = new Set(), sources = new Set();
 let chapters=0, chars=0;
@@ -61,7 +63,7 @@ const lines=['# 世界历史书的内容覆盖','',
   '## 主体书卷','',
   '| 书卷 | 年代 | 章节数 |','| --- | --- | ---: |',
   ...subjectBooks.map((book)=>`| ${book.title} | ${book.dateLabel || bookYears(book)} | ${book.chapters.length} |`),'',
-  `共 ${subjectBooks.length} 卷、${bookChapters} 章。正文按段落标注出处。`,'',
+  `共 ${subjectBooks.length} 卷、${bookChapters} 章，正文关联 ${historicalScenes.length} 个可进入地球观察的历史场景。正文按段落标注出处。`,'',
   '有地理轮廓的主体可在地球上定位。主体书卷由编辑选材与核对，未收录正文的主体可查看地图资料。','',
   '## 补充专题资料','',
   '专题覆盖全球主要文明、地区及历史阶段，兼顾六大有人居住的大洲。','',
@@ -74,7 +76,7 @@ const lines=['# 世界历史书的内容覆盖','',
   '## 校验结果','',problems.length?problems.map(p=>'- '+p).join('\n'):'所有计划专题的节点数、正文长度、来源索引、地点、年代和内部关联结构检查通过。','',
   ...warnings.map(p=>'- 待补关系：'+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
-console.log(JSON.stringify({books:subjectBooks.length,bookChapters,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
+console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
 for(const p of problems) console.error(p);
 if(problems.length) process.exitCode=1;
 

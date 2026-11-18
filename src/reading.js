@@ -42,7 +42,7 @@ function rememberReading() {
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
-  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-panel', 'event-map-points']) {
+  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
     el(id).inert = inert;
   }
   document.body.classList.toggle('reading-open', inert);

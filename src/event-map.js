@@ -4,6 +4,8 @@ const eventMapTargets = new Map(TOPICS.flatMap((topic) => topic.chapters
 const eventMapPanel = el('event-map-panel'), eventMapPoints = el('event-map-points'), eventMapNote = el('event-map-note');
 const eventMapReturn = el('event-map-return'), eventMapTitle = el('event-map-title'), eventMapRead = el('event-map-read');
 const eventMapParticipants = el('event-map-participants');
+const eventMapTop = el('event-map-top'), eventMapYear = el('event-map-year');
+const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent).map(scene => [scene.topicEvent, scene]));
 let worldEvent = null;
 
 function worldEventTarget(event, year) {
@@ -54,16 +56,19 @@ function prepareWorldEventPlaces(places) {
   const maxAngle = Math.max(...vectors.map((v) => Math.acos(clamp(v.reduce((dot, n, i) => dot + n * direction[i], 0), -1, 1))));
   state.yaw = -Math.atan2(direction[0], direction[2]);
   state.tilt = Math.asin(clamp(direction[1], -1, 1));
-  state.zoom = clamp(.5 / Math.max(maxAngle, .02), 1, 6);
+  state.zoom = worldEvent.sceneId
+    ? clamp(.45 / Math.max(maxAngle, .02), 1, 5)
+    : clamp(.5 / Math.max(maxAngle, .02), 1, 6);
 }
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds) {
   const occupied = [];
+  const bottom = eventMapPanel.getBoundingClientRect().top - 8;
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
   for (const { entry, p } of visible) {
     const { mark, leader, button } = entry;
-    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < view.safeTop + 12 || p.y > view.h - 162 ||
+    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < view.safeTop + 12 || p.y > bottom ||
       overlapsGlobeHud(hudBounds, p.x - 6, p.y - 6, 12, 12);
     if (mark.hidden) continue;
     const w = 18 + entry.name.length * 13, h = 32;
@@ -75,7 +80,7 @@ function drawWorldEventPlaces(points, rotationMatrix, hudBounds) {
     ];
     const fits = ([dx, dy]) => {
       const x = p.x + dx, y = p.y + dy;
-      return x > 4 && x + w < view.w - 4 && y > view.safeTop + 6 && y + h < view.h - 155 &&
+      return x > 4 && x + w < view.w - 4 && y > view.safeTop + 6 && y + h < bottom &&
         !overlapsGlobeHud(hudBounds, x, y, w, h) &&
         !occupied.some((box) => x < box.x + box.w + 4 && x + w + 4 > box.x && y < box.y + box.h && y + h > box.y) &&
         !visible.some(({ entry: other, p: point }) => other !== entry && point.front &&
@@ -138,8 +143,10 @@ function showEventMap({year, title, summary, back, places, participants, histori
     natural: chrome.natural,
   };
   pauseGlobe();
+  closeYearControl();
   closeWorld();
   document.body.classList.add('event-map-open');
+  document.body.classList.toggle('scene-observation', Boolean(route.sceneId));
   state.focus = null;
   sheetState.detent = 'hidden';
   applySheetOffset(sheetDetents().hidden, false);
@@ -152,7 +159,9 @@ function showEventMap({year, title, summary, back, places, participants, histori
   state.panX = state.panY = state.lift = 0;
   eventMapTitle.textContent = title;
   eventMapRead.hidden = !route.readingTarget;
-  eventMapReturn.textContent = back;
+  eventMapReturn.querySelector('span').textContent = back;
+  eventMapYear.textContent = fmtYear(year);
+  eventMapTop.hidden = false;
   eventMapNote.textContent = summary;
   renderEventParticipants(participants || []);
   if (places?.length) {
@@ -167,7 +176,6 @@ function showEventMap({year, title, summary, back, places, participants, histori
   eventMapPanel.hidden = false;
   onYearChanged();
   layout();
-  elYear.setAttribute('aria-label', eventMapReturn.textContent);
   eventMapReturn.focus({ preventScroll: true });
 }
 
@@ -176,28 +184,34 @@ function openWorldEvent(event, row) {
   const year = clamp(state.year, event.start, event.point ? event.start : event.end);
   const target = worldEventTarget(event, year);
   const story = target?.chapter.mapStory;
+  const scene = target && scenesByEvent.get(event.id);
   const region = event.regionRef || regionById.get(event.region);
   showEventMap({ event, target, row, scroll: overlayBody.scrollTop, year,
     readingTarget: worldReadingTarget(event, year),
     title: timelineItem(event).title || event.zh,
-    summary: story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
-    participants: story?.participants, places: target && chapterPlaces(target.chapter),
+    summary: scene?.summary || story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
+    participants: story?.participants, places: scene?.places || (target && chapterPlaces(target.chapter)),
     back: state.year >= YMAX ? '返回近 ' + TODAY_SPAN + ' 年' : '返回 ' + fmtYear(state.year) + ' 年' });
 }
 
-function openReadingMap(map) {
-  if (worldEvent || !reading.active) return;
+function openReadingScene(scene, trigger) {
+  if (!scene || worldEvent || !reading.active) return;
   rememberReading();
   const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail, returnTo: reading.returnTo };
+  const width = bookBody.clientWidth;
+  const paragraph = trigger.previousElementSibling?.matches('p') ? trigger.previousElementSibling : trigger;
+  const offsetInReader = node => node.getBoundingClientRect().top - bookBody.getBoundingClientRect().top;
+  const paragraphOffset = offsetInReader(paragraph);
   closeReader({restore: false});
-  showEventMap({ ...map, historical: map.year >= -3400 && map.year <= POLITY_END, back: '返回本章',
+  showEventMap({ ...scene, sceneId: scene.id, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
     resume() {
       Object.assign(reading, session, {active:true});
       showReader(sheetDetents().hidden);
-      const button = bookBody.querySelector('[data-subject-map]');
+      const button = [...bookBody.querySelectorAll('[data-subject-scene]')].find(node => node.dataset.subjectScene === scene.id);
       if (button) {
-        button.closest('details').open = true;
-        bookBody.scrollTop = session.detailScroll;
+        const anchor = paragraph === trigger ? button : button.previousElementSibling;
+        if (bookBody.clientWidth === width || !anchor) bookBody.scrollTop = session.detailScroll;
+        else bookBody.scrollTop += offsetInReader(anchor) - paragraphOffset;
         button.focus({preventScroll:true});
       }
     },
@@ -209,8 +223,8 @@ function returnToWorld() {
   const { camera, natural, row, scroll, resume } = worldEvent;
   worldEvent = null;
   pauseGlobe();
-  document.body.classList.remove('event-map-open');
-  eventMapPanel.hidden = eventMapPoints.hidden = true;
+  document.body.classList.remove('event-map-open', 'scene-observation');
+  eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = true;
   eventMapPoints.replaceChildren();
   Object.assign(state, camera);
   chrome.natural = natural;
@@ -225,10 +239,8 @@ eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
   if (target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, { entryYear:target.year });
 });
-eventMapPoints.addEventListener('click', (e) => {
-  const mark = e.target.closest('[data-place]');
-  if (!mark || !worldEvent?.points) return;
-  const id = mark.dataset.place;
+function selectEventPlace(id) {
+  if (!worldEvent?.points) return;
   worldEvent.selected = worldEvent.selected === id ? null : id;
   const selected = worldEvent.points.get(worldEvent.selected);
   eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : worldEvent.summary;
@@ -236,4 +248,10 @@ eventMapPoints.addEventListener('click', (e) => {
     place.mark.classList.toggle('selected', key === worldEvent.selected);
     place.button.setAttribute('aria-pressed', String(key === worldEvent.selected));
   }
+  invalidate();
+}
+eventMapPoints.addEventListener('click', (event) => {
+  const mark = event.target.closest('[data-place]');
+  if (mark) selectEventPlace(mark.dataset.place);
 });
+eventMapParticipants.addEventListener('toggle', invalidate);
