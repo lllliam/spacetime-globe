@@ -4,6 +4,7 @@ const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
 const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
 const readingBack = el('reading-back'), readingGrab = el('reading-grab'), readingResume = el('reading-resume');
 const readingPin = el('reading-pin');
+const readingMapPoints = el('reading-map-points'), readingMapNote = el('reading-map-note');
 const reading = { active: false, preview: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
 const readingPositions = new Map();
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
@@ -307,7 +308,7 @@ function articleMapTarget(item) {
 function articleMapMarkup(item) {
   const target = articleMapTarget(item);
   if (!target) return '';
-  const [name, role] = target.place.label.split(' · ', 2);
+  const [name, role] = target.mapStory ? [target.mapStory.title] : target.place.label.split(' · ', 2);
   return '<button id="reading-map" type="button"><span class="reading-place"><strong>' + esc(name) + '</strong>' +
     (role ? '<small>' + esc(role) + '</small>' : '') + '</span>' +
     '<span class="reading-map-action">在地球上看 <span aria-hidden="true">↗</span></span></button>';
@@ -479,6 +480,7 @@ function closeReader() {
   const { detent, scroll } = reading.snapshot;
   reading.active = reading.preview = false;
   reading.place = null;
+  clearReadingMapStory();
   bookEl.hidden = readingResume.hidden = readingPin.hidden = true;
   document.body.classList.remove('reading-map-open', 'reader-revealing');
   sheetEl.style.borderRadius = '';
@@ -492,17 +494,136 @@ function closeReader() {
   (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
   invalidate();
 }
+function readingPlaceVector({ lon, lat }) {
+  const longitude = lon * Math.PI / 180, latitude = lat * Math.PI / 180;
+  return [Math.cos(latitude) * Math.sin(longitude), Math.sin(latitude), Math.cos(latitude) * Math.cos(longitude)];
+}
+function projectReadingPlace([x, y, z], m) {
+  return {
+    x: view.cx + state.panX + (m[0] * x + m[3] * y + m[6] * z) * view.Rz,
+    y: view.cy + state.panY - (m[1] * x + m[4] * y + m[7] * z) * view.Rz,
+    front: m[2] * x + m[5] * y + m[8] * z > 0,
+  };
+}
+function clearReadingMapStory() {
+  reading.mapStory = null;
+  readingMapPoints.hidden = readingMapPoints.inert = readingMapNote.hidden = true;
+  readingMapPoints.replaceChildren();
+}
+function openReadingMapStory(item, name, role) {
+  const story = item.mapStory;
+  const places = [{ ...item.place, id: 'main', name, role }, ...story.places];
+  const points = new Map(places.map((place) => {
+    const mark = document.createElement('div');
+    mark.className = 'reading-map-point';
+    mark.dataset.place = place.id;
+    const leader = document.createElement('i');
+    leader.setAttribute('aria-hidden', 'true');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = place.name;
+    button.dataset.place = place.id;
+    button.setAttribute('aria-pressed', 'false');
+    mark.append(leader, button);
+    readingMapPoints.append(mark);
+    return [place.id, { ...place, mark, leader, button, vector: readingPlaceVector(place) }];
+  }));
+  reading.mapStory = { ...story, points, selected: null };
+  readingMapPoints.hidden = false;
+  readingMapNote.textContent = story.summary;
+
+  const vectors = [...points.values()].map((p) => p.vector);
+  const center = vectors.reduce((sum, vector) => sum.map((value, i) => value + vector[i]), [0, 0, 0]);
+  const centerLength = Math.hypot(...center);
+  const direction = centerLength > .01 ? center.map((v) => v / centerLength) : vectors[0];
+  const maxAngle = Math.max(...vectors.map((v) => Math.acos(clamp(v.reduce((dot, n, i) => dot + n * direction[i], 0), -1, 1))));
+  state.yaw = -Math.atan2(direction[0], direction[2]);
+  state.tilt = Math.asin(clamp(direction[1], -1, 1));
+  state.zoom = clamp(.5 / Math.max(maxAngle, .02), 1, 6);
+}
+function drawReadingLinks(story, rotationMatrix) {
+  vctx.save();
+  vctx.setTransform(view.dpr, 0, 0, view.dpr, 0, 0);
+  vctx.lineWidth = 1.8;
+  vctx.lineJoin = vctx.lineCap = 'round';
+  vctx.shadowColor = '#05080d';
+  vctx.shadowBlur = 4;
+  const directional = story.kind === 'movement';
+  if (!directional) vctx.setLineDash([4, 5]);
+  for (const [from, to] of story.links) {
+    const a = story.points.get(from).vector, b = story.points.get(to).vector;
+    const selected = !story.selected || story.selected === from || story.selected === to;
+    vctx.strokeStyle = selected ? '#edc68a' : '#d3b58455';
+    vctx.beginPath();
+    let previous;
+    let arrow;
+    for (let step = 0; step <= 32; step++) {
+      const v = a.map((n, i) => lerp(n, b[i], step / 32));
+      const length = Math.hypot(...v);
+      if (length < .001) { previous = null; continue; }
+      const p = projectReadingPlace(v.map((n) => n / length), rotationMatrix);
+      if (!p.front) { previous = null; continue; }
+      if (previous) vctx.lineTo(p.x, p.y);
+      else vctx.moveTo(p.x, p.y);
+      if (directional && step === 19 && previous) arrow = [p, Math.atan2(p.y - previous.y, p.x - previous.x)];
+      previous = p;
+    }
+    if (arrow) {
+      const [point, angle] = arrow;
+      vctx.moveTo(point.x - 7 * Math.cos(angle - .58), point.y - 7 * Math.sin(angle - .58));
+      vctx.lineTo(point.x, point.y);
+      vctx.lineTo(point.x - 7 * Math.cos(angle + .58), point.y - 7 * Math.sin(angle + .58));
+    }
+    vctx.stroke();
+  }
+  vctx.restore();
+}
+function drawReadingMapPoints(story, rotationMatrix) {
+  const occupied = [];
+  const visible = [...story.points.values()].map((entry) => ({
+    entry, p: projectReadingPlace(entry.vector, rotationMatrix),
+  }));
+  for (const { entry, p } of visible) {
+    const { mark, leader, button } = entry;
+    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < 55 || p.y > view.h - 120;
+    if (mark.hidden) continue;
+    const w = 18 + entry.name.length * 13, h = 32;
+    const left = p.x < view.cx ? [-w - 10, 10] : [10, -w - 10];
+    const options = [
+      ...left.map((dx) => [dx, -h / 2]),
+      [-w / 2, -h - 11], [-w / 2, 11],
+      ...left.flatMap((dx) => [[dx, 8], [dx, -h - 8]]),
+    ];
+    const fits = ([dx, dy]) => {
+      const x = p.x + dx, y = p.y + dy;
+      return x > 4 && x + w < view.w - 4 && y > 48 && y + h < view.h - 110 &&
+        !occupied.some((box) => x < box.x + box.w + 4 && x + w + 4 > box.x && y < box.y + box.h && y + h > box.y) &&
+        !visible.some(({ entry: other, p: point }) => other !== entry && point.front &&
+          point.x > x - 6 && point.x < x + w + 6 && point.y > y - 6 && point.y < y + h + 6);
+    };
+    const label = options.find(fits);
+    leader.hidden = button.hidden = !label;
+    if (label) {
+      const [dx, dy] = label;
+      occupied.push({ x: p.x + dx, y: p.y + dy, w, h });
+      button.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      const endX = clamp(0, dx, dx + w), endY = clamp(0, dy, dy + h);
+      leader.style.width = Math.hypot(endX, endY) + 'px';
+      leader.style.transform = 'rotate(' + Math.atan2(endY, endX) + 'rad)';
+    }
+    mark.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px)';
+  }
+}
 function drawReadingPin() {
   if (!reading.preview || !reading.place) return;
-  const { lon, lat } = reading.place;
-  const longitude = lon * Math.PI / 180, latitude = lat * Math.PI / 180;
-  const x = Math.cos(latitude) * Math.sin(longitude);
-  const y = Math.sin(latitude);
-  const z = Math.cos(latitude) * Math.cos(longitude);
-  const m = rotation();
-  const sx = view.cx + state.panX + (m[0] * x + m[3] * y + m[6] * z) * view.Rz;
-  const sy = view.cy + state.panY - (m[1] * x + m[4] * y + m[7] * z) * view.Rz;
-  readingPin.hidden = m[2] * x + m[5] * y + m[8] * z <= 0 || sx < 12 || sx > view.w - 12 || sy < 16 || sy > view.h - 42;
+  const rotationMatrix = rotation();
+  if (reading.mapStory) {
+    drawReadingLinks(reading.mapStory, rotationMatrix);
+    drawReadingMapPoints(reading.mapStory, rotationMatrix);
+    return;
+  }
+  const { x: sx, y: sy, front } = projectReadingPlace(readingPlaceVector(reading.place), rotationMatrix);
+  readingPin.hidden = !front || sx < 12 || sx > view.w - 12 || sy < 16 || sy > view.h - 42;
   if (readingPin.hidden) return;
   readingPin.style.transform = 'translate(' + sx + 'px,' + sy + 'px)';
   readingPin.classList.toggle('align-left', sx > view.w / 2);
@@ -528,6 +649,7 @@ function previewReadingMap() {
   state.yaw = -item.place.lon * Math.PI / 180;
   state.tilt = item.place.lat * Math.PI / 180;
   state.zoom = 1.8;
+  if (item.mapStory) openReadingMapStory(item, name, role);
   state.panX = state.panY = state.lift = 0;
   onYearChanged();
   layout();
@@ -536,6 +658,10 @@ function previewReadingMap() {
     readingBackground(false);
     el('hud').inert = true;
     readingResume.hidden = false;
+    if (reading.mapStory) {
+      readingMapPoints.inert = false;
+      readingMapNote.hidden = false;
+    }
     readingResume.focus({ preventScroll: true });
   } });
 }
@@ -543,12 +669,14 @@ function resumeReader() {
   if (!reading.preview || !bookEl.hidden) return;
   pauseGlobe();
   readingResume.hidden = true;
+  readingMapPoints.inert = readingMapNote.hidden = true;
   bookEl.hidden = false;
   readingBackground(true);
   animateReader(sheetState.offset, 0, { onFinish: () => {
     reading.preview = false;
     reading.place = null;
     readingPin.hidden = true;
+    clearReadingMapStory();
     document.body.classList.remove('reading-map-open');
     restoreReadingGlobe();
     readerPosition(0);
@@ -628,3 +756,17 @@ bookEl.addEventListener('click', (e) => {
   }
 }, true);
 readingResume.addEventListener('click', resumeReader);
+readingMapPoints.addEventListener('click', (e) => {
+  const point = e.target.closest('[data-place]');
+  const story = reading.mapStory;
+  if (!point || !story) return;
+  const id = point.dataset.place;
+  story.selected = story.selected === id ? null : id;
+  const selected = story.points.get(story.selected);
+  readingMapNote.textContent = selected ? selected.name + ' · ' + selected.role : story.summary;
+  for (const [key, place] of story.points) {
+    place.mark.classList.toggle('selected', key === story.selected);
+    place.button.setAttribute('aria-pressed', String(key === story.selected));
+  }
+  invalidate();
+});

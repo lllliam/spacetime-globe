@@ -291,6 +291,35 @@ body.reading-map-open #sheet{pointer-events:none}
 #reading-pin small{display:block;color:#aab4c0;font-size:10px;text-wrap:balance}
 #reading-pin small:empty{display:none}
 #reading-pin[hidden],#reading-resume[hidden]{display:none}
+#reading-map-points{position:fixed;inset:0;z-index:5;pointer-events:none}
+.reading-map-point{
+  position:absolute;top:0;left:0;width:0;height:0;color:var(--ink);
+}
+.reading-map-point::before{
+  content:"";position:absolute;inset:-3px auto auto -3px;width:6px;height:6px;z-index:1;
+  border-radius:50%;background:var(--gold);border:1px solid #fff1d5;box-shadow:0 0 0 2px #17130dbf;
+}
+.reading-map-point::after{
+  content:"";position:absolute;inset:-9px auto auto -9px;width:18px;height:18px;
+  z-index:2;pointer-events:auto;cursor:pointer;
+}
+.reading-map-point i{
+  position:absolute;top:0;left:0;height:1px;background:#d1c5b2b3;
+  box-shadow:0 0 2px #05080d;transform-origin:left center;
+}
+.reading-map-point button{
+  position:absolute;left:0;top:0;min-height:32px;padding:0 8px;border:0;border-radius:6px;
+  white-space:nowrap;background:#0b111bea;color:inherit;pointer-events:auto;cursor:pointer;
+  font:600 12px/1 system-ui,sans-serif;
+}
+.reading-map-point.selected button{color:var(--gold)}
+.reading-map-point.selected::before{box-shadow:0 0 0 4px #d9b37980}
+#reading-map-note{
+  position:fixed;z-index:10;left:50%;bottom:calc(var(--safe-b) + 73px);transform:translateX(-50%);
+  width:max-content;max-width:min(420px,calc(100vw - 48px));margin:0;padding:8px 11px;border-radius:6px;
+  background:#0b111bd9;color:var(--ink);font:400 12px/1.6 system-ui,sans-serif;text-align:center;text-wrap:balance;
+  pointer-events:none;
+}
 button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
 /* 抽屉跟手与松手反馈。位置动画由 JS 弹簧驱动，避免 CSS 目标值抢走手指。 */

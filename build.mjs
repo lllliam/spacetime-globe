@@ -32,6 +32,18 @@ for (const t of topics) {
     chapterIds.add(c.id);
     if (c.opening && (!c.opening.headline || !c.opening.text || !c.opening.refs?.length ||
       c.opening.refs.some((index) => !Number.isInteger(index) || !c.sources[index]))) throw new Error('专题开篇或来源不合法：' + c.id);
+    if (c.mapStory) {
+      const { title, summary, kind, places, links, refs } = c.mapStory;
+      const placeIds = new Set(['main', ...places.map((p) => p.id)]);
+      if (!c.place || !title || !summary || !['movement', 'association'].includes(kind) ||
+        !refs?.length || refs.some((index) => !Number.isInteger(index) || !c.sources[index]) ||
+        !places.length || placeIds.size !== places.length + 1 ||
+        places.some((p) => !p.id || !p.name || !p.role || !Number.isFinite(p.lon) || Math.abs(p.lon) > 180 ||
+          !Number.isFinite(p.lat) || Math.abs(p.lat) > 90) ||
+        !links.length || links.some(([a, b]) => a === b || !placeIds.has(a) || !placeIds.has(b))) {
+        throw new Error('专题地点关联或来源不合法：' + c.id);
+      }
+    }
     for (const s of c.sources) if (!/^https:\/\//.test(s.url)) throw new Error('专题来源必须是 HTTPS');
   }
 }

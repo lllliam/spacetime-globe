@@ -18,7 +18,8 @@
 
 | 版本 | 主要变化 |
 | --- | --- |
-| **4.5.3** | 详情先讲事件，地点、背景和出处顺着正文展开。晚清八篇更新开篇。 |
+| **4.5.4** | 地球上显示同一事件的地点关系，可点地点查看它在事件中的作用。首批覆盖天津到北京、南京与五处通商口岸。 |
+| [4.5.3](https://github.com/lllliam/spacetime-globe/tree/f183a9a) | 详情先讲事件，地点、背景和出处顺着正文展开。晚清八篇更新开篇。 |
 | [4.5.2](https://github.com/lllliam/spacetime-globe/tree/150ddd8) | 阅读支持从左边缘右划返回、在正文顶部下拉收起。地区年表按时间排成一条路线。 |
 | [4.5.1](https://github.com/lllliam/spacetime-globe/tree/fb6256c) | 摘要和阅读共用抽屉，下拉时连续过渡。地点预览在地球上标出具体地点，保留原文阅读位置。 |
 | [4.5](https://github.com/lllliam/spacetime-globe/tree/2ddcb08) | 重做半窗与阅读界面。年表分开显示事件和时代背景，更新中国现代年表。 |

@@ -482,23 +482,41 @@ async function main() {
   await waitReader();
   const mapPreview = await js(`({preview:__t.reading.preview,hidden:document.getElementById('book').hidden,resume:!document.getElementById('reading-resume').hidden,year:__t.state.year,
     sheet:document.getElementById('sheet').getBoundingClientRect().top, height:innerHeight, focus:__t.state.focus,
-    pin:document.getElementById('reading-pin').textContent, pinVisible:!document.getElementById('reading-pin').hidden,
-    point:__t.mapPointAt(__t.view.cx,__t.view.cy)})`);
-  check('地点预览显示北京标记，旧摘要完全退出', mapPreview.preview && mapPreview.hidden && mapPreview.resume &&
-    mapPreview.year===1900 && mapPreview.sheet>=mapPreview.height-1 && !mapPreview.focus && mapPreview.pinVisible &&
-    /北京/.test(mapPreview.pin) && Math.abs(mapPreview.point.x-(.5+116.4/360)*1000)<1 &&
-    Math.abs(mapPreview.point.y-(.5-39.9/180)*500)<1, mapPreview);
-  await readingShot('beijing-place');
-  const pinBefore = await js('document.getElementById("reading-pin").style.transform');
-  await drag(170, 410, 220, 415, 6);
+    labels:[...document.querySelectorAll('#reading-map-points button:not([hidden])')].map(b=>b.textContent),
+    links:__t.reading.mapStory.links, kind:__t.reading.mapStory.kind,
+    note:document.getElementById('reading-map-note').textContent})`);
+  check('地点预览同时呈现天津与北京及推进方向', mapPreview.preview && mapPreview.hidden && mapPreview.resume &&
+    mapPreview.year===1900 && mapPreview.sheet>=mapPreview.height-1 && !mapPreview.focus &&
+    mapPreview.labels.join(',')==='北京,天津' && mapPreview.links[0].join(',')==='tianjin,main' &&
+    mapPreview.kind==='movement' && mapPreview.note.includes('推进方向'), mapPreview);
+  await readingShot('tianjin-beijing-map');
+  const pinBefore = await js('document.querySelector(".reading-map-point").style.transform');
+  const placeTarget = await js(`(()=>{const r=document.querySelector('button[data-place="tianjin"]').getBoundingClientRect();return [r.x+r.width/2,r.y+r.height/2]})()`);
+  await tap(...placeTarget);
+  check('点天津显示它在事件中的作用', await js(`
+    document.querySelector('button[data-place="tianjin"]').getAttribute('aria-pressed')==='true' &&
+    document.getElementById('reading-map-note').textContent.includes('联军攻占天津')
+  `));
+  await drag(110, 380, 185, 385, 6);
   check('旋转地球时标记跟随经纬度，摘要保持收起', await js(`
-    document.getElementById('reading-pin').style.transform !== ${JSON.stringify(pinBefore)} && __t.sheet.detent==='hidden' && !__t.state.focus
+    document.querySelector('.reading-map-point').style.transform !== ${JSON.stringify(pinBefore)} && __t.sheet.detent==='hidden' && !__t.state.focus
   `));
   await js(`document.getElementById('reading-resume').click()`);
   await waitReader();
   check('从地图返回同一篇与同一位置', await js(`!document.getElementById('book').hidden && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${detailScroll})<2`));
   await js(`document.getElementById('reading-back').click()`);
   check('详情返回专题恢复滚动位置', await js(`__t.reading.detail===null && Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
+  await js(`document.querySelector('[data-reading-detail="ports"]').click();document.getElementById('reading-map').click()`);
+  await waitReader();
+  check('南京条约地图显示五处口岸与南京的关联', await js(`
+    __t.reading.mapStory.kind==='association' && __t.reading.mapStory.links.length===5 &&
+    document.querySelectorAll('.reading-map-point:not([hidden]) button:not([hidden])').length===6 &&
+    document.getElementById('reading-map-note').textContent.includes('第二条')
+  `));
+  await readingShot('nanjing-treaty-map');
+  await js(`document.getElementById('reading-resume').click()`);
+  await waitReader();
+  await js(`document.getElementById('reading-back').click()`);
   await js(`document.getElementById('reading-grab').click()`);
   await waitReader();
   const restored = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
@@ -603,16 +621,16 @@ async function main() {
   check('年表条目先叙述事件，再提供具体地点、背景与出处', await js(`
     document.querySelector('.reading-opening').textContent.includes('进入北京') &&
     document.querySelector('.reading-story').nextElementSibling.id==='reading-map' &&
-    document.querySelector('#reading-map strong').textContent==='北京' &&
+    document.querySelector('#reading-map strong').textContent==='天津到北京' &&
     document.getElementById('reading-map').nextElementSibling.querySelector('[data-reading-chapter="boxers"]') &&
     document.querySelector('.reading-sources a')
   `));
   await readingShot('reading-event');
   await js(`document.getElementById('reading-map').click()`);
   await waitReader();
-  check('年表短篇可以直接定位到已校对的北京地点', await js(`
+  check('年表短篇可以直接打开同一张天津到北京的地图', await js(`
     __t.reading.preview && __t.state.year===1900 && !document.getElementById('reading-resume').hidden &&
-    document.querySelector('#reading-pin strong').textContent==='北京'
+    __t.reading.mapStory.points.size===2 && !document.getElementById('reading-map-points').hidden
   `));
   await js(`document.getElementById('reading-resume').click()`);
   await waitReader();
