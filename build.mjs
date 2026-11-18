@@ -17,7 +17,7 @@ const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
-const app = appSource.replace(readingMarker, ['reading.js', 'event-map.js', 'chrome.js']
+const app = appSource.replace(readingMarker, ['reading.js', 'event-map.js', 'chrome.js', 'year-control.js']
   .map((file) => rd('src', file)).join('\n') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));

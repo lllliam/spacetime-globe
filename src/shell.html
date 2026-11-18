@@ -25,7 +25,16 @@
 <div id="scrim"></div>
 
 <div id="hud">
-  <button id="year" type="button" aria-label="今天的全球事件，长按或按 Shift+Enter 展开时间轴" aria-controls="overlay dock">今天</button>
+  <div id="year-control">
+    <button id="year" type="button" aria-controls="overlay year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false">今天</button>
+    <div id="year-strip" aria-hidden="true"></div>
+    <form id="year-form" hidden>
+      <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
+             aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+      <button type="submit">前往</button>
+      <p id="year-error" role="status"></p>
+    </form>
+  </div>
   <div id="sub" role="status" hidden></div>
 </div>
 <div id="view-shade" hidden></div>
@@ -37,13 +46,15 @@
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i></i></button>
   </div>
   <nav><button id="reset-view" type="button">恢复视角</button></nav>
+  <details class="view-time">
+    <summary>时间播放</summary>
+    <div>
+      <button id="time-play" type="button" aria-pressed="false">播放</button>
+      <label>步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label>
+      <button id="time-today" type="button">回到今天</button>
+    </div>
+  </details>
   <p id="view-note">历史边界为资料重建，未覆盖的地区不代表无人居住。海岸与地形采用现代底图。</p>
-</section>
-<section id="dock" aria-label="时间控制" inert>
-  <canvas id="track" role="slider" tabindex="0" aria-label="历史年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="2026"></canvas>
-  <div class="time-steps"><button type="button" data-year-step="-10">−10</button><button type="button" data-year-step="-1">−1</button><button id="time-play" type="button" aria-pressed="false">播放</button><button type="button" data-year-step="1">+1</button><button type="button" data-year-step="10">+10</button></div>
-  <div class="time-actions"><button id="time-input-toggle" type="button" aria-expanded="false">输入年份</button><label class="time-speed">步长 <select id="time-speed" aria-label="播放步长"><option value="1">1 年</option><option value="10" selected>10 年</option><option value="50">50 年</option></select></label><button id="time-today" type="button">回到今天</button></div>
-  <form id="year-form" hidden><label for="year-input">年份（负数为公元前）</label><div><input id="year-input" type="number" inputmode="text" min="-3500" max="2026" step="1" required aria-describedby="year-error"><button type="submit">前往</button></div><p id="year-error" role="status"></p></form>
 </section>
   <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>

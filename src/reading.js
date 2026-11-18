@@ -44,7 +44,6 @@ function readingBackground(inert) {
   for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-panel', 'event-map-points']) {
     el(id).inert = inert;
   }
-  timeDock.inert = inert || !chrome.timeline;
   document.body.classList.toggle('reading-open', inert);
 }
 function openBook(topicId, fromOffset = null) {
@@ -85,7 +84,8 @@ function beginReading(ent, topic, chapter, fromOffset) {
   });
 }
 function showReader(fromOffset) {
-  hideTimeline(false);
+  closeYearControl();
+  stopTime();
   closeView(false);
   bookEl.hidden = false;
   readerLastDrag = -Infinity;

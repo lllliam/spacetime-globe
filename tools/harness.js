@@ -45,6 +45,7 @@ window.__t = {
   get topics(){return TOPICS}, topicsForEntity, topicForEntity,
   readingGoBack, closeReader,
   get worldEvent(){ return worldEvent },
+  get yearControl(){ return { browsing: yearBrowsing, position: yearPosition, moving: !!yearFrame }; },
   get vecCount(){ return vecShapes.length },
   get vecShapes(){ return vecShapes },
   prepareVector, drawVector, svgRings, rotation,

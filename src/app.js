@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    地球仪 · 时空坐标 · v2
-   架构：球是空间索引，时间轴是时间索引，两者交叉出「此刻此地」的切片；
+   架构：球是空间索引，年份是时间索引，两者交叉出「此刻此地」的切片；
         切片里挂着实体（国家 / 政权），实体之间用关系连成图。
         所有界面都是这张图的投影，共享同一个会话状态 {year, layer, focus}。
    ═══════════════════════════════════════════════════════════════ */
@@ -18,32 +18,14 @@ const YMIN = -3500;
 const POLITY_END = 2024;                 // Cliopatria 覆盖到此
 
 const CH = [
-  { n: '史前',   a: -3500, b: -800, w: .190 },
+  { n: '史前',   a: -3500, b: -800 },
   { n: '古代',   a: -800,  b: 500,  w: .213 },
-  { n: '古典',   a: 500,   b: 1000, w: .130 },
-  { n: '中世纪', a: 1000,  b: 1500, w: .175 },
-  { n: '大航海', a: 1500,  b: 1800, w: .138 },
-  { n: '工业',   a: 1800,  b: 1900, w: .077 },
-  { n: '现代',   a: 1900,  b: YMAX, w: .077 },
+  { n: '古典',   a: 500,   b: 1000 },
+  { n: '中世纪', a: 1000,  b: 1500 },
+  { n: '大航海', a: 1500,  b: 1800 },
+  { n: '工业',   a: 1800,  b: 1900 },
+  { n: '现代',   a: 1900,  b: YMAX },
 ];
-const cum = (() => { const o = []; let s = 0; for (const c of CH) { o.push(s); s += c.w; } return o; })();
-
-function posOfYear(y) {
-  y = clamp(y, YMIN, YMAX);
-  for (let i = 0; i < CH.length; i++) {
-    const c = CH[i];
-    if (y <= c.b || i === CH.length - 1) return cum[i] + clamp((y - c.a) / (c.b - c.a), 0, 1) * c.w;
-  }
-  return 1;
-}
-function yearOfPos(p) {
-  p = clamp(p, 0, 1);
-  for (let i = 0; i < CH.length; i++) {
-    const c = CH[i];
-    if (p <= cum[i] + c.w || i === CH.length - 1) return Math.round(c.a + clamp((p - cum[i]) / c.w, 0, 1) * (c.b - c.a));
-  }
-  return YMAX;
-}
 const chapterOf = (y) => { for (const c of CH) if (y <= c.b) return c; return CH[CH.length - 1]; };
 
 const ord = (y) => (y < 0 ? y + 1 : y);
@@ -66,7 +48,6 @@ const Q = 4;                           // 政权几何的量化倍数
 
 const el = (id) => document.getElementById(id);
 const canvas = el('globe');
-const track = el('track'), tctx = track.getContext('2d');
 const elYear = el('year'), elSub = el('sub');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
 const overlay = el('overlay');
@@ -1090,7 +1071,7 @@ function drawVector() {
   const placed = [];
   window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
   const maxLabels = !chrome.labels || chrome.natural || (state.zoom === 1 && !state.focus) ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
-  const uiTop = chrome.timeline ? timeDock.getBoundingClientRect().bottom + 8 : 95;
+  const uiTop = 95;
   const uiBottom = view.h - 55;
   const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
@@ -1464,7 +1445,7 @@ let spinStep = 0, cloudDrift = 0;
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
     !pointers.size && !zoomAnim && !panReturn && !globeTapTimer && !state.focus &&
-    !reading.active && !worldEvent && overlay.hidden && !chrome.timeline && !chrome.panel &&
+    !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
 
@@ -1552,7 +1533,8 @@ canvas.addEventListener('pointerdown', (e) => {
   stopPanReturn();
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0 });
+  const dismissedYear = dismissYearFromGlobe();
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0, dismissedYear });
   if (pointers.size === 1) {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
@@ -1615,7 +1597,7 @@ function endPointer(e) {
     if (snapToFit) zoomTo(1);
     else settlePan();
   }
-  if (e.type === 'pointerup' && p.moved < 10 && performance.now() - p.t < 320) {
+  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
@@ -1681,15 +1663,11 @@ function tapGlobe(sx, sy) {
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-/* 抽屉底部保留屏幕边缘的呼吸空间。 */
-function dockHeight() {
-  return 16;
-}
+const SHEET_BOTTOM_GAP = 16;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const dock = dockHeight();
-  const peek = Math.min(H - 120, H - dock - 116);   // 时间轴上方还留 116px
+  const peek = H - SHEET_BOTTOM_GAP - 116;
   const half = Math.min(peek - 64, H - clamp(H * 0.36, 216, 360));
   return { hidden: H, peek: Math.max(H * 0.35, peek), half: Math.max(H * 0.3, half), full: 0 };
 }
@@ -1707,8 +1685,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.classList.toggle('show', show);
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
-  sheetEl.style.setProperty('--dock-h', dockHeight() + 'px');
-  sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - dockHeight() - 48) + 'px');
+  sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -2124,133 +2101,6 @@ function entriesForBook(ent) {
   return out;
 }
 
-/* ───────────── 14. 时间轴 ───────────── */
-let density = null;
-function buildDensity() {
-  const N = YMAX - YMIN + 1;
-  const hist = new Float32Array(N);
-  for (const e of entries) {
-    const a = Math.max(YMIN, Math.ceil(e.start));
-    const b = Math.min(YMAX, Math.floor(e.point ? e.start : e.end));
-    for (let y = a; y <= b; y++) hist[y - YMIN]++;
-  }
-  const sm = new Float32Array(N);
-  for (let i = 0; i < N; i++) {
-    let s = 0, c = 0;
-    for (let k = -5; k <= 5; k++) { const j = i + k; if (j >= 0 && j < N) { s += hist[j]; c++; } }
-    sm[i] = s / c;
-  }
-  let mx = 0;
-  for (const v of sm) if (v > mx) mx = v;
-  density = { sm, mx: mx || 1 };
-}
-
-const T_PADL = 28, T_PADR = 28, T_H = 72;
-let trackW = 0;
-function layoutTrack() {
-  trackW = track.clientWidth || innerWidth;
-  const dpr = Math.min(devicePixelRatio || 1, 3);
-  track.width = Math.round(trackW * dpr);
-  track.height = Math.round(T_H * dpr);
-  tctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-const xOfPos = (p) => T_PADL + p * (trackW - T_PADL - T_PADR);
-
-function drawTrack() {
-  if (!density) buildDensity();
-  const w = trackW;
-  tctx.clearRect(0, 0, w, T_H);
-  const labelY = 18, top = 28, areaH = 11, railY = 42, footY = 62;
-  const x0 = xOfPos(0), x1 = xOfPos(1);
-  const active = chapterOf(state.year);
-  for (let i = 0; i < CH.length; i++) {
-    const c = CH[i];
-    const a = xOfPos(cum[i]), b = xOfPos(cum[i] + c.w);
-    tctx.fillStyle = i % 2 ? 'rgba(255,255,255,.028)' : 'rgba(255,255,255,.012)';
-    tctx.fillRect(a, railY - 3, b - a, 6);
-    if (b - a > 34 || c === active) {
-      tctx.font = '10.5px -apple-system,system-ui,sans-serif';
-      tctx.textAlign = 'center';
-      tctx.fillStyle = c === active ? 'rgba(224,178,115,.95)' : 'rgba(142,153,168,.75)';
-      tctx.fillText(c.n, (a + b) / 2, labelY);
-    }
-  }
-  const N = YMAX - YMIN + 1, steps = 200, lmax = Math.log1p(density.mx);
-  tctx.beginPath();
-  tctx.moveTo(x0, top + areaH);
-  for (let s = 0; s <= steps; s++) {
-    const p = s / steps, y = YMIN + Math.round(p * (YMAX - YMIN));
-    const v = Math.log1p(density.sm[clamp(y - YMIN, 0, N - 1)]) / lmax;
-    tctx.lineTo(xOfPos(p), top + areaH - v * areaH);
-  }
-  tctx.lineTo(x1, top + areaH);
-  tctx.closePath();
-  tctx.fillStyle = 'rgba(224,178,115,.06)'; tctx.fill();
-  tctx.strokeStyle = 'rgba(224,178,115,.13)'; tctx.lineWidth = 1; tctx.stroke();
-
-  const rail = tctx.createLinearGradient(x0, 0, x1, 0);
-  rail.addColorStop(0, '#a9b6bf00');
-  rail.addColorStop(.13, '#a9b6bf66');
-  rail.addColorStop(.87, '#a9b6bf66');
-  rail.addColorStop(1, '#a9b6bf00');
-  tctx.strokeStyle = rail; tctx.lineWidth = 1; tctx.lineCap = 'round';
-  tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(x1, railY); tctx.stroke();
-  const px = xOfPos(posOfYear(state.year));
-  const elapsed = tctx.createLinearGradient(x0,0,x1,0);
-  elapsed.addColorStop(0,'#d6b98400');
-  elapsed.addColorStop(.18,'#d6b98499');
-  elapsed.addColorStop(1,'#d6b98499');
-  tctx.strokeStyle = elapsed;
-  tctx.beginPath(); tctx.moveTo(x0, railY); tctx.lineTo(px, railY); tctx.stroke();
-  tctx.strokeStyle = 'rgba(224,178,115,.30)'; tctx.lineWidth = 1;
-  tctx.beginPath(); tctx.moveTo(px, top - 2); tctx.lineTo(px, railY - 8); tctx.stroke();
-
-  tctx.font = '10px -apple-system,system-ui,sans-serif';
-  tctx.textAlign = 'left'; tctx.fillStyle = 'rgba(142,153,168,.7)';
-  tctx.fillText('前 3500', x0, footY);
-  tctx.textAlign = 'right'; tctx.fillStyle = 'rgba(224,178,115,.95)';
-  tctx.fillText('今天', x1, footY);
-  tctx.textAlign = 'center'; tctx.fillStyle = 'rgba(142,153,168,.55)';
-  tctx.fillText('元年', xOfPos(posOfYear(0)), footY);
-
-  tctx.fillStyle = '#e0b273';
-  tctx.beginPath(); tctx.arc(px, railY, 5, 0, TAU); tctx.fill();
-  tctx.fillStyle = '#0b1017';
-  tctx.beginPath(); tctx.arc(px, railY, 1.5, 0, TAU); tctx.fill();
-}
-
-function posFromX(clientX) {
-  const r = track.getBoundingClientRect();
-  return clamp((clientX - r.left - T_PADL) / (r.width - T_PADL - T_PADR), 0, 1);
-}
-let scrubPointer = null, scrubFrame = 0, pendingYear = null;
-let scrubbing = false;
-function setYearFromX(clientX, flush = false) {
-  pendingYear = yearOfPos(posFromX(clientX));
-  const apply = () => {
-    scrubFrame = 0;
-    if (pendingYear !== state.year) commitYear(pendingYear);
-    pendingYear = null;
-  };
-  if (flush) { cancelAnimationFrame(scrubFrame); apply(); }
-  else if (!scrubFrame) scrubFrame = requestAnimationFrame(apply);
-}
-track.addEventListener('pointerdown', (e) => {
-  if (!e.isPrimary || e.button !== 0) return;
-  stopTime(); scrubbing = true; scrubPointer = e.pointerId;
-  try { track.setPointerCapture(e.pointerId); } catch (_) {}
-  setYearFromX(e.clientX);
-});
-track.addEventListener('pointermove', (e) => {
-  if (e.pointerId === scrubPointer) setYearFromX(e.clientX);
-});
-function endScrub(e) {
-  if (e.pointerId !== scrubPointer) return;
-  if (e.type === 'pointerup') setYearFromX(e.clientX, true);
-  scrubbing = false; scrubPointer = null; scheduleTimelineHide();
-}
-for (const type of ['pointerup','pointercancel','lostpointercapture']) track.addEventListener(type,endScrub);
-
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {
   if (state.layerId === id) return;
@@ -2262,7 +2112,6 @@ function setLayer(id) {
   closeSheet();
   rebuildPartition();
   syncHud();
-  drawTrack();
   invalidate();
 }
 layersEl.addEventListener('click', (e) => {
@@ -2273,13 +2122,12 @@ layersEl.addEventListener('click', (e) => {
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
-  elYear.textContent = y >= YMAX ? '今天' : fmtYear(y);
+  syncYearControl(y);
   syncChrome();
 }
 function onYearChanged() {
   rebuildPartition();
   syncHud();
-  drawTrack();
   if (!overlay.hidden) openWorld();
   if (state.focus) renderSheet();
   invalidate();
@@ -2310,9 +2158,9 @@ addEventListener('keydown', (e) => {
 let resizeTimer = 0;
 addEventListener('resize', () => {
   clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => { layout(); layoutTrack(); drawTrack(); }, 90);
+  resizeTimer = setTimeout(() => { layout(); }, 90);
 });
-addEventListener('orientationchange', () => setTimeout(() => { layout(); layoutTrack(); drawTrack(); }, 260));
+addEventListener('orientationchange', () => setTimeout(() => { layout(); }, 260));
 document.addEventListener('visibilitychange', () => { lastT = 0; if (!document.hidden) invalidate(); });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
@@ -2365,7 +2213,7 @@ async function ensurePolity() {
     }
     pk = parsePolityBin(buf);
     polityState.loaded = true;
-    if (state.layerId === 'polity') { rebuildPartition(); syncHud(); drawTrack(); invalidate(); }
+    if (state.layerId === 'polity') { rebuildPartition(); syncHud(); invalidate(); }
   } catch (err) {
     polityState.error = err.message;
     label.textContent = '政权边界加载失败';
@@ -2389,12 +2237,9 @@ async function ensurePolity() {
   if (glr) { glr.uploadBase(baseCanvas); glr.uploadId(idCanvas); }
   if (fallback) fallback.prepare();
 
-  buildDensity();
   buildCountryPick();
   rebuildPartition();
   layout();
-  layoutTrack();
-  drawTrack();
   syncHud();
   draw();
 

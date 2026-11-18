@@ -105,14 +105,13 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const polSheet = await st();
   ok('政权层点开抽屉', polSheet.open && /[A-Za-z]/.test(polSheet.title || ''), { title: polSheet.title, detent: polSheet.detent });
 
-  /* 5. 展开时间轴后直接拖动，再返回地图 */
+  /* 5. 用键盘展开一行年份并调整 */
   const yearBefore = polSheet.year;
   await js("document.getElementById('year').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true}))");
-  await sleep(350);
-  const trackBox=await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x+r.width*.62,y:r.y+42}})()");
-  await tap(trackBox.x,trackBox.y);
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',windowsVirtualKeyCode:39});
+  await waitFor("window.__t.sheetSettled && !document.body.classList.contains('sheet-open')");
   const afterScrub=await st();
-  ok('时间轴定位后显示新年份',afterScrub.year!==yearBefore&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
+  ok('展开年份并用右方向键前进一年',afterScrub.year===yearBefore+1&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
 
   /* 6. 切图层：抽屉应收起且不留残影 */

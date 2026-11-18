@@ -220,7 +220,7 @@ async function main() {
     else await send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});
     await sleep(350);
   };
-  check('首页没有常驻图层按钮，时间轴默认隐藏', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && document.getElementById('dock').inert"));
+  check('首页默认只显示原有年份', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && !document.querySelector('#dock,#track') && !__t.yearControl.browsing"));
   await js("__t.setYear(1900)");
   await tap(...Object.values(await pointOf('#year')));
   check('轻点年份打开当年全球事件表', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年的世界' && document.querySelectorAll('.wrow').length>0"));
@@ -278,28 +278,81 @@ async function main() {
   }
   await js('__t.setYear(1900)');
   await js("document.getElementById('overlay-close').click()");
-  await hold(await pointOf('#year'),true);
-  check('触屏长按年份仅展开时间轴', await js("!document.getElementById('dock').inert && document.getElementById('overlay').hidden"));
-  const tr = await js("(()=>{const r=document.getElementById('track').getBoundingClientRect();return {x:r.x,y:r.y,w:r.width}})()");
-  await drag(tr.x + tr.w * .94,tr.y + 42,tr.x + tr.w * .78,tr.y + 42);
-  await js("__t.ensurePolity()");
-  for(let i=0;i<40;i++){if(await js("__t.polityLoaded"))break;await sleep(200);}
-  check('拖动时间轴自动显示当年历史疆域', await js("__t.state.layerId==='polity' && __t.state.year<1900 && __t.partition.shapes.length>0"));
-  const historySignature = await js("JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))");
-  await js("document.getElementById('time-input-toggle').click();document.getElementById('year-input').value=1900;document.getElementById('year-form').requestSubmit()");
+  const touchYear = async (point, type) => send('Input.dispatchTouchEvent', {
+    type, touchPoints: type === 'touchEnd' || type === 'touchCancel' ? [] : [point],
+  });
+  const touchYearTap = async (point) => {
+    await touchYear(point,'touchStart');
+    await touchYear(point,'touchEnd');
+  };
+  const waitYear = async () => {
+    for(let i=0;i<30 && await js('__t.yearControl.moving');i++)await sleep(30);
+  };
+  const yearPoint = await pointOf('#year');
+  await touchYear(yearPoint,'touchStart');
+  await sleep(560);
+  check('长按在原位展开年份，保持世界表关闭', await js(`__t.yearControl.browsing && __t.state.year===1900 &&
+    document.getElementById('overlay').hidden && document.getElementById('year-strip').textContent.includes('189919001901')`));
+  await readingShot('year-browse');
+  const yearCamera = await js('JSON.stringify([__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])');
+  await touchYear({x:yearPoint.x+107,y:yearPoint.y},'touchMove');
+  const smallChange = await js('__t.yearControl.position');
+  check('同一根手指继续拖动时只预览年份',Math.round(smallChange)===1899 && await js('__t.state.year===1900'),smallChange);
+  await sleep(150);
+  await touchYear(yearPoint,'touchEnd');
+  await waitYear();
+  await js('__t.ensurePolity()');
+  for(let i=0;i<40;i++){if(await js('__t.polityLoaded'))break;await sleep(200);}
+  check('小幅拖动停稳后切换一年和真实疆域，镜头固定',await js("__t.state.layerId==='polity' && __t.state.year===1899 && __t.partition.shapes.length>0") &&
+    yearCamera===await js('JSON.stringify([__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])'));
+  const historySignature = await js('JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))');
+  await touchYear(yearPoint,'touchStart');
+  await touchYear({x:yearPoint.x+180,y:yearPoint.y},'touchMove');
+  const wideChange = 1899 - await js('__t.yearControl.position');
+  check('大幅拖动比小幅拖动更快掠过年份',wideChange>(1900-smallChange)*180/107+.35,wideChange);
+  await sleep(150);
+  await touchYear(yearPoint,'touchEnd');
+  await waitYear();
+  check('放慢后松手只吸附到最近年份',await js('__t.state.year===Math.round(1899-'+wideChange+')'));
+  await touchYear(yearPoint,'touchStart');
+  await touchYear({x:yearPoint.x-130,y:yearPoint.y},'touchMove');
+  const flickPosition = await js('__t.yearControl.position');
+  await touchYear({x:yearPoint.x-175,y:yearPoint.y},'touchMove');
+  await touchYear(yearPoint,'touchEnd');
+  await waitYear();
+  check('快速向左拨动继续滑入后续年份',await js('__t.state.year>Math.round('+flickPosition+')+1'));
+  const flickYear = await js('__t.state.year');
+  await touchYear(yearPoint,'touchStart');
+  await touchYear({x:yearPoint.x+170,y:yearPoint.y},'touchMove');
+  await touchYear(yearPoint,'touchCancel');
+  await waitYear();
+  check('系统取消手势后恢复上次所选年份',await js(`__t.state.year===${flickYear} && __t.yearControl.position===${flickYear}`));
+  await tap(24,160);
+  check('点球面收起年份，并保留当前选年',await js(`!__t.yearControl.browsing && __t.sheet.detent==='hidden' && __t.state.year===${flickYear}`));
+  await touchYearTap(yearPoint);
+  await sleep(55);
+  check('第一次轻点在判定窗口内不会提前打开世界表',await js("document.getElementById('overlay').hidden"));
+  await touchYearTap(yearPoint);
+  await sleep(330);
+  check('触屏双击就地输入，世界表没有打开',await js("!document.getElementById('year-form').hidden && document.getElementById('overlay').hidden && document.activeElement.id==='year-input'"));
+  await readingShot('year-input');
+  await js("document.getElementById('year-input').value='1900';document.getElementById('year-form').requestSubmit()");
   check('输入历史年份改变真实边界几何',await js("__t.state.year===1900 && JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))!=="+JSON.stringify(historySignature)));
+  const yearKey = (key,options='') => js(`document.getElementById('year').dispatchEvent(new KeyboardEvent('keydown',{key:'${key}',bubbles:true${options}}))`);
+  await yearKey('F2');
+  await js("document.getElementById('year-input').value='公元 0 年';document.getElementById('year-form').requestSubmit()");
+  check('键盘可输入年份，公元 0 年有就地错误提示',await js("__t.state.year===1900 && document.getElementById('year-input').getAttribute('aria-invalid')==='true'"));
+  await js("document.getElementById('year-input').value='公元前 1 年';document.getElementById('year-form').requestSubmit()");
+  await yearKey('Enter',',shiftKey:true');
+  check('公元前年份可输入，年份排列跨过公元交界',await js(`__t.state.year===-1 && [...document.querySelectorAll('#year-strip span:not([hidden])')].map(n=>n.textContent).join(',').includes('前2,前1,1,2')`));
+  await yearKey('ArrowRight');
+  check('键盘逐年移动跨过公元 0 年',await js('__t.state.year===1'));
+  await yearKey('Escape');
   const designShot = async name => {
     if (process.env.ATLAS_SHOTS !== '1' && process.env.ATLAS_SHOTS !== name) return;
     const shot=await send('Page.captureScreenshot',{format:'png'});
     require('fs').writeFileSync(require('path').join(__dirname,'../docs/design',name+'.png'),Buffer.from(shot.data,'base64'));
   };
-  await designShot('timeline');
-  await js("document.getElementById('time-play').click()");
-  await sleep(850);
-  check('播放推进年份并保持时间轴',await js("__t.state.year===1910 && document.getElementById('time-play').getAttribute('aria-pressed')==='true'"));
-  await js("document.getElementById('time-play').click()");
-  await sleep(6900);
-  check('闲置自动收起时间轴且保留年份',await js("document.getElementById('dock').inert && __t.state.year===1910"));
   await send('Emulation.setDeviceMetricsOverride', {width:402,height:874,deviceScaleFactor:3,mobile:true});
   await js("__t.setYear(1900);document.activeElement.blur()");
   await sleep(350);
@@ -318,9 +371,14 @@ async function main() {
   check('桌面右键可打开观察方式',await js("!document.getElementById('view-panel').hidden"));
   await js("document.querySelector('[data-view=modern]').click()");
   await hold(await pointOf('#year'));
-  await js("document.querySelectorAll('[data-year-step]')[0].click()");
-  check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1890"));
+  await yearKey('ArrowLeft');
+  check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1899"));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
+  await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.querySelector('.view-time').open=true;document.getElementById('time-play').click()");
+  await sleep(830);
+  check('次级播放入口可推进年份，地球首页保持收起状态',await js(`__t.state.year>=1909 && !__t.yearControl.browsing &&
+    document.getElementById('view-panel').hidden && document.getElementById('time-play').getAttribute('aria-pressed')==='true'`));
+  await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.getElementById('time-play').click();document.getElementById('view-close').click()");
 
   /* 切到政权层 */
   await js(`window.__t.setYear(1900)`);
@@ -513,8 +571,8 @@ async function main() {
   await sleep(500);
   const original = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
   await js(`document.querySelector('[data-read-topic]').click()`);
-  const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,dock:getComputedStyle(document.getElementById('dock')).visibility})`);
-  check('晚清专题有八个节点且收起时间轴', topic.open && topic.cards===8 && topic.dock==='hidden' && /晚清/.test(topic.title), topic);
+  const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,browsing:__t.yearControl.browsing})`);
+  check('晚清专题有八个节点且收起年份控件', topic.open && topic.cards===8 && !topic.browsing && /晚清/.test(topic.title), topic);
   await waitReader();
   await readingShot('late-qing');
   await js(`document.getElementById('book-body').scrollTop=240`);
