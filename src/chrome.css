@@ -1,5 +1,5 @@
 /* 沉浸首页，工具按需出现。 */
-html,body{background:#05080d;min-height:100dvh}
+html,body{background:var(--page-bg);min-height:100dvh}
 body{height:100dvh}
 #globe,#vec{height:100dvh}
 #scrim{display:none}

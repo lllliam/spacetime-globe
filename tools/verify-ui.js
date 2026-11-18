@@ -293,9 +293,15 @@ async function main() {
   await sleep(560);
   check('长按在原位展开年份，保持世界表关闭', await js(`__t.yearControl.browsing && __t.state.year===1900 &&
     document.getElementById('overlay').hidden && document.getElementById('year-strip').textContent.includes('189919001901')`));
-  await readingShot('year-browse');
+  check('同一行能看到中央年份和两侧两格渐隐年份',await js(`(() => {
+    const strip=document.getElementById('year-strip'), r=strip.getBoundingClientRect();
+    const positions=['1898','1899','1900','1901','1902'].map(y=>[...strip.children]
+      .find(n=>n.textContent===y).getBoundingClientRect()).map(p=>p.x+p.width/2);
+    return positions.every(x=>x>r.left && x<r.right) && positions[3]-positions[2]<90;
+  })()`));
+  await readingShot('year-browse-compact');
   const yearCamera = await js('JSON.stringify([__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])');
-  await touchYear({x:yearPoint.x+107,y:yearPoint.y},'touchMove');
+  await touchYear({x:yearPoint.x+76,y:yearPoint.y},'touchMove');
   const smallChange = await js('__t.yearControl.position');
   check('同一根手指继续拖动时只预览年份',Math.round(smallChange)===1899 && await js('__t.state.year===1900'),smallChange);
   await sleep(150);
@@ -309,7 +315,7 @@ async function main() {
   await touchYear(yearPoint,'touchStart');
   await touchYear({x:yearPoint.x+180,y:yearPoint.y},'touchMove');
   const wideChange = 1899 - await js('__t.yearControl.position');
-  check('大幅拖动比小幅拖动更快掠过年份',wideChange>(1900-smallChange)*180/107+.35,wideChange);
+  check('大幅拖动比小幅拖动更快掠过年份',wideChange>(1900-smallChange)*180/76+.35,wideChange);
   await sleep(150);
   await touchYear(yearPoint,'touchEnd');
   await waitYear();
@@ -358,6 +364,9 @@ async function main() {
   await sleep(350);
   await designShot('globe');
   check('首页保留球下留白',await js("!document.getElementById('home-story') && getComputedStyle(document.body).backgroundColor==='rgb(5, 8, 13)'"));
+  check('加载层与页面边缘同色，收起的半窗停止绘制',await js(`__t.bootBackground===getComputedStyle(document.body).backgroundColor &&
+    getComputedStyle(document.documentElement).backgroundColor===__t.bootBackground &&
+    getComputedStyle(document.getElementById('sheet')).visibility==='hidden'`));
   await send('Emulation.setDeviceMetricsOverride', {width:390,height:844,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   const globePoint = await js("({x:__t.view.cx,y:__t.view.cy})");

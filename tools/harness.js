@@ -30,6 +30,7 @@ const HOOK = `
 /* ===== TEST HOOK ===== */
 window.__t = {
   get state(){ return state }, get view(){ return view }, get partition(){ return partition },
+  bootBackground: getComputedStyle(bootEl).backgroundColor,
   get pk(){ return pk }, get summary(){ return summary },
   get rendererKind(){ const r = glr || fallback; return r && r.kind },
   get polityLoaded(){ return !!(pk && polityState.loaded) },

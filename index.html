@@ -16,6 +16,7 @@
 <style>
 :root{
   --bg:#0b1017; --ink:#f4efe3; --muted:#8e99a8; --line:#2a323e;
+  --page-bg:#05080d;
   --gold:#e0b273; --gold-dim:#8a6a43; --card:#141b24;
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
   color-scheme:dark;
@@ -79,7 +80,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 
 /* ── 启动 ── */
 #boot{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;gap:14px;
-  align-items:center;justify-content:center;background:var(--bg);transition:opacity .5s ease}
+  align-items:center;justify-content:center;background:var(--page-bg);transition:opacity .5s ease}
 #boot.gone{opacity:0;pointer-events:none}
 #boot p{margin:0;font-size:12px;color:var(--muted);letter-spacing:.06em}
 #boot .spin{width:26px;height:26px;border-radius:50%;border:2px solid rgba(224,178,115,.22);
@@ -124,7 +125,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #sheet-dim.show{opacity:1;pointer-events:auto}
 
 #sheet{position:fixed;left:0;right:0;bottom:0;z-index:8;height:100%;
-  display:flex;flex-direction:column;
+  display:flex;flex-direction:column;visibility:hidden;
   transform:translateY(100%);
   border-radius:22px 22px 0 0;
   background:linear-gradient(180deg,rgba(20,27,36,.92) 0%,rgba(12,17,24,.97) 12%,#0a0f16 100%);
@@ -132,6 +133,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
   box-shadow:0 -20px 48px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .42s cubic-bezier(.22,.95,.3,1);
   will-change:transform;padding-bottom:var(--safe-b)}
+body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #sheet.dragging{transition:none}
 #sheet::before{content:"";position:absolute;inset:0 0 auto;height:120px;pointer-events:none;
   border-radius:22px 22px 0 0;
@@ -445,7 +447,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .reading-filters button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(224,178,115,.09)}
 
 /* 沉浸首页，工具按需出现。 */
-html,body{background:#05080d;min-height:100dvh}
+html,body{background:var(--page-bg);min-height:100dvh}
 body{height:100dvh}
 #globe,#vec{height:100dvh}
 #scrim{display:none}
@@ -3673,7 +3675,7 @@ const yearAtIndex = (index) => {
 };
 
 let yearBrowsing = false, yearPosition = ord(state.year), yearPress = null;
-let yearStride = 100, yearFrame = 0, yearDestination = null, yearTapTimer = 0;
+let yearStride = 80, yearFrame = 0, yearDestination = null, yearTapTimer = 0;
 let yearTap = null, suppressYearClick = false;
 
 function yearControlOpen() {
@@ -3686,7 +3688,7 @@ function syncYearControl(year) {
   elYear.setAttribute('aria-label', spoken + '的全球事件。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
     yearPosition = ord(year);
-    renderYearStrip();
+    updateYearStride();
   }
 }
 
@@ -3708,8 +3710,14 @@ function renderYearStrip() {
 }
 
 function updateYearStride() {
-  yearStride = clamp(yearControl.clientWidth * .295, 93, 142);
-  if (yearBrowsing) renderYearStrip();
+  if (!yearBrowsing) return;
+  yearStride = clamp(yearControl.clientWidth * .205, 73, 111);
+  // Long BCE labels include a prefix, so reserve enough room for the adjacent year.
+  if (yearAtIndex(yearPosition) <= -100) {
+    const fontSize = parseFloat(getComputedStyle(yearControl).fontSize);
+    yearStride = Math.max(yearStride, fontSize * 2.65);
+  }
+  renderYearStrip();
 }
 
 function cancelYearTap() {

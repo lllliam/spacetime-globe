@@ -1,4 +1,4 @@
-# 阅读与事件地图 · v4.7.0
+# 阅读与事件地图 · v4.7.1
 
 ## 入口与导航
 
@@ -45,7 +45,7 @@
 - `src/shell.html`：阅读层、全球事件表和事件地图的界面。
 - `build.mjs`：校验专题结构并生成两种 HTML。不要直接修改生成的 HTML。
 - `src/year-control.js`：年份的单击、双击、长按横拨、惯性吸附与就地输入。
-- `sw.js`：缓存版本更新到 `globe-v16-year-control`。
+- `sw.js`：缓存版本更新到 `globe-v17-viewport-year-spacing`。
 
 运行 `node build.mjs` 构建，`node tools/verify-ui.js` 执行地球、阅读导航、地图恢复、手机尺寸和断网单文件检查。`node tools/smoke.js` 检查实际点击与触摸操作。
 

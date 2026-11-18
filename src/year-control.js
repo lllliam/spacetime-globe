@@ -10,7 +10,7 @@ const yearAtIndex = (index) => {
 };
 
 let yearBrowsing = false, yearPosition = ord(state.year), yearPress = null;
-let yearStride = 100, yearFrame = 0, yearDestination = null, yearTapTimer = 0;
+let yearStride = 80, yearFrame = 0, yearDestination = null, yearTapTimer = 0;
 let yearTap = null, suppressYearClick = false;
 
 function yearControlOpen() {
@@ -23,7 +23,7 @@ function syncYearControl(year) {
   elYear.setAttribute('aria-label', spoken + '的全球事件。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
     yearPosition = ord(year);
-    renderYearStrip();
+    updateYearStride();
   }
 }
 
@@ -45,8 +45,14 @@ function renderYearStrip() {
 }
 
 function updateYearStride() {
-  yearStride = clamp(yearControl.clientWidth * .295, 93, 142);
-  if (yearBrowsing) renderYearStrip();
+  if (!yearBrowsing) return;
+  yearStride = clamp(yearControl.clientWidth * .205, 73, 111);
+  // Long BCE labels include a prefix, so reserve enough room for the adjacent year.
+  if (yearAtIndex(yearPosition) <= -100) {
+    const fontSize = parseFloat(getComputedStyle(yearControl).fontSize);
+    yearStride = Math.max(yearStride, fontSize * 2.65);
+  }
+  renderYearStrip();
 }
 
 function cancelYearTap() {
