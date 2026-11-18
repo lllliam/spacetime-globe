@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, statSync, existsSync, readdirSync } from '
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { loadSubjectBooks } from './tools/subject-books.mjs';
+import { loadPolityNames } from './tools/polity-names.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
@@ -24,6 +25,7 @@ const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('
   .map((f) => JSON.parse(rd('data', 'topics', f)));
 const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
 const subjectBooks = loadSubjectBooks(root);
+const {names: polityNames} = loadPolityNames(root);
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
 const worldEventChapters = new Map();
@@ -80,13 +82,19 @@ if (!problems.length) {
       if (!topic || (note.related.chapterId && !chapter)) problems.push('无效的年表延伸阅读：' + id);
     }
   }
+  const hasChinese = (value) => typeof value === 'string' && /\p{Script=Han}/u.test(value);
+  for (const r of world.regions) {
+    if (!hasChinese(r.zh)) problems.push('地区缺少中文名称：' + r.id);
+  }
   for (const e of world.entries) {
     if (!ids.has(e.region)) problems.push(`条目 ${e.id} 指向不存在的地区 ${e.region}`);
     if (typeof e.start !== 'number') problems.push(`条目 ${e.id} start 不是数字`);
     if (!e.point && typeof e.end !== 'number') problems.push(`条目 ${e.id} 缺 end`);
+    if (!hasChinese(e.zh)) problems.push('世界表条目缺少中文标题：' + e.id);
   }
   for (const [iso, path] of world.map) {
     if (typeof path !== 'string' || !/^M/.test(path.trim())) problems.push(`国界 ${iso} 的 path 不合法`);
+    if (/^[A-Z]{2}$/.test(iso) && !hasChinese(world.isoNames[iso])) problems.push('现代地图缺少中文名称：' + iso);
   }
   if (!world.entries.length) problems.push('年表为空');
   if (!world.map.length) problems.push('国界为空');
@@ -101,7 +109,7 @@ const put = (hay, needle, value) => {
   if (i < 0) throw new Error('模板缺少占位符 ' + needle);
   return hay.slice(0, i) + value + hay.slice(i + needle.length);
 };
-const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
+const page = (atlasJson, reliefB64, polityB64) => {
   let h = shell;
   h = put(h, '/*CSS*/', css);
   h = put(h, '/*CLOUDS*/', readFileSync(join(root, 'data/clouds.png')).toString('base64'));
@@ -110,24 +118,22 @@ const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   h = put(h, '/*ATLAS*/', atlasJson);
   h = put(h, '/*RELIEF*/', reliefB64);
   h = put(h, '/*POLITY*/', polityB64);
-  h = put(h, '/*STORIES*/', storiesJson);
+  h = put(h, '/*POLITY_NAMES*/', JSON.stringify([...polityNames]).replace(/</g, '\\u003c'));
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
   h = put(h, '/*SUBJECT_BOOKS*/', JSON.stringify(subjectBooks).replace(/</g, '\\u003c'));
   h = put(h, '/*TIMELINE_NOTES*/', JSON.stringify(timelineNotes).replace(/</g, '\\u003c'));
   return h;
 };
 
-/* 线上版：数据外置（书里的正文按需取） */
-const online = page('', '', '', '');
+/* 线上版：地球数据外置，阅读内容随页面提供 */
+const online = page('', '', '');
 writeFileSync(join(root, 'index.html'), online, 'utf8');
 
 /* 单文件版：全部内嵌 */
-const storiesRaw = existsSync(join(root, 'data', 'stories.json')) ? rd('data', 'stories.json') : '';
 const offline = page(
   JSON.stringify(world),
   readFileSync(join(root, 'data', 'relief.jpg')).toString('base64'),
   readFileSync(join(root, 'data', 'polity.bin.gz')).toString('base64'),
-  storiesRaw,
 ).replace('href="favicon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'favicon.png')).toString('base64') + '"')
  .replace('href="icon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'icon.png')).toString('base64') + '"')
  .replace('<link rel="manifest" href="manifest.webmanifest?v=3">', '');

@@ -32,14 +32,17 @@ function politySelectionsAt(point, primaryId) {
   return [...peers];
 }
 
-function subjectYears({ from, to }) {
+function subjectYears({ from, to, dateLabel }) {
+  if (dateLabel) return dateLabel;
   const year = (y) => y < 0 ? '公元前 ' + -y : String(y);
   if (from === to) return year(from) + ' 年';
   return year(from) + (to == null ? ' 年至今' : '—' + year(to) + ' 年');
 }
 
 function subjectEntityName(entity) {
-  return entity.kind === 'polity' ? globePolityNames[entity.name] || polityZhName(entity.name) : entity.name;
+  return entity.kind === 'polity'
+    ? polityNames.get(entity.name) || '中文名待考 · ' + (entity.entId + 1)
+    : entity.name;
 }
 
 function subjectSheetMarkup(entity) {
@@ -89,6 +92,8 @@ function renderAtlasReading() {
     '<p class="lede">这个主体的历史正文尚未收录。</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
+    (history && !polityNames.has(entity.name)
+      ? '<details class="subject-secondary"><summary>底图原名</summary><p>' + esc(entity.name) + '</p></details>' : '') +
     subjectNeighbors() +
     sourcesMarkup(history ? [{title:'历史疆域 · Cliopatria',url:'https://github.com/Seshat-Global-History-Databank/cliopatria'}]
       : [{title:'现代底图 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) +

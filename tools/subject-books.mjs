@@ -1,5 +1,6 @@
 import {readFileSync, readdirSync} from 'node:fs';
 import {join} from 'node:path';
+import {readPolityIds} from './polity-names.mjs';
 
 export function loadSubjectBooks(root) {
   const read = (file) => JSON.parse(readFileSync(join(root, file), 'utf8'));
@@ -12,16 +13,7 @@ export function loadSubjectBooks(root) {
   const events = new Map([...topics.values()].flatMap((t) => t.chapters.filter((c) => c.mapStory)
     .map((c) => [c.mapStory.worldEntryId, c.year])));
   const byId = new Map(books.map((book) => [book.id, book]));
-  const pack = readFileSync(join(root, 'data/polity.bin'));
-  const polityIds = new Map();
-  let offset = pack.readUInt32LE(16);
-  for (let i = 0; i < pack.readUInt32LE(4); i++) {
-    const length = pack.readUInt16LE(offset);
-    const name = pack.toString('utf8', offset + 2, offset + 2 + length);
-    if (polityIds.has(name)) throw new Error('疆域数据出现重名：' + name);
-    polityIds.set(name, i);
-    offset += length + 6;
-  }
+  const polityIds = readPolityIds(root);
   const claimed = new Set(), boundEvents = new Set();
   const validYear = (year) => Number.isInteger(year) && year !== 0;
   const idFormat = /^[a-z][a-z0-9-]*$/;
@@ -32,6 +24,8 @@ export function loadSubjectBooks(root) {
       (book.to === null || validYear(book.to) && book.to >= book.from) &&
       book.chapters?.length > 1 && book.polities?.length && book.sources?.length, book.id);
     require(book.sources.every((s) => s.title && /^https:\/\//.test(s.url)), book.id + ' 出处');
+    require(book.dateLabel === undefined || typeof book.dateLabel === 'string' && /\p{Script=Han}/u.test(book.dateLabel),
+      book.id + ' 书卷年代说明');
     book.polityIds = book.polities.map((name) => {
       const id = polityIds.get(name);
       require(id !== undefined && !claimed.has(id), book.id + ' 疆域绑定 ' + name);

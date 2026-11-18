@@ -3,8 +3,11 @@ import {readFileSync, writeFileSync, readdirSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadSubjectBooks} from './subject-books.mjs';
+import {loadPolityNames} from './polity-names.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const subjectBooks = loadSubjectBooks(root);
+const polityNames = loadPolityNames(root);
+const bookChapters = subjectBooks.reduce((total, book) => total + book.chapters.length, 0);
 const read = (f) => JSON.parse(readFileSync(join(root, f), 'utf8'));
 const plan = read('data/content-plan.json');
 const topics = readdirSync(join(root, 'data/topics')).filter(f=>f.endsWith('.json')).map(f=>read('data/topics/'+f));
@@ -57,7 +60,8 @@ function checkLink(t,c,l) {
 const lines=['# 世界历史书的内容覆盖','',
   '## 主体书卷','',
   '| 书卷 | 年代 | 章节数 |','| --- | --- | ---: |',
-  ...subjectBooks.map((book)=>`| ${book.title} | ${book.from<0?'公元前 '+Math.abs(book.from):book.from}${book.to===null?' 年至今':'—'+book.to} | ${book.chapters.length} |`),'',
+  ...subjectBooks.map((book)=>`| ${book.title} | ${book.dateLabel || bookYears(book)} | ${book.chapters.length} |`),'',
+  `共 ${subjectBooks.length} 卷、${bookChapters} 章。正文按段落标注出处。`,'',
   '有地理轮廓的主体可在地球上定位。主体书卷由编辑选材与核对，未收录正文的主体可查看地图资料。','',
   '## 补充专题资料','',
   '专题覆盖全球主要文明、地区及历史阶段，兼顾六大有人居住的大洲。','',
@@ -66,9 +70,15 @@ const lines=['# 世界历史书的内容覆盖','',
   '| 专题 | 地区 | 覆盖年代 | 正文篇数 | 每篇正文汉字 |','| --- | --- | --- | ---: | --- |',
   ...plan.map(p=>{const t=byId.get(p.id);return t?`| ${t.title} | ${t.continents.join('、')} | ${t.from}—${t.to} | ${t.chapters.length} | ${t.chapters.map(lengthOf).join(' / ')} |`:`| ${p.title} | ${p.continents.join('、')} | 待完成 | 0 | — |`;}),'',
   '## 地理与时间边界','', '历史疆域覆盖取决于地图资料，书卷年代取决于所采用的叙事范围。现代区域以现代国界绘制。补充专题在历史书目中按需查阅。','',
+  `历史地图 ${polityNames.total} 条名称中，${polityNames.direct} 条有独立中文对照，${polityNames.names.size - polityNames.direct} 条使用已核对主体名组成关系名称。余下 ${polityNames.total - polityNames.names.size} 条可在地图资料中展开底图原名。`,'',
   '## 校验结果','',problems.length?problems.map(p=>'- '+p).join('\n'):'所有计划专题的节点数、正文长度、来源索引、地点、年代和内部关联结构检查通过。','',
   ...warnings.map(p=>'- 待补关系：'+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
-console.log(JSON.stringify({books:subjectBooks.length,bookChapters:subjectBooks.reduce((sum, book)=>sum+book.chapters.length,0),topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
+console.log(JSON.stringify({books:subjectBooks.length,bookChapters,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
 for(const p of problems) console.error(p);
 if(problems.length) process.exitCode=1;
+
+function bookYears({from, to}) {
+  const format = (year) => year < 0 ? '公元前 ' + -year : String(year);
+  return format(from) + (to === null ? ' 年至今' : '—' + format(to) + ' 年');
+}

@@ -181,7 +181,7 @@ function initWorld(w) {
   const knownIsos = new Set(regions.map((r) => r.iso));
   for (const [iso] of w.map) {
     if (!/^[A-Z]{2}$/.test(iso) || knownIsos.has(iso)) continue;
-    regions.push({id:'g-map-' + iso, iso, zh:(w.isoNames || {})[iso] || iso, en:iso, parent:'g-world'});
+    regions.push({id:'g-map-' + iso, iso, zh:w.isoNames[iso], parent:'g-world'});
     knownIsos.add(iso);
   }
   regionById = new Map(regions.map((r) => [r.id, r]));
@@ -845,14 +845,7 @@ function svgRings(pathStr) {
 }
 
 let vecShapes = [];
-// 常见政权的简短球面标签，档案仍保留数据源里的完整名称。
-const globePolityNames = {
-  'Qing Dynasty':'清朝', 'Russian Empire':'俄罗斯帝国', 'British Raj':'英属印度',
-  'British Empire':'大英帝国', 'Ottoman Empire':'奥斯曼帝国', 'Korean Empire':'大韩帝国',
-  'Empire of Japan':'日本帝国', 'Japan':'日本', 'Ming Dynasty':'明朝', 'Yuan Dynasty':'元朝',
-  'Tang Dynasty':'唐朝', 'Mongol Empire':'蒙古帝国', 'Roman Empire':'罗马帝国',
-  'Byzantine Empire':'拜占庭帝国', 'Mughal Empire':'莫卧儿帝国', 'Qajar Dynasty':'卡扎尔王朝',
-};
+const polityNames = new Map(JSON.parse(inlineText('polity-names')));
 function prepareVector() {
   const layer = LAYERS[state.layerId];
   const shapes = partition.shapes;
@@ -872,8 +865,8 @@ function prepareVector() {
     if (!vecs.length) continue;
     const ent = layer.entityOfShape(s);
     const name = layer.id === 'polity'
-      ? (ent && ent.ent ? (globePolityNames[ent.ent.name] || polityZhName(ent.ent.name) || ent.ent.name) : '')
-      : (ent && ent.region ? (ent.region.zh || ent.region.en || '') : '');
+      ? (polityNames.get(ent?.ent?.name) || '')
+      : (ent?.region?.zh || '');
     let area = 0;
     for (const v of vecs) area = Math.max(area, ringRoughArea(v.xyz));
     out.push({ id: s.id, vecs, name, area });
@@ -1302,7 +1295,7 @@ function entityByKey(layerId, key, shapeId) {
     const s = mapShapes.find((x) => x.iso === key);
     return {
       kind: 'country', id: shapeId || (s ? s.id : 0), layerId, key,
-      name: r.zh || r.en || r.iso, nameEn: r.en || '', iso: r.iso,
+      name: r.zh, iso: r.iso,
       from: null, to: null, regionId: r.id,
       total: (entryByRegion.get(r.id) || []).length,
     };
@@ -1311,7 +1304,7 @@ function entityByKey(layerId, key, shapeId) {
   if (!e) return null;
   return {
     kind: 'polity', id: shapeId || 0, layerId, key,
-    name: e.name, nameEn: e.name,
+    name: e.name,
     from: e.from, to: e.to, entId: e.id,
     total: null,
   };
@@ -1869,7 +1862,6 @@ function openEntity(layerId, id, point = null) {
   if (key === null) { closeSheet(); return; }
   state.focus = { layerId, id, key, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
-  if (!stories) loadStories().then(() => { if (state.focus) renderEntity(); });
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
     sheetTo('half');
@@ -1910,9 +1902,7 @@ const closeBook = () => closeReader();
 const renderSheet = renderEntity;
 
 function isoName(iso) {
-  if (world && world.isoNames && world.isoNames[iso]) return world.isoNames[iso];
-  const r = regionByIso.get(iso);
-  return r ? (r.zh || r.en || iso) : iso;
+  return world?.isoNames?.[iso] || regionByIso.get(iso)?.zh || '相关地区';
 }
 const KIND = {
   era: ['朝代 / 政权', '#6f93b8'], war: ['战争', '#c0766d'], movement: ['思潮', '#9a86b8'],
@@ -1936,7 +1926,7 @@ function openWorld() {
     let g = row.e.regionRef || regionById.get(row.e.region);
     let guard = 0;
     while (g && g.parent && guard++ < 8) g = regionById.get(g.parent) || g;
-    const key = (g && (g.zh || g.en)) || '其他';
+    const key = g?.zh || '其他';
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row.e);
   }
@@ -1953,9 +1943,9 @@ function openWorld() {
         const r = regionById.get(e.region) || {};
         const year = clamp(state.year, e.start, e.point ? e.start : e.end);
         const story = worldEventTarget(e, year)?.chapter.mapStory;
-        const place = story?.title || r.zh || r.en || '地点未详';
+        const place = story?.title || r.zh || '地点未详';
         html += '<button type="button" class="wrow" data-event="' + esc(e.id) + '">' +
-          '<span class="t">' + esc(timelineItem(e).title || e.zh || e.en) + '<span class="m">' + esc(place) + '</span></span>' +
+          '<span class="t">' + esc(timelineItem(e).title || e.zh) + '<span class="m">' + esc(place) + '</span></span>' +
           '<span class="y">' + esc(dateOf(e)) + '</span></button>';
       }
     }
@@ -1972,39 +1962,6 @@ overlayBody.addEventListener('click', (e) => {
 const closeWorld = () => { if (!overlay.hidden) { overlay.hidden = true; invalidate(); } };
 el('overlay-close').addEventListener('click', closeWorld);
 // 年份入口由 chrome.js 打开时间轴；全景资料从视图面板进入。
-
-/* ───────────── 13.5 阅读视图（一本书） ───────────── */
-/* 书 = 实体在某个时期的一组节：导语（来自维基）+ 按时间分节的事件段落 + 出处。
-   数据在 data/stories.json（条目 id → 中文维基导语）。 */
-let stories = null, storiesLoading = false;
-// 书的 DOM 现在长在抽屉里（见第 12 节）
-
-async function loadStories() {
-  if (stories || storiesLoading) return;
-  storiesLoading = true;
-  try {
-    const inline = inlineText('stories');
-    if (inline.length > 50) stories = JSON.parse(inline);
-    else stories = await (await fetch('data/stories.json')).json();
-  } catch (e) {
-    stories = { entries: {}, polities: {} };
-    console.warn('stories 读取失败', e);
-  }
-  storiesLoading = false;
-}
-
-/* 政权中文名：宁可显示英文原名，也不要显示「鄂圖曼帝國的分裂」这种错配或繁体标题 */
-const TRAD_CHARS = /[國帝國戰歷羅馬爾圖亞歐蘭蘇聯韓華灣廣義門開關長飛車東鄉親漢滿臺萬與為無獨產權變壓經濟軍農陽陰]/;
-const BAD_NAME_WORDS = /分裂|解體|解体|滅亡|灭亡|歷史|历史|列表|戰爭|战争|戰役|战役|運動|运动|條約|条约|時期|时期|王朝列表/;
-function polityZhName(name) {
-  const rec = stories && stories.polities[name];
-  const t = rec && rec.t;
-  if (!t || t === name) return name;
-  if (BAD_NAME_WORDS.test(t)) return name;
-  if (TRAD_CHARS.test(t)) return name;
-  if (t.length > 14) return name;
-  return t;
-}
 
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {

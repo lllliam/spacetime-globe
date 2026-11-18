@@ -263,7 +263,7 @@ function readingRow(item, { current = false, timeline = false } = {}) {
   const date = '<small>' + esc(readingDate(item)) + '</small>';
   return '<li><button type="button" class="reading-card reading-row"' + (current ? ' aria-current="date"' : '') +
     ' data-reading-detail="' + esc(item.id) + '">' + (timeline ? '' : date) +
-    '<span class="reading-row-copy">' + (timeline ? date : '') + '<strong>' + esc(item.title || item.zh || item.en) + '</strong>' +
+    '<span class="reading-row-copy">' + (timeline ? date : '') + '<strong>' + esc(item.title || item.zh) + '</strong>' +
     (item.summary ? '<span>' + esc(item.summary) + '</span>' : '') + '</span>' + readingArrow + '</button></li>';
 }
 function readingRows(rows, label, timeline = false) {

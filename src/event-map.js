@@ -179,8 +179,8 @@ function openWorldEvent(event, row) {
   const region = event.regionRef || regionById.get(event.region);
   showEventMap({ event, target, row, scroll: overlayBody.scrollTop, year,
     readingTarget: target ? subjectsByEvent.get(event.id) : null,
-    title: timelineItem(event).title || event.zh || event.en,
-    summary: story?.summary || (region ? '相关地区 · ' + (region.zh || region.en) : '地点未详'),
+    title: timelineItem(event).title || event.zh,
+    summary: story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
     participants: story?.participants, places: target && chapterPlaces(target.chapter),
     back: state.year >= YMAX ? '返回近 30 年' : '返回 ' + fmtYear(state.year) + ' 年' });
 }

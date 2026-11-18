@@ -675,10 +675,39 @@ async function main() {
   check('跨卷返回保留前一本的章节',await js(`__t.reading.subject.id==='ming' && __t.reading.detail==='fall'`));
   const identities = await js(`[
     ['Qing Dynasty',1750,'qing'],['Ottoman Empire',1600,'ottoman'],['Roman Empire',100,'roman'],
-    ['Byzantine Empire',1100,'roman'],["People's Republic of China",2000,'prc'],['Mali Empire',1400,null]
+    ['Byzantine Empire',1100,'roman'],["People's Republic of China",2000,'prc'],['Kingdom of France',1500,null],
+    ['Tang Dynasty',750,'tang'],['Han Dynasty',100,'han'],['Tokugawa Shogunate',1750,'tokugawa'],
+    ['Mughal Empire',1650,'mughal'],['Khmer Empire',1100,'khmer'],['Mali Empire',1400,'mali'],
+    ['Achaemenid Empire',-500,'achaemenid'],['Aztec Triple Alliance',1480,'aztec'],['Inca Empire',1500,'inca'],
+    ['Songhai Empire',1500,'songhai']
   ].map(([name,year,expected])=>{const ent=__t.pk.entities.find(e=>e.name===name);return {name,expected,
     actual:__t.subjectBookForEntity(__t.entityByKey('polity',ent.id),year)?.id||null}})`);
   check('各卷按稳定的书卷身份绑定来源数据中的历史主体',identities.every(x=>x.actual===x.expected),identities);
+  await js(`__t.closeReader();__t.closeSheet();__t.setYear(1500)`);
+  const localized = await js(`(() => {
+    const shapes=__t.partition.shapes;
+    const aztec=shapes.find(s=>s.ent.name==='Aztec Triple Alliance');
+    __t.openEntity('polity',aztec.id);
+    const sheet=document.querySelector('.sheet-overview h2').textContent;
+    __t.openBook();
+    return {sheet,book:__t.reading.subject.id,anchor:document.querySelector('[aria-current=date]')?.dataset.readingDetail,
+      aztecLabel:__t.vecShapes.some(s=>s.name==='阿兹特克三方同盟'),
+      chineseLabels:__t.vecShapes.every(s=>!s.name||/[\\u3400-\\u9fff]/.test(s.name)),
+      zapotec:__t.polityNames.get('Zapotec Civilization'),
+      relation:__t.polityNames.get('Allegiance of Joseon to Ming Dynasty')};
+  })()`);
+  check('同一份中文名称用于历史地图，点击同盟疆域进入帝国书卷',localized.sheet==='阿兹特克帝国' && localized.book==='aztec' &&
+    localized.anchor==='city' && localized.aztecLabel && localized.chineseLabels && localized.zapotec==='萨波特克文明' &&
+    localized.relation==='朝鲜王朝向明朝效忠',localized);
+  await js(`__t.closeReader();__t.closeSheet();__t.setYear(1400)`);
+  check('待核定主体保留地图点击，原始名称只在可展开的底图资料中显示',await js(`(() => {
+    const shape=__t.partition.shapes.find(s=>s.ent.name==='Bahrani Dynasty');
+    __t.openEntity('polity',shape.id);
+    __t.openBook();
+    const raw=[...document.querySelectorAll('.subject-secondary')].find(n=>n.querySelector('summary')?.textContent==='底图原名');
+    return document.getElementById('reading-title').textContent.startsWith('中文名待考') &&
+      raw?.textContent.includes('Bahrani Dynasty') && !raw.open && !__t.vecShapes.some(s=>s.name==='Bahrani Dynasty');
+  })()`));
   await send('Emulation.setDeviceMetricsOverride',{width:320,height:740,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   check('320px 手机正文无横向溢出',await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth`));
@@ -774,14 +803,17 @@ async function main() {
         const row=document.querySelector('.reading-row[data-reading-detail="'+chapter.id+'"]');
         if(!row){bad.push(book.id+'/'+chapter.id);break;}
         row.click(); count++;
-        if(!document.querySelector('.subject-prose') || !document.querySelector('.reading-sources a'))bad.push(book.id+'/'+chapter.id);
+        const prose=document.querySelectorAll('.subject-prose p');
+        if(prose.length!==chapter.paragraphs.length || !document.querySelector('.reading-sources a') ||
+          (chapter.map && !document.querySelector('[data-subject-map]')))bad.push(book.id+'/'+chapter.id);
         document.getElementById('reading-back').click();
       }
       document.getElementById('reading-back').click();
     }
-    return {count,bad};
+    return {count,bad,expected:__t.subjectBooks.reduce((total,book)=>total+book.chapters.length,0),books:__t.subjectBooks.length};
   })()`);
-  check('五卷共 25 章均可断网阅读及返回',offlineBooks.count===25 && !offlineBooks.bad.length,offlineBooks);
+  check('全部书卷均可断网逐章阅读、显示来源与章节地图入口',offlineBooks.count===offlineBooks.expected &&
+    offlineBooks.books>=15 && !offlineBooks.bad.length,offlineBooks);
   await js(`document.querySelector('[data-reading-catalog]').click()`);
   const offlineAll=await js(`(()=>{
     const bad=[];let count=0;
