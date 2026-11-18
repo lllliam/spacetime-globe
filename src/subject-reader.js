@@ -116,7 +116,7 @@ function renderSubjectOutline(book) {
 }
 
 function sceneButton(scene) {
-  const places = scene.places.slice(0, 2).map(place => place.name).join('、') + (scene.places.length > 2 ? '等地点' : '');
+  const places = scene.places.slice(0, 3).map(place => place.name).join('、') + (scene.places.length > 3 ? '等地点' : '');
   return '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) + '">' +
     '<span><strong>在地球上看 · ' + esc(scene.title) + '</strong><small>' +
     esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small></span>' +

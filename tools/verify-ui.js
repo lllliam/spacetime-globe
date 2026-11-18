@@ -684,7 +684,7 @@ async function main() {
   check('两处场景分别跟随正文段落，阅读时地球不自动打开',await js(`(() => {
     const first=document.querySelector('${jingnan}'), second=document.querySelector('${yongle}');
     return !__t.worldEvent && first.previousElementSibling.textContent.includes('燕王') &&
-      second.previousElementSibling.textContent.includes('首都北移') && first.nextElementSibling.tagName==='P';
+      second.previousElementSibling.textContent.includes('清江浦') && first.nextElementSibling.tagName==='P';
   })()`));
   await js(`document.querySelector('${jingnan}').scrollIntoView({block:'center'})`);
   await readingShot('ming-inline-scene');
@@ -697,6 +697,8 @@ async function main() {
     document.getElementById('event-map-return').textContent.trim()==='返回正文' &&
     getComputedStyle(document.getElementById('hud')).visibility==='hidden' &&
     ['北平','南京'].every(name=>[...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].some(n=>n.textContent===name))`));
+  check('靖难场景标明两地直线距离',await js(`!document.getElementById('event-map-distance').hidden &&
+    document.getElementById('event-map-distance').textContent==='北平至南京 · 直线约 900 公里'`));
   await readingShot('ming-observation');
   await js(`document.querySelector('.event-map-point button[data-place=nanjing]').click()`);
   check('点选南京时显示其历史作用并隐藏多余操作',await js(`document.getElementById('event-map-note').textContent.includes('建文帝朝廷') &&
@@ -713,8 +715,14 @@ async function main() {
     await js(`__t.reading.detail==='two-capitals' && Math.abs(document.getElementById('book-body').scrollTop-${chapterScroll})<2 &&
       __t.reading.year===1500 && document.activeElement.matches('${jingnan}')`));
   await js(`document.querySelector('${yongle}').click()`);
-  check('同章可明确选择第二个场景',await js(`__t.state.year===1421 && __t.worldEvent.sceneId==='yongle-capitals' &&
-    document.getElementById('event-map-title').textContent==='永乐迁都'`));
+  await sleep(300);
+  check('同章可进入迁都场景，三处地点同时可读且上一场景的距离收起',await js(`
+    __t.state.year===1421 && __t.worldEvent.sceneId==='yongle-capitals' &&
+    document.getElementById('event-map-title').textContent==='永乐迁都' &&
+    document.getElementById('event-map-distance').hidden &&
+    document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])').length===3`));
+  await js(`document.querySelector('.event-map-point button[data-place=qingjiangpu]').click()`);
+  check('打开清江浦可读到漕船和淮河的关系',await js(`document.getElementById('event-map-note').textContent.includes('漕船衔接淮河')`));
   await js(`document.getElementById('event-map-return').click()`);
   await waitReader();
   await js('__t.closeReader();__t.closeSheet()');
@@ -726,8 +734,30 @@ async function main() {
   check('跨年份进入后可继续上次章节',await js(`__t.state.year===1600 && __t.reading.detail==='two-capitals'`));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
   check('阅读方向键不改变地球年份',await js('__t.state.year===1600'));
-  await js(`document.getElementById('reading-back').click();document.querySelector('.reading-row[data-reading-detail=fall]').click();
-    document.querySelector('[data-subject-book=qing]').closest('details').open=true;document.querySelector('[data-subject-book=qing]').click()`);
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=mid-ming]').click()`);
+  check('从迁都顺读到中期，北京守卫、江南市场与沿海贸易进入同一章',await js(`
+    __t.reading.detail==='mid-ming' && ['土木堡','景德镇','双屿'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=silver]').click()`);
+  for (const [scene, year, places] of [['imjin-frontier',1592,['釜山','平壤','义州']],
+    ['ming-beijing-1644',1644,['北京','山海关','沈阳']]]) {
+    const selector = '[data-subject-scene=' + scene + ']';
+    await js(`document.querySelector('${selector}').scrollIntoView({block:'center'})`);
+    const scroll = await js('document.getElementById("book-body").scrollTop');
+    await js(`document.querySelector('${selector}').click()`);
+    await sleep(300);
+    check(year+' 年场景的地点同时可读',await js(`
+      __t.state.year===${year} && ${JSON.stringify(places)}.every(name=>
+        [...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].some(n=>n.textContent===name))`));
+    await js(`document.getElementById('event-map-return').click()`);
+    await waitReader();
+    check('返回 '+year+' 年场景对应正文的原位置',await js(`
+      __t.state.year===1600 && document.activeElement.matches('${selector}') &&
+      Math.abs(document.getElementById('book-body').scrollTop-${scroll})<2`));
+    if (year === 1592) await js(`document.querySelector('.subject-chapter-next [data-reading-detail=fall]').click()`);
+  }
+  check('末章交代北京失守后的延续和影响',await js(`
+    ['弘光','永历','郑成功','1683 年','工匠'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
+  await js(`document.querySelector('[data-subject-book=qing]').closest('details').open=true;document.querySelector('[data-subject-book=qing]').click()`);
   check('由明朝结尾顺着关系打开清朝卷，仍停在 1600 年',await js(`__t.reading.subject.id==='qing' && __t.state.year===1600`));
   await js(`document.getElementById('reading-back').click()`);
   check('跨卷返回保留前一本的章节',await js(`__t.reading.subject.id==='ming' && __t.reading.detail==='fall'`));

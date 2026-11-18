@@ -329,6 +329,7 @@ body.event-map-open #hud{visibility:hidden}
 }
 .scene-observation #event-map-title{font-size:20px}
 .scene-observation #event-map-note{margin:6px 0 0;font-size:13px;line-height:1.65}
+#event-map-distance{margin:6px 0 0;color:#b3bdc8;font-size:12px;line-height:1.5;font-variant-numeric:tabular-nums}
 .scene-observation .event-map-point button{
   background:#080d14bc;color:#fff3d9;text-shadow:0 1px 4px #05080d;
 }

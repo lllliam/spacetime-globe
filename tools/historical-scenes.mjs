@@ -1,6 +1,17 @@
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
 
+function distanceLabel(first, second) {
+  const rad = Math.PI / 180;
+  const haversine = Math.sin((second.lat - first.lat) * rad / 2) ** 2 +
+    Math.cos(first.lat * rad) * Math.cos(second.lat * rad) *
+    Math.sin((second.lon - first.lon) * rad / 2) ** 2;
+  const km = 2 * 6371 * Math.asin(Math.min(1, Math.sqrt(haversine)));
+  const rounded = km < 10 ? Math.round(km * 10) / 10 : Math.round(km / 10) * 10;
+  const distance = rounded ? '约 ' + rounded + ' 公里' : '不足 100 米';
+  return first.name + '至' + second.name + ' · 直线' + distance;
+}
+
 export function loadHistoricalScenes(root, books, topics) {
   const records = JSON.parse(readFileSync(join(root, 'data/scenes.json'), 'utf8'));
   const topicEvents = new Map(topics.flatMap(topic => topic.chapters.filter(chapter => chapter.mapStory)
@@ -33,6 +44,12 @@ export function loadHistoricalScenes(root, books, topics) {
       scene.places.every(p => p.id && p.name && p.role && Number.isFinite(p.lon) && Math.abs(p.lon) <= 180 &&
         Number.isFinite(p.lat) && Math.abs(p.lat) <= 90), id + ' 地点');
     require(scene.sources?.length && scene.sources.every(s => s?.title && /^https:\/\//.test(s.url)), id + ' 来源');
+    if (scene.distanceBetween !== undefined) {
+      require(Array.isArray(scene.distanceBetween) && scene.distanceBetween.length === 2, id + ' 距离地点');
+      const [first, second] = scene.distanceBetween.map(key => scene.places.find(place => place.id === key));
+      require(first && second && first !== second && (first.lat !== second.lat || first.lon !== second.lon), id + ' 距离地点');
+      scene = {...scene, distanceLabel: distanceLabel(first, second)};
+    }
     scenes.set(id, scene);
   }
 

@@ -4,6 +4,7 @@ const eventMapTargets = new Map(TOPICS.flatMap((topic) => topic.chapters
 const eventMapPanel = el('event-map-panel'), eventMapPoints = el('event-map-points'), eventMapNote = el('event-map-note');
 const eventMapReturn = el('event-map-return'), eventMapTitle = el('event-map-title'), eventMapRead = el('event-map-read');
 const eventMapParticipants = el('event-map-participants');
+const eventMapDistance = el('event-map-distance');
 const eventMapTop = el('event-map-top'), eventMapYear = el('event-map-year');
 const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent).map(scene => [scene.topicEvent, scene]));
 let worldEvent = null;
@@ -133,7 +134,7 @@ function renderEventParticipants(participants) {
       (p.members?.length ? '<span>' + esc(p.members.join('、')) + '</span>' : '') + '</dd>').join('');
 }
 
-function showEventMap({year, title, summary, back, places, participants, historical = false, ...route}) {
+function showEventMap({year, title, summary, back, places, participants, distanceLabel, historical = false, ...route}) {
   worldEvent = {
     ...route, summary, selected: null, points: null, regionVector: null,
     camera: {
@@ -163,6 +164,8 @@ function showEventMap({year, title, summary, back, places, participants, histori
   eventMapYear.textContent = fmtYear(year);
   eventMapTop.hidden = false;
   eventMapNote.textContent = summary;
+  eventMapDistance.textContent = distanceLabel || '';
+  eventMapDistance.hidden = !distanceLabel;
   renderEventParticipants(participants || []);
   if (places?.length) {
     prepareWorldEventPlaces(places);

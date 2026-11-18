@@ -181,21 +181,21 @@
     "id": "jingnan-campaign",
     "year": 1402,
     "title": "靖难之役",
-    "summary": "北平是燕王起兵的根据地，南京是建文帝朝廷所在。",
+    "summary": "燕王从北方军镇起兵，建文朝廷在长江南岸。争夺都城必须越过长江。",
     "places": [
       {
         "id": "beiping",
         "name": "北平",
         "lon": 116.4,
         "lat": 39.9,
-        "role": "朱棣以北平为根据地，于 1399 年起兵。"
+        "role": "燕王朱棣在北方的军镇与起兵根据地。"
       },
       {
         "id": "nanjing",
         "name": "南京",
         "lon": 118.8,
         "lat": 32.06,
-        "role": "建文帝朝廷所在，1402 年燕军攻入这座都城。"
+        "role": "建文帝朝廷在长江南岸，燕军渡江后于 1402 年进入都城。"
       }
     ],
     "sources": [
@@ -218,30 +218,45 @@
       {
         "title": "故宫博物院：靖难之役",
         "url": "https://www.dpm.org.cn/lemmas/243017.html"
+      },
+      {
+        "title": "故宫博物院：靖难起家——朱棣",
+        "url": "https://www.dpm.org.cn/explode/others/208160.html"
       }
     ],
     "from": 1399,
-    "to": 1402
+    "to": 1402,
+    "distanceBetween": [
+      "beiping",
+      "nanjing"
+    ]
   },
   {
     "id": "yongle-capitals",
     "year": 1421,
     "title": "永乐迁都",
-    "summary": "北京成为京师，南京仍是陪都。两城延续了不同的行政职能。",
+    "summary": "京师北移，粮源仍在南方。清江浦是漕粮接续北运的要地。",
     "places": [
       {
         "id": "beijing",
         "name": "北京",
         "lon": 116.4,
         "lat": 39.9,
-        "role": "永乐十九年正式成为京师，紫禁城已在前一年建成。"
+        "role": "1421 年成为京师，靠近北部边防，城内所需的漕粮由南方运来。"
+      },
+      {
+        "id": "qingjiangpu",
+        "name": "清江浦",
+        "lon": 119.03,
+        "lat": 33.59,
+        "role": "今江苏淮安一带。1415 年陈瑄主持开河修闸，改善漕船衔接淮河的条件。"
       },
       {
         "id": "nanjing",
         "name": "南京",
         "lon": 118.8,
         "lat": 32.06,
-        "role": "明初京师，迁都后保留陪都地位。"
+        "role": "明初京师，迁都后仍是陪都，保留部分行政机构。"
       }
     ],
     "sources": [
@@ -252,6 +267,94 @@
       {
         "title": "故宫博物院：《燕王府与紫禁城》",
         "url": "https://www.dpm.org.cn/court/talk/203529.html"
+      },
+      {
+        "title": "清江浦区地方志办公室：陈瑄",
+        "url": "https://www.haqjp.gov.cn/col/1063_236571/art/20190321143218_mg0DwgrU.html"
+      }
+    ]
+  },
+  {
+    "id": "imjin-frontier",
+    "year": 1592,
+    "title": "壬辰战争中的朝鲜半岛",
+    "summary": "日军从半岛南端登陆后向北推进。朝鲜朝廷退至鸭绿江边，战事由此牵动明朝辽东。",
+    "places": [
+      {
+        "id": "busan",
+        "name": "釜山",
+        "lon": 129.05,
+        "lat": 35.1,
+        "role": "半岛东南端的港口，1592 年日军从这里登陆。"
+      },
+      {
+        "id": "pyongyang",
+        "name": "平壤",
+        "lon": 125.75,
+        "lat": 39.03,
+        "role": "日军占据的北部重镇，翌年由明军与朝鲜军队收复。"
+      },
+      {
+        "id": "uiju",
+        "name": "义州",
+        "lon": 124.53,
+        "lat": 40.2,
+        "role": "鸭绿江东岸，朝鲜国王退守于此并向明廷求援。"
+      }
+    ],
+    "sources": [
+      {
+        "title": "肯尼思·斯沃普：1592—1598 年东亚战争中的明朝战略",
+        "url": "https://www.cambridge.org/core/books/abs/east-asia-in-the-world/ming-grand-strategy-during-the-great-east-asian-war-15921598/AB038744ED15D6ADB4940F932E762743"
+      },
+      {
+        "title": "《英国皇家历史学会会刊》：壬辰战争的影响",
+        "url": "https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/legacies-of-the-imjin-war-15921598-in-and-beyond-east-asia/7AE8D0DDCD54827E221A7E37F5AC5C3B"
+      },
+      {
+        "title": "韩国学中央研究院：壬辰战争",
+        "url": "https://encykorea.aks.ac.kr/Article/E0047674"
+      }
+    ],
+    "from": 1592,
+    "to": 1598
+  },
+  {
+    "id": "ming-beijing-1644",
+    "year": 1644,
+    "title": "北京与山海关",
+    "summary": "大顺先进入北京，明军仍守山海关。清军从关外入关，在击败大顺后才占北京。",
+    "places": [
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "李自成先取北京，随后撤离。清军接着入城，清廷迁都于此。"
+      },
+      {
+        "id": "shanhaiguan",
+        "name": "山海关",
+        "lon": 119.75,
+        "lat": 40,
+        "role": "位于燕山与渤海之间。明将吴三桂守关，并在大顺进攻时向清廷求援。"
+      },
+      {
+        "id": "shenyang",
+        "name": "沈阳",
+        "lon": 123.43,
+        "lat": 41.8,
+        "role": "入关之前的清廷都城，当时称盛京。"
+      }
+    ],
+    "sources": [
+      {
+        "title": "故宫博物院：清廷迁都北京",
+        "url": "https://www.dpm.org.cn/court/event/159873.html"
+      },
+      {
+        "title": "《现代亚洲研究》：中国、朝鲜与日本笔下的明清易代",
+        "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/transnational-historiography-of-a-dynastic-transition-writing-the-mingqing-transition-in-seventeenthcentury-china-korea-and-japan/9D660C38138C725154EA64427E018413"
       }
     ]
   },
