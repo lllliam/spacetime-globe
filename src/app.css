@@ -58,14 +58,13 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
 #overlay-close:active{background:rgba(255,255,255,.12)}
 #overlay-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
   padding:6px 20px calc(var(--safe-b) + 24px)}
-.wgroup{margin:14px 0 2px;font-size:11px;letter-spacing:.08em;color:var(--gold-dim);text-transform:uppercase}
-.wrow{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-top:1px solid rgba(255,255,255,.06);cursor:pointer}
+.wgroup{margin:17px 0 7px;font-size:12px;font-weight:600;color:var(--muted)}
+.wrow{display:flex;gap:12px;width:100%;min-height:56px;align-items:baseline;padding:11px 0;
+  border:0;border-top:1px solid rgba(255,255,255,.09);background:none;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
 .wrow:active{opacity:.6}
-.wrow i{width:6px;height:6px;border-radius:2px;flex:none;transform:translateY(-2px)}
-.wrow .t{flex:1;min-width:0;font-size:13.5px;line-height:1.4}
-.wrow .m{display:block;font-size:10.5px;color:var(--muted);margin-top:1px}
+.wrow .t{flex:1;min-width:0;font-size:15px;line-height:1.4}
+.wrow .m{display:block;font-size:12px;color:var(--muted);margin-top:3px}
 .wrow .y{flex:none;font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-.wrow a{color:var(--gold-dim);text-decoration:none;font-size:11px}
 .wempty{color:var(--muted);font-size:13px;padding:26px 0}
 
 /* ── 启动 ── */
@@ -267,59 +266,63 @@ body.reading-open #sheet{z-index:12;overflow:hidden}
 body.reading-open #sheet-dim{transition:none}
 body.reading-open #grab,body.reading-open #sheet-scroll{opacity:var(--reader-summary,0)}
 body.reading-open #grab i{visibility:hidden}
-body.reading-map-open #sheet{pointer-events:none}
-#reading-resume{
-  position:fixed;z-index:10;left:50%;bottom:calc(var(--safe-b) + 24px);transform:translateX(-50%);
-  min-height:44px;padding:0 18px;border:0;border-radius:24px;background:#0b111bd9;color:var(--ink);
-  font:500 13px/1.4 system-ui,sans-serif;white-space:nowrap;cursor:pointer;
-}
-#reading-resume span{color:var(--gold);margin-left:5px}
-#reading-pin{
-  position:fixed;z-index:5;left:0;top:0;width:0;height:0;pointer-events:none;
-  color:var(--ink);font:500 12px/1.4 system-ui,sans-serif;
-}
-#reading-pin i{
-  position:absolute;inset:-5px auto auto -5px;width:10px;height:10px;
-  border-radius:50%;background:var(--gold);border:1px solid #fff1d5;box-shadow:0 0 0 4px #e0b27340,0 1px 8px #000a;
-}
-#reading-pin span{
-  position:absolute;left:14px;top:0;transform:translateY(-50%);width:max-content;max-width:calc(50vw - 32px);
-  padding:5px 8px;border-radius:6px;background:#0b111bdd;
-}
-#reading-pin.align-left span{left:auto;right:14px}
-#reading-pin strong{display:block;font-size:12px;font-weight:600}
-#reading-pin small{display:block;color:#aab4c0;font-size:10px;text-wrap:balance}
-#reading-pin small:empty{display:none}
-#reading-pin[hidden],#reading-resume[hidden]{display:none}
-#reading-map-points{position:fixed;inset:0;z-index:5;pointer-events:none}
-.reading-map-point{
+#event-map-points{position:fixed;inset:0;z-index:5;pointer-events:none}
+.event-map-point{
   position:absolute;top:0;left:0;width:0;height:0;color:var(--ink);
 }
-.reading-map-point::before{
+.event-map-point::before{
   content:"";position:absolute;inset:-3px auto auto -3px;width:6px;height:6px;z-index:1;
   border-radius:50%;background:var(--gold);border:1px solid #fff1d5;box-shadow:0 0 0 2px #17130dbf;
 }
-.reading-map-point::after{
+.event-map-point::after{
   content:"";position:absolute;inset:-9px auto auto -9px;width:18px;height:18px;
   z-index:2;pointer-events:auto;cursor:pointer;
 }
-.reading-map-point i{
+.event-map-point i{
   position:absolute;top:0;left:0;height:1px;background:#d1c5b2b3;
   box-shadow:0 0 2px #05080d;transform-origin:left center;
 }
-.reading-map-point button{
+.event-map-point button{
   position:absolute;left:0;top:0;min-height:32px;padding:0 8px;border:0;border-radius:6px;
   white-space:nowrap;background:#0b111bea;color:inherit;pointer-events:auto;cursor:pointer;
   font:600 12px/1 system-ui,sans-serif;
 }
-.reading-map-point.selected button{color:var(--gold)}
-.reading-map-point.selected::before{box-shadow:0 0 0 4px #d9b37980}
-#reading-map-note{
-  position:fixed;z-index:10;left:50%;bottom:calc(var(--safe-b) + 73px);transform:translateX(-50%);
-  width:max-content;max-width:min(420px,calc(100vw - 48px));margin:0;padding:8px 11px;border-radius:6px;
-  background:#0b111bd9;color:var(--ink);font:400 12px/1.6 system-ui,sans-serif;text-align:center;text-wrap:balance;
-  pointer-events:none;
+.event-map-point.selected button{color:var(--gold)}
+.event-map-point.selected::before{box-shadow:0 0 0 4px #d9b37980}
+
+#event-map-panel{
+  position:fixed;z-index:10;left:50%;bottom:calc(var(--safe-b) + 16px);transform:translateX(-50%);
+  width:min(432px,calc(100vw - 24px));padding:12px 16px 4px;border-radius:16px;
+  background:#0c131dec;box-shadow:0 12px 38px #03070d55;
+  color:var(--ink);animation:eventMapIn .22s ease-out;
 }
+@keyframes eventMapIn{from{opacity:0;translate:0 6px}to{opacity:1;translate:0 0}}
+#event-map-panel[hidden],body.reading-open #event-map-panel,body.reading-open #event-map-points{display:none}
+.event-map-head{display:flex;gap:12px;justify-content:space-between;align-items:baseline}
+#event-map-title{margin:0;font:600 18px/1.45 "Songti SC","Noto Serif SC",serif}
+#event-map-panel button{padding:0;border:0;background:none;color:var(--gold);font:inherit;font-size:12px;cursor:pointer}
+#event-map-read{flex:none;min-height:34px}
+#event-map-note{margin:4px 0 7px;color:#cbd2d9;font-size:12px;line-height:1.55}
+#event-map-participants{border-top:1px solid #d4dfef26}
+#event-map-participants summary{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:38px;
+  list-style:none;cursor:pointer;color:var(--ink);font-size:12px;
+}
+#event-map-participants summary::-webkit-details-marker{display:none}
+.event-participant-action{flex:none;color:var(--gold)}
+.event-participant-action::after{content:"＋";margin-left:.35em}
+#event-map-participants[open] .event-participant-action::after{content:"－"}
+#event-participant-roles{
+  display:grid;grid-template-columns:max-content minmax(0,1fr);gap:7px 12px;
+  max-height:min(27vh,188px);overflow:auto;overscroll-behavior:contain;padding:1px 0 10px;margin:0;
+  font-size:12px;line-height:1.55;
+}
+#event-participant-roles dt{font-weight:600}
+#event-participant-roles dd{margin:0;color:#b8c1cc}
+#event-participant-roles dd span{display:block;margin-top:4px;color:var(--ink)}
+#event-map-panel #event-map-return{min-height:39px;width:100%;border-top:1px solid #d4dfef26}
+@media(prefers-reduced-motion:reduce){#event-map-panel{animation:none}}
+
 button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
 /* 抽屉跟手与松手反馈。位置动画由 JS 弹簧驱动，避免 CSS 目标值抢走手指。 */
@@ -386,7 +389,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   color:var(--reading-text);font-size:14px;line-height:1.85;
 }
 .reading-note{margin:0 0 18px;color:var(--reading-muted);font-size:13px;line-height:1.8}
-.reading-note button,#reading-map,.reading-next button{
+.reading-note button,.reading-next button{
   appearance:none;border:0;background:transparent;color:var(--gold);
   font:inherit;cursor:pointer;
 }
@@ -396,15 +399,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   margin:0 0 17px;color:var(--reading-text);font-size:16px;line-height:1.95;
 }
 #book-body p.reading-opening{color:var(--ink)}
-#reading-map{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;
-  width:100%;min-height:54px;margin:20px 0 26px;padding:9px 0;
-  border-block:1px solid var(--reading-rule);text-align:left;font-size:13px;
-}
-.reading-place strong,.reading-place small{display:block}
-.reading-place strong{color:var(--ink);font-weight:600}
-.reading-place small{margin-top:2px;color:var(--reading-muted);font-size:11px;line-height:1.5}
-.reading-map-action{white-space:nowrap}
 .reading-detail-route button{text-wrap:balance}
 .reading-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--reading-rule)}
 .reading-list li{border-bottom:1px solid var(--reading-rule)}

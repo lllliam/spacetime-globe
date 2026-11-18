@@ -1464,7 +1464,7 @@ let spinStep = 0, cloudDrift = 0;
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
     !pointers.size && !zoomAnim && !panReturn && !globeTapTimer && !state.focus &&
-    !reading.active && overlay.hidden && !chrome.timeline && !chrome.panel &&
+    !reading.active && !worldEvent && overlay.hidden && !chrome.timeline && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
 
@@ -1497,7 +1497,7 @@ function draw() {
   if (!r || !baseCanvas) return;
   r.draw(view, state);
   drawVector();
-  drawReadingPin();
+  drawEventMap();
 }
 
 /* ───────────── 11. 交互 ───────────── */
@@ -1670,7 +1670,7 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
-  if (reading.preview) return;
+  if (worldEvent) return;
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id);
@@ -1959,10 +1959,10 @@ function dateOf(e) { return e.point || e.start === e.end ? fmtYear(e.start) + ' 
 
 /* ───────────── 13. 全景列表 ───────────── */
 function openWorld() {
-  const [a, b, scope] = windowOf(state.year);
-  const oa = ord(a), ob = ord(b), t = ord(state.year);
+  const [a, b] = windowOf(state.year);
+  const oa = ord(a), endOfRange = ord(b) + 1, t = ord(state.year);
   const list = [];
-  for (const e of entries) if (e.t1 >= oa && e.t0 <= ob) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
+  for (const e of entries) if (e.t1 >= oa && e.t0 < endOfRange) list.push({ e, d: e.t0 > t ? e.t0 - t : t - e.t1 });
   list.sort((p, q) => p.d - q.d || q.e.t0 - p.e.t0);
   const groups = new Map();
   for (const row of list) {
@@ -1973,24 +1973,23 @@ function openWorld() {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row.e);
   }
-  overlayTitle.textContent = state.year >= YMAX ? '今天' : fmtYear(state.year) + ' 年';
-  const eraName = chapterOf(state.year).n;
-  const eraTxt = ERA_INTRO[eraName] || '';
-  overlaySub.innerHTML = scope + ' · <b>' + summary.entities + '</b> 个' + LAYERS[state.layerId].name +
-    ' · <b>' + (summary.ev) + '</b> 条事件';
+  overlayTitle.textContent = state.year >= YMAX ? '近 30 年的世界' : fmtYear(state.year) + ' 年的世界';
+  overlaySub.textContent = '点一项，在地球上看';
+  overlaySub.hidden = !list.length;
   if (!list.length) {
-    overlayBody.innerHTML = (eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '') +
-      '<p class="wempty">这一年还没有收录条目。</p>';
+    overlayBody.innerHTML = '<p class="wempty">这个时段还没有收录条目。</p>';
   } else {
-    let html = eraTxt ? '<div class="eracard"><b>' + esc(eraName) + '</b><p>' + esc(eraTxt) + '</p></div>' : '';
+    let html = '';
     for (const [gname, rows] of [...groups.entries()].sort((x, y) => y[1].length - x[1].length)) {
-      html += '<div class="wgroup">' + esc(gname) + ' · ' + rows.length + '</div>';
+      html += '<h2 class="wgroup">' + esc(gname) + '</h2>';
       for (const e of rows) {
         const r = regionById.get(e.region) || {};
-        html += '<div class="wrow" data-region="' + esc(r.id || '') + '">' +
-          '<i style="background:' + kindColor(e) + '"></i>' +
-          '<div class="t">' + esc(e.zh || e.en) + '<span class="m">' + esc(r.zh || '') + ' · ' + kindOf(e)[0] + '</span></div>' +
-          '<div class="y">' + esc(dateOf(e)) + '</div></div>';
+        const year = clamp(state.year, e.start, e.point ? e.start : e.end);
+        const story = worldEventTarget(e, year)?.chapter.mapStory;
+        const place = story?.title || r.zh || r.en || '地点未详';
+        html += '<button type="button" class="wrow" data-event="' + esc(e.id) + '">' +
+          '<span class="t">' + esc(timelineItem(e).title || e.zh || e.en) + '<span class="m">' + esc(place) + '</span></span>' +
+          '<span class="y">' + esc(dateOf(e)) + '</span></button>';
       }
     }
     overlayBody.innerHTML = html;
@@ -1999,15 +1998,9 @@ function openWorld() {
   overlayBody.scrollTop = 0;
 }
 overlayBody.addEventListener('click', (e) => {
-  const row = e.target.closest('.wrow');
+  const row = e.target.closest('[data-event]');
   if (!row) return;
-  const regionId = row.getAttribute('data-region');
-  const r = regionById.get(regionId);
-  closeWorld();
-  if (r && r.iso) {
-    const shape = mapShapes.find((s) => s.iso === r.iso);
-    if (shape) { setLayer('country'); openEntity('country', shape.id); }
-  }
+  openWorldEvent(entries.find((entry) => String(entry.id) === row.dataset.event), row);
 });
 const closeWorld = () => { if (!overlay.hidden) { overlay.hidden = true; invalidate(); } };
 el('overlay-close').addEventListener('click', closeWorld);
@@ -2131,20 +2124,6 @@ function entriesForBook(ent) {
   return out;
 }
 
-/* 七个时期的短引言：给每一段历史一个说话的口吻。
-   不是史料，是入口——真正的内容在条目里。 */
-const ERA_INTRO = {
-  '史前': '还没有文字，也没有国界。人在河谷、海岸和草原上定居，耕作、驯养、迁徙。后来所有的帝国，都从这些村落里长出来。',
-  '古代': '文字出现之后，最早写下的其实是账目和年岁。城邦、王朝、法典与祭祀把人绑在土地上，战争也从抢掠变成了占领。',
-  '古典': '几个大帝国几乎同时成形：地中海、伊朗高原、印度河、黄河流域。它们未必互通，却都在回答同一个问题——怎么治理上千万人。',
-  '中世纪': '旧帝国散架，新的信仰共同体接上来：基督教、伊斯兰教、佛教各自连成一片。商队和帆船穿过沙漠与海洋，比军队走得更远。',
-  '大航海': '船队把各大洋缝到一起。白银、香料、奴隶与病菌同时流动，美洲的帝国在几十年里崩塌，世界第一次有了「全球」这件事。',
-  '工业': '蒸汽、铁路、电报与工厂。生产力第一次跑在人口前面，帝国扩张到极限，民族国家从帝国的裂缝里长出来。',
-  '现代': '两次世界大战、殖民体系瓦解、冷战与全球化。国家的数量翻了几倍，地图上很多边界，停在 1945 年之后的某一天。',
-};
-
-/* 一节的开头写一行「这一百年是什么」：条数、跨度、当时是什么朝代/政权。
-   全部由数据算出来，不编史。 */
 /* ───────────── 14. 时间轴 ───────────── */
 let density = null;
 function buildDensity() {
@@ -2310,6 +2289,12 @@ function onYearChanged() {
 /* ───────────── 17. 键盘 ───────────── */
 addEventListener('keydown', (e) => {
   if (handleReadingKey(e)) return;
+  if (worldEvent && e.key === 'Escape') {
+    e.preventDefault();
+    returnToWorld();
+    return;
+  }
+  if (worldEvent && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
   if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || chrome.panel) return;
   const step = e.shiftKey ? 20 : 1;
   if (e.key === 'ArrowLeft') { stepYear(-step); e.preventDefault(); }

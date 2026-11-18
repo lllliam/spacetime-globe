@@ -2,10 +2,8 @@
 const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
 const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
-const readingBack = el('reading-back'), readingGrab = el('reading-grab'), readingResume = el('reading-resume');
-const readingPin = el('reading-pin');
-const readingMapPoints = el('reading-map-points'), readingMapNote = el('reading-map-note');
-const reading = { active: false, preview: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
+const readingBack = el('reading-back'), readingGrab = el('reading-grab');
+const reading = { active: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
 const readingPositions = new Map();
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -43,7 +41,7 @@ function rememberReading() {
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
-  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay']) {
+  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-panel', 'event-map-points']) {
     el(id).inert = inert;
   }
   timeDock.inert = inert || !chrome.timeline;
@@ -77,11 +75,10 @@ function beginReading(ent, topic, chapter, fromOffset) {
   reading.scroll = saved ? saved.scroll : 0;
   reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
-  reading.preview = false;
   showReader(fromOffset);
   // 正文到达后只更新通用资料页；专题内容无需网络。
   if (ent) loadStories().then(() => {
-    if (reading.active && !reading.preview && !reading.catalog && !reading.topic && reading.detail !== null) {
+    if (reading.active && !reading.catalog && !reading.topic && reading.detail !== null) {
       rememberReading();
       renderReading();
     }
@@ -90,7 +87,6 @@ function beginReading(ent, topic, chapter, fromOffset) {
 function showReader(fromOffset) {
   hideTimeline(false);
   closeView(false);
-  readingResume.hidden = true;
   bookEl.hidden = false;
   readerLastDrag = -Infinity;
   readingBackground(true);
@@ -109,17 +105,17 @@ function readerPosition(offset, range = readerRestOffset()) {
     const mix = clamp((progress - start) / (end - start), 0, 1);
     return mix * mix * (3 - 2 * mix);
   };
-  const summary = reading.preview ? 0 : fade(.42, .96);
-  const article = reading.preview ? 1 : 1 - fade(.15, .68);
+  const summary = fade(.42, .96);
+  const article = 1 - fade(.15, .68);
   const hud = clamp((progress - .30) / .65, 0, 1);
   applySheetOffset(offset, false);
   sheetEl.style.setProperty('--reader-summary', summary);
   sheetEl.style.setProperty('--reader-article', article);
-  sheetEl.style.setProperty('--reader-safe', reading.preview ? 1 - clamp(offset / 100, 0, 1) : 1 - progress);
+  sheetEl.style.setProperty('--reader-safe', 1 - progress);
   sheetEl.style.setProperty('--reader-grip', progress);
   sheetEl.style.borderRadius = (progress * 22) + 'px ' + (progress * 22) + 'px 0 0';
-  document.body.style.setProperty('--reader-hud', reading.preview ? 1 : hud);
-  document.body.classList.toggle('reader-revealing', reading.preview || hud > 0);
+  document.body.style.setProperty('--reader-hud', hud);
+  document.body.classList.toggle('reader-revealing', hud > 0);
   if (summary > 0 && sheetScroll.scrollTop !== reading.snapshot.scroll) sheetScroll.scrollTop = reading.snapshot.scroll;
 }
 function stopReaderMotion() {
@@ -154,11 +150,11 @@ function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false }
   readerMotion = requestAnimationFrame(tick);
 }
 function collapseReader(velocity = 0) {
-  if (!reading.active || reading.preview) return;
+  if (!reading.active) return;
   animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
 function readerDragStart(e) {
-  if (reading.preview || readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
+  if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
   if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
   readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
     moved: false, dy: 0, samples: [{ y: e.clientY, t: e.timeStamp }] };
@@ -206,7 +202,7 @@ function finishReaderPull(distance, velocity, released) {
 }
 function startReaderTouch(e) {
   if (e.touches.length !== 1) { endReaderTouch(e); return; }
-  if (reading.preview || readerMotion || readerDrag) return;
+  if (readerMotion || readerDrag) return;
   const touch = e.changedTouches[0];
   const edge = touch.clientX <= readerEdgeWidth;
   const canPull = bookBody.contains(e.target) && bookBody.scrollTop <= 1;
@@ -300,19 +296,6 @@ function referencesMarkup(refs) {
 function relatedReadingTopic(item) {
   return item.related && TOPICS.find((topic) => topic.id === item.related.topicId);
 }
-function articleMapTarget(item) {
-  if (item.place) return item;
-  if (!item.mapFromRelated) return null;
-  return relatedReadingTopic(item)?.chapters.find((chapter) => chapter.id === item.related.chapterId && chapter.place);
-}
-function articleMapMarkup(item) {
-  const target = articleMapTarget(item);
-  if (!target) return '';
-  const [name, role] = target.mapStory ? [target.mapStory.title] : target.place.label.split(' · ', 2);
-  return '<button id="reading-map" type="button"><span class="reading-place"><strong>' + esc(name) + '</strong>' +
-    (role ? '<small>' + esc(role) + '</small>' : '') + '</span>' +
-    '<span class="reading-map-action">在地球上看 <span aria-hidden="true">↗</span></span></button>';
-}
 function connectionsMarkup(topic, item) {
   if (!topic) {
     const link = item.related;
@@ -398,19 +381,17 @@ function renderReadingArticle(topic, items, item) {
   if (!topic && !item.paragraphs && item.source && item.source !== wikiUrl) {
     sources.push({ title: item.zh || item.en, url: item.source });
   }
-  const map = articleMapMarkup(item);
   const next = items[items.indexOf(item) + 1];
   let body;
   if (topic) {
     const opening = item.opening?.text || item.summary;
-    body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + map + item.sections.map((s) =>
+    body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
       '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
   } else {
     const paragraphs = item.paragraphs || (prose ? [prose] : []);
     body = paragraphs.length ? '<div class="reading-story">' + paragraphs.map((p, i) =>
       '<p' + (i === 0 ? ' class="reading-opening"' : '') + '>' + esc(p) + '</p>').join('') + '</div>' :
       '<p class="reading-note">这条年表记录暂未收录正文。</p>';
-    body += map;
   }
   return readingHeading(item.opening?.headline || item.title || item.zh || item.en, readingDate(item)) + body +
     connectionsMarkup(topic, item) +
@@ -460,29 +441,18 @@ function readingGoBack() {
   } else if (reading.detail !== null) readingIndex();
   else collapseReader();
 }
-function restoreReadingGlobe() {
-  const { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift, natural, detent } = reading.snapshot;
-  chrome.natural = natural;
-  sheetState.detent = detent;
-  Object.assign(state, { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift });
-  onYearChanged();
-  layout();
-}
 function closeReader() {
   if (!reading.active) return;
-  if (!reading.preview) rememberReading();
+  rememberReading();
   stopReaderMotion();
   readerDrag = null;
   readerTouch = null;
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
-  if (reading.preview) restoreReadingGlobe();
   const { detent, scroll } = reading.snapshot;
-  reading.active = reading.preview = false;
-  reading.place = null;
-  clearReadingMapStory();
-  bookEl.hidden = readingResume.hidden = readingPin.hidden = true;
-  document.body.classList.remove('reading-map-open', 'reader-revealing');
+  reading.active = false;
+  bookEl.hidden = true;
+  document.body.classList.remove('reader-revealing');
   sheetEl.style.borderRadius = '';
   for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
   document.body.style.removeProperty('--reader-hud');
@@ -494,203 +464,13 @@ function closeReader() {
   (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
   invalidate();
 }
-function readingPlaceVector({ lon, lat }) {
-  const longitude = lon * Math.PI / 180, latitude = lat * Math.PI / 180;
-  return [Math.cos(latitude) * Math.sin(longitude), Math.sin(latitude), Math.cos(latitude) * Math.cos(longitude)];
-}
-function projectReadingPlace([x, y, z], m) {
-  return {
-    x: view.cx + state.panX + (m[0] * x + m[3] * y + m[6] * z) * view.Rz,
-    y: view.cy + state.panY - (m[1] * x + m[4] * y + m[7] * z) * view.Rz,
-    front: m[2] * x + m[5] * y + m[8] * z > 0,
-  };
-}
-function clearReadingMapStory() {
-  reading.mapStory = null;
-  readingMapPoints.hidden = readingMapPoints.inert = readingMapNote.hidden = true;
-  readingMapPoints.replaceChildren();
-}
-function openReadingMapStory(item, name, role) {
-  const story = item.mapStory;
-  const places = [{ ...item.place, id: 'main', name, role }, ...story.places];
-  const points = new Map(places.map((place) => {
-    const mark = document.createElement('div');
-    mark.className = 'reading-map-point';
-    mark.dataset.place = place.id;
-    const leader = document.createElement('i');
-    leader.setAttribute('aria-hidden', 'true');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.textContent = place.name;
-    button.dataset.place = place.id;
-    button.setAttribute('aria-pressed', 'false');
-    mark.append(leader, button);
-    readingMapPoints.append(mark);
-    return [place.id, { ...place, mark, leader, button, vector: readingPlaceVector(place) }];
-  }));
-  reading.mapStory = { ...story, points, selected: null };
-  readingMapPoints.hidden = false;
-  readingMapNote.textContent = story.summary;
-
-  const vectors = [...points.values()].map((p) => p.vector);
-  const center = vectors.reduce((sum, vector) => sum.map((value, i) => value + vector[i]), [0, 0, 0]);
-  const centerLength = Math.hypot(...center);
-  const direction = centerLength > .01 ? center.map((v) => v / centerLength) : vectors[0];
-  const maxAngle = Math.max(...vectors.map((v) => Math.acos(clamp(v.reduce((dot, n, i) => dot + n * direction[i], 0), -1, 1))));
-  state.yaw = -Math.atan2(direction[0], direction[2]);
-  state.tilt = Math.asin(clamp(direction[1], -1, 1));
-  state.zoom = clamp(.5 / Math.max(maxAngle, .02), 1, 6);
-}
-function drawReadingLinks(story, rotationMatrix) {
-  vctx.save();
-  vctx.setTransform(view.dpr, 0, 0, view.dpr, 0, 0);
-  vctx.lineWidth = 1.8;
-  vctx.lineJoin = vctx.lineCap = 'round';
-  vctx.shadowColor = '#05080d';
-  vctx.shadowBlur = 4;
-  const directional = story.kind === 'movement';
-  if (!directional) vctx.setLineDash([4, 5]);
-  for (const [from, to] of story.links) {
-    const a = story.points.get(from).vector, b = story.points.get(to).vector;
-    const selected = !story.selected || story.selected === from || story.selected === to;
-    vctx.strokeStyle = selected ? '#edc68a' : '#d3b58455';
-    vctx.beginPath();
-    let previous;
-    let arrow;
-    for (let step = 0; step <= 32; step++) {
-      const v = a.map((n, i) => lerp(n, b[i], step / 32));
-      const length = Math.hypot(...v);
-      if (length < .001) { previous = null; continue; }
-      const p = projectReadingPlace(v.map((n) => n / length), rotationMatrix);
-      if (!p.front) { previous = null; continue; }
-      if (previous) vctx.lineTo(p.x, p.y);
-      else vctx.moveTo(p.x, p.y);
-      if (directional && step === 19 && previous) arrow = [p, Math.atan2(p.y - previous.y, p.x - previous.x)];
-      previous = p;
-    }
-    if (arrow) {
-      const [point, angle] = arrow;
-      vctx.moveTo(point.x - 7 * Math.cos(angle - .58), point.y - 7 * Math.sin(angle - .58));
-      vctx.lineTo(point.x, point.y);
-      vctx.lineTo(point.x - 7 * Math.cos(angle + .58), point.y - 7 * Math.sin(angle + .58));
-    }
-    vctx.stroke();
-  }
-  vctx.restore();
-}
-function drawReadingMapPoints(story, rotationMatrix) {
-  const occupied = [];
-  const visible = [...story.points.values()].map((entry) => ({
-    entry, p: projectReadingPlace(entry.vector, rotationMatrix),
-  }));
-  for (const { entry, p } of visible) {
-    const { mark, leader, button } = entry;
-    mark.hidden = !p.front || p.x < 14 || p.x > view.w - 14 || p.y < 55 || p.y > view.h - 120;
-    if (mark.hidden) continue;
-    const w = 18 + entry.name.length * 13, h = 32;
-    const left = p.x < view.cx ? [-w - 10, 10] : [10, -w - 10];
-    const options = [
-      ...left.map((dx) => [dx, -h / 2]),
-      [-w / 2, -h - 11], [-w / 2, 11],
-      ...left.flatMap((dx) => [[dx, 8], [dx, -h - 8]]),
-    ];
-    const fits = ([dx, dy]) => {
-      const x = p.x + dx, y = p.y + dy;
-      return x > 4 && x + w < view.w - 4 && y > 48 && y + h < view.h - 110 &&
-        !occupied.some((box) => x < box.x + box.w + 4 && x + w + 4 > box.x && y < box.y + box.h && y + h > box.y) &&
-        !visible.some(({ entry: other, p: point }) => other !== entry && point.front &&
-          point.x > x - 6 && point.x < x + w + 6 && point.y > y - 6 && point.y < y + h + 6);
-    };
-    const label = options.find(fits);
-    leader.hidden = button.hidden = !label;
-    if (label) {
-      const [dx, dy] = label;
-      occupied.push({ x: p.x + dx, y: p.y + dy, w, h });
-      button.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
-      const endX = clamp(0, dx, dx + w), endY = clamp(0, dy, dy + h);
-      leader.style.width = Math.hypot(endX, endY) + 'px';
-      leader.style.transform = 'rotate(' + Math.atan2(endY, endX) + 'rad)';
-    }
-    mark.style.transform = 'translate(' + p.x + 'px,' + p.y + 'px)';
-  }
-}
-function drawReadingPin() {
-  if (!reading.preview || !reading.place) return;
-  const rotationMatrix = rotation();
-  if (reading.mapStory) {
-    drawReadingLinks(reading.mapStory, rotationMatrix);
-    drawReadingMapPoints(reading.mapStory, rotationMatrix);
-    return;
-  }
-  const { x: sx, y: sy, front } = projectReadingPlace(readingPlaceVector(reading.place), rotationMatrix);
-  readingPin.hidden = !front || sx < 12 || sx > view.w - 12 || sy < 16 || sy > view.h - 42;
-  if (readingPin.hidden) return;
-  readingPin.style.transform = 'translate(' + sx + 'px,' + sy + 'px)';
-  readingPin.classList.toggle('align-left', sx > view.w / 2);
-}
-function previewReadingMap() {
-  if (reading.preview || reading.catalog || reading.detail === null) return;
-  const article = readingItems().find((item) => String(item.id) === String(reading.detail));
-  const item = article && articleMapTarget(article);
-  if (!item) return;
-  rememberReading();
-  pauseGlobe();
-  closeWorld();
-  reading.preview = true;
-  reading.place = item.place;
-  const [name, role] = item.place.label.split(' · ', 2);
-  readingPin.querySelector('strong').textContent = name;
-  readingPin.querySelector('small').textContent = role || '';
-  document.body.classList.add('reading-map-open');
-  state.focus = null;
-  sheetState.detent = 'hidden';
-  state.year = clamp(item.year, YMIN, YMAX);
-  chrome.natural = true;
-  state.yaw = -item.place.lon * Math.PI / 180;
-  state.tilt = item.place.lat * Math.PI / 180;
-  state.zoom = 1.8;
-  if (item.mapStory) openReadingMapStory(item, name, role);
-  state.panX = state.panY = state.lift = 0;
-  onYearChanged();
-  layout();
-  animateReader(sheetState.offset, sheetDetents().hidden, { onFinish: () => {
-    bookEl.hidden = true;
-    readingBackground(false);
-    el('hud').inert = true;
-    readingResume.hidden = false;
-    if (reading.mapStory) {
-      readingMapPoints.inert = false;
-      readingMapNote.hidden = false;
-    }
-    readingResume.focus({ preventScroll: true });
-  } });
-}
-function resumeReader() {
-  if (!reading.preview || !bookEl.hidden) return;
-  pauseGlobe();
-  readingResume.hidden = true;
-  readingMapPoints.inert = readingMapNote.hidden = true;
-  bookEl.hidden = false;
-  readingBackground(true);
-  animateReader(sheetState.offset, 0, { onFinish: () => {
-    reading.preview = false;
-    reading.place = null;
-    readingPin.hidden = true;
-    clearReadingMapStory();
-    document.body.classList.remove('reading-map-open');
-    restoreReadingGlobe();
-    readerPosition(0);
-    (el('reading-map') || el('reading-title')).focus({ preventScroll: true });
-  } });
-}
 function handleReadingKey(e) {
   if (!reading.active) return false;
   if (e.key === 'Escape') {
     e.preventDefault();
-    if (reading.preview) resumeReader(); else readingGoBack();
+    readingGoBack();
     return true;
   }
-  if (reading.preview) return ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key);
   if (e.key === 'Tab') {
     const focusable = [...bookEl.querySelectorAll('button:not(:disabled):not([hidden]), [tabindex="0"], a[href]')];
     const first = focusable[0], last = focusable[focusable.length - 1];
@@ -706,8 +486,7 @@ sheetInner.addEventListener('click', (e) => {
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
-  if (b.id === 'reading-map') previewReadingMap();
-  else if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail);
+  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail);
   else if (b.hasAttribute('data-reading-topic')) followReadingTopic(b.dataset.readingTopic, b.dataset.readingChapter);
   else if (b.hasAttribute('data-reading-catalog')) openReadingCatalog();
   else if (b.hasAttribute('data-reading-continent')) {
@@ -755,18 +534,3 @@ bookEl.addEventListener('click', (e) => {
     e.stopPropagation();
   }
 }, true);
-readingResume.addEventListener('click', resumeReader);
-readingMapPoints.addEventListener('click', (e) => {
-  const point = e.target.closest('[data-place]');
-  const story = reading.mapStory;
-  if (!point || !story) return;
-  const id = point.dataset.place;
-  story.selected = story.selected === id ? null : id;
-  const selected = story.points.get(story.selected);
-  readingMapNote.textContent = selected ? selected.name + ' · ' + selected.role : story.summary;
-  for (const [key, place] of story.points) {
-    place.mark.classList.toggle('selected', key === story.selected);
-    place.button.setAttribute('aria-pressed', String(key === story.selected));
-  }
-  invalidate();
-});

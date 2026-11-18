@@ -223,7 +223,60 @@ async function main() {
   check('首页没有常驻图层按钮，时间轴默认隐藏', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && document.getElementById('dock').inert"));
   await js("__t.setYear(1900)");
   await tap(...Object.values(await pointOf('#year')));
-  check('轻点年份打开当年全球事件表', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年' && document.querySelectorAll('.wrow').length>0"));
+  check('轻点年份打开当年全球事件表', await js("!document.getElementById('overlay').hidden && document.getElementById('overlay-title').textContent==='1900 年的世界' && document.querySelectorAll('.wrow').length>0"));
+  const worldView = () => js('JSON.stringify([__t.state.year,__t.state.layerId,__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])');
+  const originalWorldView = await worldView();
+  const worldRow = 'button[data-event="i-140"]';
+  await js(`document.querySelector('${worldRow}').scrollIntoView({block:'center'})`);
+  const worldScroll = await js('document.getElementById("overlay-body").scrollTop');
+  await tap(...Object.values(await pointOf(worldRow)));
+  const eventMap = await js(`({chapter:__t.worldEvent?.target?.chapter.id,year:__t.state.year,
+    panel:!document.getElementById('event-map-panel').hidden,world:document.getElementById('overlay').hidden,
+    labels:[...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].map(b=>b.textContent),
+    participants:document.getElementById('event-participant-names').textContent})`);
+  check('世界表打开事件地球，呈现北京、天津和参与方',eventMap.chapter==='boxers' && eventMap.year===1900 && eventMap.panel && eventMap.world &&
+    eventMap.labels.join(',')==='北京,天津' && eventMap.participants==='清朝、义和团、八国联军',eventMap);
+  await readingShot('world-event');
+  await tap(...Object.values(await pointOf('#event-map-participants summary')));
+  check('展开参与方显示角色和全部八国',await js(`document.getElementById('event-map-participants').open &&
+    document.querySelectorAll('#event-participant-roles dt').length===3 &&
+    document.querySelector('#event-participant-roles dd span').textContent==='英国、法国、德国、俄国、日本、美国、意大利、奥匈帝国'`));
+  await readingShot('world-event-participants');
+  await tap(...Object.values(await pointOf('#event-map-participants summary')));
+  const pinBefore = await js('document.querySelector(".event-map-point").style.transform');
+  await tap(...Object.values(await pointOf('.event-map-point button[data-place="tianjin"]')));
+  check('点天津显示它在事件中的作用',await js(`document.getElementById('event-map-note').textContent.includes('联军攻占天津') &&
+    document.querySelector('button[data-place="tianjin"]').getAttribute('aria-pressed')==='true'`));
+  await drag(110, 380, 185, 385, 6);
+  check('旋转地球时地点跟随经纬度',await js(`document.querySelector('.event-map-point').style.transform!==${JSON.stringify(pinBefore)} &&
+    __t.sheet.detent==='hidden' && !__t.state.focus`));
+  await js(`document.getElementById('event-map-read').click()`);
+  await waitReader();
+  check('从事件进入正文',await js(`__t.reading.detail==='boxers' && document.getElementById('event-map-panel').inert`));
+  await js('__t.closeReader()');
+  await waitReader();
+  check('收起正文回到同一事件与地点',await js(`!document.getElementById('event-map-panel').inert && __t.worldEvent.selected==='tianjin'`));
+  await js(`document.getElementById('event-map-return').click()`);
+  check('返回世界表恢复原年份、镜头、列表位置与焦点',originalWorldView===await worldView() && await js(`
+    !document.getElementById('overlay').hidden && document.getElementById('overlay-body').scrollTop===${worldScroll} &&
+    document.activeElement.dataset.event==='i-140'`));
+  for (const year of [1842, 1839]) {
+    await js(`document.getElementById('overlay-close').click();__t.setYear(${year});document.getElementById('year').click();
+      document.querySelector('[data-event="i-138"]').click()`);
+    await sleep(200);
+    if (year===1842) {
+      check('1842 年呈现条约地点、五处口岸与签约方',await js(`__t.worldEvent.target.chapter.id==='ports' &&
+        document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])').length===6 &&
+        document.getElementById('event-participant-names').textContent==='清朝、英国'`));
+      await readingShot('world-event-ports');
+    } else {
+      check('只有地区资料时显示区域范围',await js(`!__t.worldEvent.target && __t.worldEvent.regionVector &&
+        document.getElementById('event-map-points').hidden && document.getElementById('event-map-participants').hidden &&
+        document.getElementById('event-map-note').textContent.startsWith('相关地区')`));
+    }
+    await js(`document.getElementById('event-map-return').click()`);
+  }
+  await js('__t.setYear(1900)');
   await js("document.getElementById('overlay-close').click()");
   await hold(await pointOf('#year'),true);
   check('触屏长按年份仅展开时间轴', await js("!document.getElementById('dock').inert && document.getElementById('overlay').hidden"));
@@ -471,52 +524,12 @@ async function main() {
   check('专题详情先说事件，地点和背景顺着正文展开', await js(`
     document.getElementById('reading-title').textContent==='义和团危机与八国联军' &&
     document.querySelector('.reading-opening').textContent.includes('北京使馆区遭到围困') &&
-    document.querySelector('.reading-opening').nextElementSibling.id==='reading-map' &&
-    document.getElementById('reading-map').nextElementSibling.tagName==='ARTICLE'
+    document.querySelector('.reading-opening').nextElementSibling.tagName==='ARTICLE' && !document.getElementById('reading-map')
   `));
-  await js(`document.getElementById('book-body').scrollTop=180`);
-  const detailScroll = await js('document.getElementById("book-body").scrollTop');
   await send('Input.dispatchKeyEvent', {type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
   check('阅读时方向键不改变地球年份', await js('__t.state.year===1900'));
-  await js(`document.getElementById('reading-map').click()`);
-  await waitReader();
-  const mapPreview = await js(`({preview:__t.reading.preview,hidden:document.getElementById('book').hidden,resume:!document.getElementById('reading-resume').hidden,year:__t.state.year,
-    sheet:document.getElementById('sheet').getBoundingClientRect().top, height:innerHeight, focus:__t.state.focus,
-    labels:[...document.querySelectorAll('#reading-map-points button:not([hidden])')].map(b=>b.textContent),
-    links:__t.reading.mapStory.links, kind:__t.reading.mapStory.kind,
-    note:document.getElementById('reading-map-note').textContent})`);
-  check('地点预览同时呈现天津与北京及推进方向', mapPreview.preview && mapPreview.hidden && mapPreview.resume &&
-    mapPreview.year===1900 && mapPreview.sheet>=mapPreview.height-1 && !mapPreview.focus &&
-    mapPreview.labels.join(',')==='北京,天津' && mapPreview.links[0].join(',')==='tianjin,main' &&
-    mapPreview.kind==='movement' && mapPreview.note.includes('推进方向'), mapPreview);
-  await readingShot('tianjin-beijing-map');
-  const pinBefore = await js('document.querySelector(".reading-map-point").style.transform');
-  const placeTarget = await js(`(()=>{const r=document.querySelector('button[data-place="tianjin"]').getBoundingClientRect();return [r.x+r.width/2,r.y+r.height/2]})()`);
-  await tap(...placeTarget);
-  check('点天津显示它在事件中的作用', await js(`
-    document.querySelector('button[data-place="tianjin"]').getAttribute('aria-pressed')==='true' &&
-    document.getElementById('reading-map-note').textContent.includes('联军攻占天津')
-  `));
-  await drag(110, 380, 185, 385, 6);
-  check('旋转地球时标记跟随经纬度，摘要保持收起', await js(`
-    document.querySelector('.reading-map-point').style.transform !== ${JSON.stringify(pinBefore)} && __t.sheet.detent==='hidden' && !__t.state.focus
-  `));
-  await js(`document.getElementById('reading-resume').click()`);
-  await waitReader();
-  check('从地图返回同一篇与同一位置', await js(`!document.getElementById('book').hidden && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${detailScroll})<2`));
   await js(`document.getElementById('reading-back').click()`);
   check('详情返回专题恢复滚动位置', await js(`__t.reading.detail===null && Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
-  await js(`document.querySelector('[data-reading-detail="ports"]').click();document.getElementById('reading-map').click()`);
-  await waitReader();
-  check('南京条约地图显示五处口岸与南京的关联', await js(`
-    __t.reading.mapStory.kind==='association' && __t.reading.mapStory.links.length===5 &&
-    document.querySelectorAll('.reading-map-point:not([hidden]) button:not([hidden])').length===6 &&
-    document.getElementById('reading-map-note').textContent.includes('第二条')
-  `));
-  await readingShot('nanjing-treaty-map');
-  await js(`document.getElementById('reading-resume').click()`);
-  await waitReader();
-  await js(`document.getElementById('reading-back').click()`);
   await js(`document.getElementById('reading-grab').click()`);
   await waitReader();
   const restored = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
@@ -618,23 +631,12 @@ async function main() {
   const cancelledRead = await touchReader('#reading-grab', 150, true);
   check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden, cancelledRead);
   await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
-  check('年表条目先叙述事件，再提供具体地点、背景与出处', await js(`
+  check('年表条目先叙述事件，再提供背景与出处', await js(`
     document.querySelector('.reading-opening').textContent.includes('进入北京') &&
-    document.querySelector('.reading-story').nextElementSibling.id==='reading-map' &&
-    document.querySelector('#reading-map strong').textContent==='天津到北京' &&
-    document.getElementById('reading-map').nextElementSibling.querySelector('[data-reading-chapter="boxers"]') &&
+    !document.getElementById('reading-map') && document.querySelector('.reading-story').nextElementSibling.querySelector('[data-reading-chapter="boxers"]') &&
     document.querySelector('.reading-sources a')
   `));
   await readingShot('reading-event');
-  await js(`document.getElementById('reading-map').click()`);
-  await waitReader();
-  check('年表短篇可以直接打开同一张天津到北京的地图', await js(`
-    __t.reading.preview && __t.state.year===1900 && !document.getElementById('reading-resume').hidden &&
-    __t.reading.mapStory.points.size===2 && !document.getElementById('reading-map-points').hidden
-  `));
-  await js(`document.getElementById('reading-resume').click()`);
-  await waitReader();
-  check('从地点回到同一条年表短篇', await js(`__t.reading.detail==='i-140' && !__t.reading.topic && __t.state.year===2026`));
   const shortBack = await touchReader('#book-body', 35, false, true);
   check('左边缘小幅右划回弹，仍留在原条目', shortBack.left>10 && await js(`__t.reading.detail==='i-140'`), shortBack);
   await sleep(190);
@@ -652,11 +654,6 @@ async function main() {
   check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
   const scrollBack = await touchReader('#book-body', 100);
   check('正文未到顶时下拉仍然滚动', scrollBack.top===0 && !scrollBack.hidden && scrollBack.scroll<scrollRead.scroll, scrollBack);
-  await js(`document.getElementById('reading-map').click()`);
-  await waitReader();
-  check('从2026年阅读跳到1900年地点时保持地图年份一致', await js(`__t.state.year===1900 && document.getElementById('year').textContent==='1900' && !__t.state.focus`));
-  await js(`document.getElementById('reading-resume').click()`);
-  await waitReader();
   const startHalf = await js('({offset:__t.reading.snapshot.offset,year:__t.state.year,key:__t.state.focus.key})');
   await js(`document.getElementById('book-body').scrollTop=0`);
   const collapse = await touchReader('#book-body', 310);

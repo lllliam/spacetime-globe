@@ -1,6 +1,6 @@
 {
   "name": "spacetime-globe",
-  "version": "4.5.4",
+  "version": "4.6.0",
   "private": true,
   "description": "地球仪 · 时空坐标 —— 单文件、零依赖、离线可用的历史地球",
   "scripts": {

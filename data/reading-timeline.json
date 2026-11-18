@@ -9,8 +9,7 @@
       { "title": "英国国家陆军博物馆 · 义和团与联军行动", "url": "https://www.nam.ac.uk/explore/boxer-rebellion" },
       { "title": "美国国务院历史办公室 · 门户开放与 1900 年危机", "url": "https://history.state.gov/milestones/1899-1913/hay-and-china" }
     ],
-    "related": { "topicId": "china-late-qing", "chapterId": "boxers" },
-    "mapFromRelated": true
+    "related": { "topicId": "china-late-qing", "chapterId": "boxers" }
   },
   "i-084": {
     "summary": "政治运动扩展到学校、机关和基层社会。",

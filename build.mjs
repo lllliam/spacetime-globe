@@ -17,12 +17,14 @@ const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
-const app = appSource.replace(readingMarker, rd('src', 'reading.js') + '\n' + rd('src', 'chrome.js') + '\n' + readingMarker);
+const app = appSource.replace(readingMarker, ['reading.js', 'event-map.js', 'chrome.js']
+  .map((file) => rd('src', file)).join('\n') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));
 const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
+const worldEventChapters = new Map();
 for (const t of topics) {
   if (topicIds.has(t.id) || !t.id || !t.title || !Number.isFinite(t.from) || t.from > t.to || !t.chapters.length) throw new Error('专题结构不合法');
   topicIds.add(t.id);
@@ -33,16 +35,18 @@ for (const t of topics) {
     if (c.opening && (!c.opening.headline || !c.opening.text || !c.opening.refs?.length ||
       c.opening.refs.some((index) => !Number.isInteger(index) || !c.sources[index]))) throw new Error('专题开篇或来源不合法：' + c.id);
     if (c.mapStory) {
-      const { title, summary, kind, places, links, refs } = c.mapStory;
+      const { title, summary, worldEntryId, places, participants, refs } = c.mapStory;
       const placeIds = new Set(['main', ...places.map((p) => p.id)]);
-      if (!c.place || !title || !summary || !['movement', 'association'].includes(kind) ||
+      if (!c.place || !title || !summary || !worldEntryId || worldEventChapters.has(worldEntryId) ||
         !refs?.length || refs.some((index) => !Number.isInteger(index) || !c.sources[index]) ||
+        !participants?.length || participants.some((p) => !p.name || !p.role ||
+          (p.members && (!Array.isArray(p.members) || p.members.some((name) => !name)))) ||
         !places.length || placeIds.size !== places.length + 1 ||
         places.some((p) => !p.id || !p.name || !p.role || !Number.isFinite(p.lon) || Math.abs(p.lon) > 180 ||
-          !Number.isFinite(p.lat) || Math.abs(p.lat) > 90) ||
-        !links.length || links.some(([a, b]) => a === b || !placeIds.has(a) || !placeIds.has(b))) {
-        throw new Error('专题地点关联或来源不合法：' + c.id);
+          !Number.isFinite(p.lat) || Math.abs(p.lat) > 90)) {
+        throw new Error('专题地图的地点、参与方或来源不合法：' + c.id);
       }
+      worldEventChapters.set(worldEntryId, c);
     }
     for (const s of c.sources) if (!/^https:\/\//.test(s.url)) throw new Error('专题来源必须是 HTTPS');
   }
@@ -58,15 +62,20 @@ if (!problems.length) {
   world = JSON.parse(rd('data', 'world.json'));
   const ids = new Set(world.regions.map((r) => r.id));
   const entries = new Map(world.entries.map((e) => [e.id, e]));
+  for (const [id, chapter] of worldEventChapters) {
+    const event = entries.get(id);
+    if (!event || chapter.year < event.start || chapter.year > (event.point ? event.start : event.end)) {
+      problems.push('专题地图对应的世界事件或年份无效：' + id);
+    }
+  }
   for (const [id, note] of Object.entries(timelineNotes)) {
     const entry = entries.get(id);
     if (!entry || (note.start ?? entry.start) > (note.end ?? entry.end ?? entry.start)) problems.push('无效的年表条目：' + id);
     if (!note.paragraphs?.length || !note.sources?.length || note.sources.some((s) => !s.title || !/^https:\/\//.test(s.url))) problems.push('年表正文或来源缺失：' + id);
-    if (note.related || note.mapFromRelated) {
+    if (note.related) {
       const topic = topics.find((t) => t.id === note.related?.topicId);
       const chapter = topic?.chapters.find((c) => c.id === note.related.chapterId);
       if (!topic || (note.related.chapterId && !chapter)) problems.push('无效的年表延伸阅读：' + id);
-      if (note.mapFromRelated && !chapter?.place) problems.push('年表的关联篇章缺少地点：' + id);
     }
   }
   for (const e of world.entries) {

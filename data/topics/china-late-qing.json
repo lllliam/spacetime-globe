@@ -34,18 +34,21 @@
         "lat": 32.06
       },
       "mapStory": {
+        "worldEntryId": "i-138",
         "title": "南京与五处通商口岸",
         "summary": "《南京条约》在南京签订，第二条列明五处通商口岸。",
-        "kind": "association",
         "refs": [3],
+        "participants": [
+          { "name": "清朝", "role": "清政府签订条约，并按约开放五处通商口岸。" },
+          { "name": "英国", "role": "英国是条约另一签约方。英国商人获准在五处口岸居住和通商。" }
+        ],
         "places": [
           { "id": "shanghai", "name": "上海", "role": "《南京条约》第二条列明的通商口岸", "lon": 121.47, "lat": 31.23 },
           { "id": "ningbo", "name": "宁波", "role": "《南京条约》第二条列明的通商口岸", "lon": 121.55, "lat": 29.87 },
           { "id": "fuzhou", "name": "福州", "role": "《南京条约》第二条列明的通商口岸", "lon": 119.30, "lat": 26.08 },
           { "id": "xiamen", "name": "厦门", "role": "《南京条约》第二条列明的通商口岸", "lon": 118.09, "lat": 24.48 },
           { "id": "guangzhou", "name": "广州", "role": "《南京条约》第二条列明的通商口岸", "lon": 113.26, "lat": 23.13 }
-        ],
-        "links": [["main", "shanghai"], ["main", "ningbo"], ["main", "fuzhou"], ["main", "xiamen"], ["main", "guangzhou"]]
+        ]
       },
       "sources": [
         {
@@ -506,14 +509,22 @@
         "lat": 39.9
       },
       "mapStory": {
+        "worldEntryId": "i-140",
         "title": "天津到北京",
-        "summary": "联军于 7 月攻占天津，8 月进入北京。箭头示意推进方向。",
-        "kind": "movement",
+        "summary": "北京使馆区被围后，联军于 7 月攻占天津，8 月进入北京。",
         "refs": [1],
+        "participants": [
+          { "name": "清朝", "role": "清廷调动军队阻击联军，部分清军参与围攻北京使馆区。" },
+          { "name": "义和团", "role": "义和团在华北发展，并参与围攻北京使馆区。" },
+          {
+            "name": "八国联军",
+            "role": "八国派兵赴华，从天津向北京推进。",
+            "members": ["英国", "法国", "德国", "俄国", "日本", "美国", "意大利", "奥匈帝国"]
+          }
+        ],
         "places": [
           { "id": "tianjin", "name": "天津", "role": "1900 年 7 月，联军攻占天津，随后向北京推进", "lon": 117.20, "lat": 39.13 }
-        ],
-        "links": [["tianjin", "main"]]
+        ]
       },
       "sources": [
         {
