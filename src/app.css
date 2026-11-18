@@ -417,6 +417,15 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   padding:0;text-align:left;font-size:13px;line-height:1.6;
 }
 .reading-next .reading-previous svg{transform:rotate(180deg)}
+.subject-sheet-summary{margin:7px 0 12px;color:#c4c9ce;font-size:13px;line-height:1.7}
+.subject-entry-actions{margin:4px 0 18px}
+.subject-outline .reading-row{grid-template-columns:minmax(0,1fr)}
+.subject-outline .reading-arrow{display:none}
+.subject-book-label{margin:0 0 8px;color:var(--gold);font-size:13px}
+.subject-chapter-next{margin:20px 0}
+.subject-secondary{margin:22px 0 16px;border-top:1px solid var(--reading-rule);padding-top:9px}
+.subject-secondary summary{cursor:pointer;color:var(--reading-muted);padding:6px 0;font-size:13px}
+.subject-secondary[open] summary{margin-bottom:8px;color:var(--ink)}
 .reading-link{position:relative;padding:14px 24px 14px 0;border-bottom:1px solid var(--reading-rule)}
 .reading-link small{display:block;margin-bottom:3px}
 .reading-link .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}

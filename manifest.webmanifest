@@ -1,7 +1,7 @@
 {
   "name": "地球仪 · 时空坐标",
   "short_name": "地球仪",
-  "description": "拖动时间轴，看同一颗地球上不同年代有记录的地方。",
+  "description": "一本可以通过地球和时间打开的世界历史书。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",

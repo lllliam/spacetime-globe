@@ -11,14 +11,6 @@ let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 let readerTouch = null;
 const readerEdgeWidth = 32;
 
-function topicsForEntity(ent, year = state.year) {
-  return TOPICS.filter((t) => year >= t.from && year <= t.to &&
-    (ent.kind === 'country' ? t.countryIsos.includes(ent.iso) : t.polityNames.includes(ent.name)))
-    .sort((a, b) => (b.priority || 0) - (a.priority || 0) || (a.to - a.from) - (b.to - b.from));
-}
-function topicForEntity(ent, year = state.year) {
-  return topicsForEntity(ent, year)[0] || null;
-}
 function pauseGlobe() {
   stopSheetMotion();
   sheetVelocity = 0;
@@ -30,11 +22,20 @@ function pauseGlobe() {
   rafId = 0;
 }
 function readingKey() {
+  if (reading.subject) return 'subject:' + reading.subject.id;
   if (reading.topic) return reading.ent ? reading.topic.id : 'home:' + reading.topic.id;
-  return reading.ent.layerId + ':' + reading.ent.key + ':' + chapterOf(reading.year).n;
+  return 'atlas:' + reading.ent.layerId + ':' + reading.ent.key;
 }
 function rememberReading() {
   if (reading.catalog) { reading.catalogScroll = bookBody.scrollTop; return; }
+  if (reading.library) { reading.scroll = bookBody.scrollTop; return; }
+  if (reading.subject) {
+    if (reading.detail) {
+      reading.detailScroll = bookBody.scrollTop;
+      subjectProgress.set(reading.subject.id, { chapter: reading.detail, offset: reading.detailScroll });
+    } else reading.scroll = bookBody.scrollTop;
+    return;
+  }
   if (!reading.ent && !reading.topic) return;
   if (reading.detail) reading.detailScroll = bookBody.scrollTop;
   else reading.scroll = bookBody.scrollTop;
@@ -46,14 +47,13 @@ function readingBackground(inert) {
   }
   document.body.classList.toggle('reading-open', inert);
 }
-function openBook(topicId, fromOffset = null) {
+function openBook(fromOffset = null) {
   if (reading.active) return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
-  const topic = typeof topicId === 'string' ? TOPICS.find((t) => t.id === topicId) || null : topicForEntity(ent);
-  beginReading(ent, topic, null, fromOffset ?? sheetState.offset);
+  beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent));
 }
-function beginReading(ent, topic, chapter, fromOffset) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null) {
   pauseGlobe();
   reading.snapshot = {
     year: state.year, layerId: state.layerId, focus: state.focus && { ...state.focus },
@@ -63,25 +63,20 @@ function beginReading(ent, topic, chapter, fromOffset) {
   reading.ent = ent && { ...ent };
   reading.trail = [];
   reading.linkEntry = false;
-  reading.catalog = !ent && !topic;
+  reading.catalog = !ent && !topic && !subject;
+  reading.library = false;
   reading.catalogContinent = '全部';
   reading.catalogScroll = 0;
   reading.topic = topic;
+  reading.subject = subject;
   reading.year = state.year;
   reading.trigger = document.activeElement;
-  const saved = reading.catalog ? null : readingPositions.get(readingKey());
+  const saved = reading.catalog || subject ? null : readingPositions.get(readingKey());
   reading.detail = chapter || (saved ? saved.detail : null);
   reading.scroll = saved ? saved.scroll : 0;
   reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
   showReader(fromOffset);
-  // 正文到达后只更新通用资料页；专题内容无需网络。
-  if (ent) loadStories().then(() => {
-    if (reading.active && !reading.catalog && !reading.topic && reading.detail !== null) {
-      rememberReading();
-      renderReading();
-    }
-  });
 }
 function showReader(fromOffset) {
   closeYearControl();
@@ -256,14 +251,6 @@ function endReaderTouch(e) {
       { duration: 170, easing: 'ease-out' });
   }
 }
-function readingItems() {
-  if (reading.topic) return reading.topic.chapters;
-  const period = chapterOf(reading.year);
-  return entriesForBook(reading.ent)
-    .map(timelineItem)
-    .filter((e) => e.start <= period.b && (e.point ? e.start : e.end) >= period.a)
-    .sort((a, b) => a.start - b.start || a.t0 - b.t0);
-}
 function timelineItem(entry) {
   const note = timelineNotes[entry.id];
   return note ? { ...entry, ...note } : entry;
@@ -293,22 +280,9 @@ function sourcesMarkup(sources) {
 function referencesMarkup(refs) {
   return refs && refs.length ? '<span class="reading-refs">' + refs.map((i) => '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '">[' + (i + 1) + ']</a>').join(' ') + '</span>' : '';
 }
-function relatedReadingTopic(item) {
-  return item.related && TOPICS.find((topic) => topic.id === item.related.topicId);
-}
 function connectionsMarkup(topic, item) {
-  if (!topic) {
-    const link = item.related;
-    const target = relatedReadingTopic(item);
-    if (!target) return '';
-    const chapter = target.chapters.find((c) => c.id === link.chapterId);
-    return '<nav class="reading-next reading-detail-route" aria-label="了解背景"><button type="button" data-reading-topic="' +
-      esc(target.id) + '" data-reading-chapter="' + esc(chapter?.id || '') + '">' +
-      esc(chapter?.title || target.title) + readingArrow + '</button></nav>';
-  }
   const links = item ? (item.connections || []) : (topic.connections || []);
-  const related = item || !reading.ent ? [] : topicsForEntity(reading.ent, reading.year).filter((t) => t.id !== topic.id).map((t) => ({topicId:t.id,label:t.title,reason:'同一时期的相关区域专题',relation:'context'}));
-  const valid = [...links, ...related].filter((l) => TOPICS.some((t) => t.id === l.topicId));
+  const valid = links.filter((l) => TOPICS.some((t) => t.id === l.topicId));
   if (!valid.length) return '';
   return '<section class="reading-connections"><h2>延伸阅读</h2>' + valid.map((l) => '<button type="button" class="reading-card reading-link" data-reading-topic="' + esc(l.topicId) + '" data-reading-chapter="' + esc(l.chapterId || '') + '"><small>' +
     (l.relation === 'contemporary' ? '同期世界' : l.relation === 'compare' ? '跨时期对照' : '相关专题') + '</small><strong>' + esc(l.label) + '</strong><span>' + esc(l.reason) + '</span>' + readingArrow + '</button>').join('') + '</section>';
@@ -319,6 +293,8 @@ function followReadingTopic(topicId, chapterId) {
   rememberReading();
   reading.trail.push(readingFrame());
   reading.catalog = false;
+  reading.library = false;
+  reading.subject = null;
   reading.topic = target;
   reading.detail = target.chapters.some((c) => c.id === chapterId) ? chapterId : null;
   reading.scroll = reading.detailScroll = 0;
@@ -327,13 +303,15 @@ function followReadingTopic(topicId, chapterId) {
   el('reading-title').focus({preventScroll:true});
 }
 function readingFrame() {
-  return {topic:reading.topic, detail:reading.detail, year:reading.year, scroll:reading.scroll, detailScroll:reading.detailScroll,
+  return {ent:reading.ent, subject:reading.subject, library:reading.library, topic:reading.topic,
+    detail:reading.detail, year:reading.year, scroll:reading.scroll, detailScroll:reading.detailScroll,
     linkEntry:reading.linkEntry, catalog:reading.catalog, catalogContinent:reading.catalogContinent, catalogScroll:reading.catalogScroll};
 }
 function openReadingCatalog() {
   rememberReading();
   reading.trail.push(readingFrame());
   reading.catalog = true;
+  reading.library = false;
   reading.catalogContinent = '全部';
   reading.catalogScroll = 0;
   renderReading();
@@ -345,7 +323,7 @@ function renderReadingCatalog() {
   const topics = TOPICS.filter(t => selected === '全部' || t.continents.includes(selected)).sort((a,b)=>a.from-b.from || a.id.localeCompare(b.id));
   const year = y => y < 0 ? '前' + Math.abs(y) : '公元' + y;
   setReadingBack(reading.trail.length ? '返回阅读' : '');
-  bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">全球专题目录</h1>' +
+  bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">补充专题资料</h1>' +
     '<nav class="reading-filters" aria-label="按大洲筛选">' + continents.map(c=>'<button type="button" data-reading-continent="'+c+'" aria-pressed="'+(c===selected)+'">'+c+'</button>').join('') + '</nav>' +
     '<p class="when" role="status">'+topics.length+' 组专题</p>' + topics.map(t=>'<button type="button" class="reading-card reading-link" data-reading-topic="'+esc(t.id)+'"><small>'+year(t.from)+'—'+year(t.to)+'</small><strong>'+esc(t.title)+'</strong><span>'+esc(t.summary)+'</span>'+readingArrow+'</button>').join('');
   bookBody.scrollTop = reading.catalogScroll;
@@ -357,78 +335,52 @@ function setReadingBack(label) {
 function readingHeading(title, meta) {
   return '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><div class="reading-meta"><p class="when">' + esc(meta) + '</p></div>';
 }
-function renderTimeline(items) {
-  const ent = reading.ent;
-  const period = chapterOf(reading.year);
-  const anchor = reading.snapshot.year;
-  const name = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
-  const title = ent.iso === 'CN' && period === CH.at(-1) ? '中国近现代年表' : name + '年表';
-  const meta = fmtYear(period.a) + (period.b === YMAX ? ' 年以来' : '—' + fmtYear(period.b));
-  const startsHere = items.filter((item) => item.start >= period.a);
-  const timeline = startsHere.length && period.a > YMIN ? startsHere : items;
-  return readingHeading(title, meta) +
-    (timeline.length ? readingRows(timeline.map((item) => readingRow(item, {
-      timeline: true, current: anchor === item.start,
-    })), '年表', true) : '<p class="reading-note">这个时段暂无记录。</p>') +
-    periodNavigation();
-}
 function renderReadingArticle(topic, items, item) {
-  const prose = topic || item.paragraphs ? '' : proseOf(item.id);
-  const wikiTitle = prose && stories.entries[item.id].t;
-  const wikiUrl = wikiTitle && 'https://zh.wikipedia.org/wiki/' + encodeURIComponent(wikiTitle.replace(/ /g, '_'));
-  const sources = item.sources ? [...item.sources] : [];
-  if (wikiUrl) sources.push({ title: wikiTitle + ' · 中文维基百科', url: wikiUrl });
-  if (!topic && !item.paragraphs && item.source && item.source !== wikiUrl) {
-    sources.push({ title: item.zh || item.en, url: item.source });
-  }
+  const opening = item.opening?.text || item.summary;
+  const body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
+    '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
   const next = items[items.indexOf(item) + 1];
-  let body;
-  if (topic) {
-    const opening = item.opening?.text || item.summary;
-    body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
-      '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
-  } else {
-    const paragraphs = item.paragraphs || (prose ? [prose] : []);
-    body = paragraphs.length ? '<div class="reading-story">' + paragraphs.map((p, i) =>
-      '<p' + (i === 0 ? ' class="reading-opening"' : '') + '>' + esc(p) + '</p>').join('') + '</div>' :
-      '<p class="reading-note">这条年表记录暂未收录正文。</p>';
-  }
-  return readingHeading(item.opening?.headline || item.title || item.zh || item.en, readingDate(item)) + body +
-    connectionsMarkup(topic, item) +
-    (next && topic ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
-    sourcesMarkup(sources) + (prose ? '<p class="credits">正文摘自中文维基百科导语 · CC BY-SA 4.0</p>' : '') +
-    catalogNavigation();
+  return readingHeading(item.opening?.headline || item.title, readingDate(item)) + body + connectionsMarkup(topic, item) +
+    (next ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
+    sourcesMarkup(item.sources) + catalogNavigation();
 }
 function renderReading() {
   if (reading.catalog) { renderReadingCatalog(); return; }
-  const topic = reading.topic, items = readingItems();
+  if (reading.library) { renderSubjectLibrary(); return; }
+  if (reading.subject || !reading.topic) {
+    const subject = reading.subject;
+    const chapter = subject?.chapters.find((item) => item.id === reading.detail);
+    if (subject) setReadingBack(chapter ? '返回目录' : reading.trail.length ? '返回上一级' : '');
+    bookBody.innerHTML = subject
+      ? chapter ? renderSubjectChapter(subject, chapter) : renderSubjectOutline(subject)
+      : renderAtlasReading();
+    bookBody.scrollTop = chapter ? reading.detailScroll : reading.scroll;
+    return;
+  }
+  const topic = reading.topic, items = topic.chapters;
   const item = reading.detail !== null ? items.find((c) => String(c.id) === String(reading.detail)) : null;
   if (!item) reading.detail = null;
-  setReadingBack(reading.trail.length && (reading.linkEntry || !item) ? '返回上一级' : item ? (topic ? '返回专题' : '返回年表') : '');
+  setReadingBack(reading.trail.length && (reading.linkEntry || !item) ? '返回上一级' : item ? '返回专题' : '');
   if (item) bookBody.innerHTML = renderReadingArticle(topic, items, item);
-  else if (topic) {
+  else {
     bookBody.innerHTML = readingHeading(topic.title, topic.subtitle) + '<p class="lede">' + esc(topic.summary) + '</p>' +
       readingRows(items.map((chapter) => readingRow(chapter)), '专题篇目') +
       connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
-  } else bookBody.innerHTML = renderTimeline(items);
+  }
   bookBody.scrollTop = item ? reading.detailScroll : reading.scroll;
 }
-function periodNavigation() {
-  const i = CH.indexOf(chapterOf(reading.year));
-  return '<nav class="reading-next">' +
-    (i > 0 ? '<button type="button" class="reading-previous" data-reading-period="' + (i - 1) + '">' + readingArrow + '更早的记录</button>' : '') +
-    (i < CH.length - 1 ? '<button type="button" data-reading-period="' + (i + 1) + '">更晚的记录' + readingArrow + '</button>' : '') + '</nav>';
-}
-function openReadingDetail(id) {
+function openReadingDetail(id, offset = 0) {
+  if (reading.detail) rememberReading();
   reading.linkEntry = false;
   if (!reading.detail) reading.scroll = bookBody.scrollTop;
   reading.detail = id;
-  reading.detailScroll = 0;
+  reading.detailScroll = offset;
   renderReading();
   el('reading-title').focus({ preventScroll: true });
 }
 function readingIndex() {
   const selected = reading.detail;
+  rememberReading();
   reading.linkEntry = false;
   reading.detail = null;
   renderReading();
@@ -436,6 +388,10 @@ function readingIndex() {
   (row || el('reading-title')).focus({ preventScroll: true });
 }
 function readingGoBack() {
+  if (!reading.catalog && !reading.library && reading.subject && reading.detail !== null && !reading.linkEntry) {
+    readingIndex();
+    return;
+  }
   if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
     rememberReading(); Object.assign(reading, reading.trail.pop()); renderReading(); readingBack.focus({preventScroll:true});
   } else if (reading.detail !== null) readingIndex();
@@ -460,7 +416,7 @@ function closeReader() {
   applySheetOffset(readerRestOffset(), false);
   sheetScroll.scrollTop = scroll;
   readingBackground(false);
-  const fallback = sheetInner.querySelector('[data-read-topic]') || grabEl;
+  const fallback = sheetInner.querySelector('[data-read-subject]') || grabEl;
   (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
   invalidate();
 }
@@ -480,8 +436,7 @@ function handleReadingKey(e) {
   return true;
 }
 sheetInner.addEventListener('click', (e) => {
-  const b = e.target.closest('[data-read-topic]');
-  if (b) openBook(b.dataset.readTopic);
+  if (e.target.closest('[data-read-subject]')) openBook();
 });
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
@@ -496,18 +451,7 @@ bookBody.addEventListener('click', (e) => {
     bookBody.querySelector('[data-reading-continent="' + reading.catalogContinent + '"]').focus({preventScroll:true});
   }
   else if (b.hasAttribute('data-reading-index')) readingIndex();
-  else if (b.hasAttribute('data-reading-period')) {
-    rememberReading();
-    const period = CH[Number(b.dataset.readingPeriod)];
-    if (!period) return;
-    reading.year = period.a + 1;
-    const saved = readingPositions.get(readingKey());
-    reading.detail = saved ? saved.detail : null;
-    reading.scroll = saved ? saved.scroll : 0;
-    reading.detailScroll = saved ? saved.detailScroll : 0;
-    renderReading();
-    el('reading-title').focus({ preventScroll: true });
-  }
+  else handleSubjectButton(b);
 });
 readingBack.addEventListener('click', readingGoBack);
 readingGrab.addEventListener('click', (e) => {

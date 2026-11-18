@@ -2,7 +2,9 @@
 import {readFileSync, writeFileSync, readdirSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {loadSubjectBooks} from './subject-books.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const subjectBooks = loadSubjectBooks(root);
 const read = (f) => JSON.parse(readFileSync(join(root, f), 'utf8'));
 const plan = read('data/content-plan.json');
 const topics = readdirSync(join(root, 'data/topics')).filter(f=>f.endsWith('.json')).map(f=>read('data/topics/'+f));
@@ -52,15 +54,21 @@ function checkLink(t,c,l) {
   if(!l.label||!l.reason) problems.push(t.id+' 关联缺少解释');
   if(l.relation==='contemporary'&&Math.max(t.from,target.from)>Math.min(t.to,target.to)) problems.push(t.id+' 将不同时期标为同期');
 }
-const lines=['# 全球内容覆盖验收','', '范围：全球主要文明、地区与历史阶段，兼顾六大有人居住的大洲；不等于177个现代国家或1604个政权逐一拥有完整通史。','',
+const lines=['# 世界历史书的内容覆盖','',
+  '## 主体书卷','',
+  '| 书卷 | 年代 | 章节数 |','| --- | --- | ---: |',
+  ...subjectBooks.map((book)=>`| ${book.title} | ${book.from<0?'公元前 '+Math.abs(book.from):book.from}${book.to===null?' 年至今':'—'+book.to} | ${book.chapters.length} |`),'',
+  '有地理轮廓的主体可在地球上定位。主体书卷由编辑选材与核对，未收录正文的主体可查看地图资料。','',
+  '## 补充专题资料','',
+  '专题覆盖全球主要文明、地区及历史阶段，兼顾六大有人居住的大洲。','',
   `已编写 ${topics.length}/${plan.length} 组专题、${chapters} 篇正文，共 ${chars.toLocaleString('en-US')} 个汉字；独立来源网址 ${sources.size} 个。`, '',
   '正文长度只统计各节正文中的汉字，不含标题、摘要、来源或重复说明。结构检查不能代替事实审校；来源同时包含原始文献与博物馆、大学等机构的研究导读。','',
   '| 专题 | 地区 | 覆盖年代 | 正文篇数 | 每篇正文汉字 |','| --- | --- | --- | ---: | --- |',
   ...plan.map(p=>{const t=byId.get(p.id);return t?`| ${t.title} | ${t.continents.join('、')} | ${t.from}—${t.to} | ${t.chapters.length} | ${t.chapters.map(lengthOf).join(' / ')} |`:`| ${p.title} | ${p.continents.join('、')} | 待完成 | 0 | — |`;}),'',
-  '## 地理与时间边界','', '以现代区域进入历史专题，不能把入口区域等同于历史疆域。专题只在其标注年代内自动推荐。没有匹配专题时回退到时期资料，不伪造一篇通史；现代边界数据缺失的陆块仍可能无法准确识别。','',
+  '## 地理与时间边界','', '历史疆域覆盖取决于地图资料，书卷年代取决于所采用的叙事范围。现代区域以现代国界绘制。补充专题在历史书目中按需查阅。','',
   '## 校验结果','',problems.length?problems.map(p=>'- '+p).join('\n'):'所有计划专题的节点数、正文长度、来源索引、地点、年代和内部关联结构检查通过。','',
   ...warnings.map(p=>'- 待补关系：'+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
-console.log(JSON.stringify({topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
+console.log(JSON.stringify({books:subjectBooks.length,bookChapters:subjectBooks.reduce((sum, book)=>sum+book.chapters.length,0),topics:topics.length,planned:plan.length,chapters,hanCharacters:chars,sourceUrls:sources.size,problems:problems.length,warnings:warnings.length},null,2));
 for(const p of problems) console.error(p);
 if(problems.length) process.exitCode=1;

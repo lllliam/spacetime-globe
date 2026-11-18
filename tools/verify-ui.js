@@ -192,8 +192,8 @@ async function main() {
   await tap(p.x, p.y);
   const sheet = await js(`({open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
-    entries: document.querySelectorAll('#sheet [data-read-topic]').length})`);
-  check('点国家打开只有一个阅读入口的摘要', sheet.open && sheet.title === '中国' && sheet.entries === 1, sheet);
+    entries: document.querySelectorAll('#sheet [data-read-subject]').length})`);
+  check('点当下的中国打开单一主体书卷入口', sheet.open && sheet.title === '中华人民共和国' && sheet.entries === 1, sheet);
   await js(`window.__t.closeSheet()`);
   await sleep(500);
   // Canvas 兜底在繁忙机器上可能少帧，等待实际弹簧位置而非固定延迟。
@@ -252,7 +252,7 @@ async function main() {
     __t.sheet.detent==='hidden' && !__t.state.focus`));
   await js(`document.getElementById('event-map-read').click()`);
   await waitReader();
-  check('从事件进入正文',await js(`__t.reading.detail==='boxers' && document.getElementById('event-map-panel').inert`));
+  check('从事件进入正文',await js(`__t.reading.subject.id==='qing' && __t.reading.detail==='reforms' && document.getElementById('event-map-panel').inert`));
   await js('__t.closeReader()');
   await waitReader();
   check('收起正文回到同一事件与地点',await js(`!document.getElementById('event-map-panel').inert && __t.worldEvent.selected==='tianjin'`));
@@ -408,26 +408,12 @@ async function main() {
     open: document.body.classList.contains('sheet-open'),
     title: (document.querySelector('#sheet h2')||{}).textContent,
     era: (document.querySelector('#sheet .era')||{}).textContent,
-    entries: document.querySelectorAll('#sheet [data-read-topic]').length
+    entries: document.querySelectorAll('#sheet [data-read-subject]').length
   })`);
   check('点政权打开对应年份的摘要',
     polSheet.open && /Empire|Kingdom|Khanate|Sultanate|Caliphate|Dynasty|Emirate|Republic|Confederation|帝国|王国|汗国|苏丹|共和国|王朝/i.test(polSheet.title || '') &&
-    polSheet.entries === 1 && polSheet.era.includes('1900'),
+    polSheet.entries === 1 && polSheet.era.includes('1922'),
     polSheet);
-
-  /* 回归：政权一本书不该把全世界都塞进来（曾经因为遮罩用了不透明黑底，判成整张地图） */
-  const bookPol = await js(`(() => {
-    const t = window.__t;
-    const ent = t.entityByKey('polity', 23, 0) || null;
-    const id = t.pick(t.screenOf(20*Math.PI/180, 48*Math.PI/180).x, t.screenOf(20*Math.PI/180, 48*Math.PI/180).y);
-    const e2 = id ? t.entityById('polity', id) : null;
-    const use = e2 || ent;
-    if (!use) return null;
-    const mask = t.polityMaskOf(use);
-    let on = 0; for (let i = 0; i < mask.length; i++) if (mask[i]) on++;
-    return { name: use.name, entries: t.entriesForBook(use).length, maskPct: +(on / mask.length * 100).toFixed(2) };
-  })()`);
-  check('政权年表只收它自己的疆域', !!bookPol && bookPol.entries < 80 && bookPol.maskPct < 8, bookPol);
 
   /* 回归：换年份后抽屉仍然停在同一个实体（focus 存的是 key，不是 shape id） */
   const stable = await js(`(() => {
@@ -447,7 +433,7 @@ async function main() {
   /* 抽屉三档：上拉应到 full，且内容变成可滚动的书 */
   await js(`window.__t.openEntity('country', window.__t.partition.shapes.find(s => s.iso === 'CN').id)`);
   await sleep(520);
-  const half = await js('({ detent: window.__t.sheet.detent, hasEntry: !!document.querySelector("#sheet [data-read-topic]"), hasLongText: !!document.querySelector("#sheet .book article") })');
+  const half = await js('({ detent: window.__t.sheet.detent, hasEntry: !!document.querySelector("#sheet [data-read-subject]"), hasLongText: !!document.querySelector("#sheet .book article") })');
   await js('window.__t.openBook()');
   await sleep(560);
   const full = await js('({ open: !document.getElementById("book").hidden, scrollable: getComputedStyle(document.getElementById("book-body")).overflowY, cards: document.querySelectorAll("#book .reading-card").length })');
@@ -575,107 +561,84 @@ async function main() {
   await js(`(() => { const t = window.__t; t.state.panX = 0; t.state.panY = 0; t.state.zoom = 1.9; t.view.Rz = t.view.R * 1.9; t.redraw(); })()`);
 
 
-  /* 阅读交互：独立时间、详情返回、地图往返、手机与离线。 */
-  await js(`(() => { const t=window.__t; t.setYear(1900); t.state.yaw=-1.42; t.state.tilt=.3; t.state.zoom=2.8; t.state.panX=12; t.state.panY=8; t.openEntity('country', t.partition.shapes.find(s=>s.iso==='CN').id); })()`);
-  await sleep(500);
-  const original = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
-  await js(`document.querySelector('[data-read-topic]').click()`);
-  const topic = await js(`({open:!document.getElementById('book').hidden,title:document.getElementById('reading-title').textContent,cards:document.querySelectorAll('[data-reading-detail].reading-card').length,browsing:__t.yearControl.browsing})`);
-  check('晚清专题有八个节点且收起年份控件', topic.open && topic.cards===8 && !topic.browsing && /晚清/.test(topic.title), topic);
-  await waitReader();
-  await readingShot('late-qing');
-  await js(`document.getElementById('book-body').scrollTop=240`);
-  const indexScroll = await js('document.getElementById("book-body").scrollTop');
-  await js(`document.querySelector('[data-reading-detail="boxers"]').click()`);
-  check('节点打开解释与独立来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>0`));
-  check('专题详情先说事件，地点和背景顺着正文展开', await js(`
-    document.getElementById('reading-title').textContent==='义和团危机与八国联军' &&
-    document.querySelector('.reading-opening').textContent.includes('北京使馆区遭到围困') &&
-    document.querySelector('.reading-opening').nextElementSibling.tagName==='ARTICLE' && !document.getElementById('reading-map')
-  `));
-  await send('Input.dispatchKeyEvent', {type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
-  check('阅读时方向键不改变地球年份', await js('__t.state.year===1900'));
-  await js(`document.getElementById('reading-back').click()`);
-  check('详情返回专题恢复滚动位置', await js(`__t.reading.detail===null && Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
-  await js(`document.getElementById('reading-grab').click()`);
-  await waitReader();
-  const restored = await js('JSON.stringify({year:__t.state.year,layer:__t.state.layerId,yaw:__t.state.yaw,tilt:__t.state.tilt,zoom:__t.state.zoom,panX:__t.state.panX,panY:__t.state.panY,focus:__t.state.focus.key})');
-  check('退出阅读恢复原年份相机与选中地区', original===restored, {original,restored});
-  await js(`document.querySelector('[data-read-topic]').click()`);
-  check('重新进入保留专题进度', await js(`Math.abs(document.getElementById('book-body').scrollTop-${indexScroll})<2`));
-  /* 全球内容：年代选择、跨洲导航、目录与阅读栈都不改变地球。 */
-  const eraMatches = await js(`[
-    ['CN',-221,'china-early'],['CN',1200,'east-asia-networks'],['CN',1900,'china-late-qing'],
-    ['EG',-2500,'nile-civilizations'],['ML',1500,'west-africa'],['PE',1500,'mesoamerica-andes'],
-    ['US',1150,'north-america-indigenous'],['AU',1788,'oceania'],['IN',2026,null]
-  ].map(([iso,year,expected])=>({iso,year,expected,actual:(__t.topicForEntity({kind:'country',iso},year)||{}).id||null}))`);
-  check('六洲专题按地区和真实覆盖年代推荐',eraMatches.every(x=>x.actual===x.expected),eraMatches);
-  check('新增区域轮廓可点击并有中文名称',await js(`(()=>{const s=__t.partition.shapes.find(s=>s.iso==='ML');const e=__t.entityById('country',s.id);return !!e&&e.name!=='ML'})()`));
-  const polityMatches=await js(`[['Qing Dynasty',1900,'china-late-qing'],['Ottoman Empire',1600,'ottoman-persia'],['Mali Empire',1400,'west-africa'],['Aztec Triple Alliance',1500,'mesoamerica-andes']].map(([name,year,expected])=>({name,expected,actual:(__t.topicForEntity({kind:'polity',name},year)||{}).id}))`);
-  check('历史政权使用数据包实际名称匹配',polityMatches.every(x=>x.actual===x.expected),polityMatches);
-  await js(`document.querySelector('[data-reading-detail="boxers"]').click();document.getElementById('book-body').scrollTop=420`);
-  const linkedScroll=await js('document.getElementById("book-body").scrollTop');
-  check('正文段落来源索引可以定位出处',await js(`(()=>{const a=document.querySelector('.reading-refs a');return !!a&&!!document.getElementById(a.getAttribute('href').slice(1))})()`));
-  await js(`document.querySelector('[data-reading-topic="east-asia-modern"]').click()`);
-  check('跨专题直接进入相关篇章且地球不跳年',await js(`__t.reading.topic.id==='east-asia-modern' && __t.reading.detail==='meiji' && __t.state.year===1900`));
-  await js(`document.getElementById('reading-back').click()`);
-  check('返回上篇恢复原章节和阅读位置',await js(`__t.reading.topic.id==='china-late-qing' && __t.reading.detail==='boxers' && Math.abs(document.getElementById('book-body').scrollTop-${linkedScroll})<2`));
-  await js(`document.querySelector('[data-reading-catalog]').click()`);
-  check('全球目录可达且没有地图定位入口',await js(`__t.reading.catalog && document.querySelectorAll('[data-reading-topic]').length===28 && !document.getElementById('reading-map')`));
-  await js(`document.querySelector('[data-reading-continent="非洲"]').click()`);
-  const africaCatalog=await js(`({ids:[...document.querySelectorAll('[data-reading-topic]')].map(b=>b.dataset.readingTopic),filter:document.querySelector('[data-reading-continent="非洲"]').getAttribute('aria-pressed')})`);
-  check('目录按大洲筛选并保留跨洲专题',africaCatalog.ids.includes('west-africa')&&africaCatalog.ids.includes('islamic-networks')&&!africaCatalog.ids.includes('china-early')&&africaCatalog.filter==='true',africaCatalog);
-  await js(`document.getElementById('book-body').scrollTop=350`);
-  const catalogScroll=await js('document.getElementById("book-body").scrollTop');
-  await js(`document.querySelector('[data-reading-topic="west-africa"]').click()`);
-  check('目录可进入非洲专题，保持原地球状态',await js(`__t.reading.topic.id==='west-africa'&&!__t.reading.catalog&&__t.state.year===1900`));
-  await js(`document.getElementById('reading-back').click()`);
-  check('从专题返回原大洲目录与位置',await js(`__t.reading.catalog&&__t.reading.catalogContinent==='非洲'&&Math.abs(document.getElementById('book-body').scrollTop-${catalogScroll})<2`));
-  await js(`document.getElementById('reading-back').click()`);
-  check('目录返回原文，不丢失章节',await js(`__t.reading.detail==='boxers'&&!__t.reading.catalog`));
-  await js(`document.getElementById('reading-back').click()`);
-  // 窄屏截图与横屏：无水平溢出，返回按钮仍可触达。
-  await send('Emulation.setDeviceMetricsOverride', {width:320,height:740,deviceScaleFactor:2,mobile:true});
+  /* 同一历史主体跨年份开启同一卷，阅读与地图分别保留位置。 */
+  const cameraSnapshot = () => js('JSON.stringify([__t.state.year,__t.state.layerId,__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY,__t.state.focus?.key])');
+  const openMing = async (year) => {
+    for (let i=0;i<30 && !await js('__t.sheetSettled');i++) await sleep(40);
+    await js(`(() => { const t=__t; t.setLayer('polity'); t.setYear(${year});
+      Object.assign(t.state,{yaw:-1.77,tilt:.35,zoom:1.9,panX:0,panY:0}); t.view.Rz=t.view.R*1.9; t.redraw(); })()`);
+    const point = await js(`(() => {const p=__t.screenOf(115*Math.PI/180,33*Math.PI/180);return [p.x,p.y]})()`);
+    await tap(...point);
+    await tap(...Object.values(await pointOf('[data-read-subject]')));
+    await waitReader();
+  };
+  await openMing(1500);
+  const original = await cameraSnapshot();
+  const readOutline = () => js(`({title:document.getElementById('reading-title').textContent,
+    anchor:document.querySelector('[aria-current=date]')?.dataset.readingDetail,
+    chapters:[...document.querySelectorAll('.reading-row')].map(b=>b.dataset.readingDetail)})`);
+  const ming1500=await readOutline();
+  check('1500 年点明朝疆域打开明朝全卷与入口阶段',ming1500.title==='明朝' && ming1500.anchor==='mid-ming' && ming1500.chapters.length===5,ming1500);
+  await readingShot('ming-book');
+  await js(`document.querySelector('[data-reading-detail=founding]').click()`);
+  check('正文从王朝建立讲起并可查看段落出处',await js(`document.querySelector('.subject-prose').textContent.includes('朱元璋') &&
+    !!document.querySelector('.reading-refs a') && !!document.querySelector('.reading-sources a')`));
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=two-capitals]').click()`);
+  check('正文可沿章节顺读，地球不自动跳年',await js(`__t.reading.detail==='two-capitals' && __t.state.year===1500`));
+  await readingShot('ming-chapter');
+  await js(`document.querySelector('[data-subject-map]').closest('details').open=true;
+    document.querySelector('[data-subject-map]').scrollIntoView({block:'center'})`);
+  const chapterScroll = await js('document.getElementById("book-body").scrollTop');
+  await js(`document.querySelector('[data-subject-map]').click()`);
   await sleep(300);
-  check('320px 手机阅读无横向溢出', await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth && document.getElementById('book-bar').scrollWidth<=innerWidth`));
-  await js(`document.querySelector('[data-reading-catalog]').click()`);
-  check('320px 全球目录筛选与卡片无横向溢出',await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth && document.querySelector('.reading-filters').scrollWidth<=document.getElementById('book-body').clientWidth`));
-  const catalogShot=await send('Page.captureScreenshot',{format:'png'});
-  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-world.png'),Buffer.from(catalogShot.data,'base64'));
+  check('从靖难之役打开 1402 年地图并标出北平与南京', await js(`__t.state.year===1402 && __t.state.layerId==='polity' &&
+    !__t.reading.active && ['北平','南京'].every(name=>[...document.querySelectorAll('.event-map-point button')].some(n=>n.textContent===name))`));
+  await readingShot('ming-chapter-map');
+  await js(`document.getElementById('event-map-return').click()`);
+  await waitReader();
+  check('从地图返回原章和原滚动位置，同时恢复地球镜头',original===await cameraSnapshot() &&
+    await js(`__t.reading.detail==='two-capitals' && Math.abs(document.getElementById('book-body').scrollTop-${chapterScroll})<2 &&
+      document.activeElement.hasAttribute('data-subject-map')`));
+  await js('__t.closeReader();__t.closeSheet()');
+  await openMing(1600);
+  const ming1600=await readOutline();
+  check('1600 年仍打开同一卷，只切换轻量时间定位',ming1600.title===ming1500.title && ming1600.anchor==='silver' &&
+    ming1600.chapters.join()===ming1500.chapters.join(),ming1600);
+  await js(`document.querySelector('[data-subject-resume]').click()`);
+  check('跨年份进入后可继续上次章节',await js(`__t.state.year===1600 && __t.reading.detail==='two-capitals'`));
+  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
+  check('阅读方向键不改变地球年份',await js('__t.state.year===1600'));
+  await js(`document.getElementById('reading-back').click();document.querySelector('.reading-row[data-reading-detail=fall]').click();
+    document.querySelector('[data-subject-book=qing]').closest('details').open=true;document.querySelector('[data-subject-book=qing]').click()`);
+  check('由明朝结尾顺着关系打开清朝卷，仍停在 1600 年',await js(`__t.reading.subject.id==='qing' && __t.state.year===1600`));
   await js(`document.getElementById('reading-back').click()`);
-  await js(`document.getElementById('book-body').scrollTop=0;document.activeElement.blur()`);
-  const shot = await send('Page.captureScreenshot', {format:'png'});
-  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-topic.png'), Buffer.from(shot.data,'base64'));
-  await js(`document.querySelector('[data-reading-detail="ports"]').click()`);
-  const detailShot = await send('Page.captureScreenshot', {format:'png'});
-  if(process.env.UPDATE_SHOTS) require('fs').writeFileSync(require('path').join(__dirname,'../docs/reading-detail.png'), Buffer.from(detailShot.data,'base64'));
-  await send('Emulation.setDeviceMetricsOverride', {width:844,height:390,deviceScaleFactor:2,mobile:true});
+  check('跨卷返回保留前一本的章节',await js(`__t.reading.subject.id==='ming' && __t.reading.detail==='fall'`));
+  const identities = await js(`[
+    ['Qing Dynasty',1750,'qing'],['Ottoman Empire',1600,'ottoman'],['Roman Empire',100,'roman'],
+    ['Byzantine Empire',1100,'roman'],["People's Republic of China",2000,'prc'],['Mali Empire',1400,null]
+  ].map(([name,year,expected])=>{const ent=__t.pk.entities.find(e=>e.name===name);return {name,expected,
+    actual:__t.subjectBookForEntity(__t.entityByKey('polity',ent.id),year)?.id||null}})`);
+  check('各卷按稳定的书卷身份绑定来源数据中的历史主体',identities.every(x=>x.actual===x.expected),identities);
+  await send('Emulation.setDeviceMetricsOverride',{width:320,height:740,deviceScaleFactor:2,mobile:true});
   await sleep(300);
-  check('横屏阅读与返回按钮有效', await js(`document.getElementById('book-body').clientHeight>150 && document.getElementById('reading-back').getBoundingClientRect().top>=0`));
-  await js('__t.closeReader(); __t.closeSheet(); __t.setYear(2026)');
-  await send('Emulation.setDeviceMetricsOverride', {width:402,height:874,deviceScaleFactor:3,mobile:true});
+  check('320px 手机正文无横向溢出',await js(`document.getElementById('book-body').scrollWidth<=document.getElementById('book-body').clientWidth`));
+  await send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:2,mobile:true});
+  await sleep(300);
+  check('横屏阅读与返回按钮有效',await js(`document.getElementById('book-body').clientHeight>150 && document.getElementById('reading-back').getBoundingClientRect().top>=0`));
+  await js(`__t.closeReader();__t.closeSheet();__t.setLayer('country');__t.setYear(2026)`);
+  await send('Emulation.setDeviceMetricsOverride',{width:402,height:874,deviceScaleFactor:3,mobile:true});
   await js(`__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='IN').id)`);
   await sleep(450);
-  await js(`document.querySelector('[data-read-topic]').click()`);
-  const yearBeforeReading = await js('__t.state.year');
-  const genericBefore = await js('document.querySelector(".reading-meta .when").textContent');
-  await js(`document.querySelector('[data-reading-period]').click()`);
-  check('其他地区有时期阅读且切换不改地球年份', await js(`__t.state.year===${yearBeforeReading} && document.querySelector('.reading-meta .when').textContent!==${JSON.stringify(genericBefore)}`));
-  await js('__t.closeReader(); __t.closeSheet()');
-  // 真正手势：从抓手向上拉打开阅读，再退出时恢复半屏。
-  await js(`__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id)`);
+  await js(`document.querySelector('[data-read-subject]').click()`);
+  check('无独立卷的主体如实提供地图资料',await js(`!__t.reading.subject && document.querySelector('.lede').textContent.includes('尚未收录') &&
+    !document.querySelector('.reading-row') && !!document.querySelector('.reading-sources a')`));
+  await js(`__t.closeReader();__t.closeSheet();__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id)`);
   await sleep(500);
   const grab = await js(`(()=>{const r=document.getElementById('grab').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}})()`);
   await drag(grab.x,grab.y,grab.x,4,14);
   await waitReader();
-  check('抓手上拉打开中国近现代年表', await js(`!document.getElementById('book').hidden && document.getElementById('reading-title').textContent==='中国近现代年表'`));
-  check('中国年表用一条时间线串起记录', await js(`
-    document.querySelectorAll('#book-body ol').length===1 &&
-    document.querySelector('.reading-timeline .reading-row small').textContent==='1900' &&
-    [...document.querySelectorAll('.reading-timeline .reading-row')].map(row=>row.dataset.readingDetail).join(',')==='i-140,i-042,i-033,i-084,i-085' &&
-    !document.querySelector('#book-body .reading-note')
-  `));
-  await readingShot('china-timeline');
+  check('抓手上拉打开中华人民共和国卷，现存主体无终年',await js(`__t.reading.subject.id==='prc' &&
+    document.querySelector('.reading-meta .when').textContent==='1949 年至今'`));
   const touchReader = async (target, distance, cancel = false, horizontal = false) => {
     const start = await js(`(()=>{const el=document.querySelector(${JSON.stringify(target)}),r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+(el.id==='book-body'?220:22)}})()`);
     if (horizontal) start.x = 20;
@@ -697,26 +660,20 @@ async function main() {
   check('全屏小幅下拉跟手，松手后回弹', Math.abs(softRead.top-30)<2 && !softRead.hidden, softRead);
   const cancelledRead = await touchReader('#reading-grab', 150, true);
   check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden, cancelledRead);
-  await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
-  check('年表条目先叙述事件，再提供背景与出处', await js(`
-    document.querySelector('.reading-opening').textContent.includes('进入北京') &&
-    !document.getElementById('reading-map') && document.querySelector('.reading-story').nextElementSibling.querySelector('[data-reading-chapter="boxers"]') &&
-    document.querySelector('.reading-sources a')
-  `));
-  await readingShot('reading-event');
+  await js(`document.querySelector('.reading-row[data-reading-detail="state-making"]').click()`);
+  check('正文直接叙述，史料索引落在同一章节',await js(`document.querySelector('.subject-prose p').textContent.includes('1949 年') &&
+    !!document.getElementById(document.querySelector('.reading-refs a').hash.slice(1))`));
   const shortBack = await touchReader('#book-body', 35, false, true);
-  check('左边缘小幅右划回弹，仍留在原条目', shortBack.left>10 && await js(`__t.reading.detail==='i-140'`), shortBack);
+  check('左边缘小幅右划回弹，仍留在原章节', shortBack.left>10 && await js(`__t.reading.detail==='state-making'`), shortBack);
   await sleep(190);
   const edgeBack = await touchReader('#book-body', 135, false, true);
-  check('从左边缘右划返回同一份年表', edgeBack.left>45 && !edgeBack.hidden && await js(`__t.reading.detail===null`), edgeBack);
+  check('从左边缘右划返回同一卷目录', edgeBack.left>45 && !edgeBack.hidden && await js(`__t.reading.detail===null`), edgeBack);
   await sleep(190);
   const edgeCollapse = await touchReader('#book-body', 135, false, true);
-  check('在年表首页右划收回半窗', edgeCollapse.hidden && edgeCollapse.detent==='half', edgeCollapse);
-  await js(`document.querySelector('[data-read-topic]').click()`);
+  check('在书卷首页右划收回半窗', edgeCollapse.hidden && edgeCollapse.detent==='half', edgeCollapse);
+  await js(`document.querySelector('[data-read-subject]').click()`);
   await waitReader();
-  await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
-  await js(`document.querySelector('[data-reading-chapter="boxers"]').click()`);
-  await readingShot('reading-article');
+  await js(`document.querySelector('.reading-row[data-reading-detail="mass-mobilization"]').click()`);
   const scrollRead = await touchReader('#book-body', -160);
   check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
   const scrollBack = await touchReader('#book-body', 100);
@@ -745,9 +702,26 @@ async function main() {
     if(await js('!!(window.__t && __t.partition.shapes.length && !document.getElementById("boot"))')) break;
     await sleep(200);
   }
-  await js(`__t.setYear(1900);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
-  check('离线单文件可打开晚清专题', await js(`document.querySelectorAll('[data-reading-detail].reading-card').length===8 && !document.getElementById('book').hidden`));
-  check('离线单文件图标已内嵌', await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
+  await js(`__t.setYear(2026);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
+  check('离线单文件可打开中华人民共和国卷',await js(`__t.reading.subject.id==='prc' && document.querySelectorAll('.reading-row').length===4`));
+  check('离线单文件图标已内嵌',await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
+  await js(`document.querySelector('[data-subject-library]').click()`);
+  const offlineBooks = await js(`(() => {
+    let count=0;const bad=[];
+    for(const book of __t.subjectBooks){
+      document.querySelector('[data-subject-book="'+book.id+'"]').click();
+      for(const chapter of book.chapters){
+        const row=document.querySelector('.reading-row[data-reading-detail="'+chapter.id+'"]');
+        if(!row){bad.push(book.id+'/'+chapter.id);break;}
+        row.click(); count++;
+        if(!document.querySelector('.subject-prose') || !document.querySelector('.reading-sources a'))bad.push(book.id+'/'+chapter.id);
+        document.getElementById('reading-back').click();
+      }
+      document.getElementById('reading-back').click();
+    }
+    return {count,bad};
+  })()`);
+  check('五卷共 25 章均可断网阅读及返回',offlineBooks.count===25 && !offlineBooks.bad.length,offlineBooks);
   await js(`document.querySelector('[data-reading-catalog]').click()`);
   const offlineAll=await js(`(()=>{
     const bad=[];let count=0;

@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, statSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { loadSubjectBooks } from './tools/subject-books.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
@@ -17,11 +18,12 @@ const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');
-const app = appSource.replace(readingMarker, ['reading.js', 'event-map.js', 'chrome.js', 'year-control.js']
+const app = appSource.replace(readingMarker, ['reading.js', 'subject-reader.js', 'event-map.js', 'chrome.js', 'year-control.js']
   .map((file) => rd('src', file)).join('\n') + '\n' + readingMarker);
 const topics = readdirSync(join(root, 'data/topics')).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(rd('data', 'topics', f)));
 const timelineNotes = JSON.parse(rd('data', 'reading-timeline.json'));
+const subjectBooks = loadSubjectBooks(root);
 writeFileSync(join(root, 'data/topics.json'), JSON.stringify(topics), 'utf8');
 const topicIds = new Set();
 const worldEventChapters = new Map();
@@ -110,6 +112,7 @@ const page = (atlasJson, reliefB64, polityB64, storiesJson) => {
   h = put(h, '/*POLITY*/', polityB64);
   h = put(h, '/*STORIES*/', storiesJson);
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
+  h = put(h, '/*SUBJECT_BOOKS*/', JSON.stringify(subjectBooks).replace(/</g, '\\u003c'));
   h = put(h, '/*TIMELINE_NOTES*/', JSON.stringify(timelineNotes).replace(/</g, '\\u003c'));
   return h;
 };

@@ -1306,29 +1306,6 @@ function reanchorFocus() {
   f.id = shape ? shape.id : 0;
 }
 
-/* 某实体在当前年份窗口内的条目 */
-function entriesOfEntity(ent) {
-  if (!ent) return [];
-  const [a, b] = windowOf(state.year), oa = ord(a), ob = ord(b);
-  if (ent.kind === 'country') {
-    return entries.filter((e) => e.region === ent.regionId && e.t1 >= oa && e.t0 <= ob);
-  }
-  /* 政权：条目代表点落在它的疆域内，且时间与存续期相交 */
-  const out = [];
-  for (const e of entries) {
-    if (e.px === undefined) continue;
-    if (e.t1 < Math.max(oa, ent.from) || e.t0 > Math.min(ob, ent.to)) continue;
-    if (pickAtMap(e.px, e.py) !== ent.id) continue;
-    out.push(e);
-  }
-  return out;
-}
-function pickAtMap(mx, my) {
-  const col = Math.min(PW - 1, Math.max(0, (mx / MAPW * PW) | 0));
-  const row = Math.min(PH - 1, Math.max(0, (my / MAPH * PH) | 0));
-  return partition.pick[row * PW + col];
-}
-
 /* 相邻实体（同一年、共享边界的其它 id） */
 function neighboursOf(id, limit = 6) {
   const seen = new Map();
@@ -1655,7 +1632,7 @@ function tapGlobe(sx, sy) {
   if (worldEvent) return;
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
-  openEntity(state.layerId, id);
+  openEntity(state.layerId, id, mapPointAt(sx, sy));
 }
 
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
@@ -1739,7 +1716,7 @@ function enterSheetReading() {
   sheetState.detent = 'half';
   applySheetOffset(sheetDetents().half, false);
   setSheetIntent('idle');
-  openBook(undefined, fromOffset);
+  openBook(fromOffset);
 }
 
 let liftRaf = 0;
@@ -1856,28 +1833,14 @@ function renderEntity() {
   const ent = entityByKey(f.layerId, f.key, f.id);
   if (!ent) { closeSheet(); return; }
 
-  const topic = topicForEntity(ent);
-  const title = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
-  const entries = topic ? [] : (ent.kind === 'country' ? (entryByRegion.get(ent.regionId) || []) : entriesOfEntity(ent));
-  const distance = (item) => Math.max(item.start - state.year, state.year - (item.point ? item.start : item.end), 0);
-  const nearest = entries.map(timelineItem).filter((item) => item.kind !== 'era' && !item.context)
-    .reduce((best, item) => !best || distance(item) < distance(best) ? item : best, null);
-  const readingTitle = topic ? topic.title : '查看年表';
-  const readingMeta = topic ? topic.subtitle : nearest
-    ? readingDate(nearest) + ' · ' + (nearest.title || nearest.zh || nearest.en) : '';
-
-  sheetInner.innerHTML =
-    '<div class="sheet-overview"><h2>' + esc(title) + '</h2>' +
-    '<p class="era">' + fmtYear(state.year) + ' 年 · ' + esc(chapterOf(state.year).n) + '</p></div>' +
-    '<button class="topic-entry" type="button" data-read-topic="' + esc(topic ? topic.id : '') + '"><strong>' + esc(readingTitle) + '</strong>' +
-    (readingMeta ? '<small>' + esc(readingMeta) + '</small>' : '') + readingArrow + '</button>';
+  sheetInner.innerHTML = subjectSheetMarkup(ent);
 }
 
-function openEntity(layerId, id) {
+function openEntity(layerId, id, point = null) {
   const shape = partition.shapes.find((s) => s.id === id);
   const key = focusKeyOf(layerId, shape);
   if (key === null) { closeSheet(); return; }
-  state.focus = { layerId, id, key };
+  state.focus = { layerId, id, key, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
   if (!stories) loadStories().then(() => { if (state.focus) renderEntity(); });
   if (sheetState.detent === 'hidden') {
@@ -1951,7 +1914,7 @@ function openWorld() {
     groups.get(key).push(row.e);
   }
   overlayTitle.textContent = state.year >= YMAX ? '近 30 年的世界' : fmtYear(state.year) + ' 年的世界';
-  overlaySub.textContent = '点一项，在地球上看';
+  overlaySub.textContent = '点一项查看地点或相关地区';
   overlaySub.hidden = !list.length;
   if (!list.length) {
     overlayBody.innerHTML = '<p class="wempty">这个时段还没有收录条目。</p>';
@@ -2003,50 +1966,6 @@ async function loadStories() {
   storiesLoading = false;
 }
 
-/* 条目正文：还要过一道「标题对不对得上」的闸，避免「夏」被配成「夏季」 */
-function titleMatches(query, title) {
-  if (!query || !title) return false;
-  const q = String(query).trim(), t = String(title).trim();
-  if (!q || !t) return false;
-  if (q === t) return true;
-  const allow = [q + '朝', q + '代', q + '国', q + '王朝', q + '帝国', q + '王國', q + '共和国', q + '革命'];
-  if (allow.includes(t)) return true;
-  if (q.length <= 2) return false;
-  const norm = (s) => s.replace(/[（(].*?[)）]/g, '').replace(/[\s·・、,，.。:：;；'"“”‘’\-—–_/|]/g, '');
-  const A = norm(q), B = norm(t);
-  if (A === B) return true;
-  /* 包含关系也要看比例：『近世奥斯曼埃及』包含『埃及』，但不是同一个条目 */
-  if (B.includes(A) || A.includes(B)) {
-    const short = Math.min(A.length, B.length), long = Math.max(A.length, B.length);
-    return short / long >= 0.6;
-  }
-  const grams = (s) => { const g = new Set(); for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2)); return g; };
-  const ga = grams(A), gb = grams(B);
-  if (!ga.size || !gb.size) return false;
-  let hit = 0;
-  for (const g of ga) if (gb.has(g)) hit++;
-  return hit / ga.size >= 0.5;
-}
-
-/* 正文去掉百科腔的水分：外语原名、罗马化、IPA 这些塞在括号里的东西读起来很累 */
-function polishProse(s) {
-  if (!s) return '';
-  return s
-    .replace(/[（(][^（()）]{0,160}(罗马化|羅馬化|国际音标|國際音標|IPA|发音|發音|转写|轉寫)[^（()）]{0,160}[)）]/g, '')
-    /* 外语原名那一段（「（匈牙利语：mohácsi csata…；土耳其语：…）」）对读者是噪音 */
-    .replace(/[（(][^（()）]{0,40}(语|語)[：:][^（()）]{0,260}[)）]/g, '')
-    .replace(/^[，,、；;：:\s]+/, '')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
-}
-
-const proseOf = (entryId) => {
-  if (!stories || !stories.entries[entryId]) return '';
-  const rec = stories.entries[entryId];
-  const e = entries.find((x) => x.id === entryId);
-  if (rec.t && e && !titleMatches(e.zh, rec.t)) return '';
-  return polishProse(rec.x || '');
-};
 /* 政权中文名：宁可显示英文原名，也不要显示「鄂圖曼帝國的分裂」这种错配或繁体标题 */
 const TRAD_CHARS = /[國帝國戰歷羅馬爾圖亞歐蘭蘇聯韓華灣廣義門開關長飛車東鄉親漢滿臺萬與為無獨產權變壓經濟軍農陽陰]/;
 const BAD_NAME_WORDS = /分裂|解體|解体|滅亡|灭亡|歷史|历史|列表|戰爭|战争|戰役|战役|運動|运动|條約|条约|時期|时期|王朝列表/;
@@ -2058,47 +1977,6 @@ function polityZhName(name) {
   if (TRAD_CHARS.test(t)) return name;
   if (t.length > 14) return name;
   return t;
-}
-
-/* 政权全部切片的并集遮罩：用来把散落在它一生的条目找出来 */
-const polityMaskCache = new Map();
-function polityMaskOf(ent) {
-  const key = ent.entId;
-  if (polityMaskCache.has(key)) return polityMaskCache.get(key);
-  const g = probeCtx;
-  g.setTransform(1, 0, 0, 1, 0, 0);
-  /* 一定要先清成透明：之前这里涂了不透明黑，alpha 全 255，
-     结果遮罩判成「整张世界地图都算在内」，书里塞进 263 条不相关的条目 */
-  g.clearRect(0, 0, PW, PH);
-  g.setTransform(PW / MAPW, 0, 0, PH / MAPH, 0, 0);
-  g.fillStyle = 'rgba(255,255,255,1)';
-  for (let i = 0; i < pk.nSlice; i++) {
-    if (pk.slices[i * 4] !== ent.entId) continue;
-    g.fill(polityShape(pk, pk.slices[i * 4 + 3]).path, 'evenodd');
-  }
-  const px = g.getImageData(0, 0, PW, PH).data;
-  const mask = new Uint8Array(PW * PH);
-  for (let i = 0, p = 3; i < mask.length; i++, p += 4) mask[i] = px[p] > 128 ? 1 : 0;
-  polityMaskCache.set(key, mask);
-  if (polityMaskCache.size > 40) polityMaskCache.delete(polityMaskCache.keys().next().value);
-  return mask;
-}
-
-/* 这一卷要读哪些条目：国家读它全部的年表，政权读它一生境内的事 */
-function entriesForBook(ent) {
-  if (ent.kind === 'country') {
-    return (entryByRegion.get(ent.regionId) || []).slice();
-  }
-  const mask = polityMaskOf(ent);
-  const out = [];
-  for (const e of entries) {
-    if (e.px === undefined) continue;
-    if (e.t1 < ent.from || e.t0 > ent.to) continue;
-    const col = Math.min(PW - 1, Math.max(0, (e.px / MAPW * PW) | 0));
-    const row = Math.min(PH - 1, Math.max(0, (e.py / MAPH * PH) | 0));
-    if (mask[row * PW + col]) out.push(e);
-  }
-  return out;
 }
 
 /* ───────────── 15. 图层开关 ───────────── */

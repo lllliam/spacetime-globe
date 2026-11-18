@@ -2,9 +2,9 @@
 
 ## 修改与交付
 
-- 功能源码在 `src/`，专题源文件在 `data/topics/*.json`，覆盖计划在 `data/content-plan.json`；`data/topics.json` 为构建生成的汇总；不要直接编辑生成的 HTML。
+- 功能源码在 `src/`，主体书卷在 `data/books/*.json`，补充专题在 `data/topics/*.json`；`data/topics.json` 为构建生成的汇总；不要直接编辑生成的 HTML。
 - 修改后运行 `node build.mjs`，同步生成 `index.html` 与 `index.offline.html`。涉及交互时运行适当的浏览器回归。
-- 首页以球体、年份和视图入口为主。年份在原位展开，视图面板按需打开，阅读通过摘要抽屉进入独立阅读层。细节见 `docs/READING.md`。
+- 首页以地球与年份定位历史主体，摘要抽屉进入该主体的完整书卷。保持书卷 ID 稳定，章节依据编辑选材和来源组织。细节见 `docs/READING.md`。
 
 ## 网站同步（用户明确要求）
 

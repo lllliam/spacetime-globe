@@ -22,10 +22,13 @@ function projectReadingPlace([x, y, z], m) {
     front: m[2] * x + m[5] * y + m[8] * z > 0,
   };
 }
-function prepareWorldEventPlaces(chapter) {
+function chapterPlaces(chapter) {
   const story = chapter.mapStory;
   const [name, role] = chapter.place.label.split(' · ', 2);
-  const places = [{ ...chapter.place, id: 'main', name, role }, ...story.places];
+  return [{ ...chapter.place, id: 'main', name, role }, ...story.places];
+}
+
+function prepareWorldEventPlaces(places) {
   const points = new Map(places.map((place) => {
     const mark = document.createElement('div');
     mark.className = 'event-map-point';
@@ -123,14 +126,9 @@ function renderEventParticipants(participants) {
       (p.members?.length ? '<span>' + esc(p.members.join('、')) + '</span>' : '') + '</dd>').join('');
 }
 
-function openWorldEvent(event, row) {
-  if (!event || worldEvent || reading.active) return;
-  const year = clamp(state.year, event.start, event.point ? event.start : event.end);
-  const target = worldEventTarget(event, year);
-  const story = target?.chapter.mapStory;
-  const region = event.regionRef || regionById.get(event.region);
+function showEventMap({year, title, summary, back, places, participants, historical = false, ...route}) {
   worldEvent = {
-    target, row, scroll: overlayBody.scrollTop, selected: null, points: null, regionVector: null,
+    ...route, summary, selected: null, points: null, regionVector: null,
     camera: {
       year: state.year, layerId: state.layerId, focus: state.focus, yaw: state.yaw, tilt: state.tilt,
       zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
@@ -144,18 +142,21 @@ function openWorldEvent(event, row) {
   sheetState.detent = 'hidden';
   applySheetOffset(sheetDetents().hidden, false);
   state.year = year;
-  chrome.natural = true;
+  chrome.natural = !historical;
+  if (historical) {
+    state.layerId = 'polity';
+    if (!polityState.loaded) ensurePolity();
+  }
   state.panX = state.panY = state.lift = 0;
-  eventMapTitle.textContent = timelineItem(event).title || event.zh || event.en;
-  eventMapRead.hidden = !target;
-  eventMapReturn.textContent = worldEvent.camera.year >= YMAX ? '返回近 30 年' : '返回 ' + fmtYear(worldEvent.camera.year) + ' 年';
-  worldEvent.summary = story?.summary || (region ? '相关地区 · ' + (region.zh || region.en) : '地点未详');
-  eventMapNote.textContent = worldEvent.summary;
-  renderEventParticipants(story?.participants || []);
-  if (story) {
-    prepareWorldEventPlaces(target.chapter);
-  } else if (Number.isFinite(event.px) && Number.isFinite(event.py)) {
-    const lon = (event.px / MAPW - .5) * 360, lat = (.5 - event.py / MAPH) * 180;
+  eventMapTitle.textContent = title;
+  eventMapRead.hidden = !route.readingTarget;
+  eventMapReturn.textContent = back;
+  eventMapNote.textContent = summary;
+  renderEventParticipants(participants || []);
+  if (places?.length) {
+    prepareWorldEventPlaces(places);
+  } else if (Number.isFinite(route.event?.px) && Number.isFinite(route.event?.py)) {
+    const lon = (route.event.px / MAPW - .5) * 360, lat = (.5 - route.event.py / MAPH) * 180;
     worldEvent.regionVector = readingPlaceVector({ lon, lat });
     state.yaw = -lon * Math.PI / 180;
     state.tilt = lat * Math.PI / 180;
@@ -168,9 +169,42 @@ function openWorldEvent(event, row) {
   eventMapReturn.focus({ preventScroll: true });
 }
 
+function openWorldEvent(event, row) {
+  if (!event || worldEvent || reading.active) return;
+  const year = clamp(state.year, event.start, event.point ? event.start : event.end);
+  const target = worldEventTarget(event, year);
+  const story = target?.chapter.mapStory;
+  const region = event.regionRef || regionById.get(event.region);
+  showEventMap({ event, target, row, scroll: overlayBody.scrollTop, year,
+    readingTarget: target ? subjectsByEvent.get(event.id) : null,
+    title: timelineItem(event).title || event.zh || event.en,
+    summary: story?.summary || (region ? '相关地区 · ' + (region.zh || region.en) : '地点未详'),
+    participants: story?.participants, places: target && chapterPlaces(target.chapter),
+    back: state.year >= YMAX ? '返回近 30 年' : '返回 ' + fmtYear(state.year) + ' 年' });
+}
+
+function openReadingMap(map) {
+  if (worldEvent || !reading.active) return;
+  rememberReading();
+  const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail };
+  closeReader();
+  showEventMap({ ...map, historical: map.year >= -3400 && map.year <= POLITY_END, back: '返回本章',
+    resume() {
+      Object.assign(reading, session, {active:true});
+      showReader(sheetDetents().hidden);
+      const button = bookBody.querySelector('[data-subject-map]');
+      if (button) {
+        button.closest('details').open = true;
+        bookBody.scrollTop = session.detailScroll;
+        button.focus({preventScroll:true});
+      }
+    },
+  });
+}
+
 function returnToWorld() {
   if (!worldEvent || reading.active) return;
-  const { camera, natural, row, scroll } = worldEvent;
+  const { camera, natural, row, scroll, resume } = worldEvent;
   worldEvent = null;
   pauseGlobe();
   document.body.classList.remove('event-map-open');
@@ -180,6 +214,7 @@ function returnToWorld() {
   chrome.natural = natural;
   onYearChanged();
   layout();
+  if (resume) { resume(); return; }
   overlay.hidden = false;
   overlayBody.scrollTop = scroll;
   row.focus({ preventScroll: true });
@@ -187,8 +222,8 @@ function returnToWorld() {
 
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
-  const target = worldEvent?.target;
-  if (target) beginReading(null, target.topic, target.chapter.id, sheetDetents().hidden);
+  const target = worldEvent?.readingTarget;
+  if (target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book);
 });
 eventMapPoints.addEventListener('click', (e) => {
   const mark = e.target.closest('[data-place]');

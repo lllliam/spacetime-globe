@@ -1,8 +1,8 @@
 {
   "name": "spacetime-globe",
-  "version": "4.7.1",
+  "version": "5.0.0",
   "private": true,
-  "description": "地球仪 · 时空坐标 —— 单文件、零依赖、离线可用的历史地球",
+  "description": "地球仪 · 时空坐标 —— 一本可以通过地球和时间打开的世界历史书",
   "scripts": {
     "data": "node tools/build-data.js",
     "build": "node build.mjs",

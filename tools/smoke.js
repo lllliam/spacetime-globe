@@ -82,28 +82,30 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await sleep(300);
   }
 
-  /* 2. 专题节点与阅读返回 */
+  /* 2. 同一年份的历史疆域进入一卷书，再回到原地区。 */
+  await js("__t.setLayer('polity');__t.setYear(1500)");
+  await waitFor('__t.polityLoaded',8000);
   const p2 = await at(110, 34);
   await tap(p2.x, p2.y);
-  await js(`document.querySelector('[data-read-topic]').click()`);
+  await js(`document.querySelector('[data-read-subject]').click()`);
   await sleep(400);
-  ok('专题入口打开独立阅读', await js(`!document.getElementById('book').hidden && document.querySelectorAll('[data-reading-detail].reading-card').length===8`));
+  ok('明朝疆域打开主体书卷', await js(`!document.getElementById('book').hidden && __t.reading.subject?.id==='ming' && document.querySelectorAll('[data-reading-detail].reading-card').length===5`));
   await js(`document.querySelector('[data-reading-detail]').click()`);
-  ok('专题节点包含解释与来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>=2`));
-  await js(`document.getElementById('reading-back').click();document.getElementById('reading-back').click()`);
+  ok('第一章包含连续正文与来源', await js(`document.querySelectorAll('#book-body .subject-prose p').length>=3 && document.querySelectorAll('.reading-sources a').length>=2`));
+  await js(`document.getElementById('reading-back').click();document.getElementById('reading-grab').click()`);
   for (let i = 0; i < 40 && !await js('__t.readerSettled'); i++) await sleep(40);
-  ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1900 && __t.sheet.detent==='half'`));
+  ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1500 && __t.sheet.detent==='half'`));
   await js('__t.closeSheet()');
   await sleep(500);
 
   /* 4. 政权层 + 点政权 */
-  await js(`window.__t.setLayer('polity')`);
+  await js(`window.__t.setLayer('polity');window.__t.setYear(1900)`);
   await waitFor('window.__t.polityLoaded === true', 8000);
   await sleep(500);
   const p3 = await at(26, 41);
   await tap(p3.x, p3.y);
   const polSheet = await st();
-  ok('政权层点开抽屉', polSheet.open && /[A-Za-z]/.test(polSheet.title || ''), { title: polSheet.title, detent: polSheet.detent });
+  ok('政权层点开抽屉', polSheet.open && polSheet.title==='奥斯曼帝国', { title: polSheet.title, detent: polSheet.detent });
 
   /* 5. 用键盘展开一行年份并调整 */
   const yearBefore = polSheet.year;
