@@ -30,6 +30,8 @@ for (const t of topics) {
   for (const c of t.chapters) {
     if (chapterIds.has(c.id) || !c.id || !c.sections.length || !c.sources.length || c.year < t.from || c.year > t.to) throw new Error('专题章节不合法');
     chapterIds.add(c.id);
+    if (c.opening && (!c.opening.headline || !c.opening.text || !c.opening.refs?.length ||
+      c.opening.refs.some((index) => !Number.isInteger(index) || !c.sources[index]))) throw new Error('专题开篇或来源不合法：' + c.id);
     for (const s of c.sources) if (!/^https:\/\//.test(s.url)) throw new Error('专题来源必须是 HTTPS');
   }
 }
@@ -48,9 +50,11 @@ if (!problems.length) {
     const entry = entries.get(id);
     if (!entry || (note.start ?? entry.start) > (note.end ?? entry.end ?? entry.start)) problems.push('无效的年表条目：' + id);
     if (!note.paragraphs?.length || !note.sources?.length || note.sources.some((s) => !s.title || !/^https:\/\//.test(s.url))) problems.push('年表正文或来源缺失：' + id);
-    if (note.related) {
-      const topic = topics.find((t) => t.id === note.related.topicId);
-      if (!topic || (note.related.chapterId && !topic.chapters.some((c) => c.id === note.related.chapterId))) problems.push('无效的年表延伸阅读：' + id);
+    if (note.related || note.mapFromRelated) {
+      const topic = topics.find((t) => t.id === note.related?.topicId);
+      const chapter = topic?.chapters.find((c) => c.id === note.related.chapterId);
+      if (!topic || (note.related.chapterId && !chapter)) problems.push('无效的年表延伸阅读：' + id);
+      if (note.mapFromRelated && !chapter?.place) problems.push('年表的关联篇章缺少地点：' + id);
     }
   }
   for (const e of world.entries) {

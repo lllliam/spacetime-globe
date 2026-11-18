@@ -468,6 +468,12 @@ async function main() {
   const indexScroll = await js('document.getElementById("book-body").scrollTop');
   await js(`document.querySelector('[data-reading-detail="boxers"]').click()`);
   check('节点打开解释与独立来源', await js(`document.querySelectorAll('#book-body article').length>=5 && document.querySelectorAll('.reading-sources a').length>0`));
+  check('专题详情先说事件，地点和背景顺着正文展开', await js(`
+    document.getElementById('reading-title').textContent==='义和团危机与八国联军' &&
+    document.querySelector('.reading-opening').textContent.includes('北京使馆区遭到围困') &&
+    document.querySelector('.reading-opening').nextElementSibling.id==='reading-map' &&
+    document.getElementById('reading-map').nextElementSibling.tagName==='ARTICLE'
+  `));
   await js(`document.getElementById('book-body').scrollTop=180`);
   const detailScroll = await js('document.getElementById("book-body").scrollTop');
   await send('Input.dispatchKeyEvent', {type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
@@ -594,7 +600,23 @@ async function main() {
   const cancelledRead = await touchReader('#reading-grab', 150, true);
   check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden, cancelledRead);
   await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
-  check('通用条目提供正文出处与精选延伸阅读', await js(`!!document.querySelector('.reading-sources a') && !!document.querySelector('[data-reading-chapter="boxers"]') && !document.getElementById('reading-map')`));
+  check('年表条目先叙述事件，再提供具体地点、背景与出处', await js(`
+    document.querySelector('.reading-opening').textContent.includes('进入北京') &&
+    document.querySelector('.reading-story').nextElementSibling.id==='reading-map' &&
+    document.querySelector('#reading-map strong').textContent==='北京' &&
+    document.getElementById('reading-map').nextElementSibling.querySelector('[data-reading-chapter="boxers"]') &&
+    document.querySelector('.reading-sources a')
+  `));
+  await readingShot('reading-event');
+  await js(`document.getElementById('reading-map').click()`);
+  await waitReader();
+  check('年表短篇可以直接定位到已校对的北京地点', await js(`
+    __t.reading.preview && __t.state.year===1900 && !document.getElementById('reading-resume').hidden &&
+    document.querySelector('#reading-pin strong').textContent==='北京'
+  `));
+  await js(`document.getElementById('reading-resume').click()`);
+  await waitReader();
+  check('从地点回到同一条年表短篇', await js(`__t.reading.detail==='i-140' && !__t.reading.topic && __t.state.year===2026`));
   const shortBack = await touchReader('#book-body', 35, false, true);
   check('左边缘小幅右划回弹，仍留在原条目', shortBack.left>10 && await js(`__t.reading.detail==='i-140'`), shortBack);
   await sleep(190);

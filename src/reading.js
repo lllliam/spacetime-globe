@@ -296,15 +296,31 @@ function sourcesMarkup(sources) {
 function referencesMarkup(refs) {
   return refs && refs.length ? '<span class="reading-refs">' + refs.map((i) => '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '">[' + (i + 1) + ']</a>').join(' ') + '</span>' : '';
 }
+function relatedReadingTopic(item) {
+  return item.related && TOPICS.find((topic) => topic.id === item.related.topicId);
+}
+function articleMapTarget(item) {
+  if (item.place) return item;
+  if (!item.mapFromRelated) return null;
+  return relatedReadingTopic(item)?.chapters.find((chapter) => chapter.id === item.related.chapterId && chapter.place);
+}
+function articleMapMarkup(item) {
+  const target = articleMapTarget(item);
+  if (!target) return '';
+  const [name, role] = target.place.label.split(' · ', 2);
+  return '<button id="reading-map" type="button"><span class="reading-place"><strong>' + esc(name) + '</strong>' +
+    (role ? '<small>' + esc(role) + '</small>' : '') + '</span>' +
+    '<span class="reading-map-action">在地球上看 <span aria-hidden="true">↗</span></span></button>';
+}
 function connectionsMarkup(topic, item) {
   if (!topic) {
     const link = item.related;
-    const target = link && TOPICS.find((t) => t.id === link.topicId);
+    const target = relatedReadingTopic(item);
     if (!target) return '';
     const chapter = target.chapters.find((c) => c.id === link.chapterId);
-    return '<section class="reading-connections"><h2>延伸阅读</h2><button type="button" class="reading-card reading-link" data-reading-topic="' +
-      esc(target.id) + '" data-reading-chapter="' + esc(chapter?.id || '') + '"><small>' + esc(target.subtitle) +
-      '</small><strong>' + esc(chapter?.title || target.title) + '</strong>' + readingArrow + '</button></section>';
+    return '<nav class="reading-next reading-detail-route" aria-label="了解背景"><button type="button" data-reading-topic="' +
+      esc(target.id) + '" data-reading-chapter="' + esc(chapter?.id || '') + '">' +
+      esc(chapter?.title || target.title) + readingArrow + '</button></nav>';
   }
   const links = item ? (item.connections || []) : (topic.connections || []);
   const related = item || !reading.ent ? [] : topicsForEntity(reading.ent, reading.year).filter((t) => t.id !== topic.id).map((t) => ({topicId:t.id,label:t.title,reason:'同一时期的相关区域专题',relation:'context'}));
@@ -354,8 +370,8 @@ function setReadingBack(label) {
   readingBack.hidden = !label;
   readingBack.setAttribute('aria-label', label || '返回');
 }
-function readingHeading(title, meta, action = '') {
-  return '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><div class="reading-meta"><p class="when">' + esc(meta) + '</p>' + action + '</div>';
+function readingHeading(title, meta) {
+  return '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><div class="reading-meta"><p class="when">' + esc(meta) + '</p></div>';
 }
 function renderTimeline(items) {
   const ent = reading.ent;
@@ -381,21 +397,25 @@ function renderReadingArticle(topic, items, item) {
   if (!topic && !item.paragraphs && item.source && item.source !== wikiUrl) {
     sources.push({ title: item.zh || item.en, url: item.source });
   }
-  const map = item.place ? '<button id="reading-map" type="button">在地球上看 <span aria-hidden="true">↗</span></button>' : '';
+  const map = articleMapMarkup(item);
   const next = items[items.indexOf(item) + 1];
   let body;
   if (topic) {
-    body = '<p class="lede">' + esc(item.summary) + '</p>' + item.sections.map((s) =>
+    const opening = item.opening?.text || item.summary;
+    body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + map + item.sections.map((s) =>
       '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
   } else {
     const paragraphs = item.paragraphs || (prose ? [prose] : []);
-    body = paragraphs.length ? paragraphs.map((p) => '<article><p>' + esc(p) + '</p></article>').join('') :
+    body = paragraphs.length ? '<div class="reading-story">' + paragraphs.map((p, i) =>
+      '<p' + (i === 0 ? ' class="reading-opening"' : '') + '>' + esc(p) + '</p>').join('') + '</div>' :
       '<p class="reading-note">这条年表记录暂未收录正文。</p>';
+    body += map;
   }
-  return readingHeading(item.title || item.zh || item.en, readingDate(item), map) + body +
-    sourcesMarkup(sources) + (prose ? '<p class="credits">正文摘自中文维基百科导语 · CC BY-SA 4.0</p>' : '') +
+  return readingHeading(item.opening?.headline || item.title || item.zh || item.en, readingDate(item)) + body +
+    connectionsMarkup(topic, item) +
     (next && topic ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
-    connectionsMarkup(topic, item) + catalogNavigation();
+    sourcesMarkup(sources) + (prose ? '<p class="credits">正文摘自中文维基百科导语 · CC BY-SA 4.0</p>' : '') +
+    catalogNavigation();
 }
 function renderReading() {
   if (reading.catalog) { renderReadingCatalog(); return; }
@@ -488,8 +508,10 @@ function drawReadingPin() {
   readingPin.classList.toggle('align-left', sx > view.w / 2);
 }
 function previewReadingMap() {
-  const item = reading.topic?.chapters.find((c) => c.id === reading.detail);
-  if (reading.preview || !item?.place) return;
+  if (reading.preview || reading.catalog || reading.detail === null) return;
+  const article = readingItems().find((item) => String(item.id) === String(reading.detail));
+  const item = article && articleMapTarget(article);
+  if (!item) return;
   rememberReading();
   pauseGlobe();
   closeWorld();

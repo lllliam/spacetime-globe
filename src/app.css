@@ -362,7 +362,21 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   font:inherit;cursor:pointer;
 }
 .reading-note button{min-height:32px;padding:0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--reading-rule)}
-#reading-map{min-height:44px;margin-block:-12px;padding:0;font-size:13px}
+#book-body .reading-opening,
+#book-body .reading-story p{
+  margin:0 0 17px;color:var(--reading-text);font-size:16px;line-height:1.95;
+}
+#book-body p.reading-opening{color:var(--ink)}
+#reading-map{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;
+  width:100%;min-height:54px;margin:20px 0 26px;padding:9px 0;
+  border-block:1px solid var(--reading-rule);text-align:left;font-size:13px;
+}
+.reading-place strong,.reading-place small{display:block}
+.reading-place strong{color:var(--ink);font-weight:600}
+.reading-place small{margin-top:2px;color:var(--reading-muted);font-size:11px;line-height:1.5}
+.reading-map-action{white-space:nowrap}
+.reading-detail-route button{text-wrap:balance}
 .reading-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--reading-rule)}
 .reading-list li{border-bottom:1px solid var(--reading-rule)}
 .reading-row,.reading-link{
