@@ -564,22 +564,24 @@ async function main() {
   const grab = await js(`(()=>{const r=document.getElementById('grab').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}})()`);
   await drag(grab.x,grab.y,grab.x,4,14);
   await waitReader();
-  check('抓手上拉打开中国年表', await js(`!document.getElementById('book').hidden && document.getElementById('reading-title').textContent==='中国'`));
-  check('中国现代年表把事件与时代背景分开，单年只显示一次', await js(`
-    document.querySelector('[aria-label="事件"] [data-reading-detail="i-140"] small').textContent==='1900'
-    && !!document.querySelector('.reading-context [data-reading-detail="i-041"]')
-    && !document.querySelector('[aria-label="事件"] [data-reading-detail="i-041"]')
-    && document.querySelector('.reading-note [data-reading-detail]').dataset.readingDetail==='i-085'
+  check('抓手上拉打开中国近现代年表', await js(`!document.getElementById('book').hidden && document.getElementById('reading-title').textContent==='中国近现代年表'`));
+  check('中国年表用一条时间线串起记录', await js(`
+    document.querySelectorAll('#book-body ol').length===1 &&
+    document.querySelector('.reading-timeline .reading-row small').textContent==='1900' &&
+    [...document.querySelectorAll('.reading-timeline .reading-row')].map(row=>row.dataset.readingDetail).join(',')==='i-140,i-042,i-033,i-084,i-085' &&
+    !document.querySelector('#book-body .reading-note')
   `));
   await readingShot('china-timeline');
-  const touchReader = async (target, distance, cancel = false) => {
+  const touchReader = async (target, distance, cancel = false, horizontal = false) => {
     const start = await js(`(()=>{const el=document.querySelector(${JSON.stringify(target)}),r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+(el.id==='book-body'?220:22)}})()`);
+    if (horizontal) start.x = 20;
     await send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[start]});
     for (let i=1;i<=6;i++) {
-      await send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:start.x,y:start.y+distance*i/6}]});
+      const moved = distance*i/6;
+      await send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:start.x+(horizontal?moved:0),y:start.y+(horizontal?0:moved)}]});
       await sleep(48);
     }
-    const during = await js(`({top:document.getElementById('book').getBoundingClientRect().top,
+    const during = await js(`({top:document.getElementById('book').getBoundingClientRect().top,left:document.getElementById('book').getBoundingClientRect().left,
       summary:Number(getComputedStyle(document.getElementById('sheet-scroll')).opacity),
       article:Number(getComputedStyle(document.getElementById('book-body')).opacity),
       sameSurface:document.getElementById('book').parentElement===document.getElementById('sheet')})`);
@@ -593,17 +595,31 @@ async function main() {
   check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden, cancelledRead);
   await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
   check('通用条目提供正文出处与精选延伸阅读', await js(`!!document.querySelector('.reading-sources a') && !!document.querySelector('[data-reading-chapter="boxers"]') && !document.getElementById('reading-map')`));
+  const shortBack = await touchReader('#book-body', 35, false, true);
+  check('左边缘小幅右划回弹，仍留在原条目', shortBack.left>10 && await js(`__t.reading.detail==='i-140'`), shortBack);
+  await sleep(190);
+  const edgeBack = await touchReader('#book-body', 135, false, true);
+  check('从左边缘右划返回同一份年表', edgeBack.left>45 && !edgeBack.hidden && await js(`__t.reading.detail===null`), edgeBack);
+  await sleep(190);
+  const edgeCollapse = await touchReader('#book-body', 135, false, true);
+  check('在年表首页右划收回半窗', edgeCollapse.hidden && edgeCollapse.detent==='half', edgeCollapse);
+  await js(`document.querySelector('[data-read-topic]').click()`);
+  await waitReader();
+  await js(`document.querySelector('.reading-row[data-reading-detail="i-140"]').click()`);
   await js(`document.querySelector('[data-reading-chapter="boxers"]').click()`);
   await readingShot('reading-article');
   const scrollRead = await touchReader('#book-body', -160);
   check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
+  const scrollBack = await touchReader('#book-body', 100);
+  check('正文未到顶时下拉仍然滚动', scrollBack.top===0 && !scrollBack.hidden && scrollBack.scroll<scrollRead.scroll, scrollBack);
   await js(`document.getElementById('reading-map').click()`);
   await waitReader();
   check('从2026年阅读跳到1900年地点时保持地图年份一致', await js(`__t.state.year===1900 && document.getElementById('year').textContent==='1900' && !__t.state.focus`));
   await js(`document.getElementById('reading-resume').click()`);
   await waitReader();
   const startHalf = await js('({offset:__t.reading.snapshot.offset,year:__t.state.year,key:__t.state.focus.key})');
-  const collapse = await touchReader('#reading-grab', 310);
+  await js(`document.getElementById('book-body').scrollTop=0`);
+  const collapse = await touchReader('#book-body', 310);
   check('拖动中在同一抽屉内衔接正文与摘要', collapse.sameSurface && collapse.summary>.1 && collapse.article>.1, collapse);
   check('从正文下拉回到原半窗、年份与地区', collapse.hidden && collapse.detent==='half' && Math.abs(collapse.offset-startHalf.offset)<2 &&
     await js(`__t.state.year===${startHalf.year} && __t.state.focus.key===${JSON.stringify(startHalf.key)}`),collapse);

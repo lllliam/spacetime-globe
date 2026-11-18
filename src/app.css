@@ -378,12 +378,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .reading-row-copy strong,.reading-link strong{display:block;font:600 17px/1.52 var(--reading-serif)}
 .reading-row-copy>span,.reading-link>span{display:block;margin-top:3px;color:var(--reading-muted);font-size:12.5px;line-height:1.65}
 .reading-row[aria-current="date"] .reading-row-copy strong{color:var(--gold)}
+.reading-timeline .reading-row{grid-template-columns:minmax(0,1fr) 16px;padding:13px 0 14px}
+.reading-timeline .reading-row small{display:block;margin-bottom:3px}
+.reading-timeline .reading-row-copy strong{font-size:18px}
 .reading-arrow{display:block;width:16px;height:16px;color:var(--gold);align-self:center}
 .reading-row:active,.reading-link:active{background:rgba(224,178,115,.07)}
-.reading-context,.reading-connections,.reading-sources{margin-top:30px}
+.reading-connections,.reading-sources{margin-top:30px}
 #book-body h2{margin:0 0 10px;color:var(--gold);font:600 15px/1.5 var(--reading-serif)}
-#book-body .reading-context h2,.reading-context small{color:var(--reading-muted)}
-.reading-context .reading-row{min-height:48px;padding-block:11px}
 #book-body article{margin:0 0 26px}
 #book-body article p{margin:0;color:var(--reading-text);font-size:16px;line-height:1.95}
 .reading-sources{padding-top:18px;border-top:1px solid var(--reading-rule)}

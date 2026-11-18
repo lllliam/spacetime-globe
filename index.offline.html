@@ -394,12 +394,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .reading-row-copy strong,.reading-link strong{display:block;font:600 17px/1.52 var(--reading-serif)}
 .reading-row-copy>span,.reading-link>span{display:block;margin-top:3px;color:var(--reading-muted);font-size:12.5px;line-height:1.65}
 .reading-row[aria-current="date"] .reading-row-copy strong{color:var(--gold)}
+.reading-timeline .reading-row{grid-template-columns:minmax(0,1fr) 16px;padding:13px 0 14px}
+.reading-timeline .reading-row small{display:block;margin-bottom:3px}
+.reading-timeline .reading-row-copy strong{font-size:18px}
 .reading-arrow{display:block;width:16px;height:16px;color:var(--gold);align-self:center}
 .reading-row:active,.reading-link:active{background:rgba(224,178,115,.07)}
-.reading-context,.reading-connections,.reading-sources{margin-top:30px}
+.reading-connections,.reading-sources{margin-top:30px}
 #book-body h2{margin:0 0 10px;color:var(--gold);font:600 15px/1.5 var(--reading-serif)}
-#book-body .reading-context h2,.reading-context small{color:var(--reading-muted)}
-.reading-context .reading-row{min-height:48px;padding-block:11px}
 #book-body article{margin:0 0 26px}
 #book-body article p{margin:0;color:var(--reading-text);font-size:16px;line-height:1.95}
 .reading-sources{padding-top:18px;border-top:1px solid var(--reading-rule)}
@@ -2915,6 +2916,8 @@ const readingPositions = new Map();
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
+let readerTouch = null;
+const readerEdgeWidth = 32;
 
 function topicsForEntity(ent, year = state.year) {
   return TOPICS.filter((t) => year >= t.from && year <= t.to &&
@@ -3062,6 +3065,7 @@ function collapseReader(velocity = 0) {
 }
 function readerDragStart(e) {
   if (reading.preview || readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
+  if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
   readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
     moved: false, dy: 0, samples: [{ y: e.clientY, t: e.timeStamp }] };
 }
@@ -3079,11 +3083,7 @@ function readerDragMove(e) {
     // 触屏已由按下的控件隐式捕获；转移捕获会把丢失捕获事件冒泡到这里。
     if (e.pointerType === 'mouse') bookBar.setPointerCapture(e.pointerId);
   }
-  const max = readerRestOffset();
-  const offset = drag.offset + drag.dy;
-  const eased = offset > max ? max + 24 * (1 - Math.exp((max - offset) / 48)) : Math.max(0, offset);
-  readerPosition(eased);
-  bookBar.classList.toggle('collapse-ready', eased >= clamp(max * .32, 80, 132));
+  dragReaderTo(drag.offset + drag.dy);
   drag.samples.push({ y: e.clientY, t: e.timeStamp });
   drag.samples = drag.samples.filter((sample) => e.timeStamp - sample.t < 110);
 }
@@ -3096,10 +3096,75 @@ function readerDragEnd(e) {
   readerLastDrag = e.timeStamp;
   const last = drag.samples.at(-1), first = drag.samples[0];
   const velocity = e.timeStamp - last.t < 110 && last.t > first.t ? (last.y - first.y) / (last.t - first.t) * 1000 : 0;
-  const offset = bookEl.getBoundingClientRect().top;
+  finishReaderPull(drag.dy, velocity, e.type === 'pointerup');
+}
+function dragReaderTo(offset) {
+  const max = readerRestOffset();
+  const eased = offset > max ? max + 24 * (1 - Math.exp((max - offset) / 48)) : Math.max(0, offset);
+  readerPosition(eased);
+  bookBar.classList.toggle('collapse-ready', eased >= clamp(max * .32, 80, 132));
+}
+function finishReaderPull(distance, velocity, released) {
+  const offset = sheetState.offset;
   const threshold = clamp(readerRestOffset() * .32, 80, 132);
-  if (e.type === 'pointerup' && drag.dy > 0 && (offset >= threshold || (drag.dy > 24 && velocity > 620))) collapseReader(velocity);
+  if (released && distance > 0 && (offset >= threshold || (distance > 24 && velocity > 620))) collapseReader(velocity);
   else animateReader(offset, 0);
+}
+function startReaderTouch(e) {
+  if (e.touches.length !== 1) { endReaderTouch(e); return; }
+  if (reading.preview || readerMotion || readerDrag) return;
+  const touch = e.changedTouches[0];
+  const edge = touch.clientX <= readerEdgeWidth;
+  const canPull = bookBody.contains(e.target) && bookBody.scrollTop <= 1;
+  if (!edge && !canPull) return;
+  readerTouch = { id: touch.identifier, x: touch.clientX, y: touch.clientY, edge, canPull, axis: null, distance: 0, samples: [] };
+}
+function moveReaderTouch(e) {
+  const gesture = readerTouch;
+  if (!gesture) return;
+  if (e.touches.length !== 1 || !e.cancelable) { endReaderTouch(e); return; }
+  const touch = e.touches[0];
+  const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
+  if (!gesture.axis) {
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 6) return;
+    if (gesture.edge && dx > 0 && dx > Math.abs(dy) * 1.35) {
+      gesture.axis = 'back';
+      for (const animation of bookEl.getAnimations()) animation.cancel();
+    }
+    else if (gesture.canPull && dy > Math.abs(dx) * 1.25 && bookBody.scrollTop <= 1) gesture.axis = 'pull';
+    else { readerTouch = null; return; }
+  }
+  e.preventDefault();
+  gesture.distance = gesture.axis === 'back' ? dx : dy;
+  gesture.samples.push({ distance: gesture.distance, time: e.timeStamp });
+  gesture.samples = gesture.samples.filter((sample) => e.timeStamp - sample.time < 110);
+  if (gesture.axis === 'pull') dragReaderTo(dy);
+  else bookEl.style.transform = 'translateX(' + clamp(dx * .55, 0, view.w * .25) + 'px)';
+}
+function endReaderTouch(e) {
+  const gesture = readerTouch;
+  if (!gesture) return;
+  if (e.type === 'touchend' && !Array.from(e.changedTouches).some((touch) => touch.identifier === gesture.id)) return;
+  readerTouch = null;
+  if (!gesture.axis) return;
+  readerLastDrag = e.timeStamp;
+  const released = e.type === 'touchend';
+  const first = gesture.samples[0], last = gesture.samples.at(-1);
+  const velocity = first && last.time > first.time && e.timeStamp - last.time < 110
+    ? (last.distance - first.distance) / (last.time - first.time) * 1000 : 0;
+  if (gesture.axis === 'pull') {
+    bookBar.classList.remove('collapse-ready');
+    finishReaderPull(gesture.distance, velocity, released);
+    return;
+  }
+  const transform = bookEl.style.transform;
+  bookEl.style.transform = '';
+  const goBack = released && (gesture.distance >= clamp(view.w * .24, 72, 125) || (gesture.distance > 30 && velocity > 620));
+  if (goBack) readingGoBack();
+  if (!reducedReadingMotion.matches && reading.active && !readerMotion) {
+    bookEl.animate([{ transform: goBack ? 'translateX(18px)' : transform }, { transform: 'none' }],
+      { duration: 170, easing: 'ease-out' });
+  }
 }
 function readingItems() {
   if (reading.topic) return reading.topic.chapters;
@@ -3117,14 +3182,15 @@ function readingDate(item) {
   if (item.date) return item.date;
   return item.point || item.start === item.end ? fmtYear(item.start) : fmtYear(item.start) + '–' + fmtYear(item.end);
 }
-function readingRow(item, { current = false } = {}) {
+function readingRow(item, { current = false, timeline = false } = {}) {
+  const date = '<small>' + esc(readingDate(item)) + '</small>';
   return '<li><button type="button" class="reading-card reading-row"' + (current ? ' aria-current="date"' : '') +
-    ' data-reading-detail="' + esc(item.id) + '"><small>' + esc(readingDate(item)) + '</small>' +
-    '<span class="reading-row-copy"><strong>' + esc(item.title || item.zh || item.en) + '</strong>' +
+    ' data-reading-detail="' + esc(item.id) + '">' + (timeline ? '' : date) +
+    '<span class="reading-row-copy">' + (timeline ? date : '') + '<strong>' + esc(item.title || item.zh || item.en) + '</strong>' +
     (item.summary ? '<span>' + esc(item.summary) + '</span>' : '') + '</span>' + readingArrow + '</button></li>';
 }
-function readingRows(rows, label) {
-  return '<ol class="reading-list" aria-label="' + esc(label) + '">' + rows.join('') + '</ol>';
+function readingRows(rows, label, timeline = false) {
+  return '<ol class="reading-list' + (timeline ? ' reading-timeline' : '') + '" aria-label="' + esc(label) + '">' + rows.join('') + '</ol>';
 }
 function catalogNavigation() {
   return '<nav class="reading-next"><button type="button" data-reading-catalog>全球专题目录' + readingArrow + '</button></nav>';
@@ -3202,22 +3268,16 @@ function renderTimeline(items) {
   const ent = reading.ent;
   const period = chapterOf(reading.year);
   const anchor = reading.snapshot.year;
-  const anchored = chapterOf(anchor) === period;
-  const meta = anchored ? fmtYear(anchor) + ' 年 · ' + period.n : period.n + ' · ' + fmtYear(period.a) + '–' + fmtYear(period.b);
-  const isContext = (item) => item.kind === 'era' || item.context;
-  const events = items.filter((item) => !isContext(item));
-  const overlap = (item) => anchor >= item.start && anchor <= (item.point ? item.start : item.end);
-  const distance = (item) => Math.max(item.start - anchor, anchor - (item.point ? item.start : item.end), 0);
-  const nearest = anchored && events.reduce((best, item) => !best || distance(item) < distance(best) ? item : best, null);
-  const context = items.filter(isContext);
-  const note = nearest && distance(nearest) > 0
-    ? '<p class="reading-note">这一年暂无收录的事件 · <button type="button" data-reading-detail="' + esc(nearest.id) + '">最近一条始于 ' + esc(fmtYear(nearest.start)) + ' 年</button></p>'
-    : '';
-  return readingHeading(ent.kind === 'polity' ? polityZhName(ent.name) : ent.name, meta) + note +
-    (events.length ? readingRows(events.map((item) => readingRow(item, { current: anchored && overlap(item) })), '事件') :
-      '<p class="reading-note">这一时期暂无收录的事件。</p>') +
-    (context.length ? '<section class="reading-context"><h2>时代背景</h2>' + readingRows(context.map((item) => readingRow(item)), '时代背景') + '</section>' : '') +
-    periodNavigation() + catalogNavigation();
+  const name = ent.kind === 'polity' ? polityZhName(ent.name) : ent.name;
+  const title = ent.iso === 'CN' && period === CH.at(-1) ? '中国近现代年表' : name + '年表';
+  const meta = fmtYear(period.a) + (period.b === YMAX ? ' 年以来' : '—' + fmtYear(period.b));
+  const startsHere = items.filter((item) => item.start >= period.a);
+  const timeline = startsHere.length && period.a > YMIN ? startsHere : items;
+  return readingHeading(title, meta) +
+    (timeline.length ? readingRows(timeline.map((item) => readingRow(item, {
+      timeline: true, current: anchor === item.start,
+    })), '年表', true) : '<p class="reading-note">这个时段暂无记录。</p>') +
+    periodNavigation();
 }
 function renderReadingArticle(topic, items, item) {
   const prose = topic || item.paragraphs ? '' : proseOf(item.id);
@@ -3261,8 +3321,8 @@ function renderReading() {
 function periodNavigation() {
   const i = CH.indexOf(chapterOf(reading.year));
   return '<nav class="reading-next">' +
-    (i > 0 ? '<button type="button" class="reading-previous" data-reading-period="' + (i - 1) + '">' + readingArrow + esc(CH[i - 1].n) + '</button>' : '') +
-    (i < CH.length - 1 ? '<button type="button" data-reading-period="' + (i + 1) + '">' + esc(CH[i + 1].n) + readingArrow + '</button>' : '') + '</nav>';
+    (i > 0 ? '<button type="button" class="reading-previous" data-reading-period="' + (i - 1) + '">' + readingArrow + '更早的记录</button>' : '') +
+    (i < CH.length - 1 ? '<button type="button" data-reading-period="' + (i + 1) + '">更晚的记录' + readingArrow + '</button>' : '') + '</nav>';
 }
 function openReadingDetail(id) {
   reading.linkEntry = false;
@@ -3299,6 +3359,8 @@ function closeReader() {
   if (!reading.preview) rememberReading();
   stopReaderMotion();
   readerDrag = null;
+  readerTouch = null;
+  bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
   if (reading.preview) restoreReadingGlobe();
   const { detent, scroll } = reading.snapshot;
@@ -3440,6 +3502,16 @@ addEventListener('pointermove', readerDragMove);
 addEventListener('pointerup', readerDragEnd);
 addEventListener('pointercancel', readerDragEnd);
 addEventListener('blur', readerDragEnd);
+bookEl.addEventListener('touchstart', startReaderTouch, { passive: true });
+bookEl.addEventListener('touchmove', moveReaderTouch, { passive: false });
+bookEl.addEventListener('touchend', endReaderTouch);
+bookEl.addEventListener('touchcancel', endReaderTouch);
+bookEl.addEventListener('click', (e) => {
+  if (e.detail && e.timeStamp - readerLastDrag < 300) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, true);
 readingResume.addEventListener('click', resumeReader);
 
 /* 时间和观察方式是两个独立入口，后续边界类型通过 VIEW_MODES 扩展。 */
