@@ -64,6 +64,7 @@ const problems = [];
 for (const f of ['data/world.json', 'data/polity.bin.gz', 'data/relief.jpg']) {
   if (!existsSync(join(root, f))) problems.push('缺少 ' + f + '（先跑 node tools/build-data.js）');
 }
+if (!existsSync(join(root, 'data/earth-detail.jpg'))) problems.push('缺少仓库中的高清地表贴图 data/earth-detail.jpg');
 let world = null;
 if (!problems.length) {
   world = JSON.parse(rd('data', 'world.json'));
@@ -125,11 +126,12 @@ const put = (hay, needle, value) => {
   if (i < 0) throw new Error('模板缺少占位符 ' + needle);
   return hay.slice(0, i) + value + hay.slice(i + needle.length);
 };
-const page = (atlasJson, reliefB64, polityB64) => {
+const page = (atlasJson, reliefB64, polityB64, earthDetailB64 = '') => {
   let h = shell;
   h = put(h, '/*CSS*/', css);
   h = put(h, '/*CLOUDS*/', readFileSync(join(root, 'data/clouds.png')).toString('base64'));
   h = put(h, '/*EARTH*/', readFileSync(join(root, 'data/earth.jpg')).toString('base64'));
+  h = put(h, '/*EARTH_DETAIL*/', earthDetailB64);
   h = put(h, '/*APP*/', app);
   h = put(h, '/*ATLAS*/', atlasJson);
   h = put(h, '/*RELIEF*/', reliefB64);
@@ -152,6 +154,7 @@ const offline = page(
   JSON.stringify(world),
   readFileSync(join(root, 'data', 'relief.jpg')).toString('base64'),
   readFileSync(join(root, 'data', 'polity.bin.gz')).toString('base64'),
+  readFileSync(join(root, 'data', 'earth-detail.jpg')).toString('base64'),
 ).replace('href="favicon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'favicon.png')).toString('base64') + '"')
  .replace('href="icon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'icon.png')).toString('base64') + '"')
  .replace('<link rel="manifest" href="manifest.webmanifest?v=3">', '');

@@ -43,6 +43,7 @@ function windowOf(y) {
 /* ───────────── 1. 素材装载 ───────────── */
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
 const PW = 1024, PH = 512;             // 拾取栅格
+const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 2;
 const MAPW = 1000, MAPH = 500;
 const Q = 4;                           // 政权几何的量化倍数
 
@@ -685,6 +686,7 @@ function initGL() {
   const cloudUv = gl.getAttribLocation(progCloud, 'aUv');
   const tex = (unit, nearest) => {
     const t = gl.createTexture();
+    if (!t) return null;
     gl.activeTexture(gl.TEXTURE0 + unit);
     gl.bindTexture(gl.TEXTURE_2D, t);
     if (nearest) {
@@ -705,22 +707,47 @@ function initGL() {
   if (cloudsImg) cloudCanvas.getContext('2d').drawImage(cloudsImg, 0, 0, 1024, 512);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cloudCanvas);
   gl.generateMipmap(gl.TEXTURE_2D);
-  const aniso = (() => {
-    const ext = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
-    if (!ext) return;
-    const max = gl.getParameter(ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT);
-    gl.bindTexture(gl.TEXTURE_2D, tBase);
-    gl.texParameterf(gl.TEXTURE_2D, ext.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, max));
-  })();
+  const aniso = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+  const anisotropy = aniso ? Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)) : 1;
+  let detailState = gl.getParameter(gl.MAX_TEXTURE_SIZE) >= DETAIL_WIDTH ? 'idle' : 'unavailable';
+  let tDetail = null;
+
+  function uploadSurface(image, texture) {
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    if (aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, anisotropy);
+  }
+
+  function loadSurfaceDetail() {
+    detailState = 'loading';
+    const image = new Image();
+    image.onload = () => {
+      detailState = 'unavailable';
+      if (image.naturalWidth !== DETAIL_WIDTH || image.naturalHeight !== DETAIL_WIDTH / 2) return;
+      const detail = tex(0, false);
+      if (!detail) return;
+      uploadSurface(image, detail);
+      // Keep the standard texture bound if the device cannot upload the larger image.
+      if (gl.getError() !== gl.NO_ERROR) {
+        gl.deleteTexture(detail);
+        gl.bindTexture(gl.TEXTURE_2D, tBase);
+        return;
+      }
+      tDetail = detail;
+      detailState = 'ready';
+      invalidate();
+    };
+    image.onerror = () => { detailState = state.zoom < DETAIL_ZOOM ? 'idle' : 'retry'; };
+    const inline = inlineText('earth-detail').trim();
+    image.src = inline ? 'data:image/jpeg;base64,' + inline : 'data/earth-detail.jpg';
+  }
 
   return {
     kind: 'webgl',
-    uploadBase(cv) {
-      gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tBase);
-      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv);
-      gl.generateMipmap(gl.TEXTURE_2D);
-    },
+    uploadBase(cv) { uploadSurface(cv, tBase); },
     uploadId(cv) {
       gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tId);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cv);
@@ -734,6 +761,8 @@ function initGL() {
       canvas.height = Math.max(1, Math.round(h * dpr));
     },
     draw(v, st) {
+      if (st.zoom >= DETAIL_ZOOM && detailState === 'idle') loadSurfaceDetail();
+      if (st.zoom < DETAIL_ZOOM && detailState === 'retry') detailState = 'idle';
       const W = canvas.width, H = canvas.height;
       gl.viewport(0, 0, W, H);
       gl.clearColor(0, 0, 0, 0);
@@ -761,6 +790,8 @@ function initGL() {
       gl.uniform1f(U.scale, scale);
       gl.uniform1f(U.radius, 1);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, st.zoom >= DETAIL_ZOOM && tDetail ? tDetail : tBase);
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
       gl.uniform1i(U.cloud, 3);
       gl.uniform1f(U.cloudOffset, cloudDrift);

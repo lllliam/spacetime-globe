@@ -43,7 +43,8 @@
 
 | 版本 | 主要变化 |
 | --- | --- |
-| **6.1.1** | 历史和现代地图减淡云层与云影，提亮暗部并增强边线对比。选中疆域使用金色描边，地形视图保留原有光照与云层。 |
+| **6.1.2** | WebGL 地球放大至 2 倍时按需载入 4096 × 2048 的地表影像。单文件离线版内置高清贴图。 |
+| [6.1.1](https://github.com/lllliam/spacetime-globe/tree/2ee3b17) | 历史和现代地图减淡云层与云影，提亮暗部并增强边线对比。选中疆域使用金色描边，地形视图保留原有光照与云层。 |
 | [6.1.0](https://github.com/lllliam/spacetime-globe/tree/1362498) | 重写《明朝》全卷，逐段标注来源。四处历史场景分别说明都城、漕运、半岛与关口的地理关系。 |
 | [6.0.0](https://github.com/lllliam/spacetime-globe/tree/7a5bbd9) | 历史场景成为正文和地球的共同入口。场景紧跟相关段落，读者可主动观察并返回原处。 |
 | [5.2.0](https://github.com/lllliam/spacetime-globe/tree/7b9bf1b) | 重做地球视图面板。年份入口以具体事件引导阅读，长期背景按需展开，已关联的条目直达书卷。 |
@@ -87,4 +88,4 @@ npm run smoke
 
 [产品设计](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [内部架构](docs/ARCHITECTURE.md)
 
-地球表面与云层纹理来自 [three.js r160 地球示例](https://github.com/mrdoob/three.js/blob/r160/examples/textures/planets/earth_atmos_2048.jpg)。海陆影像表示现代地理，历史疆域叠加在该底图上。
+基础地表与云层纹理来自 [three.js r160 地球示例](https://github.com/mrdoob/three.js/blob/r160/examples/textures/planets/earth_atmos_2048.jpg)。高清地表纹理以 NASA Goddard Space Flight Center 的 [Blue Marble（Reto Stöckli 等）](https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/) 8192 × 4096 版缩制，色调按基础贴图校正。海陆影像表示现代地理，历史疆域叠加在该底图上。

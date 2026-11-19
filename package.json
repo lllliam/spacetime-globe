@@ -1,6 +1,6 @@
 {
   "name": "spacetime-globe",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "private": true,
   "description": "地球仪 · 时空坐标 —— 一本可以通过地球和时间打开的世界历史书",
   "scripts": {
