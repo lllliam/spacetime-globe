@@ -512,8 +512,10 @@ uniform sampler2D uId;
 uniform sampler2D uLut;
 uniform vec3 uLight;
 uniform float uSel;
+uniform float uMapLighting;
 uniform sampler2D uCloud;
 uniform float uCloudOffset;
+uniform float uCloudStrength;
 uniform highp mat3 uRot;
 void main() {
   vec3 n = normalize(vN);
@@ -521,15 +523,17 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a * 0.065);
-  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(0.85, 0.91, 1.0), 0.23);
+  vec3 col = mix(base, tint.rgb, tint.a * 0.15);
+  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.89, 0.69), 0.23);
 
   // Work in linear light so the terminator and ocean highlights remain smooth.
   col = pow(col, vec3(2.2));
-  float lam = dot(n, normalize(uLight));
-  float daylight = smoothstep(-0.20, 0.45, lam);
-  float diffuse = max(lam, 0.0) * 1.05;
   vec3 sun = normalize(uLight);
+  float lam = dot(n, sun);
+  float daylight = smoothstep(-0.20, 0.45, lam);
+  // Keep terrain detail readable on the unlit side of maps with borders.
+  float ambient = mix(0.025, 0.16, uMapLighting);
+  float diffuse = max(lam, 0.0) * mix(1.05, 0.79, uMapLighting);
   vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
   vec3 localN = vec3(sin((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927),
     sin((0.5 - vUv.y) * 3.1415927), cos((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927));
@@ -537,10 +541,10 @@ void main() {
   vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
     0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
   float shadow = texture2D(uCloud, vec2(shadowUv.x + uCloudOffset, shadowUv.y)).a;
-  col *= (0.025 + 0.11 * daylight + diffuse) * (1.0 - shadow * daylight * 0.25);
+  col *= (ambient + 0.11 * daylight + diffuse) * (1.0 - shadow * daylight * 0.25 * uCloudStrength);
   float ocean = (1.0 - step(0.002, idTex.r)) *
     smoothstep(0.02, 0.16, base.b - base.r);
-  vec3 halfLight = normalize(normalize(uLight) + vec3(0.0, 0.0, 1.0));
+  vec3 halfLight = normalize(sun + vec3(0.0, 0.0, 1.0));
   float spec = pow(max(dot(n, halfLight), 0.0), 70.0);
   col += vec3(0.60, 0.77, 1.0) * spec * ocean * 0.32 * daylight;
   col = pow(max(col, vec3(0.0)), vec3(1.0 / 2.2));
@@ -556,6 +560,7 @@ varying vec2 vUv;
 varying vec3 vN;
 uniform sampler2D uCloud;
 uniform float uCloudOffset;
+uniform float uCloudStrength;
 uniform vec3 uLight;
 void main() {
   vec3 n = normalize(vN);
@@ -565,7 +570,7 @@ void main() {
   vec3 color = mix(vec3(0.10, 0.17, 0.27), vec3(0.96, 0.98, 1.0), light);
   color *= 0.6 + 0.4 * max(lam, 0.0);
   float horizon = smoothstep(0.0, 0.10, n.z);
-  gl_FragColor = vec4(color, density * 0.88 * horizon);
+  gl_FragColor = vec4(color, density * 0.88 * horizon * uCloudStrength);
 }`;
 
 const VERT_ATM = `
@@ -667,13 +672,14 @@ function initGL() {
     base: gl.getUniformLocation(prog, 'uBase'), id: gl.getUniformLocation(prog, 'uId'),
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     radius: gl.getUniformLocation(prog, 'uRadius'),
-    sel: gl.getUniformLocation(prog, 'uSel'),
+    sel: gl.getUniformLocation(prog, 'uSel'), mapLighting: gl.getUniformLocation(prog, 'uMapLighting'),
     cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
+    cloudStrength: gl.getUniformLocation(prog, 'uCloudStrength'),
     atmLight: gl.getUniformLocation(progAtm, 'uLight'),
     atmCenter: gl.getUniformLocation(progAtm, 'uCenter'), atmViewport: gl.getUniformLocation(progAtm, 'uViewport'),
     atmScale: gl.getUniformLocation(progAtm, 'uScale'), atmColor: gl.getUniformLocation(progAtm, 'uAtm'),
   };
-  const cloudUniforms = Object.fromEntries(['uRot','uCenter','uViewport','uScale','uRadius','uCloud','uCloudOffset','uLight']
+  const cloudUniforms = Object.fromEntries(['uRot','uCenter','uViewport','uScale','uRadius','uCloud','uCloudOffset','uCloudStrength','uLight']
     .map(name => [name, gl.getUniformLocation(progCloud, name)]));
   const cloudPos = gl.getAttribLocation(progCloud, 'aPos');
   const cloudUv = gl.getAttribLocation(progCloud, 'aUv');
@@ -740,6 +746,7 @@ function initGL() {
       /* 平移必须和矢量叠加层一致，否则缩放后两层会错位 */
       const center = [(v.cx + st.panX) * v.dpr, (v.h - v.cy - st.panY) * v.dpr];
       const scale = v.Rz * v.dpr;
+      const cloudStrength = chrome.natural ? 1 : 0.38;
 
       gl.useProgram(prog);
       gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
@@ -757,7 +764,9 @@ function initGL() {
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
       gl.uniform1i(U.cloud, 3);
       gl.uniform1f(U.cloudOffset, cloudDrift);
-      gl.uniform1f(U.sel, st.focus ? st.focus.id : 0);
+      gl.uniform1f(U.cloudStrength, cloudStrength);
+      gl.uniform1f(U.mapLighting, chrome.natural ? 0 : 1);
+      gl.uniform1f(U.sel, chrome.natural ? 0 : (st.focus?.id ?? 0));
       gl.uniform1i(U.base, 0); gl.uniform1i(U.id, 1); gl.uniform1i(U.lut, 2);
       gl.disable(gl.BLEND);
       gl.enable(gl.DEPTH_TEST);
@@ -779,6 +788,7 @@ function initGL() {
       gl.uniform1f(cloudUniforms.uRadius, 1.007);
       gl.uniform1i(cloudUniforms.uCloud, 3);
       gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
+      gl.uniform1f(cloudUniforms.uCloudStrength, cloudStrength);
       gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -984,6 +994,12 @@ function drawVector(hudBounds = globeHudBounds()) {
 
   }
 
+  window.__labelStats = { drawn: 0, placed: 0, zoom: state.zoom };
+  if (chrome.natural) {
+    vctx.restore();
+    return;
+  }
+
   /* 面：整环都在正面才填（贴着轮廓的边缘交给贴图兜底），这样放大后边界是锐的 */
   const lut = partition.lut;
   for (const sh of vecShapes) {
@@ -1016,8 +1032,7 @@ function drawVector(hudBounds = globeHudBounds()) {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  vctx.strokeStyle = chrome.natural ? 'transparent' : isPolity ? 'rgba(228,210,174,.34)' : 'rgba(191,210,215,.15)';
-  vctx.lineWidth = Math.min(0.95, 0.5 + state.zoom * 0.08);
+  const borderWidth = Math.min(1.1, 0.62 + state.zoom * 0.10);
   vctx.beginPath();
   const drawn = [];
   for (const sh of vecShapes) {
@@ -1048,13 +1063,17 @@ function drawVector(hudBounds = globeHudBounds()) {
     }
     if (best) best.area = best.w * best.h;
   }
+  // A narrow dark casing keeps fine borders legible over bright terrain and clouds.
+  vctx.strokeStyle = 'rgba(10,15,23,.45)';
+  vctx.lineWidth = borderWidth + 0.9;
+  vctx.stroke();
+  vctx.strokeStyle = isPolity ? 'rgba(238,217,175,.64)' : 'rgba(195,217,223,.38)';
+  vctx.lineWidth = borderWidth;
   vctx.stroke();
 
   /* 选中描边 */
   if (state.focus) {
     vctx.beginPath();
-    vctx.strokeStyle = 'rgba(255,226,164,.95)';
-    vctx.lineWidth = Math.min(2.4, 1.2 + state.zoom * 0.25);
     let any = false;
     for (const sh of vecShapes) {
       if (sh.id !== state.focus.id) continue;
@@ -1073,13 +1092,21 @@ function drawVector(hudBounds = globeHudBounds()) {
         }
       }
     }
-    if (any) vctx.stroke();
+    if (any) {
+      const focusWidth = Math.min(2.4, 1.2 + state.zoom * 0.25);
+      vctx.strokeStyle = 'rgba(16,12,9,.82)';
+      vctx.lineWidth = focusWidth + 1.5;
+      vctx.stroke();
+      vctx.strokeStyle = '#ffe2a4';
+      vctx.lineWidth = focusWidth;
+      vctx.stroke();
+    }
   }
 
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
-  window.__labelStats = { drawn: drawn.length, placed: 0, zoom: state.zoom };
-  const maxLabels = !chrome.labels || chrome.natural || worldEvent?.sceneId || (state.zoom === 1 && !state.focus)
+  window.__labelStats.drawn = drawn.length;
+  const maxLabels = !chrome.labels || worldEvent?.sceneId || (state.zoom === 1 && !state.focus)
     ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
   const uiTop = view.safeTop + 12;
   const uiBottom = view.h - 55;
@@ -1139,7 +1166,11 @@ function initFallback() {
       const buf = sphere.data, c0 = D / 2, rad = D / 2 - 0.5;
       const ct = Math.cos(st.tilt), stt = Math.sin(st.tilt);
       const cy = Math.cos(st.yaw), sy = Math.sin(st.yaw);
-      const sel = st.focus ? st.focus.id : 0;
+      const mapLighting = !chrome.natural;
+      const sel = mapLighting ? (st.focus?.id ?? 0) : 0;
+      const dark = mapLighting ? 0.49 : 0.32;
+      const lightBase = mapLighting ? 0.63 : 0.42;
+      const diffuse = mapLighting ? 0.50 : 0.78;
       const lx = -0.52, ly = 0.44, lz = 0.73;
       for (let py = 0; py < D; py++) {
         const ny = (py + 0.5 - c0) / rad, ys = -ny;
@@ -1158,17 +1189,17 @@ function initFallback() {
           const si = (row * TW + col) << 2;
           let r = src[si], g = src[si + 1], b = src[si + 2];
           const id = partition.pick[((row >> 1) * PW) + (col >> 1)];
-          if (id) {
-            const lo = id << 2, a = partition.lut[lo + 3] / 255;
+          if (mapLighting && id) {
+            const lo = id << 2, a = partition.lut[lo + 3] / 255 * 0.15;
             r += (partition.lut[lo] - r) * a;
             g += (partition.lut[lo + 1] - g) * a;
             b += (partition.lut[lo + 2] - b) * a;
-            if (sel && id === sel) { r = r * 0.74 + 65; g = g * 0.74 + 61; b = b * 0.74 + 55; }
+            if (sel && id === sel) { r = r * 0.77 + 59; g = g * 0.77 + 52; b = b * 0.77 + 40; }
           }
           const l = nx * lx + ys * ly + nz * lz;
           const lam = l > 0 ? l : 0;
           const d0 = clamp((l + 0.24) / 0.62, 0, 1), ds = d0 * d0 * (3 - 2 * d0);
-          const lit = 0.42 + 0.78 * Math.pow(lam, 0.7), dark = 0.32;
+          const lit = lightBase + diffuse * Math.pow(lam, 0.7);
           r = r * dark + r * (lit - dark) * ds;
           g = g * dark + g * (lit - dark) * ds;
           b = b * dark + b * (lit - dark) * ds;
