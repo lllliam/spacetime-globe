@@ -910,7 +910,7 @@ function prepareVector() {
       : (ent?.region?.zh || '');
     let area = 0;
     for (const v of vecs) area = Math.max(area, ringRoughArea(v.xyz));
-    out.push({ id: s.id, vecs, name, area });
+    out.push({ id: s.id, vecs, name, rawName: ent?.ent?.name || '', area });
   }
   /* 大的先画、标签也按大小优先 */
   out.sort((a, b) => b.area - a.area);
@@ -936,6 +936,10 @@ function rotation() {
 }
 
 function globeHudBounds() {
+  if (document.body.classList.contains('reading-split')) {
+    const bar = el('split-globe-bar');
+    return bar && !bar.hidden ? [bar.getBoundingClientRect()] : [];
+  }
   if (worldEvent && !reading.active) return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
@@ -1134,14 +1138,50 @@ function drawVector(hudBounds = globeHudBounds()) {
     }
   }
 
+  /* 场景关联多政权高亮 */
+  const sceneFocusNames = typeof activeSceneFocusPolities === 'function' ? activeSceneFocusPolities() : null;
+  const focusedIds = new Set();
+  if (isPolity && sceneFocusNames && sceneFocusNames.size) {
+    vctx.beginPath();
+    let anyFocus = false;
+    for (const sh of vecShapes) {
+      if (!sh.rawName || !sceneFocusNames.has(sh.rawName)) continue;
+      focusedIds.add(sh.id);
+      for (const ring of sh.vecs) {
+        const xyz = ring.xyz, n = xyz.length / 3;
+        let started = false;
+        for (let i = 0; i < n; i++) {
+          const x = xyz[i * 3], y = xyz[i * 3 + 1], z = xyz[i * 3 + 2];
+          const px = x * m0 + y * m1 + z * m2;
+          const py = x * m3 + y * m4 + z * m5;
+          const pz = x * m6 + y * m7 + z * m8;
+          if (pz <= 0.02) { started = false; continue; }
+          const sx = cx + px * Rz, sy = cy - py * Rz;
+          if (!started) { vctx.moveTo(sx, sy); started = true; } else vctx.lineTo(sx, sy);
+          anyFocus = true;
+        }
+      }
+    }
+    if (anyFocus) {
+      const fw = Math.min(2.2, 1.15 + state.zoom * 0.22);
+      vctx.strokeStyle = 'rgba(12,10,8,.76)';
+      vctx.lineWidth = fw + 1.4;
+      vctx.stroke();
+      vctx.strokeStyle = 'rgba(245,210,145,.92)';
+      vctx.lineWidth = fw;
+      vctx.stroke();
+    }
+  }
+
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
   window.__labelStats.drawn = drawn.length;
-  const maxLabels = !chrome.labels || worldEvent?.sceneId || (state.zoom === 1 && !state.focus)
-    ? 0 : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
+  const hasScenePolities = focusedIds.size > 0;
+  const maxLabels = !chrome.labels || (worldEvent?.sceneId && !hasScenePolities) || (state.zoom === 1 && !state.focus && !hasScenePolities)
+    ? 0 : hasScenePolities ? Math.min(8, focusedIds.size) : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
   const uiTop = view.safeTop + 12;
   const uiBottom = view.h - 55;
-  const cand = drawn.filter((d) => d.area > 0 && d.name).sort((a, b) => b.area - a.area);
+  const cand = drawn.filter((d) => d.area > 0 && d.name && (!hasScenePolities || focusedIds.has(d.id))).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
   for (const d of cand) {
@@ -1267,10 +1307,20 @@ function layout() {
   const shortStandalone = navigator.standalone === true && screen.height > screen.width &&
     Math.abs(screen.width - w) <= 2 && missingHeight >= 24 && missingHeight <= 96;
   document.body.classList.toggle('short-standalone-viewport', shortStandalone);
-  view.cx = w / 2;
-  view.cyBase = h * (h > w ? 0.515 : 0.46);
-  view.cy = view.cyBase - (state.lift || 0);
-  view.R = Math.min(w * 0.455, h * 0.34, 410);
+  const splitActive = document.body.classList.contains('reading-split');
+  if (splitActive) {
+    const panelW = Math.min(460, Math.round(w * 0.42));
+    const globeW = Math.max(260, w - panelW);
+    view.cx = panelW + globeW / 2;
+    view.cyBase = h * 0.48;
+    view.cy = view.cyBase;
+    view.R = Math.min(globeW * 0.43, h * 0.37, 410);
+  } else {
+    view.cx = w / 2;
+    view.cyBase = h * (h > w ? 0.515 : 0.46);
+    view.cy = view.cyBase - (state.lift || 0);
+    view.R = Math.min(w * 0.455, h * 0.34, 410);
+  }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
   view.Rz = view.R * state.zoom;
@@ -1537,7 +1587,7 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || worldEvent ? globeHudBounds() : [];
+  const hudBounds = state.zoom !== 1 || state.focus || worldEvent || document.body.classList.contains('reading-split') ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -1590,6 +1640,7 @@ canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
+  if (typeof cancelGlobeFly === 'function') cancelGlobeFly(true);
   cancelZoom();
   stopPanReturn();
   momentum.yaw = momentum.tilt = 0;

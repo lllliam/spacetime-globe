@@ -509,3 +509,132 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .reading-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
 .reading-filters button{appearance:none;cursor:pointer;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--muted);font:inherit;font-size:12px;line-height:1.6;padding:7px 12px}
 .reading-filters button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(224,178,115,.09)}
+
+/* ── 标杆阅读与书球同屏联动样式 ── */
+.event-map-point.dimmed{opacity:.38;transition:opacity .25s ease}
+.event-map-point{transition:opacity .25s ease}
+
+#event-map-steps,#split-globe-steps{
+  display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;pointer-events:auto;
+}
+#event-map-panel .step-chip,.step-chip{
+  appearance:none;border:1px solid rgba(224,178,115,.28);border-radius:999px;
+  background:rgba(12,18,27,.86);color:#cfd6df;font:500 12px/1.3 system-ui,sans-serif;
+  padding:6px 11px;cursor:pointer;transition:background .16s,border-color .16s,color .16s;
+}
+#event-map-panel .step-chip span,.step-chip span{color:var(--gold);font-variant-numeric:tabular-nums;margin-right:3px}
+#event-map-panel .step-chip[aria-pressed="true"],.step-chip[aria-pressed="true"]{
+  background:rgba(224,178,115,.22);border-color:var(--gold);color:#fff4dc;
+}
+@media(hover:hover){.step-chip:hover{border-color:rgba(224,178,115,.65);color:#fff4dc}}
+
+/* 章节空间线索、小节标题、历史现场切片、行内地名、同期世界 */
+.subject-thesis{
+  margin:0 0 24px;padding:13px 15px 14px;border-radius:12px;
+  background:linear-gradient(155deg,rgba(224,178,115,.11),rgba(224,178,115,.03));
+  border:1px solid rgba(224,178,115,.22);
+}
+.subject-thesis span{
+  display:block;margin-bottom:5px;font:600 11px/1 system-ui,"PingFang SC",sans-serif;
+  letter-spacing:.12em;color:var(--gold);
+}
+.subject-thesis p{margin:0;font-size:14px;line-height:1.8;color:#ede6d8}
+
+#book-body .subject-section-heading{
+  margin:30px 0 12px;padding-top:16px;border-top:1px solid rgba(219,225,236,.10);
+  color:#f2d29b;font:600 17px/1.45 var(--reading-serif);letter-spacing:.01em;
+}
+#book-body .subject-section-heading:first-child{margin-top:4px;padding-top:0;border-top:0}
+
+.subject-callout{
+  margin:16px 0 18px;padding:13px 15px;border-radius:10px;
+  background:rgba(255,255,255,.032);border-left:2px solid rgba(224,178,115,.65);
+}
+.subject-callout small{
+  display:inline-block;margin-bottom:4px;font:600 11px/1 system-ui,"PingFang SC",sans-serif;
+  letter-spacing:.1em;color:var(--gold);
+}
+.subject-callout strong{
+  display:block;margin-bottom:5px;font:600 14.5px/1.5 var(--reading-serif);color:var(--ink);
+}
+#book-body .subject-callout p{
+  margin:0;font-size:13.8px;line-height:1.8;color:#c9c2b4;
+}
+
+.inline-place{
+  appearance:none;display:inline;padding:0 1px 1px;margin:0;border:0;
+  border-bottom:1px dotted rgba(224,178,115,.72);background:transparent;
+  color:#f5d7a1;font:inherit;line-height:inherit;cursor:pointer;
+  transition:color .15s,background .15s,border-color .15s;
+}
+.inline-place:hover,.inline-place:focus-visible{
+  color:#fff3d6;background:rgba(224,178,115,.14);border-bottom-style:solid;border-radius:3px;
+}
+
+.subject-scene-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.subject-scene-badges em{
+  font-style:normal;font:500 11px/1.2 system-ui,sans-serif;
+  padding:2px 7px;border-radius:999px;
+  background:rgba(224,178,115,.13);color:#edd09c;border:1px solid rgba(224,178,115,.26);
+}
+.subject-scene.is-active{
+  background:rgba(224,178,115,.11);border-left-width:3px;border-radius:0 10px 10px 0;
+}
+
+.subject-contemporaries{margin:28px 0 22px;padding-top:18px;border-top:1px solid var(--reading-rule)}
+.contemporary-grid{display:grid;gap:10px;margin-top:10px}
+.contemporary-card{
+  position:relative;padding:12px 30px 12px 14px;border-radius:12px;
+  border:1px solid rgba(219,225,236,.12);background:rgba(255,255,255,.026);
+  transition:background .16s,border-color .16s;
+}
+.contemporary-card small{display:block;font-size:11.5px;color:var(--gold);margin-bottom:3px;font-variant-numeric:tabular-nums}
+.contemporary-card strong{display:block;font:600 15.5px/1.45 var(--reading-serif);color:var(--ink)}
+.contemporary-card>span{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--reading-muted)}
+.contemporary-card .reading-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%)}
+@media(hover:hover){.contemporary-card:hover{background:rgba(224,178,115,.07);border-color:rgba(224,178,115,.32)}}
+
+/* ── 桌面端书球同屏联动（>=960px） ── */
+#split-globe-bar{
+  position:fixed;z-index:11;top:22px;right:24px;
+  width:min(380px,calc(100vw - min(460px,42vw) - 48px));
+  padding:12px 15px;border-radius:16px;
+  background:rgba(9,14,22,.84);border:1px solid rgba(224,178,115,.22);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  box-shadow:0 12px 34px rgba(0,0,0,.42);color:var(--ink);
+}
+#split-globe-bar[hidden]{display:none}
+.split-globe-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+#split-globe-year{font:600 13px/1.2 system-ui,sans-serif;color:var(--gold);font-variant-numeric:tabular-nums}
+#split-globe-title{font:600 15px/1.35 "Songti SC","Noto Serif SC",serif;color:var(--ink);flex:1;min-width:0}
+#split-globe-reset{
+  appearance:none;border:1px solid rgba(224,178,115,.35);border-radius:999px;
+  background:rgba(224,178,115,.12);color:var(--gold);font:500 11.5px/1 system-ui,sans-serif;
+  padding:5px 10px;cursor:pointer;
+}
+#split-globe-reset[hidden]{display:none}
+#split-globe-note{margin:8px 0 0;font-size:12.5px;line-height:1.6;color:#c7d0da}
+#split-globe-note[hidden]{display:none}
+
+@media(min-width:960px){
+  body.reading-split #sheet-dim{display:none}
+  body.reading-split #sheet{
+    right:auto;width:min(460px,42vw);top:0;bottom:0;height:100%;
+    border-radius:0!important;border-right:1px solid rgba(224,178,115,.16);
+    background:linear-gradient(180deg,rgba(14,20,29,.95) 0%,rgba(10,15,22,.97) 100%);
+    box-shadow:14px 0 44px rgba(0,0,0,.48);
+  }
+  body.reading-split #event-map-points{display:block}
+  body.reading-split #reading-back{left:12px}
+  body.reading-split #book-body{
+    max-width:none;padding:18px 26px 48px;
+  }
+  body.reading-split #reading-grab{
+    width:auto;padding:0 14px;border-radius:999px;
+  }
+  body.reading-split #reading-grab span{display:none}
+  body.reading-split #reading-grab::after{
+    content:"收起阅读";font:500 12px/1 system-ui,sans-serif;color:var(--reading-muted);
+  }
+  body.reading-split #reading-grab:hover::after{color:var(--gold)}
+}

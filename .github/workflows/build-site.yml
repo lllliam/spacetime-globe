@@ -1,0 +1,52 @@
+name: Build and publish site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'data/**'
+      - 'tools/**'
+      - 'build.mjs'
+      - 'package.json'
+      - '.github/workflows/build-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate history content
+        run: node tools/verify-content.mjs
+      - name: Build online and offline pages
+        run: node build.mjs
+      - name: Validate generated artifacts
+        run: |
+          test -s index.html
+          test -s index.offline.html
+          node --check src/app.js
+          node --check src/reading.js
+          node --check src/subject-reader.js
+          node --check src/event-map.js
+      - name: Publish generated pages to main
+        run: |
+          git config user.name "lllliam"
+          git config user.email "lllliam@users.noreply.github.com"
+          git add index.html index.offline.html docs/CONTENT-COVERAGE.md data/topics.json
+          if ! git diff --cached --quiet; then
+            git commit -m "build: publish updated Ming reading and maps"
+            git push origin HEAD:main
+          fi

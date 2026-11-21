@@ -46,7 +46,12 @@ export function loadSubjectBooks(root) {
         validYear(chapter.from) && chapter.from === next &&
         (chapter.to === null ? chapter === book.chapters.at(-1) && book.to === null
           : validYear(chapter.to) && chapter.to >= chapter.from) &&
-        chapter.paragraphs?.length >= 3 && chapter.paragraphs.every((p) => p.text && refs(p.refs)), label);
+        chapter.paragraphs?.length >= 3 && chapter.paragraphs.every((p) =>
+          p.text && refs(p.refs) &&
+          (p.heading === undefined || typeof p.heading === 'string') &&
+          (p.callout === undefined || (p.callout && p.callout.label && p.callout.text))
+        ), label);
+      require(chapter.spatialThesis === undefined || typeof chapter.spatialThesis === 'string', label + ' 空间命题');
       seen.add(chapter.id);
       if (chapter.to !== null) next = chapter.to === -1 ? 1 : chapter.to + 1;
       for (const id of chapter.eventIds || []) {
@@ -57,6 +62,11 @@ export function loadSubjectBooks(root) {
       for (const link of chapter.related || []) {
         const target = link.book ? byId.get(link.book) : topics.get(link.topic);
         require(link.label && target && (!link.chapter || target.chapters.some((c) => c.id === link.chapter)), label + ' 关联');
+      }
+      for (const item of chapter.contemporaries || []) {
+        const target = item.book ? byId.get(item.book) : null;
+        require(item.label && item.note && target && (!item.chapter || target.chapters.some((c) => c.id === item.chapter)) &&
+          (item.year === undefined || validYear(item.year)), label + ' 同期世界');
       }
     }
     require(book.chapters.at(-1).to === book.to, book.id + ' 终止年');

@@ -104,6 +104,7 @@
 <div id="event-map-points" hidden></div>
 <section id="event-map-panel" aria-labelledby="event-map-title" hidden>
   <div class="event-map-head"><h2 id="event-map-title"></h2><button id="event-map-read" type="button" hidden>阅读正文</button></div>
+  <div id="event-map-steps" hidden></div>
   <p id="event-map-note" role="status"></p>
   <p id="event-map-distance" hidden></p>
   <details id="event-map-participants" hidden>
@@ -111,6 +112,16 @@
     <dl id="event-participant-roles"></dl>
   </details>
 </section>
+
+<aside id="split-globe-bar" hidden aria-label="联动地球场景控制">
+  <div class="split-globe-head">
+    <span id="split-globe-year"></span>
+    <strong id="split-globe-title"></strong>
+    <button id="split-globe-reset" type="button" hidden>复位视角</button>
+  </div>
+  <div id="split-globe-steps" hidden></div>
+  <p id="split-globe-note" hidden></p>
+</aside>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
 <script id="clouds" type="application/octet-stream">/*CLOUDS*/</script>

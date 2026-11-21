@@ -11,6 +11,10 @@ let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 let readerTouch = null;
 const readerEdgeWidth = 32;
 
+function isSplitReading() {
+  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library && window.innerWidth >= 960);
+}
+
 function pauseGlobe() {
   stopSheetMotion();
   sheetVelocity = 0;
@@ -42,10 +46,14 @@ function rememberReading() {
   readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
+  const split = inert && isSplitReading();
   for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
-    el(id).inert = inert;
+    const keepLive = split && (id === 'globe' || id === 'event-map-points');
+    el(id).inert = keepLive ? false : inert;
   }
   document.body.classList.toggle('reading-open', inert);
+  document.body.classList.toggle('reading-split', split);
+  layout();
 }
 function openBook(fromOffset = null) {
   if (reading.active) return;
@@ -86,7 +94,11 @@ function showReader(fromOffset) {
   readerLastDrag = -Infinity;
   readingBackground(true);
   renderReading();
-  animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
+  if (isSplitReading()) {
+    readerPosition(0, 1);
+  } else {
+    animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
+  }
   el('reading-title').focus({ preventScroll: true });
 }
 function readerRestOffset() {
@@ -146,9 +158,11 @@ function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false }
 }
 function collapseReader(velocity = 0) {
   if (!reading.active) return;
+  if (isSplitReading()) { closeReader(); return; }
   animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
 function readerDragStart(e) {
+  if (isSplitReading()) return;
   if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
   if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
   readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
@@ -165,7 +179,6 @@ function readerDragMove(e) {
     drag.moved = true;
     drag.offset = bookEl.getBoundingClientRect().top;
     stopReaderMotion();
-    // 触屏已由按下的控件隐式捕获；转移捕获会把丢失捕获事件冒泡到这里。
     if (e.pointerType === 'mouse') bookBar.setPointerCapture(e.pointerId);
   }
   dragReaderTo(drag.offset + drag.dy);
@@ -196,6 +209,7 @@ function finishReaderPull(distance, velocity, released) {
   else animateReader(offset, 0);
 }
 function startReaderTouch(e) {
+  if (isSplitReading()) return;
   if (e.touches.length !== 1) { endReaderTouch(e); return; }
   if (readerMotion || readerDrag) return;
   const touch = e.changedTouches[0];
@@ -345,8 +359,9 @@ function renderReadingArticle(topic, items, item) {
     sourcesMarkup(item.sources) + catalogNavigation();
 }
 function renderReading() {
-  if (reading.catalog) { renderReadingCatalog(); return; }
-  if (reading.library) { renderSubjectLibrary(); return; }
+  if (reading.active) readingBackground(true);
+  if (reading.catalog) { clearSplitScene(); renderReadingCatalog(); return; }
+  if (reading.library) { clearSplitScene(); renderSubjectLibrary(); return; }
   if (reading.subject || !reading.topic) {
     const subject = reading.subject;
     const chapter = subject?.chapters.find((item) => item.id === reading.detail);
@@ -355,8 +370,14 @@ function renderReading() {
       ? chapter ? renderSubjectChapter(subject, chapter) : renderSubjectOutline(subject)
       : renderAtlasReading();
     bookBody.scrollTop = chapter ? reading.detailScroll : reading.scroll;
+    if (subject && isSplitReading()) {
+      syncSubjectGlobeForReading(subject, chapter);
+    } else {
+      clearSplitScene();
+    }
     return;
   }
+  clearSplitScene();
   const topic = reading.topic, items = topic.chapters;
   const item = reading.detail !== null ? items.find((c) => String(c.id) === String(reading.detail)) : null;
   if (!item) reading.detail = null;
@@ -401,17 +422,32 @@ function closeReader({restore = true} = {}) {
   if (!reading.active) return;
   rememberReading();
   stopReaderMotion();
+  clearSplitScene();
   readerDrag = null;
   readerTouch = null;
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
-  const { detent, scroll } = reading.snapshot;
+  const snap = reading.snapshot;
+  const { detent, scroll } = snap;
   reading.active = false;
   bookEl.hidden = true;
-  document.body.classList.remove('reader-revealing');
+  document.body.classList.remove('reader-revealing', 'reading-split');
   sheetEl.style.borderRadius = '';
   for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
   document.body.style.removeProperty('--reader-hud');
+  if (restore) {
+    state.year = snap.year;
+    state.layerId = snap.layerId;
+    state.focus = snap.focus;
+    state.yaw = snap.yaw;
+    state.tilt = snap.tilt;
+    state.zoom = snap.zoom;
+    state.panX = snap.panX;
+    state.panY = snap.panY;
+    state.lift = snap.lift;
+    chrome.natural = snap.natural;
+    onYearChanged();
+  }
   sheetState.detent = detent;
   applySheetOffset(readerRestOffset(), false);
   sheetScroll.scrollTop = scroll;
@@ -430,7 +466,7 @@ function handleReadingKey(e) {
     readingGoBack();
     return true;
   }
-  if (e.key === 'Tab') {
+  if (e.key === 'Tab' && !isSplitReading()) {
     const focusable = [...bookEl.querySelectorAll('button:not(:disabled):not([hidden]), [tabindex="0"], a[href]')];
     const first = focusable[0], last = focusable[focusable.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -441,6 +477,9 @@ function handleReadingKey(e) {
 sheetInner.addEventListener('click', (e) => {
   if (e.target.closest('[data-read-subject]')) openBook();
 });
+bookBody.addEventListener('scroll', () => {
+  if (isSplitReading()) scheduleSplitScrollSync();
+}, { passive: true });
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
@@ -471,6 +510,17 @@ addEventListener('pointermove', readerDragMove);
 addEventListener('pointerup', readerDragEnd);
 addEventListener('pointercancel', readerDragEnd);
 addEventListener('blur', readerDragEnd);
+addEventListener('resize', () => {
+  if (reading.active && reading.subject) {
+    readingBackground(true);
+    if (isSplitReading()) {
+      const ch = reading.subject.chapters.find((c) => c.id === reading.detail);
+      syncSubjectGlobeForReading(reading.subject, ch);
+    } else {
+      clearSplitScene();
+    }
+  }
+});
 bookEl.addEventListener('touchstart', startReaderTouch, { passive: true });
 bookEl.addEventListener('touchmove', moveReaderTouch, { passive: false });
 bookEl.addEventListener('touchend', endReaderTouch);

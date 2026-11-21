@@ -178,38 +178,257 @@
     ]
   },
   {
+    "id": "ming-founding-1368",
+    "year": 1368,
+    "from": 1356,
+    "to": 1368,
+    "title": "从长江流域到北伐大都",
+    "summary": "朱元璋先据南京，再西破鄱阳湖、东取苏州，整合长江水路与江南粮仓后挥师北伐，1368 年迫使元廷退回草原。",
+    "focusPolities": [
+      "Ming Dynasty",
+      "Northern Yuan"
+    ],
+    "places": [
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "原名集庆，1356 年被朱元璋夺取，成为整合江南财粮与长江水路的都城。"
+      },
+      {
+        "id": "poyang",
+        "name": "鄱阳湖",
+        "lon": 116.3,
+        "lat": 29.1,
+        "role": "1363 年朱元璋在此水战击败陈友谅，打通长江中游。"
+      },
+      {
+        "id": "suzhou",
+        "name": "苏州",
+        "lon": 120.62,
+        "lat": 31.3,
+        "role": "张士诚据守的江南财赋中心，1367 年被明军攻克。"
+      },
+      {
+        "id": "dadu",
+        "name": "大都",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "元朝都城，1368 年徐达北伐攻克后改称北平，元帝北退草原。"
+      },
+      {
+        "id": "kunming",
+        "name": "云南",
+        "lon": 102.71,
+        "lat": 25.04,
+        "role": "元梁王残余势力所在，明军迟至洪武中期才平定西南。"
+      }
+    ],
+    "routes": [
+      {
+        "from": "nanjing",
+        "to": "poyang",
+        "via": [
+          [
+            117.5,
+            30.8
+          ]
+        ],
+        "kind": "military",
+        "label": "西征鄱阳湖"
+      },
+      {
+        "from": "nanjing",
+        "to": "suzhou",
+        "kind": "military",
+        "label": "东取苏州"
+      },
+      {
+        "from": "nanjing",
+        "to": "dadu",
+        "via": [
+          [
+            117.2,
+            34.26
+          ],
+          [
+            117.0,
+            36.65
+          ]
+        ],
+        "kind": "military",
+        "label": "徐达北伐大都"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1356,
+        "title": "据守南京",
+        "note": "朱元璋渡江占领集庆（南京），在陈友谅与张士诚之间站稳长江下游据点。",
+        "places": [
+          "nanjing"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1363,
+        "title": "整合江南",
+        "note": "1363 年鄱阳湖破陈友谅，1367 年再下苏州，长江水运与江南赋粮尽归明廷。",
+        "places": [
+          "nanjing",
+          "poyang",
+          "suzhou"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1368,
+        "title": "北伐克大都",
+        "note": "明军由江南挥师北上，1368 年攻克大都；元廷退往草原延续北元，明军随后再经略云南。",
+        "places": [
+          "nanjing",
+          "dadu",
+          "kunming"
+        ],
+        "routes": [
+          2
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Northern Yuan"
+        ]
+      }
+    ],
+    "distanceBetween": [
+      "nanjing",
+      "dadu"
+    ],
+    "sources": [
+      {
+        "title": "哥伦比亚大学：带注释的中国历史年表",
+        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
+      },
+      {
+        "title": "《剑桥中国史》：明朝的军事起源",
+        "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/military-origins-of-ming-china/9FBC4D529871CF62DD44D8EEE74ED974"
+      },
+      {
+        "title": "戴维·鲁宾逊：在成吉思汗后裔的世界中崛起",
+        "url": "https://www.cambridge.org/core/books/ming-china-and-its-allies/march-to-power-in-a-chinggisid-world/66519489DE8F7EE6B3D798C3D5D48F0A"
+      }
+    ]
+  },
+  {
     "id": "jingnan-campaign",
     "year": 1402,
+    "from": 1399,
+    "to": 1402,
     "title": "靖难之役",
-    "summary": "燕王从北方军镇起兵，建文朝廷在长江南岸。争夺都城必须越过长江。",
+    "summary": "燕王从北方军镇北平起兵，与建文朝廷拉锯三年后绕过坚城直扑长江，渡江夺取南京。",
+    "focusPolities": [
+      "Ming Dynasty"
+    ],
     "places": [
       {
         "id": "beiping",
         "name": "北平",
         "lon": 116.4,
         "lat": 39.9,
-        "role": "燕王朱棣在北方的军镇与起兵根据地。"
+        "role": "燕王朱棣的北方军镇与起兵根据地，掌握精锐边兵。"
+      },
+      {
+        "id": "xuzhou",
+        "name": "徐州",
+        "lon": 117.18,
+        "lat": 34.26,
+        "role": "黄淮之间的南下要冲，燕军由河北转向江淮的战略跳板。"
       },
       {
         "id": "nanjing",
         "name": "南京",
         "lon": 118.8,
         "lat": 32.06,
-        "role": "建文帝朝廷在长江南岸，燕军渡江后于 1402 年进入都城。"
+        "role": "建文朝廷所在的长江南岸都城，1402 年水师陈瑄归降后燕军渡江入城。"
       }
+    ],
+    "routes": [
+      {
+        "from": "beiping",
+        "to": "xuzhou",
+        "via": [
+          [
+            116.3,
+            37.45
+          ]
+        ],
+        "kind": "military",
+        "label": "燕军南下黄淮"
+      },
+      {
+        "from": "xuzhou",
+        "to": "nanjing",
+        "via": [
+          [
+            118.5,
+            33.0
+          ],
+          [
+            119.35,
+            32.2
+          ]
+        ],
+        "kind": "military",
+        "label": "渡江直取南京"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1399,
+        "title": "北平起兵",
+        "note": "建文削藩逼近，朱棣在北平以“靖难”为名举兵，凭边镇军力与南军在河北反复拉锯。",
+        "places": [
+          "beiping"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1401,
+        "title": "南下江淮",
+        "note": "久战北方难以速决，燕军决定避开部分重镇，经黄淮走廊直扑朝廷中枢。",
+        "places": [
+          "beiping",
+          "xuzhou"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1402,
+        "title": "渡江入南京",
+        "note": "水师将领陈瑄归降，燕军突破长江天险进入南京，朱棣即位并改元永乐。",
+        "places": [
+          "xuzhou",
+          "nanjing"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "distanceBetween": [
+      "beiping",
+      "nanjing"
     ],
     "sources": [
       {
         "title": "大都会艺术博物馆：中国 1400—1600 年",
         "url": "https://www.metmuseum.org/zh/toah/ht/08/eac"
-      },
-      {
-        "title": "大都会艺术博物馆：永乐朝的宫廷艺术与对外交往",
-        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf"
-      },
-      {
-        "title": "哥伦比亚大学：带注释的中国历史年表",
-        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
       },
       {
         "title": "故宫博物院：永乐皇帝",
@@ -223,41 +442,112 @@
         "title": "故宫博物院：靖难起家——朱棣",
         "url": "https://www.dpm.org.cn/explode/others/208160.html"
       }
-    ],
-    "from": 1399,
-    "to": 1402,
-    "distanceBetween": [
-      "beiping",
-      "nanjing"
     ]
   },
   {
     "id": "yongle-capitals",
     "year": 1421,
-    "title": "永乐迁都",
-    "summary": "京师北移，粮源仍在南方。清江浦是漕粮接续北运的要地。",
+    "title": "永乐迁都与大运河动脉",
+    "summary": "京师北移贴近边防，粮源却留在江南。开浚清江浦、打通京杭大运河，使北京得以依靠南方漕粮运转。",
+    "focusPolities": [
+      "Ming Dynasty"
+    ],
     "places": [
       {
-        "id": "beijing",
-        "name": "北京",
-        "lon": 116.4,
-        "lat": 39.9,
-        "role": "1421 年成为京师，靠近北部边防，城内所需的漕粮由南方运来。"
-      },
-      {
-        "id": "qingjiangpu",
-        "name": "清江浦",
-        "lon": 119.03,
-        "lat": 33.59,
-        "role": "今江苏淮安一带。1415 年陈瑄主持开河修闸，改善漕船衔接淮河的条件。"
+        "id": "suzhou",
+        "name": "苏州",
+        "lon": 120.62,
+        "lat": 31.3,
+        "role": "江南核心产粮与赋税区，大量北运漕粮由此起运。"
       },
       {
         "id": "nanjing",
         "name": "南京",
         "lon": 118.8,
         "lat": 32.06,
-        "role": "明初京师，迁都后仍是陪都，保留部分行政机构。"
+        "role": "明初京师，迁都后保留陪都与部分六部机构。"
+      },
+      {
+        "id": "qingjiangpu",
+        "name": "清江浦",
+        "lon": 119.03,
+        "lat": 33.59,
+        "role": "今江苏淮安一带。1415 年陈瑄开河修闸，省去盘坝过淮之苦，成为漕运咽喉。"
+      },
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "1421 年正式成为京师，贴近北部边防，日常粮米高度依赖运河补给。"
       }
+    ],
+    "routes": [
+      {
+        "from": "suzhou",
+        "to": "qingjiangpu",
+        "via": [
+          [
+            119.45,
+            32.39
+          ]
+        ],
+        "kind": "canal",
+        "label": "江南漕粮渡江入淮"
+      },
+      {
+        "from": "qingjiangpu",
+        "to": "beijing",
+        "via": [
+          [
+            116.59,
+            35.41
+          ],
+          [
+            115.71,
+            36.84
+          ],
+          [
+            117.2,
+            39.13
+          ]
+        ],
+        "kind": "canal",
+        "label": "经会通河直抵京师"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1415,
+        "title": "打通清江浦",
+        "note": "陈瑄主持开浚清江浦并建闸蓄水，配合疏浚山东会通河，南北内河漕运得以全线贯通。",
+        "places": [
+          "suzhou",
+          "nanjing",
+          "qingjiangpu"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1421,
+        "title": "正式迁都北京",
+        "note": "北京宫城落成、朝廷正式北迁，形成“政治与军防在北、财赋与粮源在南”的帝国格局。",
+        "places": [
+          "suzhou",
+          "qingjiangpu",
+          "beijing"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "distanceBetween": [
+      "nanjing",
+      "beijing"
     ],
     "sources": [
       {
@@ -275,32 +565,651 @@
     ]
   },
   {
+    "id": "zhenghe-voyages",
+    "year": 1421,
+    "from": 1405,
+    "to": 1433,
+    "title": "郑和下西洋的印度洋航路",
+    "summary": "永乐至宣德年间，官营宝船七次经东南亚与马六甲进入印度洋，直抵印度、波斯湾与东非海岸，嵌入早已活跃的季风贸易网。",
+    "focusPolities": [
+      "Ming Dynasty"
+    ],
+    "places": [
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "宝船建造与编组起点，船队经长江口刘家港出海。"
+      },
+      {
+        "id": "champa",
+        "name": "占城",
+        "lon": 109.22,
+        "lat": 13.78,
+        "role": "今越南中南部，船队南下南海的首要补给与分航节点。"
+      },
+      {
+        "id": "malacca",
+        "name": "马六甲",
+        "lon": 102.25,
+        "lat": 2.19,
+        "role": "扼守南海与印度洋的咽喉港口，船队在此设官厂囤粮候风。"
+      },
+      {
+        "id": "calicut",
+        "name": "古里",
+        "lon": 75.78,
+        "lat": 11.25,
+        "role": "今印度卡利卡特，印度洋香料贸易枢纽与船队西行重镇。"
+      },
+      {
+        "id": "hormuz",
+        "name": "霍尔木兹",
+        "lon": 56.45,
+        "lat": 27.06,
+        "role": "波斯湾口要港，第四次远航起船队由此连接西亚商路。"
+      },
+      {
+        "id": "mogadishu",
+        "name": "木骨都束",
+        "lon": 45.34,
+        "lat": 2.04,
+        "role": "今索马里摩加迪沙，船队远抵东非沿岸的重要停靠地。"
+      }
+    ],
+    "routes": [
+      {
+        "from": "nanjing",
+        "to": "malacca",
+        "via": [
+          [
+            121.3,
+            31.5
+          ],
+          [
+            118.5,
+            23.0
+          ],
+          [
+            109.22,
+            13.78
+          ],
+          [
+            105.0,
+            6.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "南海至马六甲"
+      },
+      {
+        "from": "malacca",
+        "to": "calicut",
+        "via": [
+          [
+            95.0,
+            6.0
+          ],
+          [
+            80.2,
+            6.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "横渡印度洋至古里"
+      },
+      {
+        "from": "calicut",
+        "to": "hormuz",
+        "via": [
+          [
+            65.0,
+            21.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "西入波斯湾"
+      },
+      {
+        "from": "calicut",
+        "to": "mogadishu",
+        "via": [
+          [
+            58.0,
+            8.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "远航东非沿岸"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1405,
+        "title": "首航印度洋",
+        "note": "船队从江南出海，经占城、马六甲抵达古里，建立沿线朝贡与官方交换网络。",
+        "places": [
+          "nanjing",
+          "champa",
+          "malacca",
+          "calicut"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1413,
+        "title": "抵波斯湾",
+        "note": "第四次远航突破古里，驶入波斯湾口霍尔木兹，将视野延伸至西亚。",
+        "places": [
+          "calicut",
+          "hormuz"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      },
+      {
+        "year": 1421,
+        "title": "远及东非",
+        "note": "船队分航东非木骨都束等地；1433 年第七次远航结束后，昂贵的官营远航停止，但民间海商继续活跃。",
+        "places": [
+          "calicut",
+          "hormuz",
+          "mogadishu"
+        ],
+        "routes": [
+          2,
+          3
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆：永乐朝的宫廷艺术与对外交往",
+        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf"
+      },
+      {
+        "title": "故宫博物院：永乐皇帝",
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+      },
+      {
+        "title": "郑和远航的停止与私人航海的兴起",
+        "url": "https://doi.org/10.1017/S2059163222000457"
+      }
+    ]
+  },
+  {
+    "id": "ming-nine-garrisons",
+    "year": 1449,
+    "from": 1449,
+    "to": 1566,
+    "title": "北方九边防线与江南市镇",
+    "summary": "土木之变后，明朝在北方逐步固化长城与九边军镇防线；同一时期，景德镇、苏州与浙闽沿海港口则在市场与海贸中不断生长。",
+    "focusPolities": [
+      "Ming Dynasty",
+      "Four Oirats",
+      "Northern Yuan"
+    ],
+    "places": [
+      {
+        "id": "xuanfu",
+        "name": "宣府",
+        "lon": 115.05,
+        "lat": 40.61,
+        "role": "拱卫京师的北方重镇，1449 年土木堡之变即发生在宣府以东的怀来一带。"
+      },
+      {
+        "id": "datong",
+        "name": "大同",
+        "lon": 113.3,
+        "lat": 40.08,
+        "role": "九边核心军镇，既直面草原骑兵，也是边地互市与军粮交易的前沿。"
+      },
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.4,
+        "lat": 39.9,
+        "role": "1449 年于谦组织京师保卫战守住都城，1550 年又遭俺答汗兵临近郊。"
+      },
+      {
+        "id": "jingdezhen",
+        "name": "景德镇",
+        "lon": 117.21,
+        "lat": 29.29,
+        "role": "明中叶御窑与民窑并盛的制瓷中心，产品经水路运往江南与海外。"
+      },
+      {
+        "id": "suzhou",
+        "name": "苏州",
+        "lon": 120.62,
+        "lat": 31.3,
+        "role": "江南丝织与手工业市场枢纽，汇聚原料、工匠与跨区商帮。"
+      },
+      {
+        "id": "shuangyu",
+        "name": "双屿港",
+        "lon": 122.15,
+        "lat": 29.73,
+        "role": "今浙江舟山海域。十六世纪中叶中国海商、日本银商与外商聚集的走私贸易据点。"
+      }
+    ],
+    "routes": [
+      {
+        "from": "datong",
+        "to": "beijing",
+        "via": [
+          [
+            115.05,
+            40.61
+          ]
+        ],
+        "kind": "frontier",
+        "directed": false,
+        "label": "京西九边防线"
+      },
+      {
+        "from": "beijing",
+        "to": [
+          119.75,
+          40.0
+        ],
+        "via": [
+          [
+            117.8,
+            40.4
+          ]
+        ],
+        "kind": "frontier",
+        "directed": false,
+        "label": "蓟辽长城防线"
+      },
+      {
+        "from": "jingdezhen",
+        "to": "shuangyu",
+        "via": [
+          [
+            120.62,
+            31.3
+          ]
+        ],
+        "kind": "trade",
+        "label": "瓷丝经江南流向沿海港口"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1449,
+        "title": "土木之变与京师防线",
+        "note": "瓦剌在大同、宣府一线南下，英宗在土木堡被俘；北京保卫战后，北方逐步筑墙固守九边。",
+        "places": [
+          "datong",
+          "xuanfu",
+          "beijing"
+        ],
+        "routes": [
+          0,
+          1
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Four Oirats"
+        ]
+      },
+      {
+        "year": 1550,
+        "title": "北虏南倭与江南市场",
+        "note": "1550 年俺答汗兵临北京求互市，同时江南丝瓷工坊与浙闽双屿等海港的走私贸易已超出洪武旧制。",
+        "places": [
+          "beijing",
+          "jingdezhen",
+          "suzhou",
+          "shuangyu"
+        ],
+        "routes": [
+          0,
+          1,
+          2
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Northern Yuan"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "戴维·鲁宾逊：十五世纪中叶危机中的将领与权威",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2C5745C9E62DB3BDF49D250DC026D4FC/S2059163224000379a.pdf/ability_and_authority_in_the_context_of_crisis_and_conflict_the_midfifteenth_century.pdf"
+      },
+      {
+        "title": "牛津亚洲史研究百科：十六世纪明朝的白银、海盗与消费",
+        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620"
+      },
+      {
+        "title": "故宫博物院：俺答汗",
+        "url": "https://www.dpm.org.cn/lemmas/243967.html"
+      }
+    ]
+  },
+  {
+    "id": "ming-global-silver",
+    "year": 1573,
+    "from": 1567,
+    "to": 1619,
+    "title": "跨洋白银网络：波托西、马尼拉与月港",
+    "summary": "美洲与日本的白银经由太平洋大帆船和东亚海域汇入福建月港，通过一条鞭法渗入明朝的农田税赋、江南市镇与北方边饷。",
+    "focusPolities": [
+      "Ming Dynasty",
+      "Spanish Empire",
+      "Warring States Japan"
+    ],
+    "places": [
+      {
+        "id": "potosi",
+        "name": "波托西",
+        "lon": -65.75,
+        "lat": -19.58,
+        "role": "安第斯高原巨型银矿，十六世纪后期成为全球白银的核心产区。"
+      },
+      {
+        "id": "acapulco",
+        "name": "阿卡普尔科",
+        "lon": -99.89,
+        "lat": 16.85,
+        "role": "西班牙美洲太平洋港口，马尼拉大帆船由此满载白银西航。"
+      },
+      {
+        "id": "manila",
+        "name": "马尼拉",
+        "lon": 120.98,
+        "lat": 14.6,
+        "role": "西班牙在菲律宾的贸易据点，美洲白银在此与中国丝绸、瓷器直接交换。"
+      },
+      {
+        "id": "yuegang",
+        "name": "月港",
+        "lon": 117.78,
+        "lat": 24.44,
+        "role": "今福建漳州龙海。1567 年隆庆开海后朝廷唯一许可民间出洋贸易的港口。"
+      },
+      {
+        "id": "nagasaki",
+        "name": "长崎",
+        "lon": 129.87,
+        "lat": 32.75,
+        "role": "日本白银外流东亚海域的重要港口。"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "江南商号、丝织业与晚明商业出版中心，承接沿海流入的白银。"
+      }
+    ],
+    "routes": [
+      {
+        "from": "potosi",
+        "to": "acapulco",
+        "via": [
+          [
+            -77.0,
+            -12.0
+          ],
+          [
+            -85.0,
+            5.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "安第斯白银北运墨西哥"
+      },
+      {
+        "from": "acapulco",
+        "to": "manila",
+        "via": [
+          [
+            -145.0,
+            14.0
+          ],
+          [
+            165.0,
+            14.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "马尼拉大帆船横渡太平洋"
+      },
+      {
+        "from": "manila",
+        "to": "yuegang",
+        "via": [
+          [
+            119.5,
+            20.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "大帆船白银汇入月港"
+      },
+      {
+        "from": "nagasaki",
+        "to": "yuegang",
+        "via": [
+          [
+            124.0,
+            28.0
+          ]
+        ],
+        "kind": "trade",
+        "label": "日本白银流入东南沿海"
+      },
+      {
+        "from": "yuegang",
+        "to": "nanjing",
+        "via": [
+          [
+            119.2,
+            27.5
+          ]
+        ],
+        "kind": "trade",
+        "label": "白银经商号渗入江南内地"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1567,
+        "title": "隆庆开海",
+        "note": "明廷在福建月港实行有限开海，允许商船领照出洋，沿海贸易由走私转为可征税的公开渠道。",
+        "places": [
+          "yuegang",
+          "nagasaki",
+          "nanjing"
+        ],
+        "routes": [
+          3,
+          4
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Warring States Japan"
+        ]
+      },
+      {
+        "year": 1573,
+        "title": "马尼拉大帆船通航",
+        "note": "满载波托西与墨西哥白银的西班牙大帆船直抵马尼拉，中国海商运去丝绸与瓷器换回大量白银。",
+        "places": [
+          "potosi",
+          "acapulco",
+          "manila",
+          "yuegang"
+        ],
+        "routes": [
+          0,
+          1,
+          2
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Spanish Empire"
+        ]
+      },
+      {
+        "year": 1581,
+        "title": "一条鞭法普及",
+        "note": "张居正推动赋役归并折银，跨洋而来的白银由此连结起江南农家税赋、城市消费与北方边防军饷。",
+        "places": [
+          "manila",
+          "yuegang",
+          "nagasaki",
+          "nanjing"
+        ],
+        "routes": [
+          2,
+          3,
+          4
+        ],
+        "focusPolities": [
+          "Ming Dynasty",
+          "Spanish Empire"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "嘉靖倭患与 1567 年海禁政策的改变",
+        "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf"
+      },
+      {
+        "title": "牛津亚洲史研究百科：十六世纪明朝的白银、海盗与消费",
+        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620"
+      },
+      {
+        "title": "《考古计量学》：结合史料与科学分析研究美洲白银流通",
+        "url": "https://doi.org/10.1111/arcm.12617"
+      },
+      {
+        "title": "汉学家 John W. Dardess：张居正与明代税制改革",
+        "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf"
+      }
+    ]
+  },
+  {
     "id": "imjin-frontier",
     "year": 1592,
+    "from": 1592,
+    "to": 1598,
     "title": "壬辰战争中的朝鲜半岛",
-    "summary": "日军从半岛南端登陆后向北推进。朝鲜朝廷退至鸭绿江边，战事由此牵动明朝辽东。",
+    "summary": "丰臣秀吉军队自釜山登陆直逼平壤，朝鲜国王退至鸭绿江畔义州。明军跨江援朝，东亚三国在半岛展开七年拉锯。",
+    "focusPolities": [
+      "Ming Dynasty",
+      "Joseon",
+      "Warring States Japan"
+    ],
     "places": [
       {
         "id": "busan",
         "name": "釜山",
         "lon": 129.05,
         "lat": 35.1,
-        "role": "半岛东南端的港口，1592 年日军从这里登陆。"
+        "role": "半岛东南端港口，1592 年日军登陆与海上补给门户。"
+      },
+      {
+        "id": "seoul",
+        "name": "汉城",
+        "lon": 126.98,
+        "lat": 37.57,
+        "role": "朝鲜王朝都城，日军登陆后迅速攻占，成为中部战区核心。"
       },
       {
         "id": "pyongyang",
         "name": "平壤",
         "lon": 125.75,
         "lat": 39.03,
-        "role": "日军占据的北部重镇，翌年由明军与朝鲜军队收复。"
+        "role": "半岛北部重镇，1593 年初由明军与朝鲜军队联手收复。"
       },
       {
         "id": "uiju",
         "name": "义州",
         "lon": 124.53,
         "lat": 40.2,
-        "role": "鸭绿江东岸，朝鲜国王退守于此并向明廷求援。"
+        "role": "鸭绿江东岸，朝鲜宣祖退守于此求援，战火已贴近明朝辽东。"
       }
+    ],
+    "routes": [
+      {
+        "from": "busan",
+        "to": "pyongyang",
+        "via": [
+          [
+            126.98,
+            37.57
+          ]
+        ],
+        "kind": "military",
+        "label": "日军自釜山北进"
+      },
+      {
+        "from": "uiju",
+        "to": "pyongyang",
+        "kind": "military",
+        "label": "明军跨鸭绿江南下援朝"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1592,
+        "title": "日军北进逼近鸭绿江",
+        "note": "日军从釜山登陆，相继占领汉城和平壤，朝鲜朝廷退至义州向明廷告急。",
+        "places": [
+          "busan",
+          "seoul",
+          "pyongyang",
+          "uiju"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1593,
+        "title": "明朝联军收复平壤",
+        "note": "明军主力跨过鸭绿江与朝鲜军队收复平壤，朝鲜水军同时在海上截击日军补给，战局转入拉锯。",
+        "places": [
+          "uiju",
+          "pyongyang",
+          "seoul"
+        ],
+        "routes": [
+          1
+        ]
+      },
+      {
+        "year": 1598,
+        "title": "战事结束与余波",
+        "note": "1597 年战事再起，次年日军撤退。明朝耗费巨额边饷，辽东防务格局也随之改变。",
+        "places": [
+          "busan",
+          "seoul",
+          "pyongyang"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "distanceBetween": [
+      "busan",
+      "uiju"
     ],
     "sources": [
       {
@@ -315,42 +1224,152 @@
         "title": "韩国学中央研究院：壬辰战争",
         "url": "https://encykorea.aks.ac.kr/Article/E0047674"
       }
-    ],
-    "from": 1592,
-    "to": 1598
+    ]
   },
   {
     "id": "ming-beijing-1644",
     "year": 1644,
-    "title": "北京与山海关",
-    "summary": "大顺先进入北京，明军仍守山海关。清军从关外入关，在击败大顺后才占北京。",
+    "title": "1644：从辽西走廊到山海关与南明",
+    "summary": "李自成由西安东进先入北京，吴三桂仍守燕山与渤海间的山海关；清军自盛京入关击败大顺后占据北京，战争随即沿运河与长江向江南延续。",
+    "focusPolities": [
+      "Ming Dynasty",
+      "Qing Dynasty"
+    ],
     "places": [
+      {
+        "id": "xian",
+        "name": "西安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "李自成建立大顺政权并挥师东进北京的出发基地。"
+      },
       {
         "id": "beijing",
         "name": "北京",
         "lon": 116.4,
         "lat": 39.9,
-        "role": "李自成先取北京，随后撤离。清军接着入城，清廷迁都于此。"
+        "role": "1644 年春先被大顺军攻占，崇祯自尽；大顺败退后清军入城并迁都于此。"
       },
       {
         "id": "shanhaiguan",
         "name": "山海关",
         "lon": 119.75,
-        "lat": 40,
-        "role": "位于燕山与渤海之间。明将吴三桂守关，并在大顺进攻时向清廷求援。"
+        "lat": 40.0,
+        "role": "夹在燕山与渤海之间的狭长关隘，吴三桂守关并在大顺进逼时向清廷求援。"
       },
       {
         "id": "shenyang",
         "name": "沈阳",
         "lon": 123.43,
         "lat": 41.8,
-        "role": "入关之前的清廷都城，当时称盛京。"
+        "role": "入关之前的清廷都城盛京，多尔衮率八旗由此西出辽西走廊。"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.8,
+        "lat": 32.06,
+        "role": "北京失守后明臣拥立福王建立弘光政权，1645 年清军攻克南京后抵抗继续南移。"
       }
+    ],
+    "routes": [
+      {
+        "from": "xian",
+        "to": "beijing",
+        "via": [
+          [
+            112.55,
+            37.87
+          ]
+        ],
+        "kind": "military",
+        "label": "大顺军东进北京"
+      },
+      {
+        "from": "shenyang",
+        "to": "beijing",
+        "via": [
+          [
+            121.1,
+            41.1
+          ],
+          [
+            119.75,
+            40.0
+          ]
+        ],
+        "kind": "military",
+        "label": "清军经辽西走廊入山海关"
+      },
+      {
+        "from": "beijing",
+        "to": "nanjing",
+        "via": [
+          [
+            117.18,
+            34.26
+          ]
+        ],
+        "kind": "military",
+        "label": "清军南下江南"
+      }
+    ],
+    "steps": [
+      {
+        "year": 1644,
+        "title": "大顺军入北京",
+        "note": "李自成自西安经山西挥师直扑京师，1644 年春进入北京，崇祯自尽；此时吴三桂仍握兵守山海关。",
+        "places": [
+          "xian",
+          "beijing",
+          "shanhaiguan"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1644,
+        "title": "山海关决战与清军入关",
+        "note": "大顺军东攻山海关，吴三桂引清军入关击败大顺；清军随即进占北京并定为新都。",
+        "places": [
+          "shenyang",
+          "shanhaiguan",
+          "beijing"
+        ],
+        "routes": [
+          1
+        ]
+      },
+      {
+        "year": 1645,
+        "title": "南明与全国拉锯",
+        "note": "1645 年清军南下攻克南京弘光朝廷，但南明与郑氏在福建、西南和台湾的抵抗仍延续数十年。",
+        "places": [
+          "beijing",
+          "nanjing"
+        ],
+        "routes": [
+          2
+        ],
+        "focusPolities": [
+          "Qing Dynasty",
+          "Southern Ming"
+        ]
+      }
+    ],
+    "distanceBetween": [
+      "shenyang",
+      "beijing"
     ],
     "sources": [
       {
         "title": "故宫博物院：清廷迁都北京",
         "url": "https://www.dpm.org.cn/court/event/159873.html"
+      },
+      {
+        "title": "故宫博物院：李自成",
+        "url": "https://www.dpm.org.cn/lemmas/243081.html"
       },
       {
         "title": "《现代亚洲研究》：中国、朝鲜与日本笔下的明清易代",

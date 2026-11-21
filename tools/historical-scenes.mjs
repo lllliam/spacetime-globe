@@ -12,6 +12,11 @@ function distanceLabel(first, second) {
   return first.name + '至' + second.name + ' · 直线' + distance;
 }
 
+const ROUTE_KINDS = new Set(['military', 'trade', 'canal', 'frontier']);
+const validCoord = (pair) => Array.isArray(pair) && pair.length === 2 &&
+  Number.isFinite(pair[0]) && Math.abs(pair[0]) <= 180 &&
+  Number.isFinite(pair[1]) && Math.abs(pair[1]) <= 90;
+
 export function loadHistoricalScenes(root, books, topics) {
   const records = JSON.parse(readFileSync(join(root, 'data/scenes.json'), 'utf8'));
   const topicEvents = new Map(topics.flatMap(topic => topic.chapters.filter(chapter => chapter.mapStory)
@@ -44,6 +49,27 @@ export function loadHistoricalScenes(root, books, topics) {
       scene.places.every(p => p.id && p.name && p.role && Number.isFinite(p.lon) && Math.abs(p.lon) <= 180 &&
         Number.isFinite(p.lat) && Math.abs(p.lat) <= 90), id + ' 地点');
     require(scene.sources?.length && scene.sources.every(s => s?.title && /^https:\/\//.test(s.url)), id + ' 来源');
+    const placeIds = new Set(scene.places.map(p => p.id));
+    if (scene.routes !== undefined) {
+      require(Array.isArray(scene.routes) && scene.routes.every(r =>
+        r && (placeIds.has(r.from) || validCoord(r.from)) && (placeIds.has(r.to) || validCoord(r.to)) &&
+        (r.via === undefined || (Array.isArray(r.via) && r.via.every(validCoord))) &&
+        (r.kind === undefined || ROUTE_KINDS.has(r.kind)) &&
+        (r.label === undefined || typeof r.label === 'string')
+      ), id + ' 路线');
+    }
+    if (scene.focusPolities !== undefined) {
+      require(Array.isArray(scene.focusPolities) && scene.focusPolities.every(name => typeof name === 'string' && name.length > 0), id + ' 关联政权');
+    }
+    if (scene.steps !== undefined) {
+      const routeCount = scene.routes?.length || 0;
+      require(Array.isArray(scene.steps) && scene.steps.length >= 2 && scene.steps.every(step =>
+        step && validYear(step.year) && step.title && step.note &&
+        (step.places === undefined || (Array.isArray(step.places) && step.places.every(pid => placeIds.has(pid)))) &&
+        (step.routes === undefined || (Array.isArray(step.routes) && step.routes.every(idx => Number.isInteger(idx) && idx >= 0 && idx < routeCount))) &&
+        (step.focusPolities === undefined || (Array.isArray(step.focusPolities) && step.focusPolities.every(name => typeof name === 'string' && name.length > 0)))
+      ), id + ' 演进步骤');
+    }
     if (scene.distanceBetween !== undefined) {
       require(Array.isArray(scene.distanceBetween) && scene.distanceBetween.length === 2, id + ' 距离地点');
       const [first, second] = scene.distanceBetween.map(key => scene.places.find(place => place.id === key));

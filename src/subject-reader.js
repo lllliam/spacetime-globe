@@ -116,11 +116,38 @@ function renderSubjectOutline(book) {
 }
 
 function sceneButton(scene) {
-  const places = scene.places.slice(0, 3).map(place => place.name).join('、') + (scene.places.length > 3 ? '等地点' : '');
+  const places = scene.places.slice(0, 3).map(place => place.name).join('、') + (scene.places.length > 3 ? '等 ' + scene.places.length + ' 处地点' : '');
+  const badges = [];
+  if (scene.routes?.length) badges.push('含路线');
+  if (scene.steps?.length) badges.push(scene.steps.length + ' 步推演');
+  if (scene.focusPolities?.length > 1) badges.push(scene.focusPolities.length + ' 方政权');
+  const badgeHtml = badges.length
+    ? '<span class="subject-scene-badges">' + badges.map(b => '<em>' + esc(b) + '</em>').join('') + '</span>'
+    : '';
+  const verb = isSplitReading() ? '联动地球 · ' : '在地球上看 · ';
   return '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) + '">' +
-    '<span><strong>在地球上看 · ' + esc(scene.title) + '</strong><small>' +
-    esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small></span>' +
+    '<span><strong>' + verb + esc(scene.title) + '</strong><small>' +
+    esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small>' + badgeHtml + '</span>' +
     '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/><path d="M3.5 12h17M5.5 7.5h13m-13 9h13"/></svg></button>';
+}
+
+function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
+  if (!placeMatchers.length) return esc(text);
+  let html = esc(text);
+  for (const item of placeMatchers) {
+    if (linkedPlaces.has(item.key)) continue;
+    const escapedName = esc(item.name);
+    const idx = html.indexOf(escapedName);
+    if (idx < 0) continue;
+    // Avoid replacing inside an already-inserted HTML tag
+    const before = html.slice(0, idx);
+    if ((before.match(/<button/g) || []).length > (before.match(/<\/button>/g) || []).length) continue;
+    linkedPlaces.add(item.key);
+    const btn = '<button type="button" class="inline-place" data-pin-scene="' + esc(item.sceneId) +
+      '" data-pin-place="' + esc(item.placeId) + '" title="在地球上定位：' + escapedName + '">' + escapedName + '</button>';
+    html = before + btn + html.slice(idx + escapedName.length);
+  }
+  return html;
 }
 
 function renderSubjectChapter(book, chapter) {
@@ -139,22 +166,80 @@ function renderSubjectChapter(book, chapter) {
       sources.push(source);
     }
   }
+  // Build inline place matchers from chapter scenes (longer names first)
+  const placeMatchers = [];
+  const seenNames = new Set();
+  for (const { scene } of scenes) {
+    for (const p of scene.places) {
+      if (p.name.length < 2 || seenNames.has(p.name)) continue;
+      seenNames.add(p.name);
+      placeMatchers.push({ key: scene.id + ':' + p.id, name: p.name, sceneId: scene.id, placeId: p.id });
+    }
+  }
+  placeMatchers.sort((a, b) => b.name.length - a.name.length);
+  const linkedPlaces = new Set();
+
   const related = (chapter.related || []).map((link) => {
     const attrs = link.book ? ' data-subject-book="' + esc(link.book) + '" data-subject-chapter="' + esc(link.chapter || '') + '"'
       : ' data-reading-topic="' + esc(link.topic) + '" data-reading-chapter="' + esc(link.chapter || '') + '"';
     return '<button type="button"' + attrs + '>' + esc(link.label) + readingArrow + '</button>';
   }).join('');
+
+  const contemporaries = (chapter.contemporaries || []).length
+    ? '<section class="subject-contemporaries"><h2>同一时期的地球</h2><div class="contemporary-grid">' +
+      chapter.contemporaries.map((item) => {
+        const target = subjectsById.get(item.book);
+        return '<button type="button" class="reading-card contemporary-card" data-subject-book="' + esc(item.book) +
+          '" data-subject-chapter="' + esc(item.chapter || '') + '">' +
+          '<small>' + esc(item.year ? fmtYear(item.year) + ' 年 · ' : '') + esc(target?.title || '') + '</small>' +
+          '<strong>' + esc(item.label) + '</strong><span>' + esc(item.note) + '</span>' + readingArrow + '</button>';
+      }).join('') + '</div></section>'
+    : '';
+
+  const thesisHtml = chapter.spatialThesis
+    ? '<div class="subject-thesis"><span>空间线索</span><p>' + esc(chapter.spatialThesis) + '</p></div>'
+    : '';
+
   return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
-    '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) =>
-      '<p>' + esc(paragraph.text) + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
-      (!worldEvent ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '')).join('') + '</article>' +
+    thesisHtml +
+    '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {
+      const headingHtml = paragraph.heading
+        ? '<h2 class="subject-section-heading">' + esc(paragraph.heading) + '</h2>'
+        : '';
+      const calloutHtml = paragraph.callout
+        ? '<aside class="subject-callout"><small>' + esc(paragraph.callout.label) + '</small>' +
+          (paragraph.callout.title ? '<strong>' + esc(paragraph.callout.title) + '</strong>' : '') +
+          '<p>' + esc(paragraph.callout.text) + '</p></aside>'
+        : '';
+      const bodyHtml = decorateParagraphPlaces(paragraph.text, placeMatchers, linkedPlaces);
+      return headingHtml +
+        '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
+        calloutHtml +
+        (!worldEvent ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
+    }).join('') + '</article>' +
+    contemporaries +
     (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
       (next ? subjectChapterButton(next.id, '下一章 · ' + next.title) : '') +
       (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' : '') +
     (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
       related + '</nav></details>' : '') +
     sourcesMarkup(sources);
+}
+
+function syncSubjectGlobeForReading(book, chapter) {
+  if (!isSplitReading() || !book) return;
+  const firstRef = chapter?.sceneRefs?.[0] || book.chapters.find((c) => c.sceneRefs?.length)?.sceneRefs?.[0];
+  if (firstRef) {
+    const sc = historicalScenes.get(firstRef.id);
+    if (sc) { syncSplitScene(sc, { force: true }); return; }
+  }
+  clearSplitScene();
+  const targetYear = chapter ? chapter.from : clamp(reading.year, book.from, book.to ?? book.from);
+  if (state.year !== targetYear) {
+    state.year = targetYear;
+    onYearChanged();
+  }
 }
 
 function renderSubjectLibrary() {
@@ -190,5 +275,8 @@ function handleSubjectButton(button) {
     const chapter = reading.subject?.chapters.find((c) => c.id === reading.detail);
     const id = button.dataset.subjectScene;
     if (chapter?.sceneRefs?.some(ref => ref.id === id)) openReadingScene(historicalScenes.get(id), button);
+  } else if (button.hasAttribute('data-pin-scene')) {
+    const sc = historicalScenes.get(button.dataset.pinScene);
+    if (sc) openReadingScene(sc, button, { initialPlaceId: button.dataset.pinPlace });
   }
 }
