@@ -864,9 +864,9 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #book-body .reading-filters button[aria-pressed="true"]{border-color:var(--vermilion);background:var(--vermilion-soft);color:var(--vermilion)}
 #book-body .inline-place{color:var(--indigo);border-color:var(--indigo)}
 /* Scrollable, single-line chapters retain the complete titles in an accessible list. */
-.chapter-ribbon{display:flex;gap:7px;overflow:auto;overscroll-behavior-x:contain;scrollbar-width:none;max-width:100%;padding:2px 0 13px;margin:0 0 16px;border-bottom:1px solid var(--paper-border)}
+.chapter-ribbon{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;max-width:100%;padding:2px 22px 13px 0;margin:0 0 16px;border-bottom:1px solid var(--paper-border);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%)}
 .chapter-ribbon::-webkit-scrollbar{display:none}
-.chapter-chip{flex:none;min-height:32px;padding:5px 10px;border:1px solid var(--paper-border);border-radius:8px;background:transparent;color:var(--paper-muted);font:500 12px/1.4 var(--font-serif);white-space:nowrap;cursor:pointer}
+.chapter-chip{flex:none;max-width:none;overflow:visible;text-overflow:clip;min-height:32px;padding:5px 10px;border:1px solid var(--paper-border);border-radius:8px;background:transparent;color:var(--paper-muted);font:500 12px/1.4 var(--font-serif);white-space:nowrap;cursor:pointer}
 .chapter-chip[aria-current="page"]{background:var(--paper-ink);border-color:var(--paper-ink);color:var(--paper-bg)}
 /* Scene plate, not a generic action row. No new geographic data is fabricated. */
 #book-body .subject-scene.scene-plate{display:flex;flex-direction:column;align-items:stretch;gap:7px;margin:17px 0 23px;padding:12px 14px;border:1px solid var(--paper-border);border-radius:12px;background:var(--paper-surface);color:var(--paper-body);width:100%;text-align:left}
@@ -1008,6 +1008,12 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   body.reading-open #reading-grab{display:none}
   body.reading-open #book-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding-top:4px}
   body.reading-open.reader-gesture #sheet{touch-action:none}
+}
+
+/* v8.1 · Safe-area math matches the 70px sheet header and its JS offset. */
+@media(max-width:959px){
+  body.reading-open #book{top:calc(70px + var(--safe-t));height:var(--book-visible-height,calc(58dvh - 70px - var(--safe-t)));min-height:0}
+  body.reading-open #book-body{padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));scroll-padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
 }
 
 /* 沉浸首页，工具按需出现。 */
@@ -1193,6 +1199,12 @@ body.reading-open.reading-split #year-control,body.reading-open.reading-split #h
 #year-form #year-input{grid-column:1;grid-row:auto}
 #year-form button[type="submit"]{grid-column:2}
 #year-form .year-milestones{justify-items:stretch}
+
+/* v8.1 · Scene cards and reading content are mutually exclusive with HUD actions. */
+body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
+body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!important;opacity:0;pointer-events:none!important}
+/* Passive full-screen decoration must never swallow globe taps. */
+#scrim,#event-map-points,#vec{pointer-events:none}
 
 </style>
 </head>
@@ -3001,7 +3013,7 @@ canvas.addEventListener('pointerdown', (e) => {
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   const dismissedYear = dismissYearFromGlobe();
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0, dismissedYear });
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, t:performance.now(), moved:0, dismissedYear });
   if (pointers.size === 1) {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
@@ -3022,7 +3034,8 @@ canvas.addEventListener('pointermove', (e) => {
   const p = pointers.get(e.pointerId);
   if (!p) return;
   const dx = e.clientX - p.x, dy = e.clientY - p.y;
-  p.moved += Math.abs(dx) + Math.abs(dy);
+  // Small iOS pointer jitter should not make an otherwise stationary tap disappear.
+  p.moved = Math.max(p.moved, Math.hypot(e.clientX - p.startX, e.clientY - p.startY));
   p.x = e.clientX; p.y = e.clientY;
   if (pointers.size === 2 && pinch) {
     const [a, b] = [...pointers.values()];
@@ -3123,10 +3136,20 @@ function zoomTo(z, ax, ay) {
   zoomAnim = requestAnimationFrame(step);
 }
 
+let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
   if (chrome.natural) return;
+  // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
+  if (state.layerId === 'polity' && !polityState.loaded) {
+    if (!polityState.error && mapPointAt(sx, sy)) {
+      pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
+        zoom:state.zoom, panX:state.panX, panY:state.panY};
+      ensurePolity();
+    }
+    return;
+  }
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id, mapPointAt(sx, sy));
@@ -3137,7 +3160,7 @@ function tapGlobe(sx, sy) {
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-const SHEET_BOTTOM_GAP = 16;
+const SHEET_BOTTOM_GAP = 16, SHEET_BOOK_HEADER = 70;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
@@ -3152,7 +3175,7 @@ function applySheetOffset(offset, animate = true) {
   if (!Number.isFinite(offset)) offset = Number.isFinite(sheetState.offset) ? sheetState.offset : H;
   sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
-  sheetEl.style.transform = 'translateY(' + Math.round(offset) + 'px)';
+  sheetEl.style.transform = 'translate3d(0,' + Math.round(offset) + 'px,0)';
   const d = sheetDetents();
   const show = offset < H - 2;
   /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
@@ -3160,7 +3183,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - 69) + 'px');
+  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOOK_HEADER - (view.safeTop || 0)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -3256,6 +3279,7 @@ function sheetDragStart(e) {
   sheetState.pointerId = e.pointerId;
   sheetState.startY = sheetState.lastY = e.clientY;
   sheetState.startOffset = sheetState.offset;
+  sheetState.startDetent = sheetState.detent;
   sheetState.lastT = e.timeStamp;
   sheetState.samples = [{ y: e.clientY, t: sheetState.lastT }];
   sheetState.distance = sheetState.vy = 0;
@@ -3304,18 +3328,28 @@ function sheetDragEnd(e) {
   const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
   const velocity = elapsed < 110 ? sheetState.vy : 0;
   sheetVelocity = clamp(velocity, -1600, 1600);
-  if (cancelled) { sheetTo(sheetState.detent === 'peek' ? 'peek' : 'half'); return; }
-  const vy = velocity / 1000; // pixels / ms, matched to the iOS reader flick threshold
-  if (vy < -0.42) {
-    if (sheetState.detent === 'peek') sheetTo('half');
+  const original = sheetState.startDetent === 'peek' ? 'peek' : 'half';
+  if (cancelled) { sheetTo(original); return; }
+  const vy = velocity / 1000; // pixels / ms
+  const d = sheetDetents();
+  const pastPeek = sheetState.startOffset + sheetState.distance - d.peek;
+  const down = sheetState.distance > 8;
+  // A second downward swipe at peek dismisses the sheet instead of getting stuck.
+  if (original === 'peek' && down && (vy > .38 || pastPeek > 48)) {
+    closeSheet();
+  } else if (original === 'half' && down && vy > .9 && pastPeek > 48) {
+    closeSheet();
+  } else if (vy < -.42) {
+    if (original === 'peek') sheetTo('half');
     else enterSheetReading();
-  } else if (vy > 0.42) {
+  } else if (vy > .42) {
     sheetTo('peek');
+  } else if (original === 'peek' && down && pastPeek > 48) {
+    closeSheet();
+  } else if (sheetState.offset < d.half * .46) {
+    enterSheetReading();
   } else {
-    const d = sheetDetents();
-    // Pulling far above half opens the article; nearest remaining detent otherwise.
-    if (sheetState.offset < d.half * .46) enterSheetReading();
-    else sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
+    sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
   }
 }
 
@@ -3327,13 +3361,23 @@ sheetEl.addEventListener('pointercancel', sheetDragEnd);
 sheetEl.addEventListener('lostpointercapture', sheetDragEnd);
 addEventListener('pointerup', sheetDragEnd);
 addEventListener('blur', sheetDragEnd);
-grabEl.addEventListener('click', () => {
-  if (!sheetState.suppressClick && !reading.active) enterSheetReading();
+function openPeekProgressively() {
+  if (sheetState.detent !== 'peek') { enterSheetReading(); return; }
+  const f = state.focus;
+  const ent = f && entityByKey(f.layerId, f.key, f.id);
+  if (ent && subjectBookForEntity(ent)) enterSheetReading();
+  else sheetTo('half');
+}
+grabEl.addEventListener('click', (event) => {
+  if (sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
+  // A deliberate tap on the grip means 'put the book away', not 'back through pages'.
+  if (reading.active && innerWidth < 960) mobileReaderSnap('peek');
+  else if (!reading.active) openPeekProgressively();
 });
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
   if (event.target.closest('button, a, input, select, summary')) return;
-  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) enterSheetReading();
+  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) openPeekProgressively();
 });
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
@@ -3865,7 +3909,7 @@ function renderReadingArticle(topic, items, item) {
     (next ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
     sourcesMarkup(item.sources) + catalogNavigation();
 }
-function renderReading() {
+function renderReading({ preserveSplitScene = false } = {}) {
   if (reading.active) readingBackground(true);
   if (reading.catalog) { clearSplitScene(); renderReadingCatalog(); return; }
   if (reading.library) { clearSplitScene(); renderSubjectLibrary(); return; }
@@ -3878,7 +3922,8 @@ function renderReading() {
       : renderAtlasReading();
     bookBody.scrollTop = chapter ? reading.detailScroll : reading.scroll;
     if (subject && isSplitReading()) {
-      syncSubjectGlobeForReading(subject, chapter);
+      // Opening the table of contents must not jump the globe back to the first scene.
+      if (!preserveSplitScene) syncSubjectGlobeForReading(subject, chapter);
     } else {
       clearSplitScene();
     }
@@ -3912,8 +3957,9 @@ function readingIndex() {
   const selected = reading.detail;
   rememberReading();
   reading.linkEntry = false;
+  const preserveSplitScene = Boolean(isSplitReading() && reading.subject && splitScene);
   reading.detail = null;
-  renderReading();
+  renderReading({preserveSplitScene});
   const row = [...bookBody.querySelectorAll('.reading-row')].find((button) => button.dataset.readingDetail === selected);
   (row || el('reading-title')).focus({ preventScroll: true });
 }
@@ -3927,7 +3973,7 @@ function readingGoBack() {
   } else if (reading.detail !== null) readingIndex();
   else collapseReader();
 }
-function closeReader({restore = true} = {}) {
+function closeReader({restore = true, returnToOrigin = true} = {}) {
   if (!reading.active) return;
   rememberReading();
   stopReaderMotion();
@@ -3935,6 +3981,8 @@ function closeReader({restore = true} = {}) {
   readerDrag = null;
   readerTouch = null;
   cancelMobileReaderMotion();
+  cancelAnimationFrame(mobileGlobeFrame);
+  mobileGlobeFrame = 0;
   mobileReaderDrag = null;
   sheetEl.classList.remove('dragging');
   document.body.classList.remove('reader-gesture');
@@ -3969,9 +4017,10 @@ function closeReader({restore = true} = {}) {
   syncSheetIdentity();
   const returnTo = reading.returnTo;
   reading.returnTo = null;
-  if (restore && returnTo) { returnTo(); invalidate(); return; }
+  if (restore && returnToOrigin && returnTo) { returnTo(); invalidate(); return; }
   const fallback = sheetInner.querySelector('[data-read-subject]') || grabEl;
-  (reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger : fallback).focus({ preventScroll: true });
+  (returnToOrigin && reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger :
+    (snap.focus ? fallback : canvas)).focus({ preventScroll: true });
   invalidate();
 }
 function handleReadingKey(e) {
@@ -4033,13 +4082,19 @@ bookBody.addEventListener('click', (e) => {
   else handleSubjectButton(b);
 });
 readingBack.addEventListener('click', readingGoBack);
+function dismissReadingToGlobe() {
+  if (!reading.active) return;
+  const hadFocus = Boolean(reading.snapshot?.focus);
+  closeReader({returnToOrigin:false});
+  if (hadFocus) sheetTo('peek',false);
+}
 readingGrab.addEventListener('click', (e) => {
-  if (!e.detail || e.timeStamp - readerLastDrag > 300) collapseReader();
+  if (!e.detail || e.timeStamp - readerLastDrag > 300) dismissReadingToGlobe();
 });
 readingGrab.addEventListener('keydown', (e) => {
   if (e.key !== 'ArrowDown') return;
   e.preventDefault();
-  collapseReader();
+  dismissReadingToGlobe();
 });
 bookBar.addEventListener('pointerdown', readerDragStart);
 bookBar.addEventListener('lostpointercapture', readerDragEnd);
@@ -4094,20 +4149,42 @@ function setReadingViewMode(mode) {
  * Book scroll position and the real WebGL globe remain owned by the existing modules. */
 const mobileSheetTop = el('sheet-top');
 let mobileReaderDrag = null, mobileReaderMotion = 0, mobileScrollHandoff = null;
+let mobileGlobeFrame = 0, mobileGlobeOffset = null;
 function cancelMobileReaderMotion() {
   cancelAnimationFrame(mobileReaderMotion);
   mobileReaderMotion = 0;
 }
-function mobileReaderPaint(offset) {
-  const H = view.h || innerHeight, d = sheetDetents();
-  let next = offset;
-  if (next > d.peek) next = d.peek + (next - d.peek) * .22;
-  if (next < 0) next *= .22;
-  applySheetOffset(next, false);
-  const exposure = clamp((H - Math.max(0, next) - 118) / Math.max(1, H * .58 - 118), 0, 1);
+function updateMobileGlobeCenter(offset) {
+  const H = view.h || innerHeight;
+  const exposure = clamp((H - Math.max(0, offset) - 118) / Math.max(1, H * .58 - 118), 0, 1);
   view.cyBase = H * (.515 - .29 * exposure);
   view.cy = view.cyBase;
   invalidate();
+}
+function queueMobileGlobeFrame(offset) {
+  mobileGlobeOffset = offset;
+  if (mobileGlobeFrame) return;
+  mobileGlobeFrame = requestAnimationFrame(() => {
+    mobileGlobeFrame = 0;
+    if (reading.active && innerWidth < 960) updateMobileGlobeCenter(mobileGlobeOffset);
+  });
+}
+function flushMobileGlobeFrame(offset) {
+  if (mobileGlobeFrame) cancelAnimationFrame(mobileGlobeFrame);
+  mobileGlobeFrame = 0;
+  if (reading.active && innerWidth < 960) updateMobileGlobeCenter(offset);
+}
+function mobileReaderPaint(offset) {
+  const d = sheetDetents();
+  let next = offset;
+  if (next > d.peek) next = d.peek + (next - d.peek) * .22;
+  if (next < 0) next *= .22;
+  // Gesture frames touch only a compositor transform. Layout-dependent book height
+  // and detent classes are committed once on release, not on every touch event.
+  sheetState.offset = next;
+  sheetEl.style.transition = 'none';
+  sheetEl.style.transform = 'translate3d(0,' + Math.round(next) + 'px,0)';
+  queueMobileGlobeFrame(next);
 }
 function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {
   if (!reading.active || innerWidth >= 960 || mobileReaderDrag) return false;
@@ -4115,7 +4192,7 @@ function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = nu
   stopReaderMotion();
   mobileReaderDrag = {
     source, pointerId, startY:clientY, lastY:clientY, lastT:timeStamp,
-    startOffset:sheetState.offset, velocityY:0, moved:false, samples:[{y:clientY,t:timeStamp}],
+    startOffset:sheetState.offset, startMode:readingViewMode, velocityY:0, moved:false, samples:[{y:clientY,t:timeStamp}],
   };
   return true;
 }
@@ -4143,7 +4220,7 @@ function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
   document.body.classList.remove('reader-gesture');
   sheetEl.classList.remove('dragging');
   if (!g.moved || cancelled) {
-    mobileReaderSnap(readingViewMode === 'half' ? 'half' : 'full');
+    mobileReaderSnap(g.startMode, {immediate:!g.moved});
     return;
   }
   readerLastDrag = timeStamp;
@@ -4161,7 +4238,7 @@ function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
 function mobileReaderSnap(mode, { immediate = false } = {}) {
   if (!reading.active) return;
   // A year-event deep link has no underlying polity summary to tuck into.
-  if (mode === 'peek' && !reading.snapshot?.focus) { closeReader(); return; }
+  if (mode === 'peek' && !reading.snapshot?.focus) { closeReader({returnToOrigin:false}); return; }
   if (innerWidth >= 960) {
     if (mode === 'peek') closeReader();
     return;
@@ -4176,13 +4253,14 @@ function mobileReaderSnap(mode, { immediate = false } = {}) {
   const finish = () => {
     mobileReaderMotion = 0;
     if (mode === 'peek') {
-      closeReader();
+      closeReader({returnToOrigin:false});
       sheetTo('peek', false);
       return;
     }
     readingViewMode = mode;
     readingBackground(true);
     applySheetOffset(end, false);
+    flushMobileGlobeFrame(end);
     if (isSplitReading() && reading.subject) {
       syncSubjectGlobeForReading(reading.subject, reading.subject.chapters.find(c => c.id === reading.detail));
     } else clearSplitScene();
@@ -4190,15 +4268,23 @@ function mobileReaderSnap(mode, { immediate = false } = {}) {
     invalidate();
   };
   if (immediate || reducedReadingMotion.matches || Math.abs(end - start) < 1) {
+    // Skip the redundant transitional movement when dismissing a scene card.
+    sheetEl.style.transition = 'none';
     applySheetOffset(end, false);
     finish();
+    requestAnimationFrame(() => {
+      if (!mobileReaderDrag && !sheetState.dragging) sheetEl.style.removeProperty('transition');
+    });
     return;
   }
   const began = performance.now(), duration = Math.min(340, 215 + Math.abs(end - start) * .16);
   const frame = now => {
     const t = clamp((now - began) / duration, 0, 1);
     mobileReaderPaint(start + (end - start) * (1 - (1 - t) ** 3));
-    if (t >= 1) finish();
+    if (t >= 1) {
+      finish();
+      requestAnimationFrame(() => { if (!mobileReaderDrag && !sheetState.dragging) sheetEl.style.removeProperty('transition'); });
+    }
     else mobileReaderMotion = requestAnimationFrame(frame);
   };
   mobileReaderMotion = requestAnimationFrame(frame);
@@ -4252,6 +4338,18 @@ for (const kind of ['touchend','touchcancel']) {
     if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(kind !== 'touchend',event.timeStamp);
   });
 }
+
+// Header taps navigate adjacent levels; movement-generated synthetic clicks are ignored.
+mobileSheetTop.addEventListener('click', event => {
+  // #grab has its own click handler. Never let one tap trigger both actions.
+  if (innerWidth >= 960 || event.target.closest('#grab, button, a, input') ||
+      event.timeStamp - readerLastDrag < 320) return;
+  if (!reading.active) {
+    if (sheetState.detent === 'peek') openPeekProgressively();
+    return;
+  }
+  mobileReaderSnap(readingViewMode === 'full' ? 'half' : 'full');
+});
 
 const subjectBooks = JSON.parse(inlineText('subject-books'));
 const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
@@ -6027,7 +6125,16 @@ async function ensurePolity() {
     pk = parsePolityBin(buf);
     polityState.loaded = true;
     if (state.layerId === 'polity') { rebuildPartition(); syncHud(); invalidate(); }
+    const tap = pendingPolityTap;
+    pendingPolityTap = null;
+    if (tap && state.layerId === 'polity' && !reading.active && !worldEvent &&
+        tap.year === state.year && Math.abs(tap.yaw - state.yaw) < .02 &&
+        Math.abs(tap.tilt - state.tilt) < .02 && Math.abs(tap.zoom - state.zoom) < .02 &&
+        Math.abs(tap.panX - state.panX) < 3 && Math.abs(tap.panY - state.panY) < 3) {
+      tapGlobe(tap.x, tap.y);
+    }
   } catch (err) {
+    pendingPolityTap = null;
     polityState.error = err.message;
     label.textContent = '政权边界加载失败';
     console.warn('polity load failed', err);
