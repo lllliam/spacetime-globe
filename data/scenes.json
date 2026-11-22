@@ -2533,5 +2533,1493 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
       }
     ]
+  },
+  {
+    "id": "shang-zhou-heartland",
+    "from": -1600,
+    "to": -771,
+    "year": -1046,
+    "title": "从殷墟到镐京：青铜礼制与分封网络",
+    "summary": "商王以黄河下游殷墟为中心维系方国联盟，公元前 1046 年周武王自关中东进牧野克商，在镐京与洛邑建立双都，通过分封诸侯把中原与齐鲁燕晋连成一体。",
+    "focusPolities": [
+      "Shang Dynasty",
+      "Zhou Dynasty"
+    ],
+    "places": [
+      {
+        "id": "xian",
+        "name": "镐京",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "西周宗周王都"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛邑",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "成周东都·镇抚东方诸侯"
+      },
+      {
+        "id": "kaifeng",
+        "name": "中原殷商故地",
+        "lon": 114.35,
+        "lat": 34.8,
+        "role": "黄河中下游青铜文明腹地"
+      }
+    ],
+    "routes": [
+      {
+        "from": "xian",
+        "to": "luoyang",
+        "kind": "military",
+        "label": "周人自关中东出灭商"
+      },
+      {
+        "from": "luoyang",
+        "to": "kaifeng",
+        "kind": "frontier",
+        "label": "营建成周与分封东方诸侯"
+      }
+    ],
+    "distanceBetween": [
+      "xian",
+      "luoyang"
+    ],
+    "steps": [
+      {
+        "year": -1300,
+        "title": "盘庚迁殷与青铜甲骨",
+        "note": "商朝在黄河下游形成成熟的青铜礼器与甲骨文占卜体系。",
+        "places": [
+          "kaifeng"
+        ],
+        "routes": []
+      },
+      {
+        "year": -1046,
+        "title": "牧野之战与西周分封",
+        "note": "周人东出关中代商，建洛邑并分封齐、鲁、燕、晋，扩展华夏礼乐疆域。",
+        "places": [
+          "xian",
+          "luoyang",
+          "kaifeng"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "qin-empire-roads",
+    "from": -221,
+    "to": -206,
+    "year": -221,
+    "title": "咸阳辐射天下：驰道、长城与灵渠",
+    "summary": "秦始皇灭六国后废分封行郡县，以咸阳为圆心修筑驰道通往燕齐吴楚，北筑万里长城抵御匈奴，南凿灵渠把岭南首次纳入中原版图。",
+    "focusPolities": [
+      "Qin Dynasty"
+    ],
+    "places": [
+      {
+        "id": "xian",
+        "name": "咸阳",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "大秦帝国中枢"
+      },
+      {
+        "id": "beijing",
+        "name": "蓟城",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "东北驰道与长城前线"
+      },
+      {
+        "id": "guangzhou",
+        "name": "番禺",
+        "lon": 113.25,
+        "lat": 23.12,
+        "role": "秦平百越设立的南海郡治"
+      }
+    ],
+    "routes": [
+      {
+        "from": "xian",
+        "to": "beijing",
+        "kind": "military",
+        "label": "北向直道与东方驰道"
+      },
+      {
+        "from": "xian",
+        "to": "guangzhou",
+        "kind": "canal",
+        "label": "开凿灵渠连通长江与珠江水系"
+      }
+    ],
+    "distanceBetween": [
+      "xian",
+      "guangzhou"
+    ],
+    "steps": [
+      {
+        "year": -221,
+        "title": "书同文、车同轨",
+        "note": "灭六国后在全国推行三十六郡与统一度量衡，帝国首次实现垂直行政。",
+        "places": [
+          "xian",
+          "beijing"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": -214,
+        "title": "北筑长城、南平岭南",
+        "note": "蒙恬北击匈奴连缀长城，南军借灵渠运粮平定百越设南海三郡。",
+        "places": [
+          "xian",
+          "beijing",
+          "guangzhou"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《秦朝历史与制度》",
+        "url": "https://www.britannica.com/topic/Qin-dynasty"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "wei-jin-north-south",
+    "from": 220,
+    "to": 589,
+    "year": 494,
+    "title": "南北朝对峙：平城迁洛阳与衣冠南渡",
+    "summary": "永嘉之乱后中原士族大规模南渡建康，江南首次进入全面开发；北方鲜卑北魏孝文帝则于 494 年迁都洛阳推行汉化，为隋唐大一统铺平道路。",
+    "focusPolities": [
+      "Northern Wei",
+      "Liang Dynasty"
+    ],
+    "places": [
+      {
+        "id": "datong",
+        "name": "平城",
+        "lon": 113.3,
+        "lat": 40.08,
+        "role": "北魏早期草原边缘都城"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "494 年孝文帝汉化新都"
+      },
+      {
+        "id": "nanjing",
+        "name": "建康",
+        "lon": 118.78,
+        "lat": 32.06,
+        "role": "东晋与南朝宋齐梁陈六朝古都"
+      }
+    ],
+    "routes": [
+      {
+        "from": "datong",
+        "to": "luoyang",
+        "kind": "frontier",
+        "label": "北魏孝文帝南迁洛阳汉化"
+      },
+      {
+        "from": "luoyang",
+        "to": "nanjing",
+        "kind": "military",
+        "label": "永嘉南渡与南北朝长期对峙"
+      }
+    ],
+    "distanceBetween": [
+      "luoyang",
+      "nanjing"
+    ],
+    "steps": [
+      {
+        "year": 317,
+        "title": "衣冠南渡与东晋建康",
+        "note": "北方战乱推动中原人口与农耕技术大规模南迁，建康成为江南文化中心。",
+        "places": [
+          "luoyang",
+          "nanjing"
+        ],
+        "routes": [
+          1
+        ]
+      },
+      {
+        "year": 494,
+        "title": "北魏迁洛与胡汉融合",
+        "note": "孝文帝迁都洛阳改汉姓、通婚姻，关陇与河洛胡汉集团由此孕育。",
+        "places": [
+          "datong",
+          "luoyang",
+          "nanjing"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《六朝、汉与唐代中国》",
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "sui-grand-canal",
+    "from": 581,
+    "to": 618,
+    "year": 608,
+    "title": "隋代大运河：以洛阳为中心的南北大动脉",
+    "summary": "隋文帝灭陈结束近三百年分裂，隋炀帝倾举国之力开凿以洛阳为中心、北达涿郡南抵余杭的大运河，耗尽国力却为盛唐留下千年黄金水道。",
+    "focusPolities": [
+      "Sui Dynasty"
+    ],
+    "places": [
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "隋代大运河总枢纽"
+      },
+      {
+        "id": "beijing",
+        "name": "涿郡",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "永济渠北端·东北军事基地"
+      },
+      {
+        "id": "hangzhou",
+        "name": "余杭",
+        "lon": 120.16,
+        "lat": 30.29,
+        "role": "江南河终点·南方粮仓"
+      }
+    ],
+    "routes": [
+      {
+        "from": "hangzhou",
+        "to": "luoyang",
+        "kind": "canal",
+        "label": "江南河与通济渠北运粮赋"
+      },
+      {
+        "from": "luoyang",
+        "to": "beijing",
+        "kind": "canal",
+        "label": "永济渠向辽东前线输粮"
+      }
+    ],
+    "distanceBetween": [
+      "hangzhou",
+      "beijing"
+    ],
+    "steps": [
+      {
+        "year": 589,
+        "title": "灭陈一统南北",
+        "note": "隋军渡江攻克建康，终结西晋以来近三百年的南北分裂。",
+        "places": [
+          "luoyang",
+          "hangzhou"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 608,
+        "title": "贯通南北大运河",
+        "note": "通济渠与永济渠相继贯通，把江南稻米、洛阳粮仓与北方边防连为一体。",
+        "places": [
+          "hangzhou",
+          "luoyang",
+          "beijing"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《隋朝统一与大运河》",
+        "url": "https://www.britannica.com/topic/Sui-dynasty"
+      }
+    ]
+  },
+  {
+    "id": "roc-nanjing-chongqing",
+    "from": 1912,
+    "to": 1949,
+    "year": 1937,
+    "title": "民国空间迁徙：北京、南京与战时陪都",
+    "summary": "辛亥革命后民国先后历经北洋北京与国民政府南京时期；1937 年全面抗战爆发，工厂、高校与中枢逆长江大迁徙至西南后方，深刻重塑现代中国内陆格局。",
+    "focusPolities": [
+      "Republic of China"
+    ],
+    "places": [
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "北洋政府都城与五四运动发源地"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.78,
+        "lat": 32.06,
+        "role": "1927 年后的国民政府首都"
+      },
+      {
+        "id": "shanghai",
+        "name": "上海",
+        "lon": 121.46,
+        "lat": 31.22,
+        "role": "民国金融、工业与出版中心"
+      },
+      {
+        "id": "chengdu",
+        "name": "川渝后方",
+        "lon": 104.07,
+        "lat": 30.67,
+        "role": "抗战大后方与西南战略腹地"
+      }
+    ],
+    "routes": [
+      {
+        "from": "beijing",
+        "to": "nanjing",
+        "kind": "military",
+        "label": "北伐与政治重心南移南京"
+      },
+      {
+        "from": "shanghai",
+        "to": "chengdu",
+        "kind": "military",
+        "label": "抗战工业与高校逆江内迁"
+      }
+    ],
+    "distanceBetween": [
+      "shanghai",
+      "chengdu"
+    ],
+    "steps": [
+      {
+        "year": 1928,
+        "title": "定都南京与沪宁走廊",
+        "note": "北伐名义统一全国后，南京与上海构成民国政治与金融双核。",
+        "places": [
+          "beijing",
+          "nanjing",
+          "shanghai"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1937,
+        "title": "全面抗战与大后方西迁",
+        "note": "东部沿海沦陷后，中国依托西南山地坚持八年抗战直至 1945 年胜利。",
+        "places": [
+          "shanghai",
+          "nanjing",
+          "chengdu"
+        ],
+        "routes": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《近现代中国与北京》",
+        "url": "https://www.britannica.com/place/Beijing/Cultural-life"
+      }
+    ]
+  },
+  {
+    "id": "egypt-nile-corridor",
+    "from": -2686,
+    "to": -30,
+    "year": -1450,
+    "title": "尼罗河礼物：从孟斐斯金字塔到亚历山大港",
+    "summary": "古埃及三千年兴衰完全系于尼罗河每年定期泛滥的绿色走廊：古王国在孟斐斯建金字塔，新王国沿河与黎凡特扩张，托勒密时代则在河口亚历山大港连接地中海。",
+    "focusPolities": [
+      "Old Kingdom of Egypt",
+      "New Kingdom of Egypt",
+      "Ptolemaic Kingdom"
+    ],
+    "places": [
+      {
+        "id": "cairo",
+        "name": "孟斐斯·开罗",
+        "lon": 31.25,
+        "lat": 30.06,
+        "role": "古王国都城与吉萨金字塔群"
+      },
+      {
+        "id": "alexandria",
+        "name": "亚历山大港",
+        "lon": 29.95,
+        "lat": 31.19,
+        "role": "托勒密时代地中海学术与贸易灯塔"
+      }
+    ],
+    "routes": [
+      {
+        "from": "cairo",
+        "to": "alexandria",
+        "kind": "canal",
+        "label": "尼罗河三角洲航运与地中海门户"
+      }
+    ],
+    "distanceBetween": [
+      "cairo",
+      "alexandria"
+    ],
+    "steps": [
+      {
+        "year": -2550,
+        "title": "古王国与大金字塔",
+        "note": "法老依托尼罗河农闲水利动员，在孟斐斯西岸建起吉萨金字塔。",
+        "places": [
+          "cairo"
+        ],
+        "routes": []
+      },
+      {
+        "year": -305,
+        "title": "托勒密王朝与亚历山大港",
+        "note": "亚历山大东征后，尼罗河口崛起融合希腊与埃及文明的超级海港。",
+        "places": [
+          "cairo",
+          "alexandria"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《古埃及历史与尼罗河文明》",
+        "url": "https://www.britannica.com/place/ancient-Egypt/Egypt-from-1076-bce-to-the-Macedonian-invasion"
+      }
+    ]
+  },
+  {
+    "id": "alexander-eastward",
+    "from": -480,
+    "to": -323,
+    "year": -331,
+    "title": "从爱琴海城邦到亚历山大东征",
+    "summary": "希波战争后雅典与斯巴达在爱琴海角逐，马其顿国王亚历山大则在短短十年间自巴尔干横扫埃及、巴比伦与波斯，把希腊化城市网络播撒到印度河畔。",
+    "focusPolities": [
+      "Greek City-States",
+      "Macedonian Empire"
+    ],
+    "places": [
+      {
+        "id": "istanbul",
+        "name": "赫勒斯滂海峡",
+        "lon": 28.95,
+        "lat": 41.01,
+        "role": "亚历山大跨海进入亚洲的跳板"
+      },
+      {
+        "id": "alexandria",
+        "name": "亚历山大港",
+        "lon": 29.95,
+        "lat": 31.19,
+        "role": "亚历山大亲建的地中海名城"
+      },
+      {
+        "id": "baghdad",
+        "name": "巴比伦",
+        "lon": 44.37,
+        "lat": 33.23,
+        "role": "两河流域古都与亚历山大终点"
+      }
+    ],
+    "routes": [
+      {
+        "from": "istanbul",
+        "to": "alexandria",
+        "kind": "military",
+        "label": "南下小亚细亚与埃及"
+      },
+      {
+        "from": "alexandria",
+        "to": "baghdad",
+        "kind": "military",
+        "label": "东进高加米拉与巴比伦"
+      }
+    ],
+    "distanceBetween": [
+      "istanbul",
+      "baghdad"
+    ],
+    "steps": [
+      {
+        "year": -334,
+        "title": "渡海东征小亚细亚",
+        "note": "马其顿方阵渡过达达尼尔海峡，接连击溃波斯军团并入主埃及。",
+        "places": [
+          "istanbul",
+          "alexandria"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": -331,
+        "title": "入主巴比伦与希腊化时代",
+        "note": "高加米拉大捷后帝国横跨欧亚非，希腊语与城邦建筑深刻影响西亚数百年。",
+        "places": [
+          "alexandria",
+          "baghdad"
+        ],
+        "routes": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《古希腊帕特农与城邦文明》",
+        "url": "https://www.britannica.com/topic/Parthenon"
+      },
+      {
+        "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+      }
+    ]
+  },
+  {
+    "id": "caliphate-baghdad-trade",
+    "from": 632,
+    "to": 1258,
+    "year": 762,
+    "title": "巴格达智慧宫：横跨三洲的哈里发商道",
+    "summary": "倭马亚王朝将哈里发版图推至大西洋与印度河，750 年阿拔斯王朝定都新筑的圆形之城巴格达，百年翻译运动与陆海商道使其成为中世纪欧亚知识与贸易中心。",
+    "focusPolities": [
+      "Umayyad Caliphate",
+      "Abbasid Caliphate"
+    ],
+    "places": [
+      {
+        "id": "baghdad",
+        "name": "巴格达",
+        "lon": 44.37,
+        "lat": 33.23,
+        "role": "阿拔斯圆形王都与智慧宫所在"
+      },
+      {
+        "id": "cairo",
+        "name": "开罗",
+        "lon": 31.25,
+        "lat": 30.06,
+        "role": "法蒂玛与红海贸易枢纽"
+      },
+      {
+        "id": "kashgar",
+        "name": "中亚丝路门户",
+        "lon": 75.99,
+        "lat": 39.47,
+        "role": "连接唐朝与中亚的造纸与丝绸通道"
+      }
+    ],
+    "routes": [
+      {
+        "from": "cairo",
+        "to": "baghdad",
+        "kind": "trade",
+        "label": "地中海—红海—两河商道"
+      },
+      {
+        "from": "baghdad",
+        "to": "kashgar",
+        "kind": "trade",
+        "label": "丝路与造纸术西传走廊"
+      }
+    ],
+    "distanceBetween": [
+      "cairo",
+      "baghdad"
+    ],
+    "steps": [
+      {
+        "year": 762,
+        "title": "营建和平之城巴格达",
+        "note": "阿拔斯哈里发曼苏尔在底格里斯河畔建都，吸纳波斯官制与希腊科学。",
+        "places": [
+          "cairo",
+          "baghdad"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 830,
+        "title": "智慧宫与跨洲商网",
+        "note": "来自中国造纸术、印度数字与希腊哲学的知识在巴格达融汇，商船远航广州。",
+        "places": [
+          "baghdad",
+          "kashgar"
+        ],
+        "routes": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《阿拔斯哈里发与阿拉伯帝国》",
+        "url": "https://www.britannica.com/topic/Abbasid-caliphate"
+      }
+    ]
+  },
+  {
+    "id": "persia-crossroads",
+    "from": 224,
+    "to": 1736,
+    "year": 1598,
+    "title": "伊朗高原：萨珊与萨非的欧亚十字路口",
+    "summary": "从与罗马角逐四百年的萨珊帝国，到确立什叶派国教、营建“半天下”伊斯法罕的萨非王朝，伊朗高原始终是卡在东西方丝路与海陆之间的文明枢纽。",
+    "focusPolities": [
+      "Sasanian Empire",
+      "Safavid Dynasty"
+    ],
+    "places": [
+      {
+        "id": "baghdad",
+        "name": "泰西封·两河门户",
+        "lon": 44.37,
+        "lat": 33.23,
+        "role": "萨珊波斯冬都与丝路西端重镇"
+      },
+      {
+        "id": "istanbul",
+        "name": "奥斯曼西境前线",
+        "lon": 28.95,
+        "lat": 41.01,
+        "role": "波斯与罗马/奥斯曼千年博弈方向"
+      },
+      {
+        "id": "delhi",
+        "name": "南亚通道",
+        "lon": 77.23,
+        "lat": 28.65,
+        "role": "波斯文化与莫卧儿印度的交流通道"
+      }
+    ],
+    "routes": [
+      {
+        "from": "istanbul",
+        "to": "baghdad",
+        "kind": "frontier",
+        "label": "西亚高原与两河百年拉锯线"
+      },
+      {
+        "from": "baghdad",
+        "to": "delhi",
+        "kind": "trade",
+        "label": "波斯—中亚—南亚商贸与文化走廊"
+      }
+    ],
+    "distanceBetween": [
+      "baghdad",
+      "delhi"
+    ],
+    "steps": [
+      {
+        "year": 260,
+        "title": "萨珊波斯与丝路垄断",
+        "note": "萨珊控制两河与伊朗高原，在罗马与中国之间掌握陆上丝绸中转命脉。",
+        "places": [
+          "istanbul",
+          "baghdad"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1598,
+        "title": "萨非阿拔斯大帝与全球丝绸",
+        "note": "阿拔斯一世定都伊斯法罕，靠国家丝绸贸易与奥斯曼、莫卧儿三足鼎立。",
+        "places": [
+          "baghdad",
+          "delhi"
+        ],
+        "routes": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《萨珊波斯帝国》",
+        "url": "https://www.britannica.com/topic/Sasanian-dynasty"
+      },
+      {
+        "title": "大英百科全书《萨法维波斯王朝》",
+        "url": "https://www.britannica.com/topic/Safavid-dynasty"
+      }
+    ]
+  },
+  {
+    "id": "mongol-eurasia-conquest",
+    "from": 1206,
+    "to": 1368,
+    "year": 1241,
+    "title": "草原风暴：横跨太平洋至多瑙河的蒙古帝国",
+    "summary": "1206 年成吉思汗统一漠北后，蒙古骑兵在半世纪内东灭金夏、西破花剌子模、巴格达与罗斯诸公国，催生出人类史上疆域最辽阔的陆上连续帝国与“蒙古和平”。",
+    "focusPolities": [
+      "Mongol Empire",
+      "Golden Horde",
+      "Ilkhanate"
+    ],
+    "places": [
+      {
+        "id": "beijing",
+        "name": "燕京·大都",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "蒙古东翼与大汗核心区"
+      },
+      {
+        "id": "baghdad",
+        "name": "巴格达",
+        "lon": 44.37,
+        "lat": 33.23,
+        "role": "1258 年旭烈兀攻克并建伊利汗国"
+      },
+      {
+        "id": "moscow",
+        "name": "罗斯草原北缘",
+        "lon": 37.62,
+        "lat": 55.75,
+        "role": "拔都西征后金帐汗国宗主区"
+      }
+    ],
+    "routes": [
+      {
+        "from": "beijing",
+        "to": "baghdad",
+        "kind": "military",
+        "label": "西征中亚与灭阿拔斯哈里发"
+      },
+      {
+        "from": "beijing",
+        "to": "moscow",
+        "kind": "military",
+        "label": "长子西征席卷东欧草原"
+      }
+    ],
+    "distanceBetween": [
+      "beijing",
+      "moscow"
+    ],
+    "steps": [
+      {
+        "year": 1206,
+        "title": "铁木真称成吉思汗",
+        "note": "斡难河畔统一草原诸部，千户制与驿站成为高效跨洲动员机器。",
+        "places": [
+          "beijing"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1258,
+        "title": "四大汗国与蒙古和平",
+        "note": "西征重塑中东与东欧版图，随后畅通的欧亚商道让火药、印刷与商队跨越洲际。",
+        "places": [
+          "beijing",
+          "baghdad",
+          "moscow"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《蒙古帝国起源、版图与遗产》",
+        "url": "https://www.britannica.com/place/Mongol-empire"
+      }
+    ]
+  },
+  {
+    "id": "india-ganges-deccan",
+    "from": -321,
+    "to": 1947,
+    "year": -260,
+    "title": "恒河平原与印度洋：从阿育王到现代印度",
+    "summary": "从孔雀帝国阿育王刻石弘法、笈多古典黄金时代，到德里苏丹国与英属印度铁路整合，恒河流域与印度洋季风港湾始终决定着南亚次大陆的分合。",
+    "focusPolities": [
+      "Maurya Empire",
+      "Gupta Empire",
+      "British Raj"
+    ],
+    "places": [
+      {
+        "id": "delhi",
+        "name": "德里·恒河上游",
+        "lon": 77.23,
+        "lat": 28.65,
+        "role": "南亚历代陆上帝国政治门户"
+      },
+      {
+        "id": "bangalore",
+        "name": "德干高原",
+        "lon": 77.59,
+        "lat": 12.97,
+        "role": "南北印度地理分界与贸易腹地"
+      }
+    ],
+    "routes": [
+      {
+        "from": "delhi",
+        "to": "bangalore",
+        "kind": "frontier",
+        "label": "从恒河平原向德干高原的统合轴线"
+      }
+    ],
+    "distanceBetween": [
+      "delhi",
+      "bangalore"
+    ],
+    "steps": [
+      {
+        "year": -260,
+        "title": "孔雀帝国与阿育王石柱",
+        "note": "阿育王首次统一几乎整个次大陆，并推动佛教沿陆海传向斯里兰卡与中亚。",
+        "places": [
+          "delhi",
+          "bangalore"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1947,
+        "title": "独立与现代印度诞生",
+        "note": "历经殖民铁路与民族独立运动，南亚在 1947 年印巴分治中步入现代国家时代。",
+        "places": [
+          "delhi",
+          "bangalore"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《孔雀帝国与古代印度》",
+        "url": "https://www.britannica.com/place/Mauryan-Empire"
+      },
+      {
+        "title": "大英百科全书《近代印度与独立运动》",
+        "url": "https://www.britannica.com/topic/Indian-Independence-Movement"
+      }
+    ]
+  },
+  {
+    "id": "british-global-sea-lanes",
+    "from": 1707,
+    "to": 1947,
+    "year": 1858,
+    "title": "蒸汽、金融与日不落海权网络",
+    "summary": "孤悬欧洲西北的英伦三岛凭借光荣革命后的现代金融、工业革命蒸汽动力与皇家海军，把伦敦、开罗苏伊士、印度与新加坡串联成覆盖全球四分之一陆地的海洋帝国。",
+    "focusPolities": [
+      "British Empire",
+      "British Raj"
+    ],
+    "places": [
+      {
+        "id": "london",
+        "name": "伦敦",
+        "lon": -0.13,
+        "lat": 51.51,
+        "role": "帝国金融、海军与工业心脏"
+      },
+      {
+        "id": "cairo",
+        "name": "开罗·苏伊士",
+        "lon": 31.25,
+        "lat": 30.06,
+        "role": "通往印度的地中海—红海咽喉"
+      },
+      {
+        "id": "delhi",
+        "name": "印度",
+        "lon": 77.23,
+        "lat": 28.65,
+        "role": "大英帝国“皇冠上的明珠”"
+      }
+    ],
+    "routes": [
+      {
+        "from": "london",
+        "to": "cairo",
+        "kind": "trade",
+        "label": "大西洋—地中海帝国生命线"
+      },
+      {
+        "from": "cairo",
+        "to": "delhi",
+        "kind": "trade",
+        "label": "经苏伊士直达印度洋的蒸汽航路"
+      }
+    ],
+    "distanceBetween": [
+      "london",
+      "delhi"
+    ],
+    "steps": [
+      {
+        "year": 1760,
+        "title": "工业革命与海军霸权",
+        "note": "煤炭、纺织机与英格兰银行国债体系让英国在七年战争与拿破仑战争中胜出。",
+        "places": [
+          "london"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1858,
+        "title": "日不落帝国鼎盛",
+        "note": "直辖英属印度与掌控苏伊士航道后，伦敦成为十九世纪全球贸易与金本位中心。",
+        "places": [
+          "london",
+          "cairo",
+          "delhi"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+      },
+      {
+        "title": "大英百科全书《近代印度与独立运动》",
+        "url": "https://www.britannica.com/topic/Indian-Independence-Movement"
+      }
+    ]
+  },
+  {
+    "id": "france-europe-hub",
+    "from": 481,
+    "to": 1958,
+    "year": 1805,
+    "title": "法兰西：从加洛林到拿破仑大陆秩序",
+    "summary": "扼守大西洋与地中海之间的法兰西，从查理曼与波旁太阳王的绝对王权，到 1789 年法国大革命与拿破仑法典，以巴黎为核心一次次改写整个欧洲的政治与法律版图。",
+    "focusPolities": [
+      "First French Empire",
+      "Kingdom of France"
+    ],
+    "places": [
+      {
+        "id": "paris",
+        "name": "巴黎",
+        "lon": 2.35,
+        "lat": 48.86,
+        "role": "法兰西王权、革命与启蒙心脏"
+      },
+      {
+        "id": "moscow",
+        "name": "莫斯科",
+        "lon": 37.62,
+        "lat": 55.75,
+        "role": "1812 年拿破仑远征的转折终点"
+      },
+      {
+        "id": "london",
+        "name": "英吉利海峡对岸",
+        "lon": -0.13,
+        "lat": 51.51,
+        "role": "数百年英法海陆争霸对手"
+      }
+    ],
+    "routes": [
+      {
+        "from": "paris",
+        "to": "moscow",
+        "kind": "military",
+        "label": "拿破仑横扫中欧与 1812 年远征"
+      },
+      {
+        "from": "paris",
+        "to": "london",
+        "kind": "frontier",
+        "label": "跨海峡的百年争霸与近代协约"
+      }
+    ],
+    "distanceBetween": [
+      "paris",
+      "moscow"
+    ],
+    "steps": [
+      {
+        "year": 1789,
+        "title": "大革命与《人权宣言》",
+        "note": "巴士底狱攻陷推翻旧制度，公民国家与民族主义浪潮席卷欧陆。",
+        "places": [
+          "paris",
+          "london"
+        ],
+        "routes": [
+          1
+        ]
+      },
+      {
+        "year": 1805,
+        "title": "拿破仑帝国与民法典",
+        "note": "法军纵横欧陆传播《拿破仑法典》，直至 1812 年俄国严冬与滑铁卢折戟。",
+        "places": [
+          "paris",
+          "moscow"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+      }
+    ]
+  },
+  {
+    "id": "iberian-atlantic-pacific",
+    "from": 1415,
+    "to": 1898,
+    "year": 1571,
+    "title": "伊比利亚大航海：里斯本、美洲与马尼拉",
+    "summary": "葡萄牙绕过好望角打通印度洋香料航路，西班牙跨越大西洋征服阿兹特克与印加并开辟马尼拉大帆船——伊比利亚双雄第一次把地球五大洲缝进了同一张贸易网。",
+    "focusPolities": [
+      "Spanish Empire",
+      "Portuguese Empire"
+    ],
+    "places": [
+      {
+        "id": "lima",
+        "name": "利马·秘鲁总督区",
+        "lon": -77.03,
+        "lat": -12.04,
+        "role": "美洲白银输出腹地"
+      },
+      {
+        "id": "manila",
+        "name": "马尼拉",
+        "lon": 120.98,
+        "lat": 14.6,
+        "role": "连接美洲白银与明朝丝瓷的太平洋枢纽"
+      }
+    ],
+    "routes": [
+      {
+        "from": "lima",
+        "to": "manila",
+        "kind": "trade",
+        "label": "横跨太平洋的白银与香料全球航路"
+      }
+    ],
+    "distanceBetween": [
+      "lima",
+      "manila"
+    ],
+    "steps": [
+      {
+        "year": 1492,
+        "title": "跨越大西洋与好望角",
+        "note": "哥伦布西航美洲、达·伽马抵达印度，大西洋时代正式取代地中海时代。",
+        "places": [
+          "lima"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1571,
+        "title": "马尼拉通航与首次全球化",
+        "note": "西班牙在马尼拉建城，美洲白银、中国生丝与欧洲市场第一次首尾相连。",
+        "places": [
+          "lima",
+          "manila"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+      }
+    ]
+  },
+  {
+    "id": "russia-eurasia-expansion",
+    "from": 1480,
+    "to": 1991,
+    "year": 1703,
+    "title": "从莫斯科大公国到横跨十一时区的欧亚巨人",
+    "summary": "摆脱金帐汗国控制后，莫斯科公国沿伏尔加河与西伯利亚毛皮商路一路东进至太平洋，彼得大帝在波罗的海建圣彼得堡“面向欧洲开窗”，二十世纪苏联更成为超级大国。",
+    "focusPolities": [
+      "Russian Empire",
+      "Union of Soviet Socialist Republics"
+    ],
+    "places": [
+      {
+        "id": "moscow",
+        "name": "莫斯科",
+        "lon": 37.62,
+        "lat": 55.75,
+        "role": "东欧平原森林里的集权核心"
+      },
+      {
+        "id": "beijing",
+        "name": "远东与清朝边界",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "1689 年《尼布楚条约》交汇方向"
+      }
+    ],
+    "routes": [
+      {
+        "from": "moscow",
+        "to": "beijing",
+        "kind": "frontier",
+        "label": "穿越西伯利亚直抵太平洋的万里东进"
+      }
+    ],
+    "distanceBetween": [
+      "moscow",
+      "beijing"
+    ],
+    "steps": [
+      {
+        "year": 1581,
+        "title": "翻越乌拉尔东进西伯利亚",
+        "note": "哥萨克沿大河寻找紫貂皮毛，不到百年便将沙俄疆界推到太平洋岸边。",
+        "places": [
+          "moscow",
+          "beijing"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1945,
+        "title": "苏联工业化与冷战两极",
+        "note": "二战胜利后苏联成为欧亚超级大国，直至 1991 年在体制僵化中解体。",
+        "places": [
+          "moscow"
+        ],
+        "routes": []
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+      },
+      {
+        "title": "大英百科全书《冷战与二十世纪格局》",
+        "url": "https://www.britannica.com/event/Cold-War"
+      }
+    ]
+  },
+  {
+    "id": "germany-central-europe",
+    "from": 962,
+    "to": 1990,
+    "year": 1871,
+    "title": "中欧十字路口：从神圣罗马诸邦到德意志统一",
+    "summary": "神圣罗马帝国在近千年里维持着数百个邦国并立的松散结构；1871 年普鲁士铁血统一德意志后迅速跃升欧洲工业引擎，却在两次世界大战后经历分裂与 1990 年重聚。",
+    "focusPolities": [
+      "Holy Roman Empire",
+      "German Empire"
+    ],
+    "places": [
+      {
+        "id": "paris",
+        "name": "莱茵河西岸·巴黎",
+        "lon": 2.35,
+        "lat": 48.86,
+        "role": "德法百年宿怨与二战后欧洲一体化的起点"
+      },
+      {
+        "id": "moscow",
+        "name": "东欧平原前线",
+        "lon": 37.62,
+        "lat": 55.75,
+        "role": "中欧大国地缘扩张的东线宿命"
+      }
+    ],
+    "routes": [
+      {
+        "from": "paris",
+        "to": "moscow",
+        "kind": "frontier",
+        "label": "夹在法俄之间的中欧地缘走廊"
+      }
+    ],
+    "distanceBetween": [
+      "paris",
+      "moscow"
+    ],
+    "steps": [
+      {
+        "year": 1648,
+        "title": "威斯特伐利亚和约",
+        "note": "三十年战争重创中欧，但也确立了现代主权国家体系的国际法雏形。",
+        "places": [
+          "paris"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1871,
+        "title": "德意志统一与工业跃升",
+        "note": "俾斯麦完成统一，德国迅速在化工、电气与钢铁领域领跑欧洲。",
+        "places": [
+          "paris",
+          "moscow"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《神圣罗马帝国与中欧史》",
+        "url": "https://www.britannica.com/place/Holy-Roman-Empire"
+      },
+      {
+        "title": "大英百科全书《冷战与二十世纪格局》",
+        "url": "https://www.britannica.com/event/Cold-War"
+      }
+    ]
+  },
+  {
+    "id": "usa-continental-pacific",
+    "from": 1776,
+    "to": 1991,
+    "year": 1945,
+    "title": "两洋之间：从大西洋十三州到全球超级大国",
+    "summary": "北美十三州独立后通过路易斯安那购地、西进铁路与南北战争建成横跨大西洋与太平洋的大陆共和国，凭借两次世界大战的工业产能跃升为现代世界秩序核心。",
+    "focusPolities": [
+      "United States of America"
+    ],
+    "places": [
+      {
+        "id": "london",
+        "name": "大西洋彼岸·欧洲",
+        "lon": -0.13,
+        "lat": 51.51,
+        "role": "美国独立、马歇尔计划与北约盟友轴线"
+      },
+      {
+        "id": "tokyo",
+        "name": "太平洋彼岸·东亚",
+        "lon": 139.69,
+        "lat": 35.69,
+        "role": "佩里开国、太平洋战争与战后亚太格局"
+      }
+    ],
+    "routes": [
+      {
+        "from": "london",
+        "to": "tokyo",
+        "kind": "trade",
+        "label": "横跨大西洋与太平洋的两洋战略格局"
+      }
+    ],
+    "distanceBetween": [
+      "london",
+      "tokyo"
+    ],
+    "steps": [
+      {
+        "year": 1787,
+        "title": "联邦宪法与西进扩张",
+        "note": "美国建立三权分立联邦制，百年内将疆土从大西洋海岸推至太平洋。",
+        "places": [
+          "london"
+        ],
+        "routes": []
+      },
+      {
+        "year": 1945,
+        "title": "两洋霸权与冷战格局",
+        "note": "二战后依托布雷顿森林体系与科技工业优势成为全球核心力量。",
+        "places": [
+          "london",
+          "tokyo"
+        ],
+        "routes": [
+          0
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《美利坚合众国历史与地理》",
+        "url": "https://www.britannica.com/place/United-States"
+      },
+      {
+        "title": "大英百科全书《冷战与二十世纪格局》",
+        "url": "https://www.britannica.com/event/Cold-War"
+      }
+    ]
+  },
+  {
+    "id": "east-asia-modern-korea-japan",
+    "from": 1392,
+    "to": 1945,
+    "year": 1868,
+    "title": "东亚海陆剧变：明治维新与朝鲜半岛",
+    "summary": "十九世纪中叶西方叩关后，日本经明治维新迅速工业化并转向对外扩张，深刻冲击朝鲜半岛与东亚传统朝贡秩序，直至二战后日本与韩国以制造业重新融入全球市场。",
+    "focusPolities": [
+      "Empire of Japan",
+      "Joseon"
+    ],
+    "places": [
+      {
+        "id": "tokyo",
+        "name": "东京",
+        "lon": 139.69,
+        "lat": 35.69,
+        "role": "1868 年明治维新与现代日本首都"
+      },
+      {
+        "id": "seoul",
+        "name": "汉城·首尔",
+        "lon": 126.98,
+        "lat": 37.57,
+        "role": "朝鲜王朝五百年王都与现代韩国首都"
+      },
+      {
+        "id": "nagasaki",
+        "name": "长崎",
+        "lon": 129.87,
+        "lat": 32.75,
+        "role": "近代东亚西学与海贸窗口"
+      }
+    ],
+    "routes": [
+      {
+        "from": "nagasaki",
+        "to": "tokyo",
+        "kind": "trade",
+        "label": "西学与近代工业浪潮北上江户/东京"
+      },
+      {
+        "from": "tokyo",
+        "to": "seoul",
+        "kind": "frontier",
+        "label": "近代东亚海峡博弈与战后经济联动"
+      }
+    ],
+    "distanceBetween": [
+      "tokyo",
+      "seoul"
+    ],
+    "steps": [
+      {
+        "year": 1868,
+        "title": "明治维新与脱亚入欧",
+        "note": "废藩置县、兴办铁路与近代教育，日本在三十年内成为亚洲首个工业国。",
+        "places": [
+          "nagasaki",
+          "tokyo"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1945,
+        "title": "战后重建与东亚奇迹",
+        "note": "告别军国主义后，日本与韩国相继依托海洋贸易与制造业崛起。",
+        "places": [
+          "tokyo",
+          "seoul"
+        ],
+        "routes": [
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《日本明治维新与近代化》",
+        "url": "https://www.britannica.com/place/Japan/Development-of-the-modern-system"
+      },
+      {
+        "title": "大英百科全书《朝鲜王朝与半岛历史》",
+        "url": "https://www.britannica.com/topic/Joseon-dynasty"
+      }
+    ]
   }
 ]
