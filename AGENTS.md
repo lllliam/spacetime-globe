@@ -3,7 +3,8 @@
 ## 修改与交付
 
 - 功能源码在 `src/`，主体书卷在 `data/books/*.json`，补充专题在 `data/topics/*.json`；`data/topics.json` 为构建生成的汇总；不要直接编辑生成的 HTML。
-- 修改后运行 `node build.mjs`，同步生成 `index.html` 与 `index.offline.html`。涉及交互时运行适当的浏览器回归。
+- **每次功能改动、Bug 修复、交互调整或图标替换都必须同步更新 `README.md`**：核对当前功能与操作说明，并在版本记录中新增本次变化；内容数量以实际数据及校验结果为准。不能只更新 `docs/` 或发布代码而遗漏 README。纯 GitHub Actions 自动生成产物的提交不需要重复更新 README。
+- 修改后运行 `node tools/verify-content.mjs` 与 `node build.mjs`，同步生成 `index.html` 与 `index.offline.html`。涉及交互时运行适当的浏览器回归。
 - 首页以地球与年份定位历史主体，摘要抽屉进入该主体的完整书卷。保持书卷 ID 稳定，章节依据编辑选材和来源组织。细节见 `docs/READING.md`。
 
 ## 网站同步（用户明确要求）
@@ -14,7 +15,7 @@
 
 1. 检查远端更新，保留他人改动。
 2. 运行 `node tools/verify-content.mjs`，构建并完成与改动相符的验证。
-3. 提交源码、数据和构建产物，推送到 `origin/main`。
+3. 核对本次 README 修改已经包含在待提交文件中，提交源码、数据、README 及构建产物，推送到 `origin/main`。
 4. 等待 GitHub Pages 发布完成，并请求线上页面核对更新内容。
 5. 向用户提供网站链接与实际发布结果；发布失败要明确说明，不能把推送成功等同于网站已更新。
 

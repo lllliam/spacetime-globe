@@ -1646,7 +1646,7 @@ canvas.addEventListener('pointerdown', (e) => {
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   const dismissedYear = dismissYearFromGlobe();
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, t: performance.now(), moved: 0, dismissedYear });
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, t:performance.now(), moved:0, dismissedYear });
   if (pointers.size === 1) {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
@@ -1667,7 +1667,8 @@ canvas.addEventListener('pointermove', (e) => {
   const p = pointers.get(e.pointerId);
   if (!p) return;
   const dx = e.clientX - p.x, dy = e.clientY - p.y;
-  p.moved += Math.abs(dx) + Math.abs(dy);
+  // Small iOS pointer jitter should not make an otherwise stationary tap disappear.
+  p.moved = Math.max(p.moved, Math.hypot(e.clientX - p.startX, e.clientY - p.startY));
   p.x = e.clientX; p.y = e.clientY;
   if (pointers.size === 2 && pinch) {
     const [a, b] = [...pointers.values()];
@@ -1768,10 +1769,20 @@ function zoomTo(z, ax, ay) {
   zoomAnim = requestAnimationFrame(step);
 }
 
+let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
   if (chrome.natural) return;
+  // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
+  if (state.layerId === 'polity' && !polityState.loaded) {
+    if (!polityState.error && mapPointAt(sx, sy)) {
+      pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
+        zoom:state.zoom, panX:state.panX, panY:state.panY};
+      ensurePolity();
+    }
+    return;
+  }
   const id = pickAt(sx, sy);
   if (!id) { closeSheet(); return; }
   openEntity(state.layerId, id, mapPointAt(sx, sy));
@@ -1782,7 +1793,7 @@ function tapGlobe(sx, sy) {
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-const SHEET_BOTTOM_GAP = 16;
+const SHEET_BOTTOM_GAP = 16, SHEET_BOOK_HEADER = 70;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
@@ -1797,7 +1808,7 @@ function applySheetOffset(offset, animate = true) {
   if (!Number.isFinite(offset)) offset = Number.isFinite(sheetState.offset) ? sheetState.offset : H;
   sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
-  sheetEl.style.transform = 'translateY(' + Math.round(offset) + 'px)';
+  sheetEl.style.transform = 'translate3d(0,' + Math.round(offset) + 'px,0)';
   const d = sheetDetents();
   const show = offset < H - 2;
   /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
@@ -1805,7 +1816,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - 69) + 'px');
+  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOOK_HEADER - (view.safeTop || 0)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -1901,6 +1912,7 @@ function sheetDragStart(e) {
   sheetState.pointerId = e.pointerId;
   sheetState.startY = sheetState.lastY = e.clientY;
   sheetState.startOffset = sheetState.offset;
+  sheetState.startDetent = sheetState.detent;
   sheetState.lastT = e.timeStamp;
   sheetState.samples = [{ y: e.clientY, t: sheetState.lastT }];
   sheetState.distance = sheetState.vy = 0;
@@ -1949,18 +1961,28 @@ function sheetDragEnd(e) {
   const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
   const velocity = elapsed < 110 ? sheetState.vy : 0;
   sheetVelocity = clamp(velocity, -1600, 1600);
-  if (cancelled) { sheetTo(sheetState.detent === 'peek' ? 'peek' : 'half'); return; }
-  const vy = velocity / 1000; // pixels / ms, matched to the iOS reader flick threshold
-  if (vy < -0.42) {
-    if (sheetState.detent === 'peek') sheetTo('half');
+  const original = sheetState.startDetent === 'peek' ? 'peek' : 'half';
+  if (cancelled) { sheetTo(original); return; }
+  const vy = velocity / 1000; // pixels / ms
+  const d = sheetDetents();
+  const pastPeek = sheetState.startOffset + sheetState.distance - d.peek;
+  const down = sheetState.distance > 8;
+  // A second downward swipe at peek dismisses the sheet instead of getting stuck.
+  if (original === 'peek' && down && (vy > .38 || pastPeek > 48)) {
+    closeSheet();
+  } else if (original === 'half' && down && vy > .9 && pastPeek > 48) {
+    closeSheet();
+  } else if (vy < -.42) {
+    if (original === 'peek') sheetTo('half');
     else enterSheetReading();
-  } else if (vy > 0.42) {
+  } else if (vy > .42) {
     sheetTo('peek');
+  } else if (original === 'peek' && down && pastPeek > 48) {
+    closeSheet();
+  } else if (sheetState.offset < d.half * .46) {
+    enterSheetReading();
   } else {
-    const d = sheetDetents();
-    // Pulling far above half opens the article; nearest remaining detent otherwise.
-    if (sheetState.offset < d.half * .46) enterSheetReading();
-    else sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
+    sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
   }
 }
 
@@ -1972,13 +1994,23 @@ sheetEl.addEventListener('pointercancel', sheetDragEnd);
 sheetEl.addEventListener('lostpointercapture', sheetDragEnd);
 addEventListener('pointerup', sheetDragEnd);
 addEventListener('blur', sheetDragEnd);
-grabEl.addEventListener('click', () => {
-  if (!sheetState.suppressClick && !reading.active) enterSheetReading();
+function openPeekProgressively() {
+  if (sheetState.detent !== 'peek') { enterSheetReading(); return; }
+  const f = state.focus;
+  const ent = f && entityByKey(f.layerId, f.key, f.id);
+  if (ent && subjectBookForEntity(ent)) enterSheetReading();
+  else sheetTo('half');
+}
+grabEl.addEventListener('click', (event) => {
+  if (sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
+  // A deliberate tap on the grip means 'put the book away', not 'back through pages'.
+  if (reading.active && innerWidth < 960) mobileReaderSnap('peek');
+  else if (!reading.active) openPeekProgressively();
 });
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
   if (event.target.closest('button, a, input, select, summary')) return;
-  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) enterSheetReading();
+  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) openPeekProgressively();
 });
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
@@ -2193,7 +2225,16 @@ async function ensurePolity() {
     pk = parsePolityBin(buf);
     polityState.loaded = true;
     if (state.layerId === 'polity') { rebuildPartition(); syncHud(); invalidate(); }
+    const tap = pendingPolityTap;
+    pendingPolityTap = null;
+    if (tap && state.layerId === 'polity' && !reading.active && !worldEvent &&
+        tap.year === state.year && Math.abs(tap.yaw - state.yaw) < .02 &&
+        Math.abs(tap.tilt - state.tilt) < .02 && Math.abs(tap.zoom - state.zoom) < .02 &&
+        Math.abs(tap.panX - state.panX) < 3 && Math.abs(tap.panY - state.panY) < 3) {
+      tapGlobe(tap.x, tap.y);
+    }
   } catch (err) {
+    pendingPolityTap = null;
     polityState.error = err.message;
     label.textContent = '政权边界加载失败';
     console.warn('polity load failed', err);

@@ -181,3 +181,9 @@ body.reading-open.reading-split #year-control,body.reading-open.reading-split #h
 #year-form #year-input{grid-column:1;grid-row:auto}
 #year-form button[type="submit"]{grid-column:2}
 #year-form .year-milestones{justify-items:stretch}
+
+/* v8.1 · Scene cards and reading content are mutually exclusive with HUD actions. */
+body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
+body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!important;opacity:0;pointer-events:none!important}
+/* Passive full-screen decoration must never swallow globe taps. */
+#scrim,#event-map-points,#vec{pointer-events:none}
