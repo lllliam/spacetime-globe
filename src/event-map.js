@@ -468,6 +468,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     state.tilt = lat * Math.PI / 180;
     state.zoom = 1.45;
   }
+  eventMapPanel.style.transform = '';
   eventMapPanel.hidden = false;
   if (route.sceneId) {
     const list = route.sceneOrder || [];
@@ -534,6 +535,7 @@ function returnToWorld() {
   pauseGlobe();
   cancelGlobeFly(false);
   document.body.classList.remove('event-map-open', 'scene-observation');
+  eventMapPanel.style.transform = '';
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
   el('event-map-place-chips').replaceChildren();
   el('event-map-navigation').hidden = true;
@@ -720,8 +722,10 @@ el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
 let captionSwipe = null;
 eventMapPanel.addEventListener('touchstart', event => {
   if (!worldEvent?.sceneId || event.touches.length !== 1 ||
-      event.target.closest('button, a, summary, details') ||
-      (event.target.closest('#event-map-note') && eventMapNote.scrollHeight > eventMapNote.clientHeight + 2)) { captionSwipe = null; return; }
+      event.target.closest('button, a, summary, details, #event-map-steps, #event-map-place-chips') ||
+      (event.target.closest('#event-map-note') &&
+        ['auto', 'scroll'].includes(getComputedStyle(eventMapNote).overflowY) &&
+        eventMapNote.scrollHeight > eventMapNote.clientHeight + 2)) { captionSwipe = null; return; }
   const t = event.touches[0];
   captionSwipe = {id:t.identifier,y:t.clientY,x:t.clientX,lastY:t.clientY,lastT:event.timeStamp,vy:0,active:false};
 }, {passive:true});
@@ -739,7 +743,7 @@ eventMapPanel.addEventListener('touchmove', event => {
   const dt = Math.max(1,event.timeStamp-g.lastT);
   g.vy=.6*((t.clientY-g.lastY)/dt)+.4*g.vy;
   g.lastY=t.clientY;g.lastT=event.timeStamp;
-  eventMapPanel.style.transform='translateY('+Math.min(55,Math.max(-24,dy*.32))+'px)';
+  eventMapPanel.style.transform='translate3d(0,'+Math.min(55,Math.max(-24,dy*.32))+'px,0)';
 }, {passive:false});
 for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(kind,event=>{
   const g=captionSwipe;

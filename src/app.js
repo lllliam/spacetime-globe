@@ -1295,18 +1295,15 @@ function initFallback() {
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
   const { width, height } = canvas.getBoundingClientRect();
-  const w = Math.round(width), h = Math.round(height);
+  const H = Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0,
+    Math.round(window.visualViewport?.height || 0));
+  const standalone = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
+  const w = Math.round(width), h = Math.round(standalone ? Math.max(height, H) : height);
   if (!w || !h) return;
   const heightChanged = h !== view.h;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-t')) || 0;
-  // Some iOS home-screen launches reserve a strip outside the web viewport.
-  // Blend the drawable map into the page color when it cannot reach that strip.
-  const missingHeight = screen.height - h;
-  const shortStandalone = navigator.standalone === true && screen.height > screen.width &&
-    Math.abs(screen.width - w) <= 2 && missingHeight >= 24 && missingHeight <= 96;
-  document.body.classList.toggle('short-standalone-viewport', shortStandalone);
   const splitActive = document.body.classList.contains('reading-split');
   if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
@@ -1797,7 +1794,7 @@ const SHEET_BOTTOM_GAP = 16, SHEET_BOOK_HEADER = 70;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - (124 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
+  const peek = H - (144 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
   const half = Math.min(peek - 68, Math.round(H * .42));
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
@@ -1818,7 +1815,7 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
   sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOOK_HEADER - (view.safeTop || 0)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
-  sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
+  sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < H - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
@@ -2039,7 +2036,8 @@ function openEntity(layerId, id, point = null) {
   syncHud();
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
-    sheetTo('half');
+    // v8.2: open the compact archival peek first; the user can pull up to read.
+    sheetTo('peek');
     sheetScroll.scrollTop = 0;
   } else {
     /* 已经开着：保持当前高度（自由位置也保持不变），只换内容 */
@@ -2150,9 +2148,15 @@ function scheduleViewportLayout() {
   if (viewportFrame) return;
   viewportFrame = requestAnimationFrame(() => { viewportFrame = 0; layout(); });
 }
+function recheckViewportLayout() {
+  scheduleViewportLayout();
+  setTimeout(scheduleViewportLayout, 120);
+  setTimeout(scheduleViewportLayout, 420);
+}
 addEventListener('resize', scheduleViewportLayout);
-addEventListener('orientationchange', scheduleViewportLayout);
-addEventListener('pageshow', scheduleViewportLayout);
+addEventListener('orientationchange', recheckViewportLayout);
+addEventListener('pageshow', recheckViewportLayout);
+addEventListener('focus', recheckViewportLayout);
 window.visualViewport?.addEventListener('resize', scheduleViewportLayout);
 new ResizeObserver(scheduleViewportLayout).observe(canvas);
 document.addEventListener('visibilitychange', () => {
@@ -2266,6 +2270,7 @@ async function ensurePolity() {
   bootEl.classList.add('gone');
   setTimeout(() => { if (bootEl.parentNode) bootEl.remove(); }, 600);
   invalidate();
+  recheckViewportLayout();
 
   /* 空闲时后台把政权边界拉下来，切换图层就不用等 */
   setTimeout(() => { ensurePolity(); }, 2600);

@@ -1,6 +1,6 @@
 :root{
   --bg:#0b1017; --ink:#f4efe3; --muted:#8e99a8; --line:#2a323e;
-  --page-bg:#05080d;
+  --page-bg:#0a1016;
   --gold:#e0b273; --gold-dim:#8a6a43; --card:#141b24;
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
   color-scheme:dark;
@@ -9,7 +9,11 @@
 html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);
   font:14px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei UI",sans-serif;
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
-body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a0f 100%)}
+/* Keep the installed iOS PWA edge-to-edge even while WebKit recalculates the initial viewport. */
+html{height:100%;height:-webkit-fill-available;background:#0a1016}
+body{position:fixed;inset:0;width:100%;height:100%;min-height:100lvh;
+  min-height:-webkit-fill-available;margin:0;overflow:hidden;background:#0a1016}
+body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
 
 #globe{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:1}
 
@@ -139,8 +143,8 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0b1017 55%,#070a
   display:flex;flex-direction:column;visibility:hidden;
   transform:translateY(100%);
   border-radius:22px 22px 0 0;
-  background:linear-gradient(180deg,rgba(20,27,36,.92) 0%,rgba(12,17,24,.97) 12%,#0a0f16 100%);
-  -webkit-backdrop-filter:blur(20px) saturate(1.1);backdrop-filter:blur(20px) saturate(1.1);
+  background:var(--paper-bg,#f6f2e9);
+  -webkit-backdrop-filter:none;backdrop-filter:none;
   box-shadow:0 -20px 48px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .42s cubic-bezier(.22,.95,.3,1);
   will-change:transform;padding-bottom:var(--safe-b)}
@@ -241,8 +245,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #toolbar{gap:8px}
 #loadpill span{font-variant-numeric:tabular-nums}
 
-#sheet{padding-bottom:16px}
-#sheet.full{padding-bottom:0}
 
 /* ── 文本层：时期卡片与分节说明 ── */
 .eracard{margin:14px 0 18px;padding:14px 16px;border-radius:14px;
@@ -768,7 +770,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
   background:var(--paper-bg);color:var(--paper-ink);
   box-shadow:0 -12px 36px #0007;
   -webkit-backdrop-filter:none;backdrop-filter:none;
-  padding-bottom:var(--safe-b);
+  padding-bottom:calc(14px + var(--safe-b));
 }
 #sheet::before{display:none}
 #sheet-dim{background:#05080d55}
@@ -892,7 +894,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #event-map-type[data-route-type="military"]{color:var(--route-military)}
 #event-map-type[data-route-type="frontier"]{color:var(--route-frontier)}
 .scene-observation #event-map-panel,#event-map-panel{
-  left:50%;right:auto;bottom:0;transform:translateX(-50%);width:min(100vw,680px);
+  left:0;right:0;bottom:0;margin:0 auto;transform:none;width:min(100vw,680px);
   min-height:215px;height:clamp(215px,29dvh,300px);max-height:42dvh;
   padding:16px clamp(16px,5vw,26px) calc(var(--safe-b) + 12px);
   background:var(--paper-bg);border:1px solid var(--paper-border);border-bottom:none;
@@ -973,7 +975,11 @@ body.reading-open #grab{opacity:0;pointer-events:none}
 #event-map-place-chips button{display:inline-flex;align-items:center;gap:5px;height:35px;max-width:176px;padding:4px 9px}
 #event-map-place-chips strong{display:inline;flex:none;font-size:11px}
 #event-map-place-chips small{display:inline;max-width:98px;min-width:0;font-size:10px}
-#event-map-note,.scene-observation #event-map-note{min-height:27px;max-height:54px;margin:2px 0 4px}
+/* Use exactly two complete lines, never clip mid-glyph on a constrained viewport. */
+#event-map-note,.scene-observation #event-map-note{
+  flex:0 0 auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  overflow:hidden;min-height:0;max-height:none;margin:2px 0 4px;line-height:1.55;
+}
 
 
 /* v8 · Apple Maps detents; the existing translateY sheet stays the only panel. */
@@ -997,4 +1003,19 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 @media(max-width:959px){
   body.reading-open #book{top:calc(70px + var(--safe-t));height:var(--book-visible-height,calc(58dvh - 70px - var(--safe-t)));min-height:0}
   body.reading-open #book-body{padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));scroll-padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
+}
+/* v8.2 · The summary already has a title in the fixed paper toolbar. */
+#sheet.peek #sheet-inner .sheet-overview:has(+ .subject-sheet-summary){display:none}
+#sheet.peek #sheet-inner .subject-sheet-summary{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  overflow:hidden;margin:4px 0 0;font-size:13px;line-height:1.55;
+}
+#sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--safe-b))}
+/* Horizontally swipe stages/places without accidentally dragging the whole card. */
+#event-map-steps,#event-map-place-chips{touch-action:pan-x}
+@media(max-width:959px){
+  #event-map-panel,.scene-observation #event-map-panel{
+    left:0;right:0;bottom:0;width:100%;max-width:none;margin:0 auto;transform:none;
+    border-radius:22px 22px 0 0;padding-bottom:calc(14px + var(--safe-b));
+  }
 }

@@ -1,10 +1,7 @@
 /* 沉浸首页，工具按需出现。 */
-html,body{background:var(--page-bg);min-height:100dvh}
-body{height:100dvh}
-body.short-standalone-viewport::after{
-  content:"";position:fixed;inset:auto 0 0;height:72px;z-index:4;pointer-events:none;
-  background:linear-gradient(transparent,var(--page-bg));
-}
+/* Solid matching underlay prevents a visible dark band during iOS PWA cold launches. */
+html,body{background:#0a1016;min-height:100dvh}
+body{height:100%;min-height:100lvh;min-height:-webkit-fill-available}
 #scrim{display:none}
 #scrim{height:130px;background:linear-gradient(#080f17d9,transparent);pointer-events:none}
 #hud{top:calc(var(--safe-t) + 24px);left:0;right:0;align-items:center;padding:0;gap:3px;pointer-events:none;z-index:9}
