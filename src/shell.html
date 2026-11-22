@@ -54,10 +54,6 @@
     <button id="hud-reset" type="button" aria-label="恢复地球视角" title="复位视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6"/></svg></button>
   </nav>
 </div>
-<nav id="hud-zoom" aria-label="地球缩放">
-  <button id="hud-zoom-in" type="button" aria-label="放大地球">+</button>
-  <button id="hud-zoom-out" type="button" aria-label="缩小地球">−</button>
-</nav>
 <section id="vernier" aria-label="滑动年份标尺" role="group">
   <div class="vernier-label"><span>时光游标</span><strong id="vernier-current">1421</strong></div>
   <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
@@ -91,15 +87,10 @@
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
   <header id="sheet-top">
-    <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+    <div id="grab" role="button" tabindex="0" aria-label="上下滑动切换抽屉高度，按回车展开阅读"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
     <div id="sheet-toolbar">
       <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
       <button id="sheet-toc" type="button">目录</button>
-      <div id="sheet-modes" role="group" aria-label="书卷视窗">
-        <button type="button" data-sheet-mode="peek" aria-pressed="false">看球</button>
-        <button type="button" data-sheet-mode="half" aria-pressed="true">对照</button>
-        <button type="button" data-sheet-mode="full" aria-pressed="false">展卷</button>
-      </div>
     </div>
   </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>

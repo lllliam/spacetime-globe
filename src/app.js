@@ -1709,6 +1709,11 @@ function endPointer(e) {
     if (snapToFit) zoomTo(1);
     else settlePan();
   }
+  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 6 &&
+      reading.active && readingViewMode === 'half' && innerWidth < 960 && !worldEvent) {
+    mobileReaderSnap('peek');
+    return;
+  }
   if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
@@ -1800,6 +1805,7 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
+  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - 69) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -1884,7 +1890,7 @@ function setSheetIntent(intent) {
   el('sheet-gesture').textContent = intent === 'expand' ? '松开，展开阅读' : intent === 'dismiss' ? '松开，收起' : '';
 }
 function sheetDragStart(e) {
-  if (sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
+  if (reading.active || sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
   if (e.currentTarget === sheetScroll && !e.target.closest('.sheet-overview')) return;
@@ -1922,7 +1928,7 @@ function sheetDragMove(e) {
   let offset = sheetState.startOffset + sheetState.distance;
   // 顶部越界时有阻力，底部仍然跟手，避免突然卡在 peek 档。
   if (offset < 0) offset = -52 * (1 - Math.exp(offset / 100));
-  offset = Math.min(offset, sheetDetents().hidden + 24);
+  if (offset > sheetDetents().peek) offset = sheetDetents().peek + (offset - sheetDetents().peek) * .22;
   applySheetOffset(offset, false);
   state.lift = (1 - clamp(offset / view.h, 0, 1)) * view.h * .13;
   view.cy = (view.cyBase || view.cy) - state.lift;
@@ -1943,10 +1949,19 @@ function sheetDragEnd(e) {
   const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
   const velocity = elapsed < 110 ? sheetState.vy : 0;
   sheetVelocity = clamp(velocity, -1600, 1600);
-  const intent = cancelled ? 'idle' : sheetGestureIntent(sheetState.distance, velocity);
-  if (intent === 'expand') enterSheetReading();
-  else if (intent === 'dismiss') closeSheet();
-  else sheetTo('half');
+  if (cancelled) { sheetTo(sheetState.detent === 'peek' ? 'peek' : 'half'); return; }
+  const vy = velocity / 1000; // pixels / ms, matched to the iOS reader flick threshold
+  if (vy < -0.42) {
+    if (sheetState.detent === 'peek') sheetTo('half');
+    else enterSheetReading();
+  } else if (vy > 0.42) {
+    sheetTo('peek');
+  } else {
+    const d = sheetDetents();
+    // Pulling far above half opens the article; nearest remaining detent otherwise.
+    if (sheetState.offset < d.half * .46) enterSheetReading();
+    else sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
+  }
 }
 
 grabEl.addEventListener('pointerdown', sheetDragStart);
@@ -1957,7 +1972,14 @@ sheetEl.addEventListener('pointercancel', sheetDragEnd);
 sheetEl.addEventListener('lostpointercapture', sheetDragEnd);
 addEventListener('pointerup', sheetDragEnd);
 addEventListener('blur', sheetDragEnd);
-grabEl.addEventListener('click', () => { if (!sheetState.suppressClick) enterSheetReading(); });
+grabEl.addEventListener('click', () => {
+  if (!sheetState.suppressClick && !reading.active) enterSheetReading();
+});
+sheetInner.addEventListener('click', (event) => {
+  if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
+  if (event.target.closest('button, a, input, select, summary')) return;
+  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) enterSheetReading();
+});
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
   e.preventDefault(); e.stopPropagation();
@@ -2116,27 +2138,10 @@ function syncSheetIdentity() {
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
   el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
-  const mode = reading.active ? readingViewMode : sheetState.detent;
-  for (const btn of el('sheet-modes').querySelectorAll('button'))
-    btn.setAttribute('aria-pressed', String(btn.dataset.sheetMode === mode));
 }
 el('sheet-toc').addEventListener('click', () => {
   if (reading.active && reading.subject) { if (reading.detail !== null) readingIndex(); return; }
   if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
-});
-el('sheet-modes').addEventListener('click', (event) => {
-  const btn = event.target.closest('[data-sheet-mode]');
-  if (!btn) return;
-  const mode = btn.dataset.sheetMode;
-  if (reading.active) {
-    if (mode === 'peek') { closeReader(); sheetTo('peek'); }
-    else setReadingViewMode(mode);
-  } else if (state.focus) {
-    if (mode === 'peek') sheetTo('peek');
-    else if (mode === 'half') enterSheetReading();
-    else { enterSheetReading(); setReadingViewMode('full'); }
-  }
-  syncSheetIdentity();
 });
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {

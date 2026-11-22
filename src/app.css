@@ -783,9 +783,6 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #sheet-identity-name{font:600 14px/1.3 var(--font-serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #sheet-identity-years{font:10px/1.2 var(--font-mono);color:var(--paper-muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 #sheet-toc{flex:none;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--paper-border);background:var(--paper-surface);color:var(--paper-ink);font:600 12px var(--font-sans);white-space:nowrap;cursor:pointer}
-#sheet-modes{display:flex;flex:none;gap:1px;padding:2px;border:1px solid var(--paper-border);border-radius:999px;background:var(--paper-surface)}
-#sheet-modes button{min-height:27px;padding:3px 9px;border:0;border-radius:999px;background:none;color:var(--paper-muted);font:500 11px/1.1 var(--font-sans);white-space:nowrap;cursor:pointer}
-#sheet-modes button[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper-bg)}
 #sheet-scroll{padding:10px 18px 12px;scrollbar-color:#b7ac9a transparent}
 #sheet .era{color:var(--vermilion);font-variant-numeric:tabular-nums}
 #sheet .era small,#sheet .era2 small{color:var(--paper-muted)}
@@ -954,7 +951,7 @@ body.reading-open:not(.reading-split) #book{top:calc(70px + var(--safe-t))}
 body.reading-open #sheet-top{opacity:1}
 body.reading-open #grab{opacity:0;pointer-events:none}
 #sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
-@media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-modes button{padding-inline:7px}#sheet-identity-years{font-size:9px}}
+@media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-toc{padding-inline:7px}#sheet-identity-years{font-size:9px}}
 @media(prefers-reduced-motion:reduce){#event-map-panel,#sheet{animation:none;transition:none}}
 
 @media(max-width:959px){
@@ -977,3 +974,21 @@ body.reading-open #grab{opacity:0;pointer-events:none}
 #event-map-place-chips strong{display:inline;flex:none;font-size:11px}
 #event-map-place-chips small{display:inline;max-width:98px;min-width:0;font-size:10px}
 #event-map-note,.scene-observation #event-map-note{min-height:27px;max-height:54px;margin:2px 0 4px}
+
+
+/* v8 · Apple Maps detents; the existing translateY sheet stays the only panel. */
+#sheet-top #grab{height:21px;min-height:21px;display:grid;place-items:center;cursor:grab}
+#sheet-top #grab i{width:36px;height:4px;margin:0;background:#bdb3a4;border-radius:999px}
+body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ada292}
+#sheet-toolbar{justify-content:space-between}
+#sheet.dragging{transition:none!important}
+@media(max-width:959px){
+  body.reading-open #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
+  body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
+  body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
+  body.reading-open #book{top:calc(70px + var(--safe-t));bottom:auto;height:calc(var(--book-visible-height,calc(58dvh - 70px)) - var(--safe-t));min-height:0;pointer-events:auto}
+  body.reading-open #book-bar{height:34px}
+  body.reading-open #reading-grab{display:none}
+  body.reading-open #book-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding-top:4px}
+  body.reading-open.reader-gesture #sheet{touch-action:none}
+}

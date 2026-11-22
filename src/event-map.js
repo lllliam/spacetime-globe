@@ -714,3 +714,44 @@ function navigateReadingScene(delta) {
 }
 el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
 el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
+
+
+/* v8 · Dedicated scene caption card swipe (buttons and long text remain selectable). */
+let captionSwipe = null;
+eventMapPanel.addEventListener('touchstart', event => {
+  if (!worldEvent?.sceneId || event.touches.length !== 1 ||
+      event.target.closest('button, a, summary, details') ||
+      (event.target.closest('#event-map-note') && eventMapNote.scrollHeight > eventMapNote.clientHeight + 2)) { captionSwipe = null; return; }
+  const t = event.touches[0];
+  captionSwipe = {id:t.identifier,y:t.clientY,x:t.clientX,lastY:t.clientY,lastT:event.timeStamp,vy:0,active:false};
+}, {passive:true});
+eventMapPanel.addEventListener('touchmove', event => {
+  const g = captionSwipe;
+  if (!g || event.touches.length !== 1 || event.touches[0].identifier !== g.id) return;
+  const t = event.touches[0];
+  const dy = t.clientY-g.y, dx=t.clientX-g.x;
+  if (!g.active) {
+    if (Math.abs(dy)<13) return;
+    if (Math.abs(dx)>Math.abs(dy)*.8) {captionSwipe=null;return;}
+    g.active=true;
+  }
+  if (event.cancelable) event.preventDefault();
+  const dt = Math.max(1,event.timeStamp-g.lastT);
+  g.vy=.6*((t.clientY-g.lastY)/dt)+.4*g.vy;
+  g.lastY=t.clientY;g.lastT=event.timeStamp;
+  eventMapPanel.style.transform='translateY('+Math.min(55,Math.max(-24,dy*.32))+'px)';
+}, {passive:false});
+for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(kind,event=>{
+  const g=captionSwipe;
+  if (!g || !Array.from(event.changedTouches).some(t=>t.identifier===g.id)) return;
+  captionSwipe=null;
+  eventMapPanel.style.transform='';
+  if (!g.active || kind!=='touchend') return;
+  const dy=g.lastY-g.y;
+  const up=dy < -55 || g.vy < -.42;
+  const down=dy > 70 || g.vy > .42;
+  if (!up && !down) return;
+  const wasReading=Boolean(worldEvent?.resume);
+  returnToWorld();
+  if (down && wasReading && reading.active && innerWidth<960) mobileReaderSnap('peek',{immediate:true});
+});

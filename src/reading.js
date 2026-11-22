@@ -50,7 +50,8 @@ function rememberReading() {
 function readingBackground(inert) {
   const split = inert && isSplitReading();
   for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
-    const keepLive = split && (id === 'globe' || id === 'event-map-points');
+    const keepLive = split && (id === 'globe' || id === 'event-map-points') ||
+      inert && reading.active && id === 'grab' && innerWidth < 960;
     el(id).inert = keepLive ? false : inert;
   }
   document.body.classList.toggle('reading-open', inert);
@@ -163,11 +164,12 @@ function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false }
 }
 function collapseReader(velocity = 0) {
   if (!reading.active) return;
+  if (innerWidth < 960) { mobileReaderSnap(readingViewMode === 'full' && reading.subject ? 'half' : 'peek'); return; }
   if (isSplitReading()) { closeReader(); return; }
   animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
 function readerDragStart(e) {
-  if (isSplitReading()) return;
+  if (innerWidth < 960 || isSplitReading()) return;
   if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
   if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
   readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
@@ -214,7 +216,7 @@ function finishReaderPull(distance, velocity, released) {
   else animateReader(offset, 0);
 }
 function startReaderTouch(e) {
-  if (isSplitReading()) return;
+  if (innerWidth < 960 || isSplitReading()) return;
   if (e.touches.length !== 1) { endReaderTouch(e); return; }
   if (readerMotion || readerDrag) return;
   const touch = e.changedTouches[0];
@@ -432,6 +434,10 @@ function closeReader({restore = true} = {}) {
   clearSplitScene();
   readerDrag = null;
   readerTouch = null;
+  cancelMobileReaderMotion();
+  mobileReaderDrag = null;
+  sheetEl.classList.remove('dragging');
+  document.body.classList.remove('reader-gesture');
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
   closeFootnote();
@@ -581,4 +587,168 @@ function setReadingViewMode(mode) {
   bookBody.scrollTop = scroll;
   syncSheetIdentity();
   invalidate();
+}
+
+/* v8 · Mobile archival sheet. One continuous pointer gesture across peek/half/full.
+ * The shell uses translateY on a full-height sheet, so visible height is H-offset.
+ * Book scroll position and the real WebGL globe remain owned by the existing modules. */
+const mobileSheetTop = el('sheet-top');
+let mobileReaderDrag = null, mobileReaderMotion = 0, mobileScrollHandoff = null;
+function cancelMobileReaderMotion() {
+  cancelAnimationFrame(mobileReaderMotion);
+  mobileReaderMotion = 0;
+}
+function mobileReaderPaint(offset) {
+  const H = view.h || innerHeight, d = sheetDetents();
+  let next = offset;
+  if (next > d.peek) next = d.peek + (next - d.peek) * .22;
+  if (next < 0) next *= .22;
+  applySheetOffset(next, false);
+  const exposure = clamp((H - Math.max(0, next) - 118) / Math.max(1, H * .58 - 118), 0, 1);
+  view.cyBase = H * (.515 - .29 * exposure);
+  view.cy = view.cyBase;
+  invalidate();
+}
+function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {
+  if (!reading.active || innerWidth >= 960 || mobileReaderDrag) return false;
+  cancelMobileReaderMotion();
+  stopReaderMotion();
+  mobileReaderDrag = {
+    source, pointerId, startY:clientY, lastY:clientY, lastT:timeStamp,
+    startOffset:sheetState.offset, velocityY:0, moved:false, samples:[{y:clientY,t:timeStamp}],
+  };
+  return true;
+}
+function mobileReaderMove(clientY, timeStamp) {
+  const g = mobileReaderDrag;
+  if (!g) return;
+  const dy = clientY - g.startY;
+  if (!g.moved && Math.abs(dy) < 5) return;
+  if (!g.moved) {
+    g.moved = true;
+    sheetEl.classList.add('dragging');
+    document.body.classList.add('reader-gesture');
+  }
+  g.samples.push({y:clientY,t:timeStamp});
+  g.samples = g.samples.filter(s => timeStamp - s.t <= 110);
+  const first = g.samples[0];
+  g.velocityY = timeStamp > first.t ? (clientY - first.y) / (timeStamp - first.t) : 0;
+  g.lastY = clientY; g.lastT = timeStamp;
+  mobileReaderPaint(g.startOffset + dy);
+}
+function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
+  const g = mobileReaderDrag;
+  if (!g) return;
+  mobileReaderDrag = null;
+  document.body.classList.remove('reader-gesture');
+  sheetEl.classList.remove('dragging');
+  if (!g.moved || cancelled) {
+    mobileReaderSnap(readingViewMode === 'half' ? 'half' : 'full');
+    return;
+  }
+  readerLastDrag = timeStamp;
+  const freshVelocity = timeStamp - g.lastT < 110 ? g.velocityY : 0;
+  const d = sheetDetents();
+  const current = readingViewMode;
+  let target;
+  if (freshVelocity < -.42) target = 'full';
+  else if (freshVelocity > .42) target = current === 'full' ? 'half' : 'peek';
+  else target = [['full',0],['half',d.half],['peek',d.peek]]
+    .sort((a,b) => Math.abs(sheetState.offset-a[1])-Math.abs(sheetState.offset-b[1]))[0][0];
+  if (!reading.subject && target === 'half') target = 'full';
+  mobileReaderSnap(target);
+}
+function mobileReaderSnap(mode, { immediate = false } = {}) {
+  if (!reading.active) return;
+  // A year-event deep link has no underlying polity summary to tuck into.
+  if (mode === 'peek' && !reading.snapshot?.focus) { closeReader(); return; }
+  if (innerWidth >= 960) {
+    if (mode === 'peek') closeReader();
+    return;
+  }
+  cancelMobileReaderMotion();
+  const start = sheetState.offset, end = mode === 'full' ? 0 : sheetDetents()[mode];
+  if (!Number.isFinite(end)) return;
+  if (mode === 'half' && reading.subject && readingViewMode !== 'half') {
+    readingViewMode = 'half';
+    readingBackground(true);
+  }
+  const finish = () => {
+    mobileReaderMotion = 0;
+    if (mode === 'peek') {
+      closeReader();
+      sheetTo('peek', false);
+      return;
+    }
+    readingViewMode = mode;
+    readingBackground(true);
+    applySheetOffset(end, false);
+    if (isSplitReading() && reading.subject) {
+      syncSubjectGlobeForReading(reading.subject, reading.subject.chapters.find(c => c.id === reading.detail));
+    } else clearSplitScene();
+    syncSheetIdentity();
+    invalidate();
+  };
+  if (immediate || reducedReadingMotion.matches || Math.abs(end - start) < 1) {
+    applySheetOffset(end, false);
+    finish();
+    return;
+  }
+  const began = performance.now(), duration = Math.min(340, 215 + Math.abs(end - start) * .16);
+  const frame = now => {
+    const t = clamp((now - began) / duration, 0, 1);
+    mobileReaderPaint(start + (end - start) * (1 - (1 - t) ** 3));
+    if (t >= 1) finish();
+    else mobileReaderMotion = requestAnimationFrame(frame);
+  };
+  mobileReaderMotion = requestAnimationFrame(frame);
+}
+mobileSheetTop.addEventListener('pointerdown', event => {
+  if (innerWidth >= 960 || !reading.active || !event.isPrimary || event.button !== 0 ||
+      event.target.closest('button, a, input')) return;
+  if (mobileReaderStart(event.clientY,event.timeStamp,'header',event.pointerId)) {
+    try { mobileSheetTop.setPointerCapture(event.pointerId); } catch {}
+  }
+});
+mobileSheetTop.addEventListener('pointermove', event => {
+  if (mobileReaderDrag?.source === 'header' && event.pointerId === mobileReaderDrag.pointerId)
+    mobileReaderMove(event.clientY,event.timeStamp);
+});
+for (const kind of ['pointerup','pointercancel','lostpointercapture']) {
+  mobileSheetTop.addEventListener(kind, event => {
+    if (mobileReaderDrag?.source === 'header' && mobileReaderDrag.pointerId === event.pointerId)
+      mobileReaderFinish(kind !== 'pointerup',event.timeStamp);
+  });
+}
+// Book-body native vertical scroll is untouched until a *downward* overscroll at the top.
+bookBody.addEventListener('touchstart', event => {
+  if (innerWidth >= 960 || !reading.active || event.touches.length !== 1 ||
+      bookBody.scrollTop > 1 || event.target.closest('button, a, input, summary')) {
+    mobileScrollHandoff = null;
+    return;
+  }
+  mobileScrollHandoff = { id:event.touches[0].identifier, y:event.touches[0].clientY, x:event.touches[0].clientX };
+}, {passive:true});
+bookBody.addEventListener('touchmove', event => {
+  const g = mobileScrollHandoff;
+  if (!g || event.touches.length !== 1 || event.touches[0].identifier !== g.id) return;
+  const dy = event.touches[0].clientY - g.y;
+  const dx = event.touches[0].clientX - g.x;
+  if (!mobileReaderDrag) {
+    if (dy <= 10 || dy < Math.abs(dx) * 1.25 || bookBody.scrollTop > 1) {
+      if (dy < -5 || Math.abs(dx) > Math.abs(dy) + 5) mobileScrollHandoff = null;
+      return;
+    }
+    mobileReaderStart(g.y,event.timeStamp,'scroll');
+  }
+  if (mobileReaderDrag?.source !== 'scroll') return;
+  if (event.cancelable) event.preventDefault();
+  mobileReaderMove(event.touches[0].clientY,event.timeStamp);
+}, {passive:false});
+for (const kind of ['touchend','touchcancel']) {
+  bookBody.addEventListener(kind, event => {
+    if (!mobileScrollHandoff || !Array.from(event.changedTouches).some(t => t.identifier === mobileScrollHandoff.id)) return;
+    mobileScrollHandoff = null;
+    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(kind !== 'touchend',event.timeStamp);
+  });
 }
