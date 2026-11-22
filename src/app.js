@@ -1308,7 +1308,7 @@ function layout() {
     Math.abs(screen.width - w) <= 2 && missingHeight >= 24 && missingHeight <= 96;
   document.body.classList.toggle('short-standalone-viewport', shortStandalone);
   const splitActive = document.body.classList.contains('reading-split');
-  if (splitActive) {
+  if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
     const globeW = Math.max(260, w - panelW);
     view.cx = panelW + globeW / 2;
@@ -1317,9 +1317,9 @@ function layout() {
     view.R = Math.min(globeW * 0.43, h * 0.37, 410);
   } else {
     view.cx = w / 2;
-    view.cyBase = h * (h > w ? 0.515 : 0.46);
-    view.cy = view.cyBase - (state.lift || 0);
-    view.R = Math.min(w * 0.455, h * 0.34, 410);
+    view.cyBase = splitActive ? h * .225 : h * (h > w ? 0.515 : 0.46);
+    view.cy = view.cyBase - (splitActive ? 0 : (state.lift || 0));
+    view.R = Math.min(w * 0.455, splitActive ? h * .20 : Infinity, h * 0.34, 410);
   }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
@@ -1764,6 +1764,7 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
+  if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
   if (chrome.natural) return;
   const id = pickAt(sx, sy);
@@ -1780,9 +1781,9 @@ const SHEET_BOTTOM_GAP = 16;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - SHEET_BOTTOM_GAP - 116;
-  const half = Math.min(peek - 64, H - clamp(H * 0.36, 216, 360));
-  return { hidden: H, peek: Math.max(H * 0.35, peek), half: Math.max(H * 0.3, half), full: 0 };
+  const peek = H - (124 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
+  const half = Math.min(peek - 68, Math.round(H * .42));
+  return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
 
 function applySheetOffset(offset, animate = true) {
@@ -1803,6 +1804,8 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
+  if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
+  if (typeof updateVernier === 'function') updateVernier();
 }
 
 // 位移由同一套弹簧积分驱动：动画途中再次按下可直接接住，不读取 CSS 目标位置。
@@ -1970,6 +1973,7 @@ function renderEntity() {
   if (!ent) { closeSheet(); return; }
 
   sheetInner.innerHTML = subjectSheetMarkup(ent);
+  syncSheetIdentity();
 }
 
 function openEntity(layerId, id, point = null) {
@@ -1978,6 +1982,7 @@ function openEntity(layerId, id, point = null) {
   if (key === null) { closeSheet(); return; }
   state.focus = { layerId, id, key, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
+  syncHud();
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
     sheetTo('half');
@@ -2102,6 +2107,37 @@ document.addEventListener('visibilitychange', () => {
 });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
+/* v7 · Shared paper toolbar. Reading remains a single source of truth. */
+function syncSheetIdentity() {
+  const book = reading?.active ? reading.subject : (state.focus ? subjectBookForEntity(
+    entityByKey(state.focus.layerId, state.focus.key, state.focus.id)) : null);
+  const entity = !reading.active && state.focus ? entityByKey(state.focus.layerId, state.focus.key, state.focus.id) : null;
+  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
+  el('sheet-identity-name').textContent = title;
+  el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
+  el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
+  const mode = reading.active ? readingViewMode : sheetState.detent;
+  for (const btn of el('sheet-modes').querySelectorAll('button'))
+    btn.setAttribute('aria-pressed', String(btn.dataset.sheetMode === mode));
+}
+el('sheet-toc').addEventListener('click', () => {
+  if (reading.active && reading.subject) { if (reading.detail !== null) readingIndex(); return; }
+  if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
+});
+el('sheet-modes').addEventListener('click', (event) => {
+  const btn = event.target.closest('[data-sheet-mode]');
+  if (!btn) return;
+  const mode = btn.dataset.sheetMode;
+  if (reading.active) {
+    if (mode === 'peek') { closeReader(); sheetTo('peek'); }
+    else setReadingViewMode(mode);
+  } else if (state.focus) {
+    if (mode === 'peek') sheetTo('peek');
+    else if (mode === 'half') enterSheetReading();
+    else { enterSheetReading(); setReadingViewMode('full'); }
+  }
+  syncSheetIdentity();
+});
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {
   const inline = inlineText('relief');

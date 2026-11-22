@@ -124,11 +124,13 @@ function sceneButton(scene) {
   const badgeHtml = badges.length
     ? '<span class="subject-scene-badges">' + badges.map(b => '<em>' + esc(b) + '</em>').join('') + '</span>'
     : '';
-  const verb = isSplitReading() ? '联动地球 · ' : '在地球上看 · ';
-  return '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) + '">' +
-    '<span><strong>' + verb + esc(scene.title) + '</strong><small>' +
-    esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small>' + badgeHtml + '</span>' +
-    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/><path d="M3.5 12h17M5.5 7.5h13m-13 9h13"/></svg></button>';
+  const routeType = scene.routes?.[0]?.type || scene.routes?.[0]?.kind || 'trade';
+  const label = ({canal:'漕运', military:'军事', frontier:'边防', trade:'贸易'})[routeType] || '史地';
+  return '<button type="button" class="subject-scene scene-plate" data-subject-scene="' + esc(scene.id) + '">' +
+    '<span class="scene-plate-top"><span class="scene-plate-tags"><em class="route-pill ' + esc(routeType) + '">' + label +
+    '</em><small>' + esc(fmtYear(scene.year) + ' 年') + '</small></span><b>在地球观察 →</b></span>' +
+    '<strong>' + esc(scene.title) + '</strong><small class="scene-plate-desc">' + esc(scene.summary) + '</small>' +
+    '<span class="scene-place-preview">' + esc(places) + '</span>' + badgeHtml + '</button>';
 }
 
 function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
@@ -200,7 +202,10 @@ function renderSubjectChapter(book, chapter) {
     ? '<div class="subject-thesis"><span>空间线索</span><p>' + esc(chapter.spatialThesis) + '</p></div>'
     : '';
 
-  return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
+  const ribbon = '<nav class="chapter-ribbon" aria-label="切换书卷章节">' + book.chapters.map((item, i) =>
+    '<button type="button" class="chapter-chip" data-reading-detail="' + esc(item.id) + '" aria-current="' +
+    (item.id === chapter.id ? 'page' : 'false') + '">' + (i + 1) + ' · ' + esc(item.title) + '</button>').join('') + '</nav>';
+  return ribbon + '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
     thesisHtml +
     '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {

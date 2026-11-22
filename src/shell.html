@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="地球仪">
-<meta name="theme-color" content="#05080d">
+<meta name="theme-color" content="#0a1016">
 <meta name="description" content="一本可以通过地球和时间打开的世界历史书。转动地球，选一个年份，读一段完整的历史。">
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png?v=3">
 <link rel="manifest" href="manifest.webmanifest?v=3">
@@ -26,17 +26,43 @@
 
 <div id="hud">
   <div id="year-control">
-    <button id="year" type="button" aria-controls="overlay year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false">今天</button>
+    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史地图集</span></button>
     <div id="year-strip" aria-hidden="true"></div>
     <form id="year-form" hidden>
       <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
              aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+      <label class="year-form-label" for="year-input">前往哪一年</label>
       <button type="submit">前往</button>
       <p id="year-error" role="status"></p>
+      <div class="year-milestones" aria-label="历史年份快捷入口">
+        <button type="button" data-year-jump="-550">前550</button>
+        <button type="button" data-year-jump="220">220</button>
+        <button type="button" data-year-jump="618">618</button>
+        <button type="button" data-year-jump="960">960</button>
+        <button type="button" data-year-jump="1368">1368</button>
+        <button type="button" data-year-jump="1421">1421</button>
+        <button type="button" data-year-jump="1644">1644</button>
+        <button type="button" data-year-jump="1945">1945</button>
+      </div>
+      <button id="year-events" type="button">浏览这一年的事件</button>
     </form>
   </div>
   <div id="sub" role="status" hidden></div>
+  <nav id="hud-actions" aria-label="地球快捷操作">
+    <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" title="图层与视图"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
+    <button id="hud-reset" type="button" aria-label="恢复地球视角" title="复位视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6"/></svg></button>
+  </nav>
 </div>
+<nav id="hud-zoom" aria-label="地球缩放">
+  <button id="hud-zoom-in" type="button" aria-label="放大地球">+</button>
+  <button id="hud-zoom-out" type="button" aria-label="缩小地球">−</button>
+</nav>
+<section id="vernier" aria-label="滑动年份标尺" role="group">
+  <div class="vernier-label"><span>时光游标</span><strong id="vernier-current">1421</strong></div>
+  <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
+    <div id="vernier-ticks" aria-hidden="true"></div><span class="vernier-needle" aria-hidden="true"></span>
+  </div>
+</section>
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-modal="true" aria-labelledby="view-title">
   <header id="view-head">
@@ -63,7 +89,18 @@
   <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
-  <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+  <header id="sheet-top">
+    <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+    <div id="sheet-toolbar">
+      <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
+      <button id="sheet-toc" type="button">目录</button>
+      <div id="sheet-modes" role="group" aria-label="书卷视窗">
+        <button type="button" data-sheet-mode="peek" aria-pressed="false">看球</button>
+        <button type="button" data-sheet-mode="half" aria-pressed="true">对照</button>
+        <button type="button" data-sheet-mode="full" aria-pressed="false">展卷</button>
+      </div>
+    </div>
+  </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
   <section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
     <header id="book-bar">
@@ -99,7 +136,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
     <span></span>
   </button>
-  <p id="event-map-year" aria-label="观察年份"></p>
+  <div id="event-map-meta"><strong id="event-map-year" aria-label="观察年份"></strong><span id="event-map-type">历史现场</span></div>
 </header>
 <div id="event-map-points" hidden></div>
 <section id="event-map-panel" aria-labelledby="event-map-title" hidden>
@@ -107,11 +144,21 @@
   <div id="event-map-steps" hidden></div>
   <p id="event-map-note" role="status"></p>
   <p id="event-map-distance" hidden></p>
+  <div id="event-map-place-chips" role="group" aria-label="场景地点"></div>
+  <nav id="event-map-navigation" hidden aria-label="切换历史观察场景">
+    <button id="event-map-prev" type="button">← 上一场景</button><span id="event-map-counter"></span><button id="event-map-next" type="button">下一场景 →</button>
+  </nav>
   <details id="event-map-participants" hidden>
     <summary><span id="event-participant-names"></span><span class="event-participant-action">参与方</span></summary>
     <dl id="event-participant-roles"></dl>
   </details>
 </section>
+
+<div id="footnote-shade" hidden></div>
+<aside id="footnote-popover" role="dialog" aria-modal="true" aria-labelledby="footnote-heading" hidden>
+  <header><strong id="footnote-heading">史料与注释</strong><button id="footnote-close" type="button" aria-label="关闭注释">×</button></header>
+  <p id="footnote-text"></p><a id="footnote-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a>
+</aside>
 
 <aside id="split-globe-bar" hidden aria-label="联动地球场景控制">
   <div class="split-globe-head">

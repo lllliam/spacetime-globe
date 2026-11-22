@@ -10,9 +10,11 @@ const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 let readerTouch = null;
 const readerEdgeWidth = 32;
+let readingViewMode = 'half';
 
 function isSplitReading() {
-  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library && window.innerWidth >= 960);
+  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library &&
+    (window.innerWidth >= 960 || readingViewMode === 'half'));
 }
 
 function pauseGlobe() {
@@ -85,6 +87,7 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo
   reading.scroll = saved ? saved.scroll : 0;
   reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
+  readingViewMode = subject ? 'half' : 'full';
   showReader(fromOffset);
 }
 function showReader(fromOffset) {
@@ -96,9 +99,11 @@ function showReader(fromOffset) {
   renderReading();
   if (isSplitReading()) {
     readerPosition(0, 1);
+    if (window.innerWidth < 960) applySheetOffset(sheetDetents().half, false);
   } else {
     animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
   }
+  syncSheetIdentity();
   el('reading-title').focus({ preventScroll: true });
 }
 function readerRestOffset() {
@@ -375,6 +380,7 @@ function renderReading() {
     } else {
       clearSplitScene();
     }
+    syncSheetIdentity();
     return;
   }
   clearSplitScene();
@@ -389,6 +395,7 @@ function renderReading() {
       connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
   }
   bookBody.scrollTop = item ? reading.detailScroll : reading.scroll;
+  syncSheetIdentity();
 }
 function openReadingDetail(id, offset = 0) {
   if (reading.detail) rememberReading();
@@ -427,6 +434,7 @@ function closeReader({restore = true} = {}) {
   readerTouch = null;
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
+  closeFootnote();
   const snap = reading.snapshot;
   const { detent, scroll } = snap;
   reading.active = false;
@@ -452,6 +460,7 @@ function closeReader({restore = true} = {}) {
   applySheetOffset(readerRestOffset(), false);
   sheetScroll.scrollTop = scroll;
   readingBackground(false);
+  syncSheetIdentity();
   const returnTo = reading.returnTo;
   reading.returnTo = null;
   if (restore && returnTo) { returnTo(); invalidate(); return; }
@@ -463,7 +472,8 @@ function handleReadingKey(e) {
   if (!reading.active) return false;
   if (e.key === 'Escape') {
     e.preventDefault();
-    readingGoBack();
+    if (!el('footnote-popover').hidden) closeFootnote();
+    else readingGoBack();
     return true;
   }
   if (e.key === 'Tab' && !isSplitReading()) {
@@ -477,6 +487,27 @@ function handleReadingKey(e) {
 sheetInner.addEventListener('click', (e) => {
   if (e.target.closest('[data-read-subject]')) openBook();
 });
+function closeFootnote() {
+  el('footnote-popover').hidden = true;
+  el('footnote-shade').hidden = true;
+}
+function openFootnote(link) {
+  const source = bookBody.querySelector(link.getAttribute('href'));
+  if (!source) return false;
+  el('footnote-heading').textContent = '史料与注释 · ' + link.textContent.trim();
+  el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
+  el('footnote-link').href = source.href;
+  el('footnote-shade').hidden = el('footnote-popover').hidden = false;
+  el('footnote-close').focus({ preventScroll: true });
+  return true;
+}
+el('footnote-close').addEventListener('click', closeFootnote);
+el('footnote-shade').addEventListener('click', closeFootnote);
+bookBody.addEventListener('click', (event) => {
+  const ref = event.target.closest('a[href^="#reading-source-"]');
+  if (ref && openFootnote(ref)) event.preventDefault();
+});
+
 bookBody.addEventListener('scroll', () => {
   if (isSplitReading()) scheduleSplitScrollSync();
 }, { passive: true });
@@ -531,3 +562,23 @@ bookEl.addEventListener('click', (e) => {
     e.stopPropagation();
   }
 }, true);
+
+/* v7 · Read the same book in a globe/reader comparison or a full paper view. */
+function setReadingViewMode(mode) {
+  if (!reading.active || !['half', 'full'].includes(mode)) return;
+  rememberReading();
+  const scroll = bookBody.scrollTop;
+  readingViewMode = mode;
+  stopReaderMotion();
+  readingBackground(true);
+  readerPosition(0, 1);
+  if (mode === 'half' && innerWidth < 960) applySheetOffset(sheetDetents().half, false);
+  else applySheetOffset(0, false);
+  if (isSplitReading() && reading.subject) {
+    const chapter = reading.subject.chapters.find(c => c.id === reading.detail);
+    syncSubjectGlobeForReading(reading.subject, chapter);
+  } else clearSplitScene();
+  bookBody.scrollTop = scroll;
+  syncSheetIdentity();
+  invalidate();
+}

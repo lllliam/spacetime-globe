@@ -16,10 +16,10 @@ let splitScene = null;
 let globeFlyRaf = 0;
 
 const ROUTE_STYLES = {
-  military: { color: '#eb7d5b', glow: 'rgba(235,125,91,.34)', dash: [7, 4], width: 2.3 },
-  trade:    { color: '#f2c97d', glow: 'rgba(242,201,125,.34)', dash: [], width: 2.3 },
-  canal:    { color: '#6ec4c8', glow: 'rgba(110,196,200,.34)', dash: [], width: 2.5 },
-  frontier: { color: '#d8a660', glow: 'rgba(216,166,96,.30)', dash: [3, 4], width: 2.2 },
+  military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
+  trade:    { color: '#e5dac7', glow: 'rgba(229,218,199,.28)', dash: [], width: 2.3 },
+  canal:    { color: '#5893c4', glow: 'rgba(88,147,196,.32)', dash: [], width: 2.5 },
+  frontier: { color: '#cfa05e', glow: 'rgba(207,160,94,.28)', dash: [3, 4], width: 2.2 },
 };
 
 function worldEventTarget(event, year) {
@@ -271,9 +271,9 @@ function prepareWorldEventPlaces(places) {
 
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
   const occupied = [];
-  const splitMode = document.body.classList.contains('reading-split');
+  const splitMode = document.body.classList.contains('reading-split') && view.w >= 960;
   const leftEdge = splitMode ? Math.min(460, Math.round(view.w * 0.42)) + 12 : 14;
-  const bottom = splitMode ? view.h - 24 : (eventMapPanel.getBoundingClientRect().top - 8);
+  const bottom = splitMode ? view.h - 24 : isSplitReading() && view.w < 960 ? sheetDetents().half - 12 : (eventMapPanel.getBoundingClientRect().top - 8);
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
@@ -440,6 +440,12 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   }
   state.panX = state.panY = state.lift = 0;
   eventMapTitle.textContent = title;
+  const kind = routes?.[0]?.type || routes?.[0]?.kind || 'trade';
+  const types = {canal:'漕运',military:'军事',frontier:'边防',trade:'贸易'};
+  el('event-map-type').textContent = types[kind] || '历史现场';
+  el('event-map-type').dataset.routeType = kind;
+  el('event-map-navigation').hidden = !route.sceneId;
+  el('event-map-place-chips').replaceChildren();
   eventMapRead.hidden = !route.readingTarget;
   eventMapReturn.querySelector('span').textContent = back;
   eventMapYear.textContent = fmtYear(year);
@@ -451,6 +457,10 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   renderEventParticipants(participants || []);
   if (places?.length) {
     prepareWorldEventPlaces(places);
+    if (route.sceneId) {
+      el('event-map-place-chips').innerHTML = places.map(p => '<button type="button" data-scene-place="' + esc(p.id) +
+        '"><strong>' + esc(p.name) + '</strong><small>' + esc(p.role) + '</small></button>').join('');
+    }
   } else if (Number.isFinite(route.event?.px) && Number.isFinite(route.event?.py)) {
     const lon = (route.event.px / MAPW - .5) * 360, lat = (.5 - route.event.py / MAPH) * 180;
     worldEvent.regionVector = readingPlaceVector({ lon, lat });
@@ -459,6 +469,13 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     state.zoom = 1.45;
   }
   eventMapPanel.hidden = false;
+  if (route.sceneId) {
+    const list = route.sceneOrder || [];
+    const index = list.indexOf(route.sceneId);
+    el('event-map-prev').disabled = index <= 0;
+    el('event-map-next').disabled = index < 0 || index >= list.length - 1;
+    el('event-map-counter').textContent = index < 0 ? '' : (index + 1) + ' / ' + list.length;
+  }
   onYearChanged();
   layout();
   if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) {
@@ -485,10 +502,8 @@ function openWorldEvent(event, row) {
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
   if (!scene || worldEvent || !reading.active) return;
-  if (isSplitReading()) {
-    syncSplitScene(scene, { pinPlaceId: initialPlaceId, force: true });
-    return;
-  }
+  // A scene plate opens the dedicated observation view even from half reading.
+  // The split globe remains a passive illustration until the user chooses this action.
   rememberReading();
   const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail, returnTo: reading.returnTo };
   const width = bookBody.clientWidth;
@@ -496,7 +511,8 @@ function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
   const offsetInReader = node => node.getBoundingClientRect().top - bookBody.getBoundingClientRect().top;
   const paragraphOffset = paragraph ? offsetInReader(paragraph) : 0;
   closeReader({restore: false});
-  showEventMap({ ...scene, sceneId: scene.id, initialPlaceId, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
+  const sceneOrder = reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [];
+  showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
     resume() {
       Object.assign(reading, session, {active:true});
       showReader(sheetDetents().hidden);
@@ -519,6 +535,8 @@ function returnToWorld() {
   cancelGlobeFly(false);
   document.body.classList.remove('event-map-open', 'scene-observation');
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
+  el('event-map-place-chips').replaceChildren();
+  el('event-map-navigation').hidden = true;
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
   Object.assign(state, camera);
@@ -639,6 +657,12 @@ function selectEventPlace(id, forceSelect = false) {
   const selected = ctxObj.points.get(ctxObj.selected);
   if (ctxObj === worldEvent) {
     eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
+    for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
+      chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
+    if (selected) {
+      const cam = cameraForVectors([selected.vector], true);
+      flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
+    }
   } else {
     splitGlobeNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
     splitGlobeNote.hidden = !splitGlobeNote.textContent;
@@ -668,3 +692,25 @@ splitGlobeReset.addEventListener('click', () => {
   if (sc) syncSplitScene(sc, { stepIdx: splitScene.stepIdx, force: true });
 });
 eventMapParticipants.addEventListener('toggle', invalidate);
+
+/* v7 · Archival place legends and adjacent book scenes. */
+el('event-map-place-chips').addEventListener('click', event => {
+  const chip = event.target.closest('[data-scene-place]');
+  if (chip && worldEvent) selectEventPlace(chip.dataset.scenePlace, true);
+});
+function navigateReadingScene(delta) {
+  if (!worldEvent?.sceneId || !worldEvent.sceneOrder) return;
+  const order = worldEvent.sceneOrder;
+  const id = order[order.indexOf(worldEvent.sceneId) + delta];
+  const scene = historicalScenes.get(id);
+  if (!scene) return;
+  const original = worldEvent;
+  worldEvent = null;
+  showEventMap({...scene, sceneId:scene.id, sceneOrder:order,
+    historical:scene.year>=-3400 && scene.year<=POLITY_END,
+    back:'返回正文', resume:original.resume});
+  worldEvent.camera = original.camera;
+  worldEvent.natural = original.natural;
+}
+el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
+el('event-map-next').addEventListener('click', () => navigateReadingScene(1));

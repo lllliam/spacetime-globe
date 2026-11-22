@@ -18,7 +18,17 @@ function yearControlOpen() {
 }
 
 function syncYearControl(year) {
-  elYear.textContent = yearDisplay(year);
+  el('year-num').textContent = yearDisplay(year);
+  let era = '时空地球 · 历史疆域';
+  const f = state.focus;
+  const ent = f && entityByKey(f.layerId, f.key, f.id);
+  const book = reading.active && reading.subject ? reading.subject : (ent && subjectBookForEntity(ent));
+  if (book) {
+    era = book.title;
+    if (book.id === 'ming' && year >= 1403 && year <= 1424) era = '永乐' + (year - 1402) + '年 · 大明';
+  }
+  el('year-era').textContent = era;
+  if (typeof updateVernier === 'function') updateVernier();
   const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
   elYear.setAttribute('aria-label', spoken + '的事件与阅读。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
@@ -236,20 +246,8 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
   });
 }
 
-elYear.addEventListener('click', (event) => {
-  if (worldEvent) return;
-  if (reading.active || !yearForm.hidden) return;
-  if (event.detail === 0) { openYearWorld(); return; }
-  if (suppressYearClick) return;
-  const now = performance.now();
-  if (yearTap && now - yearTap.at <= YEAR_DOUBLE_TAP_MS &&
-      Math.hypot(event.clientX - yearTap.x, event.clientY - yearTap.y) <= 30) {
-    openYearInput();
-    return;
-  }
-  cancelYearTap();
-  yearTap = { at: now, x: event.clientX, y: event.clientY };
-  yearTapTimer = setTimeout(openYearWorld, YEAR_DOUBLE_TAP_MS);
+elYear.addEventListener('click', () => {
+  if (!worldEvent && !reading.active && yearForm.hidden && !suppressYearClick && !yearBrowsing) openYearInput();
 });
 
 yearControl.addEventListener('contextmenu', (event) => {
@@ -300,3 +298,61 @@ document.addEventListener('pointerdown', (event) => {
 addEventListener('resize', updateYearStride);
 yearStrip.addEventListener('transitionend', invalidate);
 document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });
+
+/* v7 · Year shortcuts, explicit access to events and the precision ruler. */
+yearForm.addEventListener('click', (event) => {
+  const jump = event.target.closest('[data-year-jump]');
+  if (!jump) return;
+  commitYear(Number(jump.dataset.yearJump));
+  closeYearControl({ focus: true });
+});
+el('year-events').addEventListener('click', openYearWorld);
+const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
+let vernierGesture = null;
+function updateVernier() {
+  const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
+    (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
+  vernier.hidden = !visible;
+  if (!visible) return;
+  el('vernier-current').textContent = yearDisplay(state.year);
+  vernierTrack.setAttribute('aria-valuenow', state.year);
+  vernierTrack.setAttribute('aria-valuetext', yearDisplay(state.year));
+  const current = ord(state.year), span = 8;
+  vernierTicks.innerHTML = Array.from({length:17}, (_,i) => {
+    const offset = i - span;
+    const n = current + offset;
+    if (n < yearMinIndex || n > yearMaxIndex) return '';
+    const val = yearAtIndex(n);
+    return '<span style="left:' + (50+offset*6.25) + '%" class="' + (offset===0?'current':'') + '">' +
+      (offset !== 0 && offset % 4 === 0 ? esc(String(val)) : '') + '</span>';
+  }).join('');
+}
+vernierTrack.addEventListener('pointerdown', (event) => {
+  if (vernier.hidden || event.button !== 0 || reading.active) return;
+  vernierGesture = {id:event.pointerId, x:event.clientX, original:ord(state.year), moved:false};
+  vernierTrack.setPointerCapture(event.pointerId);
+});
+vernierTrack.addEventListener('pointermove', (event) => {
+  if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
+  const dx = event.clientX - vernierGesture.x;
+  if (Math.abs(dx)>3) vernierGesture.moved=true;
+  if (vernierGesture.moved) {
+    const year = yearAtIndex(vernierGesture.original - dx / Math.max(12, vernierTrack.clientWidth / 16));
+    if (year!==state.year) commitYear(year);
+  }
+});
+for (const type of ['pointerup','pointercancel','lostpointercapture']) vernierTrack.addEventListener(type, (event) => {
+  if (!vernierGesture || event.pointerId!==vernierGesture.id) return;
+  const drag=vernierGesture; vernierGesture=null;
+  if (type==='pointerup' && !drag.moved) {
+    const rect=vernierTrack.getBoundingClientRect();
+    const years=Math.round((event.clientX-rect.left-rect.width/2)/(rect.width/16));
+    commitYear(yearAtIndex(drag.original+years));
+  }
+});
+vernierTrack.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault(); stepYear(event.key === 'ArrowRight' ? 1 : -1);
+  }
+});
+updateVernier();

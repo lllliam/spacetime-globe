@@ -202,3 +202,9 @@ addEventListener('keydown', event => {
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 }, true);
+
+/* v7 · Visible iPhone controls coexist with the original hold gesture. */
+el('hud-view').addEventListener('click', () => showView());
+el('hud-reset').addEventListener('click', resetView);
+el('hud-zoom-in').addEventListener('click', () => { if (!reading.active) zoomTo(clamp(state.zoom * 1.26, 1, 7), view.cx, view.cy); });
+el('hud-zoom-out').addEventListener('click', () => { if (!reading.active) zoomTo(clamp(state.zoom / 1.26, 1, 7), view.cx, view.cy); });
