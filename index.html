@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="地球仪">
-<meta name="theme-color" content="#05080d">
+<meta name="theme-color" content="#0a1016">
 <meta name="description" content="一本可以通过地球和时间打开的世界历史书。转动地球，选一个年份，读一段完整的历史。">
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png?v=3">
 <link rel="manifest" href="manifest.webmanifest?v=3">
@@ -654,6 +654,345 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   }
   body.reading-split #reading-grab:hover::after{color:var(--gold)}
 }
+/* ============================================================================
+ * Spacetime Globe — v7 iPhone-First Design System (Direction A)
+ * Theme: Deep Cosmos Archival Globe × Warm Rice-Paper Editorial History Book
+ * Drop-in tokens & core component styles for src/app.css & src/chrome.css
+ * ============================================================================ */
+
+:root {
+  /* 1. Deep Cosmos Globe Stage */
+  --cosmos-bg: #0a1016;
+  --cosmos-surface: rgba(15, 24, 33, 0.84);
+  --cosmos-border: rgba(214, 224, 232, 0.14);
+  --cosmos-ink: #ebe6dc;
+  --cosmos-muted: #93a1ae;
+
+  /* 2. Warm Rice-Paper Editorial Book Sheet */
+  --paper-bg: #f6f2e9;
+  --paper-surface: #ede7d9;
+  --paper-surface-2: #e5decb;
+  --paper-border: #d7cebc;
+  --paper-ink: #1c1b18;
+  --paper-body: #2c2924;
+  --paper-muted: #6f695e;
+
+  /* 3. Archival Cartographic Accents (replaces generic dark-slate + champagne-gold) */
+  --vermilion: #b53f29;
+  --vermilion-soft: rgba(181, 63, 41, 0.11);
+  --indigo: #336287;
+  --indigo-soft: rgba(51, 98, 135, 0.12);
+  --ochre: #9c7435;
+  --ochre-soft: rgba(156, 116, 53, 0.13);
+
+  /* 4. Route & Map Highlight Tokens (for WebGL / 2D vector canvas in event-map.js) */
+  --route-canal: #5893c4;
+  --route-military: #d65a3e;
+  --route-frontier: #cfa05e;
+  --route-trade: #e5dac7;
+  --polity-highlight-fill: rgba(186, 74, 48, 0.24);
+  --polity-highlight-stroke: #d97a5c;
+
+  /* 5. Typography */
+  --font-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* 6. Motion & Safe Area */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --safe-top: env(safe-area-inset-top, 14px);
+  --safe-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Warm Rice-Paper Sheet Base */
+#sheet {
+  background: var(--paper-bg) !important;
+  color: var(--paper-ink) !important;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  box-shadow:
+    0 -1px 0 rgba(255, 255, 255, 0.65) inset,
+    0 -16px 42px rgba(0, 0, 0, 0.42);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Editorial Book Typography (High-legibility Ink on Warm Paper) */
+.book-article,
+#book-body {
+  background: var(--paper-bg);
+  color: var(--paper-body);
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.88;
+}
+
+.book-article h1,
+.book-article h2,
+#book-body h1,
+#book-body h2 {
+  color: var(--paper-ink);
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+/* Spatial Thesis Epigraph */
+.spatial-thesis {
+  margin: 0 0 18px;
+  padding: 11px 14px;
+  background: var(--paper-surface);
+  border-left: 3px solid var(--vermilion);
+  border-radius: 0 8px 8px 0;
+  color: var(--paper-ink);
+}
+
+/* Inline Cartographic Scene Plate */
+.scene-plate {
+  margin: 16px 0 20px;
+  padding: 13px 14px;
+  background: var(--paper-surface);
+  border: 1px solid var(--paper-border);
+  border-radius: 12px;
+}
+
+/* Archival Callout Marginalia (Editorial hairlines, no drop-shadow SaaS cards) */
+.archival-callout {
+  margin: 16px 0;
+  padding: 12px 14px;
+  border-top: 1px solid var(--paper-border);
+  border-bottom: 1px solid var(--paper-border);
+  background: rgba(237, 231, 217, 0.45);
+}
+
+/* ========================================================================
+   v7 · Deep-cosmos stage × quiet archival paper. Shared across all 15 books.
+   This layer upgrades the existing engine, rather than replacing its UI.
+   ======================================================================== */
+:root{
+  --bg:var(--cosmos-bg);--page-bg:var(--cosmos-bg);
+  --gold:var(--ochre);--gold-dim:#98794e;--card:var(--paper-surface);
+  --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);
+}
+body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 65%,#070b10 100%);color:var(--cosmos-ink)}
+#scrim{background:linear-gradient(180deg,rgba(5,11,17,.78) 0%,transparent 100%)}
+#boot{background:var(--cosmos-bg)}
+#boot .spin{border-color:#a8bbc038;border-top-color:var(--route-frontier)}
+#sheet{
+  --ink:var(--paper-ink);--muted:var(--paper-muted);--line:var(--paper-border);
+  --gold:var(--vermilion);--gold-dim:var(--ochre);
+  border:1px solid var(--paper-border);border-bottom:0;border-radius:22px 22px 0 0;
+  background:var(--paper-bg);color:var(--paper-ink);
+  box-shadow:0 -12px 36px #0007;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  padding-bottom:var(--safe-b);
+}
+#sheet::before{display:none}
+#sheet-dim{background:#05080d55}
+#sheet-top{position:relative;z-index:2;flex:none;padding:3px clamp(12px,4vw,22px) 9px;background:var(--paper-bg);border-bottom:1px solid #d5cdbb99}
+#sheet-top #grab{height:17px;min-height:17px;display:grid;place-items:start center;touch-action:none}
+#sheet-top #grab i{margin:5px 0 0;height:3px;width:35px;background:#c7bdad;align-self:auto}
+#sheet-gesture{display:none}
+#sheet-toolbar{display:flex;align-items:center;gap:6px;min-width:0;min-height:40px}
+#sheet-identity{display:flex;align-items:center;gap:7px;flex:1;min-width:0}
+#sheet-seal{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:4px;background:var(--vermilion);color:#fff6ea;font:600 12px/1 var(--font-serif)}
+.sheet-identity-copy{min-width:0;display:flex;flex-direction:column;gap:1px}
+#sheet-identity-name{font:600 14px/1.3 var(--font-serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#sheet-identity-years{font:10px/1.2 var(--font-mono);color:var(--paper-muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#sheet-toc{flex:none;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--paper-border);background:var(--paper-surface);color:var(--paper-ink);font:600 12px var(--font-sans);white-space:nowrap;cursor:pointer}
+#sheet-modes{display:flex;flex:none;gap:1px;padding:2px;border:1px solid var(--paper-border);border-radius:999px;background:var(--paper-surface)}
+#sheet-modes button{min-height:27px;padding:3px 9px;border:0;border-radius:999px;background:none;color:var(--paper-muted);font:500 11px/1.1 var(--font-sans);white-space:nowrap;cursor:pointer}
+#sheet-modes button[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper-bg)}
+#sheet-scroll{padding:10px 18px 12px;scrollbar-color:#b7ac9a transparent}
+#sheet .era{color:var(--vermilion);font-variant-numeric:tabular-nums}
+#sheet .era small,#sheet .era2 small{color:var(--paper-muted)}
+#sheet .era2{color:var(--ochre)}
+#sheet .facts span,#sheet .rows li span{color:var(--paper-body)}
+#sheet .facts small,#sheet .rows li small,#sheet .empty,#sheet .noprose,#sheet .foot{color:var(--paper-muted)}
+#sheet .facts .dot{background:var(--ochre)}
+#sheet .rows li{border-top:1px solid var(--paper-border)}
+#sheet .hint-more{color:var(--vermilion)}
+#sheet .hint-more::after{background:linear-gradient(90deg,var(--paper-border),transparent)}
+#sheet .sheet-overview h2,#sheet h2{color:var(--paper-ink)}
+#sheet.peek #sheet-scroll{padding-top:5px}
+#sheet.peek .sheet-overview .era{margin-bottom:0}
+#sheet.peek #sheet-inner .rows{display:none}
+#sheet.peek #sheet-inner .facts{display:none}
+#sheet.peek #sheet-inner .hint-more{display:none}
+#sheet .subject-sheet-summary{color:var(--paper-body)}
+#sheet .subject-entry-actions button,[data-read-subject]{color:var(--vermilion)}
+#sheet.full #sheet-scroll{max-height:calc(100dvh - 110px)}
+/* Book remains an editable, accessible modal in the existing reading system. */
+#book{
+  --reading-text:var(--paper-body);--reading-muted:var(--paper-muted);
+  --reading-rule:var(--paper-border);--reading-serif:var(--font-serif);
+  --ink:var(--paper-ink);--gold:var(--vermilion);
+  top:69px;bottom:0;background:var(--paper-bg);color:var(--paper-body);
+}
+#book-bar{height:38px;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+#reading-back{position:relative;left:auto;bottom:auto;color:var(--vermilion);width:38px;min-height:38px}
+#reading-grab{width:auto;min-width:60px;min-height:36px;padding:0 5px;color:var(--paper-muted)}
+#reading-grab span{width:30px;height:3px;background:#beb3a0}
+#book-body{padding:10px clamp(18px,5vw,36px) calc(var(--safe-b) + 56px);max-width:700px;font:400 15.5px/1.88 var(--font-serif);color:var(--paper-body)}
+#book-body h1{font:700 clamp(24px,6.4vw,34px)/1.36 var(--font-serif);color:var(--paper-ink)}
+#book-body h2{color:var(--paper-ink);font:700 16px/1.5 var(--font-serif)}
+#book-body .lede{color:var(--paper-body);border-left:2px solid var(--vermilion)}
+#book-body .when,#book-body .reading-note{color:var(--paper-muted)}
+#book-body .reading-opening,#book-body .reading-story p,
+#book-body article p{font:400 15.5px/1.88 var(--font-serif);color:var(--paper-body);text-align:justify}
+#book-body .subject-prose > p + p{margin-top:19px}
+#book-body article{margin-bottom:18px}
+#book-body .reading-row-copy strong{color:var(--paper-ink)}
+#book-body .reading-row small,#book-body .reading-link small{color:var(--vermilion)}
+#book-body .reading-link{border-bottom-color:var(--paper-border)}
+#book-body .reading-arrow{color:var(--vermilion)}
+#book-body .reading-row:hover,#book-body .reading-link:hover{background:var(--paper-surface)}
+#book-body .subject-book-label{color:var(--vermilion);font:600 11.5px/1.4 var(--font-sans)}
+#book-body .subject-thesis{margin:15px 0 21px;padding:12px 15px;background:var(--paper-surface);border:0;border-left:3px solid var(--vermilion);border-radius:0 8px 8px 0}
+#book-body .subject-thesis span{display:block;color:var(--vermilion);font:600 11px/1.5 var(--font-sans);margin-bottom:3px}
+#book-body .subject-thesis p{color:var(--paper-ink);font:400 14px/1.75 var(--font-serif)}
+#book-body .subject-section-heading{color:var(--paper-ink);border-color:var(--paper-border);font-size:17px}
+#book-body .subject-callout{border:0;border-top:1px solid var(--paper-border);border-bottom:1px solid var(--paper-border);background:#ede7d973;border-radius:0;padding:12px 14px;margin:16px 0}
+#book-body .subject-callout small{color:var(--ochre)}
+#book-body .subject-callout strong{color:var(--paper-ink)}
+#book-body .subject-callout p{color:var(--paper-body);font:400 13.5px/1.7 var(--font-serif)}
+#book-body .reading-refs{white-space:normal;display:inline-flex;align-items:center;gap:4px;margin:0 3px;font:400 10px/1.4 var(--font-mono);vertical-align:super}
+#book-body .reading-refs a{display:inline-block;padding:2px 4px;border-radius:4px;color:var(--indigo);background:var(--indigo-soft);text-decoration:none}
+#book-body .reading-sources{border-color:var(--paper-border)}
+#book-body .reading-sources a{color:var(--paper-muted)}
+#book-body .reading-next button,#book-body .subject-secondary summary{color:var(--vermilion)}
+#book-body .subject-secondary{border-color:var(--paper-border)}
+#book-body .credits{color:var(--paper-muted)}
+#book-body .reading-filters button{border-color:var(--paper-border);color:var(--paper-muted)}
+#book-body .reading-filters button[aria-pressed="true"]{border-color:var(--vermilion);background:var(--vermilion-soft);color:var(--vermilion)}
+#book-body .inline-place{color:var(--indigo);border-color:var(--indigo)}
+/* Scrollable, single-line chapters retain the complete titles in an accessible list. */
+.chapter-ribbon{display:flex;gap:7px;overflow:auto;overscroll-behavior-x:contain;scrollbar-width:none;max-width:100%;padding:2px 0 13px;margin:0 0 16px;border-bottom:1px solid var(--paper-border)}
+.chapter-ribbon::-webkit-scrollbar{display:none}
+.chapter-chip{flex:none;min-height:32px;padding:5px 10px;border:1px solid var(--paper-border);border-radius:8px;background:transparent;color:var(--paper-muted);font:500 12px/1.4 var(--font-serif);white-space:nowrap;cursor:pointer}
+.chapter-chip[aria-current="page"]{background:var(--paper-ink);border-color:var(--paper-ink);color:var(--paper-bg)}
+/* Scene plate, not a generic action row. No new geographic data is fabricated. */
+#book-body .subject-scene.scene-plate{display:flex;flex-direction:column;align-items:stretch;gap:7px;margin:17px 0 23px;padding:12px 14px;border:1px solid var(--paper-border);border-radius:12px;background:var(--paper-surface);color:var(--paper-body);width:100%;text-align:left}
+#book-body .scene-plate-top{display:flex;justify-content:space-between;gap:8px;align-items:center;width:100%}
+#book-body .scene-plate-top b{flex:none;font:600 12px var(--font-sans);color:var(--vermilion);white-space:nowrap}
+#book-body .scene-plate-tags{display:flex;align-items:center;gap:7px}
+#book-body .scene-plate-tags small{font:400 11px var(--font-mono);color:var(--paper-muted)}
+#book-body .route-pill{display:inline-block;border-radius:5px;font:600 10.5px/1.3 var(--font-sans);padding:3px 7px}
+#book-body .route-pill.canal{background:var(--indigo-soft);color:var(--indigo)}
+#book-body .route-pill.military{background:var(--vermilion-soft);color:var(--vermilion)}
+#book-body .route-pill.frontier{background:var(--ochre-soft);color:var(--ochre)}
+#book-body .route-pill.trade{background:#1c1b1817;color:var(--paper-ink)}
+#book-body .scene-plate>strong{color:var(--paper-ink);font:700 16px/1.45 var(--font-serif)}
+#book-body .scene-plate-desc{font:400 13px/1.55 var(--font-serif);color:var(--paper-muted)}
+#book-body .scene-place-preview{font:400 11.5px/1.4 var(--font-sans);color:var(--ochre)}
+#book-body .subject-scene-badges{margin:0}
+#book-body .subject-scene-badges em{color:var(--paper-muted);border:1px solid var(--paper-border);background:transparent}
+#book-body .subject-scene.is-active{border-color:var(--vermilion)}
+#book-body .contemporary-card{border-color:var(--paper-border);background:var(--paper-surface);color:var(--paper-body)}
+#book-body .contemporary-card strong{color:var(--paper-ink)}
+#book-body .contemporary-card small{color:var(--vermilion)}
+#book-body .contemporary-card span{color:var(--paper-muted)}
+#book-body .subject-contemporaries{border-color:var(--paper-border)}
+/* Paper footnotes keep the reading position instead of jumping to the bibliography. */
+#footnote-shade{position:fixed;inset:0;z-index:23;background:#05080d8c}
+#footnote-shade[hidden],#footnote-popover[hidden]{display:none}
+#footnote-popover{position:fixed;left:50%;bottom:calc(var(--safe-b) + 16px);transform:translateX(-50%);z-index:24;width:min(460px,calc(100vw - 28px));padding:15px 18px 18px;background:var(--paper-bg);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 12px 38px #0006;color:var(--paper-ink)}
+#footnote-popover header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#footnote-popover header strong{font:700 14px var(--font-serif)}
+#footnote-close{min-width:34px;min-height:34px;border:0;background:none;color:var(--paper-muted);font-size:23px;cursor:pointer}
+#footnote-text{font:400 13.5px/1.75 var(--font-serif);color:var(--paper-body)}
+#footnote-link{font:600 12px var(--font-sans);color:var(--indigo);text-decoration:none}
+/* Archive caption with fixed, clear scene controls; globe remains touchable. */
+#event-map-top{display:flex;justify-content:space-between;gap:8px;padding:calc(var(--safe-t) + 10px) 14px 8px;background:linear-gradient(#0a1016e0,transparent);align-items:center}
+#event-map-return{border:1px solid var(--paper-border);border-radius:999px;padding:0 12px;min-height:38px;background:var(--paper-bg);color:var(--paper-ink);text-shadow:none;font:600 12px var(--font-sans)}
+#event-map-meta{display:flex;align-items:center;gap:7px;border:1px solid var(--cosmos-border);border-radius:999px;padding:6px 11px;background:var(--cosmos-surface);color:var(--cosmos-ink)}
+#event-map-year{color:var(--cosmos-ink);font:600 13px var(--font-mono);margin:0;text-shadow:none;letter-spacing:0}
+#event-map-type{color:var(--route-trade);font:500 11px var(--font-sans)}
+#event-map-type[data-route-type="canal"]{color:var(--route-canal)}
+#event-map-type[data-route-type="military"]{color:var(--route-military)}
+#event-map-type[data-route-type="frontier"]{color:var(--route-frontier)}
+.scene-observation #event-map-panel,#event-map-panel{
+  left:50%;right:auto;bottom:0;transform:translateX(-50%);width:min(100vw,680px);
+  min-height:215px;height:clamp(215px,29dvh,300px);max-height:42dvh;
+  padding:16px clamp(16px,5vw,26px) calc(var(--safe-b) + 12px);
+  background:var(--paper-bg);border:1px solid var(--paper-border);border-bottom:none;
+  border-radius:22px 22px 0 0;box-shadow:0 -10px 36px #0005;
+  color:var(--paper-ink);pointer-events:auto;overflow:auto;overscroll-behavior:contain;
+}
+#event-map-title,.scene-observation #event-map-title{color:var(--paper-ink);font:700 18px/1.4 var(--font-serif)}
+#event-map-note,.scene-observation #event-map-note{color:var(--paper-body);font:400 13px/1.55 var(--font-serif);margin:6px 0 9px}
+#event-map-distance{color:var(--paper-muted);font:400 11px/1.5 var(--font-sans)}
+#event-map-panel .step-chip{border:1px solid var(--paper-border);border-radius:999px;color:var(--paper-muted);background:var(--paper-surface);padding:6px 9px}
+#event-map-panel .step-chip[aria-pressed="true"]{color:var(--vermilion);border-color:var(--vermilion);background:var(--vermilion-soft)}
+#event-map-panel .step-chip span{color:var(--vermilion)}
+#event-map-panel #event-map-read{color:var(--vermilion)}
+#event-map-participants{border-color:var(--paper-border)}
+#event-map-participants summary{color:var(--paper-ink)}
+.event-participant-action{color:var(--vermilion)}
+#event-participant-roles dd{color:var(--paper-muted)}
+#event-participant-roles dd span{color:var(--paper-ink)}
+#event-map-place-chips{display:flex;overflow-x:auto;gap:7px;scrollbar-width:none;padding:2px 0 8px}
+#event-map-place-chips button{flex:none;min-width:65px;max-width:170px;padding:6px 9px;border:1px solid var(--paper-border);border-radius:999px;background:var(--paper-surface);color:var(--paper-ink);text-align:left;cursor:pointer}
+#event-map-place-chips button[aria-pressed="true"]{background:var(--indigo-soft);border-color:var(--indigo)}
+#event-map-place-chips strong{display:block;font:600 12px var(--font-sans);white-space:nowrap}
+#event-map-place-chips small{display:block;color:var(--paper-muted);font:400 10px/1.3 var(--font-sans);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#event-map-navigation{display:flex;align-items:center;justify-content:space-between;gap:9px;border-top:1px solid var(--paper-border);margin-top:2px;padding-top:7px}
+#event-map-navigation[hidden]{display:none}
+#event-map-navigation button{min-height:30px;color:var(--vermilion);font:600 11px var(--font-sans)}
+#event-map-navigation button:disabled{color:var(--paper-muted);opacity:.45}
+#event-map-counter{color:var(--paper-muted);font:500 10px var(--font-mono)}
+.event-map-point::before{background:var(--route-frontier);border-color:#f6ead2;box-shadow:0 0 0 2px #182431}
+.event-map-point i{background:#a9bec4a6}
+.event-map-point button,.scene-observation .event-map-point button{background:rgba(15,24,33,.9);border:1px solid var(--cosmos-border);color:#f4efe6;box-shadow:0 3px 9px #0006;text-shadow:none}
+.event-map-point.selected button,.scene-observation .event-map-point.selected button{background:#21384a;color:#fff2d8;border-color:var(--route-canal)}
+/* The globe stays above the open paper in 393px portrait comparison mode. */
+@media(max-width:959px){
+  body.reading-open.reading-split #sheet{left:0;right:0;width:100%;top:0;bottom:0;height:100%;border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
+  body.reading-open.reading-split #sheet-dim{display:none}
+  body.reading-open.reading-split #hud{visibility:visible;opacity:1}
+  body.reading-open.reading-split #event-map-points{display:block}
+  body.reading-open.reading-split #split-globe-bar{display:block;position:fixed;left:14px;right:auto;top:calc(var(--safe-t) + 76px);width:min(320px,calc(100vw - 74px));padding:5px 10px;max-height:75px;overflow:auto;border:1px solid var(--cosmos-border);background:var(--cosmos-surface);border-radius:11px;box-shadow:none}
+  body.reading-open.reading-split #split-globe-bar[hidden]{display:none}
+  body.reading-open.reading-split #split-globe-note,body.reading-open.reading-split #split-globe-steps{display:none}
+  body.reading-open.reading-split #book-body{max-width:none}
+  body.reading-open.reading-split #book-bar{height:32px}
+  body.reading-open.reading-split #reading-grab{display:none}
+  body.reading-open.reading-split #book-body{padding-top:6px}
+}
+@media(min-width:960px){
+  body.reading-split #sheet{background:var(--paper-bg);border-right:1px solid var(--paper-border);color:var(--paper-ink);box-shadow:14px 0 44px #0005}
+  body.reading-split #book-body{padding:12px 24px 50px;background:var(--paper-bg)}
+  body.reading-split #split-globe-bar{background:var(--cosmos-surface);border:1px solid var(--cosmos-border);-webkit-backdrop-filter:none;backdrop-filter:none}
+  body.reading-split #split-globe-title{color:var(--cosmos-ink)}
+  body.reading-split #split-globe-note{color:var(--cosmos-muted)}
+}
+body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
+body.reading-open:not(.reading-split) #book{top:calc(70px + var(--safe-t))}
+body.reading-open #sheet-top{opacity:1}
+body.reading-open #grab{opacity:0;pointer-events:none}
+#sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
+@media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-modes button{padding-inline:7px}#sheet-identity-years{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#event-map-panel,#sheet{animation:none;transition:none}}
+
+@media(max-width:959px){
+  body.reading-open.reading-split #book{top:69px;bottom:auto;height:calc(58dvh - 69px);min-height:0}
+  body.reading-open.reading-split #book-body{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+}
+/* v7 · Compact scene caption navigation must stay visible on a 393×844 iPhone. */
+#event-map-panel,.scene-observation #event-map-panel{display:flex;flex-direction:column;gap:2px;overflow:hidden}
+#event-map-panel[hidden],body.reading-open #event-map-panel{display:none}
+.event-map-head,#event-map-steps,#event-map-distance,#event-map-place-chips,#event-map-navigation{flex:none}
+#event-map-steps{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-width:100%;min-height:36px;scrollbar-width:none;overscroll-behavior-x:contain}
+#event-map-steps .step-chip{white-space:nowrap;flex:none}
+#event-map-note,.scene-observation #event-map-note{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;font-size:12px;line-height:1.48}
+#event-map-navigation{margin-top:auto}
+#event-map-participants[open]{max-height:90px;overflow:auto}
+#event-map-steps{margin:4px 0 5px;min-height:31px;gap:6px}
+#event-map-panel .step-chip{min-height:30px;padding:4px 8px;font-size:11px}
+#event-map-place-chips{padding:1px 0 4px}
+#event-map-place-chips button{display:inline-flex;align-items:center;gap:5px;height:35px;max-width:176px;padding:4px 9px}
+#event-map-place-chips strong{display:inline;flex:none;font-size:11px}
+#event-map-place-chips small{display:inline;max-width:98px;min-width:0;font-size:10px}
+#event-map-note,.scene-observation #event-map-note{min-height:27px;max-height:54px;margin:2px 0 4px}
 
 /* 沉浸首页，工具按需出现。 */
 html,body{background:var(--page-bg);min-height:100dvh}
@@ -761,6 +1100,88 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 @media(max-height:500px){#hud{top:6px}#year-control{font-size:29px}#hud #year{min-height:44px}}
 @media(prefers-reduced-motion:reduce){#year-strip{transition:none}}
 
+/* v7 · Deliberately visible controls on the deep-cosmos stage. */
+#hud{position:fixed;top:calc(var(--safe-t) + 12px);left:12px;right:12px;display:flex;align-items:flex-start;gap:9px;padding:0;z-index:9;pointer-events:none}
+#year-control{width:auto;flex:1;min-width:0;display:block;place-items:unset;font:inherit;color:var(--cosmos-ink)}
+#hud #year{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;width:auto;min-width:140px;max-width:100%;min-height:48px;padding:5px 12px;border:1px solid var(--cosmos-border);border-radius:14px;background:var(--cosmos-surface);color:var(--cosmos-ink);text-align:left;letter-spacing:0;box-shadow:0 4px 18px #0004}
+#year-num{font:600 20px/1.08 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.035em;white-space:nowrap}
+#year-era{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#b5bfca;font:400 10.5px/1.3 var(--font-sans);letter-spacing:0}
+#hud-actions{display:flex;gap:7px;align-items:center;pointer-events:auto;flex:none}
+#hud-actions button,#hud-zoom button{display:grid;place-items:center;min-width:43px;min-height:43px;padding:0;border:1px solid var(--cosmos-border);border-radius:14px;background:var(--cosmos-surface);color:var(--cosmos-ink);cursor:pointer;-webkit-backdrop-filter:none;backdrop-filter:none}
+#hud-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#hud-zoom{position:fixed;z-index:7;right:14px;top:calc(var(--safe-t) + 135px);display:flex;flex-direction:column;gap:5px;pointer-events:auto}
+#hud-zoom button{width:37px;height:39px;min-height:39px;min-width:37px;font:400 23px/1 var(--font-sans);border-radius:12px}
+body.reading-open:not(.reading-split) #hud-zoom,body.reading-open.reading-split #hud-zoom,body.event-map-open #hud-zoom{display:none}
+#year-control.browsing #year{color:transparent}
+#year-control.browsing #year-strip{z-index:2;top:0;height:52px;opacity:1}
+#year-control.browsing #year-strip span{font:600 19px var(--font-mono);color:var(--cosmos-ink);text-shadow:none}
+#year-control.editing #year{visibility:visible}
+#year-form[hidden]{display:none}
+#year-form{position:absolute;top:calc(100% + 9px);left:0;right:auto;bottom:auto;inset-block-end:auto;width:min(334px,calc(100vw - 24px));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:15px;background:var(--paper-bg);color:var(--paper-ink);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 10px 34px #0008;z-index:14;pointer-events:auto;font:14px var(--font-sans)}
+#year-form .year-form-label{grid-column:1/-1;color:var(--paper-muted);font:600 12px var(--font-sans);text-align:left}
+#year-form #year-input{width:100%;min-width:0;height:40px;border:1px solid var(--paper-border);border-radius:8px;background:#fffcf5;color:var(--paper-ink);text-align:left;padding:0 10px;letter-spacing:0;font:600 16px var(--font-mono);caret-color:var(--vermilion)}
+#year-form button{position:static;left:auto;min-height:40px;padding:0 12px;background:var(--vermilion);border:0;border-radius:8px;color:#fff8ef;font:600 12px var(--font-sans);cursor:pointer}
+#year-form #year-error{position:static;grid-column:1/-1;margin:0;color:var(--vermilion);text-shadow:none;text-align:left}
+#year-form #year-error:empty{display:none}
+#year-form .year-milestones{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+#year-form .year-milestones button{min-width:0;min-height:31px;background:var(--paper-surface);border:1px solid var(--paper-border);color:var(--paper-ink);border-radius:7px;padding:3px 0;font:500 11px var(--font-mono)}
+#year-form #year-events{grid-column:1/-1;background:var(--paper-ink);color:var(--paper-bg)}
+#sub{position:absolute;left:0;top:57px;color:var(--cosmos-muted);font-size:10px}
+#toolbar{top:calc(var(--safe-t) + 78px)}
+#loadpill{border-color:var(--cosmos-border);background:var(--cosmos-surface);color:var(--cosmos-ink)}
+#vernier{position:fixed;z-index:7;left:50%;bottom:calc(var(--safe-b) + 16px);transform:translateX(-50%);width:min(328px,calc(100vw - 64px));display:flex;flex-direction:column;gap:5px;padding:8px 13px 12px;border:1px solid var(--cosmos-border);border-radius:14px;background:rgba(10,17,23,.84);color:var(--cosmos-ink);box-shadow:0 5px 20px #0004}
+#vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
+body.sheet-open #vernier{bottom:calc(var(--safe-b) + 136px)}
+.vernier-label{display:flex;justify-content:space-between;align-items:center;font:500 10px var(--font-sans);letter-spacing:.07em;color:var(--cosmos-muted)}
+#vernier-current{font:600 12px var(--font-mono);color:var(--cosmos-ink);letter-spacing:0}
+#vernier-track{touch-action:none;position:relative;height:23px;cursor:ew-resize;overflow:hidden;outline-offset:3px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+#vernier-track::before{content:"";position:absolute;top:5px;left:0;right:0;height:1px;background:#a2b7c15c}
+#vernier-ticks span{position:absolute;top:5px;width:1px;height:8px;background:#8da2ac75;font:400 9px var(--font-mono);color:#c5ccd3;text-align:center;transform:translateX(-50%)}
+#vernier-ticks span.current{height:12px;background:var(--route-frontier)}
+#vernier-ticks span:not(:empty){width:auto;padding-top:9px;background:none;white-space:nowrap}
+.vernier-needle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--route-military);border-radius:3px;box-shadow:0 0 0 2px #0a1016}
+/* Layer picker: paper, with existing WebGL choices and saved switches. */
+#view-panel{background:var(--paper-bg);border:1px solid var(--paper-border);border-bottom:0;color:var(--paper-ink);box-shadow:0 -14px 40px #0007}
+#view-head h2{color:var(--paper-ink);font-family:var(--font-serif)}
+#view-head::before{background:var(--paper-border)}
+#view-close{color:var(--paper-muted)}
+#view-modes{background:var(--paper-surface);border-color:var(--paper-border)}
+#view-modes button{color:var(--paper-muted)}
+#view-modes button[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper-bg)}
+#view-caption{color:var(--paper-muted)}
+#view-options summary{color:var(--paper-ink)}
+.view-switches{border-color:var(--paper-border)}
+.view-switches button{color:var(--paper-ink)}
+.view-switches button:disabled{color:var(--paper-muted)}
+.view-switches i{background:#c3b9a7}
+.view-switches #reset-view{color:var(--vermilion)}
+.view-switches [aria-checked="true"]:not(:disabled) i{background:var(--indigo)}
+#overlay{background:var(--paper-bg);color:var(--paper-ink)}
+#overlay-title,#world-events-heading,.world-background summary{color:var(--paper-ink)}
+#overlay-sub{color:var(--paper-muted)}
+.wrow{color:var(--paper-ink)}
+.wrow small{color:var(--paper-muted)}
+.world-read{color:var(--vermilion)}
+.witem,.world-background summary{border-color:var(--paper-border)}
+.wempty{border-color:var(--paper-border);color:var(--paper-muted)}
+#overlay-close{color:var(--paper-ink)}
+body.reading-open.reading-split #hud{pointer-events:none;visibility:visible;opacity:1}
+body.reading-open.reading-split #year-control,body.reading-open.reading-split #hud-actions{pointer-events:none}
+@media(max-width:520px){
+ #hud{top:calc(var(--safe-t) + 10px);left:12px;right:12px}
+ #hud #year{min-width:0;padding:5px 11px;max-width:calc(100vw - 118px)}
+ #hud-actions{gap:5px}
+ #hud-actions button{width:42px;min-width:42px}
+ #hud-zoom{right:12px;top:calc(var(--safe-t) + 121px)}
+ #vernier{width:min(328px,calc(100vw - 54px))}
+}
+#hud{flex-direction:row;justify-content:space-between}
+#year-form{place-items:stretch;align-content:start}
+#year-form .year-form-label{order:-1}
+#year-form #year-input{grid-column:1;grid-row:auto}
+#year-form button[type="submit"]{grid-column:2}
+#year-form .year-milestones{justify-items:stretch}
+
 </style>
 </head>
 <body>
@@ -772,17 +1193,43 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 
 <div id="hud">
   <div id="year-control">
-    <button id="year" type="button" aria-controls="overlay year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false">今天</button>
+    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史地图集</span></button>
     <div id="year-strip" aria-hidden="true"></div>
     <form id="year-form" hidden>
       <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
              aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+      <label class="year-form-label" for="year-input">前往哪一年</label>
       <button type="submit">前往</button>
       <p id="year-error" role="status"></p>
+      <div class="year-milestones" aria-label="历史年份快捷入口">
+        <button type="button" data-year-jump="-550">前550</button>
+        <button type="button" data-year-jump="220">220</button>
+        <button type="button" data-year-jump="618">618</button>
+        <button type="button" data-year-jump="960">960</button>
+        <button type="button" data-year-jump="1368">1368</button>
+        <button type="button" data-year-jump="1421">1421</button>
+        <button type="button" data-year-jump="1644">1644</button>
+        <button type="button" data-year-jump="1945">1945</button>
+      </div>
+      <button id="year-events" type="button">浏览这一年的事件</button>
     </form>
   </div>
   <div id="sub" role="status" hidden></div>
+  <nav id="hud-actions" aria-label="地球快捷操作">
+    <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" title="图层与视图"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
+    <button id="hud-reset" type="button" aria-label="恢复地球视角" title="复位视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6"/></svg></button>
+  </nav>
 </div>
+<nav id="hud-zoom" aria-label="地球缩放">
+  <button id="hud-zoom-in" type="button" aria-label="放大地球">+</button>
+  <button id="hud-zoom-out" type="button" aria-label="缩小地球">−</button>
+</nav>
+<section id="vernier" aria-label="滑动年份标尺" role="group">
+  <div class="vernier-label"><span>时光游标</span><strong id="vernier-current">1421</strong></div>
+  <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
+    <div id="vernier-ticks" aria-hidden="true"></div><span class="vernier-needle" aria-hidden="true"></span>
+  </div>
+</section>
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-modal="true" aria-labelledby="view-title">
   <header id="view-head">
@@ -809,7 +1256,18 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
-  <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+  <header id="sheet-top">
+    <div id="grab" role="button" tabindex="0" aria-label="上滑或按回车展开阅读，下滑或按向下键关闭"><i></i><span id="sheet-gesture" aria-hidden="true"></span></div>
+    <div id="sheet-toolbar">
+      <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
+      <button id="sheet-toc" type="button">目录</button>
+      <div id="sheet-modes" role="group" aria-label="书卷视窗">
+        <button type="button" data-sheet-mode="peek" aria-pressed="false">看球</button>
+        <button type="button" data-sheet-mode="half" aria-pressed="true">对照</button>
+        <button type="button" data-sheet-mode="full" aria-pressed="false">展卷</button>
+      </div>
+    </div>
+  </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
   <section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
     <header id="book-bar">
@@ -845,7 +1303,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
     <span></span>
   </button>
-  <p id="event-map-year" aria-label="观察年份"></p>
+  <div id="event-map-meta"><strong id="event-map-year" aria-label="观察年份"></strong><span id="event-map-type">历史现场</span></div>
 </header>
 <div id="event-map-points" hidden></div>
 <section id="event-map-panel" aria-labelledby="event-map-title" hidden>
@@ -853,11 +1311,21 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   <div id="event-map-steps" hidden></div>
   <p id="event-map-note" role="status"></p>
   <p id="event-map-distance" hidden></p>
+  <div id="event-map-place-chips" role="group" aria-label="场景地点"></div>
+  <nav id="event-map-navigation" hidden aria-label="切换历史观察场景">
+    <button id="event-map-prev" type="button">← 上一场景</button><span id="event-map-counter"></span><button id="event-map-next" type="button">下一场景 →</button>
+  </nav>
   <details id="event-map-participants" hidden>
     <summary><span id="event-participant-names"></span><span class="event-participant-action">参与方</span></summary>
     <dl id="event-participant-roles"></dl>
   </details>
 </section>
+
+<div id="footnote-shade" hidden></div>
+<aside id="footnote-popover" role="dialog" aria-modal="true" aria-labelledby="footnote-heading" hidden>
+  <header><strong id="footnote-heading">史料与注释</strong><button id="footnote-close" type="button" aria-label="关闭注释">×</button></header>
+  <p id="footnote-text"></p><a id="footnote-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a>
+</aside>
 
 <aside id="split-globe-bar" hidden aria-label="联动地球场景控制">
   <div class="split-globe-head">
@@ -2192,7 +2660,7 @@ function layout() {
     Math.abs(screen.width - w) <= 2 && missingHeight >= 24 && missingHeight <= 96;
   document.body.classList.toggle('short-standalone-viewport', shortStandalone);
   const splitActive = document.body.classList.contains('reading-split');
-  if (splitActive) {
+  if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
     const globeW = Math.max(260, w - panelW);
     view.cx = panelW + globeW / 2;
@@ -2201,9 +2669,9 @@ function layout() {
     view.R = Math.min(globeW * 0.43, h * 0.37, 410);
   } else {
     view.cx = w / 2;
-    view.cyBase = h * (h > w ? 0.515 : 0.46);
-    view.cy = view.cyBase - (state.lift || 0);
-    view.R = Math.min(w * 0.455, h * 0.34, 410);
+    view.cyBase = splitActive ? h * .225 : h * (h > w ? 0.515 : 0.46);
+    view.cy = view.cyBase - (splitActive ? 0 : (state.lift || 0));
+    view.R = Math.min(w * 0.455, splitActive ? h * .20 : Infinity, h * 0.34, 410);
   }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
@@ -2648,6 +3116,7 @@ function zoomTo(z, ax, ay) {
 }
 
 function tapGlobe(sx, sy) {
+  if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
   if (chrome.natural) return;
   const id = pickAt(sx, sy);
@@ -2664,9 +3133,9 @@ const SHEET_BOTTOM_GAP = 16;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - SHEET_BOTTOM_GAP - 116;
-  const half = Math.min(peek - 64, H - clamp(H * 0.36, 216, 360));
-  return { hidden: H, peek: Math.max(H * 0.35, peek), half: Math.max(H * 0.3, half), full: 0 };
+  const peek = H - (124 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
+  const half = Math.min(peek - 68, Math.round(H * .42));
+  return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
 
 function applySheetOffset(offset, animate = true) {
@@ -2687,6 +3156,8 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < d.half - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
+  if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
+  if (typeof updateVernier === 'function') updateVernier();
 }
 
 // 位移由同一套弹簧积分驱动：动画途中再次按下可直接接住，不读取 CSS 目标位置。
@@ -2854,6 +3325,7 @@ function renderEntity() {
   if (!ent) { closeSheet(); return; }
 
   sheetInner.innerHTML = subjectSheetMarkup(ent);
+  syncSheetIdentity();
 }
 
 function openEntity(layerId, id, point = null) {
@@ -2862,6 +3334,7 @@ function openEntity(layerId, id, point = null) {
   if (key === null) { closeSheet(); return; }
   state.focus = { layerId, id, key, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
+  syncHud();
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
     sheetTo('half');
@@ -2986,6 +3459,37 @@ document.addEventListener('visibilitychange', () => {
 });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
+/* v7 · Shared paper toolbar. Reading remains a single source of truth. */
+function syncSheetIdentity() {
+  const book = reading?.active ? reading.subject : (state.focus ? subjectBookForEntity(
+    entityByKey(state.focus.layerId, state.focus.key, state.focus.id)) : null);
+  const entity = !reading.active && state.focus ? entityByKey(state.focus.layerId, state.focus.key, state.focus.id) : null;
+  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
+  el('sheet-identity-name').textContent = title;
+  el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
+  el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
+  const mode = reading.active ? readingViewMode : sheetState.detent;
+  for (const btn of el('sheet-modes').querySelectorAll('button'))
+    btn.setAttribute('aria-pressed', String(btn.dataset.sheetMode === mode));
+}
+el('sheet-toc').addEventListener('click', () => {
+  if (reading.active && reading.subject) { if (reading.detail !== null) readingIndex(); return; }
+  if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
+});
+el('sheet-modes').addEventListener('click', (event) => {
+  const btn = event.target.closest('[data-sheet-mode]');
+  if (!btn) return;
+  const mode = btn.dataset.sheetMode;
+  if (reading.active) {
+    if (mode === 'peek') { closeReader(); sheetTo('peek'); }
+    else setReadingViewMode(mode);
+  } else if (state.focus) {
+    if (mode === 'peek') sheetTo('peek');
+    else if (mode === 'half') enterSheetReading();
+    else { enterSheetReading(); setReadingViewMode('full'); }
+  }
+  syncSheetIdentity();
+});
 /* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
 const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
@@ -2998,9 +3502,11 @@ const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 let readerTouch = null;
 const readerEdgeWidth = 32;
+let readingViewMode = 'half';
 
 function isSplitReading() {
-  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library && window.innerWidth >= 960);
+  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library &&
+    (window.innerWidth >= 960 || readingViewMode === 'half'));
 }
 
 function pauseGlobe() {
@@ -3073,6 +3579,7 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo
   reading.scroll = saved ? saved.scroll : 0;
   reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
+  readingViewMode = subject ? 'half' : 'full';
   showReader(fromOffset);
 }
 function showReader(fromOffset) {
@@ -3084,9 +3591,11 @@ function showReader(fromOffset) {
   renderReading();
   if (isSplitReading()) {
     readerPosition(0, 1);
+    if (window.innerWidth < 960) applySheetOffset(sheetDetents().half, false);
   } else {
     animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
   }
+  syncSheetIdentity();
   el('reading-title').focus({ preventScroll: true });
 }
 function readerRestOffset() {
@@ -3363,6 +3872,7 @@ function renderReading() {
     } else {
       clearSplitScene();
     }
+    syncSheetIdentity();
     return;
   }
   clearSplitScene();
@@ -3377,6 +3887,7 @@ function renderReading() {
       connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
   }
   bookBody.scrollTop = item ? reading.detailScroll : reading.scroll;
+  syncSheetIdentity();
 }
 function openReadingDetail(id, offset = 0) {
   if (reading.detail) rememberReading();
@@ -3415,6 +3926,7 @@ function closeReader({restore = true} = {}) {
   readerTouch = null;
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
+  closeFootnote();
   const snap = reading.snapshot;
   const { detent, scroll } = snap;
   reading.active = false;
@@ -3440,6 +3952,7 @@ function closeReader({restore = true} = {}) {
   applySheetOffset(readerRestOffset(), false);
   sheetScroll.scrollTop = scroll;
   readingBackground(false);
+  syncSheetIdentity();
   const returnTo = reading.returnTo;
   reading.returnTo = null;
   if (restore && returnTo) { returnTo(); invalidate(); return; }
@@ -3451,7 +3964,8 @@ function handleReadingKey(e) {
   if (!reading.active) return false;
   if (e.key === 'Escape') {
     e.preventDefault();
-    readingGoBack();
+    if (!el('footnote-popover').hidden) closeFootnote();
+    else readingGoBack();
     return true;
   }
   if (e.key === 'Tab' && !isSplitReading()) {
@@ -3465,6 +3979,27 @@ function handleReadingKey(e) {
 sheetInner.addEventListener('click', (e) => {
   if (e.target.closest('[data-read-subject]')) openBook();
 });
+function closeFootnote() {
+  el('footnote-popover').hidden = true;
+  el('footnote-shade').hidden = true;
+}
+function openFootnote(link) {
+  const source = bookBody.querySelector(link.getAttribute('href'));
+  if (!source) return false;
+  el('footnote-heading').textContent = '史料与注释 · ' + link.textContent.trim();
+  el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
+  el('footnote-link').href = source.href;
+  el('footnote-shade').hidden = el('footnote-popover').hidden = false;
+  el('footnote-close').focus({ preventScroll: true });
+  return true;
+}
+el('footnote-close').addEventListener('click', closeFootnote);
+el('footnote-shade').addEventListener('click', closeFootnote);
+bookBody.addEventListener('click', (event) => {
+  const ref = event.target.closest('a[href^="#reading-source-"]');
+  if (ref && openFootnote(ref)) event.preventDefault();
+});
+
 bookBody.addEventListener('scroll', () => {
   if (isSplitReading()) scheduleSplitScrollSync();
 }, { passive: true });
@@ -3519,6 +4054,26 @@ bookEl.addEventListener('click', (e) => {
     e.stopPropagation();
   }
 }, true);
+
+/* v7 · Read the same book in a globe/reader comparison or a full paper view. */
+function setReadingViewMode(mode) {
+  if (!reading.active || !['half', 'full'].includes(mode)) return;
+  rememberReading();
+  const scroll = bookBody.scrollTop;
+  readingViewMode = mode;
+  stopReaderMotion();
+  readingBackground(true);
+  readerPosition(0, 1);
+  if (mode === 'half' && innerWidth < 960) applySheetOffset(sheetDetents().half, false);
+  else applySheetOffset(0, false);
+  if (isSplitReading() && reading.subject) {
+    const chapter = reading.subject.chapters.find(c => c.id === reading.detail);
+    syncSubjectGlobeForReading(reading.subject, chapter);
+  } else clearSplitScene();
+  bookBody.scrollTop = scroll;
+  syncSheetIdentity();
+  invalidate();
+}
 
 const subjectBooks = JSON.parse(inlineText('subject-books'));
 const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
@@ -3646,11 +4201,13 @@ function sceneButton(scene) {
   const badgeHtml = badges.length
     ? '<span class="subject-scene-badges">' + badges.map(b => '<em>' + esc(b) + '</em>').join('') + '</span>'
     : '';
-  const verb = isSplitReading() ? '联动地球 · ' : '在地球上看 · ';
-  return '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) + '">' +
-    '<span><strong>' + verb + esc(scene.title) + '</strong><small>' +
-    esc(fmtYear(scene.year) + ' 年 · ' + places) + '</small>' + badgeHtml + '</span>' +
-    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4.5" ry="9"/><path d="M3.5 12h17M5.5 7.5h13m-13 9h13"/></svg></button>';
+  const routeType = scene.routes?.[0]?.type || scene.routes?.[0]?.kind || 'trade';
+  const label = ({canal:'漕运', military:'军事', frontier:'边防', trade:'贸易'})[routeType] || '史地';
+  return '<button type="button" class="subject-scene scene-plate" data-subject-scene="' + esc(scene.id) + '">' +
+    '<span class="scene-plate-top"><span class="scene-plate-tags"><em class="route-pill ' + esc(routeType) + '">' + label +
+    '</em><small>' + esc(fmtYear(scene.year) + ' 年') + '</small></span><b>在地球观察 →</b></span>' +
+    '<strong>' + esc(scene.title) + '</strong><small class="scene-plate-desc">' + esc(scene.summary) + '</small>' +
+    '<span class="scene-place-preview">' + esc(places) + '</span>' + badgeHtml + '</button>';
 }
 
 function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
@@ -3722,7 +4279,10 @@ function renderSubjectChapter(book, chapter) {
     ? '<div class="subject-thesis"><span>空间线索</span><p>' + esc(chapter.spatialThesis) + '</p></div>'
     : '';
 
-  return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
+  const ribbon = '<nav class="chapter-ribbon" aria-label="切换书卷章节">' + book.chapters.map((item, i) =>
+    '<button type="button" class="chapter-chip" data-reading-detail="' + esc(item.id) + '" aria-current="' +
+    (item.id === chapter.id ? 'page' : 'false') + '">' + (i + 1) + ' · ' + esc(item.title) + '</button>').join('') + '</nav>';
+  return ribbon + '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
     thesisHtml +
     '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {
@@ -3821,10 +4381,10 @@ let splitScene = null;
 let globeFlyRaf = 0;
 
 const ROUTE_STYLES = {
-  military: { color: '#eb7d5b', glow: 'rgba(235,125,91,.34)', dash: [7, 4], width: 2.3 },
-  trade:    { color: '#f2c97d', glow: 'rgba(242,201,125,.34)', dash: [], width: 2.3 },
-  canal:    { color: '#6ec4c8', glow: 'rgba(110,196,200,.34)', dash: [], width: 2.5 },
-  frontier: { color: '#d8a660', glow: 'rgba(216,166,96,.30)', dash: [3, 4], width: 2.2 },
+  military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
+  trade:    { color: '#e5dac7', glow: 'rgba(229,218,199,.28)', dash: [], width: 2.3 },
+  canal:    { color: '#5893c4', glow: 'rgba(88,147,196,.32)', dash: [], width: 2.5 },
+  frontier: { color: '#cfa05e', glow: 'rgba(207,160,94,.28)', dash: [3, 4], width: 2.2 },
 };
 
 function worldEventTarget(event, year) {
@@ -4076,9 +4636,9 @@ function prepareWorldEventPlaces(places) {
 
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
   const occupied = [];
-  const splitMode = document.body.classList.contains('reading-split');
+  const splitMode = document.body.classList.contains('reading-split') && view.w >= 960;
   const leftEdge = splitMode ? Math.min(460, Math.round(view.w * 0.42)) + 12 : 14;
-  const bottom = splitMode ? view.h - 24 : (eventMapPanel.getBoundingClientRect().top - 8);
+  const bottom = splitMode ? view.h - 24 : isSplitReading() && view.w < 960 ? sheetDetents().half - 12 : (eventMapPanel.getBoundingClientRect().top - 8);
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
@@ -4245,6 +4805,12 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   }
   state.panX = state.panY = state.lift = 0;
   eventMapTitle.textContent = title;
+  const kind = routes?.[0]?.type || routes?.[0]?.kind || 'trade';
+  const types = {canal:'漕运',military:'军事',frontier:'边防',trade:'贸易'};
+  el('event-map-type').textContent = types[kind] || '历史现场';
+  el('event-map-type').dataset.routeType = kind;
+  el('event-map-navigation').hidden = !route.sceneId;
+  el('event-map-place-chips').replaceChildren();
   eventMapRead.hidden = !route.readingTarget;
   eventMapReturn.querySelector('span').textContent = back;
   eventMapYear.textContent = fmtYear(year);
@@ -4256,6 +4822,10 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   renderEventParticipants(participants || []);
   if (places?.length) {
     prepareWorldEventPlaces(places);
+    if (route.sceneId) {
+      el('event-map-place-chips').innerHTML = places.map(p => '<button type="button" data-scene-place="' + esc(p.id) +
+        '"><strong>' + esc(p.name) + '</strong><small>' + esc(p.role) + '</small></button>').join('');
+    }
   } else if (Number.isFinite(route.event?.px) && Number.isFinite(route.event?.py)) {
     const lon = (route.event.px / MAPW - .5) * 360, lat = (.5 - route.event.py / MAPH) * 180;
     worldEvent.regionVector = readingPlaceVector({ lon, lat });
@@ -4264,6 +4834,13 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     state.zoom = 1.45;
   }
   eventMapPanel.hidden = false;
+  if (route.sceneId) {
+    const list = route.sceneOrder || [];
+    const index = list.indexOf(route.sceneId);
+    el('event-map-prev').disabled = index <= 0;
+    el('event-map-next').disabled = index < 0 || index >= list.length - 1;
+    el('event-map-counter').textContent = index < 0 ? '' : (index + 1) + ' / ' + list.length;
+  }
   onYearChanged();
   layout();
   if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) {
@@ -4290,10 +4867,8 @@ function openWorldEvent(event, row) {
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
   if (!scene || worldEvent || !reading.active) return;
-  if (isSplitReading()) {
-    syncSplitScene(scene, { pinPlaceId: initialPlaceId, force: true });
-    return;
-  }
+  // A scene plate opens the dedicated observation view even from half reading.
+  // The split globe remains a passive illustration until the user chooses this action.
   rememberReading();
   const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail, returnTo: reading.returnTo };
   const width = bookBody.clientWidth;
@@ -4301,7 +4876,8 @@ function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
   const offsetInReader = node => node.getBoundingClientRect().top - bookBody.getBoundingClientRect().top;
   const paragraphOffset = paragraph ? offsetInReader(paragraph) : 0;
   closeReader({restore: false});
-  showEventMap({ ...scene, sceneId: scene.id, initialPlaceId, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
+  const sceneOrder = reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [];
+  showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
     resume() {
       Object.assign(reading, session, {active:true});
       showReader(sheetDetents().hidden);
@@ -4324,6 +4900,8 @@ function returnToWorld() {
   cancelGlobeFly(false);
   document.body.classList.remove('event-map-open', 'scene-observation');
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
+  el('event-map-place-chips').replaceChildren();
+  el('event-map-navigation').hidden = true;
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
   Object.assign(state, camera);
@@ -4444,6 +5022,12 @@ function selectEventPlace(id, forceSelect = false) {
   const selected = ctxObj.points.get(ctxObj.selected);
   if (ctxObj === worldEvent) {
     eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
+    for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
+      chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
+    if (selected) {
+      const cam = cameraForVectors([selected.vector], true);
+      flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
+    }
   } else {
     splitGlobeNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
     splitGlobeNote.hidden = !splitGlobeNote.textContent;
@@ -4473,6 +5057,28 @@ splitGlobeReset.addEventListener('click', () => {
   if (sc) syncSplitScene(sc, { stepIdx: splitScene.stepIdx, force: true });
 });
 eventMapParticipants.addEventListener('toggle', invalidate);
+
+/* v7 · Archival place legends and adjacent book scenes. */
+el('event-map-place-chips').addEventListener('click', event => {
+  const chip = event.target.closest('[data-scene-place]');
+  if (chip && worldEvent) selectEventPlace(chip.dataset.scenePlace, true);
+});
+function navigateReadingScene(delta) {
+  if (!worldEvent?.sceneId || !worldEvent.sceneOrder) return;
+  const order = worldEvent.sceneOrder;
+  const id = order[order.indexOf(worldEvent.sceneId) + delta];
+  const scene = historicalScenes.get(id);
+  if (!scene) return;
+  const original = worldEvent;
+  worldEvent = null;
+  showEventMap({...scene, sceneId:scene.id, sceneOrder:order,
+    historical:scene.year>=-3400 && scene.year<=POLITY_END,
+    back:'返回正文', resume:original.resume});
+  worldEvent.camera = original.camera;
+  worldEvent.natural = original.natural;
+}
+el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
+el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
 
 const worldReadingLinks = new Map(Object.entries(JSON.parse(inlineText('world-reading'))));
 const worldPin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>';
@@ -4789,6 +5395,12 @@ addEventListener('keydown', event => {
   }
 }, true);
 
+/* v7 · Visible iPhone controls coexist with the original hold gesture. */
+el('hud-view').addEventListener('click', () => showView());
+el('hud-reset').addEventListener('click', resetView);
+el('hud-zoom-in').addEventListener('click', () => { if (!reading.active) zoomTo(clamp(state.zoom * 1.26, 1, 7), view.cx, view.cy); });
+el('hud-zoom-out').addEventListener('click', () => { if (!reading.active) zoomTo(clamp(state.zoom / 1.26, 1, 7), view.cx, view.cy); });
+
 const yearControl = el('year-control'), yearStrip = el('year-strip');
 const yearForm = el('year-form'), yearInput = el('year-input'), yearError = el('year-error');
 const yearMinIndex = ord(YMIN), yearMaxIndex = ord(YMAX);
@@ -4809,7 +5421,17 @@ function yearControlOpen() {
 }
 
 function syncYearControl(year) {
-  elYear.textContent = yearDisplay(year);
+  el('year-num').textContent = yearDisplay(year);
+  let era = '时空地球 · 历史疆域';
+  const f = state.focus;
+  const ent = f && entityByKey(f.layerId, f.key, f.id);
+  const book = reading.active && reading.subject ? reading.subject : (ent && subjectBookForEntity(ent));
+  if (book) {
+    era = book.title;
+    if (book.id === 'ming' && year >= 1403 && year <= 1424) era = '永乐' + (year - 1402) + '年 · 大明';
+  }
+  el('year-era').textContent = era;
+  if (typeof updateVernier === 'function') updateVernier();
   const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
   elYear.setAttribute('aria-label', spoken + '的事件与阅读。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
@@ -5027,20 +5649,8 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
   });
 }
 
-elYear.addEventListener('click', (event) => {
-  if (worldEvent) return;
-  if (reading.active || !yearForm.hidden) return;
-  if (event.detail === 0) { openYearWorld(); return; }
-  if (suppressYearClick) return;
-  const now = performance.now();
-  if (yearTap && now - yearTap.at <= YEAR_DOUBLE_TAP_MS &&
-      Math.hypot(event.clientX - yearTap.x, event.clientY - yearTap.y) <= 30) {
-    openYearInput();
-    return;
-  }
-  cancelYearTap();
-  yearTap = { at: now, x: event.clientX, y: event.clientY };
-  yearTapTimer = setTimeout(openYearWorld, YEAR_DOUBLE_TAP_MS);
+elYear.addEventListener('click', () => {
+  if (!worldEvent && !reading.active && yearForm.hidden && !suppressYearClick && !yearBrowsing) openYearInput();
 });
 
 yearControl.addEventListener('contextmenu', (event) => {
@@ -5091,6 +5701,64 @@ document.addEventListener('pointerdown', (event) => {
 addEventListener('resize', updateYearStride);
 yearStrip.addEventListener('transitionend', invalidate);
 document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });
+
+/* v7 · Year shortcuts, explicit access to events and the precision ruler. */
+yearForm.addEventListener('click', (event) => {
+  const jump = event.target.closest('[data-year-jump]');
+  if (!jump) return;
+  commitYear(Number(jump.dataset.yearJump));
+  closeYearControl({ focus: true });
+});
+el('year-events').addEventListener('click', openYearWorld);
+const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
+let vernierGesture = null;
+function updateVernier() {
+  const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
+    (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
+  vernier.hidden = !visible;
+  if (!visible) return;
+  el('vernier-current').textContent = yearDisplay(state.year);
+  vernierTrack.setAttribute('aria-valuenow', state.year);
+  vernierTrack.setAttribute('aria-valuetext', yearDisplay(state.year));
+  const current = ord(state.year), span = 8;
+  vernierTicks.innerHTML = Array.from({length:17}, (_,i) => {
+    const offset = i - span;
+    const n = current + offset;
+    if (n < yearMinIndex || n > yearMaxIndex) return '';
+    const val = yearAtIndex(n);
+    return '<span style="left:' + (50+offset*6.25) + '%" class="' + (offset===0?'current':'') + '">' +
+      (offset !== 0 && offset % 4 === 0 ? esc(String(val)) : '') + '</span>';
+  }).join('');
+}
+vernierTrack.addEventListener('pointerdown', (event) => {
+  if (vernier.hidden || event.button !== 0 || reading.active) return;
+  vernierGesture = {id:event.pointerId, x:event.clientX, original:ord(state.year), moved:false};
+  vernierTrack.setPointerCapture(event.pointerId);
+});
+vernierTrack.addEventListener('pointermove', (event) => {
+  if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
+  const dx = event.clientX - vernierGesture.x;
+  if (Math.abs(dx)>3) vernierGesture.moved=true;
+  if (vernierGesture.moved) {
+    const year = yearAtIndex(vernierGesture.original - dx / Math.max(12, vernierTrack.clientWidth / 16));
+    if (year!==state.year) commitYear(year);
+  }
+});
+for (const type of ['pointerup','pointercancel','lostpointercapture']) vernierTrack.addEventListener(type, (event) => {
+  if (!vernierGesture || event.pointerId!==vernierGesture.id) return;
+  const drag=vernierGesture; vernierGesture=null;
+  if (type==='pointerup' && !drag.moved) {
+    const rect=vernierTrack.getBoundingClientRect();
+    const years=Math.round((event.clientX-rect.left-rect.width/2)/(rect.width/16));
+    commitYear(yearAtIndex(drag.original+years));
+  }
+});
+vernierTrack.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault(); stepYear(event.key === 'ArrowRight' ? 1 : -1);
+  }
+});
+updateVernier();
 
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {
