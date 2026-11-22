@@ -155,9 +155,10 @@ const offline = page(
   readFileSync(join(root, 'data', 'relief.jpg')).toString('base64'),
   readFileSync(join(root, 'data', 'polity.bin.gz')).toString('base64'),
   readFileSync(join(root, 'data', 'earth-detail.jpg')).toString('base64'),
-).replace('href="favicon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'favicon.png')).toString('base64') + '"')
- .replace('href="icon.png?v=3"', 'href="data:image/png;base64,' + readFileSync(join(root, 'icon.png')).toString('base64') + '"')
- .replace('<link rel="manifest" href="manifest.webmanifest?v=3">', '');
+).replace('href="favicon-32.png?v=4"', 'href="data:image/png;base64,' + readFileSync(join(root, 'favicon-32.png')).toString('base64') + '"')
+ .replace('href="apple-touch-icon.png?v=4"', 'href="data:image/png;base64,' + readFileSync(join(root, 'apple-touch-icon.png')).toString('base64') + '"')
+ .replace('href="favicon.ico?v=4"', 'href="data:image/x-icon;base64,' + readFileSync(join(root, 'favicon.ico')).toString('base64') + '"')
+ .replace('<link rel="manifest" href="manifest.webmanifest?v=4">', '');
 writeFileSync(join(root, 'index.offline.html'), offline, 'utf8');
 
 const kb = (n) => (n / 1024).toFixed(0) + ' KB';

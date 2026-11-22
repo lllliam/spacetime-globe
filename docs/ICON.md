@@ -1,16 +1,24 @@
-# 图标 · v2.2
+# 图标 · v7（立体浮雕地球仪）
 
-采用内置 imagegen 工具生成正式母版，取代原来的地球画面裁切。深蓝珐琅与黄铜浮雕大陆呼应应用配色，经纬线与带刻度的环表达空间与时间。没有文字，在小尺寸下保留清晰轮廓。背景为不透明正方形，由操作系统裁切圆角。
+采用本次应用图标升级包中的正式图标。深空底色、立体浮雕地球仪，与 v7 历史阅读界面保持一致。图标为不透明正方形，由系统负责裁切圆角；maskable 版另含安全边距。
 
-## 资源
+## 文件与用途
 
-- 母版：`assets/icon-master.png`。
-- iOS 主屏幕：`icon.png`（180×180）。
-- PWA：`icon-192.png`（192×192）、`icon-512.png`（512×512，any / maskable）。
-- 浏览器：`favicon.png`（64×64）。
-- `tools/build-icons.ps1` 使用 Windows System.Drawing 从母版缩放，不重新生成画面。应用运行不依赖该脚本。
-- 图标引用增加 `?v=3`，Service Worker 缓存同时升级，避免网站继续命中旧文件。单文件离线版将 favicon 和 touch icon 直接内嵌。
+- 正式母版：`assets/icon-master.png`（1024×1024）。
+- iOS 主屏幕：`apple-touch-icon.png`（180×180），兼容旧路径 `icon.png`。
+- PWA：`icon-192.png`（192×192）、`icon-512.png`（512×512，any）、`icon-512-maskable.png`（512×512，maskable）。
+- 浏览器：`favicon-32.png`（32×32）、`favicon.ico`（16/32/48），兼容旧路径 `favicon.png`（64×64）。
 
-## 生成提示词（内置工具）
+## 页面与离线同步
 
-Use case: logo-brand. Create ONE finished square app icon for an elegant offline world-history globe application, Spacetime Globe. Asset only, full bleed square 1024x1024, opaque background; no presentation mockup, no surrounding device, no text, no letters, no numbers, no watermark. A single centered sculptural globe as a precision historical scientific instrument. Whole circular sphere clearly readable with generous space around it, diameter approximately 62% of the square, entirely within central 70% maskable safe area. Deep midnight ink navy background, subtly layered smooth matte surface. The Earth is dark petrol-blue enamel with delicately raised warm champagne-brass continental silhouettes (Eurasia and Africa visible, recognizable coastlines, no country borders), restrained fine engraved latitude/longitude meridians. A slender incomplete brass meridian/chronometer ring wraps around the sphere at a graceful tilt, with very few refined tiny index ticks suggesting time. Premium museum instrument craftsmanship, lightly brushed brass, soft tactile embossing, soft upper-left studio lighting and gentle grounded ambient shadow. Restrained warm gold highlights, quiet dark blue shadows, excellent silhouette and strong legibility at 48px. Contemporary Apple-quality app icon finish with subtle dimensionality, refined editorial restraint, no excessive ornament, no pedestal, no stars, no neon, no busy map texture, no excessive shine. Background fills square edges; do not bake rounded-square corners, the OS will mask the square. Save the generated asset locally and return the local file path if available.
+`src/shell.html` 通过带 `?v=4` 的链接引用 iPhone 图标、favicon 及 PWA manifest；页面主题色为 `#0a1016`。
+
+`manifest.webmanifest` 分开声明 `any` 和 `maskable` 图标，背景色和主题色均为 `#0a1016`。
+
+`sw.js` 更新至 `globe-v24-icons`，预缓存新版图标和 manifest，激活时清理旧版本缓存。
+
+`node build.mjs` 同时生成网站版和单文件离线版。离线版内嵌 Apple Touch Icon、favicon PNG 与 ICO，并移除 manifest 链接。
+
+## 维护
+
+不要直接修改生成的 `index.html`、`index.offline.html`。以后替换图标时应同时更新静态文件、shell 引用版本、manifest、SW 缓存名和离线构建中的资源替换规则。旧图标兼容文件同样应同步更新。

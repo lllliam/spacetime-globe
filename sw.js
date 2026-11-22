@@ -1,7 +1,7 @@
 // 离线缓存：index.html 网络优先（改完部署下次打开就是新版），数据与图标缓存优先。
-const CACHE = 'globe-v23-ming';
+const CACHE = 'globe-v24-icons';
 const PRECACHE = [
-  './', './index.html', './manifest.webmanifest?v=3', './icon.png?v=3', './icon-192.png?v=3', './icon-512.png?v=3', './favicon.png?v=3',
+  './', './index.html', './manifest.webmanifest?v=4', './apple-touch-icon.png?v=4', './icon.png?v=4', './icon-192.png?v=4', './icon-512.png?v=4', './icon-512-maskable.png?v=4', './favicon-32.png?v=4', './favicon.ico?v=4',
   './data/world.json', './data/relief.jpg',
 ];
 
