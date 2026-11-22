@@ -1385,5 +1385,1153 @@
   {
     "id": "boxer-crisis-1900",
     "topicEvent": "i-140"
+  },
+  {
+    "id": "han-silk-road-west",
+    "from": -138,
+    "to": -60,
+    "year": -119,
+    "title": "河西走廊与丝绸之路开通",
+    "summary": "汉武帝派卫青、霍去病北击匈奴并打通河西走廊，设武威至敦煌四郡；张骞出使西域后，公元前 60 年设西域都护府，中原第一次直接对接中亚商路。",
+    "focusPolities": [
+      "Han Dynasty",
+      "Xiongnu"
+    ],
+    "places": [
+      {
+        "id": "changan",
+        "name": "长安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "西汉都城与丝路起点"
+      },
+      {
+        "id": "dunhuang",
+        "name": "敦煌",
+        "lon": 94.66,
+        "lat": 40.14,
+        "role": "河西走廊西端门户·玉门关"
+      },
+      {
+        "id": "kashgar",
+        "name": "疏勒",
+        "lon": 75.99,
+        "lat": 39.47,
+        "role": "塔里木盆地西端绿洲枢纽"
+      }
+    ],
+    "routes": [
+      {
+        "from": "changan",
+        "to": "dunhuang",
+        "kind": "military",
+        "label": "打通河西走廊设四郡"
+      },
+      {
+        "from": "dunhuang",
+        "to": "kashgar",
+        "kind": "trade",
+        "label": "张骞凿空与西域绿洲商道"
+      }
+    ],
+    "distanceBetween": [
+      "changan",
+      "kashgar"
+    ],
+    "steps": [
+      {
+        "year": -138,
+        "title": "张骞出使西域",
+        "note": "张骞自长安西行寻找大月氏，带回中亚与西域各国的地理情报。",
+        "places": [
+          "changan",
+          "dunhuang"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": -119,
+        "title": "河西置郡与漠北决战",
+        "note": "汉军控制河西走廊，设敦煌等四郡，将长城向西延伸至玉门关。",
+        "places": [
+          "changan",
+          "dunhuang"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": -60,
+        "title": "西域都护府建立",
+        "note": "汉廷在西域设都护监护诸绿洲城邦，丝绸之路进入制度化通行阶段。",
+        "places": [
+          "changan",
+          "dunhuang",
+          "kashgar"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "华盛顿大学《丝绸之路地理：中国段》",
+        "url": "https://depts.washington.edu/silkroad/geography/china/china.html"
+      },
+      {
+        "title": "大英百科全书《汉朝、六朝与唐朝中国》",
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+      }
+    ]
+  },
+  {
+    "id": "han-two-capitals",
+    "from": 25,
+    "to": 220,
+    "year": 25,
+    "title": "从长安到洛阳：东汉政治重心东移",
+    "summary": "新莽乱后关中残破，光武帝刘秀在洛阳重建汉室。随着河洛成为中枢、益州与江南不断开发，地方豪族势力在东汉后期逐步坐大。",
+    "focusPolities": [
+      "Han Dynasty"
+    ],
+    "places": [
+      {
+        "id": "changan",
+        "name": "长安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "西汉旧都·关中基地"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "东汉新都·天下之中"
+      },
+      {
+        "id": "chengdu",
+        "name": "成都",
+        "lon": 104.07,
+        "lat": 30.67,
+        "role": "西南天府与益州重镇"
+      }
+    ],
+    "routes": [
+      {
+        "from": "changan",
+        "to": "luoyang",
+        "kind": "military",
+        "label": "汉室中枢东迁洛阳"
+      },
+      {
+        "from": "luoyang",
+        "to": "chengdu",
+        "kind": "trade",
+        "label": "中原与巴蜀物资联系"
+      }
+    ],
+    "distanceBetween": [
+      "changan",
+      "luoyang"
+    ],
+    "steps": [
+      {
+        "year": 25,
+        "title": "光武定都洛阳",
+        "note": "刘秀整合河北与南阳豪族重建汉朝，定都洛阳开启东汉近两百年统治。",
+        "places": [
+          "changan",
+          "luoyang"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 184,
+        "title": "黄巾起义与州牧割据",
+        "note": "朝廷放权州牧镇压民变，洛阳中枢失控，益州与关东军阀相继自立。",
+        "places": [
+          "luoyang",
+          "changan",
+          "chengdu"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《汉朝、六朝与唐朝中国》",
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "tang-changan-west",
+    "from": 630,
+    "to": 751,
+    "year": 640,
+    "title": "长安与西域：盛唐的陆上国际网络",
+    "summary": "唐太宗平定东突厥后，沿河西走廊推进至高昌与安西四镇；胡商、僧侣与使节云集百万人口的长安城，构筑起欧亚大陆东端的世界都会。",
+    "focusPolities": [
+      "Tang Dynasty",
+      "Tibetan Empire"
+    ],
+    "places": [
+      {
+        "id": "changan",
+        "name": "长安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "盛唐国际大都会"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "东都·运河粮食中转点"
+      },
+      {
+        "id": "dunhuang",
+        "name": "敦煌",
+        "lon": 94.66,
+        "lat": 40.14,
+        "role": "河西文化与商贸重镇"
+      },
+      {
+        "id": "kashgar",
+        "name": "疏勒",
+        "lon": 75.99,
+        "lat": 39.47,
+        "role": "安西四镇西陲重镇"
+      }
+    ],
+    "routes": [
+      {
+        "from": "luoyang",
+        "to": "changan",
+        "kind": "canal",
+        "label": "关东漕粮西输长安"
+      },
+      {
+        "from": "changan",
+        "to": "dunhuang",
+        "kind": "trade",
+        "label": "丝路东段官道"
+      },
+      {
+        "from": "dunhuang",
+        "to": "kashgar",
+        "kind": "frontier",
+        "label": "安西都护府西域防线"
+      }
+    ],
+    "distanceBetween": [
+      "changan",
+      "kashgar"
+    ],
+    "steps": [
+      {
+        "year": 640,
+        "title": "设安西都护府",
+        "note": "唐军经河西进入塔里木盆地，保护绿洲商路并应对吐蕃与突厥角逐。",
+        "places": [
+          "changan",
+          "dunhuang",
+          "kashgar"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      },
+      {
+        "year": 713,
+        "title": "开元盛世的长安与洛阳",
+        "note": "依靠洛阳转运江南漕粮，长安得以供养庞大京师与边疆节度使体系。",
+        "places": [
+          "luoyang",
+          "changan",
+          "dunhuang"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《汉朝、六朝与唐朝中国》",
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+      },
+      {
+        "title": "华盛顿大学《丝绸之路地理：中国段》",
+        "url": "https://depts.washington.edu/silkroad/geography/china/china.html"
+      }
+    ]
+  },
+  {
+    "id": "tang-anlushan-jianghuai",
+    "from": 755,
+    "to": 884,
+    "year": 755,
+    "title": "安史之乱与江淮财赋生命线",
+    "summary": "范阳节度使安禄山自北方边镇起兵南下，迅速攻陷洛阳与长安；唐廷在战后虽收复两京，却彻底失去河北控制权，此后百余年全靠大运河输运江淮财赋续命。",
+    "focusPolities": [
+      "Tang Dynasty"
+    ],
+    "places": [
+      {
+        "id": "fanyang",
+        "name": "范阳",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "安禄山起兵的北方重镇"
+      },
+      {
+        "id": "luoyang",
+        "name": "洛阳",
+        "lon": 112.45,
+        "lat": 34.68,
+        "role": "叛军率先攻克的东都"
+      },
+      {
+        "id": "changan",
+        "name": "长安",
+        "lon": 108.94,
+        "lat": 34.26,
+        "role": "西京·唐玄宗出逃入蜀"
+      },
+      {
+        "id": "chengdu",
+        "name": "成都",
+        "lon": 104.07,
+        "lat": 30.67,
+        "role": "玄宗避难蜀中之地"
+      },
+      {
+        "id": "yangzhou",
+        "name": "扬州",
+        "lon": 119.41,
+        "lat": 32.39,
+        "role": "晚唐江淮漕运与盐铁枢纽"
+      }
+    ],
+    "routes": [
+      {
+        "from": "fanyang",
+        "to": "luoyang",
+        "kind": "military",
+        "label": "安史叛军南下破洛阳"
+      },
+      {
+        "from": "luoyang",
+        "to": "changan",
+        "kind": "military",
+        "label": "潼关失守·长安陷落"
+      },
+      {
+        "from": "changan",
+        "to": "chengdu",
+        "kind": "military",
+        "label": "玄宗仓皇入蜀"
+      },
+      {
+        "from": "yangzhou",
+        "to": "luoyang",
+        "kind": "canal",
+        "label": "中晚唐江淮漕粮命脉"
+      }
+    ],
+    "distanceBetween": [
+      "fanyang",
+      "changan"
+    ],
+    "steps": [
+      {
+        "year": 755,
+        "title": "范阳起兵与两京陷落",
+        "note": "边镇精兵南下击穿内地空虚防务，洛阳、长安相继易手，玄宗退走成都。",
+        "places": [
+          "fanyang",
+          "luoyang",
+          "changan",
+          "chengdu"
+        ],
+        "routes": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "year": 780,
+        "title": "两税法与江淮撑起晚唐",
+        "note": "河北藩镇半独立后，扬州至洛阳的大运河成了维系长安朝廷的唯一财政动脉。",
+        "places": [
+          "yangzhou",
+          "luoyang",
+          "changan"
+        ],
+        "routes": [
+          3
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《汉朝、六朝与唐朝中国》",
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "song-kaifeng-canal",
+    "from": 960,
+    "to": 1126,
+    "year": 1004,
+    "title": "汴京：建在运河十字路口上的无险大都",
+    "summary": "北宋定都开封，失去了长安、洛阳的山河险阻，却换来汴河直通江淮的惊人运力——百万京师军民的粮食与全帝国的商业脉搏，全系于四条运河水网。",
+    "focusPolities": [
+      "Northern Song",
+      "Liao Dynasty"
+    ],
+    "places": [
+      {
+        "id": "kaifeng",
+        "name": "开封",
+        "lon": 114.35,
+        "lat": 34.8,
+        "role": "北宋东京·百万人口商业都城"
+      },
+      {
+        "id": "huaian",
+        "name": "楚州",
+        "lon": 119.02,
+        "lat": 33.59,
+        "role": "汴河与大运河转运枢轴"
+      },
+      {
+        "id": "suzhou",
+        "name": "苏州",
+        "lon": 120.6,
+        "lat": 31.3,
+        "role": "江南稻米与丝织腹地"
+      },
+      {
+        "id": "beijing",
+        "name": "幽州",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "辽朝南京·燕云十六州核心"
+      }
+    ],
+    "routes": [
+      {
+        "from": "suzhou",
+        "to": "huaian",
+        "kind": "canal",
+        "label": "江南米粮汇入淮河"
+      },
+      {
+        "from": "huaian",
+        "to": "kaifeng",
+        "kind": "canal",
+        "label": "汴河年运数百万石漕粮"
+      },
+      {
+        "from": "beijing",
+        "to": "kaifeng",
+        "kind": "frontier",
+        "label": "无险华北平原上的宋辽前线"
+      }
+    ],
+    "distanceBetween": [
+      "beijing",
+      "kaifeng"
+    ],
+    "steps": [
+      {
+        "year": 960,
+        "title": "以水立都开封",
+        "note": "赵匡胤放弃残破的长安洛阳，依托汴河水运把开封建成超大规模商业都城。",
+        "places": [
+          "suzhou",
+          "huaian",
+          "kaifeng"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1004,
+        "title": "澶渊之盟与百年和平",
+        "note": "宋辽以白沟河为界达成和议，北宋以岁币换取北方百年安定与边境榷场贸易。",
+        "places": [
+          "beijing",
+          "kaifeng"
+        ],
+        "routes": [
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《宋朝历史、艺术与文化》",
+        "url": "https://www.britannica.com/topic/Song-dynasty"
+      },
+      {
+        "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+      }
+    ]
+  },
+  {
+    "id": "song-jingkang-linan",
+    "from": 1127,
+    "to": 1141,
+    "year": 1127,
+    "title": "靖康南渡与临安偏安",
+    "summary": "1127 年金军攻破无险可守的开封，徽钦二帝被掳。赵构南渡定都临安（杭州），宋金最终以淮河—大散关为界，中国经济与文化重心彻底完成南移。",
+    "focusPolities": [
+      "Southern Song",
+      "Great Jin"
+    ],
+    "places": [
+      {
+        "id": "kaifeng",
+        "name": "开封",
+        "lon": 114.35,
+        "lat": 34.8,
+        "role": "1127 年陷落的北宋旧都"
+      },
+      {
+        "id": "nanjing",
+        "name": "建康",
+        "lon": 118.78,
+        "lat": 32.06,
+        "role": "长江防线前哨重镇"
+      },
+      {
+        "id": "hangzhou",
+        "name": "临安",
+        "lon": 120.16,
+        "lat": 30.29,
+        "role": "南宋行在·江南新都会"
+      },
+      {
+        "id": "xiangyang",
+        "name": "襄阳",
+        "lon": 112.12,
+        "lat": 32.01,
+        "role": "汉水中游与荆湖门户"
+      }
+    ],
+    "routes": [
+      {
+        "from": "kaifeng",
+        "to": "nanjing",
+        "kind": "military",
+        "label": "金军南下与宋室南渡"
+      },
+      {
+        "from": "nanjing",
+        "to": "hangzhou",
+        "kind": "military",
+        "label": "定都临安·依托水网立国"
+      },
+      {
+        "from": "xiangyang",
+        "to": "nanjing",
+        "kind": "frontier",
+        "label": "江淮—汉水防御弧线"
+      }
+    ],
+    "distanceBetween": [
+      "kaifeng",
+      "hangzhou"
+    ],
+    "steps": [
+      {
+        "year": 1127,
+        "title": "靖康之变与衣冠南渡",
+        "note": "开封失守后大量北方士民南迁，人口、技术与资金集中涌入江南。",
+        "places": [
+          "kaifeng",
+          "nanjing",
+          "hangzhou"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1141,
+        "title": "绍兴和议与江淮对峙",
+        "note": "宋金划淮为界，南宋依托长江、襄阳与江南水网维持了逾百五十年的繁华。",
+        "places": [
+          "xiangyang",
+          "nanjing",
+          "hangzhou"
+        ],
+        "routes": [
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《宋朝历史、艺术与文化》",
+        "url": "https://www.britannica.com/topic/Song-dynasty"
+      },
+      {
+        "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+      }
+    ]
+  },
+  {
+    "id": "song-maritime-xiangyang",
+    "from": 1142,
+    "to": 1279,
+    "year": 1273,
+    "title": "泉州海贸繁华与襄阳防线崩塌",
+    "summary": "陆上丝路阻断后，南宋依托临安、泉州与广州将海上陶瓷与香料贸易推向顶峰；但 1273 年战略锁钥襄阳失守后，蒙古水陆大军顺长江直下，终结两宋三百年。",
+    "focusPolities": [
+      "Southern Song",
+      "Yuan Dynasty"
+    ],
+    "places": [
+      {
+        "id": "hangzhou",
+        "name": "临安",
+        "lon": 120.16,
+        "lat": 30.29,
+        "role": "南宋行在都城"
+      },
+      {
+        "id": "quanzhou",
+        "name": "泉州",
+        "lon": 118.59,
+        "lat": 24.91,
+        "role": "市舶司重港·东方第一大港"
+      },
+      {
+        "id": "guangzhou",
+        "name": "广州",
+        "lon": 113.25,
+        "lat": 23.12,
+        "role": "南海贸易传统门户"
+      },
+      {
+        "id": "xiangyang",
+        "name": "襄阳",
+        "lon": 112.12,
+        "lat": 32.01,
+        "role": "苦守六年的长江上游锁钥"
+      }
+    ],
+    "routes": [
+      {
+        "from": "hangzhou",
+        "to": "quanzhou",
+        "kind": "trade",
+        "label": "江南瓷丝南下市舶港口"
+      },
+      {
+        "from": "quanzhou",
+        "to": "guangzhou",
+        "kind": "trade",
+        "label": "南海与印度洋季风商道"
+      },
+      {
+        "from": "xiangyang",
+        "to": "hangzhou",
+        "kind": "military",
+        "label": "襄阳破后元军顺江东下"
+      }
+    ],
+    "distanceBetween": [
+      "xiangyang",
+      "hangzhou"
+    ],
+    "steps": [
+      {
+        "year": 1200,
+        "title": "泉州与广州的海上帝国",
+        "note": "指南针、福船与市舶税让海上贸易成为南宋财政与世界经济的重要支柱。",
+        "places": [
+          "hangzhou",
+          "quanzhou",
+          "guangzhou"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1273,
+        "title": "襄阳陷落与崖山终章",
+        "note": "坚守六年的襄阳城破，长江天险被腰斩，1276 年临安降元、1279 年崖山海战终结宋室。",
+        "places": [
+          "xiangyang",
+          "hangzhou",
+          "guangzhou"
+        ],
+        "routes": [
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《宋朝历史、艺术与文化》",
+        "url": "https://www.britannica.com/topic/Song-dynasty"
+      },
+      {
+        "title": "哥伦比亚大学东亚课程《宋代社会、商业与理学》",
+        "url": "https://afe.easia.columbia.edu/songdynasty-module/confucian-neo.html"
+      }
+    ]
+  },
+  {
+    "id": "yuan-two-capitals-canal",
+    "from": 1271,
+    "to": 1293,
+    "year": 1271,
+    "title": "上都、大都与截弯取直的大运河",
+    "summary": "忽必烈在草原与农耕交界处建立上都与大都两都巡幸体制；为了把江南粮食送往远离洛阳的北方新都，元朝彻底改道大运河并开辟大规模海运漕粮。",
+    "focusPolities": [
+      "Yuan Dynasty"
+    ],
+    "places": [
+      {
+        "id": "shangdu",
+        "name": "上都",
+        "lon": 116.19,
+        "lat": 42.36,
+        "role": "草原夏都·汗位与宗王议政地"
+      },
+      {
+        "id": "dadu",
+        "name": "大都",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "元朝冬都·今日北京格局奠基"
+      },
+      {
+        "id": "hangzhou",
+        "name": "杭州",
+        "lon": 120.16,
+        "lat": 30.29,
+        "role": "江南财赋与运河南端"
+      },
+      {
+        "id": "shanghai",
+        "name": "刘家港",
+        "lon": 121.46,
+        "lat": 31.22,
+        "role": "元代海运漕粮出海口"
+      }
+    ],
+    "routes": [
+      {
+        "from": "shangdu",
+        "to": "dadu",
+        "kind": "frontier",
+        "label": "大汗春秋两都巡幸轴线"
+      },
+      {
+        "from": "hangzhou",
+        "to": "dadu",
+        "kind": "canal",
+        "label": "截弯取直的新京杭大运河"
+      },
+      {
+        "from": "shanghai",
+        "to": "dadu",
+        "kind": "trade",
+        "label": "环山东半岛北上海运粮道"
+      }
+    ],
+    "distanceBetween": [
+      "hangzhou",
+      "dadu"
+    ],
+    "steps": [
+      {
+        "year": 1271,
+        "title": "建元定鼎大都与上都",
+        "note": "忽必烈取《易经》“大哉乾元”定国号，兼顾草原宗王与中原农耕统治。",
+        "places": [
+          "shangdu",
+          "dadu"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1293,
+        "title": "通惠河完工与海漕并行",
+        "note": "郭守敬主持修通大都至通州运道，彻底弃绕洛阳，奠定后世七百年京杭运河走向。",
+        "places": [
+          "hangzhou",
+          "shanghai",
+          "dadu"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《元朝历史与制度》",
+        "url": "https://www.britannica.com/topic/Yuan-dynasty"
+      },
+      {
+        "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+      }
+    ]
+  },
+  {
+    "id": "yuan-eurasia-network",
+    "from": 1308,
+    "to": 1350,
+    "year": 1324,
+    "title": "驿站、行省与欧亚陆海大通道",
+    "summary": "元朝以行省制重划全国行政版图，并用数千座水陆驿站把大都、敦煌、拉萨与泉州编织进横跨欧亚的蒙古世界网络，马可·波罗与伊本·白图泰皆沿此而来。",
+    "focusPolities": [
+      "Yuan Dynasty"
+    ],
+    "places": [
+      {
+        "id": "dadu",
+        "name": "大都",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "帝国中枢与驿站总汇"
+      },
+      {
+        "id": "dunhuang",
+        "name": "敦煌",
+        "lon": 94.66,
+        "lat": 40.14,
+        "role": "通往察合台与伊儿汗国陆路驿道"
+      },
+      {
+        "id": "lhasa",
+        "name": "拉萨",
+        "lon": 91.12,
+        "lat": 29.65,
+        "role": "宣政院辖区·西藏正式纳入中央版图"
+      },
+      {
+        "id": "quanzhou",
+        "name": "泉州",
+        "lon": 118.59,
+        "lat": 24.91,
+        "role": "刺桐港·印度洋海商云集之地"
+      }
+    ],
+    "routes": [
+      {
+        "from": "dadu",
+        "to": "dunhuang",
+        "kind": "trade",
+        "label": "陆上站赤驿道直通中亚"
+      },
+      {
+        "from": "dadu",
+        "to": "lhasa",
+        "kind": "frontier",
+        "label": "宣政院驿站联通青藏高原"
+      },
+      {
+        "from": "dadu",
+        "to": "quanzhou",
+        "kind": "trade",
+        "label": "大都至刺桐港的南北商道"
+      }
+    ],
+    "distanceBetween": [
+      "dadu",
+      "quanzhou"
+    ],
+    "steps": [
+      {
+        "year": 1308,
+        "title": "行省与驿站体系持续运转",
+        "note": "行省制度和宣政院体系已形成，水陆站赤继续联系大都、青藏高原及东南港市。",
+        "places": [
+          "dadu",
+          "lhasa",
+          "quanzhou"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      },
+      {
+        "year": 1324,
+        "title": "陆海贸易贯通欧亚",
+        "note": "使节与商队沿站赤驿路行进，泉州港持续汇集波斯、阿拉伯与东南亚商船。",
+        "places": [
+          "dadu",
+          "dunhuang",
+          "quanzhou"
+        ],
+        "routes": [
+          0,
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《元朝历史与制度》",
+        "url": "https://www.britannica.com/topic/Yuan-dynasty"
+      },
+      {
+        "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+      }
+    ]
+  },
+  {
+    "id": "qing-multiethnic-empire",
+    "from": 1683,
+    "to": 1792,
+    "year": 1759,
+    "title": "从盛京、北京到拉萨与喀什：多民族大版图定型",
+    "summary": "康雍乾三朝以北京为枢纽，通过理藩院、盟旗、驻藏大臣与伊犁将军，把东北、蒙古、西藏、新疆与台湾纳入同一帝国体系，奠定现代中国疆域基础。",
+    "focusPolities": [
+      "Qing Dynasty"
+    ],
+    "places": [
+      {
+        "id": "shenyang",
+        "name": "盛京",
+        "lon": 123.43,
+        "lat": 41.79,
+        "role": "清朝兴起之地与留都"
+      },
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "大清帝国政治中枢"
+      },
+      {
+        "id": "lhasa",
+        "name": "拉萨",
+        "lon": 91.12,
+        "lat": 29.65,
+        "role": "驻藏大臣驻节之地"
+      },
+      {
+        "id": "kashgar",
+        "name": "喀什",
+        "lon": 75.99,
+        "lat": 39.47,
+        "role": "平定准噶尔与大小和卓后的西陲重镇"
+      }
+    ],
+    "routes": [
+      {
+        "from": "shenyang",
+        "to": "beijing",
+        "kind": "frontier",
+        "label": "满洲龙兴之地与京师轴线"
+      },
+      {
+        "from": "beijing",
+        "to": "lhasa",
+        "kind": "frontier",
+        "label": "驻藏大臣与青藏治理脉络"
+      },
+      {
+        "from": "beijing",
+        "to": "kashgar",
+        "kind": "military",
+        "label": "平定准噶尔与天山南北统合"
+      }
+    ],
+    "distanceBetween": [
+      "beijing",
+      "kashgar"
+    ],
+    "steps": [
+      {
+        "year": 1683,
+        "title": "收复台湾与巩固内地",
+        "note": "平定三藩与台湾后，清廷以满汉共治与督抚制度稳固中原江南。",
+        "places": [
+          "shenyang",
+          "beijing"
+        ],
+        "routes": [
+          0
+        ]
+      },
+      {
+        "year": 1759,
+        "title": "统合天山南北与西藏",
+        "note": "乾隆朝平定准噶尔与回部，设伊犁将军与驻藏大臣，帝国版图达至极盛。",
+        "places": [
+          "beijing",
+          "lhasa",
+          "kashgar"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《清朝历史与版图》",
+        "url": "https://www.britannica.com/topic/Qing-dynasty"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
+  },
+  {
+    "id": "qing-treaty-ports",
+    "from": 1840,
+    "to": 1911,
+    "year": 1842,
+    "title": "从广州十三行到上海口岸：晚清空间重心剧变",
+    "summary": "鸦片战争打破广州一口通商后，上海迅速取代传统运河城市成为近代金融与航运中心；洋务新军、铁路与革命思潮沿东南沿海向内地激荡。",
+    "focusPolities": [
+      "Qing Dynasty"
+    ],
+    "places": [
+      {
+        "id": "guangzhou",
+        "name": "广州",
+        "lon": 113.25,
+        "lat": 23.12,
+        "role": "鸦片战争前唯一合法通商口岸"
+      },
+      {
+        "id": "shanghai",
+        "name": "上海",
+        "lon": 121.46,
+        "lat": 31.22,
+        "role": "五口通商后崛起的近代航运与金融枢纽"
+      },
+      {
+        "id": "nanjing",
+        "name": "南京",
+        "lon": 118.78,
+        "lat": 32.06,
+        "role": "《南京条约》签署地与太平天国天京"
+      },
+      {
+        "id": "beijing",
+        "name": "北京",
+        "lon": 116.41,
+        "lat": 39.9,
+        "role": "晚清朝廷中枢·1912 年帝制终结"
+      }
+    ],
+    "routes": [
+      {
+        "from": "guangzhou",
+        "to": "shanghai",
+        "kind": "trade",
+        "label": "对外贸易重心由珠江北移长江口"
+      },
+      {
+        "from": "shanghai",
+        "to": "nanjing",
+        "kind": "military",
+        "label": "长江航道与太平天国战局"
+      },
+      {
+        "from": "shanghai",
+        "to": "beijing",
+        "kind": "trade",
+        "label": "轮船与铁路重塑南北通道"
+      }
+    ],
+    "distanceBetween": [
+      "guangzhou",
+      "beijing"
+    ],
+    "steps": [
+      {
+        "year": 1842,
+        "title": "五口通商与上海崛起",
+        "note": "《南京条约》开放五口，长江口上海迅速取代传统大运河成为新的财富中心。",
+        "places": [
+          "guangzhou",
+          "shanghai",
+          "nanjing"
+        ],
+        "routes": [
+          0,
+          1
+        ]
+      },
+      {
+        "year": 1900,
+        "title": "庚子危机与帝制黄昏",
+        "note": "八国联军入京、东南互保暴露中央失控，新政与立宪未能挽救 1911 年辛亥巨变。",
+        "places": [
+          "shanghai",
+          "nanjing",
+          "beijing"
+        ],
+        "routes": [
+          1,
+          2
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "title": "大英百科全书《清朝历史与版图》",
+        "url": "https://www.britannica.com/topic/Qing-dynasty"
+      },
+      {
+        "title": "大都会艺术博物馆《中国历代统治者与年表》",
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+      }
+    ]
   }
 ]
