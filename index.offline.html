@@ -1035,159 +1035,254 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   }
 }
 
-/* 沉浸首页，工具按需出现。 */
-#scrim{display:none}
-#scrim{height:130px;background:linear-gradient(#080f17d9,transparent);pointer-events:none}
-#hud{top:calc(var(--safe-t) + 24px);left:0;right:0;align-items:center;padding:0;gap:3px;pointer-events:none;z-index:9}
-#year-control{
-  --year-type:400 36px/1.2 system-ui,"PingFang SC","Microsoft YaHei UI",sans-serif;
-  width:min(100%,690px);position:relative;display:grid;place-items:center;touch-action:none;
-  font:var(--year-type);font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.045em;color:#edece5
+/* 优雅 · 克制 · 有质感 — 深空天体仪 HUD 与无边框天文游标 */
+#scrim{
+  display:block;position:fixed;left:0;right:0;top:0;height:124px;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(8,14,21,.64) 0%,rgba(8,14,21,.22) 56%,rgba(8,14,21,0) 100%);
+  transition:opacity .38s cubic-bezier(.22,.82,.26,1);
 }
-#hud #year{pointer-events:auto;margin:0;padding:2px 18px 5px;min-height:48px;border:0;background:none;
-  color:inherit;font:inherit;letter-spacing:inherit;font-variant-numeric:inherit;text-align:center;cursor:pointer;touch-action:none}
+#hud{
+  position:fixed;top:calc(var(--safe-t) + 14px);left:18px;right:18px;z-index:9;
+  display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:0;pointer-events:none;
+  transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1);
+}
+#year-control{
+  width:auto;flex:1;min-width:0;position:relative;display:block;touch-action:none;
+  font:inherit;color:var(--cosmos-ink);
+}
+/* 无边框排印式年份锚点：让文字直接浮在深空之上 */
+#hud #year{
+  pointer-events:auto;margin:0;padding:2px 6px 4px 0;min-height:44px;border:0;border-radius:10px;
+  background:transparent;box-shadow:none;color:var(--cosmos-ink);
+  display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;
+  max-width:100%;text-align:left;cursor:pointer;touch-action:none;
+  transition:opacity .2s ease;
+}
 #hud #year::after{content:none}
-#hud #year:active{opacity:.82}
+#hud #year:active{opacity:.72}
+#year-num{
+  font:500 28px/1.05 var(--font-serif,Georgia,"Songti SC","Noto Serif SC",serif);
+  font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.025em;white-space:nowrap;
+  color:#f2ede2;text-shadow:0 2px 14px rgba(4,9,16,.72);
+}
+#year-era{
+  display:block;max-width:min(62vw,260px);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+  color:rgba(220,226,232,.62);font:400 11px/1.35 var(--font-sans);letter-spacing:.04em;
+  text-shadow:0 1px 8px rgba(4,9,16,.75);
+}
 #year-control.browsing{pointer-events:auto;cursor:ew-resize}
-#year-control.browsing #year{color:transparent;cursor:inherit}
-#year-control.editing #year{visibility:hidden}
+#year-control.browsing #year{color:transparent;opacity:0;cursor:inherit}
+#year-control.editing #year{opacity:.88}
 #year-strip{
-  position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0;transition:opacity .18s ease;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent)
+  position:absolute;inset:0;height:48px;overflow:hidden;pointer-events:none;opacity:0;
+  transition:opacity .18s ease;z-index:2;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
 }
 #year-control.browsing #year-strip{opacity:1}
-#year-strip span{position:absolute;top:2px;left:50%;white-space:nowrap;font:inherit;letter-spacing:inherit;
-  font-variant-numeric:inherit;transform-origin:50% 48%;text-shadow:0 1px 11px #0408108c}
-#year-form{position:absolute;inset:0;display:grid;place-items:center;pointer-events:auto}
-#year-form[hidden]{display:none}
-#year-input{
-  width:min(58vw,255px);height:100%;margin:0;padding:2px 5px 4px;border:0;border-radius:0;
-  background:transparent;color:inherit;text-align:center;font:inherit;font-variant-numeric:inherit;
-  letter-spacing:inherit;caret-color:var(--gold);-webkit-user-select:text;user-select:text
+#year-strip span{
+  position:absolute;top:4px;left:50%;white-space:nowrap;
+  font:500 24px/1.1 var(--font-serif,Georgia,"Songti SC",serif);
+  font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;
+  color:#f2ede2;transform-origin:50% 48%;text-shadow:0 2px 12px rgba(4,8,16,.75);
 }
-#year-input:focus-visible{outline:none;box-shadow:inset 0 -1px #e0b27375}
-#year-input::selection{background:#c3a16b55}
-#year-form button{position:absolute;left:calc(50% + min(29vw,127.5px));min-height:44px;padding:0 8px;
-  border:0;background:none;color:var(--gold);font:13px system-ui;cursor:pointer}
-#year-error{position:absolute;top:100%;width:100%;margin:6px 0 0;text-align:center;
-  color:#efd1be;font:12px/1.5 system-ui;letter-spacing:0;text-shadow:0 1px 5px #05080d}
-#sub{font-size:11px;color:#a9b6bd;letter-spacing:.04em;line-height:1.5}
-#toolbar{position:fixed;top:calc(var(--safe-t) + 104px);left:0;right:0;z-index:6;justify-content:center;padding:0;pointer-events:none}
+
+/* 轻量化深空磨砂年份直达条 */
+#year-form[hidden]{display:none}
+#year-form{
+  position:absolute;top:calc(100% + 10px);left:0;width:min(312px,calc(100vw - 36px));
+  display:flex;flex-direction:column;gap:10px;padding:12px 13px 13px;z-index:14;pointer-events:auto;
+  background:rgba(13,20,28,.86);color:#f0ebe0;
+  border:1px solid rgba(255,255,255,.11);border-radius:16px;
+  box-shadow:0 18px 44px rgba(0,0,0,.52);
+  -webkit-backdrop-filter:blur(22px) saturate(135%);backdrop-filter:blur(22px) saturate(135%);
+  font:13px var(--font-sans);
+}
+.year-input-row{display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:6px}
+#year-form #year-input{
+  flex:1;min-width:0;height:34px;margin:0;padding:0 2px;border:0;border-radius:0;
+  background:transparent;color:#f4efe3;text-align:left;
+  font:500 17px/1.2 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:0;
+  caret-color:#d86a4e;-webkit-user-select:text;user-select:text;
+}
+#year-form #year-input::placeholder{color:rgba(202,212,222,.42);font:400 13px var(--font-sans)}
+#year-form #year-input:focus-visible{outline:none}
+#year-form #year-input::selection{background:rgba(181,63,41,.38)}
+#year-form .year-input-row button[type="submit"]{
+  display:grid;place-items:center;flex:none;width:32px;height:32px;padding:0;border:0;border-radius:999px;
+  background:rgba(181,63,41,.92);color:#fff7ef;cursor:pointer;
+  transition:transform .16s ease,background .16s ease;
+}
+#year-form .year-input-row button[type="submit"]:active{transform:scale(.93)}
+#year-form .year-input-row button[type="submit"] svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#year-form #year-error{margin:0;color:#e89b88;font:11.5px/1.45 var(--font-sans);text-align:left}
+#year-form #year-error:empty{display:none}
+#year-form .year-milestones{
+  display:flex;flex-wrap:nowrap;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px;
+  -webkit-overflow-scrolling:touch;
+}
+#year-form .year-milestones::-webkit-scrollbar{display:none}
+#year-form .year-milestones button{
+  flex:none;min-height:28px;padding:0 10px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
+  color:rgba(240,235,224,.84);font:400 11.5px var(--font-mono);letter-spacing:.01em;cursor:pointer;
+  transition:background .16s ease,border-color .16s ease,color .16s ease;
+}
+#year-form .year-milestones button:hover,#year-form .year-milestones button:active{
+  background:rgba(224,178,115,.18);border-color:rgba(224,178,115,.42);color:#f8ebd2;
+}
+
+#sub{position:absolute;left:0;top:52px;font-size:10.5px;color:rgba(196,208,218,.68);letter-spacing:.04em;line-height:1.4}
+
+/* 右上角唯一克制图标：无方框，轻磨砂圆形触区 */
+#hud-actions{display:flex;align-items:center;pointer-events:auto;flex:none}
+#hud-actions button{
+  display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid transparent;
+  border-radius:999px;background:rgba(12,19,27,.36);color:rgba(238,234,225,.76);cursor:pointer;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .16s ease;
+}
+#hud-actions button:hover,#hud-actions button.active{
+  background:rgba(18,27,37,.72);border-color:rgba(255,255,255,.12);color:#f5f0e4;
+}
+#hud-actions button:active{transform:scale(.94)}
+#hud-actions svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+#toolbar{position:fixed;top:calc(var(--safe-t) + 74px);left:0;right:0;z-index:6;justify-content:center;padding:0;pointer-events:none}
 #layers{display:none}
-#loadpill{border:1px solid #a8b8c32b;border-radius:20px;padding:8px 13px;background:#101e2bd9}
-#view-shade{position:fixed;inset:0;z-index:10;background:#00000010}
+#loadpill{
+  border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 13px;
+  background:rgba(12,19,27,.76);color:rgba(238,234,225,.85);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+
+/* ── 无边框精密天文游标（动静两态 + 三级刻度 + 史事微光点 + 微光史事入口） ── */
+#vernier{
+  position:fixed;z-index:7;left:50%;bottom:calc(var(--safe-b) + 14px);transform:translateX(-50%);
+  width:min(380px,calc(100vw - 36px));display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 0 4px;border:0;border-radius:0;background:none;box-shadow:none;color:var(--cosmos-ink);
+  transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1),bottom .32s cubic-bezier(.22,.82,.26,1);
+}
+#vernier::before{
+  content:"";position:fixed;left:50%;bottom:calc(-1 * (var(--safe-b) + 14px));transform:translateX(-50%);
+  width:100vw;height:126px;pointer-events:none;z-index:-1;
+  background:linear-gradient(0deg,rgba(7,12,18,.78) 0%,rgba(7,12,18,.28) 56%,rgba(7,12,18,0) 100%);
+}
+#vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
+body.sheet-open #vernier{bottom:calc(var(--safe-b) + 138px)}
+
+#vernier-readout{
+  display:flex;align-items:baseline;justify-content:center;gap:8px;min-height:20px;
+  pointer-events:none;opacity:0;transform:translateY(5px);
+  transition:opacity .22s ease,transform .24s cubic-bezier(.22,.82,.26,1);
+}
+#vernier.active #vernier-readout{opacity:1;transform:translateY(0)}
+#vernier-year{
+  font:500 18px/1 var(--font-serif,Georgia,"Songti SC",serif);
+  font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;color:#f5efe3;
+  text-shadow:0 1px 10px rgba(4,9,16,.8);
+}
+#vernier-era{
+  font:400 11px/1.2 var(--font-sans);letter-spacing:.04em;color:rgba(224,198,154,.82);
+  text-shadow:0 1px 8px rgba(4,9,16,.8);
+}
+
+#vernier-track{
+  touch-action:none;position:relative;width:100%;height:34px;cursor:ew-resize;overflow:hidden;
+  opacity:.58;transition:opacity .26s ease;outline-offset:4px;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 84%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 84%,transparent 100%);
+}
+#vernier:hover #vernier-track,#vernier.active #vernier-track,#vernier-track:focus-visible{opacity:1}
+#vernier-track::before{
+  content:"";position:absolute;top:12px;left:0;right:0;height:1px;
+  background:rgba(210,222,232,.18);
+}
+#vernier-ticks span{
+  position:absolute;top:12px;width:1px;height:6px;background:rgba(202,216,226,.34);
+  transform:translateX(-50%);pointer-events:none;
+}
+#vernier-ticks span.med{height:9px;background:rgba(218,226,232,.52)}
+#vernier-ticks span.major{height:13px;background:rgba(240,235,224,.78)}
+#vernier-ticks span.current{height:13px;background:rgba(181,63,41,.9)}
+#vernier-ticks span.has-event::before{
+  content:"";position:absolute;top:-7px;left:50%;width:3px;height:3px;border-radius:50%;
+  transform:translateX(-50%);background:#d9ae6c;box-shadow:0 0 6px rgba(217,174,108,.75);
+}
+#vernier-ticks span em{
+  position:absolute;top:15px;left:50%;transform:translateX(-50%);
+  font:400 9px/1 var(--font-mono);font-style:normal;font-variant-numeric:tabular-nums;
+  color:rgba(218,224,230,.58);white-space:nowrap;letter-spacing:.01em;
+}
+.vernier-needle{
+  position:absolute;top:4px;left:50%;width:1.5px;height:21px;transform:translateX(-50%);
+  background:#c94b33;border-radius:2px;pointer-events:none;
+  box-shadow:0 0 8px rgba(181,63,41,.55);
+}
+.vernier-needle::before{
+  content:"";position:absolute;top:-3px;left:50%;width:4px;height:4px;
+  transform:translateX(-50%) rotate(45deg);background:#e06348;
+}
+
+/* 极克制的当年史事微光入口（支持点击或上拉游标唤出） */
+#vernier-events{
+  display:inline-flex;align-items:center;gap:6px;margin-top:2px;padding:4px 10px;
+  border:0;border-radius:999px;background:transparent;
+  color:rgba(232,214,182,.72);font:400 11px/1.2 var(--font-sans);letter-spacing:.06em;
+  cursor:pointer;transition:color .2s ease,background .2s ease,opacity .2s ease;
+}
+#vernier-events::before{
+  content:"";width:4px;height:4px;border-radius:50%;background:#c99c58;
+  box-shadow:0 0 7px rgba(201,156,88,.8);
+}
+#vernier-events:hover,#vernier-events:active{color:#f8ebd2;background:rgba(255,255,255,.06)}
+#vernier-events[hidden]{display:none}
+
+/* ── 紧贴右上角的轻量磨砂视图胶囊 ── */
+#view-shade{position:fixed;inset:0;z-index:10;background:transparent}
 #view-shade[hidden],#view-panel[hidden]{display:none}
 #view-panel{
-  position:fixed;inset:auto 0 0;margin:auto;width:min(100%,440px);
-  max-height:calc(100dvh - var(--safe-t) - 12px);overflow:auto;overscroll-behavior:contain;z-index:11;
-  padding:0 clamp(18px,5vw,24px) calc(12px + var(--safe-b));
-  background:#10171f;border:1px solid #34404c;border-bottom:0;border-radius:24px 24px 0 0;
-  box-shadow:0 -10px 48px #0003;color:var(--ink);
+  position:fixed;top:calc(var(--safe-t) + 60px);right:16px;left:auto;bottom:auto;z-index:11;
+  width:min(244px,calc(100vw - 32px));padding:10px;
+  background:rgba(13,20,28,.86);color:#f0ebe0;
+  border:1px solid rgba(255,255,255,.11);border-radius:16px;
+  box-shadow:0 18px 46px rgba(0,0,0,.54);
+  -webkit-backdrop-filter:blur(22px) saturate(135%);backdrop-filter:blur(22px) saturate(135%);
+  transform-origin:top right;
 }
-#view-head{position:relative;display:flex;align-items:center;justify-content:space-between;padding:18px 0 10px;touch-action:none}
-#view-head::before{
-  content:"";position:absolute;top:8px;left:50%;translate:-50% 0;width:36px;height:4px;
-  border-radius:4px;background:#747e88;
-}
-#view-head h2{margin:0;font-size:21px;line-height:1.3;font-weight:620;letter-spacing:-.025em}
-#view-panel svg,#overlay-close svg,.witem svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-#view-close{
-  display:grid;place-items:center;margin-right:-9px;width:44px;height:44px;padding:0;border:0;
-  background:none;color:#bac4cc;cursor:pointer;
-}
-#view-close svg{width:22px;height:22px}
 #view-modes{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding:3px;
-  background:#080d13;border:1px solid #25303a;border-radius:17px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:11px;
 }
 #view-modes button{
-  min-height:43px;padding:0 3px;border:0;border-radius:13px;background:transparent;
-  color:#dbe0e3;font:inherit;font-weight:500;font-size:14px;
-  white-space:nowrap;cursor:pointer;
+  min-height:32px;padding:0 4px;border:0;border-radius:8px;background:transparent;
+  color:rgba(220,226,232,.68);font:500 12px/1 var(--font-sans);white-space:nowrap;cursor:pointer;
+  transition:background .18s ease,color .18s ease;
 }
-#view-modes button[aria-pressed="true"]{background:#252e37;color:#efc68d;font-weight:650}
-#view-caption{min-height:2.9em;margin:12px 0 3px;color:#b2bdc7;font-size:13px;line-height:1.5}
-#view-options summary{
-  display:flex;align-items:center;gap:7px;width:max-content;min-height:44px;
-  list-style:none;color:#bbc5cd;font-size:14px;cursor:pointer;
-}
-#view-options summary::-webkit-details-marker,.world-background summary::-webkit-details-marker{display:none}
-#view-options summary svg{height:15px;width:15px}
-#view-options[open] summary svg,.world-background[open] summary svg{transform:rotate(180deg)}
-.view-switches{border-top:1px solid #34404c;padding-top:3px}
+#view-modes button[aria-pressed="true"]{background:rgba(244,239,227,.94);color:#121820;font-weight:600}
+.view-switches{margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:2px}
 .view-switches button{
-  width:100%;min-height:44px;display:flex;align-items:center;justify-content:space-between;
-  padding:0;border:0;background:none;color:#d8dfe2;font:inherit;text-align:left;cursor:pointer;
+  width:100%;min-height:36px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 4px;border:0;background:none;color:rgba(240,235,224,.88);font:400 13px var(--font-sans);
+  text-align:left;cursor:pointer;
 }
-.view-switches button:disabled{color:#8e9baa;cursor:default}
-.view-switches i{height:21px;width:36px;border-radius:20px;background:#46535f;position:relative}
+.view-switches button:disabled{color:rgba(180,192,204,.4);cursor:default}
+.view-switches i{height:18px;width:32px;border-radius:999px;background:rgba(255,255,255,.16);position:relative;transition:background .18s ease}
 .view-switches i::after{
-  content:"";position:absolute;inset:3px auto auto 3px;width:15px;height:15px;border-radius:50%;background:#d1d7dc;
+  content:"";position:absolute;inset:2px auto auto 2px;width:14px;height:14px;border-radius:50%;
+  background:rgba(242,238,230,.85);transition:transform .18s cubic-bezier(.22,.82,.26,1),background .18s ease;
 }
-.view-switches [aria-checked="true"]:not(:disabled) i{background:#98784e}
-.view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(15px);background:#f7e2c3}
-.view-switches #reset-view{color:#e0b273}
-body.reading-open #toolbar{visibility:hidden}
-button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible,summary:focus-visible{outline:2px solid #c7ab70;outline-offset:3px}
-#view-modes button:focus-visible{outline-offset:-3px}
-@media(min-width:720px){#hud{top:30px}#year-control{font-size:43px}}
-@media(max-height:500px){#hud{top:6px}#year-control{font-size:29px}#hud #year{min-height:44px}}
-@media(prefers-reduced-motion:reduce){#year-strip{transition:none}}
+.view-switches [aria-checked="true"]:not(:disabled) i{background:rgba(181,63,41,.88)}
+.view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(14px);background:#fff9f2}
 
-/* v7 · Deliberately visible controls on the deep-cosmos stage. */
-#hud{position:fixed;top:calc(var(--safe-t) + 12px);left:12px;right:12px;display:flex;align-items:flex-start;gap:9px;padding:0;z-index:9;pointer-events:none}
-#year-control{width:auto;flex:1;min-width:0;display:block;place-items:unset;font:inherit;color:var(--cosmos-ink)}
-#hud #year{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;width:auto;min-width:140px;max-width:100%;min-height:48px;padding:5px 12px;border:1px solid var(--cosmos-border);border-radius:14px;background:var(--cosmos-surface);color:var(--cosmos-ink);text-align:left;letter-spacing:0;box-shadow:0 4px 18px #0004}
-#year-num{font:600 20px/1.08 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.035em;white-space:nowrap}
-#year-era{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#b5bfca;font:400 10.5px/1.3 var(--font-sans);letter-spacing:0}
-#hud-actions{display:flex;gap:7px;align-items:center;pointer-events:auto;flex:none}
-#hud-actions button{display:grid;place-items:center;min-width:43px;min-height:43px;padding:0;border:1px solid var(--cosmos-border);border-radius:14px;background:var(--cosmos-surface);color:var(--cosmos-ink);cursor:pointer;-webkit-backdrop-filter:none;backdrop-filter:none}
-#hud-actions svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-#year-control.browsing #year{color:transparent}
-#year-control.browsing #year-strip{z-index:2;top:0;height:52px;opacity:1}
-#year-control.browsing #year-strip span{font:600 19px var(--font-mono);color:var(--cosmos-ink);text-shadow:none}
-#year-control.editing #year{visibility:visible}
-#year-form[hidden]{display:none}
-#year-form{position:absolute;top:calc(100% + 9px);left:0;right:auto;bottom:auto;inset-block-end:auto;width:min(334px,calc(100vw - 24px));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:15px;background:var(--paper-bg);color:var(--paper-ink);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 10px 34px #0008;z-index:14;pointer-events:auto;font:14px var(--font-sans)}
-#year-form .year-form-label{grid-column:1/-1;color:var(--paper-muted);font:600 12px var(--font-sans);text-align:left}
-#year-form #year-input{width:100%;min-width:0;height:40px;border:1px solid var(--paper-border);border-radius:8px;background:#fffcf5;color:var(--paper-ink);text-align:left;padding:0 10px;letter-spacing:0;font:600 16px var(--font-mono);caret-color:var(--vermilion)}
-#year-form button{position:static;left:auto;min-height:40px;padding:0 12px;background:var(--vermilion);border:0;border-radius:8px;color:#fff8ef;font:600 12px var(--font-sans);cursor:pointer}
-#year-form #year-error{position:static;grid-column:1/-1;margin:0;color:var(--vermilion);text-shadow:none;text-align:left}
-#year-form #year-error:empty{display:none}
-#year-form .year-milestones{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
-#year-form .year-milestones button{min-width:0;min-height:31px;background:var(--paper-surface);border:1px solid var(--paper-border);color:var(--paper-ink);border-radius:7px;padding:3px 0;font:500 11px var(--font-mono)}
-#year-form #year-events{grid-column:1/-1;background:var(--paper-ink);color:var(--paper-bg)}
-#sub{position:absolute;left:0;top:57px;color:var(--cosmos-muted);font-size:10px}
-#toolbar{top:calc(var(--safe-t) + 78px)}
-#loadpill{border-color:var(--cosmos-border);background:var(--cosmos-surface);color:var(--cosmos-ink)}
-#vernier{position:fixed;z-index:7;left:50%;bottom:calc(var(--safe-b) + 16px);transform:translateX(-50%);width:min(328px,calc(100vw - 64px));display:flex;flex-direction:column;gap:5px;padding:8px 13px 12px;border:1px solid var(--cosmos-border);border-radius:14px;background:rgba(10,17,23,.84);color:var(--cosmos-ink);box-shadow:0 5px 20px #0004}
-#vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
-body.sheet-open #vernier{bottom:calc(var(--safe-b) + 136px)}
-.vernier-label{display:flex;justify-content:space-between;align-items:center;font:500 10px var(--font-sans);letter-spacing:.07em;color:var(--cosmos-muted)}
-#vernier-current{font:600 12px var(--font-mono);color:var(--cosmos-ink);letter-spacing:0}
-#vernier-track{touch-action:none;position:relative;height:23px;cursor:ew-resize;overflow:hidden;outline-offset:3px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-#vernier-track::before{content:"";position:absolute;top:5px;left:0;right:0;height:1px;background:#a2b7c15c}
-#vernier-ticks span{position:absolute;top:5px;width:1px;height:8px;background:#8da2ac75;font:400 9px var(--font-mono);color:#c5ccd3;text-align:center;transform:translateX(-50%)}
-#vernier-ticks span.current{height:12px;background:var(--route-frontier)}
-#vernier-ticks span:not(:empty){width:auto;padding-top:9px;background:none;white-space:nowrap}
-.vernier-needle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--route-military);border-radius:3px;box-shadow:0 0 0 2px #0a1016}
-/* Layer picker: paper, with existing WebGL choices and saved switches. */
-#view-panel{background:var(--paper-bg);border:1px solid var(--paper-border);border-bottom:0;color:var(--paper-ink);box-shadow:0 -14px 40px #0007}
-#view-head h2{color:var(--paper-ink);font-family:var(--font-serif)}
-#view-head::before{background:var(--paper-border)}
-#view-close{color:var(--paper-muted)}
-#view-modes{background:var(--paper-surface);border-color:var(--paper-border)}
-#view-modes button{color:var(--paper-muted)}
-#view-modes button[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper-bg)}
-#view-caption{color:var(--paper-muted)}
-#view-options summary{color:var(--paper-ink)}
-.view-switches{border-color:var(--paper-border)}
-.view-switches button{color:var(--paper-ink)}
-.view-switches button:disabled{color:var(--paper-muted)}
-.view-switches i{background:#c3b9a7}
-.view-switches #reset-view{color:var(--vermilion)}
-.view-switches [aria-checked="true"]:not(:disabled) i{background:var(--indigo)}
+/* ── 零界面观赏模式（单击空白处切换） ── */
+body.chrome-hidden #hud,
+body.chrome-hidden #scrim{opacity:0;pointer-events:none;transform:translateY(-6px)}
+body.chrome-hidden #vernier{opacity:0;pointer-events:none;transform:translate(-50%,10px)}
+body.chrome-hidden #hud *,body.chrome-hidden #vernier *{pointer-events:none!important}
+
+/* ── 纸张阅读与史事全屏层保持暖宣纸美学 ── */
 #overlay{background:var(--paper-bg);color:var(--paper-ink)}
 #overlay-title,#world-events-heading,.world-background summary{color:var(--paper-ink)}
 #overlay-sub{color:var(--paper-muted)}
@@ -1197,46 +1292,56 @@ body.sheet-open #vernier{bottom:calc(var(--safe-b) + 136px)}
 .witem,.world-background summary{border-color:var(--paper-border)}
 .wempty{border-color:var(--paper-border);color:var(--paper-muted)}
 #overlay-close{color:var(--paper-ink)}
+#overlay-close svg,.witem svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!important;opacity:0;pointer-events:none!important}
+body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
 body.reading-open.reading-split #hud{pointer-events:none;visibility:visible;opacity:1}
 body.reading-open.reading-split #year-control,body.reading-open.reading-split #hud-actions{pointer-events:none}
-@media(max-width:520px){
- #hud{top:calc(var(--safe-t) + 10px);left:12px;right:12px}
- #hud #year{min-width:0;padding:5px 11px;max-width:calc(100vw - 118px)}
- #hud-actions{gap:5px}
- #hud-actions button{width:42px;min-width:42px}
- #vernier{width:min(328px,calc(100vw - 54px))}
-}
-#hud{flex-direction:row;justify-content:space-between}
-#year-form{place-items:stretch;align-content:start}
-#year-form .year-form-label{order:-1}
-#year-form #year-input{grid-column:1;grid-row:auto}
-#year-form button[type="submit"]{grid-column:2}
-#year-form .year-milestones{justify-items:stretch}
-
-/* v8.1 · Scene cards and reading content are mutually exclusive with HUD actions. */
-body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
-body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!important;opacity:0;pointer-events:none!important}
-/* Passive full-screen decoration must never swallow globe taps. */
 #scrim,#event-map-points,#vec{pointer-events:none}
+
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible,summary:focus-visible{outline:2px solid #c7ab70;outline-offset:3px}
+#view-modes button:focus-visible{outline-offset:-2px}
+
+@media(min-width:720px){
+  #hud{top:calc(var(--safe-t) + 22px);left:28px;right:28px}
+  #year-num{font-size:34px}
+  #view-panel{top:calc(var(--safe-t) + 68px);right:28px}
+  #vernier{bottom:calc(var(--safe-b) + 20px);width:min(420px,calc(100vw - 80px))}
+}
+@media(max-width:520px){
+  #hud{top:calc(var(--safe-t) + 12px);left:14px;right:14px}
+  #year-num{font-size:25px}
+  #vernier{width:min(360px,calc(100vw - 28px))}
+}
+@media(max-height:500px){
+  #hud{top:8px}
+  #year-num{font-size:22px}
+  #vernier{bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  #year-strip,#hud,#scrim,#vernier,#vernier-readout,#vernier-track{transition:none}
+}
 
 </style>
 </head>
 <body>
 
-<canvas id="globe" tabindex="0" aria-label="地球，长按或按 Shift+F10 打开地球视图" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球，双击空白处复位视角，长按或按 Shift+F10 打开地球视图" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
 
 <div id="hud">
   <div id="year-control">
-    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史地图集</span></button>
+    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史疆域</span></button>
     <div id="year-strip" aria-hidden="true"></div>
     <form id="year-form" hidden>
-      <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
-             aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
-      <label class="year-form-label" for="year-input">前往哪一年</label>
-      <button type="submit">前往</button>
+      <div class="year-input-row">
+        <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
+               placeholder="如 1421 或 前221" aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+        <button type="submit" aria-label="前往该年份"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
       <p id="year-error" role="status"></p>
       <div class="year-milestones" aria-label="历史年份快捷入口">
         <button type="button" data-year-jump="-550">前550</button>
@@ -1248,45 +1353,40 @@ body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!import
         <button type="button" data-year-jump="1644">1644</button>
         <button type="button" data-year-jump="1945">1945</button>
       </div>
-      <button id="year-events" type="button">浏览这一年的事件</button>
     </form>
   </div>
   <div id="sub" role="status" hidden></div>
-  <nav id="hud-actions" aria-label="地球快捷操作">
-    <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" title="图层与视图"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
-    <button id="hud-reset" type="button" aria-label="恢复地球视角" title="复位视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v6h6"/></svg></button>
+  <nav id="hud-actions" aria-label="地球视图">
+    <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
   </nav>
 </div>
+
 <section id="vernier" aria-label="滑动年份标尺" role="group">
-  <div class="vernier-label"><span>时光游标</span><strong id="vernier-current">1421</strong></div>
+  <div id="vernier-readout" aria-hidden="true">
+    <strong id="vernier-year"></strong>
+    <span id="vernier-era"></span>
+  </div>
   <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
-    <div id="vernier-ticks" aria-hidden="true"></div><span class="vernier-needle" aria-hidden="true"></span>
+    <div id="vernier-ticks" aria-hidden="true"></div>
+    <span class="vernier-needle" aria-hidden="true"></span>
   </div>
+  <button id="vernier-events" type="button" hidden aria-label="浏览这一年的历史事件"></button>
 </section>
+
 <div id="view-shade" hidden></div>
-<section id="view-panel" hidden role="dialog" aria-modal="true" aria-labelledby="view-title">
-  <header id="view-head">
-    <h2 id="view-title">地球视图</h2>
-    <button id="view-close" type="button" aria-label="关闭地球视图">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
-    </button>
-  </header>
+<section id="view-panel" hidden role="dialog" aria-modal="true" aria-label="地球视图">
   <div id="view-modes" role="group" aria-label="地图显示方式">
-    <button type="button" data-view="history" aria-pressed="true" aria-describedby="view-caption">随年份</button>
-    <button type="button" data-view="modern" aria-pressed="false" aria-describedby="view-caption">现代边界</button>
-    <button type="button" data-view="nature" aria-pressed="false" aria-describedby="view-caption">地形</button>
+    <button type="button" data-view="history" aria-pressed="true">随年份</button>
+    <button type="button" data-view="modern" aria-pressed="false">现代</button>
+    <button type="button" data-view="nature" aria-pressed="false">地形</button>
   </div>
-  <p id="view-caption" role="status"></p>
-  <details id="view-options">
-    <summary>显示选项<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-    <div class="view-switches">
-      <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
-      <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
-      <button id="reset-view" type="button">恢复视角</button>
-    </div>
-  </details>
+  <div class="view-switches">
+    <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
+    <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
+  </div>
 </section>
-  <div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
+
+<div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
   <header id="sheet-top">
@@ -1426,7 +1526,7 @@ function windowOf(y) {
 /* ───────────── 1. 素材装载 ───────────── */
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
 const PW = 1024, PH = 512;             // 拾取栅格
-const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 2;
+const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 1.0;
 const MAPW = 1000, MAPH = 500;
 const Q = 4;                           // 政权几何的量化倍数
 
@@ -1894,6 +1994,9 @@ varying vec3 vN;
 uniform sampler2D uBase;
 uniform sampler2D uId;
 uniform sampler2D uLut;
+uniform sampler2D uRelief;
+uniform float uHasRelief;
+uniform float uZoom;
 uniform vec3 uLight;
 uniform float uSel;
 uniform float uMapLighting;
@@ -1907,33 +2010,73 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a * 0.15);
-  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.89, 0.69), 0.23);
+  float ocean = (1.0 - step(0.002, idTex.r)) * smoothstep(0.02, 0.15, base.b - base.r);
+  float landMask = 1.0 - ocean;
 
-  // Work in linear light so the terminator and ocean highlights remain smooth.
-  col = pow(col, vec3(2.2));
+  // Luminance-preserving mineral wash so mountain ridges and basins breathe through polity tints.
+  float luma = dot(base, vec3(0.299, 0.587, 0.114));
+  vec3 mineral = tint.rgb * mix(0.66, 1.24, smoothstep(0.08, 0.78, luma));
+  vec3 col = mix(base, mineral, tint.a * 0.21);
+  if (uSel > 0.5 && abs(idx - uSel) < 0.5) {
+    col = mix(col, vec3(0.98, 0.87, 0.67), 0.15);
+  }
+
+  // Sculpted tangent-space normal perturbation from relief elevation map on land.
+  float lon = (vUv.x - 0.5) * 6.2831853;
+  float lat = (0.5 - vUv.y) * 3.1415927;
+  float cosLat = cos(lat);
+  float sinLat = sin(lat);
+  float sinLon = sin(lon);
+  float cosLon = cos(lon);
+  vec3 localN = vec3(sinLon * cosLat, sinLat, cosLon * cosLat);
+  vec3 shadedN = n;
+  if (uHasRelief > 0.5 && landMask > 0.01) {
+    vec2 rStep = vec2(1.0 / 2048.0, 1.0 / 1024.0);
+    float hC = texture2D(uRelief, vUv).r;
+    float hL = texture2D(uRelief, vec2(vUv.x - rStep.x, vUv.y)).r;
+    float hR = texture2D(uRelief, vec2(vUv.x + rStep.x, vUv.y)).r;
+    float hU = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y - rStep.y, 0.001, 0.999))).r;
+    float hD = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y + rStep.y, 0.001, 0.999))).r;
+    vec3 tLocal = vec3(cosLon, 0.0, -sinLon);
+    vec3 bLocal = vec3(-sinLat * sinLon, cosLat, -sinLat * cosLon);
+    vec3 T = normalize(uRot * tLocal);
+    vec3 B = normalize(uRot * bLocal);
+    float poleFade = smoothstep(0.06, 0.26, abs(cosLat));
+    float bumpScale = mix(1.45, 2.75, clamp((uZoom - 1.0) / 3.0, 0.0, 1.0)) * poleFade * landMask;
+    shadedN = normalize(n - (T * (hR - hL) + B * (hU - hD)) * bumpScale);
+    // Subtle micro-contrast on terrain elevation so highlands feel tactile even in ambient light.
+    col *= 1.0 + (hC - 0.5) * 0.09 * landMask;
+  }
+
+  // Work in linear light so the terminator, relief slopes, and ocean satin glint remain smooth.
+  col = pow(max(col, vec3(0.0)), vec3(2.2));
   vec3 sun = normalize(uLight);
-  float lam = dot(n, sun);
-  float daylight = smoothstep(-0.20, 0.45, lam);
-  // Keep terrain detail readable on the unlit side of maps with borders.
-  float ambient = mix(0.025, 0.16, uMapLighting);
-  float diffuse = max(lam, 0.0) * mix(1.05, 0.79, uMapLighting);
-  vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
-  vec3 localN = vec3(sin((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927),
-    sin((0.5 - vUv.y) * 3.1415927), cos((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927));
-  vec3 shadowRay = normalize(localN + localSun * 0.012 / max(lam, 0.2));
-  vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
-    0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
-  float shadow = texture2D(uCloud, vec2(shadowUv.x + uCloudOffset, shadowUv.y)).a;
-  col *= (ambient + 0.11 * daylight + diffuse) * (1.0 - shadow * daylight * 0.25 * uCloudStrength);
-  float ocean = (1.0 - step(0.002, idTex.r)) *
-    smoothstep(0.02, 0.16, base.b - base.r);
+  float macroLam = dot(n, sun);
+  float lam = dot(shadedN, sun);
+  float daylight = smoothstep(-0.22, 0.45, macroLam);
+  float ambient = mix(0.032, 0.17, uMapLighting);
+  float diffuse = max(lam, 0.0) * mix(1.06, 0.80, uMapLighting);
+  float shadowFactor = 1.0;
+  if (uCloudStrength > 0.005) {
+    vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
+    vec3 shadowRay = normalize(localN + localSun * 0.012 / max(macroLam, 0.2));
+    vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
+      0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
+    float shadow = texture2D(uCloud, vec2(shadowUv.x + uCloudOffset, shadowUv.y)).a;
+    shadowFactor = 1.0 - shadow * daylight * 0.24 * uCloudStrength;
+  }
+  col *= (ambient + 0.11 * daylight + diffuse) * shadowFactor;
+
+  // Dual-lobe satin ocean specular (broad soft sheen + tight sun glint).
   vec3 halfLight = normalize(sun + vec3(0.0, 0.0, 1.0));
-  float spec = pow(max(dot(n, halfLight), 0.0), 70.0);
-  col += vec3(0.60, 0.77, 1.0) * spec * ocean * 0.32 * daylight;
+  float ndh = max(dot(n, halfLight), 0.0);
+  float specTight = pow(ndh, 88.0) * 0.28;
+  float specBroad = pow(ndh, 18.0) * 0.085;
+  col += vec3(0.62, 0.78, 0.98) * (specTight + specBroad) * ocean * daylight;
+
   col = pow(max(col, vec3(0.0)), vec3(1.0 / 2.2));
-  float rim = pow(1.0 - max(n.z, 0.0), 3.2);
-  col = mix(col, vec3(0.15, 0.42, 0.78), rim * daylight * 0.48);
+  float rim = pow(1.0 - max(n.z, 0.0), 3.6);
+  col = mix(col, vec3(0.16, 0.44, 0.78), rim * daylight * 0.44);
 
   gl_FragColor = vec4(col, 1.0);
 }`;
@@ -2057,6 +2200,8 @@ function initGL() {
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     radius: gl.getUniformLocation(prog, 'uRadius'),
     sel: gl.getUniformLocation(prog, 'uSel'), mapLighting: gl.getUniformLocation(prog, 'uMapLighting'),
+    relief: gl.getUniformLocation(prog, 'uRelief'), hasRelief: gl.getUniformLocation(prog, 'uHasRelief'),
+    zoom: gl.getUniformLocation(prog, 'uZoom'),
     cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
     cloudStrength: gl.getUniformLocation(prog, 'uCloudStrength'),
     atmLight: gl.getUniformLocation(progAtm, 'uLight'),
@@ -2090,6 +2235,20 @@ function initGL() {
   if (cloudsImg) cloudCanvas.getContext('2d').drawImage(cloudsImg, 0, 0, 1024, 512);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cloudCanvas);
   gl.generateMipmap(gl.TEXTURE_2D);
+  const tRelief = tex(4, false);
+  const hasRelief = Boolean(reliefImg && tRelief);
+  if (tRelief) {
+    const reliefCanvas = newCanvas(2048, 1024);
+    const rg = reliefCanvas.getContext('2d');
+    if (reliefImg) {
+      rg.drawImage(reliefImg, 0, 0, 2048, 1024);
+    } else {
+      rg.fillStyle = '#808080';
+      rg.fillRect(0, 0, 2048, 1024);
+    }
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, reliefCanvas);
+    gl.generateMipmap(gl.TEXTURE_2D);
+  }
   const aniso = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
   const anisotropy = aniso ? Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)) : 1;
   let detailState = gl.getParameter(gl.MAX_TEXTURE_SIZE) >= DETAIL_WIDTH ? 'idle' : 'unavailable';
@@ -2143,6 +2302,9 @@ function initGL() {
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
     },
+    preloadDetail() {
+      if (detailState === 'idle') loadSurfaceDetail();
+    },
     draw(v, st) {
       if (st.zoom >= DETAIL_ZOOM && detailState === 'idle') loadSurfaceDetail();
       if (st.zoom < DETAIL_ZOOM && detailState === 'retry') detailState = 'idle';
@@ -2158,7 +2320,8 @@ function initGL() {
       /* 平移必须和矢量叠加层一致，否则缩放后两层会错位 */
       const center = [(v.cx + st.panX) * v.dpr, (v.h - v.cy - st.panY) * v.dpr];
       const scale = v.Rz * v.dpr;
-      const cloudStrength = chrome.natural ? 1 : 0.38;
+      const zoomFade = clamp(1 - (st.zoom - 1.2) / 1.35, 0, 1);
+      const cloudStrength = chrome.natural ? 0.92 * lerp(0.25, 1.0, zoomFade) : 0.34 * zoomFade * zoomFade;
 
       gl.useProgram(prog);
       gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
@@ -2174,8 +2337,12 @@ function initGL() {
       gl.uniform1f(U.radius, 1);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
       gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, st.zoom >= DETAIL_ZOOM && tDetail ? tDetail : tBase);
+      gl.bindTexture(gl.TEXTURE_2D, tDetail || tBase);
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
+      if (tRelief) { gl.activeTexture(gl.TEXTURE4); gl.bindTexture(gl.TEXTURE_2D, tRelief); }
+      gl.uniform1i(U.relief, 4);
+      gl.uniform1f(U.hasRelief, hasRelief ? 1 : 0);
+      gl.uniform1f(U.zoom, st.zoom);
       gl.uniform1i(U.cloud, 3);
       gl.uniform1f(U.cloudOffset, cloudDrift);
       gl.uniform1f(U.cloudStrength, cloudStrength);
@@ -2188,27 +2355,29 @@ function initGL() {
       gl.clearDepth(1);
       gl.disable(gl.CULL_FACE);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
-      // A raised, separately lit shell gives the clouds their own silhouette.
-      gl.useProgram(progCloud);
-      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-      gl.enableVertexAttribArray(cloudPos);
-      gl.vertexAttribPointer(cloudPos, 3, gl.FLOAT, false, 20, 0);
-      gl.enableVertexAttribArray(cloudUv);
-      gl.vertexAttribPointer(cloudUv, 2, gl.FLOAT, false, 20, 12);
-      gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
-      gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
-      gl.uniform2f(cloudUniforms.uViewport, W, H);
-      gl.uniform1f(cloudUniforms.uScale, scale);
-      gl.uniform1f(cloudUniforms.uRadius, 1.007);
-      gl.uniform1i(cloudUniforms.uCloud, 3);
-      gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
-      gl.uniform1f(cloudUniforms.uCloudStrength, cloudStrength);
-      gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
-      gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-      gl.depthMask(false);
-      gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
-      gl.depthMask(true);
+      // Raised cloud shell fades cleanly away when zooming in to inspect terrain and borders.
+      if (cloudStrength > 0.005) {
+        gl.useProgram(progCloud);
+        gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+        gl.enableVertexAttribArray(cloudPos);
+        gl.vertexAttribPointer(cloudPos, 3, gl.FLOAT, false, 20, 0);
+        gl.enableVertexAttribArray(cloudUv);
+        gl.vertexAttribPointer(cloudUv, 2, gl.FLOAT, false, 20, 12);
+        gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
+        gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
+        gl.uniform2f(cloudUniforms.uViewport, W, H);
+        gl.uniform1f(cloudUniforms.uScale, scale);
+        gl.uniform1f(cloudUniforms.uRadius, 1.007);
+        gl.uniform1i(cloudUniforms.uCloud, 3);
+        gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
+        gl.uniform1f(cloudUniforms.uCloudStrength, cloudStrength);
+        gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.depthMask(false);
+        gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+        gl.depthMask(true);
+      }
       gl.disable(gl.DEPTH_TEST);
 
       gl.useProgram(progAtm);
@@ -2219,7 +2388,7 @@ function initGL() {
       gl.uniform2f(U.atmViewport, W, H);
       gl.uniform1f(U.atmScale, scale);
       gl.uniform3f(U.atmLight, -0.52, 0.44, 0.73);
-      gl.uniform3f(U.atmColor, 0.42, 0.58, 0.78);
+      gl.uniform3f(U.atmColor, 0.36, 0.54, 0.76);
       gl.enable(gl.BLEND);
       gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE, gl.ONE, gl.ONE);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -2450,7 +2619,7 @@ function drawVector(hudBounds = globeHudBounds()) {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  const borderWidth = Math.min(1.1, 0.62 + state.zoom * 0.10);
+  const borderWidth = Math.min(1.05, 0.52 + state.zoom * 0.09);
   vctx.beginPath();
   const drawn = [];
   for (const sh of vecShapes) {
@@ -2940,7 +3109,7 @@ let spinStep = 0, cloudDrift = 0;
 
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
-    !pointers.size && !zoomAnim && !panReturn && !globeTapTimer && !state.focus &&
+    !pointers.size && !zoomAnim && !panReturn && !(typeof resetAnim === 'number' && resetAnim) && !globeTapTimer && !state.focus &&
     !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
@@ -3105,7 +3274,16 @@ function endPointer(e) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
-    if (isDouble) { zoomTo(state.zoom > 1.4 ? 1 : 2.4, e.clientX, e.clientY); lastTapAt = 0; return; }
+    if (isDouble) {
+      lastTapAt = 0;
+      if (!mapPointAt(e.clientX, e.clientY)) {
+        document.body.classList.remove('chrome-hidden');
+        if (typeof resetView === 'function') resetView(true);
+      } else {
+        zoomTo(state.zoom > 1.35 ? 1 : 2.5, e.clientX, e.clientY);
+      }
+      return;
+    }
     globeTapTimer=setTimeout(()=>{
       globeTapTimer = 0;
       tapGlobe(e.clientX,e.clientY);
@@ -3159,10 +3337,19 @@ let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
-  if (chrome.natural) return;
+  const onGlobe = mapPointAt(sx, sy);
+  if (!onGlobe) {
+    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
+  if (chrome.natural) {
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
   // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
   if (state.layerId === 'polity' && !polityState.loaded) {
-    if (!polityState.error && mapPointAt(sx, sy)) {
+    if (!polityState.error) {
       pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
         zoom:state.zoom, panX:state.panX, panY:state.panY};
       ensurePolity();
@@ -3170,8 +3357,13 @@ function tapGlobe(sx, sy) {
     return;
   }
   const id = pickAt(sx, sy);
-  if (!id) { closeSheet(); return; }
-  openEntity(state.layerId, id, mapPointAt(sx, sy));
+  if (!id) {
+    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
+  document.body.classList.remove('chrome-hidden');
+  openEntity(state.layerId, id, onGlobe);
 }
 
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
@@ -3538,7 +3730,8 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === 'Escape') { closeWorld(); closeSheet(); }
+  else if (e.key === 'Escape') { document.body.classList.remove('chrome-hidden'); closeWorld(); closeSheet(); }
+  else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
 });
@@ -5591,9 +5784,9 @@ overlay.addEventListener('keydown', event => {
 
 /* 地球视图只决定表面显示，年份仍由年份入口控制。 */
 const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:true};
-const viewPanel = el('view-panel'), viewHead = el('view-head'), viewShade = el('view-shade');
+const viewPanel = el('view-panel'), viewShade = el('view-shade'), hudViewBtn = el('hud-view');
 const viewModes = [...viewPanel.querySelectorAll('[data-view]')];
-let viewMotion = null, viewDrag = null, viewOpeningPress = false;
+let viewMotion = null, viewOpeningPress = false, resetAnim = 0;
 try {
   const display = JSON.parse(localStorage.getItem('globe.display.v4') || '{}');
   chrome.labels = display.labels !== false;
@@ -5606,6 +5799,8 @@ function syncChrome() {
   el('toggle-labels').setAttribute('aria-checked', String(chrome.labels));
   el('toggle-labels').disabled = chrome.natural;
   el('toggle-grid').setAttribute('aria-checked', String(chrome.grid));
+  hudViewBtn.setAttribute('aria-expanded', String(chrome.panel));
+  hudViewBtn.classList.toggle('active', chrome.panel || mode !== 'history' || chrome.grid);
 
   let status = '';
   if (state.layerId === 'polity') {
@@ -5615,70 +5810,75 @@ function syncChrome() {
   }
   elSub.textContent = status;
   elSub.hidden = !status;
-  el('view-caption').textContent = mode === 'nature' ? '浏览海陆与地形。'
-    : mode === 'modern' ? '以今天的边界定位，选年后仍使用这张底图。'
-    : status ? status + '。'
-    : state.layerId === 'country' ? '今天显示现代边界，选择过往年份可查看历史疆域。'
-    : '随年份显示历史疆域，点选可阅读。';
 }
 
-function moveView(from, to, duration, onFinish) {
+function animateViewPopover(opening, onFinish) {
   viewMotion?.cancel();
-  const translate = y => 'translateY(' + y + 'px)';
-  viewPanel.style.transform = translate(to);
   if (reducedReadingMotion.matches) {
     viewMotion = null;
+    viewPanel.style.opacity = opening ? '1' : '0';
+    viewPanel.style.transform = opening ? 'none' : 'translateY(-6px) scale(.97)';
     onFinish?.();
     return;
   }
-  const motion = viewPanel.animate([{transform:translate(from)}, {transform:translate(to)}], {
-    duration, easing:'cubic-bezier(.22,.76,.24,1)',
+  const from = opening
+    ? { opacity: 0, transform: 'translateY(-6px) scale(.97)' }
+    : { opacity: 1, transform: 'translateY(0) scale(1)' };
+  const to = opening
+    ? { opacity: 1, transform: 'translateY(0) scale(1)' }
+    : { opacity: 0, transform: 'translateY(-6px) scale(.97)' };
+  const motion = viewPanel.animate([from, to], {
+    duration: opening ? 210 : 150,
+    easing: 'cubic-bezier(.22,.82,.26,1)',
+    fill: 'forwards',
   });
   viewMotion = motion;
   motion.onfinish = () => {
     if (viewMotion !== motion) return;
     viewMotion = null;
+    viewPanel.style.opacity = '';
+    viewPanel.style.transform = '';
     onFinish?.();
   };
 }
 
 function closeView(focus = true) {
   if (!chrome.panel) return;
-  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
   chrome.panel = false;
-  viewDrag = null;
   viewPanel.inert = true;
   canvas.inert = el('hud').inert = false;
+  syncChrome();
   if (focus) canvas.focus({preventScroll:true});
-  moveView(offset, viewPanel.offsetHeight, 200, () => {
+  animateViewPopover(false, () => {
+    if (chrome.panel) return;
     viewPanel.hidden = viewShade.hidden = true;
     invalidate();
   });
 }
 
 function focusActiveView() {
-  viewModes.find(button => button.getAttribute('aria-pressed') === 'true').focus({preventScroll:true});
+  viewModes.find(button => button.getAttribute('aria-pressed') === 'true')?.focus({preventScroll:true});
 }
 
 function showView(fromHold = false) {
-  if (worldEvent || reading.active || !overlay.hidden || chrome.panel) return;
+  if (worldEvent || reading.active || !overlay.hidden) return;
+  if (chrome.panel) { closeView(false); return; }
+  document.body.classList.remove('chrome-hidden');
   closeYearControl();
   closeSheet();
   cancelZoom();
   stopPanReturn();
+  cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
   pointers.clear();
   drag = pinch = null;
   chrome.panel = true;
   viewOpeningPress = fromHold;
-  viewPanel.style.transform = '';
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
-  el('view-options').open = false;
-  viewPanel.scrollTop = 0;
   canvas.inert = el('hud').inert = true;
   syncChrome();
   focusActiveView();
-  moveView(viewPanel.offsetHeight, 0, 290);
+  animateViewPopover(true);
   invalidate();
 }
 
@@ -5699,10 +5899,43 @@ function commitYear(year) {
 }
 function stepYear(delta) { commitYear(yearAtIndex(ord(state.year) + delta)); }
 
-function resetView() {
-  closeSheet(); cancelZoom(); stopPanReturn();
+function cancelResetAnim() {
+  cancelAnimationFrame(resetAnim);
+  resetAnim = 0;
+}
+
+function resetView(animate = true) {
+  closeSheet();
+  cancelZoom();
+  stopPanReturn();
+  cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
-  Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
+  const target = { yaw: -1.42, tilt: 0.30, zoom: 1, panX: 0, panY: 0, lift: 0 };
+  if (!animate || reducedGlobeMotion.matches) {
+    Object.assign(state, target);
+    layout();
+    invalidate();
+    return;
+  }
+  const from = { yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift || 0 };
+  let dyaw = ((target.yaw - from.yaw + Math.PI) % TAU + TAU) % TAU - Math.PI;
+  const start = performance.now(), dur = 440;
+  const step = (now) => {
+    const t = clamp((now - start) / dur, 0, 1);
+    const k = 1 - Math.pow(1 - t, 3);
+    state.yaw = from.yaw + dyaw * k;
+    state.tilt = lerp(from.tilt, target.tilt, k);
+    state.zoom = lerp(from.zoom, target.zoom, k);
+    state.panX = lerp(from.panX, target.panX, k);
+    state.panY = lerp(from.panY, target.panY, k);
+    state.lift = lerp(from.lift, target.lift, k);
+    view.cy = (view.cyBase || view.cy) - state.lift;
+    view.Rz = view.R * state.zoom;
+    invalidate();
+    if (t < 1) resetAnim = requestAnimationFrame(step);
+    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); }
+  };
+  resetAnim = requestAnimationFrame(step);
 }
 
 let globeHold = null;
@@ -5712,8 +5945,9 @@ function cancelGlobeHold() {
 }
 canvas.addEventListener('pointerdown', event => {
   cancelGlobeHold();
+  cancelResetAnim();
   if (!event.isPrimary || event.button !== 0 || !mapPointAt(event.clientX, event.clientY)) return;
-  globeHold = {x:event.clientX, y:event.clientY, timer:setTimeout(() => { cancelGlobeHold(); showView(true); }, 500)};
+  globeHold = {x:event.clientX, y:event.clientY, timer:setTimeout(() => { cancelGlobeHold(); showView(true); }, 520)};
 });
 canvas.addEventListener('pointermove', event => {
   if (globeHold && Math.hypot(event.clientX - globeHold.x, event.clientY - globeHold.y) > 9) cancelGlobeHold();
@@ -5730,32 +5964,7 @@ canvas.addEventListener('keydown', event => {
   }
 });
 
-viewHead.addEventListener('pointerdown', event => {
-  if (!chrome.panel || !event.isPrimary || event.button !== 0 || event.target.closest('button')) return;
-  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
-  viewPanel.style.transform = 'translateY(' + offset + 'px)';
-  viewMotion?.cancel();
-  viewMotion = null;
-  viewDrag = {id:event.pointerId, start:event.clientY - offset, offset};
-  viewHead.setPointerCapture(event.pointerId);
-});
-viewHead.addEventListener('pointermove', event => {
-  if (viewDrag?.id !== event.pointerId) return;
-  viewDrag.offset = Math.max(0, event.clientY - viewDrag.start);
-  viewPanel.style.transform = 'translateY(' + viewDrag.offset + 'px)';
-});
-for (const type of ['pointerup','pointercancel','lostpointercapture']) {
-  viewHead.addEventListener(type, event => {
-    if (viewDrag?.id !== event.pointerId) return;
-    const {offset} = viewDrag;
-    viewDrag = null;
-    if (type === 'pointerup' && offset >= 68) closeView();
-    else moveView(offset, 0, 200);
-  });
-}
-
-el('view-close').addEventListener('click', () => closeView());
-// 长按抬手时的合成点击不能操作刚出现的面板。
+// 长按抬手时的合成点击不能操作刚出现的浮层。
 addEventListener('pointerdown', () => { viewOpeningPress = false; }, true);
 addEventListener('click', event => {
   if (!chrome.panel || !viewOpeningPress || !event.detail) return;
@@ -5776,7 +5985,6 @@ for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
     invalidate();
   });
 }
-el('reset-view').addEventListener('click', resetView);
 document.addEventListener('visibilitychange', () => { if (document.hidden) cancelGlobeHold(); });
 
 addEventListener('keydown', event => {
@@ -5786,7 +5994,7 @@ addEventListener('keydown', event => {
     event.stopImmediatePropagation();
     closeView();
   } else if (event.key === 'Tab') {
-    const focusable = [...viewPanel.querySelectorAll('button:not(:disabled),summary')].filter(node => node.getClientRects().length);
+    const focusable = [...viewPanel.querySelectorAll('button:not(:disabled)')].filter(node => node.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);
     if (!viewPanel.contains(document.activeElement)) { event.preventDefault(); focusActiveView(); }
     else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
@@ -5794,14 +6002,12 @@ addEventListener('keydown', event => {
   }
 }, true);
 
-/* v7 · Visible iPhone controls coexist with the original hold gesture. */
-el('hud-view').addEventListener('click', () => showView());
-el('hud-reset').addEventListener('click', resetView);
+hudViewBtn.addEventListener('click', () => showView());
 
 const yearControl = el('year-control'), yearStrip = el('year-strip');
 const yearForm = el('year-form'), yearInput = el('year-input'), yearError = el('year-error');
 const yearMinIndex = ord(YMIN), yearMaxIndex = ord(YMAX);
-const YEAR_HOLD_MS = 460, YEAR_DOUBLE_TAP_MS = 250;
+const YEAR_HOLD_MS = 460;
 const yearSlots = Array.from({ length: 7 }, () => yearStrip.appendChild(document.createElement('span')));
 const yearDisplay = (year) => year === YMAX ? '今天' : fmtYear(year);
 const yearAtIndex = (index) => {
@@ -5817,9 +6023,8 @@ function yearControlOpen() {
   return yearBrowsing || !yearForm.hidden;
 }
 
-function syncYearControl(year) {
-  el('year-num').textContent = yearDisplay(year);
-  let era = '时空地球 · 历史疆域';
+function eraLabelForYear(year) {
+  let era = year === YMAX ? '时空地球 · 现代边界' : chapterOf(year).n + ' · 历史疆域';
   const f = state.focus;
   const ent = f && entityByKey(f.layerId, f.key, f.id);
   const book = reading.active && reading.subject ? reading.subject : (ent && subjectBookForEntity(ent));
@@ -5827,10 +6032,15 @@ function syncYearControl(year) {
     era = book.title;
     if (book.id === 'ming' && year >= 1403 && year <= 1424) era = '永乐' + (year - 1402) + '年 · 大明';
   }
-  el('year-era').textContent = era;
+  return era;
+}
+
+function syncYearControl(year) {
+  el('year-num').textContent = yearDisplay(year);
+  el('year-era').textContent = eraLabelForYear(year);
   if (typeof updateVernier === 'function') updateVernier();
   const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
-  elYear.setAttribute('aria-label', spoken + '的事件与阅读。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
+  elYear.setAttribute('aria-label', spoken + '。点击输入年份，长按或按 Shift+Enter 拨动年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
     yearPosition = ord(year);
     updateYearStride();
@@ -5857,7 +6067,6 @@ function renderYearStrip() {
 function updateYearStride() {
   if (!yearBrowsing) return;
   yearStride = clamp(yearControl.clientWidth * .205, 73, 111);
-  // Long BCE labels include a prefix, so reserve enough room for the adjacent year.
   if (yearAtIndex(yearPosition) <= -100) {
     const fontSize = parseFloat(getComputedStyle(yearControl).fontSize);
     yearStride = Math.max(yearStride, fontSize * 2.65);
@@ -5940,6 +6149,7 @@ function dismissYearFromGlobe() {
 
 function showYearControl() {
   if (yearBrowsing) return;
+  document.body.classList.remove('chrome-hidden');
   cancelYearTap();
   closeWorld();
   closeView(false);
@@ -5954,18 +6164,21 @@ function showYearControl() {
 }
 
 function openYearInput() {
+  document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
   closeSheet();
   yearInput.value = state.year === YMAX ? String(YMAX) : fmtYear(state.year);
   yearForm.hidden = false;
   yearControl.classList.add('editing');
+  elYear.setAttribute('aria-expanded', 'true');
   yearInput.focus({ preventScroll: true });
   yearInput.select();
   invalidate();
 }
 
 function openYearWorld() {
+  document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
   closeSheet();
@@ -6013,7 +6226,6 @@ yearControl.addEventListener('pointermove', (event) => {
   press.moved = true;
   suppressYearClick = true;
   const distance = Math.abs(dx) / yearStride;
-  // Extend longer strokes smoothly while keeping the first year's movement one-to-one.
   const excess = Math.max(0, distance - 1);
   const travel = distance + 2.6 * excess * excess / (1 + excess);
   const next = press.origin - Math.sign(dx) * travel;
@@ -6039,7 +6251,6 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
       return;
     }
     if (press.active) {
-      // A flick extends the movement. A stationary release snaps to the nearest year.
       const coast = event.timeStamp - press.lastAt < 95 ? clamp(press.velocity * 175, -17, 17) : 0;
       settleYear(yearPosition + coast);
     }
@@ -6047,7 +6258,10 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 }
 
 elYear.addEventListener('click', () => {
-  if (!worldEvent && !reading.active && yearForm.hidden && !suppressYearClick && !yearBrowsing) openYearInput();
+  if (!worldEvent && !reading.active && !suppressYearClick && !yearBrowsing) {
+    if (!yearForm.hidden) closeYearControl({ focus: true });
+    else openYearInput();
+  }
 });
 
 yearControl.addEventListener('contextmenu', (event) => {
@@ -6099,62 +6313,173 @@ addEventListener('resize', updateYearStride);
 yearStrip.addEventListener('transitionend', invalidate);
 document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });
 
-/* v7 · Year shortcuts, explicit access to events and the precision ruler. */
 yearForm.addEventListener('click', (event) => {
   const jump = event.target.closest('[data-year-jump]');
   if (!jump) return;
   commitYear(Number(jump.dataset.yearJump));
   closeYearControl({ focus: true });
 });
-el('year-events').addEventListener('click', openYearWorld);
+
+/* ── 无边框精密天文游标（动静两态 + 史事微光点 + 上拉直达当年史事） ── */
 const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
-let vernierGesture = null;
+const vernierYearEl = el('vernier-year'), vernierEraEl = el('vernier-era'), vernierEventsBtn = el('vernier-events');
+let vernierGesture = null, vernierIdleTimer = 0;
+let eventYearSet = null;
+
+function ensureEventYearSet() {
+  if (eventYearSet && eventYearSet.size) return eventYearSet;
+  if (!entries.length) return null;
+  const set = new Set([-550, -221, 220, 618, 960, 1368, 1421, 1644, 1945]);
+  for (const e of entries) {
+    if (e.kind !== 'era') set.add(e.start);
+  }
+  eventYearSet = set;
+  return set;
+}
+
+function yearEventCounts(year) {
+  const [start, end] = windowOf(year);
+  const first = ord(start), last = ord(end) + 1;
+  let concrete = 0, bg = 0;
+  for (const event of entries) {
+    if (event.t1 < first || event.t0 >= last) continue;
+    const isBg = !event.point && event.kind === 'era';
+    if (isBg) bg++; else concrete++;
+  }
+  return { concrete, bg, recent: start !== end };
+}
+
+function wakeVernier(hold = false) {
+  clearTimeout(vernierIdleTimer);
+  vernier.classList.add('active');
+  if (!hold) {
+    vernierIdleTimer = setTimeout(() => {
+      if (!vernierGesture) vernier.classList.remove('active');
+    }, 1250);
+  }
+}
+
 function updateVernier() {
   const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
     (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
   vernier.hidden = !visible;
   if (!visible) return;
-  el('vernier-current').textContent = yearDisplay(state.year);
-  vernierTrack.setAttribute('aria-valuenow', state.year);
-  vernierTrack.setAttribute('aria-valuetext', yearDisplay(state.year));
-  const current = ord(state.year), span = 8;
-  vernierTicks.innerHTML = Array.from({length:17}, (_,i) => {
-    const offset = i - span;
+
+  const year = state.year;
+  vernierYearEl.textContent = yearDisplay(year);
+  vernierEraEl.textContent = eraLabelForYear(year);
+  vernierTrack.setAttribute('aria-valuenow', year);
+  vernierTrack.setAttribute('aria-valuetext', yearDisplay(year));
+
+  const marks = ensureEventYearSet();
+  const current = ord(year), span = 12;
+  const stepPct = 100 / (span * 2);
+  let html = '';
+  for (let offset = -span; offset <= span; offset++) {
     const n = current + offset;
-    if (n < yearMinIndex || n > yearMaxIndex) return '';
+    if (n < yearMinIndex || n > yearMaxIndex) continue;
     const val = yearAtIndex(n);
-    return '<span style="left:' + (50+offset*6.25) + '%" class="' + (offset===0?'current':'') + '">' +
-      (offset !== 0 && offset % 4 === 0 ? esc(String(val)) : '') + '</span>';
-  }).join('');
+    const left = (50 + offset * stepPct).toFixed(3);
+    const absVal = Math.abs(val);
+    const isMajor = val === YMAX || absVal % 10 === 0;
+    const isMed = !isMajor && absVal % 5 === 0;
+    const hasEvent = marks ? marks.has(val) : false;
+    const cls = (offset === 0 ? 'current' : isMajor ? 'major' : isMed ? 'med' : 'minor') +
+      (hasEvent ? ' has-event' : '');
+    const showNum = offset !== 0 && isMajor && Math.abs(offset) >= 3 && Math.abs(offset) <= span - 1;
+    html += '<span class="' + cls + '" style="left:' + left + '%">' +
+      (showNum ? '<em>' + esc(fmtYear(val)) + '</em>' : '') + '</span>';
+  }
+  vernierTicks.innerHTML = html;
+
+  const { concrete, bg, recent } = yearEventCounts(year);
+  if (concrete > 0) {
+    vernierEventsBtn.textContent = recent ? '近年史事' : concrete + ' 件史事';
+    vernierEventsBtn.hidden = false;
+  } else if (bg > 0 && !recent) {
+    vernierEventsBtn.textContent = '时代背景';
+    vernierEventsBtn.hidden = false;
+  } else {
+    vernierEventsBtn.hidden = true;
+  }
 }
+
+vernierEventsBtn.addEventListener('click', () => openYearWorld());
+
 vernierTrack.addEventListener('pointerdown', (event) => {
   if (vernier.hidden || event.button !== 0 || reading.active) return;
-  vernierGesture = {id:event.pointerId, x:event.clientX, original:ord(state.year), moved:false};
+  document.body.classList.remove('chrome-hidden');
+  wakeVernier(true);
+  vernierGesture = {
+    id: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    lastX: event.clientX,
+    lastT: event.timeStamp,
+    acc: ord(state.year),
+    original: ord(state.year),
+    moved: false,
+    swipeUp: false,
+  };
   vernierTrack.setPointerCapture(event.pointerId);
 });
+
 vernierTrack.addEventListener('pointermove', (event) => {
   if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
-  const dx = event.clientX - vernierGesture.x;
-  if (Math.abs(dx)>3) vernierGesture.moved=true;
-  if (vernierGesture.moved) {
-    const year = yearAtIndex(vernierGesture.original - dx / Math.max(12, vernierTrack.clientWidth / 16));
-    if (year!==state.year) commitYear(year);
+  const g = vernierGesture;
+  const totalDx = event.clientX - g.startX;
+  const totalDy = event.clientY - g.startY;
+  if (!g.moved && Math.abs(totalDy) > 18 && Math.abs(totalDy) > Math.abs(totalDx) * 1.4 && totalDy < 0) {
+    g.swipeUp = true;
+    g.moved = true;
+    return;
+  }
+  if (g.swipeUp) return;
+  const stepDx = event.clientX - g.lastX;
+  const dt = Math.max(8, event.timeStamp - g.lastT);
+  g.lastX = event.clientX;
+  g.lastT = event.timeStamp;
+  if (Math.abs(totalDx) > 3) g.moved = true;
+  if (g.moved) {
+    const pxPerYear = Math.max(10, vernierTrack.clientWidth / 24);
+    const speed = Math.abs(stepDx) / dt; // px / ms
+    const accel = 1 + clamp((speed - 0.35) * 3.8, 0, 14);
+    g.acc = clamp(g.acc - (stepDx / pxPerYear) * accel, yearMinIndex, yearMaxIndex);
+    const year = yearAtIndex(g.acc);
+    if (year !== state.year) commitYear(year);
   }
 });
-for (const type of ['pointerup','pointercancel','lostpointercapture']) vernierTrack.addEventListener(type, (event) => {
-  if (!vernierGesture || event.pointerId!==vernierGesture.id) return;
-  const drag=vernierGesture; vernierGesture=null;
-  if (type==='pointerup' && !drag.moved) {
-    const rect=vernierTrack.getBoundingClientRect();
-    const years=Math.round((event.clientX-rect.left-rect.width/2)/(rect.width/16));
-    commitYear(yearAtIndex(drag.original+years));
-  }
-});
+
+for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
+  vernierTrack.addEventListener(type, (event) => {
+    if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
+    const drag = vernierGesture;
+    vernierGesture = null;
+    if (type === 'pointerup' && drag.swipeUp) {
+      vernier.classList.remove('active');
+      openYearWorld();
+      return;
+    }
+    if (type === 'pointerup' && !drag.moved) {
+      const rect = vernierTrack.getBoundingClientRect();
+      const years = Math.round((event.clientX - rect.left - rect.width / 2) / (rect.width / 24));
+      commitYear(yearAtIndex(drag.original + years));
+    }
+    wakeVernier(false);
+  });
+}
+
 vernierTrack.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault(); stepYear(event.key === 'ArrowRight' ? 1 : -1);
+    event.preventDefault();
+    wakeVernier(false);
+    stepYear(event.key === 'ArrowRight' ? 1 : -1);
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    openYearWorld();
   }
 });
+
 updateVernier();
 
 /* ───────────── 19. 启动 ───────────── */
@@ -6250,8 +6575,9 @@ async function ensurePolity() {
   invalidate();
   recheckViewportLayout();
 
-  /* 空闲时后台把政权边界拉下来，切换图层就不用等 */
-  setTimeout(() => { ensurePolity(); }, 2600);
+  /* 空闲时后台预热 4K 高清底图与政权边界，放大和切换图层都无需等待 */
+  if (glr && typeof glr.preloadDetail === 'function') setTimeout(() => { glr.preloadDetail(); }, 600);
+  setTimeout(() => { ensurePolity(); }, 2200);
 })();
 
 })();
