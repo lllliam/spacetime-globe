@@ -409,8 +409,8 @@ function updateVernier() {
     vernierPosition = ord(state.year);
     vernierCommittedYear = state.year;
   }
-  const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
-    (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
+  const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
+  const visible = sheetClosed && !state.focus && !reading.active && !worldEvent && overlay.hidden && viewPanel.hidden;
   vernier.hidden = !visible;
   if (!visible) return;
   paintVernier(true);

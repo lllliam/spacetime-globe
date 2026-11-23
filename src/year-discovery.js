@@ -71,6 +71,7 @@ function openWorld() {
 
 function restoreWorld(button, scroll) {
   overlay.hidden = false;
+  updateVernier();
   canvas.inert = el('hud').inert = true;
   overlayBody.scrollTop = scroll;
   button?.focus({preventScroll:true});
@@ -79,6 +80,7 @@ function restoreWorld(button, scroll) {
 function closeWorld(focus = false) {
   if (overlay.hidden) return;
   overlay.hidden = true;
+  updateVernier();
   canvas.inert = el('hud').inert = false;
   if (focus) elYear.focus({preventScroll:true});
   invalidate();

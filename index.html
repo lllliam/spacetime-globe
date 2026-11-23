@@ -1176,7 +1176,6 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   background:linear-gradient(0deg,var(--page-bg) 0%,rgba(7,12,18,.28) 56%,rgba(7,12,18,0) 100%);
 }
 #vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
-body.sheet-open #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 138px)}
 
 #vernier-readout{
   display:flex;align-items:baseline;justify-content:center;gap:8px;min-height:20px;
@@ -5770,6 +5769,7 @@ function openWorld() {
 
 function restoreWorld(button, scroll) {
   overlay.hidden = false;
+  updateVernier();
   canvas.inert = el('hud').inert = true;
   overlayBody.scrollTop = scroll;
   button?.focus({preventScroll:true});
@@ -5778,6 +5778,7 @@ function restoreWorld(button, scroll) {
 function closeWorld(focus = false) {
   if (overlay.hidden) return;
   overlay.hidden = true;
+  updateVernier();
   canvas.inert = el('hud').inert = false;
   if (focus) elYear.focus({preventScroll:true});
   invalidate();
@@ -5877,6 +5878,7 @@ function closeView(focus = true) {
   animateViewPopover(false, () => {
     if (chrome.panel) return;
     viewPanel.hidden = viewShade.hidden = true;
+    updateVernier();
     invalidate();
   });
 }
@@ -5901,6 +5903,7 @@ function showView(fromHold = false) {
   viewOpeningPress = fromHold;
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
   canvas.inert = el('hud').inert = true;
+  updateVernier();
   syncChrome();
   focusActiveView();
   animateViewPopover(true);
@@ -6440,8 +6443,8 @@ function updateVernier() {
     vernierPosition = ord(state.year);
     vernierCommittedYear = state.year;
   }
-  const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
-    (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
+  const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
+  const visible = sheetClosed && !state.focus && !reading.active && !worldEvent && overlay.hidden && viewPanel.hidden;
   vernier.hidden = !visible;
   if (!visible) return;
   paintVernier(true);

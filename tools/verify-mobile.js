@@ -96,19 +96,27 @@ async function main() {
     await until(() => js(`document.querySelector('#globe') && !document.querySelector('#boot')`), 'Globe did not load');
     assert.equal(await js('navigator.maxTouchPoints'), 2);
     assert.equal(await js('navigator.standalone'), true);
+    const timelineVisible = () => js(`getComputedStyle(document.querySelector('#vernier')).display !== 'none'`);
+    assert.equal(await timelineVisible(), true);
     await tap('#hud-view');
     assert.equal(await js(`document.querySelector('#view-panel').hidden`), false);
+    assert.equal(await timelineVisible(), false);
     await tap('[data-view="modern"]');
     await tap({ x:30, y:300 });
     await until(() => js(`document.querySelector('#view-panel').hidden`), 'View chooser did not close');
+    assert.equal(await timelineVisible(), true);
     await tap({ x:175, y:353 });
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Kazakhstan did not open');
     assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /中亚丝路/);
-    await swipe('#grab', 90);
-    await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Central Asia preview did not dismiss');
+    assert.equal(await timelineVisible(), false);
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'no-preference' }] });
+    await swipe('#grab', 90, { during:async () => assert.equal(await timelineVisible(), false) });
+    await until(timelineVisible, 'Timeline did not return after the preview closed');
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
     await goToYear(1980);
     await tap({ x:175, y:353 });
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Map tap did not open an archive');
+    assert.equal(await timelineVisible(), false);
     console.log('Map tap:', await js(`document.querySelector('#sheet-identity-name').textContent`));
     await tap('#sheet-toc');
     assert.match(await js(`document.querySelector('#book-body').innerText`), /尚未收录/);
@@ -125,6 +133,7 @@ async function main() {
     const assertPreview = async () => {
       assert.equal((await report()).reader, false, 'A deliberate downward pull must close a map-only archive');
       assert.equal(await js(`document.querySelector('#sheet').classList.contains('peek')`), true);
+      assert.equal(await timelineVisible(), false, 'Returning to the preview should keep the timeline hidden');
     };
     const archiveTitle = await js(`document.querySelector('#reading-title').textContent`);
     assert.equal((await fillsViewport()).theme, '#f6f2e9');
@@ -176,10 +185,13 @@ async function main() {
 
     await swipe('#grab', 90);
     await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Preview did not dismiss');
+    assert.equal(await timelineVisible(), true);
     await tap('#vernier-events');
     assert.equal(await js(`document.querySelector('#overlay').hidden`), false);
+    assert.equal(await timelineVisible(), false);
     await tap('#overlay-close');
     assert.equal(await js(`document.querySelector('#overlay').hidden`), true);
+    assert.equal(await timelineVisible(), true);
     console.log('Map and timeline: view switching, preview dismissal, year events and return');
 
     await size(812);

@@ -68,6 +68,7 @@ function closeView(focus = true) {
   animateViewPopover(false, () => {
     if (chrome.panel) return;
     viewPanel.hidden = viewShade.hidden = true;
+    updateVernier();
     invalidate();
   });
 }
@@ -92,6 +93,7 @@ function showView(fromHold = false) {
   viewOpeningPress = fromHold;
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
   canvas.inert = el('hud').inert = true;
+  updateVernier();
   syncChrome();
   focusActiveView();
   animateViewPopover(true);
