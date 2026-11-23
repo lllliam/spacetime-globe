@@ -311,17 +311,28 @@ async function main() {
     assert.equal((await timeline()).selected, 1456, 'The timeline arrow key should advance exactly one year');
 
     await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'no-preference' }] });
-    const point = await center('#vernier-track');
-    const time = Date.now() / 1000;
-    await send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[point], timestamp:time});
-    for (let i = 1; i <= 3; i++) {
-      await send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:point.x - 20*i,y:point.y}], timestamp:time + .025*i});
-    }
-    await send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:time + .085});
-    await until(async () => {
-      const settled = await timeline();
-      return settled.selected > 1460 && settled.selected === settled.preview;
-    }, 'A quick flick should glide past its release point and settle on the same year as the globe');
+    const flick = async (dx, interval, releaseDelay = .01) => {
+      const { selected } = await timeline();
+      const point = await center('#vernier-track');
+      const time = Date.now() / 1000;
+      await send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[point], timestamp:time});
+      for (let i = 1; i <= 3; i++) {
+        const sample = {x:point.x + dx * i / 3,y:point.y};
+        await send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[sample], timestamp:time + interval*i});
+      }
+      await send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:time + 3*interval + releaseDelay});
+      return await until(async () => {
+        const settled = await timeline();
+        return settled.selected !== selected && settled.selected === settled.preview && settled.selected - selected;
+      }, 'The timeline and globe should settle on the same year');
+    };
+    const medium = await flick(-60, .025);
+    const fast = -await flick(60, .012);
+    const paused = await flick(-60, .012, .14);
+    assert(medium > paused && medium < 40, 'A moderate flick should coast a short distance');
+    assert(fast >= 75 && fast <= 184 && fast > medium, 'A faster flick should travel substantially farther in either direction');
+    assert.equal(paused, 4, 'Pausing before release should keep only the years dragged');
+    console.log('Timeline distance for a 60px gesture:', {medium, fast, paused});
     await swipe('#vernier-track', -65);
     assert.equal(await js(`document.querySelector('#overlay').hidden`), false);
     console.log('Timeline: fractional tracking, fixed height, snap, cancel, single-year keys, momentum and swipe-up');

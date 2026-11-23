@@ -6492,11 +6492,14 @@ function settleVernier(target, velocity = 0) {
   }
   const start = performance.now();
   const movingTowardTarget = (end - from) * velocity > 0;
-  const duration = movingTowardTarget ? clamp(2 * distance / Math.abs(velocity), 145, 390) : 145;
+  const maxDuration = clamp(390 + (distance - 12) * 2.1, 390, 760);
+  const duration = movingTowardTarget ? clamp(2 * distance / Math.abs(velocity), 145, maxDuration) : 145;
+  // Long throws ease in from the finger's release speed and come to rest at the destination.
+  const initialSlope = movingTowardTarget ? Math.min(2, Math.abs(velocity) * duration / distance) : 0;
   vernierDestination = end;
   const frame = (now) => {
     const progress = clamp((now - start) / duration, 0, 1);
-    const eased = movingTowardTarget ? 1 - (1 - progress) ** 2 : progress * progress * (3 - 2 * progress);
+    const eased = progress * progress * (3 - 2 * progress) + initialSlope * progress * (1 - progress) ** 2;
     vernierPosition = lerp(from, end, eased);
     paintVernier();
     vernierGlideFrame = requestAnimationFrame(progress < 1 ? frame : () => commitVernierPosition(end));
@@ -6576,7 +6579,10 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
     } else {
       const velocity = !reducedGlobeMotion.matches && drag.moved && event.timeStamp - drag.lastT < 90
         ? drag.velocity : 0;
-      settleVernier(vernierPosition + clamp(velocity * 140, -12, 12), velocity);
+      const speed = Math.abs(velocity) * drag.pixelsPerYear;
+      const boost = 76 * Math.max(0, speed - .45) ** 2;
+      const coast = Math.sign(velocity) * Math.min(180, Math.abs(velocity) * 140 + boost);
+      settleVernier(vernierPosition + coast, velocity);
     }
     wakeVernier(false);
   });
