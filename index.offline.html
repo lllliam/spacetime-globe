@@ -19,6 +19,7 @@
   --page-bg:#0a1016; --app-height:100vh;
   --gold:#e0b273; --gold-dim:#8a6a43; --card:#141b24;
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+  --usable-safe-b:var(--safe-b); --app-bottom:max(0px,100% - var(--app-height));
   color-scheme:dark;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -30,7 +31,7 @@ html{background:var(--page-bg)}
 html.sheet-paper{background:var(--paper-bg)}
 body{position:fixed;inset:0 0 auto;height:var(--app-height);
   background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
-html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme:light}
+html.reader-paper{color-scheme:light}
 
 #globe{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;touch-action:none;z-index:1}
 
@@ -82,7 +83,7 @@ html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme
 #overlay-body{
   width:100%;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;
   scrollbar-width:thin;scrollbar-color:#61708066 transparent;
-  padding:0 max(var(--world-gutter),calc((100% - 680px)/2 + var(--world-gutter))) calc(var(--safe-b) + 28px);
+  padding:0 max(var(--world-gutter),calc((100% - 680px)/2 + var(--world-gutter))) calc(var(--usable-safe-b) + 28px);
 }
 #world-events-heading,.world-background summary{
   font-size:17px;font-weight:620;line-height:1.4;color:var(--ink);
@@ -776,7 +777,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   --gold:var(--ochre);--gold-dim:#98794e;--card:var(--paper-surface);
   --safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px);
 }
-body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 65%,#070b10 100%);color:var(--cosmos-ink)}
+body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--page-bg) 65%);color:var(--cosmos-ink)}
 #scrim{background:linear-gradient(180deg,rgba(5,11,17,.78) 0%,transparent 100%)}
 #boot{background:var(--cosmos-bg)}
 #boot .spin{border-color:#a8bbc038;border-top-color:var(--route-frontier)}
@@ -787,7 +788,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
   background:var(--paper-bg);color:var(--paper-ink);
   box-shadow:0 -12px 36px #0007;
   -webkit-backdrop-filter:none;backdrop-filter:none;
-  padding-bottom:calc(14px + var(--safe-b));
+  padding-bottom:calc(14px + var(--usable-safe-b));
 }
 #sheet::before{display:none}
 #sheet-dim{background:#05080d55}
@@ -899,7 +900,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 /* Paper footnotes keep the reading position instead of jumping to the bibliography. */
 #footnote-shade{position:fixed;inset:0;z-index:23;background:#05080d8c}
 #footnote-shade[hidden],#footnote-popover[hidden]{display:none}
-#footnote-popover{position:fixed;left:50%;bottom:calc(var(--safe-b) + 16px);transform:translateX(-50%);z-index:24;width:min(460px,calc(100vw - 28px));padding:15px 18px 18px;background:var(--paper-bg);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 12px 38px #0006;color:var(--paper-ink)}
+#footnote-popover{position:fixed;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 16px);transform:translateX(-50%);z-index:24;width:min(460px,calc(100vw - 28px));padding:15px 18px 18px;background:var(--paper-bg);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 12px 38px #0006;color:var(--paper-ink)}
 #footnote-popover header{display:flex;align-items:center;justify-content:space-between;gap:8px}
 #footnote-popover header strong{font:700 14px var(--font-serif)}
 #footnote-close{min-width:34px;min-height:34px;border:0;background:none;color:var(--paper-muted);font-size:23px;cursor:pointer}
@@ -915,9 +916,9 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #event-map-type[data-route-type="military"]{color:var(--route-military)}
 #event-map-type[data-route-type="frontier"]{color:var(--route-frontier)}
 .scene-observation #event-map-panel,#event-map-panel{
-  left:0;right:0;bottom:0;margin:0 auto;transform:none;width:min(100vw,680px);
+  left:0;right:0;bottom:var(--app-bottom);margin:0 auto;transform:none;width:min(100vw,680px);
   min-height:215px;height:clamp(215px,29dvh,300px);max-height:42dvh;
-  padding:16px clamp(16px,5vw,26px) calc(var(--safe-b) + 12px);
+  padding:16px clamp(16px,5vw,26px) calc(var(--usable-safe-b) + 12px);
   background:var(--paper-bg);border:1px solid var(--paper-border);border-bottom:none;
   border-radius:22px 22px 0 0;box-shadow:0 -10px 36px #0005;
   color:var(--paper-ink);pointer-events:auto;overflow:auto;overscroll-behavior:contain;
@@ -1010,8 +1011,7 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 @media(max-width:959px){
   body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
     padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
-  body.reading-open #sheet-top{padding-top:3px}
-  body.reading-open.sheet-full #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
+  body.reading-open #sheet-top{padding-top:calc(3px + max(0px,var(--safe-t) - var(--sheet-top-offset,0px)))}
   body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
   body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
   body.reading-open #book,body.reading-open #sheet #sheet-scroll{
@@ -1019,8 +1019,8 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   body.reading-open #book-bar{height:34px}
   body.reading-open #book-bar:has(#reading-back[hidden]){display:none}
   body.reading-open #reading-grab{display:none}
-  body.reading-open #book-body{overscroll-behavior-y:none;padding-top:4px;
-    padding-bottom:calc(36px + var(--safe-b));scroll-padding-bottom:calc(36px + var(--safe-b))}
+  body.reading-open #book-body{--reading-end:calc(16px + var(--usable-safe-b));
+    overscroll-behavior-y:none;padding-top:4px;padding-bottom:var(--reading-end);scroll-padding-bottom:var(--reading-end)}
   body.reading-open.reader-gesture #sheet{touch-action:none}
 }
 #sheet:not([role="dialog"]) #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
@@ -1036,8 +1036,8 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #event-map-steps,#event-map-place-chips{touch-action:pan-x}
 @media(max-width:959px){
   #event-map-panel,.scene-observation #event-map-panel{
-    left:0;right:0;bottom:0;width:100%;max-width:none;margin:0 auto;transform:none;
-    border-radius:22px 22px 0 0;padding-bottom:calc(14px + var(--safe-b));
+    left:0;right:0;bottom:var(--app-bottom);width:100%;max-width:none;margin:0 auto;transform:none;
+    border-radius:22px 22px 0 0;padding-bottom:calc(14px + var(--usable-safe-b));
   }
 }
 
@@ -1165,18 +1165,18 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 
 /* ── 无边框精密天文游标（动静两态 + 三级刻度 + 史事微光点 + 微光史事入口） ── */
 #vernier{
-  position:fixed;z-index:7;left:50%;bottom:calc(var(--safe-b) + 14px);transform:translateX(-50%);
+  position:fixed;z-index:7;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 14px);transform:translateX(-50%);
   width:min(380px,calc(100vw - 36px));display:flex;flex-direction:column;align-items:center;gap:4px;
   padding:8px 0 4px;border:0;border-radius:0;background:none;box-shadow:none;color:var(--cosmos-ink);
   transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1),bottom .32s cubic-bezier(.22,.82,.26,1);
 }
 #vernier::before{
-  content:"";position:fixed;left:50%;bottom:calc(-1 * (var(--safe-b) + 14px));transform:translateX(-50%);
+  content:"";position:fixed;left:50%;bottom:calc(-1 * (var(--usable-safe-b) + 14px));transform:translateX(-50%);
   width:100vw;height:126px;pointer-events:none;z-index:-1;
-  background:linear-gradient(0deg,rgba(7,12,18,.78) 0%,rgba(7,12,18,.28) 56%,rgba(7,12,18,0) 100%);
+  background:linear-gradient(0deg,var(--page-bg) 0%,rgba(7,12,18,.28) 56%,rgba(7,12,18,0) 100%);
 }
 #vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
-body.sheet-open #vernier{bottom:calc(var(--safe-b) + 138px)}
+body.sheet-open #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 138px)}
 
 #vernier-readout{
   display:flex;align-items:baseline;justify-content:center;gap:8px;min-height:20px;
@@ -1313,7 +1313,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   #hud{top:calc(var(--safe-t) + 22px);left:28px;right:28px}
   #year-num{font-size:34px}
   #view-panel{top:calc(var(--safe-t) + 68px);right:28px}
-  #vernier{bottom:calc(var(--safe-b) + 20px);width:min(420px,calc(100vw - 80px))}
+  #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 20px);width:min(420px,calc(100vw - 80px))}
 }
 @media(max-width:520px){
   #hud{top:calc(var(--safe-t) + 12px);left:14px;right:14px}
@@ -1323,7 +1323,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 @media(max-height:500px){
   #hud{top:8px}
   #year-num{font-size:22px}
-  #vernier{bottom:8px}
+  #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 8px)}
 }
 @media(prefers-reduced-motion:reduce){
   #year-strip,#hud,#scrim,#vernier,#vernier-readout,#vernier-track{transition:none}
@@ -2861,11 +2861,20 @@ function layout() {
   const w = Math.round(width), h = Math.round(height);
   if (!w || !h) return;
   const rootStyle = getComputedStyle(root);
-  const safeBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
-  const viewportChanged = w !== view.w || h !== view.h || safeBottom !== view.safeBottom;
+  const safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  const reportedBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
+  // Some iOS Home Screen launches already exclude the bottom strip from both viewports.
+  const screenGap = screen.height - h;
+  const bottomAlreadyReserved = standaloneGlobe && heightValue && h > w && Math.abs(screen.width - w) <= 2 &&
+    Math.abs(visible.offsetTop) <= 1 && Math.abs(root.clientHeight - h) <= 2 &&
+    safeTop >= 24 && Math.abs(screenGap - safeTop) <= 2;
+  const safeBottom = bottomAlreadyReserved ? Math.max(0, reportedBottom - screenGap) : reportedBottom;
+  const usableBottom = safeBottom + 'px';
+  if (root.style.getPropertyValue('--usable-safe-b') !== usableBottom) root.style.setProperty('--usable-safe-b', usableBottom);
+  const viewportChanged = w !== view.w || h !== view.h || safeTop !== view.safeTop || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
-  view.safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  view.safeTop = safeTop;
   view.safeBottom = safeBottom;
   const splitActive = document.body.classList.contains('reading-split');
   if (splitActive && w >= 960) {
@@ -3390,13 +3399,30 @@ function sheetDetents() {
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
 
+function paintSheetPosition(offset) {
+  sheetState.offset = offset;
+  const y = Math.round(offset);
+  sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
+  // As the drawer leaves the status bar, remove only the inset it no longer covers.
+  const topOffset = clamp(y, 0, view.safeTop) + 'px';
+  if (sheetEl.style.getPropertyValue('--sheet-top-offset') !== topOffset) {
+    sheetEl.style.setProperty('--sheet-top-offset', topOffset);
+  }
+  const paper = reading.active && !isSplitReading() && y <= 1;
+  const paperEdge = paper || (offset < (view.h || innerHeight) - 2 && view.w < 960);
+  const root = document.documentElement;
+  root.classList.toggle('reader-paper', paper);
+  root.classList.toggle('sheet-paper', paperEdge);
+  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
+  if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+}
+
 function applySheetOffset(offset, animate = true) {
   /* offset 必须是有限数：一旦是 NaN，transform 无效，抽屉就再也拖不动了 */
   const H = view.h || innerHeight;
   if (!Number.isFinite(offset)) offset = Number.isFinite(sheetState.offset) ? sheetState.offset : H;
-  sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
-  sheetEl.style.transform = 'translate3d(0,' + Math.round(offset) + 'px,0)';
+  paintSheetPosition(offset);
   const show = offset < H - 2;
   /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
   dimEl.classList.toggle('show', show);
@@ -3408,15 +3434,6 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
-  const paper = reading.active && !isSplitReading() && offset <= 1;
-  const paperEdge = paper || show && view.w < 960;
-  const root = document.documentElement;
-  root.classList.toggle('reader-paper', paper);
-  root.classList.toggle('sheet-paper', paperEdge);
-  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
-  if (themeColorMeta.content !== theme) {
-    themeColorMeta.content = theme;
-  }
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
 }
@@ -4448,11 +4465,9 @@ function mobileReaderPaint(offset) {
   let next = offset;
   if (next > d.peek) next = d.peek + (next - d.peek) * .22;
   if (next < 0) next *= .22;
-  // Gesture frames touch only a compositor transform. Layout-dependent book height
-  // and detent classes are committed once on release, not on every touch event.
-  sheetState.offset = next;
+  // Keep the book's scroll range stable until the gesture settles.
   sheetEl.style.transition = 'none';
-  sheetEl.style.transform = 'translate3d(0,' + Math.round(next) + 'px,0)';
+  paintSheetPosition(next);
   queueMobileGlobeFrame(next);
 }
 function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {

@@ -657,11 +657,9 @@ function mobileReaderPaint(offset) {
   let next = offset;
   if (next > d.peek) next = d.peek + (next - d.peek) * .22;
   if (next < 0) next *= .22;
-  // Gesture frames touch only a compositor transform. Layout-dependent book height
-  // and detent classes are committed once on release, not on every touch event.
-  sheetState.offset = next;
+  // Keep the book's scroll range stable until the gesture settles.
   sheetEl.style.transition = 'none';
-  sheetEl.style.transform = 'translate3d(0,' + Math.round(next) + 'px,0)';
+  paintSheetPosition(next);
   queueMobileGlobeFrame(next);
 }
 function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {

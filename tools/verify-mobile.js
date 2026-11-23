@@ -68,13 +68,14 @@ async function main() {
       await touch('touchEnd');
       await wait(250);
     };
-    const swipe = async (target, dy, { pause = 0, cancel = false, dx = 0 } = {}) => {
+    const swipe = async (target, dy, { pause = 0, cancel = false, dx = 0, during } = {}) => {
       const start = typeof target === 'string' ? await center(target) : target;
       await touch('touchStart', start);
       for (let i = 1; i <= 12; i++) {
         await touch('touchMove', { x:start.x + dx * i / 12, y:start.y + dy * i / 12 });
         await wait(30);
       }
+      await during?.();
       await wait(pause);
       await touch(cancel ? 'touchCancel' : 'touchEnd');
       await wait(400);
@@ -185,6 +186,16 @@ async function main() {
     await js(`document.documentElement.style.setProperty('--safe-t','62px');
       document.documentElement.style.setProperty('--safe-b','34px');
       dispatchEvent(new Event('resize'));`);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '0px'`),
+      'The short standalone viewport already excludes its bottom inset');
+    await js(`Object.defineProperty(visualViewport, 'height', { value:760, configurable:true });
+      dispatchEvent(new Event('resize'));`);
+    await until(() => js(`document.querySelector('#globe').getBoundingClientRect().bottom === 760`),
+      'Globe must follow the smaller visual viewport');
+    assert.equal(await js(`Math.round(document.querySelector('#vernier').getBoundingClientRect().bottom)`), 712);
+    await js(`delete visualViewport.height; dispatchEvent(new Event('resize'));`);
+    await until(() => js(`document.querySelector('#globe').getBoundingClientRect().bottom === 812`),
+      'Globe must recover its viewport');
     await tap({ x:281, y:340 });
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'China did not open');
     assert.equal(await js(`getComputedStyle(document.querySelector('#sheet')).overflow`), 'hidden');
@@ -223,11 +234,39 @@ async function main() {
     assert(scroll > 0, 'Long chapter must scroll normally');
     await swipe({ x:201, y:370 }, 65);
     assert.equal((await fillsViewport()).sheet, 0);
+    const assertChapterEnd = async padding => {
+      const end = await js(`(() => {
+        const body = document.querySelector('#book-body');
+        const lastSource = body.querySelector('.reading-sources a:last-child');
+        body.scrollTop = body.scrollHeight;
+        return {padding:getComputedStyle(body).paddingBottom, last:Math.round(lastSource.getBoundingClientRect().bottom),
+          edge:Math.round(body.getBoundingClientRect().bottom)};
+      })()`);
+      assert.equal(end.padding, padding + 'px');
+      assert.equal(end.edge - end.last, padding, 'The last source must scroll fully above the viewport edge');
+    };
+    await assertChapterEnd(16);
+    await size(874);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '34px'`),
+      'A full-height viewport still needs the system inset');
+    await assertChapterEnd(50);
+    await size(812);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '0px'`),
+      'Reader must recover the short viewport layout');
     await tap('#sheet-toc');
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), '中华人民共和国');
-    await swipe('#grab', 175, { pause:150 });
+    const globeBackdrop = await js(`getComputedStyle(document.body).backgroundImage`);
+    assert.match(globeBackdrop, /radial-gradient/);
+    await swipe('#grab', 175, { pause:150, during:async () => {
+      assert((await report()).sheet >= 150, 'The test must inspect the sheet while the globe is exposed');
+      assert.equal(await js(`getComputedStyle(document.body).backgroundImage`), globeBackdrop);
+      assert.equal(await js(`document.documentElement.classList.contains('reader-paper')`), false);
+      assert.equal(await js(`getComputedStyle(document.querySelector('#sheet-top')).paddingTop`), '3px');
+    } });
     assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
     await fillsViewport();
+    await tap('#book-body [data-reading-detail]');
+    await assertChapterEnd(16);
     await tap('#sheet-close');
     await assertPreview();
     console.log('Full book: half/full transitions, chapter scrolling, table of contents and exit');

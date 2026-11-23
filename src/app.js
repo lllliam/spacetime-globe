@@ -1372,11 +1372,20 @@ function layout() {
   const w = Math.round(width), h = Math.round(height);
   if (!w || !h) return;
   const rootStyle = getComputedStyle(root);
-  const safeBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
-  const viewportChanged = w !== view.w || h !== view.h || safeBottom !== view.safeBottom;
+  const safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  const reportedBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
+  // Some iOS Home Screen launches already exclude the bottom strip from both viewports.
+  const screenGap = screen.height - h;
+  const bottomAlreadyReserved = standaloneGlobe && heightValue && h > w && Math.abs(screen.width - w) <= 2 &&
+    Math.abs(visible.offsetTop) <= 1 && Math.abs(root.clientHeight - h) <= 2 &&
+    safeTop >= 24 && Math.abs(screenGap - safeTop) <= 2;
+  const safeBottom = bottomAlreadyReserved ? Math.max(0, reportedBottom - screenGap) : reportedBottom;
+  const usableBottom = safeBottom + 'px';
+  if (root.style.getPropertyValue('--usable-safe-b') !== usableBottom) root.style.setProperty('--usable-safe-b', usableBottom);
+  const viewportChanged = w !== view.w || h !== view.h || safeTop !== view.safeTop || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
-  view.safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  view.safeTop = safeTop;
   view.safeBottom = safeBottom;
   const splitActive = document.body.classList.contains('reading-split');
   if (splitActive && w >= 960) {
@@ -1901,13 +1910,30 @@ function sheetDetents() {
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
 
+function paintSheetPosition(offset) {
+  sheetState.offset = offset;
+  const y = Math.round(offset);
+  sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
+  // As the drawer leaves the status bar, remove only the inset it no longer covers.
+  const topOffset = clamp(y, 0, view.safeTop) + 'px';
+  if (sheetEl.style.getPropertyValue('--sheet-top-offset') !== topOffset) {
+    sheetEl.style.setProperty('--sheet-top-offset', topOffset);
+  }
+  const paper = reading.active && !isSplitReading() && y <= 1;
+  const paperEdge = paper || (offset < (view.h || innerHeight) - 2 && view.w < 960);
+  const root = document.documentElement;
+  root.classList.toggle('reader-paper', paper);
+  root.classList.toggle('sheet-paper', paperEdge);
+  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
+  if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+}
+
 function applySheetOffset(offset, animate = true) {
   /* offset 必须是有限数：一旦是 NaN，transform 无效，抽屉就再也拖不动了 */
   const H = view.h || innerHeight;
   if (!Number.isFinite(offset)) offset = Number.isFinite(sheetState.offset) ? sheetState.offset : H;
-  sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
-  sheetEl.style.transform = 'translate3d(0,' + Math.round(offset) + 'px,0)';
+  paintSheetPosition(offset);
   const show = offset < H - 2;
   /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
   dimEl.classList.toggle('show', show);
@@ -1919,15 +1945,6 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
-  const paper = reading.active && !isSplitReading() && offset <= 1;
-  const paperEdge = paper || show && view.w < 960;
-  const root = document.documentElement;
-  root.classList.toggle('reader-paper', paper);
-  root.classList.toggle('sheet-paper', paperEdge);
-  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
-  if (themeColorMeta.content !== theme) {
-    themeColorMeta.content = theme;
-  }
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
 }
