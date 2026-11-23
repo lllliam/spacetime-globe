@@ -43,7 +43,7 @@ function windowOf(y) {
 /* ───────────── 1. 素材装载 ───────────── */
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
 const PW = 1024, PH = 512;             // 拾取栅格
-const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 2;
+const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 1.0;
 const MAPW = 1000, MAPH = 500;
 const Q = 4;                           // 政权几何的量化倍数
 
@@ -511,6 +511,9 @@ varying vec3 vN;
 uniform sampler2D uBase;
 uniform sampler2D uId;
 uniform sampler2D uLut;
+uniform sampler2D uRelief;
+uniform float uHasRelief;
+uniform float uZoom;
 uniform vec3 uLight;
 uniform float uSel;
 uniform float uMapLighting;
@@ -524,33 +527,73 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  vec3 col = mix(base, tint.rgb, tint.a * 0.15);
-  if (uSel > 0.5 && abs(idx - uSel) < 0.5) col = mix(col, vec3(1.0, 0.89, 0.69), 0.23);
+  float ocean = (1.0 - step(0.002, idTex.r)) * smoothstep(0.02, 0.15, base.b - base.r);
+  float landMask = 1.0 - ocean;
 
-  // Work in linear light so the terminator and ocean highlights remain smooth.
-  col = pow(col, vec3(2.2));
+  // Luminance-preserving mineral wash so mountain ridges and basins breathe through polity tints.
+  float luma = dot(base, vec3(0.299, 0.587, 0.114));
+  vec3 mineral = tint.rgb * mix(0.66, 1.24, smoothstep(0.08, 0.78, luma));
+  vec3 col = mix(base, mineral, tint.a * 0.21);
+  if (uSel > 0.5 && abs(idx - uSel) < 0.5) {
+    col = mix(col, vec3(0.98, 0.87, 0.67), 0.15);
+  }
+
+  // Sculpted tangent-space normal perturbation from relief elevation map on land.
+  float lon = (vUv.x - 0.5) * 6.2831853;
+  float lat = (0.5 - vUv.y) * 3.1415927;
+  float cosLat = cos(lat);
+  float sinLat = sin(lat);
+  float sinLon = sin(lon);
+  float cosLon = cos(lon);
+  vec3 localN = vec3(sinLon * cosLat, sinLat, cosLon * cosLat);
+  vec3 shadedN = n;
+  if (uHasRelief > 0.5 && landMask > 0.01) {
+    vec2 rStep = vec2(1.0 / 2048.0, 1.0 / 1024.0);
+    float hC = texture2D(uRelief, vUv).r;
+    float hL = texture2D(uRelief, vec2(vUv.x - rStep.x, vUv.y)).r;
+    float hR = texture2D(uRelief, vec2(vUv.x + rStep.x, vUv.y)).r;
+    float hU = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y - rStep.y, 0.001, 0.999))).r;
+    float hD = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y + rStep.y, 0.001, 0.999))).r;
+    vec3 tLocal = vec3(cosLon, 0.0, -sinLon);
+    vec3 bLocal = vec3(-sinLat * sinLon, cosLat, -sinLat * cosLon);
+    vec3 T = normalize(uRot * tLocal);
+    vec3 B = normalize(uRot * bLocal);
+    float poleFade = smoothstep(0.06, 0.26, abs(cosLat));
+    float bumpScale = mix(1.45, 2.75, clamp((uZoom - 1.0) / 3.0, 0.0, 1.0)) * poleFade * landMask;
+    shadedN = normalize(n - (T * (hR - hL) + B * (hU - hD)) * bumpScale);
+    // Subtle micro-contrast on terrain elevation so highlands feel tactile even in ambient light.
+    col *= 1.0 + (hC - 0.5) * 0.09 * landMask;
+  }
+
+  // Work in linear light so the terminator, relief slopes, and ocean satin glint remain smooth.
+  col = pow(max(col, vec3(0.0)), vec3(2.2));
   vec3 sun = normalize(uLight);
-  float lam = dot(n, sun);
-  float daylight = smoothstep(-0.20, 0.45, lam);
-  // Keep terrain detail readable on the unlit side of maps with borders.
-  float ambient = mix(0.025, 0.16, uMapLighting);
-  float diffuse = max(lam, 0.0) * mix(1.05, 0.79, uMapLighting);
-  vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
-  vec3 localN = vec3(sin((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927),
-    sin((0.5 - vUv.y) * 3.1415927), cos((vUv.x - 0.5) * 6.2831853) * cos((0.5 - vUv.y) * 3.1415927));
-  vec3 shadowRay = normalize(localN + localSun * 0.012 / max(lam, 0.2));
-  vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
-    0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
-  float shadow = texture2D(uCloud, vec2(shadowUv.x + uCloudOffset, shadowUv.y)).a;
-  col *= (ambient + 0.11 * daylight + diffuse) * (1.0 - shadow * daylight * 0.25 * uCloudStrength);
-  float ocean = (1.0 - step(0.002, idTex.r)) *
-    smoothstep(0.02, 0.16, base.b - base.r);
+  float macroLam = dot(n, sun);
+  float lam = dot(shadedN, sun);
+  float daylight = smoothstep(-0.22, 0.45, macroLam);
+  float ambient = mix(0.032, 0.17, uMapLighting);
+  float diffuse = max(lam, 0.0) * mix(1.06, 0.80, uMapLighting);
+  float shadowFactor = 1.0;
+  if (uCloudStrength > 0.005) {
+    vec3 localSun = vec3(dot(uRot[0], sun), dot(uRot[1], sun), dot(uRot[2], sun));
+    vec3 shadowRay = normalize(localN + localSun * 0.012 / max(macroLam, 0.2));
+    vec2 shadowUv = vec2(atan(shadowRay.x, shadowRay.z) / 6.2831853 + 0.5,
+      0.5 - asin(clamp(shadowRay.y, -1.0, 1.0)) / 3.1415927);
+    float shadow = texture2D(uCloud, vec2(shadowUv.x + uCloudOffset, shadowUv.y)).a;
+    shadowFactor = 1.0 - shadow * daylight * 0.24 * uCloudStrength;
+  }
+  col *= (ambient + 0.11 * daylight + diffuse) * shadowFactor;
+
+  // Dual-lobe satin ocean specular (broad soft sheen + tight sun glint).
   vec3 halfLight = normalize(sun + vec3(0.0, 0.0, 1.0));
-  float spec = pow(max(dot(n, halfLight), 0.0), 70.0);
-  col += vec3(0.60, 0.77, 1.0) * spec * ocean * 0.32 * daylight;
+  float ndh = max(dot(n, halfLight), 0.0);
+  float specTight = pow(ndh, 88.0) * 0.28;
+  float specBroad = pow(ndh, 18.0) * 0.085;
+  col += vec3(0.62, 0.78, 0.98) * (specTight + specBroad) * ocean * daylight;
+
   col = pow(max(col, vec3(0.0)), vec3(1.0 / 2.2));
-  float rim = pow(1.0 - max(n.z, 0.0), 3.2);
-  col = mix(col, vec3(0.15, 0.42, 0.78), rim * daylight * 0.48);
+  float rim = pow(1.0 - max(n.z, 0.0), 3.6);
+  col = mix(col, vec3(0.16, 0.44, 0.78), rim * daylight * 0.44);
 
   gl_FragColor = vec4(col, 1.0);
 }`;
@@ -674,6 +717,8 @@ function initGL() {
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     radius: gl.getUniformLocation(prog, 'uRadius'),
     sel: gl.getUniformLocation(prog, 'uSel'), mapLighting: gl.getUniformLocation(prog, 'uMapLighting'),
+    relief: gl.getUniformLocation(prog, 'uRelief'), hasRelief: gl.getUniformLocation(prog, 'uHasRelief'),
+    zoom: gl.getUniformLocation(prog, 'uZoom'),
     cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
     cloudStrength: gl.getUniformLocation(prog, 'uCloudStrength'),
     atmLight: gl.getUniformLocation(progAtm, 'uLight'),
@@ -707,6 +752,20 @@ function initGL() {
   if (cloudsImg) cloudCanvas.getContext('2d').drawImage(cloudsImg, 0, 0, 1024, 512);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cloudCanvas);
   gl.generateMipmap(gl.TEXTURE_2D);
+  const tRelief = tex(4, false);
+  const hasRelief = Boolean(reliefImg && tRelief);
+  if (tRelief) {
+    const reliefCanvas = newCanvas(2048, 1024);
+    const rg = reliefCanvas.getContext('2d');
+    if (reliefImg) {
+      rg.drawImage(reliefImg, 0, 0, 2048, 1024);
+    } else {
+      rg.fillStyle = '#808080';
+      rg.fillRect(0, 0, 2048, 1024);
+    }
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, reliefCanvas);
+    gl.generateMipmap(gl.TEXTURE_2D);
+  }
   const aniso = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
   const anisotropy = aniso ? Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)) : 1;
   let detailState = gl.getParameter(gl.MAX_TEXTURE_SIZE) >= DETAIL_WIDTH ? 'idle' : 'unavailable';
@@ -760,6 +819,9 @@ function initGL() {
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
     },
+    preloadDetail() {
+      if (detailState === 'idle') loadSurfaceDetail();
+    },
     draw(v, st) {
       if (st.zoom >= DETAIL_ZOOM && detailState === 'idle') loadSurfaceDetail();
       if (st.zoom < DETAIL_ZOOM && detailState === 'retry') detailState = 'idle';
@@ -775,7 +837,8 @@ function initGL() {
       /* 平移必须和矢量叠加层一致，否则缩放后两层会错位 */
       const center = [(v.cx + st.panX) * v.dpr, (v.h - v.cy - st.panY) * v.dpr];
       const scale = v.Rz * v.dpr;
-      const cloudStrength = chrome.natural ? 1 : 0.38;
+      const zoomFade = clamp(1 - (st.zoom - 1.2) / 1.35, 0, 1);
+      const cloudStrength = chrome.natural ? 0.92 * lerp(0.25, 1.0, zoomFade) : 0.34 * zoomFade * zoomFade;
 
       gl.useProgram(prog);
       gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
@@ -791,8 +854,12 @@ function initGL() {
       gl.uniform1f(U.radius, 1);
       gl.uniform3f(U.light, -0.52, 0.44, 0.73);
       gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, st.zoom >= DETAIL_ZOOM && tDetail ? tDetail : tBase);
+      gl.bindTexture(gl.TEXTURE_2D, tDetail || tBase);
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
+      if (tRelief) { gl.activeTexture(gl.TEXTURE4); gl.bindTexture(gl.TEXTURE_2D, tRelief); }
+      gl.uniform1i(U.relief, 4);
+      gl.uniform1f(U.hasRelief, hasRelief ? 1 : 0);
+      gl.uniform1f(U.zoom, st.zoom);
       gl.uniform1i(U.cloud, 3);
       gl.uniform1f(U.cloudOffset, cloudDrift);
       gl.uniform1f(U.cloudStrength, cloudStrength);
@@ -805,27 +872,29 @@ function initGL() {
       gl.clearDepth(1);
       gl.disable(gl.CULL_FACE);
       gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
-      // A raised, separately lit shell gives the clouds their own silhouette.
-      gl.useProgram(progCloud);
-      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-      gl.enableVertexAttribArray(cloudPos);
-      gl.vertexAttribPointer(cloudPos, 3, gl.FLOAT, false, 20, 0);
-      gl.enableVertexAttribArray(cloudUv);
-      gl.vertexAttribPointer(cloudUv, 2, gl.FLOAT, false, 20, 12);
-      gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
-      gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
-      gl.uniform2f(cloudUniforms.uViewport, W, H);
-      gl.uniform1f(cloudUniforms.uScale, scale);
-      gl.uniform1f(cloudUniforms.uRadius, 1.007);
-      gl.uniform1i(cloudUniforms.uCloud, 3);
-      gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
-      gl.uniform1f(cloudUniforms.uCloudStrength, cloudStrength);
-      gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
-      gl.enable(gl.BLEND);
-      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-      gl.depthMask(false);
-      gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
-      gl.depthMask(true);
+      // Raised cloud shell fades cleanly away when zooming in to inspect terrain and borders.
+      if (cloudStrength > 0.005) {
+        gl.useProgram(progCloud);
+        gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+        gl.enableVertexAttribArray(cloudPos);
+        gl.vertexAttribPointer(cloudPos, 3, gl.FLOAT, false, 20, 0);
+        gl.enableVertexAttribArray(cloudUv);
+        gl.vertexAttribPointer(cloudUv, 2, gl.FLOAT, false, 20, 12);
+        gl.uniformMatrix3fv(cloudUniforms.uRot, false, rot);
+        gl.uniform2f(cloudUniforms.uCenter, center[0], center[1]);
+        gl.uniform2f(cloudUniforms.uViewport, W, H);
+        gl.uniform1f(cloudUniforms.uScale, scale);
+        gl.uniform1f(cloudUniforms.uRadius, 1.007);
+        gl.uniform1i(cloudUniforms.uCloud, 3);
+        gl.uniform1f(cloudUniforms.uCloudOffset, cloudDrift);
+        gl.uniform1f(cloudUniforms.uCloudStrength, cloudStrength);
+        gl.uniform3f(cloudUniforms.uLight, -0.52, 0.44, 0.73);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.depthMask(false);
+        gl.drawElements(gl.TRIANGLES, idx.length, gl.UNSIGNED_SHORT, 0);
+        gl.depthMask(true);
+      }
       gl.disable(gl.DEPTH_TEST);
 
       gl.useProgram(progAtm);
@@ -836,7 +905,7 @@ function initGL() {
       gl.uniform2f(U.atmViewport, W, H);
       gl.uniform1f(U.atmScale, scale);
       gl.uniform3f(U.atmLight, -0.52, 0.44, 0.73);
-      gl.uniform3f(U.atmColor, 0.42, 0.58, 0.78);
+      gl.uniform3f(U.atmColor, 0.36, 0.54, 0.76);
       gl.enable(gl.BLEND);
       gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE, gl.ONE, gl.ONE);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -1067,7 +1136,7 @@ function drawVector(hudBounds = globeHudBounds()) {
   const isPolity = state.layerId === 'polity';
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
-  const borderWidth = Math.min(1.1, 0.62 + state.zoom * 0.10);
+  const borderWidth = Math.min(1.05, 0.52 + state.zoom * 0.09);
   vctx.beginPath();
   const drawn = [];
   for (const sh of vecShapes) {
@@ -1557,7 +1626,7 @@ let spinStep = 0, cloudDrift = 0;
 
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
-    !pointers.size && !zoomAnim && !panReturn && !globeTapTimer && !state.focus &&
+    !pointers.size && !zoomAnim && !panReturn && !(typeof resetAnim === 'number' && resetAnim) && !globeTapTimer && !state.focus &&
     !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
@@ -1722,7 +1791,16 @@ function endPointer(e) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
-    if (isDouble) { zoomTo(state.zoom > 1.4 ? 1 : 2.4, e.clientX, e.clientY); lastTapAt = 0; return; }
+    if (isDouble) {
+      lastTapAt = 0;
+      if (!mapPointAt(e.clientX, e.clientY)) {
+        document.body.classList.remove('chrome-hidden');
+        if (typeof resetView === 'function') resetView(true);
+      } else {
+        zoomTo(state.zoom > 1.35 ? 1 : 2.5, e.clientX, e.clientY);
+      }
+      return;
+    }
     globeTapTimer=setTimeout(()=>{
       globeTapTimer = 0;
       tapGlobe(e.clientX,e.clientY);
@@ -1776,10 +1854,19 @@ let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
-  if (chrome.natural) return;
+  const onGlobe = mapPointAt(sx, sy);
+  if (!onGlobe) {
+    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
+  if (chrome.natural) {
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
   // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
   if (state.layerId === 'polity' && !polityState.loaded) {
-    if (!polityState.error && mapPointAt(sx, sy)) {
+    if (!polityState.error) {
       pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
         zoom:state.zoom, panX:state.panX, panY:state.panY};
       ensurePolity();
@@ -1787,8 +1874,13 @@ function tapGlobe(sx, sy) {
     return;
   }
   const id = pickAt(sx, sy);
-  if (!id) { closeSheet(); return; }
-  openEntity(state.layerId, id, mapPointAt(sx, sy));
+  if (!id) {
+    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
+    document.body.classList.toggle('chrome-hidden');
+    return;
+  }
+  document.body.classList.remove('chrome-hidden');
+  openEntity(state.layerId, id, onGlobe);
 }
 
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
@@ -2155,7 +2247,8 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === 'Escape') { closeWorld(); closeSheet(); }
+  else if (e.key === 'Escape') { document.body.classList.remove('chrome-hidden'); closeWorld(); closeSheet(); }
+  else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
 });
@@ -2298,8 +2391,9 @@ async function ensurePolity() {
   invalidate();
   recheckViewportLayout();
 
-  /* 空闲时后台把政权边界拉下来，切换图层就不用等 */
-  setTimeout(() => { ensurePolity(); }, 2600);
+  /* 空闲时后台预热 4K 高清底图与政权边界，放大和切换图层都无需等待 */
+  if (glr && typeof glr.preloadDetail === 'function') setTimeout(() => { glr.preloadDetail(); }, 600);
+  setTimeout(() => { ensurePolity(); }, 2200);
 })();
 
 })();

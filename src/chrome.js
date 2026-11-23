@@ -1,8 +1,8 @@
 /* 地球视图只决定表面显示，年份仍由年份入口控制。 */
 const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:true};
-const viewPanel = el('view-panel'), viewHead = el('view-head'), viewShade = el('view-shade');
+const viewPanel = el('view-panel'), viewShade = el('view-shade'), hudViewBtn = el('hud-view');
 const viewModes = [...viewPanel.querySelectorAll('[data-view]')];
-let viewMotion = null, viewDrag = null, viewOpeningPress = false;
+let viewMotion = null, viewOpeningPress = false, resetAnim = 0;
 try {
   const display = JSON.parse(localStorage.getItem('globe.display.v4') || '{}');
   chrome.labels = display.labels !== false;
@@ -15,6 +15,8 @@ function syncChrome() {
   el('toggle-labels').setAttribute('aria-checked', String(chrome.labels));
   el('toggle-labels').disabled = chrome.natural;
   el('toggle-grid').setAttribute('aria-checked', String(chrome.grid));
+  hudViewBtn.setAttribute('aria-expanded', String(chrome.panel));
+  hudViewBtn.classList.toggle('active', chrome.panel || mode !== 'history' || chrome.grid);
 
   let status = '';
   if (state.layerId === 'polity') {
@@ -24,70 +26,75 @@ function syncChrome() {
   }
   elSub.textContent = status;
   elSub.hidden = !status;
-  el('view-caption').textContent = mode === 'nature' ? '浏览海陆与地形。'
-    : mode === 'modern' ? '以今天的边界定位，选年后仍使用这张底图。'
-    : status ? status + '。'
-    : state.layerId === 'country' ? '今天显示现代边界，选择过往年份可查看历史疆域。'
-    : '随年份显示历史疆域，点选可阅读。';
 }
 
-function moveView(from, to, duration, onFinish) {
+function animateViewPopover(opening, onFinish) {
   viewMotion?.cancel();
-  const translate = y => 'translateY(' + y + 'px)';
-  viewPanel.style.transform = translate(to);
   if (reducedReadingMotion.matches) {
     viewMotion = null;
+    viewPanel.style.opacity = opening ? '1' : '0';
+    viewPanel.style.transform = opening ? 'none' : 'translateY(-6px) scale(.97)';
     onFinish?.();
     return;
   }
-  const motion = viewPanel.animate([{transform:translate(from)}, {transform:translate(to)}], {
-    duration, easing:'cubic-bezier(.22,.76,.24,1)',
+  const from = opening
+    ? { opacity: 0, transform: 'translateY(-6px) scale(.97)' }
+    : { opacity: 1, transform: 'translateY(0) scale(1)' };
+  const to = opening
+    ? { opacity: 1, transform: 'translateY(0) scale(1)' }
+    : { opacity: 0, transform: 'translateY(-6px) scale(.97)' };
+  const motion = viewPanel.animate([from, to], {
+    duration: opening ? 210 : 150,
+    easing: 'cubic-bezier(.22,.82,.26,1)',
+    fill: 'forwards',
   });
   viewMotion = motion;
   motion.onfinish = () => {
     if (viewMotion !== motion) return;
     viewMotion = null;
+    viewPanel.style.opacity = '';
+    viewPanel.style.transform = '';
     onFinish?.();
   };
 }
 
 function closeView(focus = true) {
   if (!chrome.panel) return;
-  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
   chrome.panel = false;
-  viewDrag = null;
   viewPanel.inert = true;
   canvas.inert = el('hud').inert = false;
+  syncChrome();
   if (focus) canvas.focus({preventScroll:true});
-  moveView(offset, viewPanel.offsetHeight, 200, () => {
+  animateViewPopover(false, () => {
+    if (chrome.panel) return;
     viewPanel.hidden = viewShade.hidden = true;
     invalidate();
   });
 }
 
 function focusActiveView() {
-  viewModes.find(button => button.getAttribute('aria-pressed') === 'true').focus({preventScroll:true});
+  viewModes.find(button => button.getAttribute('aria-pressed') === 'true')?.focus({preventScroll:true});
 }
 
 function showView(fromHold = false) {
-  if (worldEvent || reading.active || !overlay.hidden || chrome.panel) return;
+  if (worldEvent || reading.active || !overlay.hidden) return;
+  if (chrome.panel) { closeView(false); return; }
+  document.body.classList.remove('chrome-hidden');
   closeYearControl();
   closeSheet();
   cancelZoom();
   stopPanReturn();
+  cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
   pointers.clear();
   drag = pinch = null;
   chrome.panel = true;
   viewOpeningPress = fromHold;
-  viewPanel.style.transform = '';
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
-  el('view-options').open = false;
-  viewPanel.scrollTop = 0;
   canvas.inert = el('hud').inert = true;
   syncChrome();
   focusActiveView();
-  moveView(viewPanel.offsetHeight, 0, 290);
+  animateViewPopover(true);
   invalidate();
 }
 
@@ -108,10 +115,43 @@ function commitYear(year) {
 }
 function stepYear(delta) { commitYear(yearAtIndex(ord(state.year) + delta)); }
 
-function resetView() {
-  closeSheet(); cancelZoom(); stopPanReturn();
+function cancelResetAnim() {
+  cancelAnimationFrame(resetAnim);
+  resetAnim = 0;
+}
+
+function resetView(animate = true) {
+  closeSheet();
+  cancelZoom();
+  stopPanReturn();
+  cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
-  Object.assign(state,{yaw:-1.42,tilt:.30,zoom:1,panX:0,panY:0,lift:0}); layout(); invalidate();
+  const target = { yaw: -1.42, tilt: 0.30, zoom: 1, panX: 0, panY: 0, lift: 0 };
+  if (!animate || reducedGlobeMotion.matches) {
+    Object.assign(state, target);
+    layout();
+    invalidate();
+    return;
+  }
+  const from = { yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift || 0 };
+  let dyaw = ((target.yaw - from.yaw + Math.PI) % TAU + TAU) % TAU - Math.PI;
+  const start = performance.now(), dur = 440;
+  const step = (now) => {
+    const t = clamp((now - start) / dur, 0, 1);
+    const k = 1 - Math.pow(1 - t, 3);
+    state.yaw = from.yaw + dyaw * k;
+    state.tilt = lerp(from.tilt, target.tilt, k);
+    state.zoom = lerp(from.zoom, target.zoom, k);
+    state.panX = lerp(from.panX, target.panX, k);
+    state.panY = lerp(from.panY, target.panY, k);
+    state.lift = lerp(from.lift, target.lift, k);
+    view.cy = (view.cyBase || view.cy) - state.lift;
+    view.Rz = view.R * state.zoom;
+    invalidate();
+    if (t < 1) resetAnim = requestAnimationFrame(step);
+    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); }
+  };
+  resetAnim = requestAnimationFrame(step);
 }
 
 let globeHold = null;
@@ -121,8 +161,9 @@ function cancelGlobeHold() {
 }
 canvas.addEventListener('pointerdown', event => {
   cancelGlobeHold();
+  cancelResetAnim();
   if (!event.isPrimary || event.button !== 0 || !mapPointAt(event.clientX, event.clientY)) return;
-  globeHold = {x:event.clientX, y:event.clientY, timer:setTimeout(() => { cancelGlobeHold(); showView(true); }, 500)};
+  globeHold = {x:event.clientX, y:event.clientY, timer:setTimeout(() => { cancelGlobeHold(); showView(true); }, 520)};
 });
 canvas.addEventListener('pointermove', event => {
   if (globeHold && Math.hypot(event.clientX - globeHold.x, event.clientY - globeHold.y) > 9) cancelGlobeHold();
@@ -139,32 +180,7 @@ canvas.addEventListener('keydown', event => {
   }
 });
 
-viewHead.addEventListener('pointerdown', event => {
-  if (!chrome.panel || !event.isPrimary || event.button !== 0 || event.target.closest('button')) return;
-  const offset = Math.max(0, viewPanel.getBoundingClientRect().top - viewPanel.offsetTop);
-  viewPanel.style.transform = 'translateY(' + offset + 'px)';
-  viewMotion?.cancel();
-  viewMotion = null;
-  viewDrag = {id:event.pointerId, start:event.clientY - offset, offset};
-  viewHead.setPointerCapture(event.pointerId);
-});
-viewHead.addEventListener('pointermove', event => {
-  if (viewDrag?.id !== event.pointerId) return;
-  viewDrag.offset = Math.max(0, event.clientY - viewDrag.start);
-  viewPanel.style.transform = 'translateY(' + viewDrag.offset + 'px)';
-});
-for (const type of ['pointerup','pointercancel','lostpointercapture']) {
-  viewHead.addEventListener(type, event => {
-    if (viewDrag?.id !== event.pointerId) return;
-    const {offset} = viewDrag;
-    viewDrag = null;
-    if (type === 'pointerup' && offset >= 68) closeView();
-    else moveView(offset, 0, 200);
-  });
-}
-
-el('view-close').addEventListener('click', () => closeView());
-// 长按抬手时的合成点击不能操作刚出现的面板。
+// 长按抬手时的合成点击不能操作刚出现的浮层。
 addEventListener('pointerdown', () => { viewOpeningPress = false; }, true);
 addEventListener('click', event => {
   if (!chrome.panel || !viewOpeningPress || !event.detail) return;
@@ -185,7 +201,6 @@ for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
     invalidate();
   });
 }
-el('reset-view').addEventListener('click', resetView);
 document.addEventListener('visibilitychange', () => { if (document.hidden) cancelGlobeHold(); });
 
 addEventListener('keydown', event => {
@@ -195,7 +210,7 @@ addEventListener('keydown', event => {
     event.stopImmediatePropagation();
     closeView();
   } else if (event.key === 'Tab') {
-    const focusable = [...viewPanel.querySelectorAll('button:not(:disabled),summary')].filter(node => node.getClientRects().length);
+    const focusable = [...viewPanel.querySelectorAll('button:not(:disabled)')].filter(node => node.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);
     if (!viewPanel.contains(document.activeElement)) { event.preventDefault(); focusActiveView(); }
     else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
@@ -203,6 +218,4 @@ addEventListener('keydown', event => {
   }
 }, true);
 
-/* v7 · Visible iPhone controls coexist with the original hold gesture. */
-el('hud-view').addEventListener('click', () => showView());
-el('hud-reset').addEventListener('click', resetView);
+hudViewBtn.addEventListener('click', () => showView());

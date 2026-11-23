@@ -1,7 +1,7 @@
 const yearControl = el('year-control'), yearStrip = el('year-strip');
 const yearForm = el('year-form'), yearInput = el('year-input'), yearError = el('year-error');
 const yearMinIndex = ord(YMIN), yearMaxIndex = ord(YMAX);
-const YEAR_HOLD_MS = 460, YEAR_DOUBLE_TAP_MS = 250;
+const YEAR_HOLD_MS = 460;
 const yearSlots = Array.from({ length: 7 }, () => yearStrip.appendChild(document.createElement('span')));
 const yearDisplay = (year) => year === YMAX ? '今天' : fmtYear(year);
 const yearAtIndex = (index) => {
@@ -17,9 +17,8 @@ function yearControlOpen() {
   return yearBrowsing || !yearForm.hidden;
 }
 
-function syncYearControl(year) {
-  el('year-num').textContent = yearDisplay(year);
-  let era = '时空地球 · 历史疆域';
+function eraLabelForYear(year) {
+  let era = year === YMAX ? '时空地球 · 现代边界' : chapterOf(year).n + ' · 历史疆域';
   const f = state.focus;
   const ent = f && entityByKey(f.layerId, f.key, f.id);
   const book = reading.active && reading.subject ? reading.subject : (ent && subjectBookForEntity(ent));
@@ -27,10 +26,15 @@ function syncYearControl(year) {
     era = book.title;
     if (book.id === 'ming' && year >= 1403 && year <= 1424) era = '永乐' + (year - 1402) + '年 · 大明';
   }
-  el('year-era').textContent = era;
+  return era;
+}
+
+function syncYearControl(year) {
+  el('year-num').textContent = yearDisplay(year);
+  el('year-era').textContent = eraLabelForYear(year);
   if (typeof updateVernier === 'function') updateVernier();
   const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
-  elYear.setAttribute('aria-label', spoken + '的事件与阅读。长按或按 Shift+Enter 拨动年份，双击或按 F2 输入年份');
+  elYear.setAttribute('aria-label', spoken + '。点击输入年份，长按或按 Shift+Enter 拨动年份');
   if (yearBrowsing && !yearPress && !yearFrame) {
     yearPosition = ord(year);
     updateYearStride();
@@ -57,7 +61,6 @@ function renderYearStrip() {
 function updateYearStride() {
   if (!yearBrowsing) return;
   yearStride = clamp(yearControl.clientWidth * .205, 73, 111);
-  // Long BCE labels include a prefix, so reserve enough room for the adjacent year.
   if (yearAtIndex(yearPosition) <= -100) {
     const fontSize = parseFloat(getComputedStyle(yearControl).fontSize);
     yearStride = Math.max(yearStride, fontSize * 2.65);
@@ -140,6 +143,7 @@ function dismissYearFromGlobe() {
 
 function showYearControl() {
   if (yearBrowsing) return;
+  document.body.classList.remove('chrome-hidden');
   cancelYearTap();
   closeWorld();
   closeView(false);
@@ -154,18 +158,21 @@ function showYearControl() {
 }
 
 function openYearInput() {
+  document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
   closeSheet();
   yearInput.value = state.year === YMAX ? String(YMAX) : fmtYear(state.year);
   yearForm.hidden = false;
   yearControl.classList.add('editing');
+  elYear.setAttribute('aria-expanded', 'true');
   yearInput.focus({ preventScroll: true });
   yearInput.select();
   invalidate();
 }
 
 function openYearWorld() {
+  document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
   closeSheet();
@@ -213,7 +220,6 @@ yearControl.addEventListener('pointermove', (event) => {
   press.moved = true;
   suppressYearClick = true;
   const distance = Math.abs(dx) / yearStride;
-  // Extend longer strokes smoothly while keeping the first year's movement one-to-one.
   const excess = Math.max(0, distance - 1);
   const travel = distance + 2.6 * excess * excess / (1 + excess);
   const next = press.origin - Math.sign(dx) * travel;
@@ -239,7 +245,6 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
       return;
     }
     if (press.active) {
-      // A flick extends the movement. A stationary release snaps to the nearest year.
       const coast = event.timeStamp - press.lastAt < 95 ? clamp(press.velocity * 175, -17, 17) : 0;
       settleYear(yearPosition + coast);
     }
@@ -247,7 +252,10 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 }
 
 elYear.addEventListener('click', () => {
-  if (!worldEvent && !reading.active && yearForm.hidden && !suppressYearClick && !yearBrowsing) openYearInput();
+  if (!worldEvent && !reading.active && !suppressYearClick && !yearBrowsing) {
+    if (!yearForm.hidden) closeYearControl({ focus: true });
+    else openYearInput();
+  }
 });
 
 yearControl.addEventListener('contextmenu', (event) => {
@@ -299,60 +307,171 @@ addEventListener('resize', updateYearStride);
 yearStrip.addEventListener('transitionend', invalidate);
 document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });
 
-/* v7 · Year shortcuts, explicit access to events and the precision ruler. */
 yearForm.addEventListener('click', (event) => {
   const jump = event.target.closest('[data-year-jump]');
   if (!jump) return;
   commitYear(Number(jump.dataset.yearJump));
   closeYearControl({ focus: true });
 });
-el('year-events').addEventListener('click', openYearWorld);
+
+/* ── 无边框精密天文游标（动静两态 + 史事微光点 + 上拉直达当年史事） ── */
 const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
-let vernierGesture = null;
+const vernierYearEl = el('vernier-year'), vernierEraEl = el('vernier-era'), vernierEventsBtn = el('vernier-events');
+let vernierGesture = null, vernierIdleTimer = 0;
+let eventYearSet = null;
+
+function ensureEventYearSet() {
+  if (eventYearSet && eventYearSet.size) return eventYearSet;
+  if (!entries.length) return null;
+  const set = new Set([-550, -221, 220, 618, 960, 1368, 1421, 1644, 1945]);
+  for (const e of entries) {
+    if (e.kind !== 'era') set.add(e.start);
+  }
+  eventYearSet = set;
+  return set;
+}
+
+function yearEventCounts(year) {
+  const [start, end] = windowOf(year);
+  const first = ord(start), last = ord(end) + 1;
+  let concrete = 0, bg = 0;
+  for (const event of entries) {
+    if (event.t1 < first || event.t0 >= last) continue;
+    const isBg = !event.point && event.kind === 'era';
+    if (isBg) bg++; else concrete++;
+  }
+  return { concrete, bg, recent: start !== end };
+}
+
+function wakeVernier(hold = false) {
+  clearTimeout(vernierIdleTimer);
+  vernier.classList.add('active');
+  if (!hold) {
+    vernierIdleTimer = setTimeout(() => {
+      if (!vernierGesture) vernier.classList.remove('active');
+    }, 1250);
+  }
+}
+
 function updateVernier() {
   const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
     (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
   vernier.hidden = !visible;
   if (!visible) return;
-  el('vernier-current').textContent = yearDisplay(state.year);
-  vernierTrack.setAttribute('aria-valuenow', state.year);
-  vernierTrack.setAttribute('aria-valuetext', yearDisplay(state.year));
-  const current = ord(state.year), span = 8;
-  vernierTicks.innerHTML = Array.from({length:17}, (_,i) => {
-    const offset = i - span;
+
+  const year = state.year;
+  vernierYearEl.textContent = yearDisplay(year);
+  vernierEraEl.textContent = eraLabelForYear(year);
+  vernierTrack.setAttribute('aria-valuenow', year);
+  vernierTrack.setAttribute('aria-valuetext', yearDisplay(year));
+
+  const marks = ensureEventYearSet();
+  const current = ord(year), span = 12;
+  const stepPct = 100 / (span * 2);
+  let html = '';
+  for (let offset = -span; offset <= span; offset++) {
     const n = current + offset;
-    if (n < yearMinIndex || n > yearMaxIndex) return '';
+    if (n < yearMinIndex || n > yearMaxIndex) continue;
     const val = yearAtIndex(n);
-    return '<span style="left:' + (50+offset*6.25) + '%" class="' + (offset===0?'current':'') + '">' +
-      (offset !== 0 && offset % 4 === 0 ? esc(String(val)) : '') + '</span>';
-  }).join('');
+    const left = (50 + offset * stepPct).toFixed(3);
+    const absVal = Math.abs(val);
+    const isMajor = val === YMAX || absVal % 10 === 0;
+    const isMed = !isMajor && absVal % 5 === 0;
+    const hasEvent = marks ? marks.has(val) : false;
+    const cls = (offset === 0 ? 'current' : isMajor ? 'major' : isMed ? 'med' : 'minor') +
+      (hasEvent ? ' has-event' : '');
+    const showNum = offset !== 0 && isMajor && Math.abs(offset) >= 3 && Math.abs(offset) <= span - 1;
+    html += '<span class="' + cls + '" style="left:' + left + '%">' +
+      (showNum ? '<em>' + esc(fmtYear(val)) + '</em>' : '') + '</span>';
+  }
+  vernierTicks.innerHTML = html;
+
+  const { concrete, bg, recent } = yearEventCounts(year);
+  if (concrete > 0) {
+    vernierEventsBtn.textContent = recent ? '近年史事' : concrete + ' 件史事';
+    vernierEventsBtn.hidden = false;
+  } else if (bg > 0 && !recent) {
+    vernierEventsBtn.textContent = '时代背景';
+    vernierEventsBtn.hidden = false;
+  } else {
+    vernierEventsBtn.hidden = true;
+  }
 }
+
+vernierEventsBtn.addEventListener('click', () => openYearWorld());
+
 vernierTrack.addEventListener('pointerdown', (event) => {
   if (vernier.hidden || event.button !== 0 || reading.active) return;
-  vernierGesture = {id:event.pointerId, x:event.clientX, original:ord(state.year), moved:false};
+  document.body.classList.remove('chrome-hidden');
+  wakeVernier(true);
+  vernierGesture = {
+    id: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    lastX: event.clientX,
+    lastT: event.timeStamp,
+    acc: ord(state.year),
+    original: ord(state.year),
+    moved: false,
+    swipeUp: false,
+  };
   vernierTrack.setPointerCapture(event.pointerId);
 });
+
 vernierTrack.addEventListener('pointermove', (event) => {
   if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
-  const dx = event.clientX - vernierGesture.x;
-  if (Math.abs(dx)>3) vernierGesture.moved=true;
-  if (vernierGesture.moved) {
-    const year = yearAtIndex(vernierGesture.original - dx / Math.max(12, vernierTrack.clientWidth / 16));
-    if (year!==state.year) commitYear(year);
+  const g = vernierGesture;
+  const totalDx = event.clientX - g.startX;
+  const totalDy = event.clientY - g.startY;
+  if (!g.moved && Math.abs(totalDy) > 18 && Math.abs(totalDy) > Math.abs(totalDx) * 1.4 && totalDy < 0) {
+    g.swipeUp = true;
+    g.moved = true;
+    return;
+  }
+  if (g.swipeUp) return;
+  const stepDx = event.clientX - g.lastX;
+  const dt = Math.max(8, event.timeStamp - g.lastT);
+  g.lastX = event.clientX;
+  g.lastT = event.timeStamp;
+  if (Math.abs(totalDx) > 3) g.moved = true;
+  if (g.moved) {
+    const pxPerYear = Math.max(10, vernierTrack.clientWidth / 24);
+    const speed = Math.abs(stepDx) / dt; // px / ms
+    const accel = 1 + clamp((speed - 0.35) * 3.8, 0, 14);
+    g.acc = clamp(g.acc - (stepDx / pxPerYear) * accel, yearMinIndex, yearMaxIndex);
+    const year = yearAtIndex(g.acc);
+    if (year !== state.year) commitYear(year);
   }
 });
-for (const type of ['pointerup','pointercancel','lostpointercapture']) vernierTrack.addEventListener(type, (event) => {
-  if (!vernierGesture || event.pointerId!==vernierGesture.id) return;
-  const drag=vernierGesture; vernierGesture=null;
-  if (type==='pointerup' && !drag.moved) {
-    const rect=vernierTrack.getBoundingClientRect();
-    const years=Math.round((event.clientX-rect.left-rect.width/2)/(rect.width/16));
-    commitYear(yearAtIndex(drag.original+years));
-  }
-});
+
+for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
+  vernierTrack.addEventListener(type, (event) => {
+    if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
+    const drag = vernierGesture;
+    vernierGesture = null;
+    if (type === 'pointerup' && drag.swipeUp) {
+      vernier.classList.remove('active');
+      openYearWorld();
+      return;
+    }
+    if (type === 'pointerup' && !drag.moved) {
+      const rect = vernierTrack.getBoundingClientRect();
+      const years = Math.round((event.clientX - rect.left - rect.width / 2) / (rect.width / 24));
+      commitYear(yearAtIndex(drag.original + years));
+    }
+    wakeVernier(false);
+  });
+}
+
 vernierTrack.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault(); stepYear(event.key === 'ArrowRight' ? 1 : -1);
+    event.preventDefault();
+    wakeVernier(false);
+    stepYear(event.key === 'ArrowRight' ? 1 : -1);
+  } else if (event.key === 'ArrowUp') {
+    event.preventDefault();
+    openYearWorld();
   }
 });
+
 updateVernier();
