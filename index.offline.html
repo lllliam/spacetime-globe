@@ -17,7 +17,7 @@
 <style>
 :root{
   --bg:#0b1017; --ink:#f4efe3; --muted:#8e99a8; --line:#2a323e;
-  --page-bg:#0a1016;
+  --page-bg:#0a1016; --app-height:100vh;
   --gold:#e0b273; --gold-dim:#8a6a43; --card:#141b24;
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
   color-scheme:dark;
@@ -26,13 +26,13 @@
 html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);
   font:14px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei UI",sans-serif;
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
-/* Keep the installed iOS PWA edge-to-edge even while WebKit recalculates the initial viewport. */
-html{height:100%;height:-webkit-fill-available;background:#0a1016}
-body{position:fixed;inset:0;width:100%;height:100%;min-height:100lvh;
-  min-height:-webkit-fill-available;margin:0;overflow:hidden;background:#0a1016}
-body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
+@supports(height:100dvh){:root{--app-height:100dvh}}
+html{background:var(--page-bg)}
+body{position:fixed;inset:0 0 auto;height:var(--app-height);
+  background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
+html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme:light}
 
-#globe{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:1}
+#globe{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;touch-action:none;z-index:1}
 
 /* ── 顶部 ── */
 #scrim{position:fixed;left:0;right:0;top:0;height:190px;z-index:2;pointer-events:none;
@@ -57,7 +57,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
 
 /* 年份入口：事件优先，书卷与背景按需展开。 */
 #overlay{
-  position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;
+  position:fixed;inset:0 0 auto;height:var(--app-height);z-index:20;display:flex;flex-direction:column;
   background:#0c1118;padding:var(--safe-t) 0 0;animation:slideUp .28s cubic-bezier(.22,.9,.28,1);
   --world-gutter:clamp(20px,5.5vw,32px);
 }
@@ -148,7 +148,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
 /* ── 实体档案的事实行 ── */
 
 /* ── 矢量叠加层：边线 / 经纬网 / 地名（按设备分辨率绘制，放大不糊） ── */
-#vec{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2}
+#vec{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;pointer-events:none;z-index:2}
 #scrim{z-index:3}
 
 /* ── 抽屉：三档吸附（peek / half / full），上拉即阅读 ── */
@@ -156,7 +156,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
   opacity:0;transition:opacity .3s ease;pointer-events:none}
 #sheet-dim.show{opacity:1;pointer-events:auto}
 
-#sheet{position:fixed;left:0;right:0;bottom:0;z-index:8;height:100%;
+#sheet{position:fixed;inset:0 0 auto;z-index:8;height:var(--app-height);
   display:flex;flex-direction:column;visibility:hidden;
   transform:translateY(100%);
   border-radius:22px 22px 0 0;
@@ -802,6 +802,10 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #sheet-identity-name{font:600 14px/1.3 var(--font-serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #sheet-identity-years{font:10px/1.2 var(--font-mono);color:var(--paper-muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 #sheet-toc{flex:none;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--paper-border);background:var(--paper-surface);color:var(--paper-ink);font:600 12px var(--font-sans);white-space:nowrap;cursor:pointer}
+#sheet-close{flex:none;display:grid;place-items:center;width:44px;height:44px;padding:0;
+  border:0;background:transparent;color:var(--paper-muted);cursor:pointer}
+#sheet-close[hidden]{display:none}
+#sheet-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 #sheet-scroll{padding:10px 18px 12px;scrollbar-color:#b7ac9a transparent}
 #sheet .era{color:var(--vermilion);font-variant-numeric:tabular-nums}
 #sheet .era small,#sheet .era2 small{color:var(--paper-muted)}
@@ -946,7 +950,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 .event-map-point.selected button,.scene-observation .event-map-point.selected button{background:#21384a;color:#fff2d8;border-color:var(--route-canal)}
 /* The globe stays above the open paper in 393px portrait comparison mode. */
 @media(max-width:959px){
-  body.reading-open.reading-split #sheet{left:0;right:0;width:100%;top:0;bottom:0;height:100%;border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
+  body.reading-open.reading-split #sheet{border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
   body.reading-open.reading-split #sheet-dim{display:none}
   body.reading-open.reading-split #hud{visibility:visible;opacity:1}
   body.reading-open.reading-split #event-map-points{display:block}
@@ -966,17 +970,13 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
   body.reading-split #split-globe-note{color:var(--cosmos-muted)}
 }
 body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
-body.reading-open:not(.reading-split) #book{top:calc(70px + var(--safe-t))}
+@media(min-width:960px){body.reading-open:not(.reading-split) #book{top:calc(74px + var(--safe-t))}}
 body.reading-open #sheet-top{opacity:1}
 body.reading-open #grab{opacity:0;pointer-events:none}
 #sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
 @media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-toc{padding-inline:7px}#sheet-identity-years{font-size:9px}}
 @media(prefers-reduced-motion:reduce){#event-map-panel,#sheet{animation:none;transition:none}}
 
-@media(max-width:959px){
-  body.reading-open.reading-split #book{top:69px;bottom:auto;height:calc(58dvh - 69px);min-height:0}
-  body.reading-open.reading-split #book-body{min-height:0;overflow-y:auto;overscroll-behavior:contain}
-}
 /* v7 · Compact scene caption navigation must stay visible on a 393×844 iPhone. */
 #event-map-panel,.scene-observation #event-map-panel{display:flex;flex-direction:column;gap:2px;overflow:hidden}
 #event-map-panel[hidden],body.reading-open #event-map-panel{display:none}
@@ -1006,20 +1006,18 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #sheet-toolbar{justify-content:space-between}
 #sheet.dragging{transition:none!important}
 @media(max-width:959px){
+  body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
+    padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
   body.reading-open #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
   body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
   body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
-  body.reading-open #book{top:calc(70px + var(--safe-t));bottom:auto;height:calc(var(--book-visible-height,calc(58dvh - 70px)) - var(--safe-t));min-height:0;pointer-events:auto}
+  body.reading-open #book,body.reading-open #sheet #sheet-scroll{
+    grid-area:2/1;position:relative;inset:auto;height:auto;min-height:0;max-height:none}
   body.reading-open #book-bar{height:34px}
   body.reading-open #reading-grab{display:none}
-  body.reading-open #book-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding-top:4px}
+  body.reading-open #book-body{overscroll-behavior-y:none;padding-top:4px;
+    padding-bottom:calc(36px + var(--safe-b));scroll-padding-bottom:calc(36px + var(--safe-b))}
   body.reading-open.reader-gesture #sheet{touch-action:none}
-}
-
-/* v8.1 · Safe-area math matches the 70px sheet header and its JS offset. */
-@media(max-width:959px){
-  body.reading-open #book{top:calc(70px + var(--safe-t));height:var(--book-visible-height,calc(58dvh - 70px - var(--safe-t)));min-height:0}
-  body.reading-open #book-body{padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));scroll-padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
 }
 /* v8.2 · The summary already has a title in the fixed paper toolbar. */
 #sheet.peek #sheet-inner .sheet-overview:has(+ .subject-sheet-summary){display:none}
@@ -1038,9 +1036,6 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 }
 
 /* 沉浸首页，工具按需出现。 */
-/* Solid matching underlay prevents a visible dark band during iOS PWA cold launches. */
-html,body{background:#0a1016;min-height:100dvh}
-body{height:100%;min-height:100lvh;min-height:-webkit-fill-available}
 #scrim{display:none}
 #scrim{height:130px;background:linear-gradient(#080f17d9,transparent);pointer-events:none}
 #hud{top:calc(var(--safe-t) + 24px);left:0;right:0;align-items:center;padding:0;gap:3px;pointer-events:none;z-index:9}
@@ -1299,10 +1294,13 @@ body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!import
     <div id="sheet-toolbar">
       <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
       <button id="sheet-toc" type="button">目录</button>
+      <button id="sheet-close" type="button" aria-label="收起阅读" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+      </button>
     </div>
   </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
-  <section id="book" hidden role="dialog" aria-modal="true" aria-labelledby="reading-title">
+  <section id="book" hidden>
     <header id="book-bar">
       <button id="reading-back" type="button" hidden aria-label="返回">
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
@@ -1649,7 +1647,7 @@ const state = {
   lift: 0,         // 政权层沿用上一年（超出数据范围）
 };
 
-const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0 };
+const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0, safeBottom: 0 };
 
 /* ───────────── 4. 分区（栅格化 + 拾取 + 着色表） ───────────── */
 const idCanvas = document.createElement('canvas');
@@ -2679,16 +2677,21 @@ function initFallback() {
 
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
+  const root = document.documentElement;
+  const visible = window.visualViewport;
+  const heightValue = visible?.height > 0 && Math.abs(visible.scale - 1) < .01
+    ? Math.round(visible.height) + 'px' : '';
+  if (root.style.getPropertyValue('--app-height') !== heightValue) root.style.setProperty('--app-height', heightValue);
   const { width, height } = canvas.getBoundingClientRect();
-  const H = Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0,
-    Math.round(window.visualViewport?.height || 0));
-  const standalone = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
-  const w = Math.round(width), h = Math.round(standalone ? Math.max(height, H) : height);
+  const w = Math.round(width), h = Math.round(height);
   if (!w || !h) return;
-  const heightChanged = h !== view.h;
+  const rootStyle = getComputedStyle(root);
+  const safeBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
+  const heightChanged = h !== view.h || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
-  view.safeTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-t')) || 0;
+  view.safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  view.safeBottom = safeBottom;
   const splitActive = document.body.classList.contains('reading-split');
   if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
@@ -2712,8 +2715,9 @@ function layout() {
   if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging && bookEl.hidden) {
-    applySheetOffset(h, false);
+  if (heightChanged && !sheetMotion && !sheetState.dragging) {
+    if (reading.active) refreshReadingViewport();
+    else applySheetOffset(sheetDetents()[sheetState.detent], false);
   }
   draw();
 }
@@ -3175,11 +3179,13 @@ function tapGlobe(sx, sy) {
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-const SHEET_BOTTOM_GAP = 16, SHEET_BOOK_HEADER = 70;
+const SHEET_BOTTOM_GAP = 16;
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const globeThemeColor = themeColorMeta.content;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - (144 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
+  const peek = H - (144 + view.safeBottom);
   const half = Math.min(peek - 68, Math.round(H * .42));
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
@@ -3198,11 +3204,17 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOOK_HEADER - (view.safeTop || 0)) + 'px');
+  sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, H - Math.max(0, offset)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < H - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
+  const paper = reading.active && !isSplitReading() && offset <= 1;
+  if (document.documentElement.classList.contains('reader-paper') !== paper) {
+    // iOS can paint the page background beyond the area available for interactive content.
+    document.documentElement.classList.toggle('reader-paper', paper);
+    themeColorMeta.content = paper ? getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim() : globeThemeColor;
+  }
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
 }
@@ -3397,7 +3409,11 @@ sheetInner.addEventListener('click', (event) => {
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
   e.preventDefault(); e.stopPropagation();
-  if (e.key === 'ArrowDown') closeSheet(); else enterSheetReading();
+  if (reading.active) {
+    if (e.key === 'ArrowUp' && canSplitReading()) mobileReaderSnap('full');
+    else if (e.key !== 'ArrowUp') collapseReader();
+  } else if (e.key === 'ArrowDown') closeSheet();
+  else enterSheetReading();
 });
 dimEl.addEventListener('click', () => closeSheet());
 
@@ -3552,16 +3568,24 @@ reducedGlobeMotion.addEventListener('change', invalidate);
 
 /* v7 · Shared paper toolbar. Reading remains a single source of truth. */
 function syncSheetIdentity() {
-  const book = reading?.active ? reading.subject : (state.focus ? subjectBookForEntity(
-    entityByKey(state.focus.layerId, state.focus.key, state.focus.id)) : null);
-  const entity = !reading.active && state.focus ? entityByKey(state.focus.layerId, state.focus.key, state.focus.id) : null;
-  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
+  const entity = reading.active ? reading.ent : state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  const book = reading.active ? reading.subject : entity && subjectBookForEntity(entity);
+  const title = reading.active && reading.library ? '历史书目' : reading.active && reading.catalog ? '补充专题资料' :
+    book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
   el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
+  el('sheet-close').hidden = !reading.active;
+  const toc = el('sheet-toc');
+  toc.hidden = reading.active && (reading.library || reading.catalog || Boolean(book && reading.detail === null));
+  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '查看地图资料';
 }
 el('sheet-toc').addEventListener('click', () => {
-  if (reading.active && reading.subject) { if (reading.detail !== null) readingIndex(); return; }
+  if (reading.active) {
+    if (reading.subject) { if (reading.detail !== null) readingIndex(); }
+    else if (!reading.library && !reading.catalog) followSubject({ library:true });
+    return;
+  }
   if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
 });
 /* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
@@ -3578,9 +3602,12 @@ let readerTouch = null;
 const readerEdgeWidth = 32;
 let readingViewMode = 'half';
 
+function canSplitReading() {
+  return Boolean(reading.subject && !reading.catalog && !reading.library);
+}
 function isSplitReading() {
-  return Boolean(reading.active && reading.subject && !reading.catalog && !reading.library &&
-    (window.innerWidth >= 960 || readingViewMode === 'half'));
+  return reading.active && canSplitReading() &&
+    (window.innerWidth >= 960 || readingViewMode === 'half');
 }
 
 function pauseGlobe() {
@@ -3622,6 +3649,14 @@ function readingBackground(inert) {
   }
   document.body.classList.toggle('reading-open', inert);
   document.body.classList.toggle('reading-split', split);
+  if (inert) {
+    sheetEl.setAttribute('role', 'dialog');
+    sheetEl.setAttribute('aria-labelledby', 'reading-title');
+    sheetEl.setAttribute('aria-modal', String(!split));
+  } else {
+    for (const name of ['role', 'aria-labelledby', 'aria-modal']) sheetEl.removeAttribute(name);
+  }
+  grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
   layout();
 }
 function openBook(fromOffset = null) {
@@ -3730,7 +3765,7 @@ function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false }
 }
 function collapseReader(velocity = 0) {
   if (!reading.active) return;
-  if (innerWidth < 960) { mobileReaderSnap(readingViewMode === 'full' && reading.subject ? 'half' : 'peek'); return; }
+  if (innerWidth < 960) { mobileReaderSnap(readingViewMode === 'full' && canSplitReading() ? 'half' : 'peek'); return; }
   if (isSplitReading()) { closeReader(); return; }
   animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
@@ -3932,7 +3967,11 @@ function renderReadingArticle(topic, items, item) {
     sourcesMarkup(item.sources) + catalogNavigation();
 }
 function renderReading({ preserveSplitScene = false } = {}) {
-  if (reading.active) readingBackground(true);
+  if (reading.active) {
+    readingBackground(true);
+    refreshReadingViewport();
+  }
+  syncSheetIdentity();
   if (reading.catalog) { clearSplitScene(); renderReadingCatalog(); return; }
   if (reading.library) { clearSplitScene(); renderSubjectLibrary(); return; }
   if (reading.subject || !reading.topic) {
@@ -3949,7 +3988,6 @@ function renderReading({ preserveSplitScene = false } = {}) {
     } else {
       clearSplitScene();
     }
-    syncSheetIdentity();
     return;
   }
   clearSplitScene();
@@ -3991,7 +4029,8 @@ function readingGoBack() {
     return;
   }
   if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
-    rememberReading(); Object.assign(reading, reading.trail.pop()); renderReading(); readingBack.focus({preventScroll:true});
+    rememberReading(); Object.assign(reading, reading.trail.pop()); renderReading();
+    (readingBack.hidden ? el('reading-title') : readingBack).focus({preventScroll:true});
   } else if (reading.detail !== null) readingIndex();
   else collapseReader();
 }
@@ -4054,7 +4093,8 @@ function handleReadingKey(e) {
     return true;
   }
   if (e.key === 'Tab' && !isSplitReading()) {
-    const focusable = [...bookEl.querySelectorAll('button:not(:disabled):not([hidden]), [tabindex="0"], a[href]')];
+    const focusable = [...sheetEl.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href]')]
+      .filter(node => node.getClientRects().length && !node.closest('[inert]'));
     const first = focusable[0], last = focusable[focusable.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
@@ -4104,19 +4144,20 @@ bookBody.addEventListener('click', (e) => {
   else handleSubjectButton(b);
 });
 readingBack.addEventListener('click', readingGoBack);
-function dismissReadingToGlobe() {
+function dismissReading() {
   if (!reading.active) return;
-  const hadFocus = Boolean(reading.snapshot?.focus);
-  closeReader({returnToOrigin:false});
-  if (hadFocus) sheetTo('peek',false);
+  const returnToPreview = reading.snapshot.focus && !reading.returnTo;
+  closeReader();
+  if (returnToPreview) sheetTo('peek', false);
 }
+el('sheet-close').addEventListener('click', dismissReading);
 readingGrab.addEventListener('click', (e) => {
-  if (!e.detail || e.timeStamp - readerLastDrag > 300) dismissReadingToGlobe();
+  if (!e.detail || e.timeStamp - readerLastDrag > 300) dismissReading();
 });
 readingGrab.addEventListener('keydown', (e) => {
   if (e.key !== 'ArrowDown') return;
   e.preventDefault();
-  dismissReadingToGlobe();
+  dismissReading();
 });
 bookBar.addEventListener('pointerdown', readerDragStart);
 bookBar.addEventListener('lostpointercapture', readerDragEnd);
@@ -4124,9 +4165,10 @@ addEventListener('pointermove', readerDragMove);
 addEventListener('pointerup', readerDragEnd);
 addEventListener('pointercancel', readerDragEnd);
 addEventListener('blur', readerDragEnd);
-addEventListener('resize', () => {
-  if (reading.active && reading.subject) {
+matchMedia('(min-width:960px)').addEventListener('change', () => {
+  if (reading.active) {
     readingBackground(true);
+    refreshReadingViewport();
     if (isSplitReading()) {
       const ch = reading.subject.chapters.find((c) => c.id === reading.detail);
       syncSubjectGlobeForReading(reading.subject, ch);
@@ -4172,6 +4214,10 @@ function setReadingViewMode(mode) {
 const mobileSheetTop = el('sheet-top');
 let mobileReaderDrag = null, mobileReaderMotion = 0, mobileScrollHandoff = null;
 let mobileGlobeFrame = 0, mobileGlobeOffset = null;
+function refreshReadingViewport() {
+  if (readerMotion || mobileReaderMotion || mobileReaderDrag) return;
+  applySheetOffset(innerWidth < 960 && isSplitReading() ? sheetDetents().half : 0, false);
+}
 function cancelMobileReaderMotion() {
   cancelAnimationFrame(mobileReaderMotion);
   mobileReaderMotion = 0;
@@ -4214,7 +4260,8 @@ function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = nu
   stopReaderMotion();
   mobileReaderDrag = {
     source, pointerId, startY:clientY, lastY:clientY, lastT:timeStamp,
-    startOffset:sheetState.offset, startMode:readingViewMode, velocityY:0, moved:false, samples:[{y:clientY,t:timeStamp}],
+    startOffset:sheetState.offset, startMode:canSplitReading() ? readingViewMode : 'full',
+    velocityY:0, moved:false, samples:[{y:clientY,t:timeStamp}],
   };
   return true;
 }
@@ -4248,19 +4295,22 @@ function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
   readerLastDrag = timeStamp;
   const freshVelocity = timeStamp - g.lastT < 110 ? g.velocityY : 0;
   const d = sheetDetents();
-  const current = readingViewMode;
-  let target;
-  if (freshVelocity < -.42) target = 'full';
-  else if (freshVelocity > .42) target = current === 'full' ? 'half' : 'peek';
-  else target = [['full',0],['half',d.half],['peek',d.peek]]
-    .sort((a,b) => Math.abs(sheetState.offset-a[1])-Math.abs(sheetState.offset-b[1]))[0][0];
-  if (!reading.subject && target === 'half') target = 'full';
+  const split = canSplitReading();
+  const current = g.startMode;
+  const distance = g.lastY - g.startY;
+  const down = current === 'full' && split ? 'half' : 'peek';
+  const span = distance > 0 ? d[down] - d[current] : d[current];
+  const deliberate = Math.abs(distance) >= clamp(span * .28, 64, 128) ||
+    (Math.abs(distance) > 18 && Math.sign(distance) * freshVelocity > .42);
+  const next = distance > 0 ? down : 'full';
+  const target = deliberate ? next : current;
   mobileReaderSnap(target);
 }
 function mobileReaderSnap(mode, { immediate = false } = {}) {
   if (!reading.active) return;
+  if (mode === 'half' && !canSplitReading()) return;
   // A year-event deep link has no underlying polity summary to tuck into.
-  if (mode === 'peek' && !reading.snapshot?.focus) { closeReader({returnToOrigin:false}); return; }
+  if (mode === 'peek' && !reading.snapshot.focus) { closeReader(); return; }
   if (innerWidth >= 960) {
     if (mode === 'peek') closeReader();
     return;
@@ -4275,14 +4325,13 @@ function mobileReaderSnap(mode, { immediate = false } = {}) {
   const finish = () => {
     mobileReaderMotion = 0;
     if (mode === 'peek') {
-      closeReader({returnToOrigin:false});
-      sheetTo('peek', false);
+      dismissReading();
       return;
     }
     readingViewMode = mode;
     readingBackground(true);
-    applySheetOffset(end, false);
-    flushMobileGlobeFrame(end);
+    refreshReadingViewport();
+    flushMobileGlobeFrame(sheetState.offset);
     if (isSplitReading() && reading.subject) {
       syncSubjectGlobeForReading(reading.subject, reading.subject.chapters.find(c => c.id === reading.detail));
     } else clearSplitScene();
@@ -4333,24 +4382,30 @@ bookBody.addEventListener('touchstart', event => {
   if (innerWidth >= 960 || !reading.active || event.touches.length !== 1 ||
       bookBody.scrollTop > 1 || event.target.closest('button, a, input, summary')) {
     mobileScrollHandoff = null;
+    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
     return;
   }
   mobileScrollHandoff = { id:event.touches[0].identifier, y:event.touches[0].clientY, x:event.touches[0].clientX };
 }, {passive:true});
 bookBody.addEventListener('touchmove', event => {
   const g = mobileScrollHandoff;
-  if (!g || event.touches.length !== 1 || event.touches[0].identifier !== g.id) return;
+  if (!g) return;
+  if (event.touches.length !== 1 || event.touches[0].identifier !== g.id || !event.cancelable) {
+    mobileScrollHandoff = null;
+    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
+    return;
+  }
   const dy = event.touches[0].clientY - g.y;
   const dx = event.touches[0].clientX - g.x;
   if (!mobileReaderDrag) {
-    if (dy <= 10 || dy < Math.abs(dx) * 1.25 || bookBody.scrollTop > 1) {
+    if (dy < 5 || dy < Math.abs(dx) * 1.25 || bookBody.scrollTop > 1) {
       if (dy < -5 || Math.abs(dx) > Math.abs(dy) + 5) mobileScrollHandoff = null;
       return;
     }
     mobileReaderStart(g.y,event.timeStamp,'scroll');
   }
   if (mobileReaderDrag?.source !== 'scroll') return;
-  if (event.cancelable) event.preventDefault();
+  event.preventDefault();
   mobileReaderMove(event.touches[0].clientY,event.timeStamp);
 }, {passive:false});
 for (const kind of ['touchend','touchcancel']) {
@@ -4370,7 +4425,8 @@ mobileSheetTop.addEventListener('click', event => {
     if (sheetState.detent === 'peek') openPeekProgressively();
     return;
   }
-  mobileReaderSnap(readingViewMode === 'full' ? 'half' : 'full');
+  if (isSplitReading()) mobileReaderSnap('full');
+  else collapseReader();
 });
 
 const subjectBooks = JSON.parse(inlineText('subject-books'));

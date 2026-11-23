@@ -1,6 +1,6 @@
 :root{
   --bg:#0b1017; --ink:#f4efe3; --muted:#8e99a8; --line:#2a323e;
-  --page-bg:#0a1016;
+  --page-bg:#0a1016; --app-height:100vh;
   --gold:#e0b273; --gold-dim:#8a6a43; --card:#141b24;
   --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
   color-scheme:dark;
@@ -9,13 +9,13 @@
 html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);
   font:14px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei UI",sans-serif;
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
-/* Keep the installed iOS PWA edge-to-edge even while WebKit recalculates the initial viewport. */
-html{height:100%;height:-webkit-fill-available;background:#0a1016}
-body{position:fixed;inset:0;width:100%;height:100%;min-height:100lvh;
-  min-height:-webkit-fill-available;margin:0;overflow:hidden;background:#0a1016}
-body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
+@supports(height:100dvh){:root{--app-height:100dvh}}
+html{background:var(--page-bg)}
+body{position:fixed;inset:0 0 auto;height:var(--app-height);
+  background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
+html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme:light}
 
-#globe{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;z-index:1}
+#globe{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;touch-action:none;z-index:1}
 
 /* ── 顶部 ── */
 #scrim{position:fixed;left:0;right:0;top:0;height:190px;z-index:2;pointer-events:none;
@@ -40,7 +40,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
 
 /* 年份入口：事件优先，书卷与背景按需展开。 */
 #overlay{
-  position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;
+  position:fixed;inset:0 0 auto;height:var(--app-height);z-index:20;display:flex;flex-direction:column;
   background:#0c1118;padding:var(--safe-t) 0 0;animation:slideUp .28s cubic-bezier(.22,.9,.28,1);
   --world-gutter:clamp(20px,5.5vw,32px);
 }
@@ -131,7 +131,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
 /* ── 实体档案的事实行 ── */
 
 /* ── 矢量叠加层：边线 / 经纬网 / 地名（按设备分辨率绘制，放大不糊） ── */
-#vec{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2}
+#vec{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;pointer-events:none;z-index:2}
 #scrim{z-index:3}
 
 /* ── 抽屉：三档吸附（peek / half / full），上拉即阅读 ── */
@@ -139,7 +139,7 @@ body{background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a10
   opacity:0;transition:opacity .3s ease;pointer-events:none}
 #sheet-dim.show{opacity:1;pointer-events:auto}
 
-#sheet{position:fixed;left:0;right:0;bottom:0;z-index:8;height:100%;
+#sheet{position:fixed;inset:0 0 auto;z-index:8;height:var(--app-height);
   display:flex;flex-direction:column;visibility:hidden;
   transform:translateY(100%);
   border-radius:22px 22px 0 0;
@@ -785,6 +785,10 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 #sheet-identity-name{font:600 14px/1.3 var(--font-serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #sheet-identity-years{font:10px/1.2 var(--font-mono);color:var(--paper-muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 #sheet-toc{flex:none;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--paper-border);background:var(--paper-surface);color:var(--paper-ink);font:600 12px var(--font-sans);white-space:nowrap;cursor:pointer}
+#sheet-close{flex:none;display:grid;place-items:center;width:44px;height:44px;padding:0;
+  border:0;background:transparent;color:var(--paper-muted);cursor:pointer}
+#sheet-close[hidden]{display:none}
+#sheet-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 #sheet-scroll{padding:10px 18px 12px;scrollbar-color:#b7ac9a transparent}
 #sheet .era{color:var(--vermilion);font-variant-numeric:tabular-nums}
 #sheet .era small,#sheet .era2 small{color:var(--paper-muted)}
@@ -929,7 +933,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
 .event-map-point.selected button,.scene-observation .event-map-point.selected button{background:#21384a;color:#fff2d8;border-color:var(--route-canal)}
 /* The globe stays above the open paper in 393px portrait comparison mode. */
 @media(max-width:959px){
-  body.reading-open.reading-split #sheet{left:0;right:0;width:100%;top:0;bottom:0;height:100%;border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
+  body.reading-open.reading-split #sheet{border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
   body.reading-open.reading-split #sheet-dim{display:none}
   body.reading-open.reading-split #hud{visibility:visible;opacity:1}
   body.reading-open.reading-split #event-map-points{display:block}
@@ -949,17 +953,13 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
   body.reading-split #split-globe-note{color:var(--cosmos-muted)}
 }
 body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
-body.reading-open:not(.reading-split) #book{top:calc(70px + var(--safe-t))}
+@media(min-width:960px){body.reading-open:not(.reading-split) #book{top:calc(74px + var(--safe-t))}}
 body.reading-open #sheet-top{opacity:1}
 body.reading-open #grab{opacity:0;pointer-events:none}
 #sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
 @media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-toc{padding-inline:7px}#sheet-identity-years{font-size:9px}}
 @media(prefers-reduced-motion:reduce){#event-map-panel,#sheet{animation:none;transition:none}}
 
-@media(max-width:959px){
-  body.reading-open.reading-split #book{top:69px;bottom:auto;height:calc(58dvh - 69px);min-height:0}
-  body.reading-open.reading-split #book-body{min-height:0;overflow-y:auto;overscroll-behavior:contain}
-}
 /* v7 · Compact scene caption navigation must stay visible on a 393×844 iPhone. */
 #event-map-panel,.scene-observation #event-map-panel{display:flex;flex-direction:column;gap:2px;overflow:hidden}
 #event-map-panel[hidden],body.reading-open #event-map-panel{display:none}
@@ -989,20 +989,18 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #sheet-toolbar{justify-content:space-between}
 #sheet.dragging{transition:none!important}
 @media(max-width:959px){
+  body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
+    padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
   body.reading-open #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
   body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
   body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
-  body.reading-open #book{top:calc(70px + var(--safe-t));bottom:auto;height:calc(var(--book-visible-height,calc(58dvh - 70px)) - var(--safe-t));min-height:0;pointer-events:auto}
+  body.reading-open #book,body.reading-open #sheet #sheet-scroll{
+    grid-area:2/1;position:relative;inset:auto;height:auto;min-height:0;max-height:none}
   body.reading-open #book-bar{height:34px}
   body.reading-open #reading-grab{display:none}
-  body.reading-open #book-body{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding-top:4px}
+  body.reading-open #book-body{overscroll-behavior-y:none;padding-top:4px;
+    padding-bottom:calc(36px + var(--safe-b));scroll-padding-bottom:calc(36px + var(--safe-b))}
   body.reading-open.reader-gesture #sheet{touch-action:none}
-}
-
-/* v8.1 · Safe-area math matches the 70px sheet header and its JS offset. */
-@media(max-width:959px){
-  body.reading-open #book{top:calc(70px + var(--safe-t));height:var(--book-visible-height,calc(58dvh - 70px - var(--safe-t)));min-height:0}
-  body.reading-open #book-body{padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));scroll-padding-bottom:calc(36px + env(safe-area-inset-bottom,0px))}
 }
 /* v8.2 · The summary already has a title in the fixed paper toolbar. */
 #sheet.peek #sheet-inner .sheet-overview:has(+ .subject-sheet-summary){display:none}

@@ -1,6 +1,6 @@
 {
   "name": "spacetime-globe",
-  "version": "6.1.2",
+  "version": "12.1.0",
   "private": true,
   "description": "地球仪 · 时空坐标 —— 一本可以通过地球和时间打开的世界历史书",
   "scripts": {
@@ -8,6 +8,7 @@
     "build": "node build.mjs",
     "serve": "node tools/serve.mjs",
     "verify": "node tools/verify-ui.js",
+    "verify:mobile": "node tools/verify-mobile.js",
     "content:verify": "node tools/verify-content.mjs",
     "shots": "node tools/shots.js",
     "stories": "node tools/fetch-stories.js",

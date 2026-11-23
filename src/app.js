@@ -264,7 +264,7 @@ const state = {
   lift: 0,         // 政权层沿用上一年（超出数据范围）
 };
 
-const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0 };
+const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0, safeBottom: 0 };
 
 /* ───────────── 4. 分区（栅格化 + 拾取 + 着色表） ───────────── */
 const idCanvas = document.createElement('canvas');
@@ -1294,16 +1294,21 @@ function initFallback() {
 
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
+  const root = document.documentElement;
+  const visible = window.visualViewport;
+  const heightValue = visible?.height > 0 && Math.abs(visible.scale - 1) < .01
+    ? Math.round(visible.height) + 'px' : '';
+  if (root.style.getPropertyValue('--app-height') !== heightValue) root.style.setProperty('--app-height', heightValue);
   const { width, height } = canvas.getBoundingClientRect();
-  const H = Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0,
-    Math.round(window.visualViewport?.height || 0));
-  const standalone = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
-  const w = Math.round(width), h = Math.round(standalone ? Math.max(height, H) : height);
+  const w = Math.round(width), h = Math.round(height);
   if (!w || !h) return;
-  const heightChanged = h !== view.h;
+  const rootStyle = getComputedStyle(root);
+  const safeBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
+  const heightChanged = h !== view.h || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
-  view.safeTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-t')) || 0;
+  view.safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
+  view.safeBottom = safeBottom;
   const splitActive = document.body.classList.contains('reading-split');
   if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
@@ -1327,8 +1332,9 @@ function layout() {
   if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (heightChanged && sheetState.detent === 'hidden' && !sheetMotion && !sheetState.dragging && bookEl.hidden) {
-    applySheetOffset(h, false);
+  if (heightChanged && !sheetMotion && !sheetState.dragging) {
+    if (reading.active) refreshReadingViewport();
+    else applySheetOffset(sheetDetents()[sheetState.detent], false);
   }
   draw();
 }
@@ -1790,11 +1796,13 @@ function tapGlobe(sx, sy) {
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
 const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 
-const SHEET_BOTTOM_GAP = 16, SHEET_BOOK_HEADER = 70;
+const SHEET_BOTTOM_GAP = 16;
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const globeThemeColor = themeColorMeta.content;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - (144 + Math.max(0, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-b')) || 0));
+  const peek = H - (144 + view.safeBottom);
   const half = Math.min(peek - 68, Math.round(H * .42));
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
@@ -1813,11 +1821,17 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--book-visible-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOOK_HEADER - (view.safeTop || 0)) + 'px');
+  sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, H - Math.max(0, offset)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < H - 2);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
+  const paper = reading.active && !isSplitReading() && offset <= 1;
+  if (document.documentElement.classList.contains('reader-paper') !== paper) {
+    // iOS can paint the page background beyond the area available for interactive content.
+    document.documentElement.classList.toggle('reader-paper', paper);
+    themeColorMeta.content = paper ? getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim() : globeThemeColor;
+  }
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
 }
@@ -2012,7 +2026,11 @@ sheetInner.addEventListener('click', (event) => {
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
   e.preventDefault(); e.stopPropagation();
-  if (e.key === 'ArrowDown') closeSheet(); else enterSheetReading();
+  if (reading.active) {
+    if (e.key === 'ArrowUp' && canSplitReading()) mobileReaderSnap('full');
+    else if (e.key !== 'ArrowUp') collapseReader();
+  } else if (e.key === 'ArrowDown') closeSheet();
+  else enterSheetReading();
 });
 dimEl.addEventListener('click', () => closeSheet());
 
@@ -2167,16 +2185,24 @@ reducedGlobeMotion.addEventListener('change', invalidate);
 
 /* v7 · Shared paper toolbar. Reading remains a single source of truth. */
 function syncSheetIdentity() {
-  const book = reading?.active ? reading.subject : (state.focus ? subjectBookForEntity(
-    entityByKey(state.focus.layerId, state.focus.key, state.focus.id)) : null);
-  const entity = !reading.active && state.focus ? entityByKey(state.focus.layerId, state.focus.key, state.focus.id) : null;
-  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
+  const entity = reading.active ? reading.ent : state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  const book = reading.active ? reading.subject : entity && subjectBookForEntity(entity);
+  const title = reading.active && reading.library ? '历史书目' : reading.active && reading.catalog ? '补充专题资料' :
+    book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
   el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
+  el('sheet-close').hidden = !reading.active;
+  const toc = el('sheet-toc');
+  toc.hidden = reading.active && (reading.library || reading.catalog || Boolean(book && reading.detail === null));
+  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '查看地图资料';
 }
 el('sheet-toc').addEventListener('click', () => {
-  if (reading.active && reading.subject) { if (reading.detail !== null) readingIndex(); return; }
+  if (reading.active) {
+    if (reading.subject) { if (reading.detail !== null) readingIndex(); }
+    else if (!reading.library && !reading.catalog) followSubject({ library:true });
+    return;
+  }
   if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
 });
 /* ───────────── 19. 启动 ───────────── */
