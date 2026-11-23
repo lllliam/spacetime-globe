@@ -10,7 +10,7 @@ const yearAtIndex = (index) => {
 };
 
 let yearBrowsing = false, yearPosition = ord(state.year), yearPress = null;
-let yearStride = 80, yearFrame = 0, yearDestination = null, yearTapTimer = 0;
+let yearStride = 80, yearFrame = 0, yearDragFrame = 0, yearDestination = null, yearTapTimer = 0;
 let yearTap = null, suppressYearClick = false;
 
 function yearControlOpen() {
@@ -76,7 +76,8 @@ function cancelYearTap() {
 
 function cancelYearGlide() {
   cancelAnimationFrame(yearFrame);
-  yearFrame = 0;
+  cancelAnimationFrame(yearDragFrame);
+  yearFrame = yearDragFrame = 0;
   yearDestination = null;
 }
 
@@ -143,6 +144,7 @@ function dismissYearFromGlobe() {
 
 function showYearControl() {
   if (yearBrowsing) return;
+  finishVernierMotion();
   document.body.classList.remove('chrome-hidden');
   cancelYearTap();
   closeWorld();
@@ -158,6 +160,7 @@ function showYearControl() {
 }
 
 function openYearInput() {
+  finishVernierMotion();
   document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
@@ -172,6 +175,7 @@ function openYearInput() {
 }
 
 function openYearWorld() {
+  finishVernierMotion();
   document.body.classList.remove('chrome-hidden');
   closeYearControl({ finish: true });
   closeView(false);
@@ -229,7 +233,10 @@ yearControl.addEventListener('pointermove', (event) => {
   press.velocity = lerp(press.velocity, (position - yearPosition) / elapsed, .65);
   press.lastAt = event.timeStamp;
   yearPosition = position;
-  renderYearStrip();
+  if (!yearDragFrame) yearDragFrame = requestAnimationFrame(() => {
+    yearDragFrame = 0;
+    renderYearStrip();
+  });
 });
 
 for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
@@ -301,6 +308,7 @@ addEventListener('keydown', (event) => {
   }
 }, true);
 document.addEventListener('pointerdown', (event) => {
+  if (event.isPrimary && !vernierTrack.contains(event.target)) finishVernierMotion();
   if (event.isPrimary && event.target !== canvas && !yearControl.contains(event.target)) closeYearControl({ finish: true });
 }, true);
 addEventListener('resize', updateYearStride);
@@ -317,7 +325,17 @@ yearForm.addEventListener('click', (event) => {
 /* ── 无边框精密天文游标（动静两态 + 史事微光点 + 上拉直达当年史事） ── */
 const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
 const vernierYearEl = el('vernier-year'), vernierEraEl = el('vernier-era'), vernierEventsBtn = el('vernier-events');
+const VERNIER_SPAN = 12;
+const vernierStep = 100 / (VERNIER_SPAN * 2);
+const vernierSlots = Array.from({ length:VERNIER_SPAN * 2 + 3 }, (_, i) => {
+  const tick = vernierTicks.appendChild(document.createElement('span'));
+  tick.style.left = (50 + (i - VERNIER_SPAN - 1) * vernierStep) + '%';
+  return { tick, label:tick.appendChild(document.createElement('em')) };
+});
 let vernierGesture = null, vernierIdleTimer = 0;
+let vernierPosition = ord(state.year), vernierCenter = null, vernierCommittedYear = state.year;
+let vernierDragFrame = 0, vernierGlideFrame = 0, vernierDestination = null;
+let vernierReadoutIndex = null, vernierEventYear = null, vernierEventEntries = null, vernierMarks = null;
 let eventYearSet = null;
 
 function ensureEventYearSet() {
@@ -353,39 +371,53 @@ function wakeVernier(hold = false) {
   }
 }
 
+function paintVernier(syncEra = false) {
+  const center = clamp(Math.round(vernierPosition), yearMinIndex, yearMaxIndex);
+  vernierTicks.style.transform = `translate3d(${(center - vernierPosition) * vernierStep}%,0,0)`;
+  const marks = ensureEventYearSet();
+  if (vernierCenter !== center || vernierMarks !== marks) {
+    vernierCenter = center;
+    vernierMarks = marks;
+    for (let i = 0; i < vernierSlots.length; i++) {
+      const index = center + i - VERNIER_SPAN - 1;
+      const { tick, label } = vernierSlots[i];
+      tick.hidden = index < yearMinIndex || index > yearMaxIndex;
+      if (tick.hidden) continue;
+      const year = yearAtIndex(index);
+      const major = year === YMAX || year % 10 === 0;
+      tick.className = (major ? 'major' : year % 5 === 0 ? 'med' : 'minor') + (marks?.has(year) ? ' has-event' : '');
+      label.textContent = major && year !== YMAX ? fmtYear(year) : '';
+    }
+  }
+  const changedYear = vernierReadoutIndex !== center;
+  const year = yearAtIndex(center);
+  if (changedYear) {
+    vernierReadoutIndex = center;
+    vernierYearEl.textContent = yearDisplay(year);
+    vernierTrack.setAttribute('aria-valuenow', year);
+    vernierTrack.setAttribute('aria-valuetext', yearDisplay(year));
+  }
+  if (changedYear || syncEra) {
+    const era = eraLabelForYear(year);
+    if (vernierEraEl.textContent !== era) vernierEraEl.textContent = era;
+  }
+}
+
 function updateVernier() {
+  if (vernierCommittedYear !== state.year) {
+    cancelVernierMotion();
+    vernierPosition = ord(state.year);
+    vernierCommittedYear = state.year;
+  }
   const visible = !reading.active && !worldEvent && overlay.hidden && !chrome.panel &&
     (sheetState.detent === 'hidden' || sheetEl.classList.contains('peek'));
   vernier.hidden = !visible;
   if (!visible) return;
-
+  paintVernier(true);
   const year = state.year;
-  vernierYearEl.textContent = yearDisplay(year);
-  vernierEraEl.textContent = eraLabelForYear(year);
-  vernierTrack.setAttribute('aria-valuenow', year);
-  vernierTrack.setAttribute('aria-valuetext', yearDisplay(year));
-
-  const marks = ensureEventYearSet();
-  const current = ord(year), span = 12;
-  const stepPct = 100 / (span * 2);
-  let html = '';
-  for (let offset = -span; offset <= span; offset++) {
-    const n = current + offset;
-    if (n < yearMinIndex || n > yearMaxIndex) continue;
-    const val = yearAtIndex(n);
-    const left = (50 + offset * stepPct).toFixed(3);
-    const absVal = Math.abs(val);
-    const isMajor = val === YMAX || absVal % 10 === 0;
-    const isMed = !isMajor && absVal % 5 === 0;
-    const hasEvent = marks ? marks.has(val) : false;
-    const cls = (offset === 0 ? 'current' : isMajor ? 'major' : isMed ? 'med' : 'minor') +
-      (hasEvent ? ' has-event' : '');
-    const showNum = offset !== 0 && isMajor && Math.abs(offset) >= 3 && Math.abs(offset) <= span - 1;
-    html += '<span class="' + cls + '" style="left:' + left + '%">' +
-      (showNum ? '<em>' + esc(fmtYear(val)) + '</em>' : '') + '</span>';
-  }
-  vernierTicks.innerHTML = html;
-
+  if (vernierEventYear === year && vernierEventEntries === entries) return;
+  vernierEventYear = year;
+  vernierEventEntries = entries;
   const { concrete, bg, recent } = yearEventCounts(year);
   if (concrete > 0) {
     vernierEventsBtn.textContent = recent ? '近年史事' : concrete + ' 件史事';
@@ -398,20 +430,67 @@ function updateVernier() {
   }
 }
 
+function cancelVernierMotion() {
+  cancelAnimationFrame(vernierDragFrame);
+  cancelAnimationFrame(vernierGlideFrame);
+  vernierDragFrame = vernierGlideFrame = 0;
+  vernierDestination = null;
+}
+
+function commitVernierPosition(position) {
+  cancelVernierMotion();
+  const year = yearAtIndex(position);
+  vernierPosition = ord(year);
+  if (year !== state.year) commitYear(year);
+  else paintVernier();
+  invalidate();
+}
+
+function finishVernierMotion() {
+  if (vernierDestination !== null) commitVernierPosition(vernierPosition);
+}
+
+function settleVernier(target, velocity = 0) {
+  cancelVernierMotion();
+  const from = vernierPosition;
+  const end = ord(yearAtIndex(target));
+  const distance = Math.abs(end - from);
+  if (reducedGlobeMotion.matches || distance < .02) {
+    commitVernierPosition(end);
+    return;
+  }
+  const start = performance.now();
+  const movingTowardTarget = (end - from) * velocity > 0;
+  const duration = movingTowardTarget ? clamp(2 * distance / Math.abs(velocity), 145, 390) : 145;
+  vernierDestination = end;
+  const frame = (now) => {
+    const progress = clamp((now - start) / duration, 0, 1);
+    const eased = movingTowardTarget ? 1 - (1 - progress) ** 2 : progress * progress * (3 - 2 * progress);
+    vernierPosition = lerp(from, end, eased);
+    paintVernier();
+    vernierGlideFrame = requestAnimationFrame(progress < 1 ? frame : () => commitVernierPosition(end));
+  };
+  vernierGlideFrame = requestAnimationFrame(frame);
+}
+
 vernierEventsBtn.addEventListener('click', () => openYearWorld());
 
 vernierTrack.addEventListener('pointerdown', (event) => {
-  if (vernier.hidden || event.button !== 0 || reading.active) return;
+  if (vernier.hidden || event.isPrimary === false || event.button !== 0 || reading.active) return;
   document.body.classList.remove('chrome-hidden');
   wakeVernier(true);
+  const catching = vernierDestination !== null;
+  cancelVernierMotion();
   vernierGesture = {
     id: event.pointerId,
     startX: event.clientX,
     startY: event.clientY,
     lastX: event.clientX,
     lastT: event.timeStamp,
-    acc: ord(state.year),
-    original: ord(state.year),
+    origin: vernierPosition,
+    pixelsPerYear: vernierTrack.clientWidth / (VERNIER_SPAN * 2),
+    velocity: 0,
+    catching,
     moved: false,
     swipeUp: false,
   };
@@ -423,25 +502,28 @@ vernierTrack.addEventListener('pointermove', (event) => {
   const g = vernierGesture;
   const totalDx = event.clientX - g.startX;
   const totalDy = event.clientY - g.startY;
-  if (!g.moved && Math.abs(totalDy) > 18 && Math.abs(totalDy) > Math.abs(totalDx) * 1.4 && totalDy < 0) {
-    g.swipeUp = true;
-    g.moved = true;
-    return;
-  }
   if (g.swipeUp) return;
+  if (!g.moved) {
+    if (totalDy < -18 && -totalDy > Math.abs(totalDx) * 1.4) {
+      g.swipeUp = true;
+      g.moved = true;
+      return;
+    }
+    if (Math.abs(totalDx) <= Math.max(3, Math.abs(totalDy))) return;
+    g.moved = true;
+  }
   const stepDx = event.clientX - g.lastX;
   const dt = Math.max(8, event.timeStamp - g.lastT);
   g.lastX = event.clientX;
   g.lastT = event.timeStamp;
-  if (Math.abs(totalDx) > 3) g.moved = true;
-  if (g.moved) {
-    const pxPerYear = Math.max(10, vernierTrack.clientWidth / 24);
-    const speed = Math.abs(stepDx) / dt; // px / ms
-    const accel = 1 + clamp((speed - 0.35) * 3.8, 0, 14);
-    g.acc = clamp(g.acc - (stepDx / pxPerYear) * accel, yearMinIndex, yearMaxIndex);
-    const year = yearAtIndex(g.acc);
-    if (year !== state.year) commitYear(year);
-  }
+  g.velocity = lerp(g.velocity, -stepDx / g.pixelsPerYear / dt, .55);
+  const next = g.origin - totalDx / g.pixelsPerYear;
+  const bound = clamp(next, yearMinIndex, yearMaxIndex);
+  vernierPosition = bound + clamp((next - bound) * .24, -.45, .45);
+  if (!vernierDragFrame) vernierDragFrame = requestAnimationFrame(() => {
+    vernierDragFrame = 0;
+    paintVernier();
+  });
 });
 
 for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
@@ -449,15 +531,21 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
     if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
     const drag = vernierGesture;
     vernierGesture = null;
-    if (type === 'pointerup' && drag.swipeUp) {
+    if (type !== 'pointerup') {
+      settleVernier(ord(state.year));
+    } else if (drag.swipeUp) {
+      commitVernierPosition(vernierPosition);
       vernier.classList.remove('active');
       openYearWorld();
       return;
-    }
-    if (type === 'pointerup' && !drag.moved) {
+    } else if (!drag.moved && !drag.catching && Math.abs(event.clientY - drag.startY) <= 10) {
       const rect = vernierTrack.getBoundingClientRect();
-      const years = Math.round((event.clientX - rect.left - rect.width / 2) / (rect.width / 24));
-      commitYear(yearAtIndex(drag.original + years));
+      const years = (event.clientX - rect.left - rect.width / 2) / drag.pixelsPerYear;
+      settleVernier(drag.origin + years);
+    } else {
+      const velocity = !reducedGlobeMotion.matches && drag.moved && event.timeStamp - drag.lastT < 90
+        ? drag.velocity : 0;
+      settleVernier(vernierPosition + clamp(velocity * 140, -12, 12), velocity);
     }
     wakeVernier(false);
   });
@@ -466,8 +554,9 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 vernierTrack.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
     event.preventDefault();
+    event.stopPropagation();
     wakeVernier(false);
-    stepYear(event.key === 'ArrowRight' ? 1 : -1);
+    commitVernierPosition(Math.round(vernierPosition) + (event.key === 'ArrowRight' ? 1 : -1));
   } else if (event.key === 'ArrowUp') {
     event.preventDefault();
     openYearWorld();

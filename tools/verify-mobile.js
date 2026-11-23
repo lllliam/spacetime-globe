@@ -280,6 +280,51 @@ async function main() {
     await tap(yearLink);
     assert.match(await js(`document.querySelector('#reading-title').textContent`), /最后一道城墙/);
     console.log('Updated library: 57 volumes, Central Asia map entry, and 1453 event links to the rewritten Roman chapter');
+
+    await tap('#sheet-close');
+    await tap('#overlay-close');
+    const timeline = () => js(`({selected:Number(document.querySelector('#year-num').textContent),
+      preview:Number(document.querySelector('#vernier-track').getAttribute('aria-valuenow')),
+      top:Math.round(document.querySelector('#vernier-track').getBoundingClientRect().top),
+      offset:document.querySelector('#vernier-ticks').style.transform})`);
+    const start = await timeline();
+    await js(`window.testVernierTick = document.querySelector('#vernier-ticks span')`);
+    await swipe('#vernier-track', 0, { dx:-7, during:async () => {
+      const dragging = await timeline();
+      assert.notEqual(dragging.offset, start.offset, 'A sub-year pull must move the tick marks');
+      assert.equal(dragging.preview, start.selected);
+    } });
+    await swipe('#vernier-track', 0, { dx:-36, during:async () => {
+      const dragging = await timeline();
+      assert.equal(dragging.preview, 1455);
+      assert.equal(dragging.selected, 1453, 'Follow the finger without changing the globe mid-drag');
+      assert.equal(dragging.top, start.top);
+    } });
+    assert.equal((await timeline()).selected, 1455);
+    assert.equal((await timeline()).top, start.top, 'The events button must not move the timeline');
+    assert.equal(await js(`window.testVernierTick === document.querySelector('#vernier-ticks span')`), true);
+    await swipe('#vernier-track', 0, { dx:-64, cancel:true });
+    assert.equal((await timeline()).selected, 1455);
+    await js(`document.querySelector('#vernier-track').focus()`);
+    await send('Input.dispatchKeyEvent', { type:'keyDown', key:'ArrowRight', code:'ArrowRight', windowsVirtualKeyCode:39 });
+    await send('Input.dispatchKeyEvent', { type:'keyUp', key:'ArrowRight', code:'ArrowRight', windowsVirtualKeyCode:39 });
+    assert.equal((await timeline()).selected, 1456, 'The timeline arrow key should advance exactly one year');
+
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'no-preference' }] });
+    const point = await center('#vernier-track');
+    const time = Date.now() / 1000;
+    await send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[point], timestamp:time});
+    for (let i = 1; i <= 3; i++) {
+      await send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:point.x - 20*i,y:point.y}], timestamp:time + .025*i});
+    }
+    await send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:time + .085});
+    await until(async () => {
+      const settled = await timeline();
+      return settled.selected > 1460 && settled.selected === settled.preview;
+    }, 'A quick flick should glide past its release point and settle on the same year as the globe');
+    await swipe('#vernier-track', -65);
+    assert.equal(await js(`document.querySelector('#overlay').hidden`), false);
+    console.log('Timeline: fractional tracking, fixed height, snap, cancel, single-year keys, momentum and swipe-up');
   } finally {
     ws?.close();
     proc.kill();

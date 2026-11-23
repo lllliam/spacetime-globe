@@ -140,7 +140,7 @@ body.sheet-open #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 
   pointer-events:none;opacity:0;transform:translateY(5px);
   transition:opacity .22s ease,transform .24s cubic-bezier(.22,.82,.26,1);
 }
-#vernier.active #vernier-readout{opacity:1;transform:translateY(0)}
+#vernier.active #vernier-readout{opacity:1;transform:translateY(0);transition-duration:.12s}
 #vernier-year{
   font:500 18px/1 var(--font-serif,Georgia,"Songti SC",serif);
   font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;color:#f5efe3;
@@ -158,17 +158,18 @@ body.sheet-open #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 
   mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 84%,transparent 100%);
 }
 #vernier:hover #vernier-track,#vernier.active #vernier-track,#vernier-track:focus-visible{opacity:1}
+#vernier.active #vernier-track{transition-duration:.09s}
 #vernier-track::before{
   content:"";position:absolute;top:12px;left:0;right:0;height:1px;
   background:rgba(210,222,232,.18);
 }
+#vernier-ticks{position:absolute;inset:0;pointer-events:none;will-change:transform}
 #vernier-ticks span{
   position:absolute;top:12px;width:1px;height:6px;background:rgba(202,216,226,.34);
   transform:translateX(-50%);pointer-events:none;
 }
 #vernier-ticks span.med{height:9px;background:rgba(218,226,232,.52)}
 #vernier-ticks span.major{height:13px;background:rgba(240,235,224,.78)}
-#vernier-ticks span.current{height:13px;background:rgba(181,63,41,.9)}
 #vernier-ticks span.has-event::before{
   content:"";position:absolute;top:-7px;left:50%;width:3px;height:3px;border-radius:50%;
   transform:translateX(-50%);background:#d9ae6c;box-shadow:0 0 6px rgba(217,174,108,.75);
@@ -200,7 +201,7 @@ body.sheet-open #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 
   box-shadow:0 0 7px rgba(201,156,88,.8);
 }
 #vernier-events:hover,#vernier-events:active{color:#f8ebd2;background:rgba(255,255,255,.06)}
-#vernier-events[hidden]{display:none}
+#vernier-events[hidden]{display:inline-flex;visibility:hidden}
 
 /* ── 紧贴右上角的轻量磨砂视图胶囊 ── */
 #view-shade{position:fixed;inset:0;z-index:10;background:transparent}
@@ -284,4 +285,5 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 }
 @media(prefers-reduced-motion:reduce){
   #year-strip,#hud,#scrim,#vernier,#vernier-readout,#vernier-track{transition:none}
+  #vernier.active #vernier-readout,#vernier.active #vernier-track{transition:none}
 }

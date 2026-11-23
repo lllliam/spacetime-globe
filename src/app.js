@@ -1636,7 +1636,7 @@ let spinStep = 0, cloudDrift = 0;
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
     !pointers.size && !zoomAnim && !panReturn && !(typeof resetAnim === 'number' && resetAnim) && !globeTapTimer && !state.focus &&
-    !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !chrome.panel &&
+    !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !vernierGesture && !vernierGlideFrame && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
 
