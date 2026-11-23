@@ -274,5 +274,17 @@
         }
       ]
     }
+  ],
+  "countries": [
+    {
+      "iso": "KR",
+      "from": 1948,
+      "to": null
+    },
+    {
+      "iso": "KP",
+      "from": 1948,
+      "to": null
+    }
   ]
 }

@@ -284,5 +284,12 @@
         }
       ]
     }
+  ],
+  "countries": [
+    {
+      "iso": "DE",
+      "from": 1871,
+      "to": null
+    }
   ]
 }

@@ -79,6 +79,13 @@ async function main() {
       await touch(cancel ? 'touchCancel' : 'touchEnd');
       await wait(400);
     };
+    const goToYear = async year => {
+      await tap('#year');
+      await js(`document.querySelector('#year-input').select()`);
+      await send('Input.insertText', { text:String(year) });
+      await tap('#year-form button[type="submit"]');
+      assert.match(await js(`document.querySelector('#year-num').textContent`), new RegExp(String(year)));
+    };
     await send('Emulation.setTouchEmulationEnabled', { enabled:true, maxTouchPoints:2 });
     await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
     await size(874);
@@ -89,6 +96,12 @@ async function main() {
     assert.equal(await js(`document.querySelector('#view-panel').hidden`), false);
     await tap('[data-view="modern"]');
     await tap('#view-close');
+    await tap({ x:175, y:353 });
+    await until(() => js(`document.body.classList.contains('sheet-open')`), 'Kazakhstan did not open');
+    assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /中亚丝路/);
+    await swipe('#grab', 90);
+    await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Central Asia preview did not dismiss');
+    await goToYear(1980);
     await tap({ x:175, y:353 });
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Map tap did not open an archive');
     console.log('Map tap:', await js(`document.querySelector('#sheet-identity-name').textContent`));
@@ -137,6 +150,7 @@ async function main() {
 
     await tap('#sheet-toc');
     await tap('#sheet-toc');
+    assert.equal(await js(`document.querySelectorAll('#book-body [data-subject-book]').length`), 57);
     await js(`document.querySelector('[data-subject-book="ming"]').scrollIntoView({block:'center'})`);
     await tap('[data-subject-book="ming"]');
     await tap('#book-body [data-reading-detail]');
@@ -185,6 +199,17 @@ async function main() {
     await tap('#sheet-close');
     await assertPreview();
     console.log('Full book: half/full transitions, chapter scrolling, table of contents and exit');
+
+    await swipe('#grab', 90);
+    await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Preview did not dismiss');
+    await goToYear(1453);
+    await tap('#year');
+    await tap('#year-events');
+    const yearLink = '[data-world-read="i-tr-constantinople-1453"]';
+    await js(`document.querySelector('${yearLink}').scrollIntoView({block:'center'})`);
+    await tap(yearLink);
+    assert.match(await js(`document.querySelector('#reading-title').textContent`), /最后一道城墙/);
+    console.log('Updated library: 57 volumes, Central Asia map entry, and 1453 event links to the rewritten Roman chapter');
   } finally {
     ws?.close();
     proc.kill();

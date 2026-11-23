@@ -72,6 +72,15 @@
             0
           ]
         }
+      ],
+      "contemporaries": [
+        {
+          "book": "mesopotamia-near-east",
+          "chapter": "sumer-akkad-ur",
+          "year": -2500,
+          "label": "河谷与城邦",
+          "note": "将尼罗河谷的早期国家与两河下游的苏美尔城邦并读，可以比较水道、粮食与人员如何支撑早期政治中心。"
+        }
       ]
     },
     {

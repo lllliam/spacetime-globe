@@ -310,7 +310,16 @@
           ]
         }
       ],
-      "sceneRefs": []
+      "sceneRefs": [],
+      "contemporaries": [
+        {
+          "book": "southern-eastern-africa",
+          "chapter": "swahili-kilwa-monsoon",
+          "year": 1200,
+          "label": "海贸另一端的港市",
+          "note": "把南宋港市与斯瓦希里海岸的商港并读，可以比较不同海域的城市如何依靠商路和地方腹地。"
+        }
+      ]
     },
     {
       "id": "xiangyang-yashan",

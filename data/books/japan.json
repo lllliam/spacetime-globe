@@ -278,5 +278,12 @@
         }
       ]
     }
+  ],
+  "countries": [
+    {
+      "iso": "JP",
+      "from": 1868,
+      "to": null
+    }
   ]
 }

@@ -265,5 +265,12 @@
         }
       ]
     }
+  ],
+  "countries": [
+    {
+      "iso": "ET",
+      "from": 1855,
+      "to": null
+    }
   ]
 }

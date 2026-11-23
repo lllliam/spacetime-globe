@@ -279,5 +279,12 @@
         }
       ]
     }
+  ],
+  "countries": [
+    {
+      "iso": "FR",
+      "from": 1789,
+      "to": null
+    }
   ]
 }
