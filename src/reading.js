@@ -69,13 +69,13 @@ function readingBackground(inert) {
   grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
   layout();
 }
-function openBook(fromOffset = null) {
+function openBook(fromOffset = null, viewMode = 'half') {
   if (reading.active) return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
-  beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent));
+  beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent), {viewMode});
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo = null, entryYear = state.year} = {}) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo = null, entryYear = state.year, viewMode = 'half'} = {}) {
   pauseGlobe();
   reading.snapshot = {
     year: state.year, layerId: state.layerId, focus: state.focus && { ...state.focus },
@@ -99,7 +99,7 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo
   reading.scroll = saved ? saved.scroll : 0;
   reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
   reading.active = true;
-  readingViewMode = subject ? 'half' : 'full';
+  readingViewMode = subject ? viewMode : 'full';
   showReader(fromOffset);
 }
 function showReader(fromOffset) {
@@ -830,7 +830,7 @@ for (const kind of ['touchend','touchcancel']) {
 mobileSheetTop.addEventListener('click', event => {
   // #grab has its own click handler. Never let one tap trigger both actions.
   if (innerWidth >= 960 || event.target.closest('#grab, button, a, input') ||
-      event.timeStamp - readerLastDrag < 320) return;
+      sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
   if (!reading.active) {
     if (sheetState.detent === 'peek') openPeekProgressively();
     return;

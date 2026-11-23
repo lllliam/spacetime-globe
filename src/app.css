@@ -11,6 +11,7 @@ html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
 @supports(height:100dvh){:root{--app-height:100dvh}}
 html{background:var(--page-bg)}
+html.sheet-paper{background:var(--paper-bg)}
 body{position:fixed;inset:0 0 auto;height:var(--app-height);
   background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
 html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme:light}
@@ -140,7 +141,7 @@ html.reader-paper,html.reader-paper body{background:var(--paper-bg);color-scheme
 #sheet-dim.show{opacity:1;pointer-events:auto}
 
 #sheet{position:fixed;inset:0 0 auto;z-index:8;height:var(--app-height);
-  display:flex;flex-direction:column;visibility:hidden;
+  display:flex;flex-direction:column;visibility:hidden;overflow:hidden;
   transform:translateY(100%);
   border-radius:22px 22px 0 0;
   background:var(--paper-bg,#f6f2e9);
@@ -952,8 +953,10 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,#0a1016 6
   body.reading-split #split-globe-title{color:var(--cosmos-ink)}
   body.reading-split #split-globe-note{color:var(--cosmos-muted)}
 }
-body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
-@media(min-width:960px){body.reading-open:not(.reading-split) #book{top:calc(74px + var(--safe-t))}}
+@media(min-width:960px){
+  body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
+  body.reading-open:not(.reading-split) #book{top:calc(74px + var(--safe-t))}
+}
 body.reading-open #sheet-top{opacity:1}
 body.reading-open #grab{opacity:0;pointer-events:none}
 #sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
@@ -991,17 +994,21 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 @media(max-width:959px){
   body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
     padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
-  body.reading-open #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
+  body.reading-open #sheet-top{padding-top:3px}
+  body.reading-open.sheet-full #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
   body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
   body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
   body.reading-open #book,body.reading-open #sheet #sheet-scroll{
     grid-area:2/1;position:relative;inset:auto;height:auto;min-height:0;max-height:none}
   body.reading-open #book-bar{height:34px}
+  body.reading-open #book-bar:has(#reading-back[hidden]){display:none}
   body.reading-open #reading-grab{display:none}
   body.reading-open #book-body{overscroll-behavior-y:none;padding-top:4px;
     padding-bottom:calc(36px + var(--safe-b));scroll-padding-bottom:calc(36px + var(--safe-b))}
   body.reading-open.reader-gesture #sheet{touch-action:none}
 }
+#sheet:not([role="dialog"]) #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
+#sheet.peek #sheet-scroll{overflow:hidden}
 /* v8.2 · The summary already has a title in the fixed paper toolbar. */
 #sheet.peek #sheet-inner .sheet-overview:has(+ .subject-sheet-summary){display:none}
 #sheet.peek #sheet-inner .subject-sheet-summary{

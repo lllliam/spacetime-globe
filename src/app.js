@@ -1373,7 +1373,7 @@ function layout() {
   if (!w || !h) return;
   const rootStyle = getComputedStyle(root);
   const safeBottom = parseFloat(rootStyle.getPropertyValue('--safe-b')) || 0;
-  const heightChanged = h !== view.h || safeBottom !== view.safeBottom;
+  const viewportChanged = w !== view.w || h !== view.h || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = parseFloat(rootStyle.getPropertyValue('--safe-t')) || 0;
@@ -1401,7 +1401,7 @@ function layout() {
   if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (heightChanged && !sheetMotion && !sheetState.dragging) {
+  if (viewportChanged && !sheetMotion && !sheetState.dragging) {
     if (reading.active) refreshReadingViewport();
     else applySheetOffset(sheetDetents()[sheetState.detent], false);
   }
@@ -1891,6 +1891,8 @@ const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
 const SHEET_BOTTOM_GAP = 16;
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const globeThemeColor = themeColorMeta.content;
+const paperThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim();
+const standaloneGlobe = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
@@ -1906,7 +1908,6 @@ function applySheetOffset(offset, animate = true) {
   sheetState.offset = offset;
   sheetEl.style.transition = animate ? '' : 'none';
   sheetEl.style.transform = 'translate3d(0,' + Math.round(offset) + 'px,0)';
-  const d = sheetDetents();
   const show = offset < H - 2;
   /* 用 class 控制 pointer-events：只改 opacity 的话遮罩点不穿，点暗处关不掉 */
   dimEl.classList.toggle('show', show);
@@ -1915,14 +1916,17 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
   sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, H - Math.max(0, offset)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
-  sheetEl.classList.toggle('peek', offset >= d.peek - 2 && offset < H - 2);
+  sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
   const paper = reading.active && !isSplitReading() && offset <= 1;
-  if (document.documentElement.classList.contains('reader-paper') !== paper) {
-    // iOS can paint the page background beyond the area available for interactive content.
-    document.documentElement.classList.toggle('reader-paper', paper);
-    themeColorMeta.content = paper ? getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim() : globeThemeColor;
+  const paperEdge = paper || show && view.w < 960;
+  const root = document.documentElement;
+  root.classList.toggle('reader-paper', paper);
+  root.classList.toggle('sheet-paper', paperEdge);
+  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
+  if (themeColorMeta.content !== theme) {
+    themeColorMeta.content = theme;
   }
   if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
@@ -1935,7 +1939,7 @@ function stopSheetMotion() {
   sheetMotion = 0;
 }
 function sheetTo(detent, animate = true) {
-  if (detent === 'full') { enterSheetReading(); return; }
+  if (detent === 'full') { enterSheetReading('full'); return; }
   if (!['hidden', 'half', 'peek'].includes(detent)) detent = 'half';
   stopSheetMotion();
   sheetState.detent = detent;
@@ -1966,16 +1970,13 @@ function sheetTo(detent, animate = true) {
   const H = view.h || innerHeight;
   animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
 }
-function enterSheetReading() {
+function enterSheetReading(mode = 'half') {
   if (!state.focus) return;
   const fromOffset = sheetState.offset;
   stopSheetMotion();
   sheetVelocity = 0;
-  // 阅读结束后回到明确的半屏位置，而不是松手时的中间高度。
-  sheetState.detent = 'half';
-  applySheetOffset(sheetDetents().half, false);
   setSheetIntent('idle');
-  openBook(fromOffset);
+  openBook(fromOffset, mode);
 }
 
 let liftRaf = 0;
@@ -2007,33 +2008,46 @@ function sheetDragStart(e) {
   if (reading.active || sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
-  if (e.currentTarget === sheetScroll && !e.target.closest('.sheet-overview')) return;
+  if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek' && !e.target.closest('.sheet-overview')) return;
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
   momentum.yaw = momentum.tilt = 0;
   sheetState.dragging = true;
   sheetState.pointerId = e.pointerId;
+  sheetState.startX = e.clientX;
   sheetState.startY = sheetState.lastY = e.clientY;
   sheetState.startOffset = sheetState.offset;
   sheetState.startDetent = sheetState.detent;
   sheetState.lastT = e.timeStamp;
   sheetState.samples = [{ y: e.clientY, t: sheetState.lastT }];
   sheetState.distance = sheetState.vy = 0;
-  sheetEl.classList.add('dragging');
+  sheetState.moved = false;
   setSheetIntent('idle');
-  try { sheetEl.setPointerCapture(e.pointerId); } catch (_) { }
 }
 function sheetGestureIntent(distance, velocity = 0) {
-  const up = clamp(sheetDetents().half * .34, 88, 140);
-  const down = clamp((sheetDetents().hidden - sheetDetents().half) * .23, 90, 132);
-  if (distance < -up || (distance < -24 && velocity < -620)) return 'expand';
-  if (distance > down || (distance > 24 && velocity > 620)) return 'dismiss';
+  const d = sheetDetents();
+  const up = clamp((d.peek - d.half) * .20, 48, 88);
+  if (distance <= -up || (distance < -18 && velocity < -420)) return 'expand';
+  if (distance >= 48 || (distance > 18 && velocity > 420)) return 'dismiss';
   return 'idle';
 }
 function sheetDragMove(e) {
   if (!sheetState.dragging || e.pointerId !== sheetState.pointerId) return;
   const now = e.timeStamp;
   sheetState.distance = e.clientY - sheetState.startY;
+  if (!sheetState.moved) {
+    const dx = Math.abs(e.clientX - sheetState.startX);
+    if (dx > 8 && dx > Math.abs(sheetState.distance)) {
+      sheetState.moved = true;
+      sheetDragEnd(e, true);
+      return;
+    }
+    if (Math.abs(sheetState.distance) < 6) return;
+    sheetState.moved = true;
+    sheetEl.classList.add('dragging');
+    // Keep the touched element's implicit capture on iOS; only mouse drags need a transfer.
+    if (e.pointerType === 'mouse') sheetEl.setPointerCapture(e.pointerId);
+  }
   sheetState.lastY = e.clientY;
   sheetState.lastT = now;
   sheetState.samples.push({ y: e.clientY, t: now });
@@ -2051,51 +2065,39 @@ function sheetDragMove(e) {
   // 提示以距离为准，快速轻扫由松手速度补充判断。
   setSheetIntent(sheetGestureIntent(sheetState.distance));
 }
-function sheetDragEnd(e) {
+function sheetDragEnd(e, cancelled = e?.type !== 'pointerup') {
   if (!sheetState.dragging) return;
   if (e && e.pointerId !== undefined && e.pointerId !== sheetState.pointerId) return;
-  const cancelled = e && ['pointercancel', 'lostpointercapture', 'blur'].includes(e.type);
   sheetState.dragging = false;
   sheetEl.classList.remove('dragging');
-  sheetState.suppressClick = Math.abs(sheetState.distance) > 6;
+  sheetState.suppressClick = sheetState.moved;
   if (sheetState.suppressClick) setTimeout(() => { sheetState.suppressClick = false; }, 350);
-  try { sheetEl.releasePointerCapture(sheetState.pointerId); } catch (_) { }
   // 停住再松手不继承旧速度；系统取消手势时只回弹，不执行阅读或关闭。
   const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
   const velocity = elapsed < 110 ? sheetState.vy : 0;
   sheetVelocity = clamp(velocity, -1600, 1600);
-  const original = sheetState.startDetent === 'peek' ? 'peek' : 'half';
+  const original = sheetState.startDetent;
   if (cancelled) { sheetTo(original); return; }
-  const vy = velocity / 1000; // pixels / ms
+  const intent = sheetGestureIntent(sheetState.distance, velocity);
   const d = sheetDetents();
-  const pastPeek = sheetState.startOffset + sheetState.distance - d.peek;
-  const down = sheetState.distance > 8;
-  // A second downward swipe at peek dismisses the sheet instead of getting stuck.
-  if (original === 'peek' && down && (vy > .38 || pastPeek > 48)) {
-    closeSheet();
-  } else if (original === 'half' && down && vy > .9 && pastPeek > 48) {
-    closeSheet();
-  } else if (vy < -.42) {
-    if (original === 'peek') sheetTo('half');
-    else enterSheetReading();
-  } else if (vy > .42) {
-    sheetTo('peek');
-  } else if (original === 'peek' && down && pastPeek > 48) {
-    closeSheet();
-  } else if (sheetState.offset < d.half * .46) {
-    enterSheetReading();
+  if (intent === 'expand') {
+    enterSheetReading(sheetState.offset < d.half * .6 || original === 'half' ? 'full' : 'half');
+  } else if (intent === 'dismiss') {
+    if (original === 'peek') closeSheet();
+    else sheetTo('peek');
   } else {
-    sheetTo(Math.abs(sheetState.offset - d.peek) < Math.abs(sheetState.offset - d.half) ? 'peek' : 'half');
+    sheetTo(original);
   }
 }
 
-grabEl.addEventListener('pointerdown', sheetDragStart);
+el('sheet-top').addEventListener('pointerdown', sheetDragStart);
 sheetScroll.addEventListener('pointerdown', sheetDragStart);
-sheetEl.addEventListener('pointermove', sheetDragMove);
-sheetEl.addEventListener('pointerup', sheetDragEnd);
-sheetEl.addEventListener('pointercancel', sheetDragEnd);
-sheetEl.addEventListener('lostpointercapture', sheetDragEnd);
+addEventListener('pointermove', sheetDragMove);
 addEventListener('pointerup', sheetDragEnd);
+addEventListener('pointercancel', sheetDragEnd);
+sheetEl.addEventListener('lostpointercapture', e => {
+  if (e.target === sheetEl) sheetDragEnd(e);
+});
 addEventListener('blur', sheetDragEnd);
 function openPeekProgressively() {
   if (sheetState.detent !== 'peek') { enterSheetReading(); return; }
