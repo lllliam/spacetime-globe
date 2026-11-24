@@ -1023,7 +1023,7 @@ function globeHudBounds() {
     const bar = el('split-globe-bar');
     return bar && !bar.hidden ? [bar.getBoundingClientRect()] : [];
   }
-  if (worldEvent && !reading.active) return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
+  if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
   const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
@@ -1401,7 +1401,7 @@ function layout() {
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = safeTop;
   view.safeBottom = safeBottom;
-  const splitActive = document.body.classList.contains('reading-split');
+  const splitActive = isSplitReading();
   if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
     const globeW = Math.max(260, w - panelW);
@@ -1651,7 +1651,7 @@ let spinStep = 0, cloudDrift = 0;
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
     !pointers.size && !zoomAnim && !panReturn && !(typeof resetAnim === 'number' && resetAnim) && !globeTapTimer && !state.focus &&
-    !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !vernierGesture && !vernierGlideFrame && !chrome.panel &&
+    session.mode === 'Explore' && overlay.hidden && !yearControlOpen() && !vernierGesture && !vernierGlideFrame && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
 
@@ -1683,7 +1683,7 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || worldEvent || document.body.classList.contains('reading-split') ? globeHudBounds() : [];
+  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' || isSplitReading() ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -1703,7 +1703,7 @@ function settlePan() {
   const x = state.panX, y = state.panY;
   constrainPan();
   const targetX = state.panX, targetY = state.panY;
-  if ((x === targetX && y === targetY) || reducedGlobeMotion.matches) { invalidate(); return; }
+  if ((x === targetX && y === targetY) || reducedGlobeMotion.matches) { invalidate(); cameraSettled(); return; }
   state.panX = x;
   state.panY = y;
   const start = performance.now();
@@ -1713,6 +1713,7 @@ function settlePan() {
     state.panX = lerp(x, targetX, k);
     state.panY = lerp(y, targetY, k);
     panReturn = progress < 1 ? requestAnimationFrame(step) : 0;
+    if (!panReturn) cameraSettled();
     invalidate();
   };
   panReturn = requestAnimationFrame(step);
@@ -1726,6 +1727,7 @@ function applyMomentum(dt) {
   momentum.yaw *= damp; momentum.tilt *= damp;
   if (Math.abs(momentum.yaw) < 0.01) momentum.yaw = 0;
   if (Math.abs(momentum.tilt) < 0.01) momentum.tilt = 0;
+  if (!momentum.yaw && !momentum.tilt) cameraSettled();
   return true;
 }
 
@@ -1734,6 +1736,7 @@ let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
+  exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
   if (typeof cancelGlobeFly === 'function') cancelGlobeFly(true);
@@ -1807,7 +1810,7 @@ function endPointer(e) {
     else settlePan();
   }
   if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 6 &&
-      reading.active && readingViewMode === 'half' && innerWidth < 960 && !worldEvent) {
+      reading.active && reading.viewMode === 'half' && innerWidth < 960 && !session.observe) {
     mobileReaderSnap('peek');
     return;
   }
@@ -1847,6 +1850,7 @@ function cancelZoom() {
   zoomAnim = 0;
 }
 function zoomTo(z, ax, ay) {
+  exploreIntent();
   z = clamp(z, 1, 6);
   const from = state.zoom, R = view.R;
   const dx = (ax == null ? view.cx : ax) - view.cx;
@@ -1870,6 +1874,7 @@ function zoomTo(z, ax, ay) {
     const k = clamp((t - t0) / 220, 0, 1);
     apply(k < 1 ? 1 - Math.pow(1 - k, 3) : 1);
     zoomAnim = k < 1 ? requestAnimationFrame(step) : 0;
+    if (!zoomAnim) cameraSettled();
   };
   zoomAnim = requestAnimationFrame(step);
 }
@@ -1877,7 +1882,7 @@ function zoomTo(z, ax, ay) {
 let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
-  if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
+  if (session.mode === 'Observe') { if (session.observe.place) selectEventPlace(null); return; }
   const onGlobe = mapPointAt(sx, sy);
   if (!onGlobe) {
     if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
@@ -1926,7 +1931,7 @@ function sheetDetents() {
 }
 
 function updateSheetGlobeCenter(offset) {
-  if (view.w >= 960 || worldEvent) return;
+  if (view.w >= 960 || session.mode === 'Observe') return;
   const { hidden, half } = sheetDetents();
   const top = clamp(offset, half, hidden);
   const lift = Math.max(0, view.cyBase - top * .58);
@@ -1957,7 +1962,7 @@ function paintSheetPosition(offset) {
   root.classList.toggle('sheet-paper', paperEdge);
   const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
-  if (view.w < 960 && !worldEvent) {
+  if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
     updateSheetGlobeCenter(offset);
     if (Math.abs(previous - view.cy) > .1) invalidate();
@@ -2024,6 +2029,7 @@ function sheetTo(detent, animate = true, velocity = 0) {
   settleSheet(sheetDetents()[detent], offset => applySheetOffset(offset, false), () => {
     sheetState.closingAnchor = null;
     invalidate();
+    cameraSettled();
   }, velocity, animate);
   const H = view.h || innerHeight;
   if (view.w >= 960) animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
@@ -2192,14 +2198,21 @@ function renderEntity() {
   syncSheetIdentity();
 }
 
-function openEntity(layerId, id, point = null) {
+function selectEntity(layerId, id, point) {
   const shape = partition.shapes.find((s) => s.id === id);
   const key = focusKeyOf(layerId, shape);
-  if (key === null) { closeSheet(); return; }
+  if (key === null) return false;
   const anchor = point && readingPlaceVector({ lon:(point.x / MAPW - .5) * 360, lat:(.5 - point.y / MAPH) * 180 });
   sheetState.closingAnchor = null;
-  state.focus = { layerId, id, key, anchor, atlasPeers: politySelectionsAt(point, key) };
+  state.focus = { layerId, id, key, point, anchor, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
+  return true;
+}
+
+function openEntity(layerId, id, point = null) {
+  if (session.mode !== 'Explore') return;
+  exploreIntent();
+  if (!selectEntity(layerId, id, point)) { closeSheet(); return; }
   syncHud();
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
@@ -2210,14 +2223,18 @@ function openEntity(layerId, id, point = null) {
     /* 已经开着：保持当前高度（自由位置也保持不变），只换内容 */
     sheetTo(sheetState.detent);
   }
+  rememberExplore();
+  saveSession();
   invalidate();
 }
 
 function closeSheet(velocity = 0) {
+  exploreIntent();
   if (!state.focus && sheetState.detent === 'hidden') return;
   sheetState.closingAnchor = state.focus?.anchor;
   state.focus = null;
   sheetTo('hidden', true, velocity);
+  if (session.mode === 'Explore') { rememberExplore(); saveSession(); }
   invalidate();
 }
 
@@ -2232,8 +2249,7 @@ sheetInner.addEventListener('click', (e) => {
   if (next) {
     /* 相邻两章的边界年份可能重号（上一章的末年是下一章的首年），别原地不动 */
     const want = act === 'next' ? next.a : next.b;
-    state.year = want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want;
-    onYearChanged();
+    commitYear(want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want);
     sheetScroll.scrollTop = 0;
   }
 });
@@ -2255,6 +2271,7 @@ const kindOf = (e) => KIND[e.kind] || KIND.other;
 const kindColor = (e) => kindOf(e)[1];
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {
+  if (session.mode !== 'Explore' || !LAYERS[id]) return;
   if (state.layerId === id) return;
   state.layerId = id;
   for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
@@ -2265,6 +2282,8 @@ function setLayer(id) {
   rebuildPartition();
   syncHud();
   invalidate();
+  rememberExplore();
+  saveSession();
 }
 layersEl.addEventListener('click', (e) => {
   const b = e.target.closest('button');
@@ -2287,25 +2306,42 @@ function onYearChanged() {
 
 
 /* ───────────── 17. 键盘 ───────────── */
+function closeTopNavigationPanel() {
+  if (footnoteTrigger) closeFootnote(true);
+  else if (chrome.panel) closeView();
+  else if (yearControlOpen()) closeYearControl({ focus: true });
+  else return false;
+  return true;
+}
+
+function navigateBack() {
+  if (closeTopNavigationPanel()) return;
+  if (session.mode === 'Observe') returnToWorld();
+  else if (session.mode === 'Read') readingGoBack();
+  else if (!overlay.hidden) closeWorld(true);
+  else {
+    document.body.classList.remove('chrome-hidden');
+    closeSheet();
+  }
+}
+
+addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  if (!e.repeat) navigateBack();
+}, true);
+
 addEventListener('keydown', (e) => {
   if (handleReadingKey(e)) return;
-  if (worldEvent && e.key === 'Escape') {
-    e.preventDefault();
-    returnToWorld();
-    return;
-  }
-  if (worldEvent && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-  if (!overlay.hidden) {
-    if (e.key === 'Escape') { e.preventDefault(); closeWorld(true); }
-    return;
-  }
+  if (session.mode === 'Observe' && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+  if (!overlay.hidden) return;
   if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || chrome.panel) return;
   const step = e.shiftKey ? 20 : 1;
   if (e.key === 'ArrowLeft') { stepYear(-step); e.preventDefault(); }
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === 'Escape') { document.body.classList.remove('chrome-hidden'); closeWorld(); closeSheet(); }
   else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
@@ -2382,8 +2418,14 @@ async function loadRelief() {
   });
 }
 
-async function ensurePolity() {
-  if (polityState.loaded || polityState.loading) return;
+let polityLoadPromise = null;
+function ensurePolity() {
+  if (polityState.loaded) return Promise.resolve();
+  if (!polityLoadPromise) polityLoadPromise = loadPolity().finally(() => { polityLoadPromise = null; });
+  return polityLoadPromise;
+}
+
+async function loadPolity() {
   polityState.loading = true;
   polityState.error = null;
   syncChrome();
@@ -2408,7 +2450,7 @@ async function ensurePolity() {
     if (state.layerId === 'polity') { rebuildPartition(); syncHud(); invalidate(); }
     const tap = pendingPolityTap;
     pendingPolityTap = null;
-    if (tap && state.layerId === 'polity' && !reading.active && !worldEvent &&
+    if (tap && state.layerId === 'polity' && session.mode === 'Explore' &&
         tap.year === state.year && Math.abs(tap.yaw - state.yaw) < .02 &&
         Math.abs(tap.tilt - state.tilt) < .02 && Math.abs(tap.zoom - state.zoom) < .02 &&
         Math.abs(tap.panX - state.panX) < 3 && Math.abs(tap.panY - state.panY) < 3) {
@@ -2441,6 +2483,7 @@ async function ensurePolity() {
   buildCountryPick();
   rebuildPartition();
   layout();
+  restoreSession();
   syncHud();
   draw();
 

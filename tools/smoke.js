@@ -87,6 +87,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await waitFor('__t.polityLoaded',8000);
   const p2 = await at(110, 34);
   await tap(p2.x, p2.y);
+  const beforeRead = await st();
   await js(`document.querySelector('[data-read-subject]').click()`);
   await sleep(400);
   ok('明朝疆域打开主体书卷', await js(`!document.getElementById('book').hidden && __t.reading.subject?.id==='ming' && document.querySelectorAll('[data-reading-detail].reading-card').length===5`));
@@ -94,7 +95,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   ok('第一章包含连续正文与来源', await js(`document.querySelectorAll('#book-body .subject-prose p').length>=3 && document.querySelectorAll('.reading-sources a').length>=2`));
   await js(`document.getElementById('reading-back').click();document.getElementById('reading-grab').click()`);
   for (let i = 0; i < 40 && !await js('__t.readerSettled'); i++) await sleep(40);
-  ok('返回地球恢复原抽屉与年份', await js(`document.getElementById('book').hidden && __t.state.year===1500 && __t.sheet.detent==='half'`));
+  const afterRead = await st();
+  ok('返回地球恢复原抽屉、主体与年份', beforeRead.open && afterRead.open && afterRead.year === 1500 &&
+    afterRead.focus === beforeRead.focus && afterRead.detent === beforeRead.detent && await js('__t.session.mode==="Explore"'), afterRead);
   await js('__t.closeSheet()');
   await sleep(500);
 
@@ -102,7 +105,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await js(`window.__t.setLayer('polity');window.__t.setYear(1900)`);
   await waitFor('window.__t.polityLoaded === true', 8000);
   await sleep(500);
-  const p3 = await at(26, 41);
+  const p3 = await at(32, 39);
   await tap(p3.x, p3.y);
   const polSheet = await st();
   ok('政权层点开抽屉', polSheet.open && polSheet.title==='奥斯曼帝国', { title: polSheet.title, detent: polSheet.detent });
@@ -137,17 +140,20 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await sleep(350);
   ok('双指放大生效', (await js('window.__t.state.zoom')) > 1.2, { zoom: +(await js('window.__t.state.zoom')).toFixed(2) });
 
-  /* 8. 年份按钮 → 全景列表 → 关 */
+  /* 8. 顶部选年与底部史事都是显式入口。 */
   await js("document.getElementById('year').click()");
   await sleep(400);
+  ok('年份轻点打开精确输入', await js('!document.getElementById("year-form").hidden && document.activeElement.id === "year-input"'));
+  await js(`document.querySelector('#year-input').value='1900';document.querySelector('#year-form').requestSubmit();`);
+  await js(`document.querySelector('#vernier-events').click()`);
   const ov = await js(`({ open: !document.getElementById('overlay').hidden, h: document.getElementById('overlay-body').innerHTML.length })`);
-  ok('年份轻点打开全景列表', ov.open && ov.h > 200, ov);
+  ok('底部史事打开所选年份的事件列表', ov.open && ov.h > 200 && await js(`document.querySelector('#overlay-title').textContent==='1900 年'`), ov);
   await js(`document.getElementById('overlay-close').click()`);
   await sleep(400);
   ok('全景列表可关闭', await js(`document.getElementById('overlay').hidden`), null);
 
   /* 9. 转屏 */
-  await js(`(() => { const t = window.__t; const q = t.screenOf(110*Math.PI/180, 34*Math.PI/180); t.openEntity('country', t.pick(q.x, q.y)); })()`);
+  await js(`__t.setLayer('country');__t.openEntity('country', __t.partition.shapes.find(shape => shape.iso === 'CN').id)`);
   await sleep(600);
   await send('Emulation.setDeviceMetricsOverride', { width: 844, height: 390, deviceScaleFactor: 2, mobile: true });
   await sleep(800);
@@ -160,7 +166,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   /* 10. Esc */
   await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', windowsVirtualKeyCode: 27 });
   await sleep(600);
-  ok('Esc 收起抽屉', !(await st()).open);
+  ok('Esc 收起抽屉', port2.open && !(await st()).open && (await st()).detent === 'hidden');
 
   ok('全程无控制台异常', errs.length === 0, errs.slice(0, 3));
   console.log(`\n${fail === 0 ? 'PASSED' : 'FAILED'} · ${pass}/${pass + fail}`);

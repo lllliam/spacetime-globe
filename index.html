@@ -2524,7 +2524,7 @@ function globeHudBounds() {
     const bar = el('split-globe-bar');
     return bar && !bar.hidden ? [bar.getBoundingClientRect()] : [];
   }
-  if (worldEvent && !reading.active) return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
+  if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
   const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
@@ -2902,7 +2902,7 @@ function layout() {
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = safeTop;
   view.safeBottom = safeBottom;
-  const splitActive = document.body.classList.contains('reading-split');
+  const splitActive = isSplitReading();
   if (splitActive && w >= 960) {
     const panelW = Math.min(460, Math.round(w * 0.42));
     const globeW = Math.max(260, w - panelW);
@@ -3152,7 +3152,7 @@ let spinStep = 0, cloudDrift = 0;
 function shouldSpin() {
   return spinning && !reducedGlobeMotion.matches && !document.hidden && state.zoom === 1 &&
     !pointers.size && !zoomAnim && !panReturn && !(typeof resetAnim === 'number' && resetAnim) && !globeTapTimer && !state.focus &&
-    !reading.active && !worldEvent && overlay.hidden && !yearControlOpen() && !vernierGesture && !vernierGlideFrame && !chrome.panel &&
+    session.mode === 'Explore' && overlay.hidden && !yearControlOpen() && !vernierGesture && !vernierGlideFrame && !chrome.panel &&
     sheetState.detent === 'hidden' && !sheetMotion;
 }
 
@@ -3184,7 +3184,7 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || worldEvent || document.body.classList.contains('reading-split') ? globeHudBounds() : [];
+  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' || isSplitReading() ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -3204,7 +3204,7 @@ function settlePan() {
   const x = state.panX, y = state.panY;
   constrainPan();
   const targetX = state.panX, targetY = state.panY;
-  if ((x === targetX && y === targetY) || reducedGlobeMotion.matches) { invalidate(); return; }
+  if ((x === targetX && y === targetY) || reducedGlobeMotion.matches) { invalidate(); cameraSettled(); return; }
   state.panX = x;
   state.panY = y;
   const start = performance.now();
@@ -3214,6 +3214,7 @@ function settlePan() {
     state.panX = lerp(x, targetX, k);
     state.panY = lerp(y, targetY, k);
     panReturn = progress < 1 ? requestAnimationFrame(step) : 0;
+    if (!panReturn) cameraSettled();
     invalidate();
   };
   panReturn = requestAnimationFrame(step);
@@ -3227,6 +3228,7 @@ function applyMomentum(dt) {
   momentum.yaw *= damp; momentum.tilt *= damp;
   if (Math.abs(momentum.yaw) < 0.01) momentum.yaw = 0;
   if (Math.abs(momentum.tilt) < 0.01) momentum.tilt = 0;
+  if (!momentum.yaw && !momentum.tilt) cameraSettled();
   return true;
 }
 
@@ -3235,6 +3237,7 @@ let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
+  exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
   if (typeof cancelGlobeFly === 'function') cancelGlobeFly(true);
@@ -3308,7 +3311,7 @@ function endPointer(e) {
     else settlePan();
   }
   if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 6 &&
-      reading.active && readingViewMode === 'half' && innerWidth < 960 && !worldEvent) {
+      reading.active && reading.viewMode === 'half' && innerWidth < 960 && !session.observe) {
     mobileReaderSnap('peek');
     return;
   }
@@ -3348,6 +3351,7 @@ function cancelZoom() {
   zoomAnim = 0;
 }
 function zoomTo(z, ax, ay) {
+  exploreIntent();
   z = clamp(z, 1, 6);
   const from = state.zoom, R = view.R;
   const dx = (ax == null ? view.cx : ax) - view.cx;
@@ -3371,6 +3375,7 @@ function zoomTo(z, ax, ay) {
     const k = clamp((t - t0) / 220, 0, 1);
     apply(k < 1 ? 1 - Math.pow(1 - k, 3) : 1);
     zoomAnim = k < 1 ? requestAnimationFrame(step) : 0;
+    if (!zoomAnim) cameraSettled();
   };
   zoomAnim = requestAnimationFrame(step);
 }
@@ -3378,7 +3383,7 @@ function zoomTo(z, ax, ay) {
 let pendingPolityTap = null;
 function tapGlobe(sx, sy) {
   if (reading.active) return;
-  if (worldEvent) { if (worldEvent.selected) selectEventPlace(null); return; }
+  if (session.mode === 'Observe') { if (session.observe.place) selectEventPlace(null); return; }
   const onGlobe = mapPointAt(sx, sy);
   if (!onGlobe) {
     if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
@@ -3427,7 +3432,7 @@ function sheetDetents() {
 }
 
 function updateSheetGlobeCenter(offset) {
-  if (view.w >= 960 || worldEvent) return;
+  if (view.w >= 960 || session.mode === 'Observe') return;
   const { hidden, half } = sheetDetents();
   const top = clamp(offset, half, hidden);
   const lift = Math.max(0, view.cyBase - top * .58);
@@ -3458,7 +3463,7 @@ function paintSheetPosition(offset) {
   root.classList.toggle('sheet-paper', paperEdge);
   const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
-  if (view.w < 960 && !worldEvent) {
+  if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
     updateSheetGlobeCenter(offset);
     if (Math.abs(previous - view.cy) > .1) invalidate();
@@ -3525,6 +3530,7 @@ function sheetTo(detent, animate = true, velocity = 0) {
   settleSheet(sheetDetents()[detent], offset => applySheetOffset(offset, false), () => {
     sheetState.closingAnchor = null;
     invalidate();
+    cameraSettled();
   }, velocity, animate);
   const H = view.h || innerHeight;
   if (view.w >= 960) animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
@@ -3693,14 +3699,21 @@ function renderEntity() {
   syncSheetIdentity();
 }
 
-function openEntity(layerId, id, point = null) {
+function selectEntity(layerId, id, point) {
   const shape = partition.shapes.find((s) => s.id === id);
   const key = focusKeyOf(layerId, shape);
-  if (key === null) { closeSheet(); return; }
+  if (key === null) return false;
   const anchor = point && readingPlaceVector({ lon:(point.x / MAPW - .5) * 360, lat:(.5 - point.y / MAPH) * 180 });
   sheetState.closingAnchor = null;
-  state.focus = { layerId, id, key, anchor, atlasPeers: politySelectionsAt(point, key) };
+  state.focus = { layerId, id, key, point, anchor, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
+  return true;
+}
+
+function openEntity(layerId, id, point = null) {
+  if (session.mode !== 'Explore') return;
+  exploreIntent();
+  if (!selectEntity(layerId, id, point)) { closeSheet(); return; }
   syncHud();
   if (sheetState.detent === 'hidden') {
     applySheetOffset(sheetDetents().hidden, false);
@@ -3711,14 +3724,18 @@ function openEntity(layerId, id, point = null) {
     /* 已经开着：保持当前高度（自由位置也保持不变），只换内容 */
     sheetTo(sheetState.detent);
   }
+  rememberExplore();
+  saveSession();
   invalidate();
 }
 
 function closeSheet(velocity = 0) {
+  exploreIntent();
   if (!state.focus && sheetState.detent === 'hidden') return;
   sheetState.closingAnchor = state.focus?.anchor;
   state.focus = null;
   sheetTo('hidden', true, velocity);
+  if (session.mode === 'Explore') { rememberExplore(); saveSession(); }
   invalidate();
 }
 
@@ -3733,8 +3750,7 @@ sheetInner.addEventListener('click', (e) => {
   if (next) {
     /* 相邻两章的边界年份可能重号（上一章的末年是下一章的首年），别原地不动 */
     const want = act === 'next' ? next.a : next.b;
-    state.year = want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want;
-    onYearChanged();
+    commitYear(want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want);
     sheetScroll.scrollTop = 0;
   }
 });
@@ -3756,6 +3772,7 @@ const kindOf = (e) => KIND[e.kind] || KIND.other;
 const kindColor = (e) => kindOf(e)[1];
 /* ───────────── 15. 图层开关 ───────────── */
 function setLayer(id) {
+  if (session.mode !== 'Explore' || !LAYERS[id]) return;
   if (state.layerId === id) return;
   state.layerId = id;
   for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
@@ -3766,6 +3783,8 @@ function setLayer(id) {
   rebuildPartition();
   syncHud();
   invalidate();
+  rememberExplore();
+  saveSession();
 }
 layersEl.addEventListener('click', (e) => {
   const b = e.target.closest('button');
@@ -3788,25 +3807,42 @@ function onYearChanged() {
 
 
 /* ───────────── 17. 键盘 ───────────── */
+function closeTopNavigationPanel() {
+  if (footnoteTrigger) closeFootnote(true);
+  else if (chrome.panel) closeView();
+  else if (yearControlOpen()) closeYearControl({ focus: true });
+  else return false;
+  return true;
+}
+
+function navigateBack() {
+  if (closeTopNavigationPanel()) return;
+  if (session.mode === 'Observe') returnToWorld();
+  else if (session.mode === 'Read') readingGoBack();
+  else if (!overlay.hidden) closeWorld(true);
+  else {
+    document.body.classList.remove('chrome-hidden');
+    closeSheet();
+  }
+}
+
+addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  if (!e.repeat) navigateBack();
+}, true);
+
 addEventListener('keydown', (e) => {
   if (handleReadingKey(e)) return;
-  if (worldEvent && e.key === 'Escape') {
-    e.preventDefault();
-    returnToWorld();
-    return;
-  }
-  if (worldEvent && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-  if (!overlay.hidden) {
-    if (e.key === 'Escape') { e.preventDefault(); closeWorld(true); }
-    return;
-  }
+  if (session.mode === 'Observe' && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+  if (!overlay.hidden) return;
   if (e.metaKey || e.ctrlKey || e.altKey || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || chrome.panel) return;
   const step = e.shiftKey ? 20 : 1;
   if (e.key === 'ArrowLeft') { stepYear(-step); e.preventDefault(); }
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === 'Escape') { document.body.classList.remove('chrome-hidden'); closeWorld(); closeSheet(); }
   else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
@@ -3857,19 +3893,303 @@ el('sheet-toc').addEventListener('click', () => {
   }
   if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
 });
+/* Product navigation and the serializable session. The renderer owns live camera motion. */
+const SESSION_KEY = 'globe.session.v1';
+const SESSION_SCHEMA = 1;
+const MAX_READING_TRAIL = 24;
+const MAX_READING_PROGRESS = 120;
+
+function createSession({ minYear, maxYear }) {
+  const validYear = year => Number.isInteger(year) && year !== 0 && year >= minYear && year <= maxYear;
+  const number = (value, min, max, fallback) => Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : fallback;
+  const id = value => typeof value === 'string' && value.length > 0 && value.length <= 160 ? value : null;
+  const camera = value => ({
+    yaw: Number.isFinite(value?.yaw) ? value.yaw % (2 * Math.PI) : -1.42,
+    tilt: number(value?.tilt, -.62, 1.02, .30), zoom: number(value?.zoom, 1, 6, 1),
+    panX: number(value?.panX, -1e5, 1e5, 0), panY: number(value?.panY, -1e5, 1e5, 0),
+  });
+  const position = value => ({
+    top: number(value?.top, 0, 1e7, 0), block: id(value?.block),
+    index: Number.isInteger(value?.index) ? number(value.index, 0, 10000, 0) : 0,
+    offset: number(value?.offset, -2, 2, 0),
+  });
+  const entity = value => {
+    if (value?.layerId === 'country' && typeof value.key === 'string' && /^[A-Z]{2,3}$/.test(value.key)) {
+      return { layerId: 'country', key: value.key };
+    }
+    if (value?.layerId === 'polity' && Number.isSafeInteger(value.key) && value.key >= 0 && id(value.name)) {
+      return { layerId: 'polity', key: value.key, name: value.name };
+    }
+    return null;
+  };
+  const source = value => {
+    if (value?.kind === 'events' && validYear(value.year)) return {
+      kind: 'events', year: value.year, eventId: id(value.eventId),
+      action: value.action === 'read' ? 'read' : 'map', scroll: number(value.scroll, 0, 1e7, 0),
+      disclosures: Array.isArray(value.disclosures) ? value.disclosures.slice(0, 8).map(open => open === true) : [],
+    };
+    return { kind: value?.kind === 'summary' ? 'summary' : 'map' };
+  };
+  const frame = value => ({
+    bookId: id(value?.bookId), topicId: id(value?.topicId), entity: entity(value?.entity), detail: id(value?.detail),
+    year: validYear(value?.year) ? value.year : maxYear,
+    scroll: number(value?.scroll, 0, 1e7, 0),
+    position: position(value?.position), linkEntry: value?.linkEntry === true,
+    catalog: value?.catalog === true, library: value?.library === true,
+    catalogContinent: id(value?.catalogContinent) || '全部', catalogScroll: number(value?.catalogScroll, 0, 1e7, 0),
+  });
+  const readState = value => ({
+    ...frame(value), source: source(value?.source), viewMode: value?.viewMode === 'full' ? 'full' : 'half',
+    trail: Array.isArray(value?.trail) ? value.trail.slice(-MAX_READING_TRAIL).map(frame) : [],
+  });
+  const exploreState = value => {
+    const layerId = value?.layerId === 'polity' ? 'polity' : 'country';
+    const selection = entity(value?.selection);
+    const point = value?.selection?.point;
+    if (selection && point && Number.isFinite(point.x) && Number.isFinite(point.y) &&
+        point.x >= 0 && point.x <= 1000 && point.y >= 0 && point.y <= 500) selection.point = { x: point.x, y: point.y };
+    return {
+      year: validYear(value?.year) ? value.year : maxYear, layerId, camera: camera(value?.camera),
+      radius: number(value?.radius, 1, 1e5, null),
+      natural: value?.natural === true, followTime: value?.followTime !== false,
+      labels: value?.labels !== false, grid: value?.grid === true,
+      selection: selection?.layerId === layerId ? selection : null,
+      summary: { detent: ['peek', 'half', 'full', 'custom'].includes(value?.summary?.detent) ? value.summary.detent : 'peek',
+        offset: number(value?.summary?.offset, 0, 1e5, 0), scroll: number(value?.summary?.scroll, 0, 1e7, 0) },
+    };
+  };
+
+  let mode = 'Explore', explore = exploreState(), observe = null, lastRead = null;
+  const read = readState();
+  const progress = new Map();
+  return {
+    get mode() { return mode; }, get explore() { return explore; }, get observe() { return observe; },
+    read, validYear, camera, position, frame, source,
+    updateExplore(value) { if (mode === 'Explore') explore = exploreState(value); },
+    enterRead(value) {
+      if (mode === 'Read' || mode === 'Observe' && observe.origin !== 'Explore') return false;
+      Object.assign(read, readState(value));
+      mode = 'Read';
+      return true;
+    },
+    navigateReading(value) {
+      if (mode !== 'Read') return false;
+      const next = frame({ ...read, ...value });
+      if (next.bookId === read.bookId && next.topicId === read.topicId && next.detail === read.detail &&
+          next.catalog === read.catalog && next.library === read.library &&
+          next.entity?.layerId === read.entity?.layerId && next.entity?.key === read.entity?.key) return false;
+      read.trail.push(frame(read));
+      if (read.trail.length > MAX_READING_TRAIL) read.trail.shift();
+      Object.assign(read, next);
+      return true;
+    },
+    backReading() {
+      if (mode !== 'Read' || !read.trail.length) return false;
+      Object.assign(read, read.trail.pop());
+      return true;
+    },
+    exitRead() {
+      if (mode !== 'Read') return false;
+      lastRead = readState(read);
+      mode = observe ? 'Observe' : 'Explore';
+      return true;
+    },
+    enterObserve(value) {
+      if (observe) return false;
+      observe = { ...value, origin: mode, phase: -1, place: null };
+      mode = 'Observe';
+      return true;
+    },
+    updateObserve(value) { if (mode === 'Observe') Object.assign(observe, value); },
+    returnFromObserve() {
+      if (mode !== 'Observe') return null;
+      const previous = observe;
+      observe = null;
+      mode = previous.origin;
+      return previous;
+    },
+    readingProgress(key) { return progress.get(key); },
+    updateReadingPosition(key, chapter, value, scroll = 0) {
+      if (mode !== 'Read' || !id(key)) return;
+      progress.delete(key);
+      progress.set(key, { chapter: id(chapter), position: position(value), scroll: number(scroll, 0, 1e7, 0) });
+      if (progress.size > MAX_READING_PROGRESS) progress.delete(progress.keys().next().value);
+    },
+    serialize() {
+      const resumeRead = mode === 'Read' || mode === 'Observe' && observe.origin === 'Read';
+      return { schemaVersion: SESSION_SCHEMA, mode: resumeRead ? 'Read' : 'Explore', explore,
+        read: resumeRead ? readState(read) : lastRead, progress: [...progress] };
+    },
+    restore(value) {
+      if (value?.schemaVersion !== SESSION_SCHEMA) return null;
+      if (value.explore && typeof value.explore === 'object') explore = exploreState({ ...explore, ...value.explore });
+      lastRead = value.read && typeof value.read === 'object' ? readState(value.read) : null;
+      if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
+        if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
+        const [key, item] = entry;
+        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0) });
+      }
+      return { explore, read: value.mode === 'Read' ? lastRead : null };
+    },
+  };
+}
+
+const session = createSession({ minYear: YMIN, maxYear: YMAX });
+let sessionReady = false, sessionWriteTimer = 0, lastSessionWrite = '';
+
+function saveSession(immediate = false) {
+  if (!sessionReady) return;
+  clearTimeout(sessionWriteTimer);
+  if (!immediate) {
+    sessionWriteTimer = setTimeout(() => saveSession(true), 220);
+    return;
+  }
+  try {
+    const json = JSON.stringify(session.serialize());
+    if (json === lastSessionWrite) return;
+    localStorage.setItem(SESSION_KEY, json);
+    lastSessionWrite = json;
+  } catch {}
+}
+
+let exploreRevision = 0, pendingSessionSelection = null, pendingReadRestore = false;
+
+function exploreIntent() {
+  if (session.mode !== 'Explore') return;
+  exploreRevision++;
+  pendingSessionSelection = null;
+  if (pendingReadRestore) {
+    pendingReadRestore = false;
+    sessionReady = true;
+  }
+}
+
+function rememberExplore() {
+  if (session.mode !== 'Explore') return;
+  const focus = state.focus;
+  const selection = focus && { layerId: focus.layerId, key: focus.key, point: focus.point,
+    name: focus.layerId === 'polity' ? entityByKey(focus.layerId, focus.key)?.name : null };
+  const pending = pendingSessionSelection;
+  session.updateExplore({ year: state.year, layerId: state.layerId, camera: state, radius: view.R,
+    natural: chrome.natural, followTime: chrome.followTime, labels: chrome.labels, grid: chrome.grid,
+    selection: selection || pending?.selection,
+    summary: pending?.summary || { detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop } });
+}
+
+function cameraSettled() {
+  if (!sessionReady) return;
+  if (session.mode === 'Explore') { rememberExplore(); saveSession(); }
+  else if (session.mode === 'Observe') session.updateObserve({ camera: session.camera(state) });
+}
+
+function restoreExploreView() {
+  const context = session.explore;
+  const revision = ++exploreRevision;
+  pendingSessionSelection = context.selection ? context : null;
+  state.focus = null;
+  state.lift = 0;
+  state.year = context.year;
+  state.layerId = context.layerId;
+  chrome.natural = context.natural;
+  chrome.followTime = context.followTime;
+  chrome.labels = context.labels;
+  chrome.grid = context.grid;
+  Object.assign(state, context.camera);
+  const scale = context.radius ? view.R / context.radius : 1;
+  state.panX *= scale;
+  state.panY *= scale;
+  sheetState.detent = 'hidden';
+  sheetState.closingAnchor = null;
+  applySheetOffset(sheetDetents().hidden, false);
+  layout();
+  onYearChanged();
+
+  function restoreSelection() {
+    if (session.mode !== 'Explore' || revision !== exploreRevision) return;
+    pendingSessionSelection = null;
+    const { selection, summary } = context;
+    if (selection) {
+      const shape = partition.shapes.find(candidate => focusKeyOf(selection.layerId, candidate) === selection.key &&
+        (selection.layerId === 'country' || candidate.ent?.name === selection.name));
+      if (shape) {
+        selectEntity(selection.layerId, shape.id, selection.point);
+        sheetState.detent = summary.detent;
+        applySheetOffset(summaryOffset(summary), false);
+        sheetScroll.scrollTop = summary.scroll;
+      }
+    }
+    syncSheetIdentity();
+    syncHud();
+    invalidate();
+    if (sessionReady) { rememberExplore(); saveSession(); }
+  }
+  if (context.layerId === 'polity' && !polityState.loaded) ensurePolity().then(restoreSelection);
+  else restoreSelection();
+}
+
+function summaryOffset(summary) {
+  const detents = sheetDetents();
+  return summary.detent === 'custom' ? clamp(summary.offset, 0, detents.peek) : detents[summary.detent];
+}
+
+function restoreSession() {
+  rememberExplore();
+  let restored;
+  try { restored = session.restore(JSON.parse(localStorage.getItem(SESSION_KEY))); } catch {}
+  if (restored) {
+    restoreExploreView();
+    if (restored.read) {
+      const revision = exploreRevision;
+      const needsPolity = frame => !frame.catalog && !frame.library && !frame.bookId && !frame.topicId && frame.entity?.layerId === 'polity';
+      if (!polityState.loaded && [restored.read, ...restored.read.trail].some(needsPolity)) {
+        pendingReadRestore = true;
+        ensurePolity().then(() => {
+          pendingReadRestore = false;
+          if (session.mode === 'Explore' && revision === exploreRevision) resumeStoredReading(restored.read);
+          sessionReady = true;
+          saveSession(true);
+        });
+        return;
+      }
+      resumeStoredReading(restored.read);
+    }
+  }
+  sessionReady = true;
+}
+
+function saveVisibleSession() {
+  if (!sessionReady) return;
+  if (session.mode === 'Explore') rememberExplore();
+  if (session.mode === 'Read') rememberReading();
+  saveSession(true);
+}
+
+document.addEventListener('visibilitychange', () => { if (document.hidden) saveVisibleSession(); });
+addEventListener('pagehide', saveVisibleSession);
+
 /* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
 const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
 const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
 const readingBack = el('reading-back'), readingGrab = el('reading-grab');
-const reading = { active: false, topic: null, ent: null, detail: null, year: 0, scroll: 0, detailScroll: 0, snapshot: null, trigger: null };
-const readingPositions = new Map();
+const reading = session.read;
+Object.defineProperties(reading, {
+  active: { get: () => session.mode === 'Read' },
+  subject: { get: () => subjectsById.get(reading.bookId) || null },
+  topic: { get: () => TOPICS.find(topic => topic.id === reading.topicId) || null },
+  ent: { get: () => resolveReadingEntity(reading.entity) },
+});
+let readingTrigger = null, readingEntryPeers = [], readingPositionTimer = 0, readerResizeFrame = 0;
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
 let readerTouch = null;
 const readerEdgeWidth = 32;
-let readingViewMode = 'half';
+function resolveReadingEntity(ref) {
+  if (!ref) return null;
+  const ent = entityByKey(ref.layerId, ref.key);
+  return ent && (ref.layerId === 'country' || ent.name === ref.name) ? ent : null;
+}
 
 function canSplitReading() {
   return !reading.catalog && !reading.library &&
@@ -3877,37 +4197,72 @@ function canSplitReading() {
 }
 function isSplitReading() {
   return reading.active && canSplitReading() &&
-    (window.innerWidth >= 960 || readingViewMode === 'half');
+    (window.innerWidth >= 960 || reading.viewMode === 'half');
 }
 
 function pauseGlobe() {
   stopSheetMotion();
+  clearTimeout(globeTapTimer);
+  globeTapTimer = lastTapAt = 0;
+  pendingPolityTap = null;
+  pointers.clear();
+  drag = pinch = null;
   momentum.yaw = momentum.tilt = 0;
   cancelZoom();
+  cancelResetAnim();
   stopPanReturn();
   cancelAnimationFrame(liftRaf);
   cancelAnimationFrame(rafId);
   rafId = 0;
 }
 function readingKey() {
-  if (reading.subject) return 'subject:' + reading.subject.id;
-  if (reading.topic) return reading.ent ? reading.topic.id : 'home:' + reading.topic.id;
-  return 'atlas:' + reading.ent.layerId + ':' + reading.ent.key;
+  if (reading.bookId) return 'subject:' + reading.bookId;
+  if (reading.topicId) return 'topic:' + reading.topicId;
+  if (reading.entity) return 'atlas:' + reading.entity.layerId + ':' + reading.entity.key;
+  return null;
+}
+function readingBlocks() {
+  return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, .reading-sources')];
+}
+function blockFingerprint(node) {
+  const text = node.textContent.replace(/\s+/g, ' ').trim().slice(0, 160);
+  let hash = 2166136261;
+  for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
+  return (hash >>> 0).toString(36);
+}
+function captureReadingPosition() {
+  const top = bookBody.scrollTop;
+  if (top < 1) return session.position({ top });
+  const edge = bookBody.getBoundingClientRect().top;
+  const blocks = readingBlocks();
+  const index = blocks.findLastIndex(block => block.getBoundingClientRect().top <= edge);
+  if (index < 0) return session.position({ top });
+  const block = blocks[index], box = block.getBoundingClientRect();
+  return session.position({ top, block: blockFingerprint(block), index, offset: (edge - box.top) / Math.max(1, box.height) });
+}
+function restoreReadingPosition(position) {
+  bookBody.scrollTop = position.top;
+  if (!position.block) return;
+  const blocks = readingBlocks();
+  const matches = block => block && blockFingerprint(block) === position.block;
+  const block = matches(blocks[position.index]) ? blocks[position.index] : blocks.find(matches);
+  if (!block) return;
+  const box = block.getBoundingClientRect();
+  bookBody.scrollTop += box.top - bookBody.getBoundingClientRect().top + position.offset * box.height;
 }
 function rememberReading() {
+  clearTimeout(readingPositionTimer);
+  if (!reading.active) return;
   if (reading.catalog) { reading.catalogScroll = bookBody.scrollTop; return; }
   if (reading.library) { reading.scroll = bookBody.scrollTop; return; }
-  if (reading.subject) {
-    if (reading.detail) {
-      reading.detailScroll = bookBody.scrollTop;
-      subjectProgress.set(reading.subject.id, { chapter: reading.detail, offset: reading.detailScroll });
-    } else reading.scroll = bookBody.scrollTop;
-    return;
+  if (reading.detail) {
+    reading.position = captureReadingPosition();
+    session.updateReadingPosition(readingKey(), reading.detail, reading.position, reading.scroll);
+  } else {
+    reading.scroll = bookBody.scrollTop;
+    const previous = session.readingProgress(readingKey());
+    if (!reading.bookId || previous) session.updateReadingPosition(readingKey(), previous?.chapter, previous?.position, reading.scroll);
   }
-  if (!reading.ent && !reading.topic) return;
-  if (reading.detail) reading.detailScroll = bookBody.scrollTop;
-  else reading.scroll = bookBody.scrollTop;
-  readingPositions.set(readingKey(), { scroll: reading.scroll, detail: reading.detail, detailScroll: reading.detailScroll });
 }
 function readingBackground(inert) {
   const split = inert && isSplitReading();
@@ -3929,49 +4284,61 @@ function readingBackground(inert) {
   layout();
 }
 function openBook(fromOffset = null, viewMode = 'half', velocity = 0) {
-  if (reading.active) return;
+  if (session.mode !== 'Explore') return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
   beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent), {viewMode, velocity});
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {returnTo = null, entryYear = state.year, viewMode = 'half', velocity = 0} = {}) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year, viewMode = 'half', velocity = 0} = {}) {
+  if (reading.active) return;
+  if (session.mode === 'Explore') rememberExplore();
+  else if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView() });
+  const entity = ent && { layerId: ent.layerId, key: ent.key, name: ent.name };
+  const key = topic ? 'topic:' + topic.id : ent ? 'atlas:' + ent.layerId + ':' + ent.key : null;
+  const saved = subject ? null : session.readingProgress(key);
+  const detail = chapter || saved?.chapter;
+  const position = saved?.chapter === detail ? saved?.position : null;
+  if (!session.enterRead({ bookId: subject?.id, topicId: topic?.id, entity, detail, position,
+    scroll: saved?.scroll, year: entryYear, viewMode,
+    source: source || (ent ? { kind: 'summary' } : { kind: 'map' }), catalog: !ent && !topic && !subject })) return;
+  readingTrigger = document.activeElement;
+  readingEntryPeers = state.focus?.atlasPeers || [];
+  if (!canSplitReading()) reading.viewMode = 'full';
   pauseGlobe();
-  reading.snapshot = {
-    year: state.year, layerId: state.layerId, focus: state.focus && { ...state.focus },
-    yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
-    natural: chrome.natural, detent: sheetState.detent, offset: sheetState.offset, scroll: sheetScroll.scrollTop,
-  };
-  reading.ent = ent && { ...ent };
-  reading.trail = [];
-  reading.linkEntry = false;
-  reading.catalog = !ent && !topic && !subject;
-  reading.library = false;
-  reading.catalogContinent = '全部';
-  reading.catalogScroll = 0;
-  reading.topic = topic;
-  reading.subject = subject;
-  reading.year = entryYear;
-  reading.trigger = document.activeElement;
-  reading.returnTo = returnTo;
-  const saved = reading.catalog || subject ? null : readingPositions.get(readingKey());
-  reading.detail = chapter || (saved ? saved.detail : null);
-  reading.scroll = saved ? saved.scroll : 0;
-  reading.detailScroll = saved && saved.detail === reading.detail ? saved.detailScroll : 0;
-  reading.active = true;
-  readingViewMode = canSplitReading() ? viewMode : 'full';
+  closeWorld();
   showReader(fromOffset, velocity);
+  saveSession(true);
 }
-function showReader(fromOffset, velocity = 0) {
+
+function validReadingFrame(frame) {
+  const book = subjectsById.get(frame.bookId);
+  const topic = TOPICS.find(item => item.id === frame.topicId);
+  const entity = resolveReadingEntity(frame.entity);
+  if (!frame.catalog && !frame.library && (frame.bookId ? !book : frame.topicId ? !topic : !entity)) return null;
+  const detail = (book || topic)?.chapters.some(chapter => chapter.id === frame.detail) ? frame.detail : null;
+  return { ...frame, bookId: book?.id, topicId: topic?.id, entity: entity ? frame.entity : null,
+    detail, position: detail ? frame.position : null };
+}
+function resumeStoredReading(stored) {
+  const valid = validReadingFrame(stored);
+  if (!valid || !session.enterRead({ ...valid, trail: stored.trail.map(validReadingFrame).filter(Boolean) })) return;
+  readingEntryPeers = state.focus?.atlasPeers || [];
+  pauseGlobe();
+  if (!canSplitReading()) reading.viewMode = 'full';
+  showReader(sheetDetents().hidden);
+}
+
+function showReader(fromOffset, velocity = 0, options) {
   closeYearControl();
   closeView(false);
   bookEl.hidden = false;
   readerLastDrag = -Infinity;
   readingBackground(true);
-  renderReading();
+  renderReading(options);
   if (innerWidth < 960) {
     applySheetOffset(fromOffset, false);
     mobileReaderPaint(fromOffset);
-    mobileReaderSnap(readingViewMode, { velocity });
+    mobileReaderSnap(reading.viewMode, { velocity });
   } else if (isSplitReading()) {
     readerPosition(0, 1);
   } else {
@@ -3981,9 +4348,7 @@ function showReader(fromOffset, velocity = 0) {
   el('reading-title').focus({ preventScroll: true });
 }
 function readerRestOffset() {
-  const { detent, offset } = reading.snapshot;
-  const detents = sheetDetents();
-  return detent === 'custom' ? clamp(offset, 0, detents.peek) : detents[detent];
+  return session.explore.selection ? summaryOffset(session.explore.summary) : sheetDetents().hidden;
 }
 function readerPosition(offset, range = readerRestOffset()) {
   const progress = clamp(offset / Math.max(1, range), 0, 1);
@@ -4002,7 +4367,7 @@ function readerPosition(offset, range = readerRestOffset()) {
   sheetEl.style.borderRadius = (progress * 22) + 'px ' + (progress * 22) + 'px 0 0';
   document.body.style.setProperty('--reader-hud', hud);
   document.body.classList.toggle('reader-revealing', hud > 0);
-  if (summary > 0 && sheetScroll.scrollTop !== reading.snapshot.scroll) sheetScroll.scrollTop = reading.snapshot.scroll;
+  if (summary > 0 && sheetScroll.scrollTop !== session.explore.summary.scroll) sheetScroll.scrollTop = session.explore.summary.scroll;
 }
 function stopReaderMotion() {
   cancelAnimationFrame(readerMotion);
@@ -4037,7 +4402,7 @@ function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false }
 }
 function collapseReader(velocity = 0) {
   if (!reading.active) return;
-  if (innerWidth < 960) { mobileReaderSnap(readingViewMode === 'full' && canSplitReading() ? 'half' : 'peek'); return; }
+  if (innerWidth < 960) { mobileReaderSnap(reading.viewMode === 'full' && canSplitReading() ? 'half' : 'peek'); return; }
   if (isSplitReading()) { closeReader(); return; }
   animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
 }
@@ -4184,32 +4549,22 @@ function connectionsMarkup(topic, item) {
 function followReadingTopic(topicId, chapterId) {
   const target = TOPICS.find((t) => t.id === topicId);
   if (!target) return;
+  const saved = session.readingProgress('topic:' + target.id);
+  const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
+  const position = detail && saved?.chapter === detail ? saved.position : null;
+  navigateReading({ catalog: false, library: false, bookId: null, topicId: target.id, detail,
+    scroll: saved?.scroll || 0, position, linkEntry: true });
+}
+function navigateReading(target) {
+  if (!reading.active) return;
   rememberReading();
-  reading.trail.push(readingFrame());
-  reading.catalog = false;
-  reading.library = false;
-  reading.subject = null;
-  reading.topic = target;
-  reading.detail = target.chapters.some((c) => c.id === chapterId) ? chapterId : null;
-  reading.scroll = reading.detailScroll = 0;
-  reading.linkEntry = true;
+  if (!session.navigateReading(target)) return;
   renderReading();
   el('reading-title').focus({preventScroll:true});
-}
-function readingFrame() {
-  return {ent:reading.ent, subject:reading.subject, library:reading.library, topic:reading.topic,
-    detail:reading.detail, year:reading.year, scroll:reading.scroll, detailScroll:reading.detailScroll,
-    linkEntry:reading.linkEntry, catalog:reading.catalog, catalogContinent:reading.catalogContinent, catalogScroll:reading.catalogScroll};
+  saveSession(true);
 }
 function openReadingCatalog() {
-  rememberReading();
-  reading.trail.push(readingFrame());
-  reading.catalog = true;
-  reading.library = false;
-  reading.catalogContinent = '全部';
-  reading.catalogScroll = 0;
-  renderReading();
-  el('reading-title').focus({preventScroll:true});
+  if (!reading.catalog) navigateReading({ catalog: true, library: false, catalogContinent: '全部', catalogScroll: 0 });
 }
 function renderReadingCatalog() {
   const continents = ['全部','亚洲','非洲','欧洲','北美洲','南美洲','大洋洲'];
@@ -4253,7 +4608,8 @@ function renderReading({ preserveSplitScene = false } = {}) {
     bookBody.innerHTML = subject
       ? chapter ? renderSubjectChapter(subject, chapter) : renderSubjectOutline(subject)
       : renderAtlasReading();
-    bookBody.scrollTop = chapter ? reading.detailScroll : reading.scroll;
+    if (chapter) restoreReadingPosition(reading.position);
+    else bookBody.scrollTop = reading.scroll;
     if (innerWidth >= 960 && subject && isSplitReading()) {
       // Opening the table of contents must not jump the globe back to the first scene.
       if (!preserveSplitScene) syncSubjectGlobeForReading(subject, chapter);
@@ -4273,19 +4629,25 @@ function renderReading({ preserveSplitScene = false } = {}) {
       readingRows(items.map((chapter) => readingRow(chapter)), '专题篇目') +
       connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
   }
-  bookBody.scrollTop = item ? reading.detailScroll : reading.scroll;
+  if (item) restoreReadingPosition(reading.position);
+  else bookBody.scrollTop = reading.scroll;
   syncSheetIdentity();
 }
-function openReadingDetail(id, offset = 0) {
-  if (reading.detail) rememberReading();
+function openReadingDetail(id, position = null) {
+  if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id) || reading.detail === id) return;
+  rememberReading();
+  const previous = reading.topicId && session.readingProgress(readingKey());
+  if (!position && previous?.chapter === id) position = previous.position;
   reading.linkEntry = false;
-  if (!reading.detail) reading.scroll = bookBody.scrollTop;
   reading.detail = id;
-  reading.detailScroll = offset;
+  reading.position = session.position(position);
   renderReading();
   el('reading-title').focus({ preventScroll: true });
+  rememberReading();
+  saveSession(true);
 }
 function readingIndex() {
+  if (!reading.active) return;
   const selected = reading.detail;
   rememberReading();
   reading.linkEntry = false;
@@ -4294,74 +4656,70 @@ function readingIndex() {
   renderReading({preserveSplitScene});
   const row = [...bookBody.querySelectorAll('.reading-row')].find((button) => button.dataset.readingDetail === selected);
   (row || el('reading-title')).focus({ preventScroll: true });
+  saveSession(true);
 }
 function readingGoBack() {
+  if (!reading.active || closeTopNavigationPanel()) return;
   if (!reading.catalog && !reading.library && reading.subject && reading.detail !== null && !reading.linkEntry) {
     readingIndex();
     return;
   }
   if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
-    rememberReading(); Object.assign(reading, reading.trail.pop()); renderReading();
+    rememberReading(); session.backReading(); renderReading();
     (readingBack.hidden ? el('reading-title') : readingBack).focus({preventScroll:true});
+    saveSession(true);
   } else if (reading.detail !== null) readingIndex();
-  else collapseReader();
+  else closeReader();
 }
-function closeReader({restore = true, returnToOrigin = true} = {}) {
-  if (!reading.active) return;
-  rememberReading();
+function hideReader() {
+  clearTimeout(readingPositionTimer);
+  cancelAnimationFrame(readerResizeFrame);
   stopReaderMotion();
   clearSplitScene();
   readerDrag = null;
   readerTouch = null;
   stopSheetMotion();
   mobileReaderDrag = null;
+  mobileScrollHandoff = null;
   sheetEl.classList.remove('dragging');
   document.body.classList.remove('reader-gesture');
   bookEl.style.transform = '';
   bookBar.classList.remove('collapse-ready');
   closeFootnote();
-  const snap = reading.snapshot;
-  const { detent, scroll } = snap;
-  reading.active = false;
   bookEl.hidden = true;
   document.body.classList.remove('reader-revealing', 'reading-split');
   sheetEl.style.borderRadius = '';
   for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
   document.body.style.removeProperty('--reader-hud');
-  if (restore) {
-    state.year = snap.year;
-    state.layerId = snap.layerId;
-    state.focus = snap.focus;
-    state.yaw = snap.yaw;
-    state.tilt = snap.tilt;
-    state.zoom = snap.zoom;
-    state.panX = snap.panX;
-    state.panY = snap.panY;
-    state.lift = snap.lift;
-    chrome.natural = snap.natural;
-    onYearChanged();
-  }
-  sheetState.detent = detent;
-  applySheetOffset(readerRestOffset(), false);
-  sheetScroll.scrollTop = scroll;
   readingBackground(false);
+}
+function closeReader() {
+  if (!reading.active || closeTopNavigationPanel()) return;
+  rememberReading();
+  const source = reading.source;
+  session.exitRead();
+  hideReader();
+  if (session.mode === 'Observe') {
+    sheetState.detent = 'hidden';
+    applySheetOffset(sheetDetents().hidden, false);
+    resumeEventMap();
+  } else {
+    restoreExploreView();
+    if (source.kind === 'events') restoreWorldSource(source);
+    else {
+      const fallback = state.focus ? sheetInner.querySelector('[data-read-subject]') || grabEl : canvas;
+      const trigger = readingTrigger?.isConnected && readingTrigger !== document.body ? readingTrigger : fallback;
+      trigger.focus({ preventScroll: true });
+    }
+  }
+  readingTrigger = null;
+  readingEntryPeers = [];
   syncSheetIdentity();
-  const returnTo = reading.returnTo;
-  reading.returnTo = null;
-  if (restore && returnToOrigin && returnTo) { returnTo(); invalidate(); return; }
-  const fallback = sheetInner.querySelector('[data-read-subject]') || grabEl;
-  (returnToOrigin && reading.trigger?.isConnected && reading.trigger !== document.body ? reading.trigger :
-    (snap.focus ? fallback : canvas)).focus({ preventScroll: true });
   invalidate();
+  saveSession(true);
 }
 function handleReadingKey(e) {
   if (!reading.active) return false;
-  if (e.key === 'Escape') {
-    e.preventDefault();
-    if (!el('footnote-popover').hidden) closeFootnote();
-    else readingGoBack();
-    return true;
-  }
   if (e.key === 'Tab' && !isSplitReading()) {
     const focusable = [...sheetEl.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href]')]
       .filter(node => node.getClientRects().length && !node.closest('[inert]'));
@@ -4374,30 +4732,48 @@ function handleReadingKey(e) {
 sheetInner.addEventListener('click', (e) => {
   if (e.target.closest('[data-read-subject]')) openBook();
 });
-function closeFootnote() {
+let footnoteTrigger = null;
+function closeFootnote(restoreFocus = false) {
   el('footnote-popover').hidden = true;
   el('footnote-shade').hidden = true;
+  if (restoreFocus && footnoteTrigger?.isConnected) footnoteTrigger.focus({ preventScroll: true });
+  footnoteTrigger = null;
 }
 function openFootnote(link) {
   const source = bookBody.querySelector(link.getAttribute('href'));
   if (!source) return false;
   el('footnote-heading').textContent = '史料与注释 · ' + link.textContent.trim();
+  footnoteTrigger = link;
   el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
   el('footnote-link').href = source.href;
   el('footnote-shade').hidden = el('footnote-popover').hidden = false;
   el('footnote-close').focus({ preventScroll: true });
   return true;
 }
-el('footnote-close').addEventListener('click', closeFootnote);
-el('footnote-shade').addEventListener('click', closeFootnote);
+el('footnote-close').addEventListener('click', () => closeFootnote(true));
+el('footnote-shade').addEventListener('click', () => closeFootnote(true));
 bookBody.addEventListener('click', (event) => {
   const ref = event.target.closest('a[href^="#reading-source-"]');
   if (ref && openFootnote(ref)) event.preventDefault();
 });
 
 bookBody.addEventListener('scroll', () => {
+  if (!reading.active) return;
+  if (!readingPositionTimer) readingPositionTimer = setTimeout(() => {
+    readingPositionTimer = 0;
+    rememberReading();
+    saveSession();
+  }, 100);
   if (innerWidth >= 960 && isSplitReading()) scheduleSplitScrollSync();
 }, { passive: true });
+addEventListener('resize', () => {
+  if (!reading.active || !reading.detail || !reading.position.block) return;
+  const position = reading.position, detail = reading.detail;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = requestAnimationFrame(() => {
+    if (reading.active && reading.detail === detail && position === reading.position) restoreReadingPosition(position);
+  });
+});
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
@@ -4413,12 +4789,9 @@ bookBody.addEventListener('click', (e) => {
   else if (b.hasAttribute('data-reading-index')) readingIndex();
   else handleSubjectButton(b);
 });
-readingBack.addEventListener('click', readingGoBack);
+readingBack.addEventListener('click', () => { if (!readingBack.hidden) readingGoBack(); });
 function dismissReading() {
-  if (!reading.active) return;
-  const returnToPreview = reading.snapshot.focus && !reading.returnTo;
   closeReader();
-  if (returnToPreview) sheetTo('peek', false);
 }
 el('sheet-close').addEventListener('click', () => {
   if (innerWidth < 960 && reading.active) mobileReaderSnap('peek');
@@ -4467,7 +4840,7 @@ function setReadingViewMode(mode) {
   if (!reading.active || !['half', 'full'].includes(mode)) return;
   rememberReading();
   const scroll = bookBody.scrollTop;
-  readingViewMode = mode;
+  reading.viewMode = mode;
   stopReaderMotion();
   readingBackground(true);
   readerPosition(0, 1);
@@ -4477,7 +4850,8 @@ function setReadingViewMode(mode) {
     const chapter = reading.subject.chapters.find(c => c.id === reading.detail);
     syncSubjectGlobeForReading(reading.subject, chapter);
   } else clearSplitScene();
-  bookBody.scrollTop = scroll;
+  if (reading.detail) restoreReadingPosition(reading.position);
+  else bookBody.scrollTop = scroll;
   syncSheetIdentity();
   invalidate();
 }
@@ -4494,7 +4868,7 @@ function refreshReadingViewport() {
 function mobileReaderPaint(offset) {
   const { hidden, peek, half } = sheetDetents();
   const pass = clamp((offset - half) / Math.max(1, peek - half), 0, 1);
-  const summary = reading.snapshot.focus ? clamp((pass - .52) / .48, 0, 1) : 0;
+  const summary = session.explore.selection ? clamp((pass - .52) / .48, 0, 1) : 0;
   const article = 1 - clamp((pass - .26) / .58, 0, 1);
   sheetEl.style.transition = 'none';
   sheetEl.style.setProperty('--reader-summary', summary);
@@ -4513,7 +4887,7 @@ function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = nu
   stopReaderMotion();
   mobileReaderDrag = {
     source, pointerId, startY:clientY,
-    startOffset:sheetState.offset, startMode:canSplitReading() ? readingViewMode : 'full',
+    startOffset:sheetState.offset, startMode:canSplitReading() ? reading.viewMode : 'full',
     moved:false, samples:[{y:clientY,t:timeStamp}],
   };
   return true;
@@ -4554,17 +4928,18 @@ function mobileReaderSnap(mode, { immediate = false, velocity = 0 } = {}) {
     if (mode === 'peek') closeReader();
     return;
   }
-  const end = sheetDetents()[mode === 'peek' && !reading.snapshot.focus ? 'hidden' : mode];
+  const end = sheetDetents()[mode === 'peek' && !session.explore.selection ? 'hidden' : mode];
   const finish = () => {
     if (mode === 'peek') {
       dismissReading();
       return;
     }
-    readingViewMode = mode;
+    reading.viewMode = mode;
     readingBackground(true);
     refreshReadingViewport();
     syncSheetIdentity();
     invalidate();
+    saveSession();
   };
   settleSheet(end, mobileReaderPaint, finish, velocity, !immediate);
 }
@@ -4648,7 +5023,6 @@ const subjectsByPolity = new Map(subjectBooks.flatMap((book) => book.polityIds.m
   [id, { book, name: book.polities[i] }])));
 const subjectsByEvent = new Map(subjectBooks.flatMap((book) => book.chapters.flatMap((chapter) =>
   (chapter.eventIds || []).map((id) => [id, { book, chapter }]))));
-const subjectProgress = new Map();
 
 const coversYear = ({ from, to }, year) => year >= from && (to == null || year <= to);
 function subjectBookForEntity(entity, year = state.year) {
@@ -4717,7 +5091,7 @@ function subjectNeighbors() {
   if (!reading.ent) return '';
   const currentBook = reading.subject?.id;
   const seen = new Set();
-  const candidates = (reading.snapshot.focus?.atlasPeers || []).filter((id) => id !== reading.ent.entId)
+  const candidates = readingEntryPeers.filter((id) => id !== reading.ent.entId)
     .map((id) => entityByKey('polity', id)).filter(Boolean).flatMap((entity) => {
       const linked = subjectBookForEntity(entity, reading.year);
       const key = linked?.id ?? entity.entId;
@@ -4751,7 +5125,8 @@ function renderAtlasReading() {
 
 function renderSubjectOutline(book) {
   const anchor = book.chapters.find((c) => coversYear(c, reading.year));
-  const progress = subjectProgress.get(book.id);
+  const saved = session.readingProgress('subject:' + book.id);
+  const progress = saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
   return readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
     (progress ? '<button type="button" data-subject-resume>继续阅读' + readingArrow + '</button>' : '') +
@@ -4869,7 +5244,7 @@ function renderSubjectChapter(book, chapter) {
       return headingHtml +
         '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
         calloutHtml +
-        (!worldEvent ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
+        (!session.observe ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
     }).join('') + '</article>' +
     contemporaries +
     (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
@@ -4905,18 +5280,15 @@ function renderSubjectLibrary() {
 }
 
 function followSubject({ book = null, chapter = null, entity = null, library = false } = {}) {
-  rememberReading();
-  reading.trail.push(readingFrame());
-  Object.assign(reading, { ent: entity, subject: book, topic: null, detail: chapter?.id || null,
-    library, catalog: false, scroll: 0, detailScroll: 0, linkEntry: true });
-  renderReading();
-  el('reading-title').focus({ preventScroll: true });
+  const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
+  navigateReading({ entity: ref, bookId: book?.id, topicId: null, detail: chapter?.id,
+    library, catalog: false, scroll: 0, position: null, linkEntry: true });
 }
 
 function handleSubjectButton(button) {
   if (button.hasAttribute('data-subject-resume')) {
-    const saved = subjectProgress.get(reading.subject.id);
-    if (saved) openReadingDetail(saved.chapter, saved.offset);
+    const saved = session.readingProgress(readingKey());
+    if (saved) openReadingDetail(saved.chapter, saved.position);
   } else if (button.hasAttribute('data-subject-library')) followSubject({ library: true });
   else if (button.hasAttribute('data-subject-book')) {
     const book = subjectsById.get(button.dataset.subjectBook);
@@ -4950,6 +5322,7 @@ const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => sce
 let worldEvent = null;
 let splitScene = null;
 let globeFlyRaf = 0;
+let readingMapTarget = null;
 
 const ROUTE_STYLES = {
   military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
@@ -4989,6 +5362,7 @@ function shortestYawDelta(from, to) {
 }
 
 function cancelGlobeFly(userInitiated = false) {
+  readingMapTarget = null;
   if (globeFlyRaf) {
     cancelAnimationFrame(globeFlyRaf);
     globeFlyRaf = 0;
@@ -4997,6 +5371,27 @@ function cancelGlobeFly(userInitiated = false) {
     splitScene.userMoved = true;
     splitGlobeReset.hidden = false;
   }
+}
+
+function captureGlobeView() {
+  if (reading.active && readingMapTarget) return readingMapTarget;
+  const { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift } = state;
+  return { year, layerId, focus: focus && { ...focus }, yaw, tilt, zoom, panX, panY, lift, natural: chrome.natural };
+}
+
+function projectGlobeView({ natural, ...globe }) {
+  Object.assign(state, globe);
+  chrome.natural = natural;
+  onYearChanged();
+  layout();
+}
+
+function resumeEventMap() {
+  const markers = [...(worldEvent.points?.values() || [])].map(place => place.mark);
+  eventMapPoints.replaceChildren(...markers);
+  eventMapPoints.hidden = !markers.length;
+  projectGlobeView(session.observe.readingView);
+  eventMapRead.focus({ preventScroll: true });
 }
 
 function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
@@ -5009,6 +5404,7 @@ function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
     state.panY = panY;
     view.Rz = view.R * state.zoom;
     invalidate();
+    cameraSettled();
     return;
   }
   const y0 = state.yaw, t0 = state.tilt, z0 = state.zoom;
@@ -5019,14 +5415,14 @@ function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
     const p = clamp((now - start) / duration, 0, 1);
     const e = 1 - Math.pow(1 - p, 3);
     state.yaw = p < 1 ? y0 + dy * e : yaw;
-    state.tilt = t0 + dt * e;
-    state.zoom = z0 + dz * e;
+    state.tilt = p < 1 ? t0 + dt * e : tilt;
+    state.zoom = p < 1 ? z0 + dz * e : zoom;
     state.panX = lerp(px0, panX, e);
     state.panY = lerp(py0, panY, e);
     view.Rz = view.R * state.zoom;
     invalidate();
     if (p < 1) globeFlyRaf = requestAnimationFrame(step);
-    else globeFlyRaf = 0;
+    else { globeFlyRaf = 0; readingMapTarget = null; cameraSettled(); }
   };
   globeFlyRaf = requestAnimationFrame(step);
 }
@@ -5169,7 +5565,7 @@ function drawSceneRoutes(ctxObj, matrix) {
 }
 
 function activeSceneFocusPolities() {
-  const ctxObj = worldEvent && !reading.active ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
   if (!ctxObj) return null;
   const list = ctxObj.activeFocusPolities || ctxObj.focusPolities;
   return list?.length ? new Set(list) : null;
@@ -5248,7 +5644,7 @@ function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds 
 }
 
 function drawEventMap(hudBounds) {
-  const ctxObj = worldEvent && !reading.active ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
   if (!ctxObj) return;
   const matrix = rotation();
   if (ctxObj.routes?.length && ctxObj.points) {
@@ -5306,6 +5702,7 @@ function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {})
   ctxObj.selected = null;
 
   const year = step ? step.year : ctxObj.baseYear;
+  if (!split) session.updateObserve({ year });
   ctxObj.activePlaceIds = step?.places?.length ? new Set(step.places) : null;
   ctxObj.activeRouteIndices = step?.routes?.length ? new Set(step.routes) : null;
   ctxObj.activeFocusPolities = step?.focusPolities?.length ? step.focusPolities : (ctxObj.focusPolities || null);
@@ -5342,20 +5739,19 @@ function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {})
 }
 
 function showEventMap({year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route}) {
+  session.updateObserve({ id: route.sceneId || String(route.event.id), year, phase: -1, place: null });
   worldEvent = {
-    ...route, baseYear: year, summary, selected: null, points: null, regionVector: null,
+    ...route, baseYear: year, summary, points: null, regionVector: null,
     routes: routes ? routes.map((r) => ({ ...r })) : [],
     steps: steps || [],
     focusPolities: focusPolities || null,
     activeFocusPolities: focusPolities || null,
     activePlaceIds: null,
     activeRouteIndices: null,
-    stepIdx: -1,
-    camera: {
-      year: state.year, layerId: state.layerId, focus: state.focus, yaw: state.yaw, tilt: state.tilt,
-      zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift,
-    },
-    natural: chrome.natural,
+    get stepIdx() { return session.observe?.phase ?? -1; },
+    set stepIdx(phase) { session.updateObserve({ phase }); },
+    get selected() { return session.observe?.place ?? null; },
+    set selected(place) { session.updateObserve({ place }); },
   };
   pauseGlobe();
   cancelGlobeFly(false);
@@ -5416,17 +5812,21 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) {
     selectEventPlace(initialPlaceId);
   }
+  session.updateObserve({ camera: session.camera(state) });
   eventMapReturn.focus({ preventScroll: true });
+  saveSession(true);
 }
 
-function openWorldEvent(event, row) {
-  if (!event || worldEvent || reading.active) return;
+function openWorldEvent(event) {
+  if (!event || session.mode !== 'Explore') return;
   const year = clamp(state.year, event.start, event.point ? event.start : event.end);
   const target = worldEventTarget(event, year);
   const story = target?.chapter.mapStory;
   const scene = target && scenesByEvent.get(event.id);
   const region = event.regionRef || regionById.get(event.region);
-  showEventMap({ event, target, row, scroll: overlayBody.scrollTop, year,
+  rememberExplore();
+  if (!session.enterObserve({ kind: 'event', source: worldSource(String(event.id), 'map') })) return;
+  showEventMap({ event, target, year,
     readingTarget: worldReadingTarget(event, year),
     title: timelineItem(event).title || event.zh,
     summary: scene?.summary || story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
@@ -5436,36 +5836,21 @@ function openWorldEvent(event, row) {
 }
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
-  if (!scene || worldEvent || !reading.active) return;
-  // A scene plate opens the dedicated observation view even from half reading.
-  // The split globe remains a passive illustration until the user chooses this action.
+  if (!scene || !reading.active || session.observe) return;
   rememberReading();
-  const session = { ...readingFrame(), snapshot: reading.snapshot, trigger: reading.trigger, trail: reading.trail, returnTo: reading.returnTo };
-  const width = bookBody.clientWidth;
-  const paragraph = trigger?.previousElementSibling?.matches('p') ? trigger.previousElementSibling : trigger;
-  const offsetInReader = node => node.getBoundingClientRect().top - bookBody.getBoundingClientRect().top;
-  const paragraphOffset = paragraph ? offsetInReader(paragraph) : 0;
-  closeReader({restore: false});
-  const sceneOrder = reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [];
-  showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId, historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文',
-    resume() {
-      Object.assign(reading, session, {active:true});
-      showReader(sheetDetents().hidden);
-      const button = [...bookBody.querySelectorAll('[data-subject-scene]')].find(node => node.dataset.subjectScene === scene.id);
-      if (button) {
-        const anchor = paragraph === trigger ? button : button.previousElementSibling;
-        if (bookBody.clientWidth === width || !anchor) bookBody.scrollTop = session.detailScroll;
-        else bookBody.scrollTop += offsetInReader(anchor) - paragraphOffset;
-        button.focus({preventScroll:true});
-      }
-    },
-  });
+  const returnView = captureGlobeView();
+  const split = splitScene && { id: splitScene.sceneId, phase: splitScene.stepIdx, place: splitScene.selected };
+  if (!session.enterObserve({ kind: 'scene', returnView, split,
+    source: { sceneId: scene.id, triggerPlace: trigger?.dataset.pinPlace || null } })) return;
+  hideReader();
+  const sceneOrder = [...new Set(reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [])];
+  showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId,
+    historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文' });
 }
 
 function returnToWorld() {
-  if (!worldEvent || reading.active) return;
-  const { camera, natural, row, scroll, resume } = worldEvent;
-  const sceneCamera = { yaw:state.yaw, tilt:state.tilt, zoom:state.zoom, panX:state.panX, panY:state.panY };
+  if (session.mode !== 'Observe' || closeTopNavigationPanel()) return;
+  const previous = session.returnFromObserve();
   worldEvent = null;
   pauseGlobe();
   cancelGlobeFly(false);
@@ -5476,17 +5861,32 @@ function returnToWorld() {
   el('event-map-navigation').hidden = true;
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
-  Object.assign(state, camera);
-  if (resume && innerWidth < 960 && !reducedGlobeMotion.matches) Object.assign(state, sceneCamera);
-  chrome.natural = natural;
-  onYearChanged();
-  layout();
-  if (resume) {
-    resume();
-    if (innerWidth < 960) flyGlobeTo({ ...camera, duration:420 });
-    return;
+  if (previous.origin === 'Read') {
+    const sceneCamera = session.camera(state);
+    projectGlobeView(previous.returnView);
+    showReader(sheetDetents().hidden, 0, { preserveSplitScene: true });
+    if (previous.split && innerWidth >= 960 && isSplitReading()) {
+      const scene = historicalScenes.get(previous.split.id);
+      if (scene) syncSplitScene(scene, { stepIdx: previous.split.phase, force: true });
+      if (previous.split.place) selectEventPlace(previous.split.place, true);
+      cancelGlobeFly(false);
+      projectGlobeView(previous.returnView);
+    } else if (innerWidth < 960 && !reducedGlobeMotion.matches) {
+      Object.assign(state, sceneCamera);
+      flyGlobeTo({ ...previous.returnView, duration:420 });
+      readingMapTarget = previous.returnView;
+    }
+    const { sceneId, triggerPlace } = previous.source;
+    const buttons = [...bookBody.querySelectorAll(triggerPlace ? '[data-pin-scene]' : '[data-subject-scene]')];
+    const button = buttons.find(node => triggerPlace
+      ? node.dataset.pinScene === sceneId && node.dataset.pinPlace === triggerPlace
+      : node.dataset.subjectScene === sceneId);
+    (button || el('reading-title')).focus({ preventScroll: true });
+  } else {
+    restoreExploreView();
+    restoreWorldSource(previous.source);
   }
-  restoreWorld(row, scroll);
+  saveSession(true);
 }
 
 /* ── 桌面端书球同屏联动（Split-View） ── */
@@ -5589,11 +5989,12 @@ function scheduleSplitScrollSync() {
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
-  if (target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, { entryYear:target.year });
+  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book,
+    { entryYear:target.year, source:session.observe.source });
 });
 
 function selectEventPlace(id, forceSelect = false) {
-  const ctxObj = worldEvent && !reading.active ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
   if (!ctxObj?.points) return;
   ctxObj.selected = (!forceSelect && ctxObj.selected === id) ? null : id;
   const selected = ctxObj.points.get(ctxObj.selected);
@@ -5622,7 +6023,7 @@ eventMapPoints.addEventListener('click', (event) => {
 });
 eventMapSteps.addEventListener('click', (event) => {
   const btn = event.target.closest('[data-scene-step]');
-  if (btn && worldEvent) applySceneStep(worldEvent, Number(btn.dataset.sceneStep), { animate: true, split: false });
+  if (btn && session.mode === 'Observe') applySceneStep(worldEvent, Number(btn.dataset.sceneStep));
 });
 splitGlobeSteps.addEventListener('click', (event) => {
   const btn = event.target.closest('[data-scene-step]');
@@ -5641,18 +6042,13 @@ el('event-map-place-chips').addEventListener('click', event => {
   if (chip && worldEvent) selectEventPlace(chip.dataset.scenePlace, true);
 });
 function navigateReadingScene(delta) {
-  if (!worldEvent?.sceneId || !worldEvent.sceneOrder) return;
+  if (session.mode !== 'Observe' || !worldEvent?.sceneId || !worldEvent.sceneOrder) return;
   const order = worldEvent.sceneOrder;
   const id = order[order.indexOf(worldEvent.sceneId) + delta];
   const scene = historicalScenes.get(id);
   if (!scene) return;
-  const original = worldEvent;
-  worldEvent = null;
   showEventMap({...scene, sceneId:scene.id, sceneOrder:order,
-    historical:scene.year>=-3400 && scene.year<=POLITY_END,
-    back:'返回正文', resume:original.resume});
-  worldEvent.camera = original.camera;
-  worldEvent.natural = original.natural;
+    historical:scene.year>=-3400 && scene.year<=POLITY_END, back:'返回正文'});
 }
 el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
 el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
@@ -5661,7 +6057,7 @@ el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
 /* v8 · Dedicated scene caption card swipe (buttons and long text remain selectable). */
 let captionSwipe = null;
 eventMapPanel.addEventListener('touchstart', event => {
-  if (!worldEvent?.sceneId || event.touches.length !== 1 ||
+  if (session.mode !== 'Observe' || !worldEvent?.sceneId || event.touches.length !== 1 ||
       event.target.closest('button, a, summary, details, #event-map-steps, #event-map-place-chips') ||
       (event.target.closest('#event-map-note') &&
         ['auto', 'scroll'].includes(getComputedStyle(eventMapNote).overflowY) &&
@@ -5695,7 +6091,7 @@ for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(ki
   const up=dy < -55 || g.vy < -.42;
   const down=dy > 70 || g.vy > .42;
   if (!up && !down) return;
-  const wasReading=Boolean(worldEvent?.resume);
+  const wasReading = session.observe?.origin === 'Read';
   returnToWorld();
   if (down && wasReading && reading.active && innerWidth<960) mobileReaderSnap('peek',{immediate:true});
 });
@@ -5706,6 +6102,7 @@ const worldBook = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C9 
 const worldChevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 const backgroundEntries = new Set(['i-kr-empire']);
 const extendedEvents = new Set(['i-010', 'i-158']);
+let worldListYear = null;
 
 function worldReadingTarget(event, year) {
   const mapped = subjectsByEvent.get(event.id);
@@ -5744,6 +6141,8 @@ function worldDisclosure(title, items, open = false) {
 }
 
 function openWorld() {
+  if (session.mode !== 'Explore') return;
+  worldListYear = state.year;
   const [start, end] = windowOf(state.year);
   const first = ord(start), last = ord(end) + 1;
   const recent = start !== end;
@@ -5779,6 +6178,24 @@ function restoreWorld(button, scroll) {
   button?.focus({preventScroll:true});
 }
 
+function worldSource(eventId, action) {
+  return session.source({ kind: 'events', year: session.mode === 'Explore' ? state.year : session.explore.year,
+    eventId, action, scroll: overlayBody.scrollTop,
+    disclosures: [...overlayBody.querySelectorAll('details')].map(node => node.open) });
+}
+
+function restoreWorldSource(source) {
+  if (source.year !== state.year) return;
+  if (worldListYear !== source.year) openWorld();
+  const rows = overlayBody.querySelectorAll(source.action === 'read' ? '[data-world-read]' : '[data-event]');
+  const row = [...rows].find(node => (node.dataset.worldRead || node.dataset.event) === source.eventId);
+  overlayBody.querySelectorAll('details').forEach((node, index) => {
+    if (index < source.disclosures.length) node.open = source.disclosures[index];
+  });
+  if (row?.closest('details')) row.closest('details').open = true;
+  restoreWorld(row || el('overlay-close'), source.scroll);
+}
+
 function closeWorld(focus = false) {
   if (overlay.hidden) return;
   overlay.hidden = true;
@@ -5794,13 +6211,11 @@ overlayBody.addEventListener('click', event => {
   const id = button.dataset.event || button.dataset.worldRead;
   const entry = entries.find(item => String(item.id) === id);
   if (!entry) return;
-  if (button.dataset.event) { openWorldEvent(entry, button); return; }
+  if (button.dataset.event) { openWorldEvent(entry); return; }
   const target = worldReadingTarget(entry, clamp(state.year, entry.start, entry.point ? entry.start : entry.end));
   if (!target) return;
-  const scroll = overlayBody.scrollTop;
-  closeWorld();
   beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
-    entryYear:target.year, returnTo:() => restoreWorld(button, scroll),
+    entryYear:target.year, source:worldSource(id, 'read'),
   });
 });
 el('overlay-close').addEventListener('click', () => closeWorld(true));
@@ -5892,7 +6307,7 @@ function focusActiveView() {
 }
 
 function showView(fromHold = false) {
-  if (worldEvent || reading.active || !overlay.hidden) return;
+  if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
   document.body.classList.remove('chrome-hidden');
   closeYearControl();
@@ -5915,19 +6330,22 @@ function showView(fromHold = false) {
 }
 
 function selectView(mode) {
-  if (!viewModes.some(button => button.dataset.view === mode)) return;
+  if (session.mode !== 'Explore' || !viewModes.some(button => button.dataset.view === mode)) return;
   chrome.followTime = mode === 'history';
   chrome.natural = mode === 'nature';
   commitYear(state.year);
 }
 
 function commitYear(year) {
-  if (!Number.isFinite(year)) return;
+  if (session.mode !== 'Explore' || !Number.isFinite(year)) return;
+  exploreIntent();
   year = clamp(Math.round(year), YMIN, YMAX);
   state.year = year === 0 ? 1 : year;
   const layer = chrome.followTime && state.year <= POLITY_END ? 'polity' : 'country';
   if (state.layerId !== layer) setLayer(layer);
   else onYearChanged();
+  rememberExplore();
+  saveSession();
 }
 function stepYear(delta) { commitYear(yearAtIndex(ord(state.year) + delta)); }
 
@@ -5947,6 +6365,7 @@ function resetView(animate = true) {
     Object.assign(state, target);
     layout();
     invalidate();
+    cameraSettled();
     return;
   }
   const from = { yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift || 0 };
@@ -5965,7 +6384,7 @@ function resetView(animate = true) {
     view.Rz = view.R * state.zoom;
     invalidate();
     if (t < 1) resetAnim = requestAnimationFrame(step);
-    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); }
+    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); cameraSettled(); }
   };
   resetAnim = requestAnimationFrame(step);
 }
@@ -6011,21 +6430,20 @@ viewShade.addEventListener('pointerdown', event => {
 for (const button of viewModes) button.addEventListener('click', () => selectView(button.dataset.view));
 for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
   el(id).addEventListener('click', () => {
+    if (session.mode !== 'Explore') return;
+    exploreIntent();
     chrome[key] = !chrome[key];
     try { localStorage.setItem('globe.display.v4', JSON.stringify({labels:chrome.labels, grid:chrome.grid})); } catch {}
     syncChrome();
     invalidate();
+    rememberExplore();
+    saveSession();
   });
 }
 document.addEventListener('visibilitychange', () => { if (document.hidden) cancelGlobeHold(); });
 
 addEventListener('keydown', event => {
-  if (!chrome.panel) return;
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    closeView();
-  } else if (event.key === 'Tab') {
+  if (chrome.panel && event.key === 'Tab') {
     const focusable = [...viewPanel.querySelectorAll('button:not(:disabled)')].filter(node => node.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);
     if (!viewPanel.contains(document.activeElement)) { event.preventDefault(); focusActiveView(); }
@@ -6223,7 +6641,7 @@ function openYearWorld() {
 }
 
 yearControl.addEventListener('pointerdown', (event) => {
-  if (!event.isPrimary || event.button !== 0 || worldEvent || reading.active || !yearForm.hidden) return;
+  if (!event.isPrimary || event.button !== 0 || session.mode !== 'Explore' || !yearForm.hidden) return;
   const catching = yearFrame !== 0;
   cancelYearGlide();
   suppressYearClick = catching;
@@ -6297,7 +6715,7 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 }
 
 elYear.addEventListener('click', () => {
-  if (!worldEvent && !reading.active && !suppressYearClick && !yearBrowsing) {
+  if (session.mode === 'Explore' && !suppressYearClick && !yearBrowsing) {
     if (!yearForm.hidden) closeYearControl({ focus: true });
     else openYearInput();
   }
@@ -6307,7 +6725,7 @@ yearControl.addEventListener('contextmenu', (event) => {
   if (yearForm.hidden) event.preventDefault();
 });
 elYear.addEventListener('keydown', (event) => {
-  if (worldEvent || event.repeat) return;
+  if (session.mode !== 'Explore' || event.repeat) return;
   if (event.key === 'F2') {
     event.preventDefault();
     openYearInput();
@@ -6336,14 +6754,7 @@ yearInput.addEventListener('input', () => {
 });
 
 addEventListener('keydown', (event) => {
-  if (!yearControlOpen()) return;
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    closeYearControl({ focus: true });
-  } else if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key) && yearBrowsing) {
-    cancelYearGlide();
-  }
+  if (yearBrowsing && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) cancelYearGlide();
 }, true);
 document.addEventListener('pointerdown', (event) => {
   if (event.isPrimary && !vernierTrack.contains(event.target)) finishVernierMotion();
@@ -6448,7 +6859,7 @@ function updateVernier() {
     vernierCommittedYear = state.year;
   }
   const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
-  const visible = sheetClosed && !state.focus && !reading.active && !worldEvent && overlay.hidden && viewPanel.hidden;
+  const visible = sheetClosed && !state.focus && session.mode === 'Explore' && overlay.hidden && viewPanel.hidden;
   if (vernier.hidden === visible) {
     vernier.hidden = !visible;
     vernier.inert = !visible;
@@ -6638,8 +7049,14 @@ async function loadRelief() {
   });
 }
 
-async function ensurePolity() {
-  if (polityState.loaded || polityState.loading) return;
+let polityLoadPromise = null;
+function ensurePolity() {
+  if (polityState.loaded) return Promise.resolve();
+  if (!polityLoadPromise) polityLoadPromise = loadPolity().finally(() => { polityLoadPromise = null; });
+  return polityLoadPromise;
+}
+
+async function loadPolity() {
   polityState.loading = true;
   polityState.error = null;
   syncChrome();
@@ -6664,7 +7081,7 @@ async function ensurePolity() {
     if (state.layerId === 'polity') { rebuildPartition(); syncHud(); invalidate(); }
     const tap = pendingPolityTap;
     pendingPolityTap = null;
-    if (tap && state.layerId === 'polity' && !reading.active && !worldEvent &&
+    if (tap && state.layerId === 'polity' && session.mode === 'Explore' &&
         tap.year === state.year && Math.abs(tap.yaw - state.yaw) < .02 &&
         Math.abs(tap.tilt - state.tilt) < .02 && Math.abs(tap.zoom - state.zoom) < .02 &&
         Math.abs(tap.panX - state.panX) < 3 && Math.abs(tap.panY - state.panY) < 3) {
@@ -6697,6 +7114,7 @@ async function ensurePolity() {
   buildCountryPick();
   rebuildPartition();
   layout();
+  restoreSession();
   syncHud();
   draw();
 

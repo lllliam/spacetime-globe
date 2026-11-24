@@ -185,7 +185,7 @@ function openYearWorld() {
 }
 
 yearControl.addEventListener('pointerdown', (event) => {
-  if (!event.isPrimary || event.button !== 0 || worldEvent || reading.active || !yearForm.hidden) return;
+  if (!event.isPrimary || event.button !== 0 || session.mode !== 'Explore' || !yearForm.hidden) return;
   const catching = yearFrame !== 0;
   cancelYearGlide();
   suppressYearClick = catching;
@@ -259,7 +259,7 @@ for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
 }
 
 elYear.addEventListener('click', () => {
-  if (!worldEvent && !reading.active && !suppressYearClick && !yearBrowsing) {
+  if (session.mode === 'Explore' && !suppressYearClick && !yearBrowsing) {
     if (!yearForm.hidden) closeYearControl({ focus: true });
     else openYearInput();
   }
@@ -269,7 +269,7 @@ yearControl.addEventListener('contextmenu', (event) => {
   if (yearForm.hidden) event.preventDefault();
 });
 elYear.addEventListener('keydown', (event) => {
-  if (worldEvent || event.repeat) return;
+  if (session.mode !== 'Explore' || event.repeat) return;
   if (event.key === 'F2') {
     event.preventDefault();
     openYearInput();
@@ -298,14 +298,7 @@ yearInput.addEventListener('input', () => {
 });
 
 addEventListener('keydown', (event) => {
-  if (!yearControlOpen()) return;
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    closeYearControl({ focus: true });
-  } else if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key) && yearBrowsing) {
-    cancelYearGlide();
-  }
+  if (yearBrowsing && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) cancelYearGlide();
 }, true);
 document.addEventListener('pointerdown', (event) => {
   if (event.isPrimary && !vernierTrack.contains(event.target)) finishVernierMotion();
@@ -410,7 +403,7 @@ function updateVernier() {
     vernierCommittedYear = state.year;
   }
   const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
-  const visible = sheetClosed && !state.focus && !reading.active && !worldEvent && overlay.hidden && viewPanel.hidden;
+  const visible = sheetClosed && !state.focus && session.mode === 'Explore' && overlay.hidden && viewPanel.hidden;
   if (vernier.hidden === visible) {
     vernier.hidden = !visible;
     vernier.inert = !visible;

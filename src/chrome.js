@@ -78,7 +78,7 @@ function focusActiveView() {
 }
 
 function showView(fromHold = false) {
-  if (worldEvent || reading.active || !overlay.hidden) return;
+  if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
   document.body.classList.remove('chrome-hidden');
   closeYearControl();
@@ -101,19 +101,22 @@ function showView(fromHold = false) {
 }
 
 function selectView(mode) {
-  if (!viewModes.some(button => button.dataset.view === mode)) return;
+  if (session.mode !== 'Explore' || !viewModes.some(button => button.dataset.view === mode)) return;
   chrome.followTime = mode === 'history';
   chrome.natural = mode === 'nature';
   commitYear(state.year);
 }
 
 function commitYear(year) {
-  if (!Number.isFinite(year)) return;
+  if (session.mode !== 'Explore' || !Number.isFinite(year)) return;
+  exploreIntent();
   year = clamp(Math.round(year), YMIN, YMAX);
   state.year = year === 0 ? 1 : year;
   const layer = chrome.followTime && state.year <= POLITY_END ? 'polity' : 'country';
   if (state.layerId !== layer) setLayer(layer);
   else onYearChanged();
+  rememberExplore();
+  saveSession();
 }
 function stepYear(delta) { commitYear(yearAtIndex(ord(state.year) + delta)); }
 
@@ -133,6 +136,7 @@ function resetView(animate = true) {
     Object.assign(state, target);
     layout();
     invalidate();
+    cameraSettled();
     return;
   }
   const from = { yaw: state.yaw, tilt: state.tilt, zoom: state.zoom, panX: state.panX, panY: state.panY, lift: state.lift || 0 };
@@ -151,7 +155,7 @@ function resetView(animate = true) {
     view.Rz = view.R * state.zoom;
     invalidate();
     if (t < 1) resetAnim = requestAnimationFrame(step);
-    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); }
+    else { resetAnim = 0; Object.assign(state, target); layout(); invalidate(); cameraSettled(); }
   };
   resetAnim = requestAnimationFrame(step);
 }
@@ -197,21 +201,20 @@ viewShade.addEventListener('pointerdown', event => {
 for (const button of viewModes) button.addEventListener('click', () => selectView(button.dataset.view));
 for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
   el(id).addEventListener('click', () => {
+    if (session.mode !== 'Explore') return;
+    exploreIntent();
     chrome[key] = !chrome[key];
     try { localStorage.setItem('globe.display.v4', JSON.stringify({labels:chrome.labels, grid:chrome.grid})); } catch {}
     syncChrome();
     invalidate();
+    rememberExplore();
+    saveSession();
   });
 }
 document.addEventListener('visibilitychange', () => { if (document.hidden) cancelGlobeHold(); });
 
 addEventListener('keydown', event => {
-  if (!chrome.panel) return;
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    closeView();
-  } else if (event.key === 'Tab') {
+  if (chrome.panel && event.key === 'Tab') {
     const focusable = [...viewPanel.querySelectorAll('button:not(:disabled)')].filter(node => node.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);
     if (!viewPanel.contains(document.activeElement)) { event.preventDefault(); focusActiveView(); }

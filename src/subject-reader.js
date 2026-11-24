@@ -5,7 +5,6 @@ const subjectsByPolity = new Map(subjectBooks.flatMap((book) => book.polityIds.m
   [id, { book, name: book.polities[i] }])));
 const subjectsByEvent = new Map(subjectBooks.flatMap((book) => book.chapters.flatMap((chapter) =>
   (chapter.eventIds || []).map((id) => [id, { book, chapter }]))));
-const subjectProgress = new Map();
 
 const coversYear = ({ from, to }, year) => year >= from && (to == null || year <= to);
 function subjectBookForEntity(entity, year = state.year) {
@@ -74,7 +73,7 @@ function subjectNeighbors() {
   if (!reading.ent) return '';
   const currentBook = reading.subject?.id;
   const seen = new Set();
-  const candidates = (reading.snapshot.focus?.atlasPeers || []).filter((id) => id !== reading.ent.entId)
+  const candidates = readingEntryPeers.filter((id) => id !== reading.ent.entId)
     .map((id) => entityByKey('polity', id)).filter(Boolean).flatMap((entity) => {
       const linked = subjectBookForEntity(entity, reading.year);
       const key = linked?.id ?? entity.entId;
@@ -108,7 +107,8 @@ function renderAtlasReading() {
 
 function renderSubjectOutline(book) {
   const anchor = book.chapters.find((c) => coversYear(c, reading.year));
-  const progress = subjectProgress.get(book.id);
+  const saved = session.readingProgress('subject:' + book.id);
+  const progress = saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
   return readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
     (progress ? '<button type="button" data-subject-resume>继续阅读' + readingArrow + '</button>' : '') +
@@ -226,7 +226,7 @@ function renderSubjectChapter(book, chapter) {
       return headingHtml +
         '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
         calloutHtml +
-        (!worldEvent ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
+        (!session.observe ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
     }).join('') + '</article>' +
     contemporaries +
     (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
@@ -262,18 +262,15 @@ function renderSubjectLibrary() {
 }
 
 function followSubject({ book = null, chapter = null, entity = null, library = false } = {}) {
-  rememberReading();
-  reading.trail.push(readingFrame());
-  Object.assign(reading, { ent: entity, subject: book, topic: null, detail: chapter?.id || null,
-    library, catalog: false, scroll: 0, detailScroll: 0, linkEntry: true });
-  renderReading();
-  el('reading-title').focus({ preventScroll: true });
+  const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
+  navigateReading({ entity: ref, bookId: book?.id, topicId: null, detail: chapter?.id,
+    library, catalog: false, scroll: 0, position: null, linkEntry: true });
 }
 
 function handleSubjectButton(button) {
   if (button.hasAttribute('data-subject-resume')) {
-    const saved = subjectProgress.get(reading.subject.id);
-    if (saved) openReadingDetail(saved.chapter, saved.offset);
+    const saved = session.readingProgress(readingKey());
+    if (saved) openReadingDetail(saved.chapter, saved.position);
   } else if (button.hasAttribute('data-subject-library')) followSubject({ library: true });
   else if (button.hasAttribute('data-subject-book')) {
     const book = subjectsById.get(button.dataset.subjectBook);

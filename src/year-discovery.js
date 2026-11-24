@@ -4,6 +4,7 @@ const worldBook = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C9 
 const worldChevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 const backgroundEntries = new Set(['i-kr-empire']);
 const extendedEvents = new Set(['i-010', 'i-158']);
+let worldListYear = null;
 
 function worldReadingTarget(event, year) {
   const mapped = subjectsByEvent.get(event.id);
@@ -42,6 +43,8 @@ function worldDisclosure(title, items, open = false) {
 }
 
 function openWorld() {
+  if (session.mode !== 'Explore') return;
+  worldListYear = state.year;
   const [start, end] = windowOf(state.year);
   const first = ord(start), last = ord(end) + 1;
   const recent = start !== end;
@@ -77,6 +80,24 @@ function restoreWorld(button, scroll) {
   button?.focus({preventScroll:true});
 }
 
+function worldSource(eventId, action) {
+  return session.source({ kind: 'events', year: session.mode === 'Explore' ? state.year : session.explore.year,
+    eventId, action, scroll: overlayBody.scrollTop,
+    disclosures: [...overlayBody.querySelectorAll('details')].map(node => node.open) });
+}
+
+function restoreWorldSource(source) {
+  if (source.year !== state.year) return;
+  if (worldListYear !== source.year) openWorld();
+  const rows = overlayBody.querySelectorAll(source.action === 'read' ? '[data-world-read]' : '[data-event]');
+  const row = [...rows].find(node => (node.dataset.worldRead || node.dataset.event) === source.eventId);
+  overlayBody.querySelectorAll('details').forEach((node, index) => {
+    if (index < source.disclosures.length) node.open = source.disclosures[index];
+  });
+  if (row?.closest('details')) row.closest('details').open = true;
+  restoreWorld(row || el('overlay-close'), source.scroll);
+}
+
 function closeWorld(focus = false) {
   if (overlay.hidden) return;
   overlay.hidden = true;
@@ -92,13 +113,11 @@ overlayBody.addEventListener('click', event => {
   const id = button.dataset.event || button.dataset.worldRead;
   const entry = entries.find(item => String(item.id) === id);
   if (!entry) return;
-  if (button.dataset.event) { openWorldEvent(entry, button); return; }
+  if (button.dataset.event) { openWorldEvent(entry); return; }
   const target = worldReadingTarget(entry, clamp(state.year, entry.start, entry.point ? entry.start : entry.end));
   if (!target) return;
-  const scroll = overlayBody.scrollTop;
-  closeWorld();
   beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
-    entryYear:target.year, returnTo:() => restoreWorld(button, scroll),
+    entryYear:target.year, source:worldSource(id, 'read'),
   });
 });
 el('overlay-close').addEventListener('click', () => closeWorld(true));
