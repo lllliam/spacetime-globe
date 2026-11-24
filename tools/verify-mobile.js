@@ -100,6 +100,7 @@ async function main() {
     const timelineVisible = () => js(`!document.querySelector('#vernier').hidden`);
     const mapCamera = () => js(`window.__t && (({year,yaw,tilt,zoom,panX,panY}) =>
       ({year,yaw,tilt,zoom,panX,panY}))(window.__t.state)`);
+    const location = (lon, lat, fallback) => js(`window.__t?.screenOf(${lon}*Math.PI/180,${lat}*Math.PI/180) || ${JSON.stringify(fallback)}`);
     assert.equal(await timelineVisible(), true);
     await tap('#hud-view');
     assert.equal(await js(`document.querySelector('#view-panel').hidden`), false);
@@ -108,7 +109,9 @@ async function main() {
     await tap({ x:30, y:300 });
     await until(() => js(`document.querySelector('#view-panel').hidden`), 'View chooser did not close');
     assert.equal(await timelineVisible(), true);
-    await tap({ x:175, y:353 });
+    await goToYear(await js('new Date().getFullYear()'));
+    const kazakhstan = await location(68, 47, { x:145, y:373 });
+    await tap(kazakhstan);
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Kazakhstan did not open');
     assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /中亚丝路/);
     assert.equal(await timelineVisible(), false);
@@ -120,7 +123,7 @@ async function main() {
     assert.equal(await timelineTop(), tuckedTimelineTop, 'The timeline should return to the same position');
     await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
     await goToYear(1980);
-    await tap({ x:175, y:353 });
+    await tap(kazakhstan);
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Map tap did not open an archive');
     assert.equal(await timelineVisible(), false);
     assert.equal(await js(`document.querySelector('#vernier').inert`), true);
@@ -219,7 +222,7 @@ async function main() {
     await js(`delete visualViewport.height; dispatchEvent(new Event('resize'));`);
     await until(() => js(`document.querySelector('#globe').getBoundingClientRect().bottom === 812`),
       'Globe must recover its viewport');
-    await tap({ x:281, y:340 });
+    await tap(await location(114, 34, { x:251, y:382 }));
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'China did not open');
     assert.equal(await js(`getComputedStyle(document.querySelector('#sheet')).overflow`), 'hidden');
     assert.equal(await js(`(() => {
@@ -355,6 +358,7 @@ async function main() {
       const dragging = await timeline();
       assert.equal(dragging.preview, 1455);
       assert.equal(dragging.selected, 1453, 'Follow the finger without changing the globe mid-drag');
+      assert.match(await js("document.querySelector('#vernier-era').textContent"), /预览.*地图 1453/);
       assert.equal(dragging.top, start.top);
     } });
     assert.equal((await timeline()).selected, 1455);
@@ -387,12 +391,14 @@ async function main() {
     const fast = -await flick(60, .012);
     const paused = await flick(-60, .012, .14);
     assert(medium > paused && medium < 40, 'A moderate flick should coast a short distance');
-    assert(fast >= 75 && fast <= 184 && fast > medium, 'A faster flick should travel substantially farther in either direction');
+    assert(fast >= 75 && fast <= 124 && fast > medium, 'A faster flick travels farther but remains bounded');
     assert.equal(paused, 4, 'Pausing before release should keep only the years dragged');
     console.log('Timeline distance for a 60px gesture:', {medium, fast, paused});
     await swipe('#vernier-track', -65);
+    assert.equal(await js(`document.querySelector('#overlay').hidden`), true);
+    await tap('#vernier-events');
     assert.equal(await js(`document.querySelector('#overlay').hidden`), false);
-    console.log('Timeline: fractional tracking, fixed height, snap, cancel, single-year keys, momentum and swipe-up');
+    console.log('Timeline: fractional tracking, fixed height, snap, cancel, single-year keys, bounded momentum and explicit events');
   } finally {
     ws?.close();
     proc.kill();

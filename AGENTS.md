@@ -11,6 +11,7 @@
 - 功能源码在 `src/`，主体书卷在 `data/books/*.json`，补充专题在 `data/topics/*.json`，历史场景在 `data/scenes.json`。构建生成 `data/topics.json`、`index.html` 和 `index.offline.html`。内容校验生成 `docs/CONTENT-COVERAGE.md`。修改其输入，避免直接编辑生成物。
 - 保持书卷、章节及场景 ID 稳定，依据编辑选择和真实来源组织正文；地图几何与书卷叙事采用各自的数据口径。维护细节见 [阅读与内容组织](docs/READING.md)。
 - 每轮完成后运行规定的验证。先执行 `node tools/verify-content.mjs` 和 `node build.mjs`，涉及交互时运行适用的 UI、移动端和 smoke 回归。仅允许文档或档案变更的阶段在临时副本中验证，保持生成物在工作区的原样。区分浏览器模拟、真机、结构检查和内容审校，如实记录失败、未执行项及原因。
+- 涉及地球首页或选年时，运行 `node tools/verify-home.js`，核对地图生效年、选择范围、史事统计和视口适配。阶段实拍保存在对应的 `docs/progress/phase-NN/`。
 - 功能、交互、修复、图标与内容覆盖变化须核对并更新 README 和受影响的现行文档。按 [版本规范](docs/VERSIONING.md) 记录阶段变化和正式更新，自动生成产物的单独提交无需重复记录。
 
 ## 开发分支与网站发布

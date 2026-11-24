@@ -1,89 +1,14 @@
 /* Run against the generated online and single-file builds with an isolated browser profile. */
 const assert = require('node:assert/strict');
-const { spawn } = require('node:child_process');
-const { mkdtempSync, readFileSync } = require('node:fs');
+const { mkdtempSync } = require('node:fs');
 const { tmpdir } = require('node:os');
 const { join } = require('node:path');
 const { setTimeout: wait } = require('node:timers/promises');
 const { pathToFileURL } = require('node:url');
-const { buildHarness, findBrowser, startServer } = require('./harness');
+const { buildHarness, findBrowser, startServer, until, connectBrowser } = require('./harness');
 
 const storeKey = 'globe.session.v1';
 const profile = mkdtempSync(join(tmpdir(), 'globe-session-test-'));
-async function until(check, label, attempts = 120) {
-  for (let i = 0; i < attempts; i++) {
-    const result = await check();
-    if (result) return result;
-    await wait(100);
-  }
-  throw new Error(label);
-}
-
-async function connectBrowser(browser) {
-  const proc = spawn(browser, ['--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-    '--no-first-run', '--disable-gpu', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
-  let ws;
-  try {
-    const endpoint = await until(async () => {
-      try {
-        const port = parseInt(readFileSync(join(profile, 'DevToolsActivePort'), 'utf8'), 10);
-        const tabs = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
-        return tabs.find(tab => tab.type === 'page')?.webSocketDebuggerUrl;
-      } catch { return null; }
-    }, 'Test browser did not start');
-    ws = new WebSocket(endpoint);
-    await new Promise((resolve, reject) => { ws.onopen = resolve; ws.onerror = reject; });
-    const pending = new Map(), events = new Map();
-    let next = 0;
-    ws.onmessage = ({ data }) => {
-      const message = JSON.parse(data);
-      if (message.method) { events.get(message.method)?.(message.params); return; }
-      const call = pending.get(message.id);
-      if (!call) return;
-      pending.delete(message.id);
-      if (message.error) call.reject(new Error(JSON.stringify(message.error)));
-      else call.resolve(message.result);
-    };
-    ws.onclose = () => { for (const call of pending.values()) call.reject(new Error('Browser disconnected')); pending.clear(); };
-    const send = (method, params = {}) => new Promise((resolve, reject) => {
-      pending.set(++next, { resolve, reject });
-      ws.send(JSON.stringify({ id: next, method, params }));
-    });
-    const js = async (expression) => {
-      const result = await send('Runtime.evaluate', { expression, returnByValue: true });
-      if (result.exceptionDetails) throw new Error(result.result.description || expression);
-      return result.result.value;
-    };
-    const size = (width, height, mobile = true) => send('Emulation.setDeviceMetricsOverride', {
-      width, height, deviceScaleFactor: 1, mobile,
-    });
-    const open = async url => {
-      const previous = await js('performance.timeOrigin');
-      await send('Page.navigate', { url });
-      await until(async () => {
-        try { return await js('performance.timeOrigin !== ' + previous + ' && !!window.__t && !document.querySelector("#boot")'); }
-        catch { return false; }
-      }, 'Page did not finish initialization');
-    };
-    const close = async () => {
-      const exited = new Promise(resolve => proc.once('exit', resolve));
-      await Promise.race([send('Browser.close').catch(() => {}), wait(1800)]);
-      await Promise.race([exited, wait(2500)]);
-      ws.close();
-      if (proc.exitCode === null) proc.kill();
-      await exited;
-    };
-    await send('Page.enable');
-    await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-    await size(402, 874);
-    return { send, js, size, open, close, events };
-  } catch (error) {
-    ws?.close();
-    proc.kill();
-    throw error;
-  }
-}
-
 async function main() {
   const browser = findBrowser();
   assert(browser, 'Chromium / Edge is required');
@@ -115,10 +40,11 @@ async function main() {
     return (body.getBoundingClientRect().top-p.getBoundingClientRect().top)/p.getBoundingClientRect().height;
   })()`);
   try {
-    page = await connectBrowser(browser);
+    page = await connectBrowser(browser, profile);
     await page.open(url);
     assert.equal((await session()).mode, 'Explore');
-    assert.equal((await camera()).year, Math.max(2026, new Date().getFullYear()));
+    assert.equal((await camera()).year, 1500);
+    assert.equal((await camera()).layerId, 'polity');
     await setYear(1500);
     await ready();
     await js('Object.assign(__t.state,{yaw:-1.6,tilt:.38,zoom:2,panX:48,panY:-21});__t.redraw()');
@@ -249,13 +175,17 @@ async function main() {
     await click('[data-world-read=i-140]');
     assert.equal((await session()).readYear, 1900);
     assert.equal((await session()).book, 'qing');
+    await until(() => js('__t.readerSettled'), 'Event reading transition did not settle');
     await js("document.querySelector('#book-body').scrollTop=630");
+    await until(async () => Math.abs((await saved()).read?.position.top - 630) <= 3,
+      'Latest event reading position was not saved');
     await page.close();
-    page = await connectBrowser(browser);
+    page = await connectBrowser(browser, profile);
     await page.open(url);
     assert.equal((await session()).mode, 'Read');
     assert.equal((await session()).book, 'qing');
-    assert.ok(Math.abs(await scroll() - 630) <= 3);
+    const restartedScroll = await scroll();
+    assert.ok(Math.abs(restartedScroll - 630) <= 3, `Reading returned to ${restartedScroll}, expected 630`);
     const persisted = await saved();
     assert.ok(persisted.progress.some(([key]) => key === 'subject:ming'));
     assert.ok(persisted.progress.some(([key]) => key === 'subject:qing'));
@@ -329,6 +259,7 @@ async function main() {
     await page.send('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:0,uploadThroughput:0});
     await page.open(offline);
     const fileStore = await js(`(() => {try{localStorage.setItem('globe-test-probe','ok');return localStorage.getItem('globe-test-probe')==='ok'}catch{return false}})()`);
+    await setYear(await js('__t.yearBounds.max'));
     await china();
     await click('[data-read-subject]');
     await chapter('state-making');

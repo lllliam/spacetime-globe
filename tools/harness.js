@@ -6,6 +6,8 @@
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
+const { spawn } = require('node:child_process');
+const { setTimeout: wait } = require('node:timers/promises');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -34,7 +36,8 @@ window.__t = {
   get pk(){ return pk }, get summary(){ return summary },
   get rendererKind(){ const r = glr || fallback; return r && r.kind },
   get polityLoaded(){ return !!(pk && polityState.loaded) },
-  pick: pickAt, mapPointAt, setLayer, ensurePolity,
+  pick: pickAt, mapPointAt, ensurePolity,
+  setLayer(id){ chrome.followTime = id === 'polity'; chrome.natural = false; setLayer(id); syncHud(); },
   openEntity, openBook, closeBook, closeSheet,
   get sheet(){ return sheetState },
   get sheetSettled(){ return !sheetMotion },
@@ -48,12 +51,15 @@ window.__t = {
   get topics(){return TOPICS}, subjectBooks, subjectBookForEntity,
   readingGoBack, closeReader,
   get worldEvent(){ return worldEvent },
-  get yearControl(){ return { browsing: yearBrowsing, position: yearPosition, moving: !!yearFrame }; },
+  get timeline(){ return { position: vernierPosition, year: yearAtIndex(vernierPosition), moving: !!vernierGlideFrame }; },
+  get homeCamera(){ return HOME_CAMERA; },
+  get yearBounds(){ return { min:YMIN, max:YMAX, historicalMin:POLITY_START, historicalMax:POLITY_END }; },
   get vecCount(){ return vecShapes.length },
   get vecShapes(){ return vecShapes },
   prepareVector, drawVector, svgRings, rotation,
   commitYear, saveVisibleSession,
-  setYear(y){ exploreIntent(); state.year = y; onYearChanged(); rememberExplore(); },
+  setYear: commitYear, parseYear, yearEventGroups, concreteEventStarts,
+  clearTimelineEntries(){ entries = []; updateVernier(); },
   stopSpin(){ spinning = false; },
   redraw(){ invalidate(); },
   shapeOf(id){ return partition.shapes.find(s => s.id === id) || null; },
@@ -115,4 +121,78 @@ function startServer(port = 0) {
   });
 }
 
-module.exports = { ROOT, findBrowser, buildHarness, startServer };
+async function until(check, label, attempts = 120) {
+  for (let i = 0; i < attempts; i++) {
+    const result = await check();
+    if (result) return result;
+    await wait(100);
+  }
+  throw new Error(label);
+}
+
+async function connectBrowser(browser, profile) {
+  const proc = spawn(browser, ['--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
+    '--no-first-run', '--disable-gpu', 'about:blank'], { windowsHide: true, stdio: 'ignore' });
+  let ws;
+  try {
+    const endpoint = await until(async () => {
+      try {
+        const port = parseInt(fs.readFileSync(path.join(profile, 'DevToolsActivePort'), 'utf8'), 10);
+        const tabs = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
+        return tabs.find(tab => tab.type === 'page')?.webSocketDebuggerUrl;
+      } catch { return null; }
+    }, 'Test browser did not start');
+    ws = new WebSocket(endpoint);
+    await new Promise((resolve, reject) => { ws.onopen = resolve; ws.onerror = reject; });
+    const pending = new Map(), events = new Map();
+    let next = 0;
+    ws.onmessage = ({ data }) => {
+      const message = JSON.parse(data);
+      if (message.method) { events.get(message.method)?.(message.params); return; }
+      const call = pending.get(message.id);
+      if (!call) return;
+      pending.delete(message.id);
+      if (message.error) call.reject(new Error(JSON.stringify(message.error)));
+      else call.resolve(message.result);
+    };
+    ws.onclose = () => { for (const call of pending.values()) call.reject(new Error('Browser disconnected')); pending.clear(); };
+    const send = (method, params = {}) => new Promise((resolve, reject) => {
+      pending.set(++next, { resolve, reject });
+      ws.send(JSON.stringify({ id: next, method, params }));
+    });
+    const js = async (expression) => {
+      const result = await send('Runtime.evaluate', { expression, returnByValue: true });
+      if (result.exceptionDetails) throw new Error(result.result.description || expression);
+      return result.result.value;
+    };
+    const size = (width, height, mobile = true, deviceScaleFactor = 1) => send('Emulation.setDeviceMetricsOverride', {
+      width, height, deviceScaleFactor, mobile, screenWidth:width, screenHeight:height,
+    });
+    const open = async url => {
+      const previous = await js('performance.timeOrigin');
+      await send('Page.navigate', { url });
+      await until(async () => {
+        try { return await js('performance.timeOrigin !== ' + previous + ' && !!window.__t && !document.querySelector("#boot")'); }
+        catch { return false; }
+      }, 'Page did not finish initialization');
+    };
+    const close = async () => {
+      const exited = new Promise(resolve => proc.once('exit', resolve));
+      await Promise.race([send('Browser.close').catch(() => {}), wait(1800)]);
+      await Promise.race([exited, wait(2500)]);
+      ws.close();
+      if (proc.exitCode === null) proc.kill();
+      await exited;
+    };
+    await send('Page.enable');
+    await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
+    await size(402, 874);
+    return { send, js, size, open, close, events };
+  } catch (error) {
+    ws?.close();
+    proc.kill();
+    throw error;
+  }
+}
+
+module.exports = { ROOT, findBrowser, buildHarness, startServer, until, connectBrowser };

@@ -13,32 +13,19 @@ const clamp = (n, a, b) => (n < a ? a : n > b ? b : n);
 const lerp = (a, b, t) => a + (b - a) * t;
 
 const THIS_YEAR = new Date().getFullYear();
-const YMAX = Math.max(2026, THIS_YEAR);
+const YMAX = THIS_YEAR;
 const YMIN = -3500;
-const POLITY_END = 2024;                 // Cliopatria 覆盖到此
-
-const CH = [
-  { n: '史前',   a: -3500, b: -800 },
-  { n: '古代',   a: -800,  b: 500,  w: .213 },
-  { n: '古典',   a: 500,   b: 1000 },
-  { n: '中世纪', a: 1000,  b: 1500 },
-  { n: '大航海', a: 1500,  b: 1800 },
-  { n: '工业',   a: 1800,  b: 1900 },
-  { n: '现代',   a: 1900,  b: YMAX },
-];
-const chapterOf = (y) => { for (const c of CH) if (y <= c.b) return c; return CH[CH.length - 1]; };
+const DEFAULT_EXPLORE_YEAR = 1500;
+const HOME_CAMERA = { yaw:-1.65, tilt:.42, zoom:1, panX:0, panY:0 };
+const POLITY_START = -3400, POLITY_END = 2024;
+const hasHistoricalCoverage = year => year >= POLITY_START && year <= POLITY_END;
 
 const ord = (y) => (y < 0 ? y + 1 : y);
 const MONTHS = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
 const tOf = (y, m, d) => ord(y) + (m ? (MONTHS[m - 1] + (d || 1) - 1) / 365.25 : 0);
 const fmtYear = (y) => (y < 0 ? '前' + (-y) : String(y));
+const yearLabel = year => (year < 0 ? '公元前 ' + -year : year) + ' 年';
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-const TODAY_SPAN = 30;
-function windowOf(y) {
-  if (y >= YMAX) return [YMAX - TODAY_SPAN, YMAX, '近 ' + TODAY_SPAN + ' 年'];
-  return [y, y, chapterOf(y).n];
-}
 
 /* ───────────── 1. 素材装载 ───────────── */
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
@@ -50,11 +37,11 @@ const Q = 4;                           // 政权几何的量化倍数
 
 const el = (id) => document.getElementById(id);
 const canvas = el('globe');
-const elYear = el('year'), elSub = el('sub');
+const elYear = el('year');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
 const overlay = el('overlay');
 const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overlayBody = el('overlay-body');
-const bootEl = el('boot'), layersEl = el('layers'), loadPill = el('loadpill');
+const bootEl = el('boot');
 
 const inlineText = (id) => { const n = el(id); return n ? n.textContent.trim() : ''; };
 
@@ -69,24 +56,10 @@ async function gunzip(buf) {
   const stream = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
   return new Response(stream).arrayBuffer();
 }
-async function fetchWithProgress(url, onProgress) {
+async function fetchBinary(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
-  const total = Number(res.headers.get('content-length') || 0);
-  if (!res.body || !total) return res.arrayBuffer();
-  const reader = res.body.getReader();
-  const chunks = [];
-  let got = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    chunks.push(value); got += value.length;
-    onProgress && onProgress(got / total);
-  }
-  const out = new Uint8Array(got);
-  let off = 0;
-  for (const c of chunks) { out.set(c, off); off += c.length; }
-  return out.buffer;
+  return res.arrayBuffer();
 }
 
 /* 世界数据：地区 + 年表 + 现代国界 */
@@ -233,10 +206,10 @@ const LAYERS = {
     },
   },
   polity: {
-    id: 'polity', name: '政权', range: [-3400, POLITY_END],
+    id: 'polity', name: '政权', range: [POLITY_START, POLITY_END],
     currentYear: (y) => y,
     shapes(year) {
-      if (!pk || year < -3400 || year > POLITY_END) return [];
+      if (!pk || !hasHistoricalCoverage(year)) return [];
       const y = year;
       const out = [];
       for (let i = 0; i < pk.nSlice; i++) {
@@ -253,16 +226,11 @@ const LAYERS = {
 };
 
 const state = {
-  year: YMAX,
-  layerId: 'country',
-  yaw: -1.42,
-  tilt: 0.30,
-  zoom: 1,
-  panX: 0,
-  panY: 0,
-  focus: null,          // {layerId, id}
-  stale: false,
-  lift: 0,         // 政权层沿用上一年（超出数据范围）
+  year: DEFAULT_EXPLORE_YEAR,
+  layerId: 'polity',
+  ...HOME_CAMERA,
+  focus: null,
+  lift: 0,
 };
 
 const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0, safeBottom: 0 };
@@ -372,7 +340,6 @@ function buildLut(layer, shapes) {
 function rebuildPartition() {
   const layer = LAYERS[state.layerId];
   const year = layer.currentYear(state.year);
-  state.stale = layer.id==='polity' && (year < -3400 || year > POLITY_END);
   const t0 = performance.now();
   const { shapes, pick } = rasterize(layer, year);
   const counts = countEntries(pick);
@@ -387,15 +354,9 @@ function rebuildPartition() {
 }
 
 function updateSummary() {
-  let ev = 0;
-  const set = new Set();
-  const [a, b] = windowOf(state.year), oa = ord(a), ob = ord(b);
-  for (const e of entries) {
-    if (e.t1 < oa || e.t0 > ob) continue;
-    if (e.kind === 'era') ev += 0; else ev++;
-    set.add(e.region);
-  }
-  summary = { ev, era: 0, countries: set.size, entities: partition.shapes.length };
+  const { events, background } = yearEventGroups(state.year);
+  summary = { ev:events.length, era:background.length,
+    countries:new Set([...events, ...background].map(event => event.region)).size, entities:partition.shapes.length };
 }
 
 /* ───────────── 5. 材质 ───────────── */
@@ -1025,10 +986,9 @@ function globeHudBounds() {
   }
   if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
-  const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
-  const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
-  if (!elSub.hidden) visible.push(elSub);
-  if (yearError.textContent) visible.push(yearError);
+  const visible = [elYear, hudViewBtn];
+  if (!yearForm.hidden) visible.push(yearForm);
+  if (!vernier.hidden) visible.push(vernier);
   return visible.map((node) => node.getBoundingClientRect()).filter((rect) => rect.width && rect.height);
 }
 
@@ -1410,10 +1370,12 @@ function layout() {
     view.cy = view.cyBase;
     view.R = Math.min(globeW * 0.43, h * 0.37, 410);
   } else {
+    const shortLandscape = session.mode === 'Explore' && w > h && h <= 500;
+    const shortPortrait = session.mode === 'Explore' && h > w && h <= 640;
     view.cx = w / 2;
-    view.cyBase = h * (h > w ? 0.515 : 0.46);
+    view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
     view.cy = view.cyBase - state.lift;
-    view.R = Math.min(w * 0.455, h * 0.34, 410);
+    view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
   }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
@@ -1821,7 +1783,6 @@ function endPointer(e) {
     if (isDouble) {
       lastTapAt = 0;
       if (!mapPointAt(e.clientX, e.clientY)) {
-        document.body.classList.remove('chrome-hidden');
         if (typeof resetView === 'function') resetView(true);
       } else {
         zoomTo(state.zoom > 1.35 ? 1 : 2.5, e.clientX, e.clientY);
@@ -1884,31 +1845,22 @@ function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (session.mode === 'Observe') { if (session.observe.place) selectEventPlace(null); return; }
   const onGlobe = mapPointAt(sx, sy);
-  if (!onGlobe) {
-    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
-    document.body.classList.toggle('chrome-hidden');
-    return;
-  }
-  if (chrome.natural) {
-    document.body.classList.toggle('chrome-hidden');
+  if (!onGlobe || chrome.natural) {
+    if (state.focus) closeSheet();
     return;
   }
   // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
-  if (state.layerId === 'polity' && !polityState.loaded) {
-    if (!polityState.error) {
-      pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
-        zoom:state.zoom, panX:state.panX, panY:state.panY};
-      ensurePolity();
-    }
+  if (state.layerId === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) {
+    pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
+      zoom:state.zoom, panX:state.panX, panY:state.panY};
+    ensurePolity();
     return;
   }
   const id = pickAt(sx, sy);
   if (!id) {
-    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
-    document.body.classList.toggle('chrome-hidden');
+    if (state.focus) closeSheet();
     return;
   }
-  document.body.classList.remove('chrome-hidden');
   openEntity(state.layerId, id, onGlobe);
 }
 
@@ -2071,7 +2023,7 @@ function sheetDragStart(e) {
   if (reading.active || sheetState.dragging || !state.focus || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
-  if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek' && !e.target.closest('.sheet-overview')) return;
+  if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek') return;
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
   momentum.yaw = momentum.tilt = 0;
@@ -2174,7 +2126,7 @@ grabEl.addEventListener('click', (event) => {
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
   if (event.target.closest('button, a, input, select, summary')) return;
-  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) openPeekProgressively();
+  if (event.target.closest('.subject-sheet-summary')) openPeekProgressively();
 });
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
@@ -2238,22 +2190,6 @@ function closeSheet(velocity = 0) {
   invalidate();
 }
 
-/* 书里的「上一个/下一个时期」与「回到地球」 */
-sheetInner.addEventListener('click', (e) => {
-  const b = e.target.closest('button[data-act]');
-  if (!b) return;
-  const act = b.dataset.act;
-  if (act === 'close') { closeSheet(); return; }
-  const i = CH.indexOf(chapterOf(state.year));
-  const next = CH[clamp(i + (act === 'next' ? 1 : -1), 0, CH.length - 1)];
-  if (next) {
-    /* 相邻两章的边界年份可能重号（上一章的末年是下一章的首年），别原地不动 */
-    const want = act === 'next' ? next.a : next.b;
-    commitYear(want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want);
-    sheetScroll.scrollTop = 0;
-  }
-});
-
 /* 兼容旧调用 */
 const closeBook = () => closeReader();
 const renderSheet = renderEntity;
@@ -2274,9 +2210,7 @@ function setLayer(id) {
   if (session.mode !== 'Explore' || !LAYERS[id]) return;
   if (state.layerId === id) return;
   state.layerId = id;
-  for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
-  layersEl.dataset.active = id;
-  if (id === 'polity' && !polityState.loaded) ensurePolity();
+  if (id === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) ensurePolity();
   /* 换划分方式时，抽屉里那张卡片描述的已经是另一套东西了：收起来，别留残影 */
   closeSheet();
   rebuildPartition();
@@ -2285,11 +2219,6 @@ function setLayer(id) {
   rememberExplore();
   saveSession();
 }
-layersEl.addEventListener('click', (e) => {
-  const b = e.target.closest('button');
-  if (b) setLayer(b.dataset.layer);
-});
-
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
@@ -2298,6 +2227,7 @@ function syncHud() {
 }
 function onYearChanged() {
   rebuildPartition();
+  if (session.mode === 'Explore' && state.focus && !state.focus.id) closeSheet();
   syncHud();
   if (!overlay.hidden) openWorld();
   if (state.focus) renderSheet();
@@ -2319,10 +2249,7 @@ function navigateBack() {
   if (session.mode === 'Observe') returnToWorld();
   else if (session.mode === 'Read') readingGoBack();
   else if (!overlay.hidden) closeWorld(true);
-  else {
-    document.body.classList.remove('chrome-hidden');
-    closeSheet();
-  }
+  else if (!abortVernierPreview()) closeSheet();
 }
 
 addEventListener('keydown', e => {
@@ -2342,7 +2269,8 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
+  else if (e.key === 'F2' && session.mode === 'Explore') { openYearInput(); e.preventDefault(); }
+  else if (e.key === '0' || e.key.toLowerCase() === 'r') { resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
 });
@@ -2378,11 +2306,16 @@ function syncSheetIdentity() {
     book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
-  el('sheet-identity-years').textContent = book ? subjectYears(book) : entity && !reading.library ? '地图资料' : '时间与空间';
-  el('sheet-close').hidden = !reading.active && (Boolean(book) || !entity);
+  el('sheet-identity-years').textContent = book ? subjectYears(book)
+    : entity && !reading.library ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
+  const close = el('sheet-close');
+  close.hidden = !reading.active && !entity;
+  close.setAttribute('aria-label', reading.active ? '收起阅读' : '关闭摘要');
   const toc = el('sheet-toc');
-  toc.hidden = reading.active && (reading.library || reading.catalog || Boolean(book && reading.detail === null));
-  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '资料';
+  toc.hidden = reading.active ? reading.library || reading.catalog || Boolean(book && reading.detail === null) : !entity;
+  toc.toggleAttribute('data-read-subject', !reading.active && Boolean(entity));
+  toc.textContent = reading.active ? book ? '目录' : '历史书目'
+    : book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
 el('sheet-toc').addEventListener('click', () => {
   if (reading.active) {
@@ -2390,7 +2323,7 @@ el('sheet-toc').addEventListener('click', () => {
     else if (!reading.library && !reading.catalog) followSubject({ library:true });
     return;
   }
-  if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
+  if (state.focus) openBook(null, 'half', 0, { resume: true });
 });
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {
@@ -2428,22 +2361,17 @@ function ensurePolity() {
 async function loadPolity() {
   polityState.loading = true;
   polityState.error = null;
-  syncChrome();
-  loadPill.hidden = state.layerId !== 'polity';
-  const label = loadPill.querySelector('span');
+  syncHud();
   try {
     const inline = inlineText('politypack');
     let buf;
     if (inline.length > 100) {
-      label.textContent = '政权边界解压…';
       const raw = b64ToBytes(inline);
       buf = (await gunzip(raw)) || raw;
     } else {
-      label.textContent = '政权边界 0%';
-      const gz = await fetchWithProgress('data/polity.bin.gz', (p) => { label.textContent = '政权边界 ' + Math.round(p * 100) + '%'; });
-      label.textContent = '政权边界解压…';
+      const gz = await fetchBinary('data/polity.bin.gz');
       buf = (await gunzip(gz));
-      if (!buf) buf = await (await fetch('data/polity.bin')).arrayBuffer();
+      if (!buf) buf = await fetchBinary('data/polity.bin');
     }
     pk = parsePolityBin(buf);
     polityState.loaded = true;
@@ -2459,15 +2387,12 @@ async function loadPolity() {
   } catch (err) {
     pendingPolityTap = null;
     polityState.error = err.message;
-    label.textContent = '政权边界加载失败';
     console.warn('polity load failed', err);
-    setTimeout(() => { loadPill.hidden = true; }, 2600);
     return;
   } finally {
     polityState.loading = false;
-    syncChrome();
+    syncHud();
   }
-  loadPill.hidden = true;
 }
 
 (async function boot() {
@@ -2483,7 +2408,11 @@ async function loadPolity() {
   buildCountryPick();
   rebuildPartition();
   layout();
-  restoreSession();
+  const restored = restoreSession();
+  if (!restored) {
+    bootEl.querySelector('p').textContent = '正在加载 1500 年历史疆域…';
+    await ensurePolity();
+  }
   syncHud();
   draw();
 
@@ -2494,7 +2423,7 @@ async function loadPolity() {
 
   /* 空闲时后台预热 4K 高清底图与政权边界，放大和切换图层都无需等待 */
   if (glr && typeof glr.preloadDetail === 'function') setTimeout(() => { glr.preloadDetail(); }, 600);
-  setTimeout(() => { ensurePolity(); }, 2200);
+  if (restored && state.layerId === 'country') setTimeout(() => { ensurePolity(); }, 2200);
 })();
 
 })();

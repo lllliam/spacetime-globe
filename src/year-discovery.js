@@ -2,9 +2,43 @@ const worldReadingLinks = new Map(Object.entries(JSON.parse(inlineText('world-re
 const worldPin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>';
 const worldBook = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C9 3 5.5 3 2.5 4.5v13c3-1.5 6.5-1.5 9.5.5 3-2 6.5-2 9.5-.5v-13C18.5 3 15 3 12 5Zm0 0v13"/></svg>';
 const worldChevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
-const backgroundEntries = new Set(['i-kr-empire']);
-const extendedEvents = new Set(['i-010', 'i-158']);
 let worldListYear = null;
+let indexedEvents = null, eventStarts = new Set();
+const eventGroupsByYear = new Map();
+
+function isLongTermBackground(event) {
+  if (event.point) return false;
+  // 「其他」也收录航行和营建。保留有限时段的活动，跨世代的文化或社会发展仍归入背景。
+  const years = ord(event.end) - ord(event.start);
+  return event.kind === 'era' || years >= (event.kind === 'other' ? 40 : 12);
+}
+
+function concreteEventStarts() {
+  if (indexedEvents !== entries) {
+    indexedEvents = entries;
+    eventGroupsByYear.clear();
+    eventStarts = new Set(entries.filter(event => !isLongTermBackground(event)).map(event => event.start));
+  }
+  return eventStarts;
+}
+
+function yearEventGroups(year) {
+  concreteEventStarts();
+  if (eventGroupsByYear.has(year)) return eventGroupsByYear.get(year);
+  const first = ord(year), end = first + 1;
+  const groups = { events: [], background: [] };
+  for (const event of entries) {
+    if (event.t1 < first || event.t0 >= end) continue;
+    groups[isLongTermBackground(event) ? 'background' : 'events'].push(event);
+  }
+  if (eventGroupsByYear.size >= 64) eventGroupsByYear.delete(eventGroupsByYear.keys().next().value);
+  eventGroupsByYear.set(year, groups);
+  return groups;
+}
+
+function worldEventYear(event) {
+  return clamp(state.year, event.start, event.point ? event.start : event.end);
+}
 
 function worldReadingTarget(event, year) {
   const mapped = subjectsByEvent.get(event.id);
@@ -45,29 +79,19 @@ function worldDisclosure(title, items, open = false) {
 function openWorld() {
   if (session.mode !== 'Explore') return;
   worldListYear = state.year;
-  const [start, end] = windowOf(state.year);
-  const first = ord(start), last = ord(end) + 1;
-  const recent = start !== end;
-  const events = [], background = [];
-  for (const event of entries) {
-    if (event.t1 < first || event.t0 >= last) continue;
-    const item = { event, target:worldReadingTarget(event, clamp(state.year, event.start, event.point ? event.start : event.end)) };
-    const isBackground = !event.point && !extendedEvents.has(event.id) &&
-      (event.kind === 'era' || ord(event.end) - ord(event.start) >= 15 || backgroundEntries.has(event.id));
-    (isBackground ? background : events).push(item);
-  }
+  const groups = yearEventGroups(state.year);
+  const item = event => ({ event, target:worldReadingTarget(event, worldEventYear(event)) });
+  const events = groups.events.map(item), background = groups.background.map(item);
   // 同一开始年份里，优先呈现可以接着读的条目。
   const byDate = (a, b) => b.event.start - a.event.start || Number(!!b.target) - Number(!!a.target) || b.event.t0 - a.event.t0;
   events.sort(byDate);
   background.sort((a,b) => Number(!!b.target) - Number(!!a.target) || byDate(a,b));
-  overlayTitle.textContent = recent ? '近 ' + TODAY_SPAN + ' 年' : fmtYear(state.year) + ' 年';
-  overlaySub.textContent = recent ? '寻找值得读下去的历史'
-    : events.length ? '从这一年的事件读起' : background.length ? '从这一年的背景读起' : '';
+  overlayTitle.textContent = yearLabel(state.year);
+  overlaySub.textContent = '选取史事可在地球上查看，带书名的条目可继续阅读。';
   overlaySub.hidden = !overlaySub.textContent;
-  overlayBody.innerHTML = '<section aria-labelledby="world-events-heading"><h2 id="world-events-heading">' +
-    (recent ? '近年的事件' : '这一年的事件') + '</h2>' +
+  overlayBody.innerHTML = '<section aria-labelledby="world-events-heading"><h2 id="world-events-heading">这一年的事件</h2>' +
     (events.length ? worldList(events.slice(0, 4)) + worldDisclosure('更多事件', events.slice(4))
-      : '<p class="wempty">' + (recent ? '这个时段' : '这一年') + '暂无收录的具体事件。</p>') + '</section>' +
+      : '<p class="wempty">这一年暂无收录的具体事件。</p>') + '</section>' +
     worldDisclosure('长期背景', background, !events.length);
   restoreWorld(null, 0);
 }
@@ -103,7 +127,7 @@ function closeWorld(focus = false) {
   overlay.hidden = true;
   updateVernier();
   canvas.inert = el('hud').inert = false;
-  if (focus) elYear.focus({preventScroll:true});
+  if (focus) vernierEventsBtn.focus({preventScroll:true});
   invalidate();
 }
 
@@ -114,7 +138,7 @@ overlayBody.addEventListener('click', event => {
   const entry = entries.find(item => String(item.id) === id);
   if (!entry) return;
   if (button.dataset.event) { openWorldEvent(entry); return; }
-  const target = worldReadingTarget(entry, clamp(state.year, entry.start, entry.point ? entry.start : entry.end));
+  const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
   beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
     entryYear:target.year, source:worldSource(id, 'read'),

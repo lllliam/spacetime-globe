@@ -19,35 +19,35 @@
 </head>
 <body>
 
-<canvas id="globe" tabindex="0" aria-label="地球，双击空白处复位视角，长按或按 Shift+F10 打开地球视图" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球。拖动旋转，捏合或滚轮缩放，点选疆域阅读。按 R 复位视角" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
 
 <div id="hud">
   <div id="year-control">
-    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史疆域</span></button>
-    <div id="year-strip" aria-hidden="true"></div>
+    <button id="year" type="button" aria-controls="year-form" aria-keyshortcuts="F2" aria-expanded="false">
+      <span class="year-label"><span id="year-num">1500</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></span>
+      <span id="year-era" role="status">正在加载历史疆域…</span>
+    </button>
     <form id="year-form" hidden>
       <div class="year-input-row">
         <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
-               placeholder="如 1421 或 前221" aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+               placeholder="如 1500 或 前221" aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error">
         <button type="submit" aria-label="前往该年份"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
       <p id="year-error" role="status"></p>
       <div class="year-milestones" aria-label="历史年份快捷入口">
-        <button type="button" data-year-jump="-550">前550</button>
-        <button type="button" data-year-jump="220">220</button>
-        <button type="button" data-year-jump="618">618</button>
-        <button type="button" data-year-jump="960">960</button>
-        <button type="button" data-year-jump="1368">1368</button>
-        <button type="button" data-year-jump="1421">1421</button>
-        <button type="button" data-year-jump="1644">1644</button>
-        <button type="button" data-year-jump="1945">1945</button>
+        <button type="button" data-year-jump="-221"><strong>前221</strong><span>秦统一</span></button>
+        <button type="button" data-year-jump="476"><strong>476</strong><span>西罗马帝国灭亡</span></button>
+        <button type="button" data-year-jump="1206"><strong>1206</strong><span>蒙古帝国建立</span></button>
+        <button type="button" data-year-jump="1324"><strong>1324</strong><span>曼萨·穆萨朝觐</span></button>
+        <button type="button" data-year-jump="1453"><strong>1453</strong><span>君士坦丁堡陷落</span></button>
+        <button type="button" data-year-jump="1500"><strong>1500</strong><span>葡萄牙人抵达巴西</span></button>
       </div>
+      <button type="button" id="year-today">返回当代 <span id="year-current"></span></button>
     </form>
   </div>
-  <div id="sub" role="status" hidden></div>
   <nav id="hud-actions" aria-label="地球视图">
     <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
   </nav>
@@ -58,27 +58,27 @@
     <strong id="vernier-year"></strong>
     <span id="vernier-era"></span>
   </div>
-  <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
+  <div id="vernier-track" tabindex="0" role="slider" aria-label="探索年份，左侧更早，右侧更晚" aria-valuemin="-3500" aria-valuenow="1500">
     <div id="vernier-ticks" aria-hidden="true"></div>
     <span class="vernier-needle" aria-hidden="true"></span>
   </div>
-  <button id="vernier-events" type="button" hidden aria-label="浏览这一年的历史事件"></button>
+  <button id="vernier-events" type="button" aria-controls="overlay">这一年</button>
 </section>
 
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-modal="true" aria-label="地球视图">
   <div id="view-modes" role="group" aria-label="地图显示方式">
     <button type="button" data-view="history" aria-pressed="true">随年份</button>
-    <button type="button" data-view="modern" aria-pressed="false">现代</button>
-    <button type="button" data-view="nature" aria-pressed="false">地形</button>
+    <button type="button" data-view="modern" aria-pressed="false">现代边界</button>
+    <button type="button" data-view="nature" aria-pressed="false">自然地形</button>
   </div>
   <div class="view-switches">
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
   </div>
+  <button type="button" id="reset-view">复位视角</button>
 </section>
 
-<div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
   <header id="sheet-top">
@@ -116,7 +116,7 @@
   <div id="overlay-body"></div>
 </div>
 
-<div id="boot">
+<div id="boot" role="status">
   <div class="spin"></div>
   <p>正在铺开地图…</p>
 </div>

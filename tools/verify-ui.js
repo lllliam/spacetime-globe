@@ -118,6 +118,8 @@ async function main() {
     manifest.icons.some(icon => icon.purpose.includes('maskable')));
 
   check('渲染器就绪', (await js('window.__t.rendererKind')) === (process.env.NOGL ? 'canvas2d' : 'webgl'), await js('window.__t.rendererKind'));
+  check('冷启动使用 1500 年且历史疆域数据已装载', await js("__t.state.year===1500 && __t.state.layerId==='polity' && __t.polityLoaded && __t.partition.shapes.length>20"));
+  await js('__t.commitYear(__t.yearBounds.max)');
   check('世界数据已装载', await js('window.__t.partition.shapes.length > 100'), await js('window.__t.partition.shapes.length'));
 
   const camera = () => js('({yaw:__t.state.yaw, zoom:__t.state.zoom, x:__t.state.panX, y:__t.state.panY})');
@@ -178,7 +180,7 @@ async function main() {
     Math.abs(fit.yaw - heldView.yaw) > .003, fit);
   await js(`__t.stopSpin(); document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'r',bubbles:true}));`);
   await sleep(480);
-  check('键盘复位恢复默认镜头', (await camera()).zoom === 1 && Math.abs((await camera()).yaw + 1.42) < .01);
+  check('键盘复位恢复默认镜头', await js('__t.state.zoom===1 && Math.abs(__t.state.yaw-__t.homeCamera.yaw)<.01'));
   await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 2, mobile: true });
   await sleep(250);
 
@@ -201,7 +203,7 @@ async function main() {
   const p = await js(`(() => { const q = window.__t.screenOf(110*Math.PI/180, 34*Math.PI/180); return {x:q.x, y:q.y}; })()`);
   await tap(p.x, p.y);
   const sheet = await js(`({open: document.body.classList.contains('sheet-open'),
-    title: (document.querySelector('#sheet h2')||{}).textContent,
+    title: document.querySelector('#sheet-identity-name').textContent,
     entries: document.querySelectorAll('#sheet [data-read-subject]').length})`);
   check('点当下的中国打开单一主体书卷入口', sheet.open && sheet.title === '中华人民共和国' && sheet.entries === 1, sheet);
   await js(`window.__t.closeSheet()`);
@@ -230,7 +232,8 @@ async function main() {
     else await send('Input.dispatchMouseEvent',{type:'mouseReleased',x,y,button:'left',buttons:0,clickCount:1});
     await sleep(350);
   };
-  check('首页默认只显示原有年份', await js("!document.querySelector('#view-toggle,#classic-link,#hint') && !document.querySelector('#dock,#track') && !__t.yearControl.browsing"));
+  check('首页保留显式年份、时间游标、史事和视图入口', await js(`['#year','#hud-view','#vernier-track','#vernier-events'].every(id=>document.querySelector(id).getClientRects().length) &&
+    !document.querySelector('#year-strip,#toolbar,#view-toggle,#classic-link,#dock,#track')`));
   await js("__t.setYear(1900)");
   await tap(...Object.values(await pointOf('#year')));
   check('轻点年份打开精确输入且不会打开事件列表', await js("!document.getElementById('year-form').hidden && document.getElementById('overlay').hidden && document.activeElement.id==='year-input'"));
@@ -315,32 +318,28 @@ async function main() {
   }
   await js('__t.setYear(1900)');
   await js("document.getElementById('overlay-close').click()");
-  const touchYear = async (point, type) => send('Input.dispatchTouchEvent', {
-    type, touchPoints: type === 'touchEnd' || type === 'touchCancel' ? [] : [point],
+  const touchYear = (point, type) => send('Input.dispatchTouchEvent', {
+    type, touchPoints: ['touchEnd','touchCancel'].includes(type) ? [] : [point],
   });
-  const touchYearTap = async (point) => {
-    await touchYear(point,'touchStart');
-    await touchYear(point,'touchEnd');
-  };
   const waitYear = async () => {
-    for(let i=0;i<30 && await js('__t.yearControl.moving');i++)await sleep(30);
+    for(let i=0;i<30 && await js('__t.timeline.moving');i++)await sleep(30);
   };
-  const yearPoint = await pointOf('#year');
-  await touchYear(yearPoint,'touchStart');
+  const topYearPoint = await pointOf('#year');
+  await touchYear(topYearPoint,'touchStart');
   await sleep(560);
-  check('长按在原位展开年份，保持世界表关闭', await js(`__t.yearControl.browsing && __t.state.year===1900 &&
-    document.getElementById('overlay').hidden && document.getElementById('year-strip').textContent.includes('189919001901')`));
-  check('同一行能看到中央年份和两侧两格渐隐年份',await js(`(() => {
-    const strip=document.getElementById('year-strip'), r=strip.getBoundingClientRect();
-    const positions=['1898','1899','1900','1901','1902'].map(y=>[...strip.children]
-      .find(n=>n.textContent===y).getBoundingClientRect()).map(p=>p.x+p.width/2);
-    return positions.every(x=>x>r.left && x<r.right) && positions[3]-positions[2]<90;
-  })()`));
-  await readingShot('year-browse-compact');
+  check('顶部年份长按不会打开第二时间轴', await js("!document.querySelector('#year-strip') && document.querySelector('#overlay').hidden && __t.state.year===1900"));
+  await touchYear({x:topYearPoint.x+85,y:topYearPoint.y},'touchMove');
+  await touchYear(topYearPoint,'touchEnd');
+  check('拖动顶部年份不改变地图年份', await js('__t.state.year===1900 && __t.timeline.year===1900'));
+  await js("if(!document.querySelector('#year-form').hidden)document.querySelector('#year').click()");
+  const yearPoint = await pointOf('#vernier-track');
   const yearCamera = await js('JSON.stringify([__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])');
-  await touchYear({x:yearPoint.x+76,y:yearPoint.y},'touchMove');
-  const smallChange = await js('__t.yearControl.position');
-  check('同一根手指继续拖动时只预览年份',Math.round(smallChange)===1899 && await js('__t.state.year===1900'),smallChange);
+  await touchYear(yearPoint,'touchStart');
+  await touchYear({x:yearPoint.x+16,y:yearPoint.y},'touchMove');
+  await sleep(100);
+  const smallChange = await js('__t.timeline.position');
+  check('底部拖动时明确区分预览年份和生效地图年份',Math.round(smallChange)===1899 &&
+    await js("__t.state.year===1900 && document.querySelector('#vernier-era').textContent.includes('地图 1900')"),smallChange);
   await sleep(150);
   await touchYear(yearPoint,'touchEnd');
   await waitYear();
@@ -350,16 +349,16 @@ async function main() {
     yearCamera===await js('JSON.stringify([__t.state.yaw,__t.state.tilt,__t.state.zoom,__t.state.panX,__t.state.panY])'));
   const historySignature = await js('JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))');
   await touchYear(yearPoint,'touchStart');
-  await touchYear({x:yearPoint.x+180,y:yearPoint.y},'touchMove');
-  const wideChange = 1899 - await js('__t.yearControl.position');
-  check('大幅拖动比小幅拖动更快掠过年份',wideChange>(1900-smallChange)*180/76+.35,wideChange);
+  await touchYear({x:yearPoint.x+96,y:yearPoint.y},'touchMove');
+  const wideChange = 1899 - await js('__t.timeline.position');
+  check('底部游标连续移动，长拖跨越更多年份',wideChange>5 && wideChange>1900-smallChange,wideChange);
   await sleep(150);
   await touchYear(yearPoint,'touchEnd');
   await waitYear();
   check('放慢后松手只吸附到最近年份',await js('__t.state.year===Math.round(1899-'+wideChange+')'));
   await touchYear(yearPoint,'touchStart');
   await touchYear({x:yearPoint.x-130,y:yearPoint.y},'touchMove');
-  const flickPosition = await js('__t.yearControl.position');
+  const flickPosition = await js('__t.timeline.position');
   await touchYear({x:yearPoint.x-175,y:yearPoint.y},'touchMove');
   await touchYear(yearPoint,'touchEnd');
   await waitYear();
@@ -369,23 +368,24 @@ async function main() {
   await touchYear({x:yearPoint.x+170,y:yearPoint.y},'touchMove');
   await touchYear(yearPoint,'touchCancel');
   await waitYear();
-  check('系统取消手势后恢复上次所选年份',await js(`__t.state.year===${flickYear} && __t.yearControl.position===${flickYear}`));
+  check('系统取消手势后恢复上次所选年份',await js(`__t.state.year===${flickYear} && __t.timeline.year===${flickYear}`));
   await tap(24,160);
-  check('点球面收起年份，并保留当前选年',await js(`!__t.yearControl.browsing && __t.sheet.detent==='hidden' && __t.state.year===${flickYear}`));
-  await touchYearTap(yearPoint);
+  check('点击空白保留年份、视图设置和时间游标',await js(`__t.sheet.detent==='hidden' && __t.state.year===${flickYear} &&
+    !document.querySelector('#vernier').hidden && document.elementFromPoint(25,32)?.closest('#year')`));
+  await touchYear(topYearPoint,'touchStart');
+  await touchYear(topYearPoint,'touchEnd');
   await sleep(330);
   check('触屏轻点就地输入，世界表保持关闭',await js("!document.getElementById('year-form').hidden && document.getElementById('overlay').hidden && document.activeElement.id==='year-input'"));
   await readingShot('year-input');
   await js("document.getElementById('year-input').value='1900';document.getElementById('year-form').requestSubmit()");
   check('输入历史年份改变真实边界几何',await js("__t.state.year===1900 && JSON.stringify(__t.partition.shapes.map(s=>[s.ent.name,s.pathId]))!=="+JSON.stringify(historySignature)));
-  const yearKey = (key,options='') => js(`document.getElementById('year').dispatchEvent(new KeyboardEvent('keydown',{key:'${key}',bubbles:true${options}}))`);
+  const yearKey = (key, target = '#year') => js(`document.querySelector('${target}').dispatchEvent(new KeyboardEvent('keydown',{key:'${key}',bubbles:true}))`);
   await yearKey('F2');
   await js("document.getElementById('year-input').value='公元 0 年';document.getElementById('year-form').requestSubmit()");
   check('键盘可输入年份，公元 0 年有就地错误提示',await js("__t.state.year===1900 && document.getElementById('year-input').getAttribute('aria-invalid')==='true'"));
   await js("document.getElementById('year-input').value='公元前 1 年';document.getElementById('year-form').requestSubmit()");
-  await yearKey('Enter',',shiftKey:true');
-  check('公元前年份可输入，年份排列跨过公元交界',await js(`__t.state.year===-1 && [...document.querySelectorAll('#year-strip span:not([hidden])')].map(n=>n.textContent).join(',').includes('前2,前1,1,2')`));
-  await yearKey('ArrowRight');
+  check('公元前年份可输入，时间游标准确对应公元前一年',await js('__t.state.year===-1 && __t.timeline.year===-1'));
+  await yearKey('ArrowRight','#vernier-track');
   check('键盘逐年移动跨过公元 0 年',await js('__t.state.year===1'));
   await yearKey('Escape');
   const designShot = async name => {
@@ -490,8 +490,7 @@ async function main() {
   check('桌面右键可打开观察方式',await js("!document.getElementById('view-panel').hidden"));
   await js("document.querySelector('[data-view=modern]').click();document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));");
   await sleep(230);
-  await hold(await pointOf('#year'));
-  await yearKey('ArrowLeft');
+  await yearKey('ArrowLeft','#vernier-track');
   check('手动选择现代国家后，调年份保留现代边界',await js("__t.state.layerId==='country' && __t.state.year===1899"));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
   await js("document.getElementById('globe').dispatchEvent(new KeyboardEvent('keydown',{key:'ContextMenu',bubbles:true}));document.querySelector('[data-view=history]').click()");
@@ -506,7 +505,7 @@ async function main() {
   await js(`window.__t.ensurePolity()`);
   for (let i = 0; i < 40; i++) { if (await js('window.__t.polityLoaded')) break; await sleep(250); }
   const pol = await js(`({loaded: window.__t.polityLoaded, shapes: window.__t.partition.shapes.length, entities: window.__t.summary.entities,
-    hud: document.getElementById('sub').textContent})`);
+    hud: document.getElementById('year-era').textContent})`);
   check('政权层已加载并栅格化', pol.loaded && pol.shapes > 20, pol);
 
   /* 点一个政权（1900 年 · 安纳托利亚） */
@@ -517,8 +516,8 @@ async function main() {
   await sleep(220);
   const polSheet = await js(`({
     open: document.body.classList.contains('sheet-open'),
-    title: (document.querySelector('#sheet h2')||{}).textContent,
-    era: (document.querySelector('#sheet .era')||{}).textContent,
+    title: document.querySelector('#sheet-identity-name').textContent,
+    era: document.querySelector('#sheet-identity-years').textContent,
     entries: document.querySelectorAll('#sheet [data-read-subject]').length
   })`);
   check('点政权打开对应年份的摘要',
@@ -530,15 +529,16 @@ async function main() {
   const stable = await js(`(() => {
     const t = window.__t;
     const before = t.state.focus && t.state.focus.key;
-    const titleBefore = (document.querySelector('#sheet-inner h2') || {}).textContent;
+    const titleBefore = document.querySelector('#sheet-identity-name').textContent;
+    t.setYear(1901);
+    const after = t.state.focus && t.state.focus.key, titleAfter = document.querySelector('#sheet-identity-name').textContent;
     t.setYear(1200);
-    const titleAfter = (document.querySelector('#sheet-inner h2') || {}).textContent;
-    return { before, after: t.state.focus && t.state.focus.key, titleBefore, titleAfter };
+    return { before, after, titleBefore, titleAfter, unavailable:t.state.focus===null };
   })()`);
-  check('换年份后抽屉不跳到别的实体', stable.before === stable.after && stable.titleBefore === stable.titleAfter, stable);
+  check('换年份后保留仍有效的主体，无疆域时关闭旧选区', stable.before === stable.after && stable.titleBefore === stable.titleAfter && stable.unavailable, stable);
 
   /* 切回国家层 */
-  await js(`window.__t.setLayer('country');window.__t.setYear(2026)`);
+  await js(`__t.setLayer('country');__t.setYear(__t.yearBounds.max)`);
   const back = await js(`({shapes: window.__t.partition.shapes.length, iso: !!window.__t.shapeOf(1).iso})`);
   check('可切回国家层', back.shapes > 100 && back.iso, back);
   /* 抽屉三档：上拉应到 full，且内容变成可滚动的书 */
@@ -681,8 +681,10 @@ async function main() {
       Object.assign(t.state,{yaw:-1.77,tilt:.35,zoom:1.9,panX:0,panY:0}); t.view.Rz=t.view.R*1.9; t.redraw(); })()`);
     const point = await js(`(() => {const p=__t.screenOf(115*Math.PI/180,33*Math.PI/180);return [p.x,p.y]})()`);
     await tap(...point);
+    const action = await js("document.querySelector('#sheet-toc').textContent");
     await tap(...Object.values(await pointOf('#sheet-toc')));
     await waitReader();
+    return action;
   };
   await openMing(1500);
   const original = await cameraSnapshot();
@@ -748,7 +750,9 @@ async function main() {
   await js(`document.getElementById('event-map-return').click()`);
   await waitReader();
   await js('__t.closeReader();__t.closeSheet()');
-  await openMing(1600);
+  const mingAction = await openMing(1600);
+  check('已读主体摘要直接继续原章',mingAction==='继续阅读' && await js("__t.reading.detail==='two-capitals'"));
+  await js("document.querySelector('#sheet-toc').click()");
   const ming1600=await readOutline();
   check('1600 年仍打开同一卷，只切换轻量时间定位',ming1600.title===ming1500.title && ming1600.anchor==='silver' &&
     ming1600.chapters.join()===ming1500.chapters.join(),ming1600);
@@ -798,7 +802,7 @@ async function main() {
     const shapes=__t.partition.shapes;
     const aztec=shapes.find(s=>s.ent.name==='Aztec Triple Alliance');
     __t.openEntity('polity',aztec.id);
-    const sheet=document.querySelector('.sheet-overview h2').textContent;
+    const sheet=document.querySelector('#sheet-identity-name').textContent;
     __t.openBook();
     return {sheet,book:__t.reading.subject.id,anchor:document.querySelector('[aria-current=date]')?.dataset.readingDetail,
       aztecLabel:__t.vecShapes.some(s=>s.name==='阿兹特克三方同盟'),
@@ -834,7 +838,7 @@ async function main() {
   await js(`document.querySelector('[data-read-subject]').click()`);
   check('无独立卷的主体如实提供地图资料',await js(`!__t.reading.subject && document.querySelector('.lede').textContent.includes('尚未收录') &&
     !document.querySelector('.reading-row') && !!document.querySelector('.reading-sources a')`));
-  await js(`__t.closeReader();__t.closeSheet();__t.setYear(2026);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id)`);
+  await js(`__t.closeReader();__t.closeSheet();__t.setYear(__t.yearBounds.max);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id)`);
   await sleep(500);
   const grab = await js(`(()=>{const r=document.getElementById('grab').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+13}})()`);
   await drag(grab.x,grab.y,grab.x,4,14);
@@ -903,7 +907,7 @@ async function main() {
     if(await js('!!(window.__t && __t.partition.shapes.length && !document.getElementById("boot"))')) break;
     await sleep(200);
   }
-  await js(`__t.setYear(2026);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
+  await js(`__t.setYear(__t.yearBounds.max);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
   check('离线单文件可打开中华人民共和国卷',await js(`__t.reading.subject.id==='prc' && document.querySelectorAll('.reading-row').length===4`));
   check('离线单文件图标已内嵌',await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
   await js(`document.querySelector('[data-subject-library]').click()`);

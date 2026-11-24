@@ -97,7 +97,7 @@ function rememberReading() {
 }
 function readingBackground(inert) {
   const split = inert && isSplitReading();
-  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
+  for (const id of ['globe', 'hud', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
     const keepLive = split && (id === 'globe' || id === 'event-map-points') ||
       inert && reading.active && id === 'grab' && innerWidth < 960;
     el(id).inert = keepLive ? false : inert;
@@ -114,13 +114,17 @@ function readingBackground(inert) {
   grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
   layout();
 }
-function openBook(fromOffset = null, viewMode = 'half', velocity = 0) {
+function openBook(fromOffset = null, viewMode = 'half', velocity = 0, { resume = false } = {}) {
   if (session.mode !== 'Explore') return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
-  beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent), {viewMode, velocity});
+  const book = subjectBookForEntity(ent);
+  const progress = resume ? savedSubjectProgress(book) : null;
+  beginReading(ent, null, progress?.chapter, fromOffset ?? sheetState.offset, book,
+    { viewMode, velocity, resumePosition: progress?.position });
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year, viewMode = 'half', velocity = 0} = {}) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year,
+  viewMode = 'half', velocity = 0, resumePosition} = {}) {
   if (reading.active) return;
   if (session.mode === 'Explore') rememberExplore();
   else if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView() });
@@ -128,7 +132,7 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, 
   const key = topic ? 'topic:' + topic.id : ent ? 'atlas:' + ent.layerId + ':' + ent.key : null;
   const saved = subject ? null : session.readingProgress(key);
   const detail = chapter || saved?.chapter;
-  const position = saved?.chapter === detail ? saved?.position : null;
+  const position = resumePosition || (saved?.chapter === detail ? saved?.position : null);
   if (!session.enterRead({ bookId: subject?.id, topicId: topic?.id, entity, detail, position,
     scroll: saved?.scroll, year: entryYear, viewMode,
     source: source || (ent ? { kind: 'summary' } : { kind: 'map' }), catalog: !ent && !topic && !subject })) return;
@@ -538,7 +542,7 @@ function closeReader() {
     restoreExploreView();
     if (source.kind === 'events') restoreWorldSource(source);
     else {
-      const fallback = state.focus ? sheetInner.querySelector('[data-read-subject]') || grabEl : canvas;
+      const fallback = state.focus ? el('sheet-toc') : canvas;
       const trigger = readingTrigger?.isConnected && readingTrigger !== document.body ? readingTrigger : fallback;
       trigger.focus({ preventScroll: true });
     }
@@ -560,9 +564,6 @@ function handleReadingKey(e) {
   }
   return true;
 }
-sheetInner.addEventListener('click', (e) => {
-  if (e.target.closest('[data-read-subject]')) openBook();
-});
 let footnoteTrigger = null;
 function closeFootnote(restoreFocus = false) {
   el('footnote-popover').hidden = true;

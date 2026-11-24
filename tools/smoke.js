@@ -52,7 +52,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       open: document.body.classList.contains('sheet-open'),
       focus: window.__t.state.focus && window.__t.state.focus.key,
       year: window.__t.state.year, layer: window.__t.state.layerId,
-      title: (document.querySelector('#sheet-inner h2') || {}).textContent || null };
+      title: document.querySelector('#sheet-identity-name').textContent };
   })()`);
   const waitFor = async (expr, ms = 2500) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (await js(expr)) return true; await sleep(120); } return false; };
   const tap = async (x, y) => {
@@ -66,7 +66,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const ok = (name, cond, detail) => { (cond ? pass++ : fail++); console.log((cond ? '  ok   ' : '  FAIL ') + name + (detail !== undefined ? '  ' + JSON.stringify(detail) : '')); };
 
   await js('window.__t.stopSpin()');
-  await js('window.__t.setYear(1900)');
+  await js('__t.commitYear(__t.yearBounds.max)');
   await sleep(400);
 
   /* 1. 点 → 开；点暗处 → 关；连做两次 */
@@ -110,13 +110,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const polSheet = await st();
   ok('政权层点开抽屉', polSheet.open && polSheet.title==='奥斯曼帝国', { title: polSheet.title, detent: polSheet.detent });
 
-  /* 5. 用键盘展开一行年份并调整 */
+  /* 5. 底部时间轴支持逐年键盘选择。 */
   const yearBefore = polSheet.year;
-  await js("document.getElementById('year').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',shiftKey:true,bubbles:true}))");
+  await js("document.getElementById('sheet-close').click()");
+  await waitFor('window.__t.sheetSettled && !document.getElementById("vernier").hidden');
+  await js("document.getElementById('vernier-track').focus()");
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',windowsVirtualKeyCode:39});
   await waitFor("window.__t.sheetSettled && !document.body.classList.contains('sheet-open')");
   const afterScrub=await st();
-  ok('展开年份并用右方向键前进一年',afterScrub.year===yearBefore+1&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
+  ok('时间游标用右方向键前进一年',afterScrub.year===yearBefore+1&&!afterScrub.open,{before:yearBefore,after:afterScrub.year});
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',windowsVirtualKeyCode:27});
 
   /* 6. 切图层：抽屉应收起且不留残影 */

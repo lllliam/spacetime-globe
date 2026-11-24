@@ -46,8 +46,6 @@ html.reader-paper{color-scheme:light}
 #year::after{content:"›";font:400 22px/1 -apple-system,sans-serif;color:var(--gold-dim);
   margin-left:8px;vertical-align:6px;letter-spacing:0}
 #year:active{opacity:.72}
-#sub{font-size:11.5px;color:var(--muted);letter-spacing:.03em;font-variant-numeric:tabular-nums}
-#sub b{color:var(--gold);font-weight:600}
 
 /* ── 引导（长在 HUD 里，永远不会压到下面的按钮） ── */
 #hint{margin-top:6px;max-width:21em;font-size:11px;line-height:1.6;letter-spacing:.02em;
@@ -129,23 +127,6 @@ html.reader-paper{color-scheme:light}
   #hint{bottom:calc(var(--safe-b) + 128px)}
 }
 
-/* ── 图层开关 + 加载指示 ── */
-#toolbar{display:flex;align-items:center;gap:10px;padding:0 18px 2px}
-#layers{margin-left:auto;display:flex;gap:0;border:1px solid rgba(255,255,255,.12);
-  border-radius:999px;padding:2px;background:rgba(255,255,255,.03)}
-#layers button{appearance:none;border:0;background:none;color:var(--muted);
-  font:500 11.5px/1 -apple-system,system-ui,sans-serif;letter-spacing:.02em;
-  padding:6px 13px;border-radius:999px;cursor:pointer;transition:color .18s,background .18s}
-#layers button.on{background:rgba(224,178,115,.14);color:var(--gold)}
-#layers button:active{opacity:.7}
-#loadpill{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--muted);
-  letter-spacing:.02em;font-variant-numeric:tabular-nums}
-#loadpill[hidden]{display:none}
-#loadpill i{width:11px;height:11px;border-radius:50%;border:1.5px solid rgba(224,178,115,.25);
-  border-top-color:var(--gold);animation:sp .8s linear infinite;display:block}
-
-@media (min-width:720px){ #toolbar{padding:0 28px 2px} }
-
 /* ── 实体档案的事实行 ── */
 
 /* ── 矢量叠加层：边线 / 经纬网 / 地名（按设备分辨率绘制，放大不糊） ── */
@@ -182,7 +163,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #sheet-inner{padding-bottom:8px}
 
 /* 档案头 */
-.sheet-overview h2{margin:2px 0 0;font:600 21px/1.3 "Songti SC","Noto Serif SC",Georgia,serif}
 #sheet .era{margin:3px 0 10px;font-size:12px;color:var(--gold);letter-spacing:.02em}
 #sheet .era small{color:var(--muted);margin-left:8px;font-size:11px;font-variant-numeric:tabular-nums}
 
@@ -234,15 +214,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 @media (min-width:720px){ #sheet-scroll{padding:2px 28px 16px;max-width:820px;margin:0 auto;width:100%} }
 @media (prefers-reduced-motion:reduce){ #sheet{transition-duration:.001s} }
 
-/* 图层开关：滑块而不是换色 */
-#layers{position:relative;isolation:isolate}
-#layers::before{content:"";position:absolute;z-index:-1;top:2px;bottom:2px;left:2px;
-  width:calc(50% - 2px);border-radius:999px;background:rgba(224,178,115,.16);
-  box-shadow:0 1px 2px rgba(0,0,0,.35);
-  transition:transform .3s cubic-bezier(.22,.95,.3,1)}
-#layers[data-active="polity"]::before{transform:translateX(100%)}
-#layers button.on{background:none}
-
 /* peek 档：收成一张干净的卡片，而不是被切断的列表 */
 #sheet.peek #sheet-inner .facts,
 #sheet.peek #sheet-inner .rows li:nth-child(n+3),
@@ -251,7 +222,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #sheet.peek #sheet-inner .book,
 #sheet.peek #sheet-inner .foot{display:none}
 #sheet.peek #sheet-inner{padding-top:2px}
-#sheet.peek .sheet-overview h2{font-size:19px}
 
 /* 细节：行距、分隔、按压手感 */
 #sheet .rows li{transition:background .18s}
@@ -259,9 +229,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #sheet .era small{opacity:.85}
 #hud{gap:2px}
 #hud #year{margin-top:-2px}
-#sub{line-height:1.5}
-#toolbar{gap:8px}
-#loadpill span{font-variant-numeric:tabular-nums}
 
 
 /* ── 文本层：时期卡片与分节说明 ── */
@@ -279,14 +246,6 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 /* 阅读入口与独立阅读层 */
 #sheet-scroll{overflow-y:auto;touch-action:pan-y}
 #grab{touch-action:none}
-.topic-entry{position:relative;display:block;width:100%;min-height:50px;text-align:left;
-  border:0;border-block:1px solid var(--line);background:transparent;
-  color:var(--ink);padding:11px 24px 11px 0;margin:4px 0 14px;cursor:pointer;font:inherit}
-.topic-entry small{display:block;color:var(--gold);font-size:11px;margin-top:4px}
-.topic-entry strong{display:block;font:600 17px/1.5 "Songti SC",Georgia,serif}
-.topic-entry .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}
-.topic-entry:active{background:rgba(224,178,115,.07)}
-#sheet.peek .topic-entry{display:none}
 body.reading-open #hud{opacity:var(--reader-hud,0);visibility:hidden}
 body.reading-open.reader-revealing #hud{visibility:visible}
 body.reading-open #sheet{z-index:12;overflow:hidden}
@@ -390,8 +349,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #grab i{width:40px;height:4px;align-self:flex-start;margin-top:13px;transition:background .16s,width .16s}
 #sheet-gesture{position:absolute;left:0;right:0;top:25px;text-align:center;
   color:var(--muted);font-size:9px;line-height:1.4;letter-spacing:.06em;pointer-events:none;opacity:.78}
-.sheet-overview{touch-action:none;cursor:grab}
-#sheet.dragging,#sheet.dragging .sheet-overview,#sheet.dragging #grab{cursor:grabbing}
+#sheet.dragging,#sheet.dragging #grab{cursor:grabbing}
 #sheet[data-gesture="expand"] #grab i{width:52px;background:var(--gold)}
 #sheet[data-gesture="dismiss"] #grab i{width:30px;background:#c3ad91}
 #sheet[data-gesture="expand"] #sheet-gesture,#sheet[data-gesture="dismiss"] #sheet-gesture{color:var(--gold);opacity:1}
@@ -817,9 +775,8 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 #sheet .rows li{border-top:1px solid var(--paper-border)}
 #sheet .hint-more{color:var(--vermilion)}
 #sheet .hint-more::after{background:linear-gradient(90deg,var(--paper-border),transparent)}
-#sheet .sheet-overview h2,#sheet h2{color:var(--paper-ink)}
+#sheet h2{color:var(--paper-ink)}
 #sheet.peek #sheet-scroll{padding-top:5px}
-#sheet.peek .sheet-overview .era{margin-bottom:0}
 #sheet.peek #sheet-inner .rows{display:none}
 #sheet.peek #sheet-inner .facts{display:none}
 #sheet.peek #sheet-inner .hint-more{display:none}
@@ -1031,12 +988,11 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 }
 #sheet:not([role="dialog"]) #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
 #sheet.peek #sheet-scroll{overflow:hidden}
-/* v8.2 · The summary already has a title in the fixed paper toolbar. */
-#sheet.peek #sheet-inner .sheet-overview:has(+ .subject-sheet-summary){display:none}
 #sheet.peek #sheet-inner .subject-sheet-summary{
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
   overflow:hidden;margin:4px 0 0;font-size:13px;line-height:1.55;
 }
+#sheet-toc[data-read-subject]{background:var(--vermilion);border-color:var(--vermilion);color:#fff9f0}
 #sheet .map-sheet-summary a{color:var(--paper-muted);text-underline-offset:3px}
 #sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--safe-b))}
 /* Horizontally swipe stages/places without accidentally dragging the whole card. */
@@ -1061,7 +1017,7 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1);
 }
 #year-control{
-  width:auto;flex:1;min-width:0;position:relative;display:block;touch-action:none;
+  width:auto;flex:1;min-width:0;position:relative;display:block;
   font:inherit;color:var(--cosmos-ink);
 }
 /* 无边框排印式年份锚点：让文字直接浮在深空之上 */
@@ -1069,11 +1025,14 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   pointer-events:auto;margin:0;padding:2px 6px 4px 0;min-height:44px;border:0;border-radius:10px;
   background:transparent;box-shadow:none;color:var(--cosmos-ink);
   display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;
-  max-width:100%;text-align:left;cursor:pointer;touch-action:none;
+  max-width:100%;text-align:left;cursor:pointer;touch-action:manipulation;
   transition:opacity .2s ease;
 }
 #hud #year::after{content:none}
 #hud #year:active{opacity:.72}
+.year-label{display:flex;align-items:center;gap:7px}
+.year-label svg{width:14px;height:14px;fill:none;stroke:#c0cbd1;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#year[aria-expanded="true"] .year-label svg{transform:rotate(180deg)}
 #year-num{
   font:500 28px/1.05 var(--font-serif,Georgia,"Songti SC","Noto Serif SC",serif);
   font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.025em;white-space:nowrap;
@@ -1084,32 +1043,17 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   color:rgba(220,226,232,.62);font:400 11px/1.35 var(--font-sans);letter-spacing:.04em;
   text-shadow:0 1px 8px rgba(4,9,16,.75);
 }
-#year-control.browsing{pointer-events:auto;cursor:ew-resize}
-#year-control.browsing #year{color:transparent;opacity:0;cursor:inherit}
 #year-control.editing #year{opacity:.88}
-#year-strip{
-  position:absolute;inset:0;height:48px;overflow:hidden;pointer-events:none;opacity:0;
-  transition:opacity .18s ease;z-index:2;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
-}
-#year-control.browsing #year-strip{opacity:1}
-#year-strip span{
-  position:absolute;top:4px;left:50%;white-space:nowrap;
-  font:500 24px/1.1 var(--font-serif,Georgia,"Songti SC",serif);
-  font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em;
-  color:#f2ede2;transform-origin:50% 48%;text-shadow:0 2px 12px rgba(4,8,16,.75);
-}
 
 /* 轻量化深空磨砂年份直达条 */
 #year-form[hidden]{display:none}
 #year-form{
   position:absolute;top:calc(100% + 10px);left:0;width:min(312px,calc(100vw - 36px));
+  max-height:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - 90px);overflow:auto;
   display:flex;flex-direction:column;gap:10px;padding:12px 13px 13px;z-index:14;pointer-events:auto;
-  background:rgba(13,20,28,.86);color:#f0ebe0;
+  background:#121b24;color:#f0ebe0;
   border:1px solid rgba(255,255,255,.11);border-radius:16px;
   box-shadow:0 18px 44px rgba(0,0,0,.52);
-  -webkit-backdrop-filter:blur(22px) saturate(135%);backdrop-filter:blur(22px) saturate(135%);
   font:13px var(--font-sans);
 }
 .year-input-row{display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:6px}
@@ -1120,7 +1064,7 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   caret-color:#d86a4e;-webkit-user-select:text;user-select:text;
 }
 #year-form #year-input::placeholder{color:rgba(202,212,222,.42);font:400 13px var(--font-sans)}
-#year-form #year-input:focus-visible{outline:none}
+#year-form #year-input:focus-visible{outline:1px solid #a78c66;outline-offset:2px}
 #year-form #year-input::selection{background:rgba(181,63,41,.38)}
 #year-form .year-input-row button[type="submit"]{
   display:grid;place-items:center;flex:none;width:32px;height:32px;padding:0;border:0;border-radius:999px;
@@ -1132,21 +1076,26 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #year-form #year-error{margin:0;color:#e89b88;font:11.5px/1.45 var(--font-sans);text-align:left}
 #year-form #year-error:empty{display:none}
 #year-form .year-milestones{
-  display:flex;flex-wrap:nowrap;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px;
-  -webkit-overflow-scrolling:touch;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;
 }
-#year-form .year-milestones::-webkit-scrollbar{display:none}
 #year-form .year-milestones button{
-  flex:none;min-height:28px;padding:0 10px;border-radius:999px;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;
+  min-height:38px;padding:4px 8px;border-radius:7px;text-align:left;
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);
   color:rgba(240,235,224,.84);font:400 11.5px var(--font-mono);letter-spacing:.01em;cursor:pointer;
   transition:background .16s ease,border-color .16s ease,color .16s ease;
 }
+#year-form .year-milestones span{font-family:var(--font-sans)}
 #year-form .year-milestones button:hover,#year-form .year-milestones button:active{
   background:rgba(224,178,115,.18);border-color:rgba(224,178,115,.42);color:#f8ebd2;
 }
 
-#sub{position:absolute;left:0;top:52px;font-size:10.5px;color:rgba(196,208,218,.68);letter-spacing:.04em;line-height:1.4}
+#year-today,#reset-view{
+  min-height:34px;padding:4px 8px;border:0;border-radius:6px;background:transparent;
+  color:#eddec3;font:500 12px var(--font-sans);text-align:left;cursor:pointer;
+}
+#year-today:hover,#reset-view:hover{background:rgba(224,178,115,.12)}
+#year-current{margin-left:4px;color:#bac7cf;font-family:var(--font-mono)}
 
 /* 右上角唯一克制图标：无方框，轻磨砂圆形触区 */
 #hud-actions{display:flex;align-items:center;pointer-events:auto;flex:none}
@@ -1161,14 +1110,6 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 }
 #hud-actions button:active{transform:scale(.94)}
 #hud-actions svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-
-#toolbar{position:fixed;top:calc(var(--safe-t) + 74px);left:0;right:0;z-index:6;justify-content:center;padding:0;pointer-events:none}
-#layers{display:none}
-#loadpill{
-  border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 13px;
-  background:rgba(12,19,27,.76);color:rgba(238,234,225,.85);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-}
 
 /* ── 无边框精密天文游标（动静两态 + 三级刻度 + 史事微光点 + 微光史事入口） ── */
 #vernier{
@@ -1241,9 +1182,9 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   transform:translateX(-50%) rotate(45deg);background:#e06348;
 }
 
-/* 极克制的当年史事微光入口（支持点击或上拉游标唤出） */
+/* 当年史事按钮独立于时间游标。 */
 #vernier-events{
-  display:inline-flex;align-items:center;gap:6px;margin-top:2px;padding:4px 10px;
+  display:inline-flex;align-items:center;gap:6px;min-height:26px;margin-top:2px;padding:4px 10px;
   border:0;border-radius:999px;background:transparent;
   color:rgba(232,214,182,.72);font:400 11px/1.2 var(--font-sans);letter-spacing:.06em;
   cursor:pointer;transition:color .2s ease,background .2s ease,opacity .2s ease;
@@ -1253,7 +1194,6 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   box-shadow:0 0 7px rgba(201,156,88,.8);
 }
 #vernier-events:hover,#vernier-events:active{color:#f8ebd2;background:rgba(255,255,255,.06)}
-#vernier-events[hidden]{display:inline-flex;visibility:hidden}
 
 /* ── 紧贴右上角的轻量磨砂视图胶囊 ── */
 #view-shade{position:fixed;inset:0;z-index:10;background:transparent}
@@ -1261,10 +1201,9 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #view-panel{
   position:fixed;top:calc(var(--safe-t) + 60px);right:16px;left:auto;bottom:auto;z-index:11;
   width:min(244px,calc(100vw - 32px));padding:10px;
-  background:rgba(13,20,28,.86);color:#f0ebe0;
+  background:#121b24;color:#f0ebe0;
   border:1px solid rgba(255,255,255,.11);border-radius:16px;
   box-shadow:0 18px 46px rgba(0,0,0,.54);
-  -webkit-backdrop-filter:blur(22px) saturate(135%);backdrop-filter:blur(22px) saturate(135%);
   transform-origin:top right;
 }
 #view-modes{
@@ -1292,11 +1231,7 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 .view-switches [aria-checked="true"]:not(:disabled) i{background:rgba(181,63,41,.88)}
 .view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(14px);background:#fff9f2}
 
-/* ── 零界面观赏模式（单击空白处切换） ── */
-body.chrome-hidden #hud,
-body.chrome-hidden #scrim{opacity:0;pointer-events:none;transform:translateY(-6px)}
-body.chrome-hidden #vernier{opacity:0;pointer-events:none;transform:translate(-50%,10px)}
-body.chrome-hidden #hud *,body.chrome-hidden #vernier *{pointer-events:none!important}
+#reset-view{width:100%;margin-top:3px}
 
 /* ── 纸张阅读与史事全屏层保持暖宣纸美学 ── */
 #overlay{background:var(--paper-bg);color:var(--paper-ink)}
@@ -1310,7 +1245,6 @@ body.chrome-hidden #hud *,body.chrome-hidden #vernier *{pointer-events:none!impo
 #overlay-close{color:var(--paper-ink)}
 #overlay-close svg,.witem svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
-body.reading-open #toolbar,body.event-map-open #toolbar{visibility:hidden!important;opacity:0;pointer-events:none!important}
 body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
 body.reading-open.reading-split #hud{pointer-events:none;visibility:visible;opacity:1}
 body.reading-open.reading-split #year-control,body.reading-open.reading-split #hud-actions{pointer-events:none}
@@ -1336,7 +1270,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   #vernier{--vernier-rest:8px}
 }
 @media(prefers-reduced-motion:reduce){
-  #year-strip,#hud,#scrim,#vernier,#vernier[hidden],#vernier-readout,#vernier-track{transition:none}
+  #hud,#scrim,#vernier,#vernier[hidden],#vernier-readout,#vernier-track{transition:none}
   #vernier.active #vernier-readout,#vernier.active #vernier-track{transition:none}
 }
 
@@ -1344,35 +1278,35 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 </head>
 <body>
 
-<canvas id="globe" tabindex="0" aria-label="地球，双击空白处复位视角，长按或按 Shift+F10 打开地球视图" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
+<canvas id="globe" tabindex="0" aria-label="地球。拖动旋转，捏合或滚轮缩放，点选疆域阅读。按 R 复位视角" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
 <div id="scrim"></div>
 
 <div id="hud">
   <div id="year-control">
-    <button id="year" type="button" aria-controls="year-strip year-form" aria-keyshortcuts="Shift+Enter F2" aria-expanded="false"><span id="year-num">今天</span><span id="year-era">时空地球 · 历史疆域</span></button>
-    <div id="year-strip" aria-hidden="true"></div>
+    <button id="year" type="button" aria-controls="year-form" aria-keyshortcuts="F2" aria-expanded="false">
+      <span class="year-label"><span id="year-num">1500</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></span>
+      <span id="year-era" role="status">正在加载历史疆域…</span>
+    </button>
     <form id="year-form" hidden>
       <div class="year-input-row">
         <input id="year-input" type="text" inputmode="text" enterkeyhint="go" autocomplete="off" spellcheck="false" maxlength="16"
-               placeholder="如 1421 或 前221" aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error" required>
+               placeholder="如 1500 或 前221" aria-label="年份，可输入负数或公元前年份" aria-describedby="year-error">
         <button type="submit" aria-label="前往该年份"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
       <p id="year-error" role="status"></p>
       <div class="year-milestones" aria-label="历史年份快捷入口">
-        <button type="button" data-year-jump="-550">前550</button>
-        <button type="button" data-year-jump="220">220</button>
-        <button type="button" data-year-jump="618">618</button>
-        <button type="button" data-year-jump="960">960</button>
-        <button type="button" data-year-jump="1368">1368</button>
-        <button type="button" data-year-jump="1421">1421</button>
-        <button type="button" data-year-jump="1644">1644</button>
-        <button type="button" data-year-jump="1945">1945</button>
+        <button type="button" data-year-jump="-221"><strong>前221</strong><span>秦统一</span></button>
+        <button type="button" data-year-jump="476"><strong>476</strong><span>西罗马帝国灭亡</span></button>
+        <button type="button" data-year-jump="1206"><strong>1206</strong><span>蒙古帝国建立</span></button>
+        <button type="button" data-year-jump="1324"><strong>1324</strong><span>曼萨·穆萨朝觐</span></button>
+        <button type="button" data-year-jump="1453"><strong>1453</strong><span>君士坦丁堡陷落</span></button>
+        <button type="button" data-year-jump="1500"><strong>1500</strong><span>葡萄牙人抵达巴西</span></button>
       </div>
+      <button type="button" id="year-today">返回当代 <span id="year-current"></span></button>
     </form>
   </div>
-  <div id="sub" role="status" hidden></div>
   <nav id="hud-actions" aria-label="地球视图">
     <button id="hud-view" type="button" aria-label="切换地图图层与视图" aria-controls="view-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg></button>
   </nav>
@@ -1383,27 +1317,27 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
     <strong id="vernier-year"></strong>
     <span id="vernier-era"></span>
   </div>
-  <div id="vernier-track" tabindex="0" role="slider" aria-label="年份" aria-valuemin="-3500" aria-valuemax="2026" aria-valuenow="1421">
+  <div id="vernier-track" tabindex="0" role="slider" aria-label="探索年份，左侧更早，右侧更晚" aria-valuemin="-3500" aria-valuenow="1500">
     <div id="vernier-ticks" aria-hidden="true"></div>
     <span class="vernier-needle" aria-hidden="true"></span>
   </div>
-  <button id="vernier-events" type="button" hidden aria-label="浏览这一年的历史事件"></button>
+  <button id="vernier-events" type="button" aria-controls="overlay">这一年</button>
 </section>
 
 <div id="view-shade" hidden></div>
 <section id="view-panel" hidden role="dialog" aria-modal="true" aria-label="地球视图">
   <div id="view-modes" role="group" aria-label="地图显示方式">
     <button type="button" data-view="history" aria-pressed="true">随年份</button>
-    <button type="button" data-view="modern" aria-pressed="false">现代</button>
-    <button type="button" data-view="nature" aria-pressed="false">地形</button>
+    <button type="button" data-view="modern" aria-pressed="false">现代边界</button>
+    <button type="button" data-view="nature" aria-pressed="false">自然地形</button>
   </div>
   <div class="view-switches">
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
   </div>
+  <button type="button" id="reset-view">复位视角</button>
 </section>
 
-<div id="toolbar"><div id="layers" role="group" aria-label="划分方式"><button type="button" data-layer="country" class="on">国家</button><button type="button" data-layer="polity">政权</button></div><div id="loadpill" hidden role="status"><i></i><span>政权边界 0%</span></div></div>
 <div id="sheet-dim" hidden></div>
 <div id="sheet">
   <header id="sheet-top">
@@ -1441,7 +1375,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   <div id="overlay-body"></div>
 </div>
 
-<div id="boot">
+<div id="boot" role="status">
   <div class="spin"></div>
   <p>正在铺开地图…</p>
 </div>
@@ -1514,32 +1448,19 @@ const clamp = (n, a, b) => (n < a ? a : n > b ? b : n);
 const lerp = (a, b, t) => a + (b - a) * t;
 
 const THIS_YEAR = new Date().getFullYear();
-const YMAX = Math.max(2026, THIS_YEAR);
+const YMAX = THIS_YEAR;
 const YMIN = -3500;
-const POLITY_END = 2024;                 // Cliopatria 覆盖到此
-
-const CH = [
-  { n: '史前',   a: -3500, b: -800 },
-  { n: '古代',   a: -800,  b: 500,  w: .213 },
-  { n: '古典',   a: 500,   b: 1000 },
-  { n: '中世纪', a: 1000,  b: 1500 },
-  { n: '大航海', a: 1500,  b: 1800 },
-  { n: '工业',   a: 1800,  b: 1900 },
-  { n: '现代',   a: 1900,  b: YMAX },
-];
-const chapterOf = (y) => { for (const c of CH) if (y <= c.b) return c; return CH[CH.length - 1]; };
+const DEFAULT_EXPLORE_YEAR = 1500;
+const HOME_CAMERA = { yaw:-1.65, tilt:.42, zoom:1, panX:0, panY:0 };
+const POLITY_START = -3400, POLITY_END = 2024;
+const hasHistoricalCoverage = year => year >= POLITY_START && year <= POLITY_END;
 
 const ord = (y) => (y < 0 ? y + 1 : y);
 const MONTHS = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
 const tOf = (y, m, d) => ord(y) + (m ? (MONTHS[m - 1] + (d || 1) - 1) / 365.25 : 0);
 const fmtYear = (y) => (y < 0 ? '前' + (-y) : String(y));
+const yearLabel = year => (year < 0 ? '公元前 ' + -year : year) + ' 年';
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-
-const TODAY_SPAN = 30;
-function windowOf(y) {
-  if (y >= YMAX) return [YMAX - TODAY_SPAN, YMAX, '近 ' + TODAY_SPAN + ' 年'];
-  return [y, y, chapterOf(y).n];
-}
 
 /* ───────────── 1. 素材装载 ───────────── */
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
@@ -1551,11 +1472,11 @@ const Q = 4;                           // 政权几何的量化倍数
 
 const el = (id) => document.getElementById(id);
 const canvas = el('globe');
-const elYear = el('year'), elSub = el('sub');
+const elYear = el('year');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
 const overlay = el('overlay');
 const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overlayBody = el('overlay-body');
-const bootEl = el('boot'), layersEl = el('layers'), loadPill = el('loadpill');
+const bootEl = el('boot');
 
 const inlineText = (id) => { const n = el(id); return n ? n.textContent.trim() : ''; };
 
@@ -1570,24 +1491,10 @@ async function gunzip(buf) {
   const stream = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
   return new Response(stream).arrayBuffer();
 }
-async function fetchWithProgress(url, onProgress) {
+async function fetchBinary(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
-  const total = Number(res.headers.get('content-length') || 0);
-  if (!res.body || !total) return res.arrayBuffer();
-  const reader = res.body.getReader();
-  const chunks = [];
-  let got = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    chunks.push(value); got += value.length;
-    onProgress && onProgress(got / total);
-  }
-  const out = new Uint8Array(got);
-  let off = 0;
-  for (const c of chunks) { out.set(c, off); off += c.length; }
-  return out.buffer;
+  return res.arrayBuffer();
 }
 
 /* 世界数据：地区 + 年表 + 现代国界 */
@@ -1734,10 +1641,10 @@ const LAYERS = {
     },
   },
   polity: {
-    id: 'polity', name: '政权', range: [-3400, POLITY_END],
+    id: 'polity', name: '政权', range: [POLITY_START, POLITY_END],
     currentYear: (y) => y,
     shapes(year) {
-      if (!pk || year < -3400 || year > POLITY_END) return [];
+      if (!pk || !hasHistoricalCoverage(year)) return [];
       const y = year;
       const out = [];
       for (let i = 0; i < pk.nSlice; i++) {
@@ -1754,16 +1661,11 @@ const LAYERS = {
 };
 
 const state = {
-  year: YMAX,
-  layerId: 'country',
-  yaw: -1.42,
-  tilt: 0.30,
-  zoom: 1,
-  panX: 0,
-  panY: 0,
-  focus: null,          // {layerId, id}
-  stale: false,
-  lift: 0,         // 政权层沿用上一年（超出数据范围）
+  year: DEFAULT_EXPLORE_YEAR,
+  layerId: 'polity',
+  ...HOME_CAMERA,
+  focus: null,
+  lift: 0,
 };
 
 const view = { w: 1, h: 1, cx: 0, cy: 0, R: 1, dpr: 1, Rz: 1, safeTop: 0, safeBottom: 0 };
@@ -1873,7 +1775,6 @@ function buildLut(layer, shapes) {
 function rebuildPartition() {
   const layer = LAYERS[state.layerId];
   const year = layer.currentYear(state.year);
-  state.stale = layer.id==='polity' && (year < -3400 || year > POLITY_END);
   const t0 = performance.now();
   const { shapes, pick } = rasterize(layer, year);
   const counts = countEntries(pick);
@@ -1888,15 +1789,9 @@ function rebuildPartition() {
 }
 
 function updateSummary() {
-  let ev = 0;
-  const set = new Set();
-  const [a, b] = windowOf(state.year), oa = ord(a), ob = ord(b);
-  for (const e of entries) {
-    if (e.t1 < oa || e.t0 > ob) continue;
-    if (e.kind === 'era') ev += 0; else ev++;
-    set.add(e.region);
-  }
-  summary = { ev, era: 0, countries: set.size, entities: partition.shapes.length };
+  const { events, background } = yearEventGroups(state.year);
+  summary = { ev:events.length, era:background.length,
+    countries:new Set([...events, ...background].map(event => event.region)).size, entities:partition.shapes.length };
 }
 
 /* ───────────── 5. 材质 ───────────── */
@@ -2526,10 +2421,9 @@ function globeHudBounds() {
   }
   if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
-  const stripVisible = yearBrowsing || Number(getComputedStyle(yearStrip).opacity) > .04;
-  const visible = !yearForm.hidden ? [yearInput, yearForm.querySelector('button')] : stripVisible ? [yearStrip] : [elYear];
-  if (!elSub.hidden) visible.push(elSub);
-  if (yearError.textContent) visible.push(yearError);
+  const visible = [elYear, hudViewBtn];
+  if (!yearForm.hidden) visible.push(yearForm);
+  if (!vernier.hidden) visible.push(vernier);
   return visible.map((node) => node.getBoundingClientRect()).filter((rect) => rect.width && rect.height);
 }
 
@@ -2911,10 +2805,12 @@ function layout() {
     view.cy = view.cyBase;
     view.R = Math.min(globeW * 0.43, h * 0.37, 410);
   } else {
+    const shortLandscape = session.mode === 'Explore' && w > h && h <= 500;
+    const shortPortrait = session.mode === 'Explore' && h > w && h <= 640;
     view.cx = w / 2;
-    view.cyBase = h * (h > w ? 0.515 : 0.46);
+    view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
     view.cy = view.cyBase - state.lift;
-    view.R = Math.min(w * 0.455, h * 0.34, 410);
+    view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
   }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
@@ -3322,7 +3218,6 @@ function endPointer(e) {
     if (isDouble) {
       lastTapAt = 0;
       if (!mapPointAt(e.clientX, e.clientY)) {
-        document.body.classList.remove('chrome-hidden');
         if (typeof resetView === 'function') resetView(true);
       } else {
         zoomTo(state.zoom > 1.35 ? 1 : 2.5, e.clientX, e.clientY);
@@ -3385,31 +3280,22 @@ function tapGlobe(sx, sy) {
   if (reading.active) return;
   if (session.mode === 'Observe') { if (session.observe.place) selectEventPlace(null); return; }
   const onGlobe = mapPointAt(sx, sy);
-  if (!onGlobe) {
-    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
-    document.body.classList.toggle('chrome-hidden');
-    return;
-  }
-  if (chrome.natural) {
-    document.body.classList.toggle('chrome-hidden');
+  if (!onGlobe || chrome.natural) {
+    if (state.focus) closeSheet();
     return;
   }
   // The historic raster arrives asynchronously. Do not discard a real tap while it loads.
-  if (state.layerId === 'polity' && !polityState.loaded) {
-    if (!polityState.error) {
-      pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
-        zoom:state.zoom, panX:state.panX, panY:state.panY};
-      ensurePolity();
-    }
+  if (state.layerId === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) {
+    pendingPolityTap = {x:sx, y:sy, year:state.year, yaw:state.yaw, tilt:state.tilt,
+      zoom:state.zoom, panX:state.panX, panY:state.panY};
+    ensurePolity();
     return;
   }
   const id = pickAt(sx, sy);
   if (!id) {
-    if (state.focus || sheetState.detent !== 'hidden') { closeSheet(); return; }
-    document.body.classList.toggle('chrome-hidden');
+    if (state.focus) closeSheet();
     return;
   }
-  document.body.classList.remove('chrome-hidden');
   openEntity(state.layerId, id, onGlobe);
 }
 
@@ -3572,7 +3458,7 @@ function sheetDragStart(e) {
   if (reading.active || sheetState.dragging || !state.focus || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
-  if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek' && !e.target.closest('.sheet-overview')) return;
+  if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek') return;
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
   momentum.yaw = momentum.tilt = 0;
@@ -3675,7 +3561,7 @@ grabEl.addEventListener('click', (event) => {
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
   if (event.target.closest('button, a, input, select, summary')) return;
-  if (event.target.closest('.sheet-overview, .subject-sheet-summary')) openPeekProgressively();
+  if (event.target.closest('.subject-sheet-summary')) openPeekProgressively();
 });
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
@@ -3739,22 +3625,6 @@ function closeSheet(velocity = 0) {
   invalidate();
 }
 
-/* 书里的「上一个/下一个时期」与「回到地球」 */
-sheetInner.addEventListener('click', (e) => {
-  const b = e.target.closest('button[data-act]');
-  if (!b) return;
-  const act = b.dataset.act;
-  if (act === 'close') { closeSheet(); return; }
-  const i = CH.indexOf(chapterOf(state.year));
-  const next = CH[clamp(i + (act === 'next' ? 1 : -1), 0, CH.length - 1)];
-  if (next) {
-    /* 相邻两章的边界年份可能重号（上一章的末年是下一章的首年），别原地不动 */
-    const want = act === 'next' ? next.a : next.b;
-    commitYear(want === state.year ? clamp(want + (act === 'next' ? 1 : -1), YMIN, YMAX) : want);
-    sheetScroll.scrollTop = 0;
-  }
-});
-
 /* 兼容旧调用 */
 const closeBook = () => closeReader();
 const renderSheet = renderEntity;
@@ -3775,9 +3645,7 @@ function setLayer(id) {
   if (session.mode !== 'Explore' || !LAYERS[id]) return;
   if (state.layerId === id) return;
   state.layerId = id;
-  for (const b of layersEl.children) b.classList.toggle('on', b.dataset.layer === id);
-  layersEl.dataset.active = id;
-  if (id === 'polity' && !polityState.loaded) ensurePolity();
+  if (id === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) ensurePolity();
   /* 换划分方式时，抽屉里那张卡片描述的已经是另一套东西了：收起来，别留残影 */
   closeSheet();
   rebuildPartition();
@@ -3786,11 +3654,6 @@ function setLayer(id) {
   rememberExplore();
   saveSession();
 }
-layersEl.addEventListener('click', (e) => {
-  const b = e.target.closest('button');
-  if (b) setLayer(b.dataset.layer);
-});
-
 /* ───────────── 16. HUD ───────────── */
 function syncHud() {
   const y = state.year;
@@ -3799,6 +3662,7 @@ function syncHud() {
 }
 function onYearChanged() {
   rebuildPartition();
+  if (session.mode === 'Explore' && state.focus && !state.focus.id) closeSheet();
   syncHud();
   if (!overlay.hidden) openWorld();
   if (state.focus) renderSheet();
@@ -3820,10 +3684,7 @@ function navigateBack() {
   if (session.mode === 'Observe') returnToWorld();
   else if (session.mode === 'Read') readingGoBack();
   else if (!overlay.hidden) closeWorld(true);
-  else {
-    document.body.classList.remove('chrome-hidden');
-    closeSheet();
-  }
+  else if (!abortVernierPreview()) closeSheet();
 }
 
 addEventListener('keydown', e => {
@@ -3843,7 +3704,8 @@ addEventListener('keydown', (e) => {
   else if (e.key === 'ArrowRight') { stepYear(step); e.preventDefault(); }
   else if (e.key === 'Home') { commitYear(YMIN); e.preventDefault(); }
   else if (e.key === 'End') { commitYear(YMAX); e.preventDefault(); }
-  else if (e.key === '0' || e.key === 'r' || e.key === 'R') { document.body.classList.remove('chrome-hidden'); if (typeof resetView === 'function') resetView(true); e.preventDefault(); }
+  else if (e.key === 'F2' && session.mode === 'Explore') { openYearInput(); e.preventDefault(); }
+  else if (e.key === '0' || e.key.toLowerCase() === 'r') { resetView(true); e.preventDefault(); }
   else if (e.key === '+') { zoomTo(state.zoom * 1.4); e.preventDefault(); }
   else if (e.key === '-') { zoomTo(state.zoom / 1.4); e.preventDefault(); }
 });
@@ -3879,11 +3741,16 @@ function syncSheetIdentity() {
     book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
-  el('sheet-identity-years').textContent = book ? subjectYears(book) : entity && !reading.library ? '地图资料' : '时间与空间';
-  el('sheet-close').hidden = !reading.active && (Boolean(book) || !entity);
+  el('sheet-identity-years').textContent = book ? subjectYears(book)
+    : entity && !reading.library ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
+  const close = el('sheet-close');
+  close.hidden = !reading.active && !entity;
+  close.setAttribute('aria-label', reading.active ? '收起阅读' : '关闭摘要');
   const toc = el('sheet-toc');
-  toc.hidden = reading.active && (reading.library || reading.catalog || Boolean(book && reading.detail === null));
-  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '资料';
+  toc.hidden = reading.active ? reading.library || reading.catalog || Boolean(book && reading.detail === null) : !entity;
+  toc.toggleAttribute('data-read-subject', !reading.active && Boolean(entity));
+  toc.textContent = reading.active ? book ? '目录' : '历史书目'
+    : book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
 el('sheet-toc').addEventListener('click', () => {
   if (reading.active) {
@@ -3891,7 +3758,7 @@ el('sheet-toc').addEventListener('click', () => {
     else if (!reading.library && !reading.catalog) followSubject({ library:true });
     return;
   }
-  if (state.focus) { enterSheetReading(); if (reading.detail !== null) readingIndex(); }
+  if (state.focus) openBook(null, 'half', 0, { resume: true });
 });
 /* Product navigation and the serializable session. The renderer owns live camera motion. */
 const SESSION_KEY = 'globe.session.v1';
@@ -4089,9 +3956,9 @@ function restoreExploreView() {
   state.focus = null;
   state.lift = 0;
   state.year = context.year;
-  state.layerId = context.layerId;
   chrome.natural = context.natural;
   chrome.followTime = context.followTime;
+  state.layerId = explorationLayer(context.year, context.followTime, context.natural);
   chrome.labels = context.labels;
   chrome.grid = context.grid;
   Object.assign(state, context.camera);
@@ -4123,7 +3990,7 @@ function restoreExploreView() {
     invalidate();
     if (sessionReady) { rememberExplore(); saveSession(); }
   }
-  if (context.layerId === 'polity' && !polityState.loaded) ensurePolity().then(restoreSelection);
+  if (state.layerId === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) ensurePolity().then(restoreSelection);
   else restoreSelection();
 }
 
@@ -4149,12 +4016,13 @@ function restoreSession() {
           sessionReady = true;
           saveSession(true);
         });
-        return;
+        return true;
       }
       resumeStoredReading(restored.read);
     }
   }
   sessionReady = true;
+  return Boolean(restored);
 }
 
 function saveVisibleSession() {
@@ -4266,7 +4134,7 @@ function rememberReading() {
 }
 function readingBackground(inert) {
   const split = inert && isSplitReading();
-  for (const id of ['globe', 'hud', 'toolbar', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
+  for (const id of ['globe', 'hud', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
     const keepLive = split && (id === 'globe' || id === 'event-map-points') ||
       inert && reading.active && id === 'grab' && innerWidth < 960;
     el(id).inert = keepLive ? false : inert;
@@ -4283,13 +4151,17 @@ function readingBackground(inert) {
   grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
   layout();
 }
-function openBook(fromOffset = null, viewMode = 'half', velocity = 0) {
+function openBook(fromOffset = null, viewMode = 'half', velocity = 0, { resume = false } = {}) {
   if (session.mode !== 'Explore') return;
   const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   if (!ent) return;
-  beginReading(ent, null, null, fromOffset ?? sheetState.offset, subjectBookForEntity(ent), {viewMode, velocity});
+  const book = subjectBookForEntity(ent);
+  const progress = resume ? savedSubjectProgress(book) : null;
+  beginReading(ent, null, progress?.chapter, fromOffset ?? sheetState.offset, book,
+    { viewMode, velocity, resumePosition: progress?.position });
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year, viewMode = 'half', velocity = 0} = {}) {
+function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year,
+  viewMode = 'half', velocity = 0, resumePosition} = {}) {
   if (reading.active) return;
   if (session.mode === 'Explore') rememberExplore();
   else if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView() });
@@ -4297,7 +4169,7 @@ function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, 
   const key = topic ? 'topic:' + topic.id : ent ? 'atlas:' + ent.layerId + ':' + ent.key : null;
   const saved = subject ? null : session.readingProgress(key);
   const detail = chapter || saved?.chapter;
-  const position = saved?.chapter === detail ? saved?.position : null;
+  const position = resumePosition || (saved?.chapter === detail ? saved?.position : null);
   if (!session.enterRead({ bookId: subject?.id, topicId: topic?.id, entity, detail, position,
     scroll: saved?.scroll, year: entryYear, viewMode,
     source: source || (ent ? { kind: 'summary' } : { kind: 'map' }), catalog: !ent && !topic && !subject })) return;
@@ -4707,7 +4579,7 @@ function closeReader() {
     restoreExploreView();
     if (source.kind === 'events') restoreWorldSource(source);
     else {
-      const fallback = state.focus ? sheetInner.querySelector('[data-read-subject]') || grabEl : canvas;
+      const fallback = state.focus ? el('sheet-toc') : canvas;
       const trigger = readingTrigger?.isConnected && readingTrigger !== document.body ? readingTrigger : fallback;
       trigger.focus({ preventScroll: true });
     }
@@ -4729,9 +4601,6 @@ function handleReadingKey(e) {
   }
   return true;
 }
-sheetInner.addEventListener('click', (e) => {
-  if (e.target.closest('[data-read-subject]')) openBook();
-});
 let footnoteTrigger = null;
 function closeFootnote(restoreFocus = false) {
   el('footnote-popover').hidden = true;
@@ -5065,18 +4934,18 @@ function subjectEntityName(entity) {
 
 function subjectSheetMarkup(entity) {
   const book = subjectBookForEntity(entity);
-  const title = book ? book.title : subjectEntityName(entity);
-  const meta = book ? subjectYears(book) : entity.kind === 'polity' ? subjectYears(entity) + ' · 地图记录' : fmtYear(state.year) + ' 年';
+  if (book) return '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>';
   const source = entity.kind === 'polity'
     ? ['Cliopatria', 'https://github.com/Seshat-Global-History-Databank/cliopatria']
     : ['Natural Earth', 'https://www.naturalearthdata.com/'];
-  return '<div class="sheet-overview"><h2>' + esc(title) + '</h2>' +
-    '<p class="era">' + esc(meta) + '</p></div>' +
-    (book ? '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>' :
-      '<p class="subject-sheet-summary map-sheet-summary">' + esc(meta) +
-      ' <a href="' + source[1] + '" target="_blank" rel="noopener noreferrer">' + source[0] + ' ↗</a></p>') +
-    '<button class="topic-entry" type="button" data-read-subject><strong>' +
-    (book ? '打开全卷' : '查看地图资料') + '</strong>' + readingArrow + '</button>';
+  return '<p class="subject-sheet-summary map-sheet-summary">仅有地图资料。 ' +
+    '<a href="' + source[1] + '" target="_blank" rel="noopener noreferrer">' + source[0] + ' ↗</a></p>';
+}
+
+function savedSubjectProgress(book) {
+  if (!book) return null;
+  const saved = session.readingProgress('subject:' + book.id);
+  return saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
 }
 
 function subjectLibraryLink() {
@@ -5125,8 +4994,7 @@ function renderAtlasReading() {
 
 function renderSubjectOutline(book) {
   const anchor = book.chapters.find((c) => coversYear(c, reading.year));
-  const saved = session.readingProgress('subject:' + book.id);
-  const progress = saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
+  const progress = savedSubjectProgress(book);
   return readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
     (progress ? '<button type="button" data-subject-resume>继续阅读' + readingArrow + '</button>' : '') +
@@ -5819,7 +5687,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
-  const year = clamp(state.year, event.start, event.point ? event.start : event.end);
+  const year = worldEventYear(event);
   const target = worldEventTarget(event, year);
   const story = target?.chapter.mapStory;
   const scene = target && scenesByEvent.get(event.id);
@@ -5832,7 +5700,7 @@ function openWorldEvent(event) {
     summary: scene?.summary || story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
     participants: story?.participants, places: scene?.places || (target && chapterPlaces(target.chapter)),
     routes: scene?.routes, steps: scene?.steps, focusPolities: scene?.focusPolities,
-    back: state.year >= YMAX ? '返回近 ' + TODAY_SPAN + ' 年' : '返回 ' + fmtYear(state.year) + ' 年' });
+    back: '返回 ' + yearLabel(state.year) });
 }
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
@@ -6100,9 +5968,43 @@ const worldReadingLinks = new Map(Object.entries(JSON.parse(inlineText('world-re
 const worldPin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>';
 const worldBook = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C9 3 5.5 3 2.5 4.5v13c3-1.5 6.5-1.5 9.5.5 3-2 6.5-2 9.5-.5v-13C18.5 3 15 3 12 5Zm0 0v13"/></svg>';
 const worldChevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
-const backgroundEntries = new Set(['i-kr-empire']);
-const extendedEvents = new Set(['i-010', 'i-158']);
 let worldListYear = null;
+let indexedEvents = null, eventStarts = new Set();
+const eventGroupsByYear = new Map();
+
+function isLongTermBackground(event) {
+  if (event.point) return false;
+  // 「其他」也收录航行和营建。保留有限时段的活动，跨世代的文化或社会发展仍归入背景。
+  const years = ord(event.end) - ord(event.start);
+  return event.kind === 'era' || years >= (event.kind === 'other' ? 40 : 12);
+}
+
+function concreteEventStarts() {
+  if (indexedEvents !== entries) {
+    indexedEvents = entries;
+    eventGroupsByYear.clear();
+    eventStarts = new Set(entries.filter(event => !isLongTermBackground(event)).map(event => event.start));
+  }
+  return eventStarts;
+}
+
+function yearEventGroups(year) {
+  concreteEventStarts();
+  if (eventGroupsByYear.has(year)) return eventGroupsByYear.get(year);
+  const first = ord(year), end = first + 1;
+  const groups = { events: [], background: [] };
+  for (const event of entries) {
+    if (event.t1 < first || event.t0 >= end) continue;
+    groups[isLongTermBackground(event) ? 'background' : 'events'].push(event);
+  }
+  if (eventGroupsByYear.size >= 64) eventGroupsByYear.delete(eventGroupsByYear.keys().next().value);
+  eventGroupsByYear.set(year, groups);
+  return groups;
+}
+
+function worldEventYear(event) {
+  return clamp(state.year, event.start, event.point ? event.start : event.end);
+}
 
 function worldReadingTarget(event, year) {
   const mapped = subjectsByEvent.get(event.id);
@@ -6143,29 +6045,19 @@ function worldDisclosure(title, items, open = false) {
 function openWorld() {
   if (session.mode !== 'Explore') return;
   worldListYear = state.year;
-  const [start, end] = windowOf(state.year);
-  const first = ord(start), last = ord(end) + 1;
-  const recent = start !== end;
-  const events = [], background = [];
-  for (const event of entries) {
-    if (event.t1 < first || event.t0 >= last) continue;
-    const item = { event, target:worldReadingTarget(event, clamp(state.year, event.start, event.point ? event.start : event.end)) };
-    const isBackground = !event.point && !extendedEvents.has(event.id) &&
-      (event.kind === 'era' || ord(event.end) - ord(event.start) >= 15 || backgroundEntries.has(event.id));
-    (isBackground ? background : events).push(item);
-  }
+  const groups = yearEventGroups(state.year);
+  const item = event => ({ event, target:worldReadingTarget(event, worldEventYear(event)) });
+  const events = groups.events.map(item), background = groups.background.map(item);
   // 同一开始年份里，优先呈现可以接着读的条目。
   const byDate = (a, b) => b.event.start - a.event.start || Number(!!b.target) - Number(!!a.target) || b.event.t0 - a.event.t0;
   events.sort(byDate);
   background.sort((a,b) => Number(!!b.target) - Number(!!a.target) || byDate(a,b));
-  overlayTitle.textContent = recent ? '近 ' + TODAY_SPAN + ' 年' : fmtYear(state.year) + ' 年';
-  overlaySub.textContent = recent ? '寻找值得读下去的历史'
-    : events.length ? '从这一年的事件读起' : background.length ? '从这一年的背景读起' : '';
+  overlayTitle.textContent = yearLabel(state.year);
+  overlaySub.textContent = '选取史事可在地球上查看，带书名的条目可继续阅读。';
   overlaySub.hidden = !overlaySub.textContent;
-  overlayBody.innerHTML = '<section aria-labelledby="world-events-heading"><h2 id="world-events-heading">' +
-    (recent ? '近年的事件' : '这一年的事件') + '</h2>' +
+  overlayBody.innerHTML = '<section aria-labelledby="world-events-heading"><h2 id="world-events-heading">这一年的事件</h2>' +
     (events.length ? worldList(events.slice(0, 4)) + worldDisclosure('更多事件', events.slice(4))
-      : '<p class="wempty">' + (recent ? '这个时段' : '这一年') + '暂无收录的具体事件。</p>') + '</section>' +
+      : '<p class="wempty">这一年暂无收录的具体事件。</p>') + '</section>' +
     worldDisclosure('长期背景', background, !events.length);
   restoreWorld(null, 0);
 }
@@ -6201,7 +6093,7 @@ function closeWorld(focus = false) {
   overlay.hidden = true;
   updateVernier();
   canvas.inert = el('hud').inert = false;
-  if (focus) elYear.focus({preventScroll:true});
+  if (focus) vernierEventsBtn.focus({preventScroll:true});
   invalidate();
 }
 
@@ -6212,7 +6104,7 @@ overlayBody.addEventListener('click', event => {
   const entry = entries.find(item => String(item.id) === id);
   if (!entry) return;
   if (button.dataset.event) { openWorldEvent(entry); return; }
-  const target = worldReadingTarget(entry, clamp(state.year, entry.start, entry.point ? entry.start : entry.end));
+  const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
   beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
     entryYear:target.year, source:worldSource(id, 'read'),
@@ -6246,15 +6138,22 @@ function syncChrome() {
   el('toggle-grid').setAttribute('aria-checked', String(chrome.grid));
   hudViewBtn.setAttribute('aria-expanded', String(chrome.panel));
   hudViewBtn.classList.toggle('active', chrome.panel || mode !== 'history' || chrome.grid);
+}
 
-  let status = '';
-  if (state.layerId === 'polity') {
-    if (state.year < -3400) status = '此前暂无疆域资料';
-    else if (state.year > POLITY_END) status = '疆域资料截至 ' + POLITY_END + ' 年';
-    else if (polityState.error) status = '历史疆域加载失败';
-  }
-  elSub.textContent = status;
-  elSub.hidden = !status;
+function mapYearStatus() {
+  if (chrome.natural) return '自然地形';
+  if (state.layerId === 'country') return chrome.followTime && state.year > POLITY_END
+    ? '现代参考边界 · 历史疆域截至 ' + POLITY_END
+    : '现代参考边界 · Natural Earth';
+  if (state.year < POLITY_START) return '暂无收录疆域 · 自然底图';
+  if (state.year > POLITY_END) return '历史疆域截至 ' + POLITY_END;
+  if (polityState.error) return '历史疆域加载失败';
+  if (!polityState.loaded) return '正在加载历史疆域…';
+  return partition.shapes.length ? '历史疆域' : '该年暂无收录疆域';
+}
+
+function explorationLayer(year, followTime, natural) {
+  return followTime && !natural && year <= POLITY_END ? 'polity' : 'country';
 }
 
 function animateViewPopover(opening, onFinish) {
@@ -6309,8 +6208,8 @@ function focusActiveView() {
 function showView(fromHold = false) {
   if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
-  document.body.classList.remove('chrome-hidden');
   closeYearControl();
+  finishVernierMotion();
   closeSheet();
   cancelZoom();
   stopPanReturn();
@@ -6337,13 +6236,14 @@ function selectView(mode) {
 }
 
 function commitYear(year) {
-  if (session.mode !== 'Explore' || !Number.isFinite(year)) return;
+  if (session.mode !== 'Explore' || !session.validYear(year)) return;
   exploreIntent();
-  year = clamp(Math.round(year), YMIN, YMAX);
-  state.year = year === 0 ? 1 : year;
-  const layer = chrome.followTime && state.year <= POLITY_END ? 'polity' : 'country';
+  pendingPolityTap = null;
+  state.year = year;
+  const layer = explorationLayer(year, chrome.followTime, chrome.natural);
   if (state.layerId !== layer) setLayer(layer);
   else onYearChanged();
+  if (layer === 'polity' && hasHistoricalCoverage(year) && !polityState.loaded) ensurePolity();
   rememberExplore();
   saveSession();
 }
@@ -6360,7 +6260,7 @@ function resetView(animate = true) {
   stopPanReturn();
   cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
-  const target = { yaw: -1.42, tilt: 0.30, zoom: 1, panX: 0, panY: 0, lift: 0 };
+  const target = { ...HOME_CAMERA, lift:0 };
   if (!animate || reducedGlobeMotion.matches) {
     Object.assign(state, target);
     layout();
@@ -6453,175 +6353,56 @@ addEventListener('keydown', event => {
 }, true);
 
 hudViewBtn.addEventListener('click', () => showView());
+el('reset-view').addEventListener('click', () => {
+  closeView();
+  resetView();
+});
 
-const yearControl = el('year-control'), yearStrip = el('year-strip');
+const yearControl = el('year-control');
 const yearForm = el('year-form'), yearInput = el('year-input'), yearError = el('year-error');
 const yearMinIndex = ord(YMIN), yearMaxIndex = ord(YMAX);
-const YEAR_HOLD_MS = 460;
-const yearSlots = Array.from({ length: 7 }, () => yearStrip.appendChild(document.createElement('span')));
-const yearDisplay = (year) => year === YMAX ? '今天' : fmtYear(year);
-const yearAtIndex = (index) => {
-  const i = clamp(Math.round(index), yearMinIndex, yearMaxIndex);
-  return i <= 0 ? i - 1 : i;
-};
 
-let yearBrowsing = false, yearPosition = ord(state.year), yearPress = null;
-let yearStride = 80, yearFrame = 0, yearDragFrame = 0, yearDestination = null, yearTapTimer = 0;
-let yearTap = null, suppressYearClick = false;
-
-function yearControlOpen() {
-  return yearBrowsing || !yearForm.hidden;
+function yearAtIndex(index) {
+  const ordinal = clamp(Math.round(index), yearMinIndex, yearMaxIndex);
+  return ordinal <= 0 ? ordinal - 1 : ordinal;
 }
 
-function eraLabelForYear(year) {
-  let era = year === YMAX ? '时空地球 · 现代边界' : chapterOf(year).n + ' · 历史疆域';
-  const f = state.focus;
-  const ent = f && entityByKey(f.layerId, f.key, f.id);
-  const book = reading.active && reading.subject ? reading.subject : (ent && subjectBookForEntity(ent));
-  if (book) {
-    era = book.title;
-    if (book.id === 'ming' && year >= 1403 && year <= 1424) era = '永乐' + (year - 1402) + '年 · 大明';
-  }
-  return era;
+function yearControlOpen() {
+  return !yearForm.hidden;
 }
 
 function syncYearControl(year) {
-  el('year-num').textContent = yearDisplay(year);
-  el('year-era').textContent = eraLabelForYear(year);
-  if (typeof updateVernier === 'function') updateVernier();
-  const spoken = year === YMAX ? '今天' : (year < 0 ? '公元前 ' + -year : year) + ' 年';
-  elYear.setAttribute('aria-label', spoken + '。点击输入年份，长按或按 Shift+Enter 拨动年份');
-  if (yearBrowsing && !yearPress && !yearFrame) {
-    yearPosition = ord(year);
-    updateYearStride();
-  }
+  el('year-num').textContent = fmtYear(year);
+  const status = mapYearStatus();
+  const statusEl = el('year-era');
+  if (statusEl.textContent !== status) statusEl.textContent = status;
+  elYear.setAttribute('aria-label', yearLabel(year) + '，' + status + '。选择年份');
+  updateVernier();
 }
 
-function renderYearStrip() {
-  const first = Math.round(yearPosition) - 3;
-  for (let i = 0; i < yearSlots.length; i++) {
-    const index = first + i;
-    const slot = yearSlots[i];
-    slot.hidden = index < yearMinIndex || index > yearMaxIndex;
-    if (slot.hidden) continue;
-    const distance = index - yearPosition;
-    const emphasis = Math.max(0, 1 - Math.abs(distance));
-    const label = yearDisplay(yearAtIndex(index));
-    if (slot.textContent !== label) slot.textContent = label;
-    slot.style.transform = 'translateX(calc(-50% + ' + (distance * yearStride) + 'px)) scale(' +
-      lerp(.54, 1, emphasis) + ')';
-    slot.style.opacity = lerp(.46, 1, emphasis);
-  }
-}
-
-function updateYearStride() {
-  if (!yearBrowsing) return;
-  yearStride = clamp(yearControl.clientWidth * .205, 73, 111);
-  if (yearAtIndex(yearPosition) <= -100) {
-    const fontSize = parseFloat(getComputedStyle(yearControl).fontSize);
-    yearStride = Math.max(yearStride, fontSize * 2.65);
-  }
-  renderYearStrip();
-}
-
-function cancelYearTap() {
-  clearTimeout(yearTapTimer);
-  yearTapTimer = 0;
-  yearTap = null;
-}
-
-function cancelYearGlide() {
-  cancelAnimationFrame(yearFrame);
-  cancelAnimationFrame(yearDragFrame);
-  yearFrame = yearDragFrame = 0;
-  yearDestination = null;
-}
-
-function applyYearPosition(index) {
-  yearPosition = clamp(Math.round(index), yearMinIndex, yearMaxIndex);
-  const year = yearAtIndex(yearPosition);
-  if (state.year !== year) commitYear(year);
-  if (yearBrowsing) renderYearStrip();
-}
-
-function settleYear(target) {
-  cancelYearGlide();
-  const from = yearPosition;
-  const destination = clamp(Math.round(target), yearMinIndex, yearMaxIndex);
-  const distance = Math.abs(destination - from);
-  if (reducedGlobeMotion.matches || distance < .003) {
-    applyYearPosition(destination);
-    return;
-  }
-  const duration = clamp(170 + distance * 19, 170, 490);
-  const start = performance.now();
-  yearDestination = destination;
-  const frame = (now) => {
-    const t = clamp((now - start) / duration, 0, 1);
-    if (t === 1) {
-      cancelYearGlide();
-      applyYearPosition(destination);
-      return;
-    }
-    yearPosition = lerp(from, destination, 1 - (1 - t) ** 3);
-    renderYearStrip();
-    yearFrame = requestAnimationFrame(frame);
-  };
-  yearFrame = requestAnimationFrame(frame);
-}
-
-function closeYearControl({ focus = false, finish = false } = {}) {
-  const destination = finish ? yearDestination : null;
-  const wasOpen = yearControlOpen();
-  cancelYearTap();
-  cancelYearGlide();
-  if (yearPress) {
-    clearTimeout(yearPress.timer);
-    yearPress = null;
-    suppressYearClick = true;
-  }
-  if (!wasOpen) return;
-  yearBrowsing = false;
-  yearControl.classList.remove('browsing', 'editing');
+function closeYearControl({ focus = false } = {}) {
+  if (!yearControlOpen()) return;
   yearForm.hidden = true;
+  yearControl.classList.remove('editing');
   yearError.textContent = '';
   yearInput.removeAttribute('aria-invalid');
   elYear.setAttribute('aria-expanded', 'false');
-  if (destination !== null) applyYearPosition(destination);
   if (focus) elYear.focus({ preventScroll: true });
   invalidate();
 }
 
 function dismissYearFromGlobe() {
   const wasOpen = yearControlOpen();
-  closeYearControl({ finish: true });
+  closeYearControl();
   return wasOpen;
 }
 
-function showYearControl() {
-  if (yearBrowsing) return;
-  finishVernierMotion();
-  document.body.classList.remove('chrome-hidden');
-  cancelYearTap();
-  closeWorld();
-  closeView(false);
-  closeSheet();
-  momentum.yaw = momentum.tilt = 0;
-  yearPosition = ord(state.year);
-  yearBrowsing = true;
-  updateYearStride();
-  yearControl.classList.add('browsing');
-  elYear.setAttribute('aria-expanded', 'true');
-  invalidate();
-}
-
 function openYearInput() {
+  if (session.mode !== 'Explore' || !overlay.hidden) return;
   finishVernierMotion();
-  document.body.classList.remove('chrome-hidden');
-  closeYearControl({ finish: true });
   closeView(false);
   closeSheet();
-  yearInput.value = state.year === YMAX ? String(YMAX) : fmtYear(state.year);
+  yearInput.value = fmtYear(state.year);
   yearForm.hidden = false;
   yearControl.classList.add('editing');
   elYear.setAttribute('aria-expanded', 'true');
@@ -6631,199 +6412,80 @@ function openYearInput() {
 }
 
 function openYearWorld() {
+  if (session.mode !== 'Explore' || !overlay.hidden) return;
   finishVernierMotion();
-  document.body.classList.remove('chrome-hidden');
-  closeYearControl({ finish: true });
+  closeYearControl();
   closeView(false);
   closeSheet();
   openWorld();
   el('overlay-close').focus({ preventScroll: true });
 }
 
-yearControl.addEventListener('pointerdown', (event) => {
-  if (!event.isPrimary || event.button !== 0 || session.mode !== 'Explore' || !yearForm.hidden) return;
-  const catching = yearFrame !== 0;
-  cancelYearGlide();
-  suppressYearClick = catching;
-  clearTimeout(yearTapTimer);
-  yearTapTimer = 0;
-  const press = {
-    id: event.pointerId, startX: event.clientX, startY: event.clientY, origin: yearPosition,
-    lastAt: event.timeStamp, velocity: 0, active: yearBrowsing, moved: false, timer: 0,
-  };
-  yearPress = press;
-  if (!press.active) {
-    press.timer = setTimeout(() => {
-      if (yearPress !== press) return;
-      showYearControl();
-      press.active = true;
-      press.origin = yearPosition;
-      suppressYearClick = true;
-    }, YEAR_HOLD_MS);
-  }
-  try { event.target.setPointerCapture(event.pointerId); } catch {}
+elYear.addEventListener('click', () => {
+  if (yearControlOpen()) closeYearControl({ focus: true });
+  else openYearInput();
 });
 
-yearControl.addEventListener('pointermove', (event) => {
-  const press = yearPress;
-  if (!press || event.pointerId !== press.id) return;
-  const dx = event.clientX - press.startX;
-  if (!press.active) {
-    if (Math.hypot(dx, event.clientY - press.startY) > 10) {
-      clearTimeout(press.timer);
-      cancelYearTap();
-      suppressYearClick = true;
-    }
-    return;
-  }
-  if (!press.moved && Math.abs(dx) < 5) return;
-  press.moved = true;
-  suppressYearClick = true;
-  const distance = Math.abs(dx) / yearStride;
-  const excess = Math.max(0, distance - 1);
-  const travel = distance + 2.6 * excess * excess / (1 + excess);
-  const next = press.origin - Math.sign(dx) * travel;
-  const bound = clamp(next, yearMinIndex, yearMaxIndex);
-  const position = bound + clamp((next - bound) * .24, -.35, .35);
-  const elapsed = Math.max(8, event.timeStamp - press.lastAt);
-  press.velocity = lerp(press.velocity, (position - yearPosition) / elapsed, .65);
-  press.lastAt = event.timeStamp;
-  yearPosition = position;
-  if (!yearDragFrame) yearDragFrame = requestAnimationFrame(() => {
-    yearDragFrame = 0;
-    renderYearStrip();
-  });
-});
-
-for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
-  yearControl.addEventListener(type, (event) => {
-    const press = yearPress;
-    if (!press || event.pointerId !== press.id) return;
-    clearTimeout(press.timer);
-    yearPress = null;
-    if (type !== 'pointerup') {
-      cancelYearTap();
-      suppressYearClick = true;
-      if (press.active) settleYear(ord(state.year));
-      return;
-    }
-    if (press.active) {
-      const coast = event.timeStamp - press.lastAt < 95 ? clamp(press.velocity * 175, -17, 17) : 0;
-      settleYear(yearPosition + coast);
-    }
-  });
+function parseYear(raw) {
+  const input = raw.normalize('NFKC').trim().replace(/^−/, '-');
+  const match = /^(?:(公元\s*前|前|公元|-)\s*)?(\d+)\s*年?$/.exec(input);
+  if (!match) return null;
+  const year = Number(match[2]) * (match[1] === '-' || match[1]?.endsWith('前') ? -1 : 1);
+  return session.validYear(year) ? year : null;
 }
 
-elYear.addEventListener('click', () => {
-  if (session.mode === 'Explore' && !suppressYearClick && !yearBrowsing) {
-    if (!yearForm.hidden) closeYearControl({ focus: true });
-    else openYearInput();
-  }
-});
-
-yearControl.addEventListener('contextmenu', (event) => {
-  if (yearForm.hidden) event.preventDefault();
-});
-elYear.addEventListener('keydown', (event) => {
-  if (session.mode !== 'Explore' || event.repeat) return;
-  if (event.key === 'F2') {
-    event.preventDefault();
-    openYearInput();
-  } else if (event.shiftKey && event.key === 'Enter') {
-    event.preventDefault();
-    showYearControl();
-  }
-});
+function chooseYear(year) {
+  commitYear(year);
+  closeYearControl({ focus: true });
+}
 
 yearForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const input = yearInput.value.normalize('NFKC').replace(/\s+/g, '').replace(/^公元/, '')
-    .replace(/^前|^−/, '-').replace(/年$/, '');
-  const year = input === '今天' ? YMAX : (/^-?\d+$/.test(input) ? Number(input) : NaN);
-  if (!Number.isInteger(year) || year === 0 || year < YMIN || year > YMAX) {
-    yearError.textContent = '请输入前 3500 年至 ' + YMAX + ' 年之间的年份（无公元 0 年）。';
+  const year = parseYear(yearInput.value);
+  if (year === null) {
+    yearError.textContent = '请输入' + yearLabel(YMIN) + '至 ' + yearLabel(YMAX) + '之间的年份。没有公元 0 年。';
     yearInput.setAttribute('aria-invalid', 'true');
     return;
   }
-  commitYear(year);
-  closeYearControl({ focus: true });
+  chooseYear(year);
 });
 yearInput.addEventListener('input', () => {
   yearError.textContent = '';
   yearInput.removeAttribute('aria-invalid');
 });
-
-addEventListener('keydown', (event) => {
-  if (yearBrowsing && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) cancelYearGlide();
-}, true);
-document.addEventListener('pointerdown', (event) => {
-  if (event.isPrimary && !vernierTrack.contains(event.target)) finishVernierMotion();
-  if (event.isPrimary && event.target !== canvas && !yearControl.contains(event.target)) closeYearControl({ finish: true });
-}, true);
-addEventListener('resize', updateYearStride);
-yearStrip.addEventListener('transitionend', invalidate);
-document.addEventListener('visibilitychange', () => { if (document.hidden) closeYearControl(); });
-
 yearForm.addEventListener('click', (event) => {
   const jump = event.target.closest('[data-year-jump]');
-  if (!jump) return;
-  commitYear(Number(jump.dataset.yearJump));
-  closeYearControl({ focus: true });
+  if (jump) chooseYear(Number(jump.dataset.yearJump));
 });
+el('year-current').textContent = String(THIS_YEAR);
+el('year-today').addEventListener('click', () => chooseYear(THIS_YEAR));
 
-/* ── 无边框精密天文游标（动静两态 + 史事微光点 + 上拉直达当年史事） ── */
 const vernier = el('vernier'), vernierTrack = el('vernier-track'), vernierTicks = el('vernier-ticks');
 const vernierYearEl = el('vernier-year'), vernierEraEl = el('vernier-era'), vernierEventsBtn = el('vernier-events');
 const VERNIER_SPAN = 12;
 const vernierStep = 100 / (VERNIER_SPAN * 2);
-const vernierSlots = Array.from({ length:VERNIER_SPAN * 2 + 3 }, (_, i) => {
+const vernierSlots = Array.from({ length: VERNIER_SPAN * 2 + 3 }, (_, i) => {
   const tick = vernierTicks.appendChild(document.createElement('span'));
   tick.style.left = (50 + (i - VERNIER_SPAN - 1) * vernierStep) + '%';
-  return { tick, label:tick.appendChild(document.createElement('em')) };
+  return { tick, label: tick.appendChild(document.createElement('em')) };
 });
+vernierTrack.setAttribute('aria-valuemax', String(YMAX));
+
 let vernierGesture = null, vernierIdleTimer = 0;
 let vernierPosition = ord(state.year), vernierCenter = null, vernierCommittedYear = state.year;
-let vernierDragFrame = 0, vernierGlideFrame = 0, vernierDestination = null;
-let vernierReadoutIndex = null, vernierEventYear = null, vernierEventEntries = null, vernierMarks = null;
-let eventYearSet = null;
-
-function ensureEventYearSet() {
-  if (eventYearSet && eventYearSet.size) return eventYearSet;
-  if (!entries.length) return null;
-  const set = new Set([-550, -221, 220, 618, 960, 1368, 1421, 1644, 1945]);
-  for (const e of entries) {
-    if (e.kind !== 'era') set.add(e.start);
-  }
-  eventYearSet = set;
-  return set;
-}
-
-function yearEventCounts(year) {
-  const [start, end] = windowOf(year);
-  const first = ord(start), last = ord(end) + 1;
-  let concrete = 0, bg = 0;
-  for (const event of entries) {
-    if (event.t1 < first || event.t0 >= last) continue;
-    const isBg = !event.point && event.kind === 'era';
-    if (isBg) bg++; else concrete++;
-  }
-  return { concrete, bg, recent: start !== end };
-}
+let vernierDragFrame = 0, vernierGlideFrame = 0;
+let vernierReadout = '', vernierEventYear = null, vernierEventEntries = null, vernierMarks = null;
 
 function wakeVernier(hold = false) {
   clearTimeout(vernierIdleTimer);
   vernier.classList.add('active');
-  if (!hold) {
-    vernierIdleTimer = setTimeout(() => {
-      if (!vernierGesture) vernier.classList.remove('active');
-    }, 1250);
-  }
+  if (!hold) vernierIdleTimer = setTimeout(() => vernier.classList.remove('active'), 1250);
 }
 
-function paintVernier(syncEra = false) {
+function paintVernier() {
   const center = clamp(Math.round(vernierPosition), yearMinIndex, yearMaxIndex);
   vernierTicks.style.transform = `translate3d(${(center - vernierPosition) * vernierStep}%,0,0)`;
-  const marks = ensureEventYearSet();
+  const marks = concreteEventStarts();
   if (vernierCenter !== center || vernierMarks !== marks) {
     vernierCenter = center;
     vernierMarks = marks;
@@ -6834,28 +6496,25 @@ function paintVernier(syncEra = false) {
       if (tick.hidden) continue;
       const year = yearAtIndex(index);
       const major = year === YMAX || year % 10 === 0;
-      tick.className = (major ? 'major' : year % 5 === 0 ? 'med' : 'minor') + (marks?.has(year) ? ' has-event' : '');
-      label.textContent = major && year !== YMAX ? fmtYear(year) : '';
+      tick.className = (major ? 'major' : year % 5 === 0 ? 'med' : 'minor') + (marks.has(year) ? ' has-event' : '');
+      label.textContent = major ? fmtYear(year) : '';
     }
   }
-  const changedYear = vernierReadoutIndex !== center;
   const year = yearAtIndex(center);
-  if (changedYear) {
-    vernierReadoutIndex = center;
-    vernierYearEl.textContent = yearDisplay(year);
-    vernierTrack.setAttribute('aria-valuenow', year);
-    vernierTrack.setAttribute('aria-valuetext', yearDisplay(year));
-  }
-  if (changedYear || syncEra) {
-    const era = eraLabelForYear(year);
-    if (vernierEraEl.textContent !== era) vernierEraEl.textContent = era;
+  const preview = year !== state.year;
+  const text = preview ? '预览 ' + yearLabel(year) + '，地图 ' + yearLabel(state.year) : yearLabel(year);
+  if (text !== vernierReadout) {
+    vernierReadout = text;
+    vernierYearEl.textContent = fmtYear(year);
+    vernierEraEl.textContent = preview ? '预览 · 地图 ' + yearLabel(state.year) : '';
+    vernierTrack.setAttribute('aria-valuenow', String(year));
+    vernierTrack.setAttribute('aria-valuetext', text);
   }
 }
 
 function updateVernier() {
   if (vernierCommittedYear !== state.year) {
-    cancelVernierMotion();
-    vernierPosition = ord(state.year);
+    resetVernierPreview();
     vernierCommittedYear = state.year;
   }
   const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
@@ -6863,47 +6522,53 @@ function updateVernier() {
   if (vernier.hidden === visible) {
     vernier.hidden = !visible;
     vernier.inert = !visible;
+    if (!visible) resetVernierPreview();
   }
   if (!visible) return;
-  paintVernier(true);
-  const year = state.year;
-  if (vernierEventYear === year && vernierEventEntries === entries) return;
-  vernierEventYear = year;
+  paintVernier();
+  if (vernierEventYear === state.year && vernierEventEntries === entries) return;
+  vernierEventYear = state.year;
   vernierEventEntries = entries;
-  const { concrete, bg, recent } = yearEventCounts(year);
-  if (concrete > 0) {
-    vernierEventsBtn.textContent = recent ? '近年史事' : concrete + ' 件史事';
-    vernierEventsBtn.hidden = false;
-  } else if (bg > 0 && !recent) {
-    vernierEventsBtn.textContent = '时代背景';
-    vernierEventsBtn.hidden = false;
-  } else {
-    vernierEventsBtn.hidden = true;
-  }
+  const { events } = yearEventGroups(state.year);
+  vernierEventsBtn.textContent = events.length ? '这一年 · ' + events.length + ' 件史事' : '这一年';
+  vernierEventsBtn.setAttribute('aria-label', yearLabel(state.year) + '的史事' + (events.length ? '，' + events.length + ' 件' : ''));
 }
 
-function cancelVernierMotion() {
+function cancelVernierFrames() {
   cancelAnimationFrame(vernierDragFrame);
   cancelAnimationFrame(vernierGlideFrame);
   vernierDragFrame = vernierGlideFrame = 0;
-  vernierDestination = null;
+}
+
+function resetVernierPreview() {
+  cancelVernierFrames();
+  vernierGesture = null;
+  vernierPosition = ord(state.year);
+}
+
+function abortVernierPreview() {
+  if (!vernierGesture && !vernierGlideFrame) return false;
+  resetVernierPreview();
+  paintVernier();
+  wakeVernier();
+  invalidate();
+  return true;
 }
 
 function commitVernierPosition(position) {
-  cancelVernierMotion();
+  resetVernierPreview();
   const year = yearAtIndex(position);
-  vernierPosition = ord(year);
   if (year !== state.year) commitYear(year);
   else paintVernier();
   invalidate();
 }
 
 function finishVernierMotion() {
-  if (vernierDestination !== null) commitVernierPosition(vernierPosition);
+  if (vernierGesture || vernierGlideFrame) commitVernierPosition(vernierPosition);
 }
 
 function settleVernier(target, velocity = 0) {
-  cancelVernierMotion();
+  cancelVernierFrames();
   const from = vernierPosition;
   const end = ord(yearAtIndex(target));
   const distance = Math.abs(end - from);
@@ -6913,66 +6578,47 @@ function settleVernier(target, velocity = 0) {
   }
   const start = performance.now();
   const movingTowardTarget = (end - from) * velocity > 0;
-  const maxDuration = clamp(390 + (distance - 12) * 2.1, 390, 760);
+  const maxDuration = clamp(390 + (distance - 12) * 2.1, 390, 680);
   const duration = movingTowardTarget ? clamp(2 * distance / Math.abs(velocity), 145, maxDuration) : 145;
-  // Long throws ease in from the finger's release speed and come to rest at the destination.
   const initialSlope = movingTowardTarget ? Math.min(2, Math.abs(velocity) * duration / distance) : 0;
-  vernierDestination = end;
   const frame = (now) => {
     const progress = clamp((now - start) / duration, 0, 1);
     const eased = progress * progress * (3 - 2 * progress) + initialSlope * progress * (1 - progress) ** 2;
     vernierPosition = lerp(from, end, eased);
     paintVernier();
-    vernierGlideFrame = requestAnimationFrame(progress < 1 ? frame : () => commitVernierPosition(end));
+    if (progress < 1) vernierGlideFrame = requestAnimationFrame(frame);
+    else commitVernierPosition(end);
   };
   vernierGlideFrame = requestAnimationFrame(frame);
 }
 
-vernierEventsBtn.addEventListener('click', () => openYearWorld());
-
+vernierEventsBtn.addEventListener('click', openYearWorld);
 vernierTrack.addEventListener('pointerdown', (event) => {
-  if (vernier.hidden || event.isPrimary === false || event.button !== 0 || reading.active) return;
-  document.body.classList.remove('chrome-hidden');
+  if (vernier.hidden || event.isPrimary === false || event.button !== 0 || session.mode !== 'Explore') return;
   wakeVernier(true);
-  const catching = vernierDestination !== null;
-  cancelVernierMotion();
+  const catching = !!vernierGlideFrame;
+  cancelVernierFrames();
   vernierGesture = {
-    id: event.pointerId,
-    startX: event.clientX,
-    startY: event.clientY,
-    lastX: event.clientX,
-    lastT: event.timeStamp,
-    origin: vernierPosition,
+    id: event.pointerId, startX: event.clientX, startY: event.clientY,
+    lastX: event.clientX, lastT: event.timeStamp, origin: vernierPosition,
     pixelsPerYear: vernierTrack.clientWidth / (VERNIER_SPAN * 2),
-    velocity: 0,
-    catching,
-    moved: false,
-    swipeUp: false,
+    velocity: 0, catching, moved: false,
   };
-  vernierTrack.setPointerCapture(event.pointerId);
+  try { vernierTrack.setPointerCapture(event.pointerId); } catch {}
 });
 
 vernierTrack.addEventListener('pointermove', (event) => {
-  if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
-  const g = vernierGesture;
-  const totalDx = event.clientX - g.startX;
-  const totalDy = event.clientY - g.startY;
-  if (g.swipeUp) return;
-  if (!g.moved) {
-    if (totalDy < -18 && -totalDy > Math.abs(totalDx) * 1.4) {
-      g.swipeUp = true;
-      g.moved = true;
-      return;
-    }
-    if (Math.abs(totalDx) <= Math.max(3, Math.abs(totalDy))) return;
-    g.moved = true;
-  }
-  const stepDx = event.clientX - g.lastX;
-  const dt = Math.max(8, event.timeStamp - g.lastT);
-  g.lastX = event.clientX;
-  g.lastT = event.timeStamp;
-  g.velocity = lerp(g.velocity, -stepDx / g.pixelsPerYear / dt, .55);
-  const next = g.origin - totalDx / g.pixelsPerYear;
+  const drag = vernierGesture;
+  if (!drag || event.pointerId !== drag.id) return;
+  const dx = event.clientX - drag.startX;
+  if (!drag.moved && Math.abs(dx) <= Math.max(3, Math.abs(event.clientY - drag.startY))) return;
+  drag.moved = true;
+  const stepDx = event.clientX - drag.lastX;
+  const dt = Math.max(8, event.timeStamp - drag.lastT);
+  drag.lastX = event.clientX;
+  drag.lastT = event.timeStamp;
+  drag.velocity = lerp(drag.velocity, -stepDx / drag.pixelsPerYear / dt, .55);
+  const next = drag.origin - dx / drag.pixelsPerYear;
   const bound = clamp(next, yearMinIndex, yearMaxIndex);
   vernierPosition = bound + clamp((next - bound) * .24, -.45, .45);
   if (!vernierDragFrame) vernierDragFrame = requestAnimationFrame(() => {
@@ -6983,41 +6629,45 @@ vernierTrack.addEventListener('pointermove', (event) => {
 
 for (const type of ['pointerup', 'pointercancel', 'lostpointercapture']) {
   vernierTrack.addEventListener(type, (event) => {
-    if (!vernierGesture || event.pointerId !== vernierGesture.id) return;
     const drag = vernierGesture;
+    if (!drag || event.pointerId !== drag.id) return;
     vernierGesture = null;
     if (type !== 'pointerup') {
       settleVernier(ord(state.year));
-    } else if (drag.swipeUp) {
-      commitVernierPosition(vernierPosition);
-      vernier.classList.remove('active');
-      openYearWorld();
-      return;
     } else if (!drag.moved && !drag.catching && Math.abs(event.clientY - drag.startY) <= 10) {
       const rect = vernierTrack.getBoundingClientRect();
       const years = (event.clientX - rect.left - rect.width / 2) / drag.pixelsPerYear;
       settleVernier(drag.origin + years);
     } else {
-      const velocity = !reducedGlobeMotion.matches && drag.moved && event.timeStamp - drag.lastT < 90
-        ? drag.velocity : 0;
+      const velocity = !reducedGlobeMotion.matches && drag.moved && event.timeStamp - drag.lastT < 90 ? drag.velocity : 0;
       const speed = Math.abs(velocity) * drag.pixelsPerYear;
       const boost = 76 * Math.max(0, speed - .45) ** 2;
-      const coast = Math.sign(velocity) * Math.min(180, Math.abs(velocity) * 140 + boost);
+      const coast = Math.sign(velocity) * Math.min(120, Math.abs(velocity) * 140 + boost);
       settleVernier(vernierPosition + coast, velocity);
     }
-    wakeVernier(false);
+    wakeVernier();
   });
 }
 
 vernierTrack.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault();
-    event.stopPropagation();
-    wakeVernier(false);
-    commitVernierPosition(Math.round(vernierPosition) + (event.key === 'ArrowRight' ? 1 : -1));
-  } else if (event.key === 'ArrowUp') {
-    event.preventDefault();
-    openYearWorld();
+  const moves = { ArrowLeft: Math.round(vernierPosition) - 1, ArrowRight: Math.round(vernierPosition) + 1,
+    Home: yearMinIndex, End: yearMaxIndex };
+  if (!Object.hasOwn(moves, event.key)) return;
+  event.preventDefault();
+  event.stopPropagation();
+  wakeVernier();
+  commitVernierPosition(moves[event.key]);
+});
+
+document.addEventListener('pointerdown', (event) => {
+  if (!event.isPrimary) return;
+  if (!vernierTrack.contains(event.target)) finishVernierMotion();
+  if (event.target !== canvas && !yearControl.contains(event.target)) closeYearControl();
+}, true);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    closeYearControl();
+    abortVernierPreview();
   }
 });
 
@@ -7059,22 +6709,17 @@ function ensurePolity() {
 async function loadPolity() {
   polityState.loading = true;
   polityState.error = null;
-  syncChrome();
-  loadPill.hidden = state.layerId !== 'polity';
-  const label = loadPill.querySelector('span');
+  syncHud();
   try {
     const inline = inlineText('politypack');
     let buf;
     if (inline.length > 100) {
-      label.textContent = '政权边界解压…';
       const raw = b64ToBytes(inline);
       buf = (await gunzip(raw)) || raw;
     } else {
-      label.textContent = '政权边界 0%';
-      const gz = await fetchWithProgress('data/polity.bin.gz', (p) => { label.textContent = '政权边界 ' + Math.round(p * 100) + '%'; });
-      label.textContent = '政权边界解压…';
+      const gz = await fetchBinary('data/polity.bin.gz');
       buf = (await gunzip(gz));
-      if (!buf) buf = await (await fetch('data/polity.bin')).arrayBuffer();
+      if (!buf) buf = await fetchBinary('data/polity.bin');
     }
     pk = parsePolityBin(buf);
     polityState.loaded = true;
@@ -7090,15 +6735,12 @@ async function loadPolity() {
   } catch (err) {
     pendingPolityTap = null;
     polityState.error = err.message;
-    label.textContent = '政权边界加载失败';
     console.warn('polity load failed', err);
-    setTimeout(() => { loadPill.hidden = true; }, 2600);
     return;
   } finally {
     polityState.loading = false;
-    syncChrome();
+    syncHud();
   }
-  loadPill.hidden = true;
 }
 
 (async function boot() {
@@ -7114,7 +6756,11 @@ async function loadPolity() {
   buildCountryPick();
   rebuildPartition();
   layout();
-  restoreSession();
+  const restored = restoreSession();
+  if (!restored) {
+    bootEl.querySelector('p').textContent = '正在加载 1500 年历史疆域…';
+    await ensurePolity();
+  }
   syncHud();
   draw();
 
@@ -7125,7 +6771,7 @@ async function loadPolity() {
 
   /* 空闲时后台预热 4K 高清底图与政权边界，放大和切换图层都无需等待 */
   if (glr && typeof glr.preloadDetail === 'function') setTimeout(() => { glr.preloadDetail(); }, 600);
-  setTimeout(() => { ensurePolity(); }, 2200);
+  if (restored && state.layerId === 'country') setTimeout(() => { ensurePolity(); }, 2200);
 })();
 
 })();

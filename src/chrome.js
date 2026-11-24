@@ -17,15 +17,22 @@ function syncChrome() {
   el('toggle-grid').setAttribute('aria-checked', String(chrome.grid));
   hudViewBtn.setAttribute('aria-expanded', String(chrome.panel));
   hudViewBtn.classList.toggle('active', chrome.panel || mode !== 'history' || chrome.grid);
+}
 
-  let status = '';
-  if (state.layerId === 'polity') {
-    if (state.year < -3400) status = '此前暂无疆域资料';
-    else if (state.year > POLITY_END) status = '疆域资料截至 ' + POLITY_END + ' 年';
-    else if (polityState.error) status = '历史疆域加载失败';
-  }
-  elSub.textContent = status;
-  elSub.hidden = !status;
+function mapYearStatus() {
+  if (chrome.natural) return '自然地形';
+  if (state.layerId === 'country') return chrome.followTime && state.year > POLITY_END
+    ? '现代参考边界 · 历史疆域截至 ' + POLITY_END
+    : '现代参考边界 · Natural Earth';
+  if (state.year < POLITY_START) return '暂无收录疆域 · 自然底图';
+  if (state.year > POLITY_END) return '历史疆域截至 ' + POLITY_END;
+  if (polityState.error) return '历史疆域加载失败';
+  if (!polityState.loaded) return '正在加载历史疆域…';
+  return partition.shapes.length ? '历史疆域' : '该年暂无收录疆域';
+}
+
+function explorationLayer(year, followTime, natural) {
+  return followTime && !natural && year <= POLITY_END ? 'polity' : 'country';
 }
 
 function animateViewPopover(opening, onFinish) {
@@ -80,8 +87,8 @@ function focusActiveView() {
 function showView(fromHold = false) {
   if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
-  document.body.classList.remove('chrome-hidden');
   closeYearControl();
+  finishVernierMotion();
   closeSheet();
   cancelZoom();
   stopPanReturn();
@@ -108,13 +115,14 @@ function selectView(mode) {
 }
 
 function commitYear(year) {
-  if (session.mode !== 'Explore' || !Number.isFinite(year)) return;
+  if (session.mode !== 'Explore' || !session.validYear(year)) return;
   exploreIntent();
-  year = clamp(Math.round(year), YMIN, YMAX);
-  state.year = year === 0 ? 1 : year;
-  const layer = chrome.followTime && state.year <= POLITY_END ? 'polity' : 'country';
+  pendingPolityTap = null;
+  state.year = year;
+  const layer = explorationLayer(year, chrome.followTime, chrome.natural);
   if (state.layerId !== layer) setLayer(layer);
   else onYearChanged();
+  if (layer === 'polity' && hasHistoricalCoverage(year) && !polityState.loaded) ensurePolity();
   rememberExplore();
   saveSession();
 }
@@ -131,7 +139,7 @@ function resetView(animate = true) {
   stopPanReturn();
   cancelResetAnim();
   momentum.yaw = momentum.tilt = 0;
-  const target = { yaw: -1.42, tilt: 0.30, zoom: 1, panX: 0, panY: 0, lift: 0 };
+  const target = { ...HOME_CAMERA, lift:0 };
   if (!animate || reducedGlobeMotion.matches) {
     Object.assign(state, target);
     layout();
@@ -224,3 +232,7 @@ addEventListener('keydown', event => {
 }, true);
 
 hudViewBtn.addEventListener('click', () => showView());
+el('reset-view').addEventListener('click', () => {
+  closeView();
+  resetView();
+});

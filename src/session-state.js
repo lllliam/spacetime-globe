@@ -194,9 +194,9 @@ function restoreExploreView() {
   state.focus = null;
   state.lift = 0;
   state.year = context.year;
-  state.layerId = context.layerId;
   chrome.natural = context.natural;
   chrome.followTime = context.followTime;
+  state.layerId = explorationLayer(context.year, context.followTime, context.natural);
   chrome.labels = context.labels;
   chrome.grid = context.grid;
   Object.assign(state, context.camera);
@@ -228,7 +228,7 @@ function restoreExploreView() {
     invalidate();
     if (sessionReady) { rememberExplore(); saveSession(); }
   }
-  if (context.layerId === 'polity' && !polityState.loaded) ensurePolity().then(restoreSelection);
+  if (state.layerId === 'polity' && hasHistoricalCoverage(state.year) && !polityState.loaded) ensurePolity().then(restoreSelection);
   else restoreSelection();
 }
 
@@ -254,12 +254,13 @@ function restoreSession() {
           sessionReady = true;
           saveSession(true);
         });
-        return;
+        return true;
       }
       resumeStoredReading(restored.read);
     }
   }
   sessionReady = true;
+  return Boolean(restored);
 }
 
 function saveVisibleSession() {

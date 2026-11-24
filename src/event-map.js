@@ -511,7 +511,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
-  const year = clamp(state.year, event.start, event.point ? event.start : event.end);
+  const year = worldEventYear(event);
   const target = worldEventTarget(event, year);
   const story = target?.chapter.mapStory;
   const scene = target && scenesByEvent.get(event.id);
@@ -524,7 +524,7 @@ function openWorldEvent(event) {
     summary: scene?.summary || story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
     participants: story?.participants, places: scene?.places || (target && chapterPlaces(target.chapter)),
     routes: scene?.routes, steps: scene?.steps, focusPolities: scene?.focusPolities,
-    back: state.year >= YMAX ? '返回近 ' + TODAY_SPAN + ' 年' : '返回 ' + fmtYear(state.year) + ' 年' });
+    back: '返回 ' + yearLabel(state.year) });
 }
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
