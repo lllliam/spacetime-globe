@@ -1411,13 +1411,14 @@ function layout() {
     view.R = Math.min(globeW * 0.43, h * 0.37, 410);
   } else {
     view.cx = w / 2;
-    view.cyBase = splitActive ? h * .225 : h * (h > w ? 0.515 : 0.46);
-    view.cy = view.cyBase - (splitActive ? 0 : (state.lift || 0));
-    view.R = Math.min(w * 0.455, splitActive ? h * .20 : Infinity, h * 0.34, 410);
+    view.cyBase = h * (h > w ? 0.515 : 0.46);
+    view.cy = view.cyBase - state.lift;
+    view.R = Math.min(w * 0.455, h * 0.34, 410);
   }
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
   view.Rz = view.R * state.zoom;
+  updateSheetGlobeCenter(sheetState.offset);
 
   const r = glr || fallback;
   const pixelsWide = Math.round(w * dpr), pixelsHigh = Math.round(h * dpr);
@@ -1909,7 +1910,7 @@ function tapGlobe(sx, sy) {
 /* ───────────── 12. 抽屉：三档吸附（peek / half / full） ─────────────
    半屏展示此刻摘要，抓手上拉或点击专题入口，进入独立阅读层。 */
 const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-dim');
-const sheetState = { detent: 'hidden', offset: 0, dragging: false, vy: 0 };
+const sheetState = { detent: 'hidden', offset: 0, dragging: false };
 
 const SHEET_BOTTOM_GAP = 16;
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -1924,12 +1925,28 @@ function sheetDetents() {
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
 
+function updateSheetGlobeCenter(offset) {
+  if (view.w >= 960 || worldEvent) return;
+  const { hidden, half } = sheetDetents();
+  const top = clamp(offset, half, hidden);
+  const lift = Math.max(0, view.cyBase - top * .58);
+  view.cy = view.cyBase - lift;
+  const anchor = state.focus?.anchor || sheetState.closingAnchor;
+  if (anchor && top < hidden) {
+    const point = projectReadingPlace(anchor, rotation());
+    const exposure = clamp((hidden - top) / 120, 0, 1);
+    if (point.front) view.cy -= clamp(point.y - (top - 32), 0, view.h * .40) * exposure;
+  }
+  state.lift = view.cyBase - view.cy;
+}
+
 function paintSheetPosition(offset) {
   sheetState.offset = offset;
   const y = Math.round(offset);
   sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
   // As the drawer leaves the status bar, remove only the inset it no longer covers.
   const topOffset = clamp(y, 0, view.safeTop) + 'px';
+  if (view.w < 960) sheetEl.style.setProperty('--sheet-radius', clamp(y * .55, 0, 22) + 'px');
   if (sheetEl.style.getPropertyValue('--sheet-top-offset') !== topOffset) {
     sheetEl.style.setProperty('--sheet-top-offset', topOffset);
   }
@@ -1940,6 +1957,11 @@ function paintSheetPosition(offset) {
   root.classList.toggle('sheet-paper', paperEdge);
   const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+  if (view.w < 960 && !worldEvent) {
+    const previous = view.cy;
+    updateSheetGlobeCenter(offset);
+    if (Math.abs(previous - view.cy) > .1) invalidate();
+  }
 }
 
 function applySheetOffset(offset, animate = true) {
@@ -1959,55 +1981,59 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
-  if (!reading.active && typeof syncSheetIdentity === 'function') syncSheetIdentity();
   if (typeof updateVernier === 'function') updateVernier();
 }
 
 // 位移由同一套弹簧积分驱动：动画途中再次按下可直接接住，不读取 CSS 目标位置。
-let sheetMotion = 0, sheetVelocity = 0;
+let sheetMotion = 0;
 function stopSheetMotion() {
   cancelAnimationFrame(sheetMotion);
   sheetMotion = 0;
 }
-function sheetTo(detent, animate = true) {
+function settleSheet(target, paint, finish, velocity = 0, animate = true) {
+  stopSheetMotion();
+  const start = sheetState.offset;
+  if (!animate || reducedGlobeMotion.matches || Math.abs(start - target) < .6) {
+    paint(target);
+    finish?.();
+    return;
+  }
+  const begin = performance.now();
+  const distance = start - target;
+  const damping = 20;
+  const speed = clamp(velocity, -2200, 2200);
+  const step = now => {
+    const t = (now - begin) / 1000;
+    const offset = target + (distance + (speed + damping * distance) * t) * Math.exp(-damping * t);
+    if ((t > .12 && Math.abs(target - offset) < .55) || t > .52) {
+      sheetMotion = 0;
+      paint(target);
+      finish?.();
+      return;
+    }
+    paint(clamp(offset, 0, sheetDetents().hidden));
+    sheetMotion = requestAnimationFrame(step);
+  };
+  sheetMotion = requestAnimationFrame(step);
+}
+function sheetTo(detent, animate = true, velocity = 0) {
   if (detent === 'full') { enterSheetReading('full'); return; }
   if (!['hidden', 'half', 'peek'].includes(detent)) detent = 'half';
-  stopSheetMotion();
   sheetState.detent = detent;
   setSheetIntent('idle');
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!animate || reduced) {
-    applySheetOffset(sheetDetents()[detent], false);
-    sheetVelocity = 0;
-  } else {
-    let last = performance.now();
-    const step = (t) => {
-      const dt = Math.min(.032, Math.max(.001, (t - last) / 1000));
-      last = t;
-      const target = sheetDetents()[sheetState.detent];
-      sheetVelocity += ((target - sheetState.offset) * 330 - sheetVelocity * 34) * dt;
-      const offset = sheetState.offset + sheetVelocity * dt;
-      if (Math.abs(target - offset) < .6 && Math.abs(sheetVelocity) < 8) {
-        applySheetOffset(target, false);
-        sheetMotion = sheetVelocity = 0;
-        invalidate();
-        return;
-      }
-      applySheetOffset(offset, false);
-      sheetMotion = requestAnimationFrame(step);
-    };
-    sheetMotion = requestAnimationFrame(step);
-  }
+  settleSheet(sheetDetents()[detent], offset => applySheetOffset(offset, false), () => {
+    sheetState.closingAnchor = null;
+    invalidate();
+  }, velocity, animate);
   const H = view.h || innerHeight;
-  animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
+  if (view.w >= 960) animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
 }
-function enterSheetReading(mode = 'half') {
+function enterSheetReading(mode = 'half', velocity = 0) {
   if (!state.focus) return;
   const fromOffset = sheetState.offset;
   stopSheetMotion();
-  sheetVelocity = 0;
   setSheetIntent('idle');
-  openBook(fromOffset, mode);
+  openBook(fromOffset, mode, velocity);
 }
 
 let liftRaf = 0;
@@ -2036,7 +2062,7 @@ function setSheetIntent(intent) {
   el('sheet-gesture').textContent = intent === 'expand' ? '松开，展开阅读' : intent === 'dismiss' ? '松开，收起' : '';
 }
 function sheetDragStart(e) {
-  if (reading.active || sheetState.dragging || sheetState.detent === 'hidden' || e.isPrimary === false) return;
+  if (reading.active || sheetState.dragging || !state.focus || sheetState.detent === 'hidden' || e.isPrimary === false) return;
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
   if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek' && !e.target.closest('.sheet-overview')) return;
@@ -2046,21 +2072,38 @@ function sheetDragStart(e) {
   sheetState.dragging = true;
   sheetState.pointerId = e.pointerId;
   sheetState.startX = e.clientX;
-  sheetState.startY = sheetState.lastY = e.clientY;
+  sheetState.startY = e.clientY;
   sheetState.startOffset = sheetState.offset;
   sheetState.startDetent = sheetState.detent;
-  sheetState.lastT = e.timeStamp;
-  sheetState.samples = [{ y: e.clientY, t: sheetState.lastT }];
-  sheetState.distance = sheetState.vy = 0;
+  sheetState.samples = [{ y: e.clientY, t: e.timeStamp }];
+  sheetState.distance = 0;
   sheetState.moved = false;
   setSheetIntent('idle');
 }
-function sheetGestureIntent(distance, velocity = 0) {
+function sheetReleaseVelocity(samples, now) {
+  const last = samples.at(-1);
+  const first = samples[0];
+  if (now - last.t >= 105 || last.t - first.t < 8) return 0;
+  return (last.y - first.y) / (last.t - first.t) * 1000;
+}
+function sheetDragPosition(offset) {
+  return clamp(offset, 0, sheetDetents().hidden);
+}
+function sheetSnapTarget(origin, offset, velocity, modes) {
   const d = sheetDetents();
-  const up = clamp((d.peek - d.half) * .20, 48, 88);
-  if (distance <= -up || (distance < -18 && velocity < -420)) return 'expand';
-  if (distance >= 48 || (distance > 18 && velocity > 420)) return 'dismiss';
-  return 'idle';
+  const projected = offset + clamp(velocity * .16, -230, 230);
+  const direction = Math.sign(projected - d[origin]);
+  const initial = modes.indexOf(origin);
+  let index = initial;
+  if (!direction) return origin;
+  // The first stop has a short threshold. Skipping another stop takes a longer pull or a flick.
+  for (let next = index + direction; modes[next]; next += direction) {
+    const span = Math.abs(d[modes[next]] - d[modes[index]]);
+    const threshold = index === initial ? clamp(span * .24, 36, 84) : span * .46;
+    if (direction * (projected - d[modes[index]]) < threshold) break;
+    index = next;
+  }
+  return modes[index];
 }
 function sheetDragMove(e) {
   if (!sheetState.dragging || e.pointerId !== sheetState.pointerId) return;
@@ -2079,22 +2122,10 @@ function sheetDragMove(e) {
     // Keep the touched element's implicit capture on iOS; only mouse drags need a transfer.
     if (e.pointerType === 'mouse') sheetEl.setPointerCapture(e.pointerId);
   }
-  sheetState.lastY = e.clientY;
-  sheetState.lastT = now;
   sheetState.samples.push({ y: e.clientY, t: now });
   sheetState.samples = sheetState.samples.filter((p) => now - p.t < 110);
-  const first = sheetState.samples[0];
-  sheetState.vy = now > first.t ? (e.clientY - first.y) / (now - first.t) * 1000 : 0;
-  let offset = sheetState.startOffset + sheetState.distance;
-  // 顶部越界时有阻力，底部仍然跟手，避免突然卡在 peek 档。
-  if (offset < 0) offset = -52 * (1 - Math.exp(offset / 100));
-  if (offset > sheetDetents().peek) offset = sheetDetents().peek + (offset - sheetDetents().peek) * .22;
+  const offset = sheetDragPosition(sheetState.startOffset + sheetState.distance);
   applySheetOffset(offset, false);
-  state.lift = (1 - clamp(offset / view.h, 0, 1)) * view.h * .13;
-  view.cy = (view.cyBase || view.cy) - state.lift;
-  invalidate();
-  // 提示以距离为准，快速轻扫由松手速度补充判断。
-  setSheetIntent(sheetGestureIntent(sheetState.distance));
 }
 function sheetDragEnd(e, cancelled = e?.type !== 'pointerup') {
   if (!sheetState.dragging) return;
@@ -2103,22 +2134,13 @@ function sheetDragEnd(e, cancelled = e?.type !== 'pointerup') {
   sheetEl.classList.remove('dragging');
   sheetState.suppressClick = sheetState.moved;
   if (sheetState.suppressClick) setTimeout(() => { sheetState.suppressClick = false; }, 350);
-  // 停住再松手不继承旧速度；系统取消手势时只回弹，不执行阅读或关闭。
-  const elapsed = e && Number.isFinite(e.timeStamp) ? e.timeStamp - sheetState.lastT : Infinity;
-  const velocity = elapsed < 110 ? sheetState.vy : 0;
-  sheetVelocity = clamp(velocity, -1600, 1600);
   const original = sheetState.startDetent;
-  if (cancelled) { sheetTo(original); return; }
-  const intent = sheetGestureIntent(sheetState.distance, velocity);
-  const d = sheetDetents();
-  if (intent === 'expand') {
-    enterSheetReading(sheetState.offset < d.half * .6 || original === 'half' ? 'full' : 'half');
-  } else if (intent === 'dismiss') {
-    if (original === 'peek') closeSheet();
-    else sheetTo('peek');
-  } else {
-    sheetTo(original);
-  }
+  if (cancelled || !sheetState.moved) { sheetTo(original); return; }
+  const velocity = sheetReleaseVelocity(sheetState.samples, e.timeStamp);
+  const target = sheetSnapTarget(original, sheetState.offset, velocity, ['full', 'half', 'peek', 'hidden']);
+  if (target === 'hidden') closeSheet(velocity);
+  else if (target === 'full' || target === 'half' && target !== original) enterSheetReading(target, velocity);
+  else sheetTo(target, true, velocity);
 }
 
 el('sheet-top').addEventListener('pointerdown', sheetDragStart);
@@ -2174,7 +2196,9 @@ function openEntity(layerId, id, point = null) {
   const shape = partition.shapes.find((s) => s.id === id);
   const key = focusKeyOf(layerId, shape);
   if (key === null) { closeSheet(); return; }
-  state.focus = { layerId, id, key, atlasPeers: politySelectionsAt(point, key) };
+  const anchor = point && readingPlaceVector({ lon:(point.x / MAPW - .5) * 360, lat:(.5 - point.y / MAPH) * 180 });
+  sheetState.closingAnchor = null;
+  state.focus = { layerId, id, key, anchor, atlasPeers: politySelectionsAt(point, key) };
   renderEntity();
   syncHud();
   if (sheetState.detent === 'hidden') {
@@ -2189,10 +2213,11 @@ function openEntity(layerId, id, point = null) {
   invalidate();
 }
 
-function closeSheet() {
+function closeSheet(velocity = 0) {
   if (!state.focus && sheetState.detent === 'hidden') return;
+  sheetState.closingAnchor = state.focus?.anchor;
   state.focus = null;
-  sheetTo('hidden');
+  sheetTo('hidden', true, velocity);
   invalidate();
 }
 
@@ -2317,11 +2342,11 @@ function syncSheetIdentity() {
     book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
-  el('sheet-identity-years').textContent = book ? subjectYears(book) : '时间与空间';
-  el('sheet-close').hidden = !reading.active;
+  el('sheet-identity-years').textContent = book ? subjectYears(book) : entity && !reading.library ? '地图资料' : '时间与空间';
+  el('sheet-close').hidden = !reading.active && (Boolean(book) || !entity);
   const toc = el('sheet-toc');
   toc.hidden = reading.active && (reading.library || reading.catalog || Boolean(book && reading.detail === null));
-  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '查看地图资料';
+  toc.textContent = book ? '目录' : reading.active ? '历史书目' : '资料';
 }
 el('sheet-toc').addEventListener('click', () => {
   if (reading.active) {

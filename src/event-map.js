@@ -63,13 +63,14 @@ function cancelGlobeFly(userInitiated = false) {
   }
 }
 
-function flyGlobeTo({ yaw, tilt, zoom, duration = 620 }) {
+function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
   cancelGlobeFly(false);
   if (reducedGlobeMotion.matches || duration <= 0) {
     state.yaw = yaw;
     state.tilt = tilt;
     state.zoom = zoom;
-    state.panX = state.panY = 0;
+    state.panX = panX;
+    state.panY = panY;
     view.Rz = view.R * state.zoom;
     invalidate();
     return;
@@ -81,11 +82,11 @@ function flyGlobeTo({ yaw, tilt, zoom, duration = 620 }) {
   const step = (now) => {
     const p = clamp((now - start) / duration, 0, 1);
     const e = 1 - Math.pow(1 - p, 3);
-    state.yaw = y0 + dy * e;
+    state.yaw = p < 1 ? y0 + dy * e : yaw;
     state.tilt = t0 + dt * e;
     state.zoom = z0 + dz * e;
-    state.panX = px0 * (1 - e);
-    state.panY = py0 * (1 - e);
+    state.panX = lerp(px0, panX, e);
+    state.panY = lerp(py0, panY, e);
     view.Rz = view.R * state.zoom;
     invalidate();
     if (p < 1) globeFlyRaf = requestAnimationFrame(step);
@@ -263,10 +264,7 @@ function buildPlaceMarkers(places, targetObj) {
 function prepareWorldEventPlaces(places) {
   const points = buildPlaceMarkers(places, worldEvent);
   const vectors = [...points.values()].map((p) => p.vector);
-  const cam = cameraForVectors(vectors, Boolean(worldEvent.sceneId));
-  state.yaw = cam.yaw;
-  state.tilt = cam.tilt;
-  state.zoom = cam.zoom;
+  return cameraForVectors(vectors, Boolean(worldEvent.sceneId));
 }
 
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
@@ -438,7 +436,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     state.layerId = 'polity';
     if (!polityState.loaded) ensurePolity();
   }
-  state.panX = state.panY = state.lift = 0;
+  state.lift = 0;
   eventMapTitle.textContent = title;
   const kind = routes?.[0]?.type || routes?.[0]?.kind || 'trade';
   const types = {canal:'漕运',military:'军事',frontier:'边防',trade:'贸易'};
@@ -455,8 +453,9 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   eventMapDistance.hidden = !distanceLabel;
   renderStepsBar(eventMapSteps, worldEvent.steps, -1);
   renderEventParticipants(participants || []);
+  let targetCamera;
   if (places?.length) {
-    prepareWorldEventPlaces(places);
+    targetCamera = prepareWorldEventPlaces(places);
     if (route.sceneId) {
       el('event-map-place-chips').innerHTML = places.map(p => '<button type="button" data-scene-place="' + esc(p.id) +
         '"><strong>' + esc(p.name) + '</strong><small>' + esc(p.role) + '</small></button>').join('');
@@ -464,9 +463,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   } else if (Number.isFinite(route.event?.px) && Number.isFinite(route.event?.py)) {
     const lon = (route.event.px / MAPW - .5) * 360, lat = (.5 - route.event.py / MAPH) * 180;
     worldEvent.regionVector = readingPlaceVector({ lon, lat });
-    state.yaw = -lon * Math.PI / 180;
-    state.tilt = lat * Math.PI / 180;
-    state.zoom = 1.45;
+    targetCamera = { yaw:-lon * Math.PI / 180, tilt:lat * Math.PI / 180, zoom:1.45 };
   }
   eventMapPanel.style.transform = '';
   eventMapPanel.hidden = false;
@@ -479,6 +476,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
   }
   onYearChanged();
   layout();
+  if (targetCamera) flyGlobeTo(targetCamera);
   if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) {
     selectEventPlace(initialPlaceId);
   }
@@ -531,6 +529,7 @@ function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
 function returnToWorld() {
   if (!worldEvent || reading.active) return;
   const { camera, natural, row, scroll, resume } = worldEvent;
+  const sceneCamera = { yaw:state.yaw, tilt:state.tilt, zoom:state.zoom, panX:state.panX, panY:state.panY };
   worldEvent = null;
   pauseGlobe();
   cancelGlobeFly(false);
@@ -542,10 +541,15 @@ function returnToWorld() {
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
   Object.assign(state, camera);
+  if (resume && innerWidth < 960 && !reducedGlobeMotion.matches) Object.assign(state, sceneCamera);
   chrome.natural = natural;
   onYearChanged();
   layout();
-  if (resume) { resume(); return; }
+  if (resume) {
+    resume();
+    if (innerWidth < 960) flyGlobeTo({ ...camera, duration:420 });
+    return;
+  }
   restoreWorld(row, scroll);
 }
 

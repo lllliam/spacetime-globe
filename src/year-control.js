@@ -411,7 +411,10 @@ function updateVernier() {
   }
   const sheetClosed = sheetState.detent === 'hidden' && !document.body.classList.contains('sheet-open');
   const visible = sheetClosed && !state.focus && !reading.active && !worldEvent && overlay.hidden && viewPanel.hidden;
-  vernier.hidden = !visible;
+  if (vernier.hidden === visible) {
+    vernier.hidden = !visible;
+    vernier.inert = !visible;
+  }
   if (!visible) return;
   paintVernier(true);
   const year = state.year;

@@ -935,7 +935,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 .event-map-point.selected button,.scene-observation .event-map-point.selected button{background:#21384a;color:#fff2d8;border-color:var(--route-canal)}
 /* The globe stays above the open paper in 393px portrait comparison mode. */
 @media(max-width:959px){
-  body.reading-open.reading-split #sheet{border-radius:22px 22px 0 0!important;box-shadow:0 -12px 35px #0008}
+  body.reading-open.reading-split #sheet{box-shadow:0 -12px 35px #0008}
   body.reading-open.reading-split #sheet-dim{display:none}
   body.reading-open.reading-split #hud{visibility:visible;opacity:1}
   body.reading-open.reading-split #event-map-points{display:block}
@@ -993,7 +993,11 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #sheet-toolbar{justify-content:space-between}
 #sheet.dragging{transition:none!important}
 @media(max-width:959px){
+  #sheet{border-top-left-radius:var(--sheet-radius,22px);border-top-right-radius:var(--sheet-radius,22px)}
+  body.reading-open #sheet-dim{display:none}
   body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
+    /* Keep the visible WebGL surface in Chromium's composition behind the translated paper. */
+    opacity:.999;
     padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
   body.reading-open #sheet-top{padding-top:calc(3px + max(0px,var(--safe-t) - var(--sheet-top-offset,0px)))}
   body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
@@ -1005,6 +1009,8 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   body.reading-open #reading-grab{display:none}
   body.reading-open #book-body{--reading-end:calc(16px + var(--usable-safe-b));
     overscroll-behavior-y:none;padding-top:4px;padding-bottom:var(--reading-end);scroll-padding-bottom:var(--reading-end)}
+  #book-body .atlas-reading > h1{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;margin:0}
+  #book-body .atlas-reading > .reading-next:last-child{display:none}
   body.reading-open.reader-gesture #sheet{touch-action:none}
 }
 #sheet:not([role="dialog"]) #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
@@ -1015,6 +1021,7 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
   overflow:hidden;margin:4px 0 0;font-size:13px;line-height:1.55;
 }
+#sheet .map-sheet-summary a{color:var(--paper-muted);text-underline-offset:3px}
 #sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--safe-b))}
 /* Horizontally swipe stages/places without accidentally dragging the whole card. */
 #event-map-steps,#event-map-place-chips{touch-action:pan-x}

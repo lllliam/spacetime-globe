@@ -5,7 +5,7 @@ const { mkdtempSync, readFileSync } = require('node:fs');
 const { tmpdir } = require('node:os');
 const { join } = require('node:path');
 const { setTimeout: wait } = require('node:timers/promises');
-const { findBrowser, startServer } = require('./harness');
+const { buildHarness, findBrowser, startServer } = require('./harness');
 
 async function until(check, label, attempts = 80) {
   for (let i = 0; i < attempts; i++) {
@@ -21,7 +21,8 @@ async function main() {
   assert(browser, 'Chromium / Edge is required');
   const targetUrl = process.argv[2];
   const local = targetUrl ? null : await startServer();
-  const url = targetUrl || `http://127.0.0.1:${local.port}/`;
+  if (local) buildHarness();
+  const url = targetUrl || `http://127.0.0.1:${local.port}/_harness.html`;
   const profile = mkdtempSync(join(tmpdir(), 'globe-mobile-'));
   const proc = spawn(browser, ['--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
     '--no-first-run', '--disable-gpu', 'about:blank'], { windowsHide:true, stdio:'ignore' });
@@ -96,7 +97,9 @@ async function main() {
     await until(() => js(`document.querySelector('#globe') && !document.querySelector('#boot')`), 'Globe did not load');
     assert.equal(await js('navigator.maxTouchPoints'), 2);
     assert.equal(await js('navigator.standalone'), true);
-    const timelineVisible = () => js(`getComputedStyle(document.querySelector('#vernier')).display !== 'none'`);
+    const timelineVisible = () => js(`!document.querySelector('#vernier').hidden`);
+    const mapCamera = () => js(`window.__t && (({year,yaw,tilt,zoom,panX,panY}) =>
+      ({year,yaw,tilt,zoom,panX,panY}))(window.__t.state)`);
     assert.equal(await timelineVisible(), true);
     await tap('#hud-view');
     assert.equal(await js(`document.querySelector('#view-panel').hidden`), false);
@@ -109,14 +112,19 @@ async function main() {
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Kazakhstan did not open');
     assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /中亚丝路/);
     assert.equal(await timelineVisible(), false);
+    const timelineTop = () => js(`Math.round(document.querySelector('#vernier').getBoundingClientRect().top)`);
+    const tuckedTimelineTop = await timelineTop();
     await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'no-preference' }] });
     await swipe('#grab', 90, { during:async () => assert.equal(await timelineVisible(), false) });
     await until(timelineVisible, 'Timeline did not return after the preview closed');
+    assert.equal(await timelineTop(), tuckedTimelineTop, 'The timeline should return to the same position');
     await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
     await goToYear(1980);
     await tap({ x:175, y:353 });
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Map tap did not open an archive');
     assert.equal(await timelineVisible(), false);
+    assert.equal(await js(`document.querySelector('#vernier').inert`), true);
+    assert.match(await js(`document.querySelector('.map-sheet-summary a').textContent`), /Cliopatria|Natural Earth/);
     console.log('Map tap:', await js(`document.querySelector('#sheet-identity-name').textContent`));
     await tap('#sheet-toc');
     assert.match(await js(`document.querySelector('#book-body').innerText`), /尚未收录/);
@@ -137,6 +145,7 @@ async function main() {
     };
     const archiveTitle = await js(`document.querySelector('#reading-title').textContent`);
     assert.equal((await fillsViewport()).theme, '#f6f2e9');
+    assert((await report()).sheet > 200, 'Short map archives should open at half height');
     await size(812);
     await until(() => js(`document.querySelector('#book').getBoundingClientRect().bottom === 812`), 'Open archive did not resize');
     await fillsViewport();
@@ -173,12 +182,14 @@ async function main() {
     const sceneType = await js(`document.querySelector('${scene}').dataset.subjectScene`);
     const chapterTitle = await js(`document.querySelector('#reading-title').textContent`);
     const readingPosition = await js(`document.querySelector('#book-body').scrollTop`);
+    const beforeScene = await mapCamera();
     await tap(scene);
     assert.equal(await js(`document.querySelector('#event-map-panel').hidden`), false);
     await tap('#event-map-return');
     await until(() => js(`document.querySelector('#book-body [data-subject-scene="${sceneType}"]')`), 'Scene did not return to its chapter');
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), chapterTitle);
     assert.equal(await js(`document.querySelector('#book-body').scrollTop`), readingPosition);
+    assert.deepEqual(await mapCamera(), beforeScene, 'Return from observation must restore camera and year');
     await tap('#sheet-close');
     await assertPreview();
     console.log('Historical scene: open from chapter and return to the same reading position');
@@ -218,10 +229,36 @@ async function main() {
     })()`), false, 'The square header must not cover the rounded corner');
     assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
     const peek = (await report()).sheet;
+    const mapBeforeReading = await mapCamera();
     await swipe('#grab', -20, { pause:150 });
     assert.equal((await report()).sheet, peek);
     await swipe('.subject-sheet-summary', -110, { cancel:true });
     assert.equal((await report()).sheet, peek);
+    const grip = await center('#grab');
+    await touch('touchStart', grip);
+    await touch('touchMove', {x:grip.x, y:grip.y-78});
+    await wait(55);
+    const pulled = (await report()).sheet;
+    await touch('touchMove', {x:grip.x, y:grip.y-24});
+    await wait(150);
+    const reversed = (await report()).sheet;
+    await touch('touchEnd');
+    await wait(130);
+    assert(Math.abs(pulled - (peek - 78)) < 3 && Math.abs(reversed - (peek - 24)) < 3,
+      'A slow reversal must track the finger in both directions');
+    assert.equal((await report()).sheet, peek, 'Release after reversing must settle at the preview');
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'no-preference' }] });
+    const t0 = Date.now() / 1000;
+    await send('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[grip], timestamp:t0});
+    for (let i = 1; i <= 3; i++) {
+      await send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:grip.x,y:grip.y-i*11}], timestamp:t0+i*.014});
+    }
+    await send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:t0+.05});
+    await until(async () => (await report()).reader && (await report()).sheet < peek - 150, 'A short, fast flick must open half reading');
+    await wait(420);
+    await tap('#sheet-close');
+    await until(async () => !(await report()).reader, 'Reader did not settle back to the preview');
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
     await swipe('.subject-sheet-summary', -110, { pause:150 });
     assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
     await tap('#sheet-close');
@@ -234,6 +271,13 @@ async function main() {
     await tap('#sheet-close');
     await tap('#sheet-toc');
     assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
+    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening the chapter list must keep the map camera');
+    assert.equal(await js(`!window.__t || (() => {
+      const {state,view,screenOf} = window.__t;
+      const [x,y,z] = state.focus.anchor;
+      const point = screenOf(Math.atan2(x,z), Math.asin(y));
+      return point.front && point.y < document.querySelector('#sheet').getBoundingClientRect().top - 12 && view.Rz > 0;
+    })()`), true, 'The selected place must remain above the half sheet');
     assert.equal(await js(`getComputedStyle(document.querySelector('#sheet-top')).paddingTop`), '3px');
     assert.equal(await js(`getComputedStyle(document.querySelector('#book-bar')).display`), 'none');
     assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
@@ -241,6 +285,7 @@ async function main() {
     await swipe('#grab', -175);
     assert.equal((await fillsViewport()).sheet, 0);
     await tap('#book-body [data-reading-detail]');
+    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening a chapter must keep the map camera');
     await swipe({ x:201, y:547 }, -175);
     const scroll = await js(`document.querySelector('#book-body').scrollTop`);
     assert(scroll > 0, 'Long chapter must scroll normally');

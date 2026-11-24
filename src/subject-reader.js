@@ -50,9 +50,14 @@ function subjectSheetMarkup(entity) {
   const book = subjectBookForEntity(entity);
   const title = book ? book.title : subjectEntityName(entity);
   const meta = book ? subjectYears(book) : entity.kind === 'polity' ? subjectYears(entity) + ' · 地图记录' : fmtYear(state.year) + ' 年';
+  const source = entity.kind === 'polity'
+    ? ['Cliopatria', 'https://github.com/Seshat-Global-History-Databank/cliopatria']
+    : ['Natural Earth', 'https://www.naturalearthdata.com/'];
   return '<div class="sheet-overview"><h2>' + esc(title) + '</h2>' +
     '<p class="era">' + esc(meta) + '</p></div>' +
-    (book ? '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>' : '') +
+    (book ? '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>' :
+      '<p class="subject-sheet-summary map-sheet-summary">' + esc(meta) +
+      ' <a href="' + source[1] + '" target="_blank" rel="noopener noreferrer">' + source[0] + ' ↗</a></p>') +
     '<button class="topic-entry" type="button" data-read-subject><strong>' +
     (book ? '打开全卷' : '查看地图资料') + '</strong>' + readingArrow + '</button>';
 }
@@ -89,7 +94,7 @@ function renderAtlasReading() {
   setReadingBack(reading.trail.length ? '返回上一级' : '');
   const title = subjectEntityName(entity);
   const history = entity.kind === 'polity';
-  return readingHeading(title, '地图资料 · ' + fmtYear(reading.year) + ' 年入口') +
+  return '<div class="atlas-reading">' + readingHeading(title, fmtYear(reading.year) + ' 年') +
     '<p class="lede">这个主体的历史正文尚未收录。</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
@@ -98,7 +103,7 @@ function renderAtlasReading() {
     subjectNeighbors() +
     sourcesMarkup(history ? [{title:'历史疆域 · Cliopatria',url:'https://github.com/Seshat-Global-History-Databank/cliopatria'}]
       : [{title:'现代底图 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) +
-    subjectLibraryLink();
+    subjectLibraryLink() + '</div>';
 }
 
 function renderSubjectOutline(book) {

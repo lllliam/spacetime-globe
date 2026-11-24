@@ -122,17 +122,20 @@
 
 /* ── 无边框精密天文游标（动静两态 + 三级刻度 + 史事微光点 + 微光史事入口） ── */
 #vernier{
-  position:fixed;z-index:7;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 14px);transform:translateX(-50%);
+  --vernier-rest:14px;
+  position:fixed;z-index:7;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + var(--vernier-rest));transform:translateX(-50%);
   width:min(380px,calc(100vw - 36px));display:flex;flex-direction:column;align-items:center;gap:4px;
   padding:8px 0 4px;border:0;border-radius:0;background:none;box-shadow:none;color:var(--cosmos-ink);
   transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1),bottom .32s cubic-bezier(.22,.82,.26,1);
 }
 #vernier::before{
-  content:"";position:fixed;left:50%;bottom:calc(-1 * (var(--usable-safe-b) + 14px));transform:translateX(-50%);
+  content:"";position:fixed;left:50%;bottom:calc(0px - var(--usable-safe-b) - var(--vernier-rest));transform:translateX(-50%);
   width:100vw;height:126px;pointer-events:none;z-index:-1;
   background:linear-gradient(0deg,var(--page-bg) 0%,rgba(7,12,18,.28) 56%,rgba(7,12,18,0) 100%);
 }
-#vernier[hidden],body.reading-open #vernier,body.event-map-open #vernier{display:none}
+#vernier[hidden]{display:flex;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .16s ease-out,visibility 0s linear .16s}
+#vernier[hidden] *{pointer-events:none}
 
 #vernier-readout{
   display:flex;align-items:baseline;justify-content:center;gap:8px;min-height:20px;
@@ -270,7 +273,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
   #hud{top:calc(var(--safe-t) + 22px);left:28px;right:28px}
   #year-num{font-size:34px}
   #view-panel{top:calc(var(--safe-t) + 68px);right:28px}
-  #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 20px);width:min(420px,calc(100vw - 80px))}
+  #vernier{--vernier-rest:20px;width:min(420px,calc(100vw - 80px))}
 }
 @media(max-width:520px){
   #hud{top:calc(var(--safe-t) + 12px);left:14px;right:14px}
@@ -280,9 +283,9 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 @media(max-height:500px){
   #hud{top:8px}
   #year-num{font-size:22px}
-  #vernier{bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 8px)}
+  #vernier{--vernier-rest:8px}
 }
 @media(prefers-reduced-motion:reduce){
-  #year-strip,#hud,#scrim,#vernier,#vernier-readout,#vernier-track{transition:none}
+  #year-strip,#hud,#scrim,#vernier,#vernier[hidden],#vernier-readout,#vernier-track{transition:none}
   #vernier.active #vernier-readout,#vernier.active #vernier-track{transition:none}
 }
