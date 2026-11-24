@@ -52,4 +52,4 @@ Windows、Node.js 24.18.1、Edge 158.0.4370.33。
 
 Phase 03 修改源码前，已将 Phase 01 和 Phase 02 的完整工作区纳入检查点 `9f2a2142a17c57a3efa168afcc1e7063de694290`。首次推送并核对 `origin/develop/1.0` 指向该检查点，`origin/main` 指向原型 `cfac7462bcd232d50baecd795962c8cd74af2597`。[Phase 01](PHASE-01.md) · [Phase 02](PHASE-02.md) · [远端检查点](https://github.com/lllliam/spacetime-globe/commit/9f2a2142a17c57a3efa168afcc1e7063de694290)
 
-本轮实现提交为 `feat(1.0): phase 03 - globe home and timeline`，远端核对与独立克隆结果将在同步完成后补录。
+本轮实现提交 `d9bedf1e66cadd3fcd487962b513b6cd87336e90`（`feat(1.0): phase 03 - globe home and timeline`）已成功推送至 `origin/develop/1.0`。远端查询确认开发分支与本地实现提交一致，稳定分支仍指向 `cfac7462bcd232d50baecd795962c8cd74af2597`。从 GitHub 独立克隆通过，核对了三份阶段报告、八张截图和两份 HTML。内容校验及重新构建通过，生成物与克隆版本一致。[实现提交](https://github.com/lllliam/spacetime-globe/commit/d9bedf1e66cadd3fcd487962b513b6cd87336e90) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
