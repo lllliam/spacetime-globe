@@ -44,6 +44,7 @@ function windowOf(y) {
 const TW = 2048, TH = 1024;            // 贴图 / id 图分辨率
 const PW = 1024, PH = 512;             // 拾取栅格
 const DETAIL_WIDTH = 4096, DETAIL_ZOOM = 1.0;
+const TERRAIN_WIDTH = 4096, TERRAIN_ZOOM = 1.45;
 const MAPW = 1000, MAPH = 500;
 const Q = 4;                           // 政权几何的量化倍数
 
@@ -511,8 +512,8 @@ varying vec3 vN;
 uniform sampler2D uBase;
 uniform sampler2D uId;
 uniform sampler2D uLut;
-uniform sampler2D uRelief;
-uniform float uHasRelief;
+uniform sampler2D uTerrain;
+uniform float uTerrainMix;
 uniform float uZoom;
 uniform vec3 uLight;
 uniform float uSel;
@@ -527,8 +528,7 @@ void main() {
   vec4 idTex = texture2D(uId, vUv);
   float idx = floor(idTex.r * 255.0 + 0.5);
   vec4 tint = texture2D(uLut, vec2((idx + 0.5) / 256.0, 0.5));
-  float ocean = (1.0 - step(0.002, idTex.r)) * smoothstep(0.02, 0.15, base.b - base.r);
-  float landMask = 1.0 - ocean;
+  float ocean = smoothstep(0.02, 0.15, base.b - base.r);
 
   // Luminance-preserving mineral wash so mountain ridges and basins breathe through polity tints.
   float luma = dot(base, vec3(0.299, 0.587, 0.114));
@@ -538,7 +538,7 @@ void main() {
     col = mix(col, vec3(0.98, 0.87, 0.67), 0.15);
   }
 
-  // Sculpted tangent-space normal perturbation from relief elevation map on land.
+  // The terrain texture stores east/north normal components in RG and land coverage in B.
   float lon = (vUv.x - 0.5) * 6.2831853;
   float lat = (0.5 - vUv.y) * 3.1415927;
   float cosLat = cos(lat);
@@ -547,22 +547,15 @@ void main() {
   float cosLon = cos(lon);
   vec3 localN = vec3(sinLon * cosLat, sinLat, cosLon * cosLat);
   vec3 shadedN = n;
-  if (uHasRelief > 0.5 && landMask > 0.01) {
-    vec2 rStep = vec2(1.0 / 2048.0, 1.0 / 1024.0);
-    float hC = texture2D(uRelief, vUv).r;
-    float hL = texture2D(uRelief, vec2(vUv.x - rStep.x, vUv.y)).r;
-    float hR = texture2D(uRelief, vec2(vUv.x + rStep.x, vUv.y)).r;
-    float hU = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y - rStep.y, 0.001, 0.999))).r;
-    float hD = texture2D(uRelief, vec2(vUv.x, clamp(vUv.y + rStep.y, 0.001, 0.999))).r;
-    vec3 tLocal = vec3(cosLon, 0.0, -sinLon);
-    vec3 bLocal = vec3(-sinLat * sinLon, cosLat, -sinLat * cosLon);
-    vec3 T = normalize(uRot * tLocal);
-    vec3 B = normalize(uRot * bLocal);
-    float poleFade = smoothstep(0.06, 0.26, abs(cosLat));
-    float bumpScale = mix(1.45, 2.75, clamp((uZoom - 1.0) / 3.0, 0.0, 1.0)) * poleFade * landMask;
-    shadedN = normalize(n - (T * (hR - hL) + B * (hU - hD)) * bumpScale);
-    // Subtle micro-contrast on terrain elevation so highlands feel tactile even in ambient light.
-    col *= 1.0 + (hC - 0.5) * 0.09 * landMask;
+  if (uTerrainMix > 0.0) {
+    vec3 terrain = texture2D(uTerrain, vUv).rgb;
+    ocean = mix(ocean, 1.0 - terrain.b, uTerrainMix);
+    vec2 xy = (terrain.rg * 255.0 - 128.0) * (0.42 / 127.0);
+    vec3 east = vec3(cosLon, 0.0, -sinLon);
+    vec3 north = vec3(-sinLat * sinLon, cosLat, -sinLat * cosLon);
+    float z = sqrt(1.0 - dot(xy, xy));
+    float relief = mix(1.05, 2.55, smoothstep(1.4, 5.0, uZoom)) * uTerrainMix;
+    shadedN = normalize(n + uRot * (east * xy.x + north * xy.y) * (relief / z));
   }
 
   // Work in linear light so the terminator, relief slopes, and ocean satin glint remain smooth.
@@ -717,7 +710,7 @@ function initGL() {
     lut: gl.getUniformLocation(prog, 'uLut'), light: gl.getUniformLocation(prog, 'uLight'),
     radius: gl.getUniformLocation(prog, 'uRadius'),
     sel: gl.getUniformLocation(prog, 'uSel'), mapLighting: gl.getUniformLocation(prog, 'uMapLighting'),
-    relief: gl.getUniformLocation(prog, 'uRelief'), hasRelief: gl.getUniformLocation(prog, 'uHasRelief'),
+    terrain: gl.getUniformLocation(prog, 'uTerrain'), terrainMix: gl.getUniformLocation(prog, 'uTerrainMix'),
     zoom: gl.getUniformLocation(prog, 'uZoom'),
     cloud: gl.getUniformLocation(prog, 'uCloud'), cloudOffset: gl.getUniformLocation(prog, 'uCloudOffset'),
     cloudStrength: gl.getUniformLocation(prog, 'uCloudStrength'),
@@ -752,24 +745,13 @@ function initGL() {
   if (cloudsImg) cloudCanvas.getContext('2d').drawImage(cloudsImg, 0, 0, 1024, 512);
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, cloudCanvas);
   gl.generateMipmap(gl.TEXTURE_2D);
-  const tRelief = tex(4, false);
-  const hasRelief = Boolean(reliefImg && tRelief);
-  if (tRelief) {
-    const reliefCanvas = newCanvas(2048, 1024);
-    const rg = reliefCanvas.getContext('2d');
-    if (reliefImg) {
-      rg.drawImage(reliefImg, 0, 0, 2048, 1024);
-    } else {
-      rg.fillStyle = '#808080';
-      rg.fillRect(0, 0, 2048, 1024);
-    }
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, reliefCanvas);
-    gl.generateMipmap(gl.TEXTURE_2D);
-  }
   const aniso = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
   const anisotropy = aniso ? Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)) : 1;
-  let detailState = gl.getParameter(gl.MAX_TEXTURE_SIZE) >= DETAIL_WIDTH ? 'idle' : 'unavailable';
+  const maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+  let detailState = maxTextureSize >= DETAIL_WIDTH ? 'idle' : 'unavailable';
+  let terrainState = maxTextureSize >= TERRAIN_WIDTH ? 'idle' : 'unavailable';
   let tDetail = null;
+  let tTerrain = null, terrainLoadedAt = 0;
 
   function uploadSurface(image, texture) {
     gl.activeTexture(gl.TEXTURE0);
@@ -804,6 +786,33 @@ function initGL() {
     image.src = inline ? 'data:image/jpeg;base64,' + inline : 'data/earth-detail.jpg';
   }
 
+  function loadTerrain() {
+    terrainState = 'loading';
+    const image = new Image();
+    image.onload = () => {
+      terrainState = 'unavailable';
+      if (image.naturalWidth !== TERRAIN_WIDTH || image.naturalHeight !== TERRAIN_WIDTH / 2) return;
+      const texture = tex(4, false);
+      if (!texture) return;
+      // The PNG channels are data. Browser color conversions would alter neutral slopes.
+      gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
+      gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.BROWSER_DEFAULT_WEBGL);
+      gl.generateMipmap(gl.TEXTURE_2D);
+      if (gl.getError() !== gl.NO_ERROR) {
+        gl.deleteTexture(texture);
+        return;
+      }
+      tTerrain = texture;
+      terrainState = 'ready';
+      terrainLoadedAt = performance.now();
+      invalidate();
+    };
+    image.onerror = () => { terrainState = state.zoom < TERRAIN_ZOOM ? 'idle' : 'retry'; };
+    const inline = inlineText('terrain').trim();
+    image.src = inline ? 'data:image/png;base64,' + inline : 'data/terrain-4k-v1.png';
+  }
+
   return {
     kind: 'webgl',
     uploadBase(cv) { uploadSurface(cv, tBase); },
@@ -825,6 +834,11 @@ function initGL() {
     draw(v, st) {
       if (st.zoom >= DETAIL_ZOOM && detailState === 'idle') loadSurfaceDetail();
       if (st.zoom < DETAIL_ZOOM && detailState === 'retry') detailState = 'idle';
+      if (st.zoom >= TERRAIN_ZOOM && terrainState === 'idle') loadTerrain();
+      if (st.zoom < TERRAIN_ZOOM && terrainState === 'retry') terrainState = 'idle';
+      const arrival = reducedGlobeMotion.matches ? 1 : clamp((performance.now() - terrainLoadedAt) / 240, 0, 1);
+      const terrainMix = tTerrain ? arrival * clamp((st.zoom - TERRAIN_ZOOM) / 0.55, 0, 1) : 0;
+      if (tTerrain && arrival < 1 && st.zoom > TERRAIN_ZOOM) dirty = true;
       const W = canvas.width, H = canvas.height;
       gl.viewport(0, 0, W, H);
       gl.clearColor(0, 0, 0, 0);
@@ -856,9 +870,9 @@ function initGL() {
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, tDetail || tBase);
       gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, tCloud);
-      if (tRelief) { gl.activeTexture(gl.TEXTURE4); gl.bindTexture(gl.TEXTURE_2D, tRelief); }
-      gl.uniform1i(U.relief, 4);
-      gl.uniform1f(U.hasRelief, hasRelief ? 1 : 0);
+      if (tTerrain) { gl.activeTexture(gl.TEXTURE4); gl.bindTexture(gl.TEXTURE_2D, tTerrain); }
+      gl.uniform1i(U.terrain, tTerrain ? 4 : 0);
+      gl.uniform1f(U.terrainMix, terrainMix);
       gl.uniform1f(U.zoom, st.zoom);
       gl.uniform1i(U.cloud, 3);
       gl.uniform1f(U.cloudOffset, cloudDrift);

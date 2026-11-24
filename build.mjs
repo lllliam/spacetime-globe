@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 /* 构建两个产物：
- *   index.html          线上版：壳 + 代码，地球数据走 data/ 按需加载，专题内嵌（HTML 约550 KB）
- *   index.offline.html  单文件版：数据全内嵌，双击即开、可离线（约3.4 MB）
- *
- * 数据来自 data/：world.json / polity.bin.gz / relief.jpg
+ *   index.html          线上版：阅读内容内嵌，地球数据按需加载
+ *   index.offline.html  单文件版：数据全内嵌，双击即开、可离线
  */
 import { readFileSync, writeFileSync, statSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -14,6 +12,7 @@ import { loadHistoricalScenes } from './tools/historical-scenes.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n');
+const terrainPath = join(root, 'data', 'terrain-4k-v1.png');
 
 const shell = rd('src', 'shell.html');
 const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
@@ -65,6 +64,7 @@ for (const f of ['data/world.json', 'data/polity.bin.gz', 'data/relief.jpg']) {
   if (!existsSync(join(root, f))) problems.push('缺少 ' + f + '（先跑 node tools/build-data.js）');
 }
 if (!existsSync(join(root, 'data/earth-detail.jpg'))) problems.push('缺少仓库中的高清地表贴图 data/earth-detail.jpg');
+if (!existsSync(terrainPath)) problems.push('缺少仓库中的高程法线贴图 data/terrain-4k-v1.png');
 let world = null;
 if (!problems.length) {
   world = JSON.parse(rd('data', 'world.json'));
@@ -126,12 +126,13 @@ const put = (hay, needle, value) => {
   if (i < 0) throw new Error('模板缺少占位符 ' + needle);
   return hay.slice(0, i) + value + hay.slice(i + needle.length);
 };
-const page = (atlasJson, reliefB64, polityB64, earthDetailB64 = '') => {
+const page = (atlasJson, reliefB64, polityB64, earthDetailB64 = '', terrainB64 = '') => {
   let h = shell;
   h = put(h, '/*CSS*/', css);
   h = put(h, '/*CLOUDS*/', readFileSync(join(root, 'data/clouds.png')).toString('base64'));
   h = put(h, '/*EARTH*/', readFileSync(join(root, 'data/earth.jpg')).toString('base64'));
   h = put(h, '/*EARTH_DETAIL*/', earthDetailB64);
+  h = put(h, '/*TERRAIN*/', terrainB64);
   h = put(h, '/*APP*/', app);
   h = put(h, '/*ATLAS*/', atlasJson);
   h = put(h, '/*RELIEF*/', reliefB64);
@@ -155,6 +156,7 @@ const offline = page(
   readFileSync(join(root, 'data', 'relief.jpg')).toString('base64'),
   readFileSync(join(root, 'data', 'polity.bin.gz')).toString('base64'),
   readFileSync(join(root, 'data', 'earth-detail.jpg')).toString('base64'),
+  readFileSync(terrainPath).toString('base64'),
 ).replace('href="favicon-32.png?v=4"', 'href="data:image/png;base64,' + readFileSync(join(root, 'favicon-32.png')).toString('base64') + '"')
  .replace('href="apple-touch-icon.png?v=4"', 'href="data:image/png;base64,' + readFileSync(join(root, 'apple-touch-icon.png')).toString('base64') + '"')
  .replace('href="favicon.ico?v=4"', 'href="data:image/x-icon;base64,' + readFileSync(join(root, 'favicon.ico')).toString('base64') + '"')
@@ -167,4 +169,5 @@ console.log(`index.offline.html  ${kb(statSync(join(root, 'index.offline.html'))
 console.log(`  data/world.json       ${kb(statSync(join(root, 'data/world.json')).size)}`);
 console.log(`  data/polity.bin.gz    ${kb(statSync(join(root, 'data/polity.bin.gz')).size)}`);
 console.log(`  data/relief.jpg       ${kb(statSync(join(root, 'data/relief.jpg')).size)}`);
+console.log(`  data/terrain-4k-v1.png ${kb(statSync(terrainPath).size)}`);
 console.log(`  年表 ${world.entries.length} 条 · 地区 ${world.regions.length} 个 · 国界 ${world.map.length} 块`);

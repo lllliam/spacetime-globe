@@ -29,6 +29,10 @@
 
 书卷以中文撰写，出处可从段落直接打开。部分书卷以跨朝代或跨地区的综合叙事组织。「新朝」指向覆盖王莽改制的《汉朝》卷，「太平天国」指向覆盖相关战争的《清朝》卷。以「约」或「传统分期」标出的年代用于定位章节。历史地图采用常用的简体中文译名、音译或描述性译名。待考名称可在地图资料中展开底图原名。
 
+## v14.2 · 高程地形光照
+
+放大地球后，WebGL 依据全球高程计算的坡向为山脊、峡谷和盆地着光。线上版约在 1.45 倍时请求 4K 法线贴图，并随缩放逐渐显现地形起伏。海岸与湖泊使用独立的地理遮罩，切换历史年份和疆域图层时水面的光照计算保持一致。单文件离线版内嵌同一贴图。
+
 ## v14.1 · 深空质感与自然交互
 
 本次为界面与操作体验升级，**不改动历史内容和书卷身份**；继续遵守视觉主体明确、控件克制、操作自然、阅读不打断沉浸感的原则。
@@ -74,6 +78,7 @@
 
 | 版本 | 主要变化 |
 | --- | --- |
+| **v14.2.0 · 高程地形光照** | 按需加载 4K 高程法线贴图，近景坡向随光照显形。海岸和湖泊由物理地理遮罩定位，单文件离线版包含同一贴图。 |
 | **v14.1.5 · 地点摘要显示** | 打开地点摘要时隐藏底部时间轴及其渐变背景，关掉摘要回到地图后恢复。 |
 | **v14.1.4 · 快划跨年** | 底部时间轴的惯性距离随甩动速度递增，慢拖依然逐年定位。停住再松手时沿用最近整年。 |
 | **v14.1.3 · 时间轴手感** | 底部刻度连续跟手，松手减速后选定整年并切换地图。史事入口出现时标尺保持原位。减少动态效果时直接停在最近的整年。 |
@@ -142,3 +147,5 @@ npm run smoke
 [产品设计](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [内部架构](docs/ARCHITECTURE.md)
 
 基础地表与云层纹理来自 [three.js r160 地球示例](https://github.com/mrdoob/three.js/blob/r160/examples/textures/planets/earth_atmos_2048.jpg)。高清地表纹理以 NASA Goddard Space Flight Center 的 [Blue Marble（Reto Stöckli 等）](https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/) 8192 × 4096 版缩制，色调按基础贴图校正。海陆影像表示现代地理，历史疆域叠加在该底图上。
+
+地形法线由 GMT 全球 5 弧分高程网格（SRTM15+ v2.5.5，Tozer 等）计算，海陆遮罩使用 Natural Earth 1:5000 万的陆地和湖泊数据。生成脚本接收 GMT 的 `earth_relief_05m.grd` 以及 Natural Earth 的 `ne_50m_land.zip` 和 `ne_50m_lakes.zip`。[生成工具](tools/build-terrain.py) · [GMT 高程数据](https://oceania.generic-mapping-tools.org/earth_relief_05m.grd) · [SRTM15+ 数据说明](https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.122019.4326.1) · [Natural Earth 物理地理数据](https://www.naturalearthdata.com/downloads/50m-physical-vectors/)
