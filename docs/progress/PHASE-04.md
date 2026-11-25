@@ -56,4 +56,4 @@ Windows、Node.js 24.18.1、Edge 158.0.4370.33。
 
 ## 阶段结论与同步
 
-本轮验收通过，未发现阻断项。Phase 01–04 已完成，Phase 05 等待完整指令。本地实现提交使用 `feat(1.0): phase 04 - immersive reading experience`，远端结果随阶段记录补充。
+本轮验收通过，未发现阻断项。Phase 01–04 已完成，Phase 05 等待完整指令。实现提交 `7f062044168d6af618e17b98b744958cb8a7fb2f`（`feat(1.0): phase 04 - immersive reading experience`）已推送至 `origin/develop/1.0` 并经远端查询核对。稳定分支 `origin/main` 仍指向 `cfac7462bcd232d50baecd795962c8cd74af2597`。[实现提交](https://github.com/lllliam/spacetime-globe/commit/7f062044168d6af618e17b98b744958cb8a7fb2f) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
