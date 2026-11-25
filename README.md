@@ -2,39 +2,41 @@
 
 一本可以通过时间和空间进入历史现场的世界历史书。
 
-[稳定原型在线体验](https://lllliam.github.io/spacetime-globe/) · [稳定原型离线版](https://lllliam.github.io/spacetime-globe/index.offline.html)
+**让历史成为一个可以亲自进入的世界。**
+
+**History is a world you can enter.**
+
+地球是舞台，时间是坐标，历史是主体，理解是目的。
+
+[在线体验](https://lllliam.github.io/spacetime-globe/) · [单文件离线版](https://lllliam.github.io/spacetime-globe/index.offline.html)
 
 <a id="操作"></a>
 
 ## 可以体验什么
 
-- 转动、缩放地球，用底部时间轴或左上角年份输入定位历史，点选疆域查看主体摘要。
-- 从摘要进入历史书卷，用目录切换章节、查看段落出处。只有地图资料的主体可查看覆盖年代和来源。
-- 从正文打开历史场景，观察地点、路线和时间阶段，再返回原章继续阅读。
+- **Explore · 探索**。旋转、缩放地球，用时间轴或年份输入定位历史，点选疆域查看主体摘要和相关书卷。
+- **Read · 阅读**。在全屏书卷中使用目录切换章节、阅读正文和查看出处。再次打开时可以继续阅读。
+- **Observe · 观察**。从正文主动打开历史现场，查看地点、路线及时间阶段，然后返回原章。
 
-| 探索地球 | 阅读书卷 | 观察历史 |
+| Explore · 探索 | Read · 阅读 | Observe · 观察 |
 | --- | --- | --- |
 | <img src="docs/progress/phase-09/screenshots/01-explore.png" alt="1500 年地球和时间游标" width="330"> | <img src="docs/progress/phase-09/screenshots/02-read.png" alt="《明朝》全屏正文" width="330"> | <img src="docs/progress/phase-09/screenshots/03-observe.png" alt="1421 年大运河观察" width="330"> |
 
-以上为工程候选 `1.0.0-rc.1` 的 Edge 实拍。[候选验收报告](docs/progress/PHASE-09.md) · [原型实拍档案](docs/archive/screenshots/README.md)
+截图采自 `1.0.0-rc.1` 的 Edge 验收构建。[工程验收报告](docs/progress/PHASE-09.md)
 
-## 开发状态
+## 当前公开版本
 
-页首链接是 v14.2.1 稳定线上原型。`develop/1.0` 提供 1.0 工程候选，包含 57 卷、243 章、48 个历史现场及 28 组、117 篇补充专题。候选版的人工体验、真机和全库内容验收另有清单。[候选分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0) · [最终验收](docs/ACCEPTANCE.md) · [内容覆盖](docs/CONTENT-COVERAGE.md)
+`1.0.0-rc.1` 于 2026-11-25 上线。现有 57 卷、243 章、48 个历史现场（44 个可用、4 个暂停）及 28 组、117 篇补充专题。《明朝》标杆书卷共 20 章。[更新记录](CHANGELOG.md) · [内容覆盖](docs/CONTENT-COVERAGE.md) · [《明朝》专项报告](docs/progress/PHASE-08.md)
 
-Phase 08《明朝》已由产品负责人通过验收。全卷 20 章，从元末治河写到明清易代，并提供按年份推荐的章节、八个历史现场与全球关联。[《明朝》专项报告](docs/progress/PHASE-08.md)
+## 使用方式
 
-Phase 07 已暂存，等待后续继续审校，尚未通过完整阶段验收。截至内容检查点 `2d8233b`，已实质处置 387／5,576 项，尚有 106 项一级筛查候选待审。产品负责人已授权在存量审校暂存期间，按各自指令开展 Phase 08《明朝》标杆书卷建设，以及 Phase 09 产品与工程验收和部署准备。[Phase 07 暂存与恢复](docs/progress/PHASE-07.md#暂存与恢复) · [开发路线](docs/ROADMAP.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
+1. 从 1500 年历史疆域开始，或选择其他年份。点选疆域打开摘要，再进入书卷。有些主体仅提供地图覆盖与来源说明。
+2. 用目录寻找章节。正文中的图版可打开独立观察，退出后返回原处。阅读进度保存在当前设备与浏览器来源。
+3. 要离线使用，可将单文件版保存为 HTML 后用浏览器打开。在线版也可在视图设置中确认「离线核心资料已准备」后断网使用。外部史料链接需要联网。
 
-正式版 `1.0.0` 须通过包括完整历史内容验收在内的最终验收，并获产品负责人发布授权。[最终验收标准](docs/ACCEPTANCE.md)
+## 本地开发与构建
 
-<a id="版本记录"></a>
-
-[原型完整版本记录](docs/archive/CHANGELOG-PROTOTYPE.md)
-
-## 开发与构建
-
-使用 Node.js 22 或更新版本。源码在 `src/`，历史编辑源在 `data/books/`、`data/topics/` 和 `data/scenes.json`。在线、离线 HTML 和 `sw.js` 由构建生成。
+使用 Node.js 22 或更新版本。在仓库根目录运行以下命令，再按终端提示打开本地服务地址。
 
 ```sh
 node tools/verify-content.mjs
@@ -42,17 +44,15 @@ node build.mjs
 node tools/serve.mjs
 ```
 
-打开本地服务地址体验在线构建，或直接打开 `index.offline.html`。浏览器回归使用 `npm run verify`、`npm run verify:mobile`、`npm run smoke`、`node tools/verify-home.js` 和 `node tools/verify-reading.js`，依赖 Chromium 或 Edge。给首页或阅读专项传入输出目录即可保存实拍。会话回归使用 `node tools/verify-session-state.mjs` 和 `node tools/verify-session-browser.js`。验证脚本和构建会写出生成文件，文档阶段在临时副本运行。
+代码在 `src/`，历史编辑源在 `data/books/`、`data/topics/`、`data/history/` 及 `data/scenes.json`。构建输出在线与离线 HTML、`sw.js` 和 `data/topics.json`。各类回归入口见 [维护约定](AGENTS.md) 和 [文档导航](docs/README.md)。
 
-在线页面在安全上下文的地球视图里显示离线准备状态。显示「离线核心资料已准备」后可以断网使用。单文件版可直接保存打开。浏览器进度保留在当前设备及来源。[候选专项与运行命令](docs/progress/PHASE-09.md) · [真机预览步骤](docs/progress/phase-09/device-checklist.md)
+## 维护状态
 
-历史模型专项使用 `node tools/verify-history-model.mjs`。同源旧会话迁移使用 `node tools/verify-history-browser.js <Phase-04 生成的 index.html> [实拍输出目录]`，基线和复核命令见 [Phase 05 报告](docs/progress/PHASE-05.md)。
+阶段建设已收尾，公开产品以 `main` 为主要维护分支。Phase 07 存量审校已暂存。人工体验、iPhone 真机、原生辅助技术、实机性能及完整内容验收仍待确认，是正式 `1.0.0` 验收的一部分。[维护路线](docs/ROADMAP.md) · [暂存与恢复](docs/progress/PHASE-07.md#暂存与恢复) · [验收标准](docs/ACCEPTANCE.md)
 
-场景及关联验证使用 `node tools/verify-observation-model.mjs` 和 `node tools/verify-observation.js [实拍输出目录]`。源数据比对使用 `node tools/audit-observation.mjs <Phase 05 目录> [报告文件]`。[阶段报告](docs/progress/PHASE-06.md)
+<a id="版本记录"></a>
 
-基线审校专项使用 `node tools/verify-editorial-audit.mjs <Phase 06 归档目录> --phase-08 <2d8233b 归档目录>`，浏览器脚注回归使用 `node tools/verify-editorial-browser.js [实拍输出目录]`。标杆书卷兼容回归使用 `node tools/verify-ming-exemplar.js <5323209 构建的 index.html> [实拍输出目录]`。[审校复现方式](docs/SOURCE-AUDIT.md#phase-08-标杆台账) · [书卷专项报告](docs/progress/PHASE-08.md)
-
-[产品规范](docs/PRODUCT-SPEC.md) · [工程架构](docs/ARCHITECTURE.md) · [设计实现](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [最终验收](docs/ACCEPTANCE.md) · [版本规则](docs/VERSIONING.md) · [维护约定](AGENTS.md) · [原型历史档案](docs/archive/README.md)
+[公开更新记录](CHANGELOG.md) · [文档导航](docs/README.md) · [原型历史档案](docs/archive/README.md)
 
 ## 数据来源与许可
 

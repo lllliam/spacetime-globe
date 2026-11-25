@@ -1,6 +1,18 @@
 # 当前工程架构
 
-**现行工程说明**，记录 1.0 建设中的工作区结构。产品目标见 [产品规范](PRODUCT-SPEC.md)，v14.2.1 原型记录见 [工程基线](BASELINE.md)。
+本文件记录公开版本的工程结构及维护边界。产品目标见 [产品规范](PRODUCT-SPEC.md)，v14.2.1 原型记录见 [Phase 01 工程基线](BASELINE.md)。
+
+## 目录职责
+
+| 位置 | 职责 |
+| --- | --- |
+| `src/` | 应用模块、样式、页面结构与 Service Worker 模板 |
+| `data/` | `books/` 和 `topics/` 是编辑源，`history/` 提供历史对象与地图编目。场景、地图、纹理与世界数据同时服务构建或运行时 |
+| `assets/` 与根目录图标 | 图标母版与各入口所用图标，根目录清单供 PWA 安装 |
+| `tools/` 与 `build.mjs` | 内容编译、构建和本地服务、专项验证、数据与资产再生成、审校台账复现 |
+| `.github/` | 主分支构建核对 |
+| `docs/` | 现行文档、`progress/` 阶段证据与 `archive/` 原型档案 |
+| 根目录 HTML 与 `sw.js` | 由构建生成并提交，供 GitHub Pages 直接托管 |
 
 ## 页面与模块
 
@@ -33,10 +45,10 @@
 
 ## 构建与部署
 
-- 内容校验与构建共用 `tools/history-model.mjs` 校验和编译书卷、专题、场景、事件、地图入口及审校记录。内容校验生成 [内容覆盖](CONTENT-COVERAGE.md)，构建生成 `data/topics.json` 及在线与离线 HTML。`tools/migrate-history-model.mjs` 可用 Phase 04 数据快照核对兼容迁移。
+- 内容校验与构建共用 `tools/history-model.mjs` 校验和编译书卷、专题、场景、事件、地图入口及审校记录。内容校验生成 [内容覆盖](CONTENT-COVERAGE.md)，构建生成 `data/topics.json`、`index.html`、`index.offline.html` 和 `sw.js`。`tools/migrate-history-model.mjs` 可用 Phase 04 数据快照核对兼容迁移。
 - 在线页内嵌书卷和基础地表。构建把地图资源内容标识与 SHA-256 完整性写进页面和生成的 `sw.js`。核心缓存包含 HTML、清单与图标、世界数据、压缩及未压缩疆域和浮雕。高清地表与 4K 地形按需缓存。单文件内嵌原始疆域二进制和所需图标及图像，浏览器无需 `DecompressionStream` 即可读取。
-- 安全上下文中的 Service Worker 先验证并缓存所有核心资源，再完成安装。等待中的新版在旧受控窗口关闭后激活，导航使用活动版本的 HTML。回收限于本路径由旧候选激活过的缓存。旧原型缓存保留其原名，其他应用缓存保留。核心文件被清理后，联网可由视图设置重试准备。
-- `.github/workflows/build-site.yml` 只在 `main` 执行只读构建核对，使用 Node.js 22 检查已提交的候选产物是否可复现。GitHub Pages 从授权合并后的 `main` 根目录提供网页。浏览器回归与发布顺序见 [最终验收](ACCEPTANCE.md) 和 [发布清单](RELEASE-CHECKLIST.md)。
+- 安全上下文中的 Service Worker 先验证并缓存所有核心资源，再完成安装。等待中的新版在旧受控窗口关闭后激活，导航使用活动版本的 HTML。回收限于本路径内符合条件的旧构建缓存。旧原型缓存保留其原名，其他应用缓存保留。核心文件被清理后，联网可由视图设置重试准备。
+- `.github/workflows/build-site.yml` 只在 `main` 执行只读构建核对，使用 Node.js 22 检查已提交的产物是否可复现。GitHub Pages 从 `main` 根目录提供公开网页。浏览器回归与发布顺序见 [最终验收](ACCEPTANCE.md) 和 [发布清单](RELEASE-CHECKLIST.md)。
 - `tools/build-data.js` 用上游 Atlas HTML 重建世界数据和疆域二进制。高程与图标各有资产生成工具。日常站点构建使用已入库的地图数据、贴图和图标。
 
 [原型架构快照](archive/design/ARCHITECTURE-PROTOTYPE.md)

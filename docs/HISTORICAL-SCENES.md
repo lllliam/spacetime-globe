@@ -12,7 +12,7 @@
 
 ## 场景内容与时间
 
-`data/scenes.json` 保留原有记录和场景 ID。本轮的 `observation` 保存当前显示的内容，旧地点坐标仍可通过原场景的地点 ID 引用。`kind` 支持 `structure`（空间结构）、`change`（演变）、`connection`（跨区域联系）、`comparison`（地点比较）、`location`（区域定位）。`question` 是地图要解释的问题，`note` 是静态说明，`limit` 交代证据与地图边界。`status` 为 `available` 或 `paused`。
+`data/scenes.json` 保留原有记录和场景 ID。现行 `observation` 保存显示所用的内容，旧地点坐标仍可通过原场景的地点 ID 引用。`kind` 支持 `structure`（空间结构）、`change`（演变）、`connection`（跨区域联系）、`comparison`（地点比较）、`location`（区域定位）。`question` 是地图要解释的问题，`note` 是静态说明，`limit` 交代证据与地图边界。`status` 为 `available` 或 `paused`。
 
 单阶段使用原始观察年。`steps` 使用编辑顺序，各有 `id`、`year`、`title` 和 `note`，可加 `dateLabel` 说明历史时段或近似年代。底图仍按该阶段的结构化 `year` 投影，并在图例标明实际参考年。默认进入首阶段，图版可显式指定 `stageId`。阶段 `places`、`routes`、`focusPolities` 可以缺省继承场景级配置，`[]` 表示当前阶段无此项目，非空数组只使用列出的 ID。已引用路线的两端须同时有效。阶段 `placeNotes` 可替换有效地点的显示名、作用和适当的降级精度。
 

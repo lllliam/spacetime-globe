@@ -1,10 +1,21 @@
-# index.html 是构建产物，但要提交（GitHub Pages 直接托管它）
+# 在线与离线构建及正式验收证据应提交。
 node_modules/
+
+# 本地验证、浏览器工件及生成器缓存
 *.log
+/_harness.html
+/_harness.offline.html
+/_harness.phase04.html
+/tmp/
+/stories.err
+/data/enrich.pilot.json
+__pycache__/
+*.pyc
+
+# 本地设置、个人文件与凭据
+.env
+.env.*
+!.env.example
+!.env.sample
 .DS_Store
 Thumbs.db
-_harness.html
-_harness.offline.html
-_harness.phase04.html
-tmp/
-data/enrich.pilot.json
