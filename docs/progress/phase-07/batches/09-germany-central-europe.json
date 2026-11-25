@@ -1,0 +1,521 @@
+{
+  "id": "09-germany-central-europe",
+  "access": [
+    {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/ghdi:document-4323",
+      "material": "德国历史文献与图像：《施瓦本农民十二条款》",
+      "locator": "1525 年文献题注及第三、五至八条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/the-religious-peace-of-augsburg-september-25-1555",
+      "material": "德国历史文献与图像：《奥格斯堡宗教和约》",
+      "locator": "第 15 至 17 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/peace-treaties-of-westphalia-october-14-24-1648",
+      "material": "德国历史文献与图像：《威斯特伐利亚和约》",
+      "locator": "奥斯纳布吕克条约序言、第五、第七、第八条及日期注",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.dhm.de/lemo/kapitel/erster-weltkrieg/alltagsleben/lebensmittelversorgung",
+      "material": "德国历史博物馆：第一次世界大战中的食品供应",
+      "locator": "配给、农业供给与 1916—1917 年芜菁之冬段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.dhm.de/lemo/kapitel/weimarer-republik/innenpolitik/inflation",
+      "material": "德国历史博物馆：1923 年的通货膨胀",
+      "locator": "1918 年后通胀、战争遗留支出与 1923 年段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/hitler-comes-to-power",
+      "material": "美国大屠杀纪念馆：希特勒如何上台",
+      "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-enabling-act",
+      "material": "美国大屠杀纪念馆：1933 年《授权法》与文本",
+      "locator": "1933 年 3 月 23 日表决背景、第 1 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/",
+      "material": "德国联邦档案馆：柏林墙开始修建",
+      "locator": "1961 年 8 月 13 日条及档案 B 145 Bild-P061246 说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/19-april-1943-aufstand-im-warschauer-ghetto/",
+      "material": "德国联邦档案馆：1943 年华沙犹太隔离区起义资料",
+      "locator": "1970 年 12 月 7 日勃兰特纪念照片与题注",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/storys/die-stasi-im-jahr-1989/november-1989/",
+      "material": "德国联邦档案馆：1989 年 11 月口岸开放记录",
+      "locator": "东柏林边界当晚情况记录、记者会影像说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/themenbeitraege/parteien-und-organisationen-der-ddr-im-prozess-der-wiedervereinigung/",
+      "material": "德国联邦档案馆：两德统一过程中的东德政党和组织",
+      "locator": "1989 年 11 月旅行规定、边防口岸段与档案图 183-1989-1110-409",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.habsburger.net/en/chapter/graz-vienna-rise-ferdinand-ii-head-dynasty",
+      "material": "哈布斯堡历史资料展：斐迪南二世与白山战役",
+      "locator": "斐迪南争取巴伐利亚支持与 1620 年白山战役段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.unesco.org/en/memory-world/act-union-lublin-document",
+      "material": "联合国教科文组织世界记忆：卢布林联合法案",
+      "locator": "正文法案、1569 年议会及联邦的法源段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://media.unesco.org/sites/default/files/webform/mow001/poland_confederation_warsaw.pdf",
+      "material": "波兰中央古文献档案馆：1573 年华沙联盟文件登记",
+      "locator": "世界记忆提名书第 3.1、3.2、4.2 节及档号 4467",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.habsburger.net/en/chapter/empire-two-halves-compromise-hungary",
+      "material": "哈布斯堡历史资料展：1867 年与匈牙利的折中",
+      "locator": "1867 年折中、君主身份及共同事务段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://ww1.habsburger.net/en/chapters/indivisible-and-inseparable-supranational-state",
+      "material": "奥地利一战展：二元君主国的共同事务",
+      "locator": "共同部会、维也纳及布达佩斯政府和关税政策段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.habsburger.net/en/chapter/problems-and-potentialities-multiethnic-state",
+      "material": "哈布斯堡历史资料展：二元君主国的政治与各族群",
+      "locator": "自治争议、1871 年波希米亚方案及工业发展段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.iwm.org.uk/sites/default/files/press-release/4_August_1914_Factsheet.pdf",
+      "material": "帝国战争博物馆：1914 年七月危机时序",
+      "locator": "资料第 1 页，6 月 28 日、7 月 28 日至 8 月各国决定",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://ww1.habsburger.net/en/chapters/end-monarchy-birth-new-states",
+      "material": "奥地利一战展：帝国终结与新国家的形成",
+      "locator": "1918 年 10 月地方议会、11 月 3 日停战和 11 日声明段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://germanhistorydocs.ghi-dc.org/pdf/eng/Doc.52-ENG-12%20Articles_en.pdf",
+      "material": "德国历史文献与图像：施瓦本农民十二条款旧 PDF",
+      "locator": "原路径读取超时，改读同项目现行页面的全文",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/germany-hre/reformation-prussia-rise/p-02",
+      "scope": "1525 年施瓦本农民诉求及 1555 年和约的保障范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1525 年施瓦本农民诉求及 1555 年和约的保障范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-peasants-1525",
+              "locator": "1525 年文献题注及第三、五至八条",
+              "supports": "条款形成于 1525 年，包含人身依附、林地使用、劳役和地租等请求。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-augsburg-1555",
+              "locator": "第 15 至 17 条",
+              "supports": "规定信奉《奥格斯堡信纲》及天主教的帝国各等级彼此不因信仰动武，其余教派排除在该和约之外。"
+            }
+          ],
+          "limit": "区分 1524 年开始的冲突与 1525 年成文条款，废除人身依附与限制劳役分别记载。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读《十二条款》关于林地和劳役的相邻条文，再核对和约第 15 至 17 条中获保护的主体。"
+      }
+    },
+    {
+      "id": "block/germany-hre/reformation-prussia-rise/aside-03",
+      "scope": "1648 年和约中的宗教保护和帝国内部权利",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1648 年和约中的宗教保护和帝国内部权利",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-westphalia-1648",
+              "locator": "奥斯纳布吕克条约序言、第五、第七、第八条及日期注",
+              "supports": "两地会议和签约日期，帝国统治者的权利、帝国内部程序及改革宗的条约地位。"
+            }
+          ],
+          "limit": "原称使节人数与谈判动机无本文支持，条文也不能直接证明普遍的国家主权平等与互不干涉。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "逐条对照序言、第五、第七和第八条，确认两城会议和帝国等级权利的条件。"
+      }
+    },
+    {
+      "id": "text/chapter/germany-hre/reformation-prussia-rise/summary",
+      "scope": "章节摘要区分两个和约的时点和制度范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "章节摘要区分两个和约的时点和制度范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-augsburg-1555",
+              "locator": "第 15 至 17 条",
+              "supports": "规定信奉《奥格斯堡信纲》及天主教的帝国各等级彼此不因信仰动武，其余教派排除在该和约之外。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-westphalia-1648",
+              "locator": "奥斯纳布吕克条约序言、第五、第七、第八条及日期注",
+              "supports": "两地会议和签约日期，帝国统治者的权利、帝国内部程序及改革宗的条约地位。"
+            }
+          ],
+          "limit": "将现代主权起源的断言改为条约可定位的内容。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-05",
+      "scope": "战时食物短缺、战后通胀和后来大萧条的时段分别列证",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "战时食物短缺、战后通胀和后来大萧条的时段分别列证",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-dhm-supply",
+              "locator": "配给、农业供给与 1916—1917 年芜菁之冬段",
+              "supports": "海上封锁、歉收和运输困难共同恶化了食物供应，配给难以满足需求。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-dhm-inflation",
+              "locator": "1918 年后通胀、战争遗留支出与 1923 年段",
+              "supports": "战后财政、外部赔款、鲁尔危机与通货膨胀，1923 年恶性通胀损害积蓄。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-ushmm-appointment",
+              "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+              "supports": "总统兴登堡任命希特勒为总理，经济危机和纳粹选举表现是其背景。"
+            }
+          ],
+          "limit": "移除把饥荒归于海上封锁或把民主失势归于单一群体反应的解释，撤去未注明统计时点的失业人数。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-06",
+      "scope": "总理任命、夺取立法权与纳粹大屠杀的行为和对象",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "总理任命、夺取立法权与纳粹大屠杀的行为和对象",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-ushmm-appointment",
+              "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+              "supports": "总统兴登堡任命希特勒为总理，经济危机和纳粹选举表现是其背景。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-ushmm-enabling-act",
+              "locator": "1933 年 3 月 23 日表决背景、第 1 条",
+              "supports": "在威吓及迫害反对者的情况下通过，并允许内阁自行立法。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-ushmm-holocaust",
+              "locator": "定义、Key Facts 与 Geography of the Holocaust",
+              "supports": "纳粹德国当局及盟友、合作者系统性迫害并杀害约六百万欧洲犹太人，纳粹政权亦迫害与杀害其他群体。"
+            }
+          ],
+          "limit": "不同群体受害范围分别记录，六百万指被杀害的犹太人，撤去易北河会师月份及将杀害方式简化成一种的叙述。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读任命时间、《授权法》第一条和大屠杀定义，分别核对政治程序、犯罪主体和六百万数字的对象。"
+      }
+    },
+    {
+      "id": "book-paragraph/germany-hre/cold-war-eu-germany/p-03",
+      "scope": "先设障碍后筑墙与勃兰特纪念的具体对象",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "先设障碍后筑墙与勃兰特纪念的具体对象",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-barch-wall-1961",
+              "locator": "1961 年 8 月 13 日条及档案 B 145 Bild-P061246 说明",
+              "supports": "13 日先封锁分界、架设障碍与铁丝网，随后数日才开始建墙。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-barch-brandt-warsaw",
+              "locator": "1970 年 12 月 7 日勃兰特纪念照片与题注",
+              "supports": "勃兰特下跪的日期、地点及纪念对象是 1943 年隔离区起义。"
+            }
+          ],
+          "limit": "移除在同一夜修完墙体的错误，撤出未区分人群和年份的外流人数以及对勃兰特动机、邻国反应的判断。"
+        }
+      ]
+    },
+    {
+      "id": "block/germany-hre/cold-war-eu-germany/aside-05",
+      "scope": "记者会与口岸通行的顺序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "记者会与口岸通行的顺序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/germany-barch-wall-opening",
+              "locator": "东柏林边界当晚情况记录、记者会影像说明",
+              "supports": "沙博夫斯基记者会、宣布可立即出境与随后人群到口岸。"
+            },
+            {
+              "source": "source/book/germany-hre/germany-barch-crossings",
+              "locator": "1989 年 11 月旅行规定、边防口岸段与档案图 183-1989-1110-409",
+              "supports": "11 月 9 日晚通行限制失效，次日有档案照片显示博恩霍尔姆街口岸通行。"
+            }
+          ],
+          "limit": "档案和照片可核对通行，不能支持墙体一夜拆除、是个别官员单独决定或精确的人群人数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "比对记者会说明、边境当晚档案与次日博恩霍尔姆街照片的日期。"
+      }
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-02",
+      "scope": "波希米亚等级起事、白山战役的协力者和区域后果",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "波希米亚等级起事、白山战役的协力者和区域后果",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-white-mountain",
+              "locator": "斐迪南争取巴伐利亚支持与 1620 年白山战役段",
+              "supports": "帝国与巴伐利亚军于白山击败波希米亚等级武装，起事随之瓦解。"
+            }
+          ],
+          "limit": "避免把维也纳类比为宗教文明的绝对界线，战役也不足以证明哈布斯堡随即整合所有中欧领地。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-03",
+      "scope": "卢布林联合法案与华沙联盟的年代、参与者和性质",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "卢布林联合法案与华沙联盟的年代、参与者和性质",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-unesco-lublin",
+              "locator": "正文法案、1569 年议会及联邦的法源段",
+              "supports": "波兰王国和立陶宛大公国于卢布林议会签订法案，构成联邦的法律基础之一。"
+            },
+            {
+              "source": "source/book/central-eastern-europe/ce-unesco-warsaw-confederation",
+              "locator": "世界记忆提名书第 3.1、3.2、4.2 节及档号 4467",
+              "supports": "1573 年华沙集会上，贵族以协议维护不同信仰团体之间的和平，原件藏于档案馆。"
+            }
+          ],
+          "limit": "未把贵族协议推广成现代普遍权利，也未采用未指明时期的领土面积或迁入人口。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新核对法案目录中 1569 年缔约方、1573 年文书的批准者和原件档号。"
+      }
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-02",
+      "scope": "1867 年折中的制度结构与共同事务",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1867 年折中的制度结构与共同事务",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-compromise",
+              "locator": "1867 年折中、君主身份及共同事务段",
+              "supports": "奥地利与匈牙利各有政制，共同君主，外交、军务及部分财务一同办理。"
+            },
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-dual-state",
+              "locator": "共同部会、维也纳及布达佩斯政府和关税政策段",
+              "supports": "关税、外交及军务由共同安排协调，地方政府与共同部会权限有别。"
+            }
+          ],
+          "limit": "区分共同财务和两半各自的政府，将决策动机限于制度变动可见部分。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-03",
+      "scope": "共同贸易安排与波希米亚自治的具体对照",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "共同贸易安排与波希米亚自治的具体对照",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-dual-state",
+              "locator": "共同部会、维也纳及布达佩斯政府和关税政策段",
+              "supports": "关税、外交及军务由共同安排协调，地方政府与共同部会权限有别。"
+            },
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-multiethnic",
+              "locator": "自治争议、1871 年波希米亚方案及工业发展段",
+              "supports": "捷克及南斯拉夫诸群体要求更多政治参与，波希米亚方案于 1871 年受阻，地区工业发展程度有差异。"
+            }
+          ],
+          "limit": "撤去无断面年份的人口及把各地经济和政治经验概括为共同文化黄金期的说法。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-05",
+      "scope": "萨拉热窝遇刺、奥匈宣战和各国决定的先后",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "萨拉热窝遇刺、奥匈宣战和各国决定的先后",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-iwm-july-crisis",
+              "locator": "资料第 1 页，6 月 28 日、7 月 28 日至 8 月各国决定",
+              "supports": "遇刺与宣战相隔一个月，德国支持奥匈、俄国支持塞尔维亚，其他国家随危机扩大逐步参战。"
+            }
+          ],
+          "limit": "撤去把同盟称作自动生效的解释，也不把战争死亡人数并入刺杀事件的段落。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-06",
+      "scope": "1918 年地方权力变化及卡尔一世的声明",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1918 年地方权力变化及卡尔一世的声明",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/ce-habsburg-new-states",
+              "locator": "1918 年 10 月地方议会、11 月 3 日停战和 11 日声明段",
+              "supports": "布拉格、萨格勒布和维也纳各有进程，卡尔一世放弃参与国务，声明没有使用退位一词。"
+            }
+          ],
+          "limit": "撤去各地区统一宣布独立、整个解体过程均和平及未经界定的军队语言数字。"
+        }
+      ]
+    }
+  ]
+}

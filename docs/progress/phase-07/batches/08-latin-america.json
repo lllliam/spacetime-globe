@@ -1,0 +1,603 @@
+{
+  "id": "08-latin-america",
+  "access": [
+    {
+      "url": "https://whc.unesco.org/en/list/1548/",
+      "material": "UNESCO：瓦隆古码头",
+      "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/documentos/quilombo-de-manoel-congo/",
+      "material": "巴西国家档案馆：1838 年马诺埃尔·孔戈聚落档案",
+      "locator": "1838 年 11 月 13 日追捕报告及档案来源说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://bcr.iphan.gov.br/bens-culturais/samba-de-roda-do-reconcavo-baiano/",
+      "material": "巴西国家历史与艺术遗产研究所：巴伊亚圆圈桑巴档案",
+      "locator": "登记发起团体、Descrição Completa 与登记程序",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lim/lim3353.htm",
+      "material": "巴西第 3,353 号法律：《黄金法》",
+      "locator": "1888 年 5 月 13 日，第 1、2 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/temas-oitocentistas/legislacao-abolicionista-no-imperio",
+      "material": "巴西国家档案馆：帝国时期废奴立法",
+      "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://api.nuvel.nu/uploads/independance_ayiti_en_72c6dd8709.pdf",
+      "material": "《海地独立宣言》同时代英译，英国国家档案馆 ADM 1/254",
+      "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://today.duke.edu/showcase/haitideclaration/documentorigins.html",
+      "material": "杜克大学：海地独立宣言的文本来源",
+      "locator": "档案研究人员说明，海地印本送交牙买加并转藏伦敦段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/especial-bicentenario-da-independencia/apontamentos-sobre-a-independencia-do-brasil-na-bahia",
+      "material": "巴西国家档案馆：巴伊亚的独立战争",
+      "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ba.gov.br/fpc/iniciativas/bahia-memorias-de-lutas-e-liberdade",
+      "material": "巴伊亚州公共档案馆：独立路线和文献收藏",
+      "locator": "公共档案馆馆藏、1822 年 9 月与 1823 年 7 月段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
+      "material": "智利国家档案馆：1973 年 9 月 11 日政变",
+      "locator": "政变当日时序及该日来自内政部的档案藏件说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=1197778&idParte=10468658&idVersion=2023-11-10",
+      "material": "智利第 98 号法令：寻找强迫失踪者的国家计划",
+      "locator": "序言第 1、2 项",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bcn.cl/historiapolitica/hitos_periodo/detalle_periodo.html?per=1973-1990",
+      "material": "智利国会图书馆：1973—1990 年政治史",
+      "locator": "反对派动员、1988 年公投和 1989 年总统与国会选举段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/445/",
+      "material": "联合国教科文组织：巴西利亚",
+      "locator": "突出普遍价值：简要综述、规划两条轴线与建筑",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/766216/files/LCl3546eng_en.pdf?ln=es",
+      "material": "联合国拉丁美洲和加勒比经济委员会：拉美发展的历史与挑战",
+      "locator": "A. The historical legacy，正文第 13 至 15 页",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://documents.worldbank.org/curated/en/690421559580059769/pdf/Latin-American-Growth-A-Trade-Perspective.pdf",
+      "material": "世界银行工作论文：从贸易看拉美增长",
+      "locator": "第 4 节 Latin America’s growth response to the rise of China，图 11—13 与表 2",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www2.senado.leg.br/jspui/handle/id/385454",
+      "material": "巴西参议院档案候选路径",
+      "locator": "指定路径返回 404，改读总统府刊载的第 3,353 号法条",
+      "date": "2026-11-25",
+      "status": "dead"
+    },
+    {
+      "url": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-haitian-declaration-of-independence/",
+      "material": "英国国家档案馆：海地独立宣言候选页面",
+      "locator": "工具无法读取，查阅档案号 ADM 1/254 的公开英译副本",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/topic/latin-america/brazil/summary",
+      "scope": "巴西奴役史专题的码头、社群抵抗及法律阶段",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "巴西奴役史专题的码头、社群抵抗及法律阶段",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/source-01",
+              "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+              "supports": "1811 年开始营造登陆码头，铺石地层与后建皇后码头有别，遗址也承载非洲裔社群记忆。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-an-manoel-congo",
+              "locator": "1838 年 11 月 13 日追捕报告及档案来源说明",
+              "supports": "帕拉伊巴谷庄园的被奴役者逃离后建立临时营地，当局组织追捕。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "supports": "全国自公布日起废除奴隶制并废止相反条文。"
+            }
+          ],
+          "limit": "摘要限定为可核实的案例，支持专题题旨。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-01",
+      "scope": "19 世纪被迫跨洋迁移与咖啡产区的国内交易",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "19 世纪被迫跨洋迁移与咖啡产区的国内交易",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/source-01",
+              "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+              "supports": "1811 年开始营造登陆码头，铺石地层与后建皇后码头有别，遗址也承载非洲裔社群记忆。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "supports": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            }
+          ],
+          "limit": "本节限于能证实的时期、码头和咖啡产区，糖业、采矿和全国人口构成另待按地区核对。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-02",
+      "scope": "瓦隆古与皇后码头的地层区别、地点和纪念功能",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "瓦隆古与皇后码头的地层区别、地点和纪念功能",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/source-01",
+              "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+              "supports": "1811 年开始营造登陆码头，铺石地层与后建皇后码头有别，遗址也承载非洲裔社群记忆。"
+            }
+          ],
+          "limit": "按世遗材料限定到里约遗址和相应地层，港口估计不能换算为全国人口。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读世遗说明的年代、地层与标准（vi），区分两处码头的用途与所在地点。"
+      }
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-03",
+      "scope": "区分限制贩运、渐进解放与全国废奴，并记录抵抗",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分限制贩运、渐进解放与全国废奴，并记录抵抗",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "supports": "全国自公布日起废除奴隶制并废止相反条文。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "supports": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-an-manoel-congo",
+              "locator": "1838 年 11 月 13 日追捕报告及档案来源说明",
+              "supports": "帕拉伊巴谷庄园的被奴役者逃离后建立临时营地，当局组织追捕。"
+            }
+          ],
+          "limit": "马诺埃尔·孔戈个案说明具体行动，无法据此判定一件事直接促成 1888 年立法。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "逐条重读第 3,353 号法及档案馆对 1850、1871 年法律实际范围的解释。"
+      }
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-04",
+      "scope": "《黄金法》法律效力与文本未规定的社会安排",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "《黄金法》法律效力与文本未规定的社会安排",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "supports": "全国自公布日起废除奴隶制并废止相反条文。"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "supports": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            }
+          ],
+          "limit": "两条法律及档案馆研究可支持本节范围，实际生活变化仍须看地区材料。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-05",
+      "scope": "巴伊亚圆圈桑巴的社群传承与登记参与",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "巴伊亚圆圈桑巴的社群传承与登记参与",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/brazil-iphan-samba",
+              "locator": "登记发起团体、Descrição Completa 与登记程序",
+              "supports": "巴伊亚的非洲裔社群传承音乐、舞蹈与歌唱，地方团体参与文化遗产登记。"
+            }
+          ],
+          "limit": "以登记材料中的地方实践为例，不把巴西各地、各非洲裔社群的经验混为一体。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-02",
+      "scope": "海地宣布独立及宣言副本的档案流转",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "海地宣布独立及宣言副本的档案流转",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/independences/haiti-adm-declaration",
+              "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+              "supports": "早期英译记载德萨林与将领在戈纳伊夫宣布脱离法国统治及保卫独立的誓言。"
+            },
+            {
+              "source": "source/topic/latin-america/independences/haiti-duke-provenance",
+              "locator": "档案研究人员说明，海地印本送交牙买加并转藏伦敦段",
+              "supports": "英国档案所存印本的传播链，另有同时代手写版本保存于牙买加。"
+            }
+          ],
+          "limit": "宣言可以确认参与签署者与政治主张，普通参战者、法国后续政策和赔款另需材料。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读英国档案的英译日期与杜克大学的传递线索，确认宣读事件和存世抄印本的区别。"
+      }
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-04",
+      "scope": "两地的独立文献、地方战争与可比较的范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两地的独立文献、地方战争与可比较的范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/independences/haiti-adm-declaration",
+              "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+              "supports": "早期英译记载德萨林与将领在戈纳伊夫宣布脱离法国统治及保卫独立的誓言。"
+            },
+            {
+              "source": "source/topic/latin-america/independences/brazil-an-bahia-1823",
+              "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+              "supports": "1822 年宣告后巴伊亚仍有战斗，葡军至 1823 年 7 月撤离萨尔瓦多。"
+            }
+          ],
+          "limit": "并置提供阅读线索，不从两份材料推定巴西受到海地的直接影响或所有革命共享同一进程。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/latin-america/andes-liberation-empire/p-05",
+      "scope": "巴西独立宣告与巴伊亚实际战争时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "巴西独立宣告与巴伊亚实际战争时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/brazil-an-bahia-1823",
+              "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+              "supports": "1822 年宣告后巴伊亚仍有战斗，葡军至 1823 年 7 月撤离萨尔瓦多。"
+            },
+            {
+              "source": "source/book/latin-america/brazil-bahia-archives",
+              "locator": "公共档案馆馆藏、1822 年 9 月与 1823 年 7 月段",
+              "supports": "巴伊亚州馆藏从地方记录区分全国纪念日期与当地战事终点。"
+            }
+          ],
+          "limit": "撤去无战争的全国概括和未经定位的对白。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读国家档案馆关于各省差异的说明与巴伊亚公共档案馆的独立收藏，核对 1822 与 1823 的不同含义。"
+      }
+    },
+    {
+      "id": "text/chapter/latin-america/andes-liberation-empire/summary",
+      "scope": "独立章节摘要区分巴西宣告与地方后续战事",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "独立章节摘要区分巴西宣告与地方后续战事",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/brazil-an-bahia-1823",
+              "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+              "supports": "1822 年宣告后巴伊亚仍有战斗，葡军至 1823 年 7 月撤离萨尔瓦多。"
+            },
+            {
+              "source": "source/book/latin-america/brazil-bahia-archives",
+              "locator": "公共档案馆馆藏、1822 年 9 月与 1823 年 7 月段",
+              "supports": "巴伊亚州馆藏从地方记录区分全国纪念日期与当地战事终点。"
+            }
+          ],
+          "limit": "概述中移除了巴西和平独立和地形决定西属美洲分裂的断言。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/latin-america/caudillos-silver-export-boom/p-06",
+      "scope": "巴西《黄金法》及其前置阶段和条文边界",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "巴西《黄金法》及其前置阶段和条文边界",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "supports": "全国自公布日起废除奴隶制并废止相反条文。"
+            },
+            {
+              "source": "source/book/latin-america/brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "supports": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            }
+          ],
+          "limit": "相邻正文同步移除对整个西半球的排名及把巴西建立共和国归于单一群体反应的说法。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/latin-america/resources-democracy/section-03",
+      "scope": "政变日期、军政府及经记录的系统性侵害",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "政变日期、军政府及经记录的系统性侵害",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/resources-democracy/source-03",
+              "locator": "政变当日时序及该日来自内政部的档案藏件说明",
+              "supports": "军方夺权、阿连德在总统府死亡，该馆保存受火灾影响的文件。"
+            },
+            {
+              "source": "source/topic/latin-america/resources-democracy/chile-decreto-98",
+              "locator": "序言第 1、2 项",
+              "supports": "总结官方调查和司法记录所见强迫失踪、政治处决、监禁及酷刑，注明独裁统治时段。"
+            }
+          ],
+          "limit": "日期、政权性质、行为和受害类别分别有材料定位，本节不估计统一受害人数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读智利国家档案馆时序与第 98 号法令序言，按原文核对政变日期和侵害类别。"
+      }
+    },
+    {
+      "id": "book-paragraph/latin-america/debt-democratization-global-south/p-02",
+      "scope": "智利公投、选举和政权交接的事件区别",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "智利公投、选举和政权交接的事件区别",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/chile-bcn-plebiscite",
+              "locator": "反对派动员、1988 年公投和 1989 年总统与国会选举段",
+              "supports": "公投否决延长皮诺切特任期，次年选举由艾尔温胜出。"
+            },
+            {
+              "source": "source/book/latin-america/chile-decreto-98",
+              "locator": "序言第 1、2 项",
+              "supports": "总结官方调查和司法记录所见强迫失踪、政治处决、监禁及酷刑，注明独裁统治时段。"
+            }
+          ],
+          "limit": "纠正把军政府终止日期提前到公投，移除从单一经济因素推出全区同步转型的解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/latin-america/revolution-isi-cold-war/p-04",
+      "scope": "巴西利亚建城年代、内陆迁都与现代主义规划",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "巴西利亚建城年代、内陆迁都与现代主义规划",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/brazilia-unesco",
+              "locator": "突出普遍价值：简要综述、规划两条轴线与建筑",
+              "supports": "1956 至 1960 年建设新首都，科斯塔负责整体规划，尼迈尔设计主要公共建筑。"
+            }
+          ],
+          "limit": "撤出未注明都市区口径的三市过千万说法，迁都也不足以证明全国经济重心已经转移。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/latin-america/revolution-isi-cold-war/p-05",
+      "scope": "智利政变的施事者、制度变化与可核的侵犯类型",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "智利政变的施事者、制度变化与可核的侵犯类型",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/chile-an-coup",
+              "locator": "政变当日时序及该日来自内政部的档案藏件说明",
+              "supports": "军方夺权、阿连德在总统府死亡，该馆保存受火灾影响的文件。"
+            },
+            {
+              "source": "source/book/latin-america/chile-decreto-98",
+              "locator": "序言第 1、2 项",
+              "supports": "总结官方调查和司法记录所见强迫失踪、政治处决、监禁及酷刑，注明独裁统治时段。"
+            }
+          ],
+          "limit": "撤出把不同国家政变都归于同一短期因果链的表述，本段集中于有档案支持的智利例证。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/latin-america/revolution-isi-cold-war/summary",
+      "scope": "概览区分工业化、巴西迁都与智利政变两个历史层面",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "概览区分工业化、巴西迁都与智利政变两个历史层面",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/latin-eclac-development",
+              "locator": "A. The historical legacy，正文第 13 至 15 页",
+              "supports": "部分经济体经历国家主导的工业化，进口替代是政策的一部分。"
+            },
+            {
+              "source": "source/book/latin-america/brazilia-unesco",
+              "locator": "突出普遍价值：简要综述、规划两条轴线与建筑",
+              "supports": "1956 至 1960 年建设新首都，科斯塔负责整体规划，尼迈尔设计主要公共建筑。"
+            },
+            {
+              "source": "source/book/latin-america/chile-decreto-98",
+              "locator": "序言第 1、2 项",
+              "supports": "总结官方调查和司法记录所见强迫失踪、政治处决、监禁及酷刑，注明独裁统治时段。"
+            }
+          ],
+          "limit": "不直接把工业化当作所有城市跃升相同人口规模的原因，也不从冷战镇压推出文学生成。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/latin-america/debt-democratization-global-south/p-04",
+      "scope": "大宗商品周期与各经济体之间的差异",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "大宗商品周期与各经济体之间的差异",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/latin-america/latin-wb-commodity",
+              "locator": "第 4 节 Latin America’s growth response to the rise of China，图 11—13 与表 2",
+              "supports": "2000—2017 年期内，南美多地与大宗商品价格周期相关，出口结构与增长表现各异。"
+            }
+          ],
+          "limit": "去除原文关于空前价格、统一财政盈余与数千万进入中产的因果和总量断言。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照世界银行论文第 4 节和表 2，确认观察期、出口国分类及指标为人均收入比较。"
+      }
+    }
+  ]
+}

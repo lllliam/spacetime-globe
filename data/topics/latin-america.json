@@ -167,6 +167,21 @@
           "url": "https://openstax.org/books/world-history-volume-2/pages/8-3-spanish-south-america",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "haiti-adm-declaration",
+          "title": "《海地独立宣言》同时代英译，英国国家档案馆 ADM 1/254",
+          "url": "https://api.nuvel.nu/uploads/independance_ayiti_en_72c6dd8709.pdf"
+        },
+        {
+          "id": "haiti-duke-provenance",
+          "title": "杜克大学：海地独立宣言的文本来源",
+          "url": "https://today.duke.edu/showcase/haitideclaration/documentorigins.html"
+        },
+        {
+          "id": "brazil-an-bahia-1823",
+          "title": "巴西国家档案馆：巴伊亚的独立战争",
+          "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/especial-bicentenario-da-independencia/apontamentos-sobre-a-independencia-do-brasil-na-bahia"
         }
       ],
       "sections": [
@@ -181,10 +196,18 @@
         },
         {
           "title": "海地的转折",
-          "text": "圣多明各被奴役者起义发展为长期战争，最终在一八零四年建立独立的海地，奴役制度的推翻与国家独立紧密结合。杜桑·卢维杜尔及后来领导者具有重要作用，集体动员和普通参战者同样不可缺少。海地的存在挑战大西洋奴役秩序，也遭遇强大外部敌意，不能把独立当成从此没有经济和外交压力。",
+          "text": "圣多明各反奴役战争最终通向国家独立。1804 年 1 月 1 日，德萨林与将领在戈纳伊夫宣布脱离法国。保存至今的同时代英译本记载他们誓言捍卫独立。现存宣言印本曾经由牙买加送至伦敦，这条流转线索也留下了早期海地同周边殖民地接触的记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "haiti-adm-declaration",
+              "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+              "note": "早期英译记载德萨林与将领在戈纳伊夫宣布脱离法国统治及保卫独立的誓言。"
+            },
+            {
+              "sourceId": "haiti-duke-provenance",
+              "locator": "档案研究人员说明，海地印本送交牙买加并转藏伦敦段",
+              "note": "英国档案所存印本的传播链，另有同时代手写版本保存于牙买加。"
+            }
           ],
           "id": "section-02"
         },
@@ -199,10 +222,18 @@
         },
         {
           "title": "理解线索",
-          "text": "比较三种美洲革命，应分别观察国家主权、奴役制度和政治成员资格，而不是只寻找一套共同口号。相似的自由语言可以支持截然不同的制度安排，也可以被受排斥群体用来要求进一步改变。革命之间通过新闻、逃亡和战争相互影响，连接史需要保留这种传播及其地方重新解释。",
+          "text": "可把海地独立宣言与巴伊亚独立战争的档案并读。前者记录宣布脱离法国的政治行动，后者记录巴西宣布独立之后地方仍有战斗。比较时可从日期、文件作者和适用地域入手，再分别追问奴役制度何时发生变化、当地各群体能否参与政治。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "haiti-adm-declaration",
+              "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+              "note": "早期英译记载德萨林与将领在戈纳伊夫宣布脱离法国统治及保卫独立的誓言。"
+            },
+            {
+              "sourceId": "brazil-an-bahia-1823",
+              "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+              "note": "1822 年宣告后巴伊亚仍有战斗，葡军至 1823 年 7 月撤离萨尔瓦多。"
+            }
           ],
           "id": "section-04"
         },
@@ -249,7 +280,7 @@
       "year": 1888,
       "date": "16—19世纪，重点为1888年",
       "title": "巴西废奴：一纸法律之前与之后",
-      "summary": "长期奴役塑造生产和社会，废除制度需要多种行动共同推动。",
+      "summary": "从里约瓦隆古码头、帕拉伊巴谷的集体逃离和 1888 年《黄金法》三个入口，了解被迫迁徙、地方抵抗与废奴立法。",
       "place": {
         "label": "里约热内卢",
         "lon": -43.18,
@@ -267,51 +298,106 @@
           "url": "https://guides.loc.gov/brazil-us-relations/slavery-and-abolition",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "brazil-an-manoel-congo",
+          "title": "巴西国家档案馆：1838 年马诺埃尔·孔戈聚落档案",
+          "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/documentos/quilombo-de-manoel-congo/"
+        },
+        {
+          "id": "brazil-iphan-samba",
+          "title": "巴西国家历史与艺术遗产研究所：巴伊亚圆圈桑巴档案",
+          "url": "https://bcr.iphan.gov.br/bens-culturais/samba-de-roda-do-reconcavo-baiano/"
+        },
+        {
+          "id": "brazil-golden-law",
+          "title": "巴西第 3,353 号法律：《黄金法》",
+          "url": "https://www.planalto.gov.br/ccivil_03/leis/lim/lim3353.htm"
+        },
+        {
+          "id": "brazil-an-abolition",
+          "title": "巴西国家档案馆：帝国时期废奴立法",
+          "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/temas-oitocentistas/legislacao-abolicionista-no-imperio"
         }
       ],
       "sections": [
         {
           "title": "跨大西洋的巴西",
-          "text": "葡萄牙殖民统治下的巴西，糖业、采矿及后来咖啡生产与被奴役劳动密切相关。来自非洲不同地区的人被强行运来，形成跨越海洋的家庭断裂与文化重组。巴西并不只有殖民者和奴隶两类人，原住民、自由黑人与不同劳动群体共同生活，社会等级却通过法律和暴力持续维持。",
+          "text": "巴西的奴役经济在独立之后延续。里约热内卢的瓦隆古石码头于 1811 年开始修建，用于被强制运来的人登陆。巴西国家档案馆的立法研究表明，19 世纪咖啡种植扩大了对被奴役劳力的需求。1850 年加强打击跨洋贩运之后，东南部的咖啡产区仍大量依靠省际奴隶贸易。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-01",
+              "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+              "note": "1811 年开始营造登陆码头，铺石地层与后建皇后码头有别，遗址也承载非洲裔社群记忆。"
+            },
+            {
+              "sourceId": "brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "note": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            }
           ],
           "id": "section-01"
         },
         {
           "title": "码头的记忆",
-          "text": "瓦隆古码头遗址保存十九世纪被奴役非洲人进入里约的物质痕迹，提醒我们全球运输首先是人的遭遇。船运和市场记录能够统计规模，也常以价格和数量剥夺个人身份。遗址与非洲裔社群的记忆结合，使被运输者重新成为具有语言、信仰、技艺和亲属关系的人，而非殖民经济的匿名投入。",
+          "text": "今天在里约热内卢的商业日报广场，考古地层能辨认出瓦隆古码头原有的石铺面，以及 1843 年新建的皇后码头。最早一层遗迹属于被奴役的非洲人登陆处。港口统计可以估算进港人数，码头遗迹和地方纪念活动则提供了理解强迫迁移及后裔记忆的另一种材料。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-01",
+              "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+              "note": "1811 年开始营造登陆码头，铺石地层与后建皇后码头有别，遗址也承载非洲裔社群记忆。"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "废奴的过程",
-          "text": "巴西在十九世纪逐步限制贸易及部分奴役关系，一八八八年黄金法最终废除奴隶制。法律由国家公布，但长期逃离、社群组织、废奴者行动与社会压力共同塑造改变。不能把废奴只写成皇室善举，也不能因法律形式重要，就假定所有被奴役者此前毫无行动，只是在等待自由。",
+          "text": "1850 年，巴西以法律加强打击贩运。1871 年的《自由胎法》为此后出生的被奴役妇女之子女规定自由身份，但也容许原奴隶主在一定条件下继续使用他们的劳力。1888 年 5 月 13 日，《黄金法》宣布奴隶制自当日起废除。国家档案馆还记载，废奴团体持续施压，被奴役者也多次集体离开庄园。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "note": "全国自公布日起废除奴隶制并废止相反条文。"
+            },
+            {
+              "sourceId": "brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "note": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            },
+            {
+              "sourceId": "brazil-an-manoel-congo",
+              "locator": "1838 年 11 月 13 日追捕报告及档案来源说明",
+              "note": "帕拉伊巴谷庄园的被奴役者逃离后建立临时营地，当局组织追捕。"
+            }
           ],
           "id": "section-03"
         },
         {
           "title": "理解线索",
-          "text": "法律终结奴役，不等于归还土地、赔偿劳动或提供平等教育与就业，原来的财富结构和种族歧视可能继续。与美国废奴、海地革命和非洲独立对照，可以区分解放的法律形式、获得自由的方式及其后资源分配。不同路径不应排名，但能帮助理解为什么自由后的社会依然存在长期不平等。",
+          "text": "《黄金法》只有两条，分别宣布奴隶制废除并废止相反规定。法律文本没有规定如何分配土地或补偿被奴役者的劳动。巴西国家档案馆指出，法律也没有为获释者制定土地、劳动或教育方面的融入政策。比较不同地区的废奴过程时，可以先对照法律，再查证人们获释后取得了哪些资源。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "brazil-golden-law",
+              "locator": "1888 年 5 月 13 日，第 1、2 条",
+              "note": "全国自公布日起废除奴隶制并废止相反条文。"
+            },
+            {
+              "sourceId": "brazil-an-abolition",
+              "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+              "note": "区分禁止贩运、特定群体的渐进解放与全国废奴，记录逃离和废奴运动。"
+            }
           ],
           "id": "section-04"
         },
         {
           "title": "多种社会传统",
-          "text": "非洲裔社群在语言、音乐、宗教和日常互助中创造新的文化形式，这些创造不能被当成奴役暴力带来的正面补偿。研究既要明确压迫，也要保留受害者和后裔的行动与知识。人口的非洲来源不是一个整齐同质的标签，各种传统在不平等条件下接触、重组，形成持续变化的巴西社会。",
+          "text": "在巴伊亚的雷孔卡沃地区，圆圈桑巴结合歌唱、乐器和舞蹈，可以在家庭、节庆与公共聚会中表演。当地非洲裔社群通过共同参与传授这项传统。文化遗产档案还列出参与申报的地方团体，为观察这些社群如何组织传承留下了可核对的记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "brazil-iphan-samba",
+              "locator": "登记发起团体、Descrição Completa 与登记程序",
+              "note": "巴伊亚的非洲裔社群传承音乐、舞蹈与歌唱，地方团体参与文化遗产登记。"
+            }
           ],
           "id": "section-05"
         }
@@ -373,6 +459,11 @@
           "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
           "checkedAt": "2026-11-17",
           "id": "source-03"
+        },
+        {
+          "id": "chile-decreto-98",
+          "title": "智利第 98 号法令：寻找强迫失踪者的国家计划",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1197778&idParte=10468658&idVersion=2023-11-10"
         }
       ],
       "sections": [
@@ -398,11 +489,18 @@
         },
         {
           "title": "政变与独裁",
-          "text": "一九七三年军事政变推翻阿连德政府，此后皮诺切特主导的独裁统治造成严重人权侵犯。政治极化、经济危机与国际冷战构成背景，不能因此把强制镇压和失踪合理化为技术性发展选择。经济政策变化与谁有权发言、工会能否组织、反对者是否安全，始终相互联系。",
+          "text": "1973 年 9 月 11 日，智利军方发动政变，推翻由萨尔瓦多·阿连德领导的民选政府。阿连德当天在总统府死亡。随后以皮诺切特为首的独裁统治持续到 1990 年。智利后来的官方调查和司法记录确认，统治期间发生系统性的强迫失踪、政治处决、政治监禁和酷刑。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "source-03",
+              "locator": "政变当日时序及该日来自内政部的档案藏件说明",
+              "note": "军方夺权、阿连德在总统府死亡，该馆保存受火灾影响的文件。"
+            },
+            {
+              "sourceId": "chile-decreto-98",
+              "locator": "序言第 1、2 项",
+              "note": "总结官方调查和司法记录所见强迫失踪、政治处决、监禁及酷刑，注明独裁统治时段。"
+            }
           ],
           "id": "section-03"
         },

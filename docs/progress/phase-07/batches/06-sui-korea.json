@@ -1,0 +1,709 @@
+{
+  "id": "06-sui-korea",
+  "access": [
+    {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B724",
+      "material": "《隋书》卷24·食货志",
+      "locator": "开皇初户籍与课输条，州县大索貌阅、高熲输籍定样",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B703",
+      "material": "《隋书》卷03·炀帝纪上",
+      "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B704",
+      "material": "《隋书》卷04·炀帝纪下",
+      "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B781",
+      "material": "《隋书》卷81·东夷·高丽",
+      "locator": "高元袭爵、文帝时辽西冲突及使节往还",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1443/",
+      "material": "联合国教科文组织：中国大运河",
+      "locator": "突出普遍价值：简要综述、标准（iii）",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ndrc.gov.cn/xwdt/gdzt/dyhgjwhgy/202209/t20220921_1335875.html",
+      "material": "国家发展改革委：隋唐洛阳城遗址",
+      "locator": "隋唐洛阳城考古与遗址保护段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
+      "material": "哥伦比亚大学：中国朝代历史年表",
+      "locator": "基本年表 Sui、Tang 两项",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.metmuseum.org/zh/toah/ht/06/eak",
+      "material": "大都会艺术博物馆：朝鲜半岛 500—1000 年",
+      "locator": "年表 645—648、660、668、676 年条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/736/",
+      "material": "联合国教科文组织：石窟庵与佛国寺",
+      "locator": "突出普遍价值：简要综述与标准（iv）",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archive.much.go.kr/imsi/holdings.do",
+      "material": "韩国国立近现代史博物馆：临时政府馆藏目录",
+      "locator": "馆藏首屏 3·1独立宣言书条目，日期 1919.03.01",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.much.go.kr/webzine/201904/sub1-2.html",
+      "material": "韩国国立近现代史博物馆：上海临时政府专题展",
+      "locator": "展览第二部，上海临时政府成立、合并及上海版《独立新闻》",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.much.go.kr/ENG/contents/E02020000000.do?exhCode=EXH_0000000249&schM=view",
+      "material": "韩国国立近现代史博物馆：太极旗专题展",
+      "locator": "第一部分 Keeping Hope for Independence Alive",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.much.go.kr/online_exhi/vnv/exh_info.html",
+      "material": "韩国国立近现代史博物馆：Votes and Voices",
+      "locator": "展览第一部分建国与分区、第二部分公民抗争及第三部分直选",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.unesco.org/en/memory-world/human-rights-documentary-heritage-1980-archives-may-18th-democratic-uprising-against-military-regime",
+      "material": "联合国教科文组织：光州五月十八日民主化运动档案",
+      "locator": "题名、图片及档案说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://unwritten-record.blogs.archives.gov/2022/04/05/korean-war-refugees-in-signal-corps-films/",
+      "material": "美国国家档案馆：朝鲜战争中的难民影像",
+      "locator": "开头受降分区与开城段、随文档案影像",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archives.kdemo.or.kr/display/en/move610.html",
+      "material": "韩国民主化运动档案：六月民主抗争",
+      "locator": "访问返回 403，正文未读取",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/sui/kaihuang-unification/p-05",
+      "scope": "开皇户籍核查、分户和输籍的记载范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "开皇户籍核查、分户和输籍的记载范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-24",
+              "locator": "开皇初户籍与课输条，州县大索貌阅、高熲输籍定样",
+              "supports": "户籍核查、分户登记及统一地方课输登记格式。"
+            }
+          ],
+          "limit": "正史所载登记增量并非现代人口统计，撤去未经交代的全国人口对比及减税归因。"
+        }
+      ]
+    },
+    {
+      "id": "block/sui/kaihuang-unification/aside-05",
+      "scope": "区分开皇漕仓与炀帝新置两仓",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分开皇漕仓与炀帝新置两仓",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-24",
+              "locator": "开皇三年置仓、四年开渠及炀帝即位后新置兴洛与回洛仓两段",
+              "supports": "文帝时期的漕仓和炀帝时期的兴洛仓、回洛仓分属两组。"
+            },
+            {
+              "source": "source/book/sui/sui-luoyang-ndrc",
+              "locator": "隋唐洛阳城考古与遗址保护段",
+              "supports": "洛阳城范围的调查资料及回洛仓、含嘉仓和定鼎门的遗址记录。"
+            }
+          ],
+          "limit": "撤去无法独立支持的实际库存、全国可供年数及后续动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "分别回读《食货志》开皇三年与炀帝即位段，再用洛阳遗址介绍确认回洛仓的考古身份。"
+      }
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-01",
+      "scope": "东都营建的年代、主持者与迁徙",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "东都营建的年代、主持者与迁徙",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-03",
+              "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+              "supports": "营建东都的时间、主持者、徙民办法及通济渠的河流连接。"
+            },
+            {
+              "source": "source/book/sui/sui-luoyang-ndrc",
+              "locator": "隋唐洛阳城考古与遗址保护段",
+              "supports": "洛阳城范围的调查资料及回洛仓、含嘉仓和定鼎门的遗址记录。"
+            }
+          ],
+          "limit": "精确工期、迁入户数及皇帝个人动机本段不作判定，进士科首创说另待查证。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-03",
+      "scope": "通济渠所接水系与运河路网的后续演变",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "通济渠所接水系与运河路网的后续演变",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-03",
+              "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+              "supports": "营建东都的时间、主持者、徙民办法及通济渠的河流连接。"
+            },
+            {
+              "source": "source/book/sui/sui-canal-unesco",
+              "locator": "突出普遍价值：简要综述、标准（iii）",
+              "supports": "隋朝整合先前分段建设的水道，各代接续完成与管理，元代形成新的路网规模。"
+            }
+          ],
+          "limit": "按时期列证据，撤去把后世路网长度直接归给隋朝及把诸渠都说成从头开挖。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读卷三通济渠线路及世遗综述的隋、元时段，核对河流、施工时期与路网口径。"
+      }
+    },
+    {
+      "id": "block/sui/grand-canal-luoyang/aside-03",
+      "scope": "区分通济渠征役与营建东都的伤亡记载",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分通济渠征役与营建东都的伤亡记载",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-03",
+              "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+              "supports": "营建东都的时间、主持者、徙民办法及通济渠的河流连接。"
+            },
+            {
+              "source": "source/book/sui/sui-record-24",
+              "locator": "炀帝即位后营东都、采江南大木与辽碣用兵诸条",
+              "supports": "列出征役、沿路转运、工程中的劳役负担及随后征兵。"
+            }
+          ],
+          "limit": "官修史中的役额、筑城死亡描述与通济渠实际人数和死亡比例须分别评估。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-06",
+      "scope": "并行征役、材料转运及从军家庭补助",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "并行征役、材料转运及从军家庭补助",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-03",
+              "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+              "supports": "营建东都的时间、主持者、徙民办法及通济渠的河流连接。"
+            },
+            {
+              "source": "source/book/sui/sui-record-24",
+              "locator": "炀帝即位后营东都、采江南大木与辽碣用兵诸条",
+              "supports": "列出征役、沿路转运、工程中的劳役负担及随后征兵。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+              "supports": "史书记载不同动员口径、从军家庭面临粮食及耕种问题，并记载萨水兵败及班师。"
+            }
+          ],
+          "limit": "保留工程负担与军役相叠的证据，撤去给所有工程统一分配的百万工口径。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/sui/grand-canal-luoyang/summary",
+      "scope": "东都和运河的营建时间、漕运联系与历代沿革",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "东都和运河的营建时间、漕运联系与历代沿革",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-03",
+              "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+              "supports": "营建东都的时间、主持者、徙民办法及通济渠的河流连接。"
+            },
+            {
+              "source": "source/book/sui/sui-canal-unesco",
+              "locator": "突出普遍价值：简要综述、标准（iii）",
+              "supports": "隋朝整合先前分段建设的水道，各代接续完成与管理，元代形成新的路网规模。"
+            }
+          ],
+          "limit": "撤去争议首创说和未经区分的历代里程、役额。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-01",
+      "scope": "隋与高句丽往来以及大业八年动员数字的口径",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "隋与高句丽往来以及大业八年动员数字的口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-81",
+              "locator": "高元袭爵、文帝时辽西冲突及使节往还",
+              "supports": "文帝时期有册封、战争及恢复使节往来等不同阶段。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+              "supports": "史书记载不同动员口径、从军家庭面临粮食及耕种问题，并记载萨水兵败及班师。"
+            }
+          ],
+          "limit": "史书所列员额和号称人数均没有现代独立统计的含义，撤去持续拒贡与暗通的单线叙述。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读《隋书》卷八十一高元条与卷四大业八年诏令和兵额段，核对使节往来与动员分类。"
+      }
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-02",
+      "scope": "萨水兵败、班师及部队统计范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "萨水兵败、班师及部队统计范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+              "supports": "史书记载不同动员口径、从军家庭面临粮食及耕种问题，并记载萨水兵败及班师。"
+            }
+          ],
+          "limit": "相邻段落同步撤去将一支部队的数字推广为全部精锐生还人数的表述。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-03",
+      "scope": "第二、第三次东征及黎阳起兵的顺序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "第二、第三次东征及黎阳起兵的顺序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业九年六月至八月、大业十年七月至八月",
+              "supports": "杨玄感起兵、平叛及次年高句丽遣使后班师。"
+            }
+          ],
+          "limit": "两次退兵的情形不同，撤去误写的公历年份及脱离史料的动机判断。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-04",
+      "scope": "617 年不同地区起事及仓储节点易手",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "617 年不同地区起事及仓储节点易手",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年正月、二月和四月",
+              "supports": "杜伏威、窦建德分别起事，翟让与李密夺取兴洛仓，李密后来攻入回洛东仓。"
+            }
+          ],
+          "limit": "撤去以一首歌解释全国起事及未经证实的就食总人数。"
+        }
+      ]
+    },
+    {
+      "id": "block/sui/goguryeo-collapse/aside-04",
+      "scope": "兴洛仓的建立、易手与开仓",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "兴洛仓的建立、易手与开仓",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-24",
+              "locator": "开皇三年置仓、四年开渠及炀帝即位后新置兴洛与回洛仓两段",
+              "supports": "文帝时期的漕仓和炀帝时期的兴洛仓、回洛仓分属两组。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年正月、二月和四月",
+              "supports": "杜伏威、窦建德分别起事，翟让与李密夺取兴洛仓，李密后来攻入回洛东仓。"
+            }
+          ],
+          "limit": "仓储节点的变动不足以判定整个国库状态或任何单一亡国原因。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/sui/goguryeo-collapse/summary",
+      "scope": "三次东征、不同阶段的国内动荡与 618 年政权转变",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "三次东征、不同阶段的国内动荡与 618 年政权转变",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+              "supports": "史书记载不同动员口径、从军家庭面临粮食及耕种问题，并记载萨水兵败及班师。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业九年六月至八月、大业十年七月至八月",
+              "supports": "杨玄感起兵、平叛及次年高句丽遣使后班师。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年正月、二月和四月",
+              "supports": "杜伏威、窦建德分别起事，翟让与李密夺取兴洛仓，李密后来攻入回洛东仓。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年五月、十一月与义宁二年三月",
+              "supports": "李渊由太原入长安并先立杨侑，江都兵变与隋炀帝之死在后。"
+            },
+            {
+              "source": "source/book/sui/sui-tang-columbia",
+              "locator": "基本年表 Sui、Tang 两项",
+              "supports": "618 年为隋唐分期，唐朝的都城包括长安。"
+            }
+          ],
+          "limit": "撤去把三次战争都套入同一兵力及以单一原因解释隋亡的说法。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/sui/goguryeo-collapse/spatialThesis",
+      "scope": "北方集结、辽东战事与后方储运节点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "北方集结、辽东战事与后方储运节点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+              "supports": "史书记载不同动员口径、从军家庭面临粮食及耕种问题，并记载萨水兵败及班师。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业九年六月至八月、大业十年七月至八月",
+              "supports": "杨玄感起兵、平叛及次年高句丽遣使后班师。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年正月、二月和四月",
+              "supports": "杜伏威、窦建德分别起事，翟让与李密夺取兴洛仓，李密后来攻入回洛东仓。"
+            },
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年五月、十一月与义宁二年三月",
+              "supports": "李渊由太原入长安并先立杨侑，江都兵变与隋炀帝之死在后。"
+            }
+          ],
+          "limit": "用于解释后方动员和仓储地理，撤去精确人员规模及唯一因果解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/korea/three-kingdoms-silla/p-03",
+      "scope": "唐、新罗联盟与百济、高句丽相继败亡",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "唐、新罗联盟与百济、高句丽相继败亡",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/korea/korea-met-500",
+              "locator": "年表 645—648、660、668、676 年条",
+              "supports": "唐与新罗先后攻取百济和高句丽，随后双方对半岛控制权发生冲突。"
+            }
+          ],
+          "limit": "撤去无可核口径的兵数、建盟个人归因及并入同一年叙述的后续海战。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/korea/three-kingdoms-silla/p-05",
+      "scope": "新罗庆州的石窟庵与佛国寺及其建筑位置",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "新罗庆州的石窟庵与佛国寺及其建筑位置",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/korea/korea-unesco-temple",
+              "locator": "突出普遍价值：简要综述与标准（iv）",
+              "supports": "石窟庵与佛国寺建于八世纪新罗，佛像、石台与双塔各自位于对应的遗址。"
+            }
+          ],
+          "limit": "遗址说明可核实建筑与年代，原庆州人口估计及海路控制范围无对应证据，撤出正文。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-02",
+      "scope": "三一运动日期、独立象征与上海临时政府的形成",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "三一运动日期、独立象征与上海临时政府的形成",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/korea/korea-much-declaration",
+              "locator": "馆藏首屏 3·1独立宣言书条目，日期 1919.03.01",
+              "supports": "馆藏目录确认三一独立宣言书日期。"
+            },
+            {
+              "source": "source/book/korea/korea-much-flags",
+              "locator": "第一部分 Keeping Hope for Independence Alive",
+              "supports": "1919 年三一运动中示威者使用太极旗，印刷品用于传播独立诉求。"
+            },
+            {
+              "source": "source/book/korea/korea-much-shanghai",
+              "locator": "展览第二部，上海临时政府成立、合并及上海版《独立新闻》",
+              "supports": "上海临时政府于 1919 年 4 月成立，同年 9 月形成统一的临时政府。"
+            }
+          ],
+          "limit": "不据馆藏或展陈估计跨地区示威总人数，也不以临时政府的成立取代其他组织的历史。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-03",
+      "scope": "1945 年受降分区、1948 年政权形成与 1953 年停战线",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1945 年受降分区、1948 年政权形成与 1953 年停战线",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/korea/korea-much-votes",
+              "locator": "展览第一部分建国与分区、第二部分公民抗争及第三部分直选",
+              "supports": "光复之后美苏分区，1987 年抗争、6 月 29 日宣布接受直选修宪、随后公投及直选。"
+            },
+            {
+              "source": "source/book/korea/korea-nara-refugees",
+              "locator": "开头受降分区与开城段、随文档案影像",
+              "supports": "1945 年以三八线划分占领区，开城后来因停战而易手，影像见证战争造成的迁离。"
+            },
+            {
+              "source": "source/book/korea/korea-nara-armistice",
+              "locator": "档案题注和引言、协定第一条及平民返乡规定",
+              "supports": "1948 年两个政权、1950 年战争爆发、1953 年停战及军事分界线和非军事区。"
+            }
+          ],
+          "limit": "条约管军事停战，难民影像与个案不足以统计全半岛损毁和离散家庭总数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读档案馆影像解说的开城例证与协定第一条附图规定，复核受降线和停战线的差别。"
+      }
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-05",
+      "scope": "光州运动与六月抗争后恢复直选的步骤",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "光州运动与六月抗争后恢复直选的步骤",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/korea/korea-unesco-gwangju",
+              "locator": "题名、图片及档案说明",
+              "supports": "光州 1980 年的民主化运动与要求解除紧急状态的集会。"
+            },
+            {
+              "source": "source/book/korea/korea-much-votes",
+              "locator": "展览第一部分建国与分区、第二部分公民抗争及第三部分直选",
+              "supports": "光复之后美苏分区，1987 年抗争、6 月 29 日宣布接受直选修宪、随后公投及直选。"
+            }
+          ],
+          "limit": "撤去未给出口径的示威人数、错置的奥运会时间关系及把制度转型写作一次性完成的说法。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读联合国档案的光州年份及博物馆展览第二、三部分，复核 6 月表态、公投与直选先后。"
+      }
+    },
+    {
+      "id": "relation/book/sui/goguryeo-collapse/world-01",
+      "scope": "隋末至唐立的事件顺序和长安开国的阅读关联",
+      "action": "revise",
+      "status": "checked",
+      "level": 1,
+      "confirmed": true,
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "隋末至唐立的事件顺序和长安开国的阅读关联",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/sui/sui-record-04",
+              "locator": "大业十三年五月、十一月与义宁二年三月",
+              "supports": "李渊由太原入长安并先立杨侑，江都兵变与隋炀帝之死在后。"
+            },
+            {
+              "source": "source/book/sui/sui-tang-columbia",
+              "locator": "基本年表 Sui、Tang 两项",
+              "supports": "618 年为隋唐分期，唐朝的都城包括长安。"
+            }
+          ],
+          "limit": "这里只建立前后文联系，隋末各地政权消长另有时序。"
+        }
+      ]
+    }
+  ]
+}

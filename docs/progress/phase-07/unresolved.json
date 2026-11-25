@@ -59,7 +59,6 @@
     "relation/book/achaemenid/satrap-revolt-and-alexander/world-01",
     "book/aztec",
     "text/book/aztec/title",
-    "text/book/aztec/summary",
     "text/book/aztec/dateLabel",
     "source/book/aztec/source-01",
     "source/book/aztec/source-02",
@@ -73,8 +72,6 @@
     "book-paragraph/aztec/triple-alliance-chinampas/p-02",
     "book-paragraph/aztec/triple-alliance-chinampas/p-03",
     "book-paragraph/aztec/triple-alliance-chinampas/p-04",
-    "book-paragraph/aztec/triple-alliance-chinampas/p-05",
-    "block/aztec/triple-alliance-chinampas/aside-05",
     "book-paragraph/aztec/triple-alliance-chinampas/p-06",
     "scene-ref/aztec/triple-alliance-chinampas/aztec-league",
     "relation/book/aztec/triple-alliance-chinampas/world-01",
@@ -91,10 +88,7 @@
     "book-paragraph/aztec/tribute-grid-pochteca/p-06",
     "relation/book/aztec/tribute-grid-pochteca/world-01",
     "book-chapter/aztec/tenochtitlan-tlatelolco-zenith",
-    "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/title",
-    "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/summary",
     "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/spatialThesis",
-    "book-paragraph/aztec/tenochtitlan-tlatelolco-zenith/p-01",
     "book-paragraph/aztec/tenochtitlan-tlatelolco-zenith/p-02",
     "book-paragraph/aztec/tenochtitlan-tlatelolco-zenith/p-03",
     "block/aztec/tenochtitlan-tlatelolco-zenith/aside-03",
@@ -104,13 +98,9 @@
     "relation/book/aztec/tenochtitlan-tlatelolco-zenith/world-01",
     "book-chapter/aztec/cortes-siege-lake-fall",
     "text/chapter/aztec/cortes-siege-lake-fall/title",
-    "text/chapter/aztec/cortes-siege-lake-fall/summary",
     "text/chapter/aztec/cortes-siege-lake-fall/spatialThesis",
-    "book-paragraph/aztec/cortes-siege-lake-fall/p-01",
-    "book-paragraph/aztec/cortes-siege-lake-fall/p-02",
     "book-paragraph/aztec/cortes-siege-lake-fall/p-03",
     "book-paragraph/aztec/cortes-siege-lake-fall/p-04",
-    "book-paragraph/aztec/cortes-siege-lake-fall/p-05",
     "block/aztec/cortes-siege-lake-fall/aside-05",
     "book-paragraph/aztec/cortes-siege-lake-fall/p-06",
     "relation/book/aztec/cortes-siege-lake-fall/reading-01",
@@ -353,8 +343,6 @@
     "text/chapter/central-eastern-europe/commonwealth-and-habsburg-bulwark/summary",
     "text/chapter/central-eastern-europe/commonwealth-and-habsburg-bulwark/spatialThesis",
     "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-01",
-    "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-02",
-    "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-03",
     "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-04",
     "block/central-eastern-europe/commonwealth-and-habsburg-bulwark/aside-04",
     "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-05",
@@ -365,12 +353,8 @@
     "text/chapter/central-eastern-europe/austria-hungary-and-balkan-powder-keg/summary",
     "text/chapter/central-eastern-europe/austria-hungary-and-balkan-powder-keg/spatialThesis",
     "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-01",
-    "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-02",
-    "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-03",
     "block/central-eastern-europe/austria-hungary-and-balkan-powder-keg/aside-03",
     "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-04",
-    "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-05",
-    "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-06",
     "relation/book/central-eastern-europe/austria-hungary-and-balkan-powder-keg/world-01",
     "book-chapter/central-eastern-europe/interwar-iron-curtain-to-european-integration",
     "text/chapter/central-eastern-europe/interwar-iron-curtain-to-european-integration/title",
@@ -569,12 +553,9 @@
     "relation/book/germany-hre/otto-hre-empire/world-01",
     "book-chapter/germany-hre/reformation-prussia-rise",
     "text/chapter/germany-hre/reformation-prussia-rise/title",
-    "text/chapter/germany-hre/reformation-prussia-rise/summary",
     "text/chapter/germany-hre/reformation-prussia-rise/spatialThesis",
     "book-paragraph/germany-hre/reformation-prussia-rise/p-01",
-    "book-paragraph/germany-hre/reformation-prussia-rise/p-02",
     "book-paragraph/germany-hre/reformation-prussia-rise/p-03",
-    "block/germany-hre/reformation-prussia-rise/aside-03",
     "book-paragraph/germany-hre/reformation-prussia-rise/p-04",
     "book-paragraph/germany-hre/reformation-prussia-rise/p-05",
     "book-paragraph/germany-hre/reformation-prussia-rise/p-06",
@@ -588,8 +569,6 @@
     "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-03",
     "block/germany-hre/bismarck-reich-catastrophe/aside-03",
     "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-04",
-    "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-05",
-    "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-06",
     "scene-ref/germany-hre/bismarck-reich-catastrophe/germany-central-europe",
     "relation/book/germany-hre/bismarck-reich-catastrophe/world-01",
     "book-chapter/germany-hre/cold-war-eu-germany",
@@ -598,10 +577,8 @@
     "text/chapter/germany-hre/cold-war-eu-germany/spatialThesis",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-01",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-02",
-    "book-paragraph/germany-hre/cold-war-eu-germany/p-03",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-04",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-05",
-    "block/germany-hre/cold-war-eu-germany/aside-05",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-06",
     "relation/book/germany-hre/cold-war-eu-germany/world-01",
     "book/greece-macedon",
@@ -740,7 +717,6 @@
     "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-03",
     "block/inca/pachacuti-cusco-tawantinsuyu/aside-03",
     "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-04",
-    "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-05",
     "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-06",
     "relation/book/inca/pachacuti-cusco-tawantinsuyu/world-01",
     "book-chapter/inca/qhapaq-nan-quipu-mita",
@@ -749,18 +725,13 @@
     "text/chapter/inca/qhapaq-nan-quipu-mita/spatialThesis",
     "book-paragraph/inca/qhapaq-nan-quipu-mita/p-01",
     "book-paragraph/inca/qhapaq-nan-quipu-mita/p-02",
-    "book-paragraph/inca/qhapaq-nan-quipu-mita/p-03",
-    "block/inca/qhapaq-nan-quipu-mita/aside-03",
     "book-paragraph/inca/qhapaq-nan-quipu-mita/p-04",
     "book-paragraph/inca/qhapaq-nan-quipu-mita/p-05",
-    "book-paragraph/inca/qhapaq-nan-quipu-mita/p-06",
     "relation/book/inca/qhapaq-nan-quipu-mita/reading-01",
-    "relation/book/inca/qhapaq-nan-quipu-mita/world-01",
     "book-chapter/inca/huayna-capac-two-capitals",
     "text/chapter/inca/huayna-capac-two-capitals/title",
     "text/chapter/inca/huayna-capac-two-capitals/summary",
     "text/chapter/inca/huayna-capac-two-capitals/spatialThesis",
-    "book-paragraph/inca/huayna-capac-two-capitals/p-01",
     "book-paragraph/inca/huayna-capac-two-capitals/p-02",
     "book-paragraph/inca/huayna-capac-two-capitals/p-03",
     "block/inca/huayna-capac-two-capitals/aside-03",
@@ -773,11 +744,8 @@
     "text/chapter/inca/cajamarca-ambush-collapse/summary",
     "text/chapter/inca/cajamarca-ambush-collapse/spatialThesis",
     "book-paragraph/inca/cajamarca-ambush-collapse/p-01",
-    "book-paragraph/inca/cajamarca-ambush-collapse/p-02",
     "book-paragraph/inca/cajamarca-ambush-collapse/p-03",
     "book-paragraph/inca/cajamarca-ambush-collapse/p-04",
-    "book-paragraph/inca/cajamarca-ambush-collapse/p-05",
-    "block/inca/cajamarca-ambush-collapse/aside-05",
     "book-paragraph/inca/cajamarca-ambush-collapse/p-06",
     "scene-ref/inca/cajamarca-ambush-collapse/inca-cajamarca",
     "relation/book/inca/cajamarca-ambush-collapse/world-01",
@@ -985,9 +953,7 @@
     "text/chapter/korea/three-kingdoms-silla/spatialThesis",
     "book-paragraph/korea/three-kingdoms-silla/p-01",
     "book-paragraph/korea/three-kingdoms-silla/p-02",
-    "book-paragraph/korea/three-kingdoms-silla/p-03",
     "book-paragraph/korea/three-kingdoms-silla/p-04",
-    "book-paragraph/korea/three-kingdoms-silla/p-05",
     "block/korea/three-kingdoms-silla/aside-05",
     "book-paragraph/korea/three-kingdoms-silla/p-06",
     "relation/book/korea/three-kingdoms-silla/world-01",
@@ -1020,11 +986,8 @@
     "text/chapter/korea/colonial-division-han-miracle/summary",
     "text/chapter/korea/colonial-division-han-miracle/spatialThesis",
     "book-paragraph/korea/colonial-division-han-miracle/p-01",
-    "book-paragraph/korea/colonial-division-han-miracle/p-02",
-    "book-paragraph/korea/colonial-division-han-miracle/p-03",
     "book-paragraph/korea/colonial-division-han-miracle/p-04",
     "block/korea/colonial-division-han-miracle/aside-04",
-    "book-paragraph/korea/colonial-division-han-miracle/p-05",
     "book-paragraph/korea/colonial-division-han-miracle/p-06",
     "relation/book/korea/colonial-division-han-miracle/world-01",
     "book/latin-america",
@@ -1036,14 +999,12 @@
     "source/book/latin-america/source-04",
     "book-chapter/latin-america/andes-liberation-empire",
     "text/chapter/latin-america/andes-liberation-empire/title",
-    "text/chapter/latin-america/andes-liberation-empire/summary",
     "text/chapter/latin-america/andes-liberation-empire/spatialThesis",
     "book-paragraph/latin-america/andes-liberation-empire/p-01",
     "book-paragraph/latin-america/andes-liberation-empire/p-02",
     "book-paragraph/latin-america/andes-liberation-empire/p-03",
     "block/latin-america/andes-liberation-empire/aside-03",
     "book-paragraph/latin-america/andes-liberation-empire/p-04",
-    "book-paragraph/latin-america/andes-liberation-empire/p-05",
     "book-paragraph/latin-america/andes-liberation-empire/p-06",
     "relation/book/latin-america/andes-liberation-empire/world-01",
     "book-chapter/latin-america/caudillos-silver-export-boom",
@@ -1056,18 +1017,14 @@
     "block/latin-america/caudillos-silver-export-boom/aside-03",
     "book-paragraph/latin-america/caudillos-silver-export-boom/p-04",
     "book-paragraph/latin-america/caudillos-silver-export-boom/p-05",
-    "book-paragraph/latin-america/caudillos-silver-export-boom/p-06",
     "relation/book/latin-america/caudillos-silver-export-boom/world-01",
     "book-chapter/latin-america/revolution-isi-cold-war",
     "text/chapter/latin-america/revolution-isi-cold-war/title",
-    "text/chapter/latin-america/revolution-isi-cold-war/summary",
     "text/chapter/latin-america/revolution-isi-cold-war/spatialThesis",
     "book-paragraph/latin-america/revolution-isi-cold-war/p-01",
     "book-paragraph/latin-america/revolution-isi-cold-war/p-02",
     "book-paragraph/latin-america/revolution-isi-cold-war/p-03",
-    "book-paragraph/latin-america/revolution-isi-cold-war/p-04",
     "block/latin-america/revolution-isi-cold-war/aside-04",
-    "book-paragraph/latin-america/revolution-isi-cold-war/p-05",
     "book-paragraph/latin-america/revolution-isi-cold-war/p-06",
     "relation/book/latin-america/revolution-isi-cold-war/world-01",
     "book-chapter/latin-america/debt-democratization-global-south",
@@ -1075,9 +1032,7 @@
     "text/chapter/latin-america/debt-democratization-global-south/summary",
     "text/chapter/latin-america/debt-democratization-global-south/spatialThesis",
     "book-paragraph/latin-america/debt-democratization-global-south/p-01",
-    "book-paragraph/latin-america/debt-democratization-global-south/p-02",
     "book-paragraph/latin-america/debt-democratization-global-south/p-03",
-    "book-paragraph/latin-america/debt-democratization-global-south/p-04",
     "block/latin-america/debt-democratization-global-south/aside-04",
     "book-paragraph/latin-america/debt-democratization-global-south/p-05",
     "book-paragraph/latin-america/debt-democratization-global-south/p-06",
@@ -2596,36 +2551,21 @@
     "book-paragraph/sui/kaihuang-unification/p-02",
     "book-paragraph/sui/kaihuang-unification/p-03",
     "book-paragraph/sui/kaihuang-unification/p-04",
-    "book-paragraph/sui/kaihuang-unification/p-05",
-    "block/sui/kaihuang-unification/aside-05",
     "book-paragraph/sui/kaihuang-unification/p-06",
     "relation/book/sui/kaihuang-unification/world-01",
     "book-chapter/sui/grand-canal-luoyang",
     "text/chapter/sui/grand-canal-luoyang/title",
-    "text/chapter/sui/grand-canal-luoyang/summary",
     "text/chapter/sui/grand-canal-luoyang/spatialThesis",
-    "book-paragraph/sui/grand-canal-luoyang/p-01",
     "book-paragraph/sui/grand-canal-luoyang/p-02",
-    "book-paragraph/sui/grand-canal-luoyang/p-03",
-    "block/sui/grand-canal-luoyang/aside-03",
     "book-paragraph/sui/grand-canal-luoyang/p-04",
     "book-paragraph/sui/grand-canal-luoyang/p-05",
-    "book-paragraph/sui/grand-canal-luoyang/p-06",
     "scene-ref/sui/grand-canal-luoyang/sui-grand-canal",
     "relation/book/sui/grand-canal-luoyang/world-01",
     "book-chapter/sui/goguryeo-collapse",
     "text/chapter/sui/goguryeo-collapse/title",
-    "text/chapter/sui/goguryeo-collapse/summary",
-    "text/chapter/sui/goguryeo-collapse/spatialThesis",
-    "book-paragraph/sui/goguryeo-collapse/p-01",
-    "book-paragraph/sui/goguryeo-collapse/p-02",
-    "book-paragraph/sui/goguryeo-collapse/p-03",
-    "book-paragraph/sui/goguryeo-collapse/p-04",
-    "block/sui/goguryeo-collapse/aside-04",
     "book-paragraph/sui/goguryeo-collapse/p-05",
     "book-paragraph/sui/goguryeo-collapse/p-06",
     "relation/book/sui/goguryeo-collapse/reading-01",
-    "relation/book/sui/goguryeo-collapse/world-01",
     "book/tang",
     "text/book/tang/title",
     "text/book/tang/summary",
@@ -3864,9 +3804,7 @@
     "text/topic/latin-america/independences/title",
     "text/topic/latin-america/independences/summary",
     "block/topic/latin-america/independences/section-01",
-    "block/topic/latin-america/independences/section-02",
     "block/topic/latin-america/independences/section-03",
-    "block/topic/latin-america/independences/section-04",
     "block/topic/latin-america/independences/section-05",
     "source/topic/latin-america/independences/source-01",
     "source/topic/latin-america/independences/source-02",
@@ -3874,12 +3812,6 @@
     "relation/topic/latin-america/independences/topic-link-02",
     "article/latin-america/brazil",
     "text/topic/latin-america/brazil/title",
-    "text/topic/latin-america/brazil/summary",
-    "block/topic/latin-america/brazil/section-01",
-    "block/topic/latin-america/brazil/section-02",
-    "block/topic/latin-america/brazil/section-03",
-    "block/topic/latin-america/brazil/section-04",
-    "block/topic/latin-america/brazil/section-05",
     "source/topic/latin-america/brazil/source-01",
     "source/topic/latin-america/brazil/source-02",
     "relation/topic/latin-america/brazil/topic-link-01",
@@ -3889,7 +3821,6 @@
     "text/topic/latin-america/resources-democracy/summary",
     "block/topic/latin-america/resources-democracy/section-01",
     "block/topic/latin-america/resources-democracy/section-02",
-    "block/topic/latin-america/resources-democracy/section-03",
     "block/topic/latin-america/resources-democracy/section-04",
     "block/topic/latin-america/resources-democracy/section-05",
     "source/topic/latin-america/resources-democracy/source-01",
@@ -5670,6 +5601,351 @@
       "id": "book-paragraph/roc/war-resistance/p-03",
       "claim": "宜昌撤运的时间、参加机构、分段水路及原因",
       "limit": "各档案对待运者、实际运送人员及物资的统计范围不同，删除未区分统计口径的合计数字。"
+    },
+    {
+      "id": "book-paragraph/sui/kaihuang-unification/p-05",
+      "claim": "开皇户籍核查、分户和输籍的记载范围",
+      "limit": "正史所载登记增量并非现代人口统计，撤去未经交代的全国人口对比及减税归因。"
+    },
+    {
+      "id": "block/sui/kaihuang-unification/aside-05",
+      "claim": "区分开皇漕仓与炀帝新置两仓",
+      "limit": "撤去无法独立支持的实际库存、全国可供年数及后续动机。"
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-01",
+      "claim": "东都营建的年代、主持者与迁徙",
+      "limit": "精确工期、迁入户数及皇帝个人动机本段不作判定，进士科首创说另待查证。"
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-03",
+      "claim": "通济渠所接水系与运河路网的后续演变",
+      "limit": "按时期列证据，撤去把后世路网长度直接归给隋朝及把诸渠都说成从头开挖。"
+    },
+    {
+      "id": "block/sui/grand-canal-luoyang/aside-03",
+      "claim": "区分通济渠征役与营建东都的伤亡记载",
+      "limit": "官修史中的役额、筑城死亡描述与通济渠实际人数和死亡比例须分别评估。"
+    },
+    {
+      "id": "book-paragraph/sui/grand-canal-luoyang/p-06",
+      "claim": "并行征役、材料转运及从军家庭补助",
+      "limit": "保留工程负担与军役相叠的证据，撤去给所有工程统一分配的百万工口径。"
+    },
+    {
+      "id": "text/chapter/sui/grand-canal-luoyang/summary",
+      "claim": "东都和运河的营建时间、漕运联系与历代沿革",
+      "limit": "撤去争议首创说和未经区分的历代里程、役额。"
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-01",
+      "claim": "隋与高句丽往来以及大业八年动员数字的口径",
+      "limit": "史书所列员额和号称人数均没有现代独立统计的含义，撤去持续拒贡与暗通的单线叙述。"
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-02",
+      "claim": "萨水兵败、班师及部队统计范围",
+      "limit": "相邻段落同步撤去将一支部队的数字推广为全部精锐生还人数的表述。"
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-03",
+      "claim": "第二、第三次东征及黎阳起兵的顺序",
+      "limit": "两次退兵的情形不同，撤去误写的公历年份及脱离史料的动机判断。"
+    },
+    {
+      "id": "book-paragraph/sui/goguryeo-collapse/p-04",
+      "claim": "617 年不同地区起事及仓储节点易手",
+      "limit": "撤去以一首歌解释全国起事及未经证实的就食总人数。"
+    },
+    {
+      "id": "block/sui/goguryeo-collapse/aside-04",
+      "claim": "兴洛仓的建立、易手与开仓",
+      "limit": "仓储节点的变动不足以判定整个国库状态或任何单一亡国原因。"
+    },
+    {
+      "id": "text/chapter/sui/goguryeo-collapse/summary",
+      "claim": "三次东征、不同阶段的国内动荡与 618 年政权转变",
+      "limit": "撤去把三次战争都套入同一兵力及以单一原因解释隋亡的说法。"
+    },
+    {
+      "id": "text/chapter/sui/goguryeo-collapse/spatialThesis",
+      "claim": "北方集结、辽东战事与后方储运节点",
+      "limit": "用于解释后方动员和仓储地理，撤去精确人员规模及唯一因果解释。"
+    },
+    {
+      "id": "book-paragraph/korea/three-kingdoms-silla/p-03",
+      "claim": "唐、新罗联盟与百济、高句丽相继败亡",
+      "limit": "撤去无可核口径的兵数、建盟个人归因及并入同一年叙述的后续海战。"
+    },
+    {
+      "id": "book-paragraph/korea/three-kingdoms-silla/p-05",
+      "claim": "新罗庆州的石窟庵与佛国寺及其建筑位置",
+      "limit": "遗址说明可核实建筑与年代，原庆州人口估计及海路控制范围无对应证据，撤出正文。"
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-02",
+      "claim": "三一运动日期、独立象征与上海临时政府的形成",
+      "limit": "不据馆藏或展陈估计跨地区示威总人数，也不以临时政府的成立取代其他组织的历史。"
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-03",
+      "claim": "1945 年受降分区、1948 年政权形成与 1953 年停战线",
+      "limit": "条约管军事停战，难民影像与个案不足以统计全半岛损毁和离散家庭总数。"
+    },
+    {
+      "id": "book-paragraph/korea/colonial-division-han-miracle/p-05",
+      "claim": "光州运动与六月抗争后恢复直选的步骤",
+      "limit": "撤去未给出口径的示威人数、错置的奥运会时间关系及把制度转型写作一次性完成的说法。"
+    },
+    {
+      "id": "relation/book/sui/goguryeo-collapse/world-01",
+      "claim": "隋末至唐立的事件顺序和长安开国的阅读关联",
+      "limit": "这里只建立前后文联系，隋末各地政权消长另有时序。"
+    },
+    {
+      "id": "book-paragraph/aztec/triple-alliance-chinampas/p-05",
+      "claim": "奇南帕在特诺奇蒂特兰西南区的考古构造",
+      "limit": "按发掘地点限定所述构造，撤去易被读作漂浮农田的说法。"
+    },
+    {
+      "id": "block/aztec/triple-alliance-chinampas/aside-05",
+      "claim": "抢救发掘中田块与渠沟的功能解释",
+      "limit": "原长堤的确切长度、用工人数和固定亩产信息暂无足够证据，改用有出土地点的记录。"
+    },
+    {
+      "id": "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/title",
+      "claim": "章节标题按湖心城市与商业主题表述",
+      "limit": "去除把学术估计固定为精确城市人口的标题。"
+    },
+    {
+      "id": "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/summary",
+      "claim": "首都的湖区区位、湖陆交通与市场",
+      "limit": "暂不在概述中采用精确人口和每日交易人数。"
+    },
+    {
+      "id": "book-paragraph/aztec/tenochtitlan-tlatelolco-zenith/p-01",
+      "claim": "城市人口估算的限定及湖陆交通形态",
+      "limit": "估计对应 1521 年前后，撤去把它当作 1502 年普查数字及与多城的无口径比较。"
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-01",
+      "claim": "1519 年海岸接触及马林钦在同盟协商中的作用",
+      "limit": "撤去未经释明的装备细数，图像由后来寻求王室承认的盟友制作，需结合其立场阅读。"
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-02",
+      "claim": "特拉斯卡拉内部意见及不断变化的当地同盟",
+      "limit": "特拉斯卡拉文献的请愿目的和 1521 年的参战口径不能用来推定 1519 年所有参战者的动机和人数。"
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-05",
+      "claim": "天花的见证、首领更替及围城期间的民生压力",
+      "limit": "该页可证疫病记忆，不能从中锁定首名传入者、确定病例数量或推定疫情足以决定战争结果。"
+    },
+    {
+      "id": "text/chapter/aztec/cortes-siege-lake-fall/summary",
+      "claim": "围城的参与者、事件次序与平民处境",
+      "limit": "去除无对应统计口径的盟军人数，区分前一年疫情与本年围城。"
+    },
+    {
+      "id": "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-05",
+      "claim": "印加国家的迁徙政策与亚纳维尔卡个案",
+      "limit": "遗址识别与地方自主程度是基于考古的解释，撤去帕查库蒂每次征伐都遵循同一程序及神像人质概括。"
+    },
+    {
+      "id": "book-paragraph/inca/qhapaq-nan-quipu-mita/p-03",
+      "claim": "查斯基接力、站点与传递的信息类型",
+      "limit": "同时移除正文与札记旁没有地点依据的固定间距和传讯速度。"
+    },
+    {
+      "id": "block/inca/qhapaq-nan-quipu-mita/aside-03",
+      "claim": "馆藏实物与奇普已知的计量用途",
+      "limit": "证据不能支持全帝国统一的颜色对照表及账目覆盖人口数。"
+    },
+    {
+      "id": "book-paragraph/inca/qhapaq-nan-quipu-mita/p-06",
+      "claim": "道路边仓储、保存和跨区域调配的证据",
+      "limit": "移除无直接证据支持的逐次赈济流程、必然保障和精确人口规模。"
+    },
+    {
+      "id": "book-paragraph/inca/huayna-capac-two-capitals/p-01",
+      "claim": "北部扩展与建设托梅班巴据点",
+      "limit": "展陈可支持帕斯托边缘和托梅班巴，暂不据此确定某场战役的兵力、年数或帝国人口。"
+    },
+    {
+      "id": "book-paragraph/inca/cajamarca-ambush-collapse/p-02",
+      "claim": "兄弟内战、阿塔瓦尔帕占上风与远征者抵达的时序",
+      "limit": "撤出尚缺独立核查的具体战役与王室死亡清单，政权更替和各地选择不能化为同一种动机。"
+    },
+    {
+      "id": "book-paragraph/inca/cajamarca-ambush-collapse/p-05",
+      "claim": "卡哈马卡被俘、赎金和遇害的先后",
+      "limit": "不同叙事里的具体死伤、当事人言行与抓捕细节须另行核查，扣押本身不足以说明各地立即归顺。"
+    },
+    {
+      "id": "block/inca/cajamarca-ambush-collapse/aside-05",
+      "claim": "赎金叙述与兑现后处决",
+      "limit": "在未独立对勘分赃账目之前，撤去精确数量、熔炉数与特定器物清单。"
+    },
+    {
+      "id": "text/book/aztec/summary",
+      "claim": "湖上都城、同盟与征服的参与者和时段",
+      "limit": "删除以单一外来领袖解释征服、未经交代的总人口及把疫病写作武器的表述。"
+    },
+    {
+      "id": "relation/book/inca/qhapaq-nan-quipu-mita/world-01",
+      "claim": "印加奇普与明代黄册的行政记录用途比较",
+      "limit": "两地的记载对象、媒介与制度各有史料，不据比较推定直接往来、相同组织结构或两地人口总数。"
+    },
+    {
+      "id": "text/topic/latin-america/brazil/summary",
+      "claim": "巴西奴役史专题的码头、社群抵抗及法律阶段",
+      "limit": "摘要限定为可核实的案例，支持专题题旨。"
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-01",
+      "claim": "19 世纪被迫跨洋迁移与咖啡产区的国内交易",
+      "limit": "本节限于能证实的时期、码头和咖啡产区，糖业、采矿和全国人口构成另待按地区核对。"
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-02",
+      "claim": "瓦隆古与皇后码头的地层区别、地点和纪念功能",
+      "limit": "按世遗材料限定到里约遗址和相应地层，港口估计不能换算为全国人口。"
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-03",
+      "claim": "区分限制贩运、渐进解放与全国废奴，并记录抵抗",
+      "limit": "马诺埃尔·孔戈个案说明具体行动，无法据此判定一件事直接促成 1888 年立法。"
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-04",
+      "claim": "《黄金法》法律效力与文本未规定的社会安排",
+      "limit": "两条法律及档案馆研究可支持本节范围，实际生活变化仍须看地区材料。"
+    },
+    {
+      "id": "block/topic/latin-america/brazil/section-05",
+      "claim": "巴伊亚圆圈桑巴的社群传承与登记参与",
+      "limit": "以登记材料中的地方实践为例，不把巴西各地、各非洲裔社群的经验混为一体。"
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-02",
+      "claim": "海地宣布独立及宣言副本的档案流转",
+      "limit": "宣言可以确认参与签署者与政治主张，普通参战者、法国后续政策和赔款另需材料。"
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-04",
+      "claim": "两地的独立文献、地方战争与可比较的范围",
+      "limit": "并置提供阅读线索，不从两份材料推定巴西受到海地的直接影响或所有革命共享同一进程。"
+    },
+    {
+      "id": "book-paragraph/latin-america/andes-liberation-empire/p-05",
+      "claim": "巴西独立宣告与巴伊亚实际战争时序",
+      "limit": "撤去无战争的全国概括和未经定位的对白。"
+    },
+    {
+      "id": "text/chapter/latin-america/andes-liberation-empire/summary",
+      "claim": "独立章节摘要区分巴西宣告与地方后续战事",
+      "limit": "概述中移除了巴西和平独立和地形决定西属美洲分裂的断言。"
+    },
+    {
+      "id": "book-paragraph/latin-america/caudillos-silver-export-boom/p-06",
+      "claim": "巴西《黄金法》及其前置阶段和条文边界",
+      "limit": "相邻正文同步移除对整个西半球的排名及把巴西建立共和国归于单一群体反应的说法。"
+    },
+    {
+      "id": "block/topic/latin-america/resources-democracy/section-03",
+      "claim": "政变日期、军政府及经记录的系统性侵害",
+      "limit": "日期、政权性质、行为和受害类别分别有材料定位，本节不估计统一受害人数。"
+    },
+    {
+      "id": "book-paragraph/latin-america/debt-democratization-global-south/p-02",
+      "claim": "智利公投、选举和政权交接的事件区别",
+      "limit": "纠正把军政府终止日期提前到公投，移除从单一经济因素推出全区同步转型的解释。"
+    },
+    {
+      "id": "book-paragraph/latin-america/revolution-isi-cold-war/p-04",
+      "claim": "巴西利亚建城年代、内陆迁都与现代主义规划",
+      "limit": "撤出未注明都市区口径的三市过千万说法，迁都也不足以证明全国经济重心已经转移。"
+    },
+    {
+      "id": "book-paragraph/latin-america/revolution-isi-cold-war/p-05",
+      "claim": "智利政变的施事者、制度变化与可核的侵犯类型",
+      "limit": "撤出把不同国家政变都归于同一短期因果链的表述，本段集中于有档案支持的智利例证。"
+    },
+    {
+      "id": "text/chapter/latin-america/revolution-isi-cold-war/summary",
+      "claim": "概览区分工业化、巴西迁都与智利政变两个历史层面",
+      "limit": "不直接把工业化当作所有城市跃升相同人口规模的原因，也不从冷战镇压推出文学生成。"
+    },
+    {
+      "id": "book-paragraph/latin-america/debt-democratization-global-south/p-04",
+      "claim": "大宗商品周期与各经济体之间的差异",
+      "limit": "去除原文关于空前价格、统一财政盈余与数千万进入中产的因果和总量断言。"
+    },
+    {
+      "id": "book-paragraph/germany-hre/reformation-prussia-rise/p-02",
+      "claim": "1525 年施瓦本农民诉求及 1555 年和约的保障范围",
+      "limit": "区分 1524 年开始的冲突与 1525 年成文条款，废除人身依附与限制劳役分别记载。"
+    },
+    {
+      "id": "block/germany-hre/reformation-prussia-rise/aside-03",
+      "claim": "1648 年和约中的宗教保护和帝国内部权利",
+      "limit": "原称使节人数与谈判动机无本文支持，条文也不能直接证明普遍的国家主权平等与互不干涉。"
+    },
+    {
+      "id": "text/chapter/germany-hre/reformation-prussia-rise/summary",
+      "claim": "章节摘要区分两个和约的时点和制度范围",
+      "limit": "将现代主权起源的断言改为条约可定位的内容。"
+    },
+    {
+      "id": "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-05",
+      "claim": "战时食物短缺、战后通胀和后来大萧条的时段分别列证",
+      "limit": "移除把饥荒归于海上封锁或把民主失势归于单一群体反应的解释，撤去未注明统计时点的失业人数。"
+    },
+    {
+      "id": "book-paragraph/germany-hre/bismarck-reich-catastrophe/p-06",
+      "claim": "总理任命、夺取立法权与纳粹大屠杀的行为和对象",
+      "limit": "不同群体受害范围分别记录，六百万指被杀害的犹太人，撤去易北河会师月份及将杀害方式简化成一种的叙述。"
+    },
+    {
+      "id": "book-paragraph/germany-hre/cold-war-eu-germany/p-03",
+      "claim": "先设障碍后筑墙与勃兰特纪念的具体对象",
+      "limit": "移除在同一夜修完墙体的错误，撤出未区分人群和年份的外流人数以及对勃兰特动机、邻国反应的判断。"
+    },
+    {
+      "id": "block/germany-hre/cold-war-eu-germany/aside-05",
+      "claim": "记者会与口岸通行的顺序",
+      "limit": "档案和照片可核对通行，不能支持墙体一夜拆除、是个别官员单独决定或精确的人群人数。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-02",
+      "claim": "波希米亚等级起事、白山战役的协力者和区域后果",
+      "limit": "避免把维也纳类比为宗教文明的绝对界线，战役也不足以证明哈布斯堡随即整合所有中欧领地。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/commonwealth-and-habsburg-bulwark/p-03",
+      "claim": "卢布林联合法案与华沙联盟的年代、参与者和性质",
+      "limit": "未把贵族协议推广成现代普遍权利，也未采用未指明时期的领土面积或迁入人口。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-02",
+      "claim": "1867 年折中的制度结构与共同事务",
+      "limit": "区分共同财务和两半各自的政府，将决策动机限于制度变动可见部分。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-03",
+      "claim": "共同贸易安排与波希米亚自治的具体对照",
+      "limit": "撤去无断面年份的人口及把各地经济和政治经验概括为共同文化黄金期的说法。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-05",
+      "claim": "萨拉热窝遇刺、奥匈宣战和各国决定的先后",
+      "limit": "撤去把同盟称作自动生效的解释，也不把战争死亡人数并入刺杀事件的段落。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-06",
+      "claim": "1918 年地方权力变化及卡尔一世的声明",
+      "limit": "撤去各地区统一宣布独立、整个解体过程均和平及未经界定的军队语言数字。"
     },
     {
       "id": "map/country/IN/india-classical-modern/1947",

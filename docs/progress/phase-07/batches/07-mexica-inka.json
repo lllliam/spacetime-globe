@@ -1,0 +1,647 @@
+{
+  "id": "07-mexica-inka",
+  "access": [
+    {
+      "url": "https://www.metmuseum.org/essays/tenochtitlan",
+      "material": "大都会艺术博物馆：特诺奇蒂特兰",
+      "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://arqueologia.inah.gob.mx/publico/especifico.php?id=NDc%3D",
+      "material": "墨西哥国立人类学与历史研究所：西南城区奇南帕发掘",
+      "locator": "2015 年抢救发掘报告的台地、渠沟与植物材料段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://collections.lib.utexas.edu/exhibits/a-new-spain/invasion-of-mexico",
+      "material": "得州大学奥斯汀分校本森拉美馆藏：墨西哥征服",
+      "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://mexicograndezaydiversidad.inah.gob.mx/images/fasciculos/MexicoGrandezaDiversidad_F-07.pdf",
+      "material": "墨西哥国立人类学与历史研究所：1519—1521 年的同盟与征服",
+      "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://florentinecodex.getty.edu/en/book/12/folio/53r?nhTexts=0",
+      "material": "盖蒂研究所：《佛罗伦萨手抄本》卷 12，第 53 叶正面",
+      "locator": "卷 12 第 29 章，西班牙文抄录及 Lockhart 英译",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://inah.gob.mx/zonas/zona-arqueologica-tlatelolco",
+      "material": "墨西哥国立人类学与历史研究所：特拉特洛尔科遗址",
+      "locator": "遗址网页打开返回 403，佐证改用该机构的第 7 分册",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/cusco/empire-builders.html",
+      "material": "史密森尼国家美洲印第安人博物馆：印加的三位扩张者",
+      "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/making-space-under-the-inca-a-space-syntax-analysis-of-a-mitmaq-settlement-in-vilcas-huaman-province-peru/CBAABD3E9FB84194254E0879ACD54FD1/share/d54af23b26f3a5ac2a0dc5d7eccf0bb7698d171e",
+      "material": "David Hu：亚纳维尔卡印加迁徙聚落考古",
+      "locator": "迁徙聚落考古、Yanawilka 地点与 Discussion",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/inkaroadexpansion/road-administration.html",
+      "material": "史密森尼国家美洲印第安人博物馆：道路的行政用途",
+      "locator": "A Road for Administration，信使和奇普两小节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://americanindian.si.edu/exhibitions/infinityofnations/andes/143866.html",
+      "material": "史密森尼国家美洲印第安人博物馆：伊卡馆藏奇普 14/3866",
+      "locator": "展件 14/3866 及 About This Object",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://americanindian.si.edu/nk360/inka-water/preservation/preservation",
+      "material": "史密森尼国家美洲印第安人博物馆：保存与仓储",
+      "locator": "Colcas、Colca Center 和 Airflow 小节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://dfz.nanjing.gov.cn/ztzl/gcjy/202008/t20200824_2378510.html",
+      "material": "南京市方志馆：《后湖志》馆藏介绍",
+      "locator": "《后湖志》条：明代赋役黄册文件、收交和保管制度",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html",
+      "material": "史密森尼国家美洲印第安人博物馆：征服与道路",
+      "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/90/El%20Cuarto%20del%20Rescate%20de%20Atahualpa%20RAVINES.pdf",
+      "material": "秘鲁文化部馆藏：罗赫尔·拉维内斯《阿塔瓦尔帕的赎金之屋》",
+      "locator": "第 3 页，Cajamarca en 1532",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/aztec/triple-alliance-chinampas/p-05",
+      "scope": "奇南帕在特诺奇蒂特兰西南区的考古构造",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "奇南帕在特诺奇蒂特兰西南区的考古构造",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-inah-chinampas",
+              "locator": "2015 年抢救发掘报告的台地、渠沟与植物材料段",
+              "supports": "出土浅水人工农地及不同规模的渠沟，有利用湖底草炭、石块与树桩的痕迹。"
+            }
+          ],
+          "limit": "按发掘地点限定所述构造，撤去易被读作漂浮农田的说法。"
+        }
+      ]
+    },
+    {
+      "id": "block/aztec/triple-alliance-chinampas/aside-05",
+      "scope": "抢救发掘中田块与渠沟的功能解释",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "抢救发掘中田块与渠沟的功能解释",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-inah-chinampas",
+              "locator": "2015 年抢救发掘报告的台地、渠沟与植物材料段",
+              "supports": "出土浅水人工农地及不同规模的渠沟，有利用湖底草炭、石块与树桩的痕迹。"
+            }
+          ],
+          "limit": "原长堤的确切长度、用工人数和固定亩产信息暂无足够证据，改用有出土地点的记录。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/title",
+      "scope": "章节标题按湖心城市与商业主题表述",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "章节标题按湖心城市与商业主题表述",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/source-02",
+              "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+              "supports": "征服前的城市规模为估计，城内水道与连湖堤道用于人员物资往来，淡水另由水渠供应。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            }
+          ],
+          "limit": "去除把学术估计固定为精确城市人口的标题。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/aztec/tenochtitlan-tlatelolco-zenith/summary",
+      "scope": "首都的湖区区位、湖陆交通与市场",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "首都的湖区区位、湖陆交通与市场",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/source-02",
+              "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+              "supports": "征服前的城市规模为估计，城内水道与连湖堤道用于人员物资往来，淡水另由水渠供应。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            }
+          ],
+          "limit": "暂不在概述中采用精确人口和每日交易人数。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/aztec/tenochtitlan-tlatelolco-zenith/p-01",
+      "scope": "城市人口估算的限定及湖陆交通形态",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "城市人口估算的限定及湖陆交通形态",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/source-02",
+              "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+              "supports": "征服前的城市规模为估计，城内水道与连湖堤道用于人员物资往来，淡水另由水渠供应。"
+            }
+          ],
+          "limit": "估计对应 1521 年前后，撤去把它当作 1502 年普查数字及与多城的无口径比较。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读博物馆正文的人口措辞与城市建设时期，分别核对人口是估计、堤道与运河各有用途。"
+      }
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-01",
+      "scope": "1519 年海岸接触及马林钦在同盟协商中的作用",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1519 年海岸接触及马林钦在同盟协商中的作用",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            },
+            {
+              "source": "source/book/aztec/aztec-benson-invasion",
+              "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+              "supports": "特拉斯卡拉与托托纳克等政治参与者、同盟内部差异及马林钦的翻译作用。"
+            }
+          ],
+          "limit": "撤去未经释明的装备细数，图像由后来寻求王室承认的盟友制作，需结合其立场阅读。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-02",
+      "scope": "特拉斯卡拉内部意见及不断变化的当地同盟",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "特拉斯卡拉内部意见及不断变化的当地同盟",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-benson-invasion",
+              "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+              "supports": "特拉斯卡拉与托托纳克等政治参与者、同盟内部差异及马林钦的翻译作用。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            }
+          ],
+          "limit": "特拉斯卡拉文献的请愿目的和 1521 年的参战口径不能用来推定 1519 年所有参战者的动机和人数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读本森馆藏残页释文、联盟首领段与 INAH 的远征和围城分期，核对交战、结盟及后来的请愿。"
+      }
+    },
+    {
+      "id": "book-paragraph/aztec/cortes-siege-lake-fall/p-05",
+      "scope": "天花的见证、首领更替及围城期间的民生压力",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "天花的见证、首领更替及围城期间的民生压力",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-florentine-53r",
+              "locator": "卷 12 第 29 章，西班牙文抄录及 Lockhart 英译",
+              "supports": "记西班牙人离城后、再围城前发生天花流行，记述患病、死亡和缺少照护。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            }
+          ],
+          "limit": "该页可证疫病记忆，不能从中锁定首名传入者、确定病例数量或推定疫情足以决定战争结果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读手抄本第 29 章的疫病时序和 INAH 对两名统治者的记述。"
+      }
+    },
+    {
+      "id": "text/chapter/aztec/cortes-siege-lake-fall/summary",
+      "scope": "围城的参与者、事件次序与平民处境",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "围城的参与者、事件次序与平民处境",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/aztec-benson-invasion",
+              "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+              "supports": "特拉斯卡拉与托托纳克等政治参与者、同盟内部差异及马林钦的翻译作用。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            },
+            {
+              "source": "source/book/aztec/aztec-florentine-53r",
+              "locator": "卷 12 第 29 章，西班牙文抄录及 Lockhart 英译",
+              "supports": "记西班牙人离城后、再围城前发生天花流行，记述患病、死亡和缺少照护。"
+            }
+          ],
+          "limit": "去除无对应统计口径的盟军人数，区分前一年疫情与本年围城。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/inca/pachacuti-cusco-tawantinsuyu/p-05",
+      "scope": "印加国家的迁徙政策与亚纳维尔卡个案",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "印加国家的迁徙政策与亚纳维尔卡个案",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/source-06",
+              "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+              "supports": "帕查库蒂以库斯科为中心扩张，瓦伊纳·卡帕克时北及帕斯托，建设托梅班巴。"
+            },
+            {
+              "source": "source/book/inca/inca-hu-yanawilka",
+              "locator": "迁徙聚落考古、Yanawilka 地点与 Discussion",
+              "supports": "印加国家以迁徙组织农业与工艺等劳动，亚纳维尔卡的布局显示部分决策可能经地方协商。"
+            }
+          ],
+          "limit": "遗址识别与地方自主程度是基于考古的解释，撤去帕查库蒂每次征伐都遵循同一程序及神像人质概括。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/inca/qhapaq-nan-quipu-mita/p-03",
+      "scope": "查斯基接力、站点与传递的信息类型",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "查斯基接力、站点与传递的信息类型",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-nmai-administration",
+              "locator": "A Road for Administration，信使和奇普两小节",
+              "supports": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+            }
+          ],
+          "limit": "同时移除正文与札记旁没有地点依据的固定间距和传讯速度。"
+        }
+      ]
+    },
+    {
+      "id": "block/inca/qhapaq-nan-quipu-mita/aside-03",
+      "scope": "馆藏实物与奇普已知的计量用途",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "馆藏实物与奇普已知的计量用途",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-nmai-khipu-143866",
+              "locator": "展件 14/3866 及 About This Object",
+              "supports": "记录器由主绳和不同颜色、长度、结法的垂绳构成，可记录赋役等数据信息，其他用途仍在研究。"
+            },
+            {
+              "source": "source/book/inca/inca-nmai-administration",
+              "locator": "A Road for Administration，信使和奇普两小节",
+              "supports": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+            }
+          ],
+          "limit": "证据不能支持全帝国统一的颜色对照表及账目覆盖人口数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读藏品描述和道路管理展陈，逐项对照可见特征、量化用途和未定的非数字信息。"
+      }
+    },
+    {
+      "id": "book-paragraph/inca/qhapaq-nan-quipu-mita/p-06",
+      "scope": "道路边仓储、保存和跨区域调配的证据",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "道路边仓储、保存和跨区域调配的证据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-nmai-colcas",
+              "locator": "Colcas、Colca Center 和 Airflow 小节",
+              "supports": "沿道路的部分行政节点有成组仓库，储藏食物与织物，存粮参与调配。"
+            },
+            {
+              "source": "source/book/inca/inca-nmai-administration",
+              "locator": "A Road for Administration，信使和奇普两小节",
+              "supports": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+            }
+          ],
+          "limit": "移除无直接证据支持的逐次赈济流程、必然保障和精确人口规模。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/inca/huayna-capac-two-capitals/p-01",
+      "scope": "北部扩展与建设托梅班巴据点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "北部扩展与建设托梅班巴据点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/source-06",
+              "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+              "supports": "帕查库蒂以库斯科为中心扩张，瓦伊纳·卡帕克时北及帕斯托，建设托梅班巴。"
+            }
+          ],
+          "limit": "展陈可支持帕斯托边缘和托梅班巴，暂不据此确定某场战役的兵力、年数或帝国人口。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/inca/cajamarca-ambush-collapse/p-02",
+      "scope": "兄弟内战、阿塔瓦尔帕占上风与远征者抵达的时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "兄弟内战、阿塔瓦尔帕占上风与远征者抵达的时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/source-03",
+              "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+              "supports": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+            },
+            {
+              "source": "source/book/inca/inca-peru-rescate",
+              "locator": "第 3 页，Cajamarca en 1532",
+              "supports": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+            }
+          ],
+          "limit": "撤出尚缺独立核查的具体战役与王室死亡清单，政权更替和各地选择不能化为同一种动机。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/inca/cajamarca-ambush-collapse/p-05",
+      "scope": "卡哈马卡被俘、赎金和遇害的先后",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "卡哈马卡被俘、赎金和遇害的先后",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-peru-rescate",
+              "locator": "第 3 页，Cajamarca en 1532",
+              "supports": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+            },
+            {
+              "source": "source/book/inca/source-03",
+              "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+              "supports": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+            }
+          ],
+          "limit": "不同叙事里的具体死伤、当事人言行与抓捕细节须另行核查，扣押本身不足以说明各地立即归顺。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读秘鲁文化部馆藏研究的日、月、地点与史密森尼的赎金和处决段，核对留在主文的事件边界。"
+      }
+    },
+    {
+      "id": "block/inca/cajamarca-ambush-collapse/aside-05",
+      "scope": "赎金叙述与兑现后处决",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "赎金叙述与兑现后处决",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-peru-rescate",
+              "locator": "第 3 页，Cajamarca en 1532",
+              "supports": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+            },
+            {
+              "source": "source/book/inca/source-03",
+              "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+              "supports": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+            }
+          ],
+          "limit": "在未独立对勘分赃账目之前，撤去精确数量、熔炉数与特定器物清单。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/aztec/summary",
+      "scope": "湖上都城、同盟与征服的参与者和时段",
+      "action": "revise",
+      "status": "checked",
+      "level": 1,
+      "confirmed": true,
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "湖上都城、同盟与征服的参与者和时段",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/aztec/source-02",
+              "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+              "supports": "征服前的城市规模为估计，城内水道与连湖堤道用于人员物资往来，淡水另由水渠供应。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-chinampas",
+              "locator": "2015 年抢救发掘报告的台地、渠沟与植物材料段",
+              "supports": "出土浅水人工农地及不同规模的渠沟，有利用湖底草炭、石块与树桩的痕迹。"
+            },
+            {
+              "source": "source/book/aztec/aztec-benson-invasion",
+              "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+              "supports": "特拉斯卡拉与托托纳克等政治参与者、同盟内部差异及马林钦的翻译作用。"
+            },
+            {
+              "source": "source/book/aztec/aztec-inah-conquest",
+              "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+              "supports": "接触与围城时间、天花与人口受损、夸乌特莫克被俘及 1521 年 8 月城破。"
+            }
+          ],
+          "limit": "删除以单一外来领袖解释征服、未经交代的总人口及把疫病写作武器的表述。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/inca/qhapaq-nan-quipu-mita/world-01",
+      "scope": "印加奇普与明代黄册的行政记录用途比较",
+      "action": "revise",
+      "status": "checked",
+      "level": 1,
+      "confirmed": true,
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "印加奇普与明代黄册的行政记录用途比较",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/inca/inca-nmai-khipu-143866",
+              "locator": "展件 14/3866 及 About This Object",
+              "supports": "记录器由主绳和不同颜色、长度、结法的垂绳构成，可记录赋役等数据信息，其他用途仍在研究。"
+            },
+            {
+              "source": "source/book/inca/inca-ming-houhu",
+              "locator": "《后湖志》条：明代赋役黄册文件、收交和保管制度",
+              "supports": "明代有以文书记录、保管、查驳赋役黄册的制度。"
+            }
+          ],
+          "limit": "两地的记载对象、媒介与制度各有史料，不据比较推定直接往来、相同组织结构或两地人口总数。"
+        }
+      ]
+    }
+  ]
+}

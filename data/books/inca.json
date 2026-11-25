@@ -34,6 +34,36 @@
       "title": "史密森尼国家美洲印第安人博物馆：印加的三位扩张者",
       "url": "https://americanindian.si.edu/inkaroad/inkauniverse/cusco/empire-builders.html",
       "id": "source-06"
+    },
+    {
+      "id": "inca-hu-yanawilka",
+      "title": "David Hu：亚纳维尔卡印加迁徙聚落考古",
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/making-space-under-the-inca-a-space-syntax-analysis-of-a-mitmaq-settlement-in-vilcas-huaman-province-peru/CBAABD3E9FB84194254E0879ACD54FD1/share/d54af23b26f3a5ac2a0dc5d7eccf0bb7698d171e"
+    },
+    {
+      "id": "inca-nmai-administration",
+      "title": "史密森尼国家美洲印第安人博物馆：道路的行政用途",
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/inkaroadexpansion/road-administration.html"
+    },
+    {
+      "id": "inca-nmai-khipu-143866",
+      "title": "史密森尼国家美洲印第安人博物馆：伊卡馆藏奇普 14/3866",
+      "url": "https://americanindian.si.edu/exhibitions/infinityofnations/andes/143866.html"
+    },
+    {
+      "id": "inca-nmai-colcas",
+      "title": "史密森尼国家美洲印第安人博物馆：保存与仓储",
+      "url": "https://americanindian.si.edu/nk360/inka-water/preservation/preservation"
+    },
+    {
+      "id": "inca-ming-houhu",
+      "title": "南京市方志馆：《后湖志》馆藏介绍",
+      "url": "https://dfz.nanjing.gov.cn/ztzl/gcjy/202008/t20200824_2378510.html"
+    },
+    {
+      "id": "inca-peru-rescate",
+      "title": "秘鲁文化部馆藏：罗赫尔·拉维内斯《阿塔瓦尔帕的赎金之屋》",
+      "url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/90/El%20Cuarto%20del%20Rescate%20de%20Atahualpa%20RAVINES.pdf"
     }
   ],
   "chapters": [
@@ -86,11 +116,19 @@
           "id": "p-04"
         },
         {
-          "heading": "米蒂马强制移民与礼兵并用的吞并术",
-          "text": "帕查库蒂深知在群山阻隔的安第斯高原，单纯靠屠杀无法换来长治久安。每当印加大军逼近新邦，总会先派出使节送上精美的克丘亚织锦、玉米酒与和平协定，许诺归附贵族保留头衔并送子弟入库斯科受教；唯有冥顽不灵者才会遭到无情征伐，而各地神像则被客气却坚定地“请”入库斯科太阳神庙充当人质。",
+          "heading": "印加扩张中的人口迁移",
+          "text": "库斯科向外扩张后，印加政权将部分被统治人群迁往新聚落，组织农业或手工业生产。今秘鲁亚纳维尔卡的住宅、道路和活动空间提供了一个考古个案。研究者认为，这里的部分选址与空间安排可能由迁入者协商决定，居民也可能借新址的地貌延续原有习俗。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-06",
+              "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+              "note": "帕查库蒂以库斯科为中心扩张，瓦伊纳·卡帕克时北及帕斯托，建设托梅班巴。"
+            },
+            {
+              "sourceId": "inca-hu-yanawilka",
+              "locator": "迁徙聚落考古、Yanawilka 地点与 Discussion",
+              "note": "印加国家以迁徙组织农业与工艺等劳动，亚纳维尔卡的布局显示部分决策可能经地方协商。"
+            }
           ],
           "id": "p-05"
         },
@@ -145,17 +183,32 @@
           "id": "p-02"
         },
         {
-          "heading": "查斯基信使与云端上的结绳账簿",
-          "text": "没有马匹与车轮，帝国的政令传递却快得令后来的欧洲人瞠目结舌。古道沿线每隔两三公里便建有一座石砌小驿，挑选自各村社的健步信使“查斯基”日夜轮班待命。只要远处传来海螺号角声，下一站的信使立刻冲出石屋与来者并肩奔跑，飞速交接口信与绳结，使千里军情能在四五天内翻越雪山直抵库斯科。",
+          "heading": "印加古道上的接力信使",
+          "text": "沿印加古道，查斯基信使分段接力，递送口信、小件和用于记录信息的奇普。信使在沿线站点交接，政令与消息因而能够跨过多个山谷。不同路段的驿站间距和路程耗时，需要按具体地点与史料核查。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "inca-nmai-administration",
+              "locator": "A Road for Administration，信使和奇普两小节",
+              "note": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1480 年代安第斯山道上的查斯基信使与奇普结绳",
-            "title": "一束五彩毛绳记录千万人的帝国账目",
-            "text": "印加人没有字母或象形文字，却发展出高度精密的“奇普”结绳系统：主绳垂下数十乃至上千条不同颜色的棉线与羊驼毛线，专职记事官“奇普卡马约克”按十进制在不同高度打出单结、长结与八字结，红色记兵员、黄色记金粮、白色记银盐，把庞大帝国的人口、税役与库存算得毫厘不爽。",
-            "id": "aside-03"
+            "label": "馆藏札记 · 秘鲁伊卡的奇普",
+            "title": "垂绳、绳结与账目",
+            "text": "史密森尼所藏的一件印加奇普来自秘鲁伊卡。若干染色棉绳从主绳垂下，长短、捻法和打结方式有所不同。现有研究确认，奇普能记录数值，例如社群缴纳的赋役。部分奇普是否还记录叙事，以及同一颜色是否总有相同含义，仍需结合具体出土与史料语境研究。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "inca-nmai-khipu-143866",
+                "locator": "展件 14/3866 及 About This Object",
+                "note": "记录器由主绳和不同颜色、长度、结法的垂绳构成，可记录赋役等数据信息，其他用途仍在研究。"
+              },
+              {
+                "sourceId": "inca-nmai-administration",
+                "locator": "A Road for Administration，信使和奇普两小节",
+                "note": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+              }
+            ]
           },
           "id": "p-03"
         },
@@ -177,10 +230,18 @@
           "id": "p-05"
         },
         {
-          "text": "当军队出征时，无需掠夺沿途百姓即可随时就近开仓取用军服、草鞋、投石索与干粮；一旦某个山谷遭遇霜冻或旱灾，库斯科也会立刻按奇普账目调拨邻省存粮救济饥民，甚至为寡妇与孤老分配口粮。正是这种兼顾铁腕动员与生存兜底的再分配奇迹，让千万安第斯民众在高压统治下依然维系了惊人的秩序。",
+          "text": "部分行政中心在道路附近设置成组的科尔卡仓房。地方收集的食物、衣物和物料可以集中入仓，供跨地区调配。仓房利用通风保存物资。遗址位置和仓内物品能帮助理解如何储备粮食，具体物资分配给谁、何时启用，还需地方记录佐证。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "inca-nmai-colcas",
+              "locator": "Colcas、Colca Center 和 Airflow 小节",
+              "note": "沿道路的部分行政节点有成组仓库，储藏食物与织物，存粮参与调配。"
+            },
+            {
+              "sourceId": "inca-nmai-administration",
+              "locator": "A Road for Administration，信使和奇普两小节",
+              "note": "道路用于国家交通及动员，查斯基通过接力传递口信、奇普和小件。"
+            }
           ],
           "id": "p-06"
         }
@@ -189,13 +250,29 @@
         {
           "book": "ming",
           "year": 1487,
-          "label": "明弘治中兴与驿传黄册制度",
-          "note": "当印加靠查斯基信使、奇普结绳与科尔卡粮仓维持千万人口帝国运转之际，太平洋西岸的大明正以驿站递铺与户籍黄册治理亿兆苍生，两种前现代信息系统殊途同归。",
+          "label": "比较印加奇普与明代黄册",
+          "note": "奇普可以记录赋役等数量信息，明代官府则汇收和保管赋役黄册。两地留下了材质与形态不同的行政记录。",
           "id": "world-01",
-          "relation": "legacy",
+          "relation": "compare",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "印加奇普与明代黄册的行政记录用途比较",
+            "checkedAt": "2026-11-25"
+          },
+          "dimension": "国家如何记录和分派赋役",
+          "display": "从两地的实物和文献出发，比较记录媒介及其行政用途。",
+          "evidence": [
+            {
+              "sourceId": "inca-nmai-khipu-143866",
+              "locator": "展件 14/3866 及 About This Object",
+              "note": "记录器由主绳和不同颜色、长度、结法的垂绳构成，可记录赋役等数据信息，其他用途仍在研究。"
+            },
+            {
+              "sourceId": "inca-ming-houhu",
+              "locator": "《后湖志》条：明代赋役黄册文件、收交和保管制度",
+              "note": "明代有以文书记录、保管、查驳赋役黄册的制度。"
+            }
+          ]
         }
       ],
       "related": [
@@ -222,11 +299,14 @@
       "spatialThesis": "当帝国轴线向北延伸超过四千公里时，库斯科单一中枢已难以遥控北疆，基多新都的崛起与地理极限共同撕裂了“四方之地”的向心力。",
       "paragraphs": [
         {
-          "heading": "北征基多与帝国疆域的地理尽头",
-          "text": "1493 年即位的瓦伊纳·卡帕克接手了一座空前辽阔的帝国。为了彻底平定北方厄瓜多尔高原上顽强反抗的卡尼亚里与卡兰基部落，他亲率十余万大军北上，苦战十余年才在亚瓦尔科查血战中将叛军逐入湖中，把印加北疆推进到今日哥伦比亚南部，使塔万廷苏尤人口突破千万，版图定格在历史极盛。",
+          "heading": "印加北部的扩展与托梅班巴",
+          "text": "瓦伊纳·卡帕克统治时期，印加势力继续沿安第斯地区北扩。史密森尼博物馆将其势力最远处标到今哥伦比亚南部帕斯托一带，同时记录了今厄瓜多尔境内托梅班巴的建设。从库斯科到托梅班巴的距离，提示北部行政据点在管理辽阔疆土中的作用。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-06",
+              "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+              "note": "帕查库蒂以库斯科为中心扩张，瓦伊纳·卡帕克时北及帕斯托，建设托梅班巴。"
+            }
           ],
           "id": "p-01"
         },
@@ -313,10 +393,18 @@
           "id": "p-01"
         },
         {
-          "text": "这场持续数年的兄弟相残彻底撕碎了印加百年积攒的元气。阿塔瓦尔帕麾下的资深名将一路南下，在钦博拉索与基帕伊潘接连粉碎瓦斯卡尔匆忙拼凑的新兵，于 1532 年攻陷圣城库斯科，不仅俘获了瓦斯卡尔本人，还残酷屠杀其妃嫔子嗣，甚至一把火烧毁了老王图帕克·印加的木乃伊。无数被蹂躏的部族从此满怀复仇之火，只等变局降临。",
+          "text": "瓦伊纳·卡帕克死后，阿塔瓦尔帕与瓦斯卡尔为继承发生内战。1532 年，阿塔瓦尔帕在西班牙远征者进入印加辖地前后取得上风。卡哈马卡相遇时，印加政权刚经历继承冲突，各地同征服者的关系仍在变化。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-03",
+              "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+              "note": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+            },
+            {
+              "sourceId": "inca-peru-rescate",
+              "locator": "第 3 页，Cajamarca en 1532",
+              "note": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+            }
           ],
           "id": "p-02"
         },
@@ -338,17 +426,37 @@
           "id": "p-04"
         },
         {
-          "heading": "黄金赎金之屋与背信弃义的绞刑架",
-          "text": "面对从未见过的奔驰战马、雷鸣火炮与锋利钢刃，毫无重甲防备的仪仗队在狭窄广场上陷入恐慌踩踏，数千贵族与护卫倒在血泊中，而西班牙人竟无一死亡，阿塔瓦尔帕本人则被皮萨罗亲手从金轿上拽下生擒。落入囚笼的新王迅速看透了征服者的贪婪，伸手在墙上划出一道高过头顶的红线，许诺用填满整间屋子的黄金与两间屋子的白银换取自由。",
+          "heading": "卡哈马卡的俘虏与赎金",
+          "text": "1532 年 11 月 16 日，皮萨罗一行在卡哈马卡扣押阿塔瓦尔帕。被俘之后，阿塔瓦尔帕提出以金银赎身。赎金后来运抵卡哈马卡，但他仍在次年遭到处决。这个转折改变了印加王位竞争的局势，西班牙人此后仍须面对各地的抵抗。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "inca-peru-rescate",
+              "locator": "第 3 页，Cajamarca en 1532",
+              "note": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+            },
+            {
+              "sourceId": "source-03",
+              "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+              "note": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1533 年卡哈马卡的“赎金之屋”与熔金炉",
-            "title": "熔成标准金锭的太阳神庙珍宝",
-            "text": "整整八个月里，无数羊驼队与挑夫沿着印加古道日夜奔忙，从库斯科太阳神庙剥下整面纯金墙板，运来精巧绝伦的金制玉米、羊驼与祭盘，硬生生兑现了超过六吨黄金与十一吨白银的天价赎金。可皮萨罗转手就架起九座熔炉，把承载百年安第斯工艺的国宝统统熔成便于瓜分的金银条，随即反悔定罪。",
-            "id": "aside-05"
+            "label": "史料札记 · 卡哈马卡",
+            "title": "赎金交付以后",
+            "text": "卡哈马卡的赎金之屋把阿塔瓦尔帕的囚禁与后来汇集的金银联系起来。关于这笔赎金的早期记载以房间和堆积高度形容规模。即使赎金交付，皮萨罗一方仍处决了阿塔瓦尔帕。早期记载中的计量和后世的公吨换算需要分别核查。",
+            "id": "aside-05",
+            "refs": [
+              {
+                "sourceId": "inca-peru-rescate",
+                "locator": "第 3 页，Cajamarca en 1532",
+                "note": "卡哈马卡相遇与捕获发生在 1532 年 11 月，地点可定位到城市记录。"
+              },
+              {
+                "sourceId": "source-03",
+                "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+                "note": "继位内战至 1532 年阿塔瓦尔帕胜出，后遭俘获，交付赎金后仍被处死。"
+              }
+            ]
           },
           "id": "p-05"
         },

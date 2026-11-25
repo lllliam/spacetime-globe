@@ -14,6 +14,66 @@
       "title": "大英百科全书《冷战与二十世纪格局》",
       "url": "https://www.britannica.com/event/Cold-War",
       "id": "source-02"
+    },
+    {
+      "id": "germany-peasants-1525",
+      "title": "德国历史文献与图像：《施瓦本农民十二条款》",
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/ghdi:document-4323"
+    },
+    {
+      "id": "germany-augsburg-1555",
+      "title": "德国历史文献与图像：《奥格斯堡宗教和约》",
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/the-religious-peace-of-augsburg-september-25-1555"
+    },
+    {
+      "id": "germany-westphalia-1648",
+      "title": "德国历史文献与图像：《威斯特伐利亚和约》",
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/peace-treaties-of-westphalia-october-14-24-1648"
+    },
+    {
+      "id": "germany-dhm-supply",
+      "title": "德国历史博物馆：第一次世界大战中的食品供应",
+      "url": "https://www.dhm.de/lemo/kapitel/erster-weltkrieg/alltagsleben/lebensmittelversorgung"
+    },
+    {
+      "id": "germany-dhm-inflation",
+      "title": "德国历史博物馆：1923 年的通货膨胀",
+      "url": "https://www.dhm.de/lemo/kapitel/weimarer-republik/innenpolitik/inflation"
+    },
+    {
+      "id": "germany-ushmm-appointment",
+      "title": "美国大屠杀纪念馆：希特勒如何上台",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/hitler-comes-to-power"
+    },
+    {
+      "id": "germany-ushmm-enabling-act",
+      "title": "美国大屠杀纪念馆：1933 年《授权法》与文本",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-enabling-act"
+    },
+    {
+      "id": "germany-ushmm-holocaust",
+      "title": "美国大屠杀纪念馆：大屠杀概览",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust"
+    },
+    {
+      "id": "germany-barch-wall-1961",
+      "title": "德国联邦档案馆：柏林墙开始修建",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/"
+    },
+    {
+      "id": "germany-barch-brandt-warsaw",
+      "title": "德国联邦档案馆：1943 年华沙犹太隔离区起义资料",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/19-april-1943-aufstand-im-warschauer-ghetto/"
+    },
+    {
+      "id": "germany-barch-wall-opening",
+      "title": "德国联邦档案馆：1989 年 11 月口岸开放记录",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/storys/die-stasi-im-jahr-1989/november-1989/"
+    },
+    {
+      "id": "germany-barch-crossings",
+      "title": "德国联邦档案馆：两德统一过程中的东德政党和组织",
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/themenbeitraege/parteien-und-organisationen-der-ddr-im-prozess-der-wiedervereinigung/"
     }
   ],
   "chapters": [
@@ -98,7 +158,7 @@
       "title": "宗教改革、三十年浩劫与普鲁士崛起",
       "from": 1517,
       "to": 1806,
-      "summary": "马丁·路德借印刷术引爆宗教改革，撕裂了德意志的信仰版图；三十年战争令中欧生灵涂炭却催生现代主权体系，北方沙地上的普鲁士则以严苛军政财政异军突起，直至拿破仑终结旧帝国。",
+      "summary": "宗教改革后，帝国内部围绕信仰与地方权力发生争执。1555 年奥格斯堡和约与 1648 年威斯特伐利亚和约，分别为宗教并存和帝国各等级的权利订立条款。",
       "spatialThesis": "宗教裂痕与列强干涉把神圣罗马帝国固化为三百余个主权邦国，但也迫使资源匮乏的北方邦国普鲁士以高效官僚与常备军突破地理劣势，开启德意志重心北移的百年进程。",
       "paragraphs": [
         {
@@ -110,9 +170,18 @@
           "id": "p-01"
         },
         {
-          "text": "宗教反叛迅速点燃底层社会火山。1524 年施瓦本与图林根农民举起“十二条款”要求废除农奴徭役，却在诸侯骑兵镇压下血流成河；路德选择站在维护秩序的邦君一边，使新教彻底融入地方政权。1555 年《奥格斯堡和约》确立“教随国定”原则，承认诸侯有权决定领地信仰，天主教与路德宗的脆弱休战为中欧买来了半个世纪喘息，却把加尔文派排斥在外。",
+          "text": "1525 年，施瓦本农民把多项诉求整理成《十二条款》，包括摆脱人身依附、限制领主额外索取劳役及恢复部分林地的共同使用。三十年后，《奥格斯堡宗教和约》要求帝国各等级尊重天主教和《奥格斯堡信纲》信奉者的地位，并把其他教派排除在协议保障之外。两份文件处理的分别是地方社会诉求与帝国宗教秩序。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "germany-peasants-1525",
+              "locator": "1525 年文献题注及第三、五至八条",
+              "note": "条款形成于 1525 年，包含人身依附、林地使用、劳役和地租等请求。"
+            },
+            {
+              "sourceId": "germany-augsburg-1555",
+              "locator": "第 15 至 17 条",
+              "note": "规定信奉《奥格斯堡信纲》及天主教的帝国各等级彼此不因信仰动武，其余教派排除在该和约之外。"
+            }
           ],
           "id": "p-02"
         },
@@ -123,10 +192,17 @@
             "source-01"
           ],
           "callout": {
-            "label": "历史现场 · 1648 年明斯特与奥斯纳布吕克市政厅",
-            "title": "三百使节桌前诞生的主权秩序",
-            "text": "因天主教与新教代表拒绝同城议和，欧洲各国三百余名使节分驻威斯特伐利亚两座小城，骑马信使在泥泞驿道间奔波整整五年。1648 年十月签下的和约不仅终结了宗教屠杀，更以成文条约承认各邦主权平等与不干涉内政，奠定了现代国际关系基石。",
-            "id": "aside-03"
+            "label": "条约札记 · 明斯特与奥斯纳布吕克",
+            "title": "1648 年和约怎样规定帝国内部权利",
+            "text": "1648 年签订的威斯特伐利亚和约在两座城分别谈判。奥斯纳布吕克条约确认帝国各等级保有领地权利，也给它们参与帝国议事及在特定条件下结盟的权利。条约还把原有宗教保护扩及改革宗。这里的权利适用于当时的帝国秩序，结盟条文继续约束各等级须遵守对帝国的义务。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "germany-westphalia-1648",
+                "locator": "奥斯纳布吕克条约序言、第五、第七、第八条及日期注",
+                "note": "两地会议和签约日期，帝国统治者的权利、帝国内部程序及改革宗的条约地位。"
+              }
+            ]
           },
           "id": "p-03"
         },
@@ -214,19 +290,45 @@
           "id": "p-04"
         },
         {
-          "heading": "从凡尔赛裂痕到纳粹极权深渊",
-          "text": "1914 年萨拉热窝枪声后，德军企图凭“施里芬计划”速胜法国再东击沙俄，却在马恩河陷入四年堑壕绞肉战。英国海上封锁引发“芜菁之冬”饥荒，1918 年帝制崩溃，新生的魏玛共和国被迫签下严苛的《凡尔赛和约》；巨额赔款、1923 年恶性通胀与大萧条六百万失业大军，彻底掏空了中产阶层对民主的信任。",
+          "heading": "战争中的食品短缺与战后通胀",
+          "text": "第一次世界大战期间，海上封锁、农作物歉收和运输困难都使德国食品供应恶化。1916 至 1917 年冬，配给仍无法满足基本需要，许多家庭依靠芜菁充饥。战后，新共和国又面对战争债务、赔款与币值下跌，1923 年的恶性通胀损害居民积蓄。后来的大萧条再次冲击经济，也扩大了反民主政党争取选民的机会。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "germany-dhm-supply",
+              "locator": "配给、农业供给与 1916—1917 年芜菁之冬段",
+              "note": "海上封锁、歉收和运输困难共同恶化了食物供应，配给难以满足需求。"
+            },
+            {
+              "sourceId": "germany-dhm-inflation",
+              "locator": "1918 年后通胀、战争遗留支出与 1923 年段",
+              "note": "战后财政、外部赔款、鲁尔危机与通货膨胀，1923 年恶性通胀损害积蓄。"
+            },
+            {
+              "sourceId": "germany-ushmm-appointment",
+              "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+              "note": "总统兴登堡任命希特勒为总理，经济危机和纳粹选举表现是其背景。"
+            }
           ],
           "id": "p-05"
         },
         {
-          "text": "1933 年希特勒借选举与保守派绥靖掌权，数月内摧毁多党制并靠举债扩军制造虚假繁荣。1939 年德军闪击波兰引爆二战，席卷西欧后又撕约进攻苏联；同时，纳粹以冷酷的铁路时刻表与毒气室系统屠杀六百万犹太人及无数平民。1945 年 5 月盟军会师易北河，柏林化为废墟，德国跌入道德与国运最低谷。",
+          "text": "1933 年 1 月 30 日，总统兴登堡任命希特勒为德国总理。同年 3 月，纳粹在迫害和威吓反对者的情况下推动《授权法》通过，使政府能够绕开议会立法。纳粹德国当局及其盟友、合作者在欧洲系统性迫害并杀害约六百万犹太人。纳粹还迫害、杀害其他群体，其中包括罗姆人、残障者和苏军战俘。1945 年 5 月，纳粹德国战败。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "germany-ushmm-appointment",
+              "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+              "note": "总统兴登堡任命希特勒为总理，经济危机和纳粹选举表现是其背景。"
+            },
+            {
+              "sourceId": "germany-ushmm-enabling-act",
+              "locator": "1933 年 3 月 23 日表决背景、第 1 条",
+              "note": "在威吓及迫害反对者的情况下通过，并允许内阁自行立法。"
+            },
+            {
+              "sourceId": "germany-ushmm-holocaust",
+              "locator": "定义、Key Facts 与 Geography of the Holocaust",
+              "note": "纳粹德国当局及盟友、合作者系统性迫害并杀害约六百万欧洲犹太人，纳粹政权亦迫害与杀害其他群体。"
+            }
           ],
           "id": "p-06"
         }
@@ -277,10 +379,19 @@
           "id": "p-02"
         },
         {
-          "heading": "柏林高墙、华沙一跪与法德和解",
-          "text": "东西德生活落差引发数百万东德熟练工人经西柏林外流。1961 年八月十三日凌晨，东德军警拉起铁丝网并连夜砌起绵延百余公里的混凝土柏林墙，无数亲友咫尺天涯。面对僵局，西德总理威利·勃兰特推行“新东方政策”谋求缓和；1970 年十二月，他在华沙犹太人起义纪念碑前自发双膝跪地，以毫不回避的诚恳忏悔赢得东欧邻国尊重，奠定了战后德国正视历史罪责的道德基石。",
+          "heading": "柏林封锁与华沙的纪念",
+          "text": "为阻止人口继续外流，东德当局于 1961 年 8 月 13 日开始封锁柏林的分区界线。早期障碍包括路障和铁丝网，随后数日才着手砌墙。1970 年 12 月 7 日，西德总理维利·勃兰特访问华沙，在纪念 1943 年华沙犹太隔离区起义的纪念碑前下跪。两份档案分别留下了边界封锁和战后纪念的现场记录。",
           "refs": [
-            "source-02"
+            {
+              "sourceId": "germany-barch-wall-1961",
+              "locator": "1961 年 8 月 13 日条及档案 B 145 Bild-P061246 说明",
+              "note": "13 日先封锁分界、架设障碍与铁丝网，随后数日才开始建墙。"
+            },
+            {
+              "sourceId": "germany-barch-brandt-warsaw",
+              "locator": "1970 年 12 月 7 日勃兰特纪念照片与题注",
+              "note": "勃兰特下跪的日期、地点及纪念对象是 1943 年隔离区起义。"
+            }
           ],
           "id": "p-03"
         },
@@ -299,10 +410,22 @@
             "source-02"
           ],
           "callout": {
-            "label": "历史现场 · 1989 年 11 月 9 日夜博恩霍尔姆街口岸",
-            "title": "一场记者会口误推倒二十八年高墙",
-            "text": "当晚东德官员沙博夫斯基在直播中误称跨境旅行新规“即刻生效”，数万东柏林市民涌向哨卡，面对汹涌人潮与缺席的上级指令，边防中校耶格尔最终下令升起栏杆。陌生人互相递上香槟、爬上墙头挥舞铁锤，冷战最冰冷的混凝土象征在一夜之间化为纪念品碎片。",
-            "id": "aside-05"
+            "label": "档案札记 · 1989 年 11 月柏林口岸",
+            "title": "旅行规定公布与通行",
+            "text": "1989 年 11 月 9 日，东德官员沙博夫斯基在记者会上称新的出境规定立即生效。当天晚间，许多市民前往各处边检口岸。各口岸陆续开放，次日照片已可见有人从博恩霍尔姆街口岸来往。后来拆除墙体的过程持续了更久。",
+            "id": "aside-05",
+            "refs": [
+              {
+                "sourceId": "germany-barch-wall-opening",
+                "locator": "东柏林边界当晚情况记录、记者会影像说明",
+                "note": "沙博夫斯基记者会、宣布可立即出境与随后人群到口岸。"
+              },
+              {
+                "sourceId": "germany-barch-crossings",
+                "locator": "1989 年 11 月旅行规定、边防口岸段与档案图 183-1989-1110-409",
+                "note": "11 月 9 日晚通行限制失效，次日有档案照片显示博恩霍尔姆街口岸通行。"
+              }
+            ]
           },
           "id": "p-05"
         },

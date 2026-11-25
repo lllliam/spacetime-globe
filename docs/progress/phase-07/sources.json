@@ -55,7 +55,11 @@
       "source/scene/aztec-league/source-02"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://www.metmuseum.org/essays/tenochtitlan",
+      "material": "大都会艺术博物馆：特诺奇蒂特兰",
+      "locator": "正文人口估计、填湖扩建、堤道与运河各段",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -75,6 +79,58 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://arqueologia.inah.gob.mx/publico/especifico.php?id=NDc%3D",
+    "uses": [
+      "source/book/aztec/aztec-inah-chinampas"
+    ],
+    "access": {
+      "url": "https://arqueologia.inah.gob.mx/publico/especifico.php?id=NDc%3D",
+      "material": "墨西哥国立人类学与历史研究所：西南城区奇南帕发掘",
+      "locator": "2015 年抢救发掘报告的台地、渠沟与植物材料段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://collections.lib.utexas.edu/exhibits/a-new-spain/invasion-of-mexico",
+    "uses": [
+      "source/book/aztec/aztec-benson-invasion"
+    ],
+    "access": {
+      "url": "https://collections.lib.utexas.edu/exhibits/a-new-spain/invasion-of-mexico",
+      "material": "得州大学奥斯汀分校本森拉美馆藏：墨西哥征服",
+      "locator": "Invasion of Mexico、Indigenous Allies 与 Women，及 Lienzo de Tlaxcala 残页说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://mexicograndezaydiversidad.inah.gob.mx/images/fasciculos/MexicoGrandezaDiversidad_F-07.pdf",
+    "uses": [
+      "source/book/aztec/aztec-inah-conquest"
+    ],
+    "access": {
+      "url": "https://mexicograndezaydiversidad.inah.gob.mx/images/fasciculos/MexicoGrandezaDiversidad_F-07.pdf",
+      "material": "墨西哥国立人类学与历史研究所：1519—1521 年的同盟与征服",
+      "locator": "第 7 分册，1519 年远征、特诺奇蒂特兰与特拉特洛尔科、围城陷落，印刷页 7—13",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://florentinecodex.getty.edu/en/book/12/folio/53r?nhTexts=0",
+    "uses": [
+      "source/book/aztec/aztec-florentine-53r"
+    ],
+    "access": {
+      "url": "https://florentinecodex.getty.edu/en/book/12/folio/53r?nhTexts=0",
+      "material": "盖蒂研究所：《佛罗伦萨手抄本》卷 12，第 53 叶正面",
+      "locator": "卷 12 第 29 章，西班牙文抄录及 Lockhart 英译",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -250,6 +306,7 @@
     "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
     "uses": [
       "source/book/central-eastern-europe/holocaust-ushmm",
+      "source/book/germany-hre/germany-ushmm-holocaust",
       "source/topic/europe-modern/world-war-two/source-01",
       "source/topic/europe-modern/world-war-two/holocaust-ushmm"
     ],
@@ -298,6 +355,110 @@
       "url": "https://www.icty.org/en/press/appeals-chamber-judgement-case-prosecutor-v-radislav-krstic",
       "material": "前南斯拉夫问题国际刑事法庭｜克尔斯蒂奇案上诉判决说明",
       "locator": "事实背景与 The existence of genocide 的裁判说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.habsburger.net/en/chapter/graz-vienna-rise-ferdinand-ii-head-dynasty",
+    "uses": [
+      "source/book/central-eastern-europe/ce-habsburg-white-mountain"
+    ],
+    "access": {
+      "url": "https://www.habsburger.net/en/chapter/graz-vienna-rise-ferdinand-ii-head-dynasty",
+      "material": "哈布斯堡历史资料展：斐迪南二世与白山战役",
+      "locator": "斐迪南争取巴伐利亚支持与 1620 年白山战役段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.unesco.org/en/memory-world/act-union-lublin-document",
+    "uses": [
+      "source/book/central-eastern-europe/ce-unesco-lublin"
+    ],
+    "access": {
+      "url": "https://www.unesco.org/en/memory-world/act-union-lublin-document",
+      "material": "联合国教科文组织世界记忆：卢布林联合法案",
+      "locator": "正文法案、1569 年议会及联邦的法源段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://media.unesco.org/sites/default/files/webform/mow001/poland_confederation_warsaw.pdf",
+    "uses": [
+      "source/book/central-eastern-europe/ce-unesco-warsaw-confederation"
+    ],
+    "access": {
+      "url": "https://media.unesco.org/sites/default/files/webform/mow001/poland_confederation_warsaw.pdf",
+      "material": "波兰中央古文献档案馆：1573 年华沙联盟文件登记",
+      "locator": "世界记忆提名书第 3.1、3.2、4.2 节及档号 4467",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.habsburger.net/en/chapter/empire-two-halves-compromise-hungary",
+    "uses": [
+      "source/book/central-eastern-europe/ce-habsburg-compromise"
+    ],
+    "access": {
+      "url": "https://www.habsburger.net/en/chapter/empire-two-halves-compromise-hungary",
+      "material": "哈布斯堡历史资料展：1867 年与匈牙利的折中",
+      "locator": "1867 年折中、君主身份及共同事务段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://ww1.habsburger.net/en/chapters/indivisible-and-inseparable-supranational-state",
+    "uses": [
+      "source/book/central-eastern-europe/ce-habsburg-dual-state"
+    ],
+    "access": {
+      "url": "https://ww1.habsburger.net/en/chapters/indivisible-and-inseparable-supranational-state",
+      "material": "奥地利一战展：二元君主国的共同事务",
+      "locator": "共同部会、维也纳及布达佩斯政府和关税政策段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.habsburger.net/en/chapter/problems-and-potentialities-multiethnic-state",
+    "uses": [
+      "source/book/central-eastern-europe/ce-habsburg-multiethnic"
+    ],
+    "access": {
+      "url": "https://www.habsburger.net/en/chapter/problems-and-potentialities-multiethnic-state",
+      "material": "哈布斯堡历史资料展：二元君主国的政治与各族群",
+      "locator": "自治争议、1871 年波希米亚方案及工业发展段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.iwm.org.uk/sites/default/files/press-release/4_August_1914_Factsheet.pdf",
+    "uses": [
+      "source/book/central-eastern-europe/ce-iwm-july-crisis"
+    ],
+    "access": {
+      "url": "https://www.iwm.org.uk/sites/default/files/press-release/4_August_1914_Factsheet.pdf",
+      "material": "帝国战争博物馆：1914 年七月危机时序",
+      "locator": "资料第 1 页，6 月 28 日、7 月 28 日至 8 月各国决定",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://ww1.habsburger.net/en/chapters/end-monarchy-birth-new-states",
+    "uses": [
+      "source/book/central-eastern-europe/ce-habsburg-new-states"
+    ],
+    "access": {
+      "url": "https://ww1.habsburger.net/en/chapters/end-monarchy-birth-new-states",
+      "material": "奥地利一战展：帝国终结与新国家的形成",
+      "locator": "1918 年 10 月地方议会、11 月 3 日停战和 11 日声明段",
       "date": "2026-11-25",
       "status": "read"
     }
@@ -527,6 +688,149 @@
     }
   },
   {
+    "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/ghdi:document-4323",
+    "uses": [
+      "source/book/germany-hre/germany-peasants-1525"
+    ],
+    "access": {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/ghdi:document-4323",
+      "material": "德国历史文献与图像：《施瓦本农民十二条款》",
+      "locator": "1525 年文献题注及第三、五至八条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/the-religious-peace-of-augsburg-september-25-1555",
+    "uses": [
+      "source/book/germany-hre/germany-augsburg-1555"
+    ],
+    "access": {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/the-religious-peace-of-augsburg-september-25-1555",
+      "material": "德国历史文献与图像：《奥格斯堡宗教和约》",
+      "locator": "第 15 至 17 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/peace-treaties-of-westphalia-october-14-24-1648",
+    "uses": [
+      "source/book/germany-hre/germany-westphalia-1648"
+    ],
+    "access": {
+      "url": "https://germanhistorydocs.org/en/from-the-reformations-to-the-thirty-years-war-1500-1648/peace-treaties-of-westphalia-october-14-24-1648",
+      "material": "德国历史文献与图像：《威斯特伐利亚和约》",
+      "locator": "奥斯纳布吕克条约序言、第五、第七、第八条及日期注",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.dhm.de/lemo/kapitel/erster-weltkrieg/alltagsleben/lebensmittelversorgung",
+    "uses": [
+      "source/book/germany-hre/germany-dhm-supply"
+    ],
+    "access": {
+      "url": "https://www.dhm.de/lemo/kapitel/erster-weltkrieg/alltagsleben/lebensmittelversorgung",
+      "material": "德国历史博物馆：第一次世界大战中的食品供应",
+      "locator": "配给、农业供给与 1916—1917 年芜菁之冬段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.dhm.de/lemo/kapitel/weimarer-republik/innenpolitik/inflation",
+    "uses": [
+      "source/book/germany-hre/germany-dhm-inflation"
+    ],
+    "access": {
+      "url": "https://www.dhm.de/lemo/kapitel/weimarer-republik/innenpolitik/inflation",
+      "material": "德国历史博物馆：1923 年的通货膨胀",
+      "locator": "1918 年后通胀、战争遗留支出与 1923 年段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/hitler-comes-to-power",
+    "uses": [
+      "source/book/germany-hre/germany-ushmm-appointment"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/hitler-comes-to-power",
+      "material": "美国大屠杀纪念馆：希特勒如何上台",
+      "locator": "1933 年 1 月 30 日任命、经济危机及政党协商两段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-enabling-act",
+    "uses": [
+      "source/book/germany-hre/germany-ushmm-enabling-act"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-enabling-act",
+      "material": "美国大屠杀纪念馆：1933 年《授权法》与文本",
+      "locator": "1933 年 3 月 23 日表决背景、第 1 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/",
+    "uses": [
+      "source/book/germany-hre/germany-barch-wall-1961"
+    ],
+    "access": {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/",
+      "material": "德国联邦档案馆：柏林墙开始修建",
+      "locator": "1961 年 8 月 13 日条及档案 B 145 Bild-P061246 说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/19-april-1943-aufstand-im-warschauer-ghetto/",
+    "uses": [
+      "source/book/germany-hre/germany-barch-brandt-warsaw"
+    ],
+    "access": {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/geschichtsgalerien/19-april-1943-aufstand-im-warschauer-ghetto/",
+      "material": "德国联邦档案馆：1943 年华沙犹太隔离区起义资料",
+      "locator": "1970 年 12 月 7 日勃兰特纪念照片与题注",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/storys/die-stasi-im-jahr-1989/november-1989/",
+    "uses": [
+      "source/book/germany-hre/germany-barch-wall-opening"
+    ],
+    "access": {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/storys/die-stasi-im-jahr-1989/november-1989/",
+      "material": "德国联邦档案馆：1989 年 11 月口岸开放记录",
+      "locator": "东柏林边界当晚情况记录、记者会影像说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/themenbeitraege/parteien-und-organisationen-der-ddr-im-prozess-der-wiedervereinigung/",
+    "uses": [
+      "source/book/germany-hre/germany-barch-crossings"
+    ],
+    "access": {
+      "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/themenbeitraege/parteien-und-organisationen-der-ddr-im-prozess-der-wiedervereinigung/",
+      "material": "德国联邦档案馆：两德统一过程中的东德政党和组织",
+      "locator": "1989 年 11 月旅行规定、边防口岸段与档案图 183-1989-1110-409",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/topic/Parthenon",
     "uses": [
       "source/book/greece-macedon/source-01",
@@ -561,13 +865,18 @@
       "source/book/ming/source-04",
       "source/book/prc/source-02",
       "source/book/qing/source-03",
+      "source/book/sui/sui-tang-columbia",
       "source/book/tang/source-02",
       "source/topic/east-asia-modern/china-revolutions/source-01",
       "source/scene/ming-founding-1368/source-01",
       "source/scene/tang-frontier/source-02"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
+      "material": "哥伦比亚大学：中国朝代历史年表",
+      "locator": "基本年表 Sui、Tang 两项",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -644,7 +953,11 @@
       "source/scene/inca-cajamarca/source-02"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html",
+      "material": "史密森尼国家美洲印第安人博物馆：征服与道路",
+      "locator": "Why Did the Empire Fall? 及 The Murder of Atahualpa",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -671,7 +984,89 @@
       "source/book/inca/source-06"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/cusco/empire-builders.html",
+      "material": "史密森尼国家美洲印第安人博物馆：印加的三位扩张者",
+      "locator": "Expansion of the Inka Conquerors、Pachacutic 与 Huayna Capac 小节",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/antiquity/article/making-space-under-the-inca-a-space-syntax-analysis-of-a-mitmaq-settlement-in-vilcas-huaman-province-peru/CBAABD3E9FB84194254E0879ACD54FD1/share/d54af23b26f3a5ac2a0dc5d7eccf0bb7698d171e",
+    "uses": [
+      "source/book/inca/inca-hu-yanawilka"
+    ],
+    "access": {
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/making-space-under-the-inca-a-space-syntax-analysis-of-a-mitmaq-settlement-in-vilcas-huaman-province-peru/CBAABD3E9FB84194254E0879ACD54FD1/share/d54af23b26f3a5ac2a0dc5d7eccf0bb7698d171e",
+      "material": "David Hu：亚纳维尔卡印加迁徙聚落考古",
+      "locator": "迁徙聚落考古、Yanawilka 地点与 Discussion",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/inkaroad/inkauniverse/inkaroadexpansion/road-administration.html",
+    "uses": [
+      "source/book/inca/inca-nmai-administration"
+    ],
+    "access": {
+      "url": "https://americanindian.si.edu/inkaroad/inkauniverse/inkaroadexpansion/road-administration.html",
+      "material": "史密森尼国家美洲印第安人博物馆：道路的行政用途",
+      "locator": "A Road for Administration，信使和奇普两小节",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/exhibitions/infinityofnations/andes/143866.html",
+    "uses": [
+      "source/book/inca/inca-nmai-khipu-143866"
+    ],
+    "access": {
+      "url": "https://americanindian.si.edu/exhibitions/infinityofnations/andes/143866.html",
+      "material": "史密森尼国家美洲印第安人博物馆：伊卡馆藏奇普 14/3866",
+      "locator": "展件 14/3866 及 About This Object",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/nk360/inka-water/preservation/preservation",
+    "uses": [
+      "source/book/inca/inca-nmai-colcas"
+    ],
+    "access": {
+      "url": "https://americanindian.si.edu/nk360/inka-water/preservation/preservation",
+      "material": "史密森尼国家美洲印第安人博物馆：保存与仓储",
+      "locator": "Colcas、Colca Center 和 Airflow 小节",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://dfz.nanjing.gov.cn/ztzl/gcjy/202008/t20200824_2378510.html",
+    "uses": [
+      "source/book/inca/inca-ming-houhu"
+    ],
+    "access": {
+      "url": "https://dfz.nanjing.gov.cn/ztzl/gcjy/202008/t20200824_2378510.html",
+      "material": "南京市方志馆：《后湖志》馆藏介绍",
+      "locator": "《后湖志》条：明代赋役黄册文件、收交和保管制度",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/90/El%20Cuarto%20del%20Rescate%20de%20Atahualpa%20RAVINES.pdf",
+    "uses": [
+      "source/book/inca/inca-peru-rescate"
+    ],
+    "access": {
+      "url": "https://repositorio.cultura.gob.pe/bitstream/handle/CULTURA/90/El%20Cuarto%20del%20Rescate%20de%20Atahualpa%20RAVINES.pdf",
+      "material": "秘鲁文化部馆藏：罗赫尔·拉维内斯《阿塔瓦尔帕的赎金之屋》",
+      "locator": "第 3 页，Cajamarca en 1532",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -912,6 +1307,124 @@
     }
   },
   {
+    "url": "https://www.metmuseum.org/zh/toah/ht/06/eak",
+    "uses": [
+      "source/book/korea/korea-met-500"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/zh/toah/ht/06/eak",
+      "material": "大都会艺术博物馆：朝鲜半岛 500—1000 年",
+      "locator": "年表 645—648、660、668、676 年条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/736/",
+    "uses": [
+      "source/book/korea/korea-unesco-temple"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/list/736/",
+      "material": "联合国教科文组织：石窟庵与佛国寺",
+      "locator": "突出普遍价值：简要综述与标准（iv）",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://archive.much.go.kr/imsi/holdings.do",
+    "uses": [
+      "source/book/korea/korea-much-declaration"
+    ],
+    "access": {
+      "url": "https://archive.much.go.kr/imsi/holdings.do",
+      "material": "韩国国立近现代史博物馆：临时政府馆藏目录",
+      "locator": "馆藏首屏 3·1独立宣言书条目，日期 1919.03.01",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.much.go.kr/webzine/201904/sub1-2.html",
+    "uses": [
+      "source/book/korea/korea-much-shanghai"
+    ],
+    "access": {
+      "url": "https://www.much.go.kr/webzine/201904/sub1-2.html",
+      "material": "韩国国立近现代史博物馆：上海临时政府专题展",
+      "locator": "展览第二部，上海临时政府成立、合并及上海版《独立新闻》",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.much.go.kr/ENG/contents/E02020000000.do?exhCode=EXH_0000000249&schM=view",
+    "uses": [
+      "source/book/korea/korea-much-flags"
+    ],
+    "access": {
+      "url": "https://www.much.go.kr/ENG/contents/E02020000000.do?exhCode=EXH_0000000249&schM=view",
+      "material": "韩国国立近现代史博物馆：太极旗专题展",
+      "locator": "第一部分 Keeping Hope for Independence Alive",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.much.go.kr/online_exhi/vnv/exh_info.html",
+    "uses": [
+      "source/book/korea/korea-much-votes"
+    ],
+    "access": {
+      "url": "https://www.much.go.kr/online_exhi/vnv/exh_info.html",
+      "material": "韩国国立近现代史博物馆：Votes and Voices",
+      "locator": "展览第一部分建国与分区、第二部分公民抗争及第三部分直选",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.unesco.org/en/memory-world/human-rights-documentary-heritage-1980-archives-may-18th-democratic-uprising-against-military-regime",
+    "uses": [
+      "source/book/korea/korea-unesco-gwangju"
+    ],
+    "access": {
+      "url": "https://www.unesco.org/en/memory-world/human-rights-documentary-heritage-1980-archives-may-18th-democratic-uprising-against-military-regime",
+      "material": "联合国教科文组织：光州五月十八日民主化运动档案",
+      "locator": "题名、图片及档案说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
+    "uses": [
+      "source/book/korea/korea-nara-armistice",
+      "source/book/prc/armistice-1953"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
+      "status": "replacement",
+      "date": "2026-11-25",
+      "material": "美国国家档案馆｜1953 年朝鲜停战协定",
+      "locator": "停战协定转录，第 1 条；链接替代返回 404 的战事综述。"
+    }
+  },
+  {
+    "url": "https://unwritten-record.blogs.archives.gov/2022/04/05/korean-war-refugees-in-signal-corps-films/",
+    "uses": [
+      "source/book/korea/korea-nara-refugees"
+    ],
+    "access": {
+      "url": "https://unwritten-record.blogs.archives.gov/2022/04/05/korean-war-refugees-in-signal-corps-films/",
+      "material": "美国国家档案馆：朝鲜战争中的难民影像",
+      "locator": "开头受降分区与开城段、随文档案影像",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://smarthistory.org/independence-from-spanish-rule-in-the-americas/",
     "uses": [
       "source/book/latin-america/source-01"
@@ -945,6 +1458,142 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/especial-bicentenario-da-independencia/apontamentos-sobre-a-independencia-do-brasil-na-bahia",
+    "uses": [
+      "source/book/latin-america/brazil-an-bahia-1823",
+      "source/topic/latin-america/independences/brazil-an-bahia-1823"
+    ],
+    "access": {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/especial-bicentenario-da-independencia/apontamentos-sobre-a-independencia-do-brasil-na-bahia",
+      "material": "巴西国家档案馆：巴伊亚的独立战争",
+      "locator": "独立在各省进程有别、1822 至 1823 年巴伊亚交战及参战者",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.ba.gov.br/fpc/iniciativas/bahia-memorias-de-lutas-e-liberdade",
+    "uses": [
+      "source/book/latin-america/brazil-bahia-archives"
+    ],
+    "access": {
+      "url": "https://www.ba.gov.br/fpc/iniciativas/bahia-memorias-de-lutas-e-liberdade",
+      "material": "巴伊亚州公共档案馆：独立路线和文献收藏",
+      "locator": "公共档案馆馆藏、1822 年 9 月与 1823 年 7 月段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lim/lim3353.htm",
+    "uses": [
+      "source/book/latin-america/brazil-golden-law",
+      "source/topic/latin-america/brazil/brazil-golden-law"
+    ],
+    "access": {
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lim/lim3353.htm",
+      "material": "巴西第 3,353 号法律：《黄金法》",
+      "locator": "1888 年 5 月 13 日，第 1、2 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/temas-oitocentistas/legislacao-abolicionista-no-imperio",
+    "uses": [
+      "source/book/latin-america/brazil-an-abolition",
+      "source/topic/latin-america/brazil/brazil-an-abolition"
+    ],
+    "access": {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/temas-oitocentistas/legislacao-abolicionista-no-imperio",
+      "material": "巴西国家档案馆：帝国时期废奴立法",
+      "locator": "1831 年法、1850 年法、1871 年自由胎法至黄金法诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bcn.cl/historiapolitica/hitos_periodo/detalle_periodo.html?per=1973-1990",
+    "uses": [
+      "source/book/latin-america/chile-bcn-plebiscite",
+      "source/topic/latin-america/resources-democracy/source-02"
+    ],
+    "access": {
+      "url": "https://www.bcn.cl/historiapolitica/hitos_periodo/detalle_periodo.html?per=1973-1990",
+      "material": "智利国会图书馆：1973—1990 年政治史",
+      "locator": "反对派动员、1988 年公投和 1989 年总统与国会选举段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bcn.cl/leychile/navegar?idNorma=1197778&idParte=10468658&idVersion=2023-11-10",
+    "uses": [
+      "source/book/latin-america/chile-decreto-98",
+      "source/topic/latin-america/resources-democracy/chile-decreto-98"
+    ],
+    "access": {
+      "url": "https://www.bcn.cl/leychile/navegar?idNorma=1197778&idParte=10468658&idVersion=2023-11-10",
+      "material": "智利第 98 号法令：寻找强迫失踪者的国家计划",
+      "locator": "序言第 1、2 项",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/445/",
+    "uses": [
+      "source/book/latin-america/brazilia-unesco"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/list/445/",
+      "material": "联合国教科文组织：巴西利亚",
+      "locator": "突出普遍价值：简要综述、规划两条轴线与建筑",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/766216/files/LCl3546eng_en.pdf?ln=es",
+    "uses": [
+      "source/book/latin-america/latin-eclac-development"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/766216/files/LCl3546eng_en.pdf?ln=es",
+      "material": "联合国拉丁美洲和加勒比经济委员会：拉美发展的历史与挑战",
+      "locator": "A. The historical legacy，正文第 13 至 15 页",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
+    "uses": [
+      "source/book/latin-america/chile-an-coup",
+      "source/topic/latin-america/resources-democracy/source-03"
+    ],
+    "access": {
+      "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
+      "material": "智利国家档案馆：1973 年 9 月 11 日政变",
+      "locator": "政变当日时序及该日来自内政部的档案藏件说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://documents.worldbank.org/curated/en/690421559580059769/pdf/Latin-American-Growth-A-Trade-Perspective.pdf",
+    "uses": [
+      "source/book/latin-america/latin-wb-commodity"
+    ],
+    "access": {
+      "url": "https://documents.worldbank.org/curated/en/690421559580059769/pdf/Latin-American-Growth-A-Trade-Perspective.pdf",
+      "material": "世界银行工作论文：从贸易看拉美增长",
+      "locator": "第 4 节 Latin America’s growth response to the rise of China，图 11—13 与表 2",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -2181,19 +2830,6 @@
     }
   },
   {
-    "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
-    "uses": [
-      "source/book/prc/armistice-1953"
-    ],
-    "access": {
-      "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
-      "status": "replacement",
-      "date": "2026-11-25",
-      "material": "美国国家档案馆｜1953 年朝鲜停战协定",
-      "locator": "停战协定转录，第 1 条；链接替代返回 404 的战事综述。"
-    }
-  },
-  {
     "url": "https://www.britannica.com/topic/Qin-dynasty",
     "uses": [
       "source/book/qin/source-01",
@@ -2824,6 +3460,85 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B724",
+    "uses": [
+      "source/book/sui/sui-record-24"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B724",
+      "material": "《隋书》卷24·食货志",
+      "locator": "开皇初户籍与课输条，州县大索貌阅、高熲输籍定样",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B703",
+    "uses": [
+      "source/book/sui/sui-record-03"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B703",
+      "material": "《隋书》卷03·炀帝纪上",
+      "locator": "大业元年三月丁未建东京、辛亥开通济渠",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B704",
+    "uses": [
+      "source/book/sui/sui-record-04"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B704",
+      "material": "《隋书》卷04·炀帝纪下",
+      "locator": "大业八年正月发师条、二月从军家属赈给诏、七月萨水条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B781",
+    "uses": [
+      "source/book/sui/sui-record-81"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E9%9A%8B%E6%9B%B8/%E5%8D%B781",
+      "material": "《隋书》卷81·东夷·高丽",
+      "locator": "高元袭爵、文帝时辽西冲突及使节往还",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1443/",
+    "uses": [
+      "source/book/sui/sui-canal-unesco",
+      "source/scene/yongle-capitals/unesco-canal"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/list/1443/",
+      "material": "联合国教科文组织：中国大运河",
+      "locator": "突出普遍价值：简要综述、标准（iii）",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.ndrc.gov.cn/xwdt/gdzt/dyhgjwhgy/202209/t20220921_1335875.html",
+    "uses": [
+      "source/book/sui/sui-luoyang-ndrc"
+    ],
+    "access": {
+      "url": "https://www.ndrc.gov.cn/xwdt/gdzt/dyhgjwhgy/202209/t20220921_1335875.html",
+      "material": "国家发展改革委：隋唐洛阳城遗址",
+      "locator": "隋唐洛阳城考古与遗址保护段",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -4090,12 +4805,42 @@
     }
   },
   {
+    "url": "https://api.nuvel.nu/uploads/independance_ayiti_en_72c6dd8709.pdf",
+    "uses": [
+      "source/topic/latin-america/independences/haiti-adm-declaration"
+    ],
+    "access": {
+      "url": "https://api.nuvel.nu/uploads/independance_ayiti_en_72c6dd8709.pdf",
+      "material": "《海地独立宣言》同时代英译，英国国家档案馆 ADM 1/254",
+      "locator": "PDF 第 1 页，1804 年 1 月 1 日条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://today.duke.edu/showcase/haitideclaration/documentorigins.html",
+    "uses": [
+      "source/topic/latin-america/independences/haiti-duke-provenance"
+    ],
+    "access": {
+      "url": "https://today.duke.edu/showcase/haitideclaration/documentorigins.html",
+      "material": "杜克大学：海地独立宣言的文本来源",
+      "locator": "档案研究人员说明，海地印本送交牙买加并转藏伦敦段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://whc.unesco.org/en/list/1548/",
     "uses": [
       "source/topic/latin-america/brazil/source-01"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://whc.unesco.org/en/list/1548/",
+      "material": "UNESCO：瓦隆古码头",
+      "locator": "突出普遍价值：遗址简述、标准（vi）及完整性段",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -4108,27 +4853,35 @@
     }
   },
   {
+    "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/documentos/quilombo-de-manoel-congo/",
+    "uses": [
+      "source/topic/latin-america/brazil/brazil-an-manoel-congo"
+    ],
+    "access": {
+      "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/documentos/quilombo-de-manoel-congo/",
+      "material": "巴西国家档案馆：1838 年马诺埃尔·孔戈聚落档案",
+      "locator": "1838 年 11 月 13 日追捕报告及档案来源说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://bcr.iphan.gov.br/bens-culturais/samba-de-roda-do-reconcavo-baiano/",
+    "uses": [
+      "source/topic/latin-america/brazil/brazil-iphan-samba"
+    ],
+    "access": {
+      "url": "https://bcr.iphan.gov.br/bens-culturais/samba-de-roda-do-reconcavo-baiano/",
+      "material": "巴西国家历史与艺术遗产研究所：巴伊亚圆圈桑巴档案",
+      "locator": "登记发起团体、Descrição Completa 与登记程序",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.memoriachilena.gob.cl/602/w3-article-3622.html",
     "uses": [
       "source/topic/latin-america/resources-democracy/source-01"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
-    "url": "https://www.bcn.cl/historiapolitica/hitos_periodo/detalle_periodo.html?per=1973-1990",
-    "uses": [
-      "source/topic/latin-america/resources-democracy/source-02"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
-    "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
-    "uses": [
-      "source/topic/latin-america/resources-democracy/source-03"
     ],
     "access": {
       "status": "unaccessed"
@@ -5051,15 +5804,6 @@
     }
   },
   {
-    "url": "https://whc.unesco.org/en/list/1443/",
-    "uses": [
-      "source/scene/yongle-capitals/unesco-canal"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
     "url": "https://whc.unesco.org/document/128794",
     "uses": [
       "source/scene/yongle-capitals/icomos-canal"
@@ -5221,6 +5965,61 @@
       "url": "https://tile.loc.gov/storage-services/service/ll/lltreaties/lltreaties-ustbv001/lltreaties-ustbv001.pdf",
       "material": "美国国会图书馆｜条约汇编第 1 卷",
       "locator": "整卷大小超出当前阅读工具上限，改读 FRUS 可定位的签署文本。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  },
+  {
+    "url": "https://archives.kdemo.or.kr/display/en/move610.html",
+    "uses": [],
+    "access": {
+      "url": "https://archives.kdemo.or.kr/display/en/move610.html",
+      "material": "韩国民主化运动档案：六月民主抗争",
+      "locator": "访问返回 403，正文未读取",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://inah.gob.mx/zonas/zona-arqueologica-tlatelolco",
+    "uses": [],
+    "access": {
+      "url": "https://inah.gob.mx/zonas/zona-arqueologica-tlatelolco",
+      "material": "墨西哥国立人类学与历史研究所：特拉特洛尔科遗址",
+      "locator": "遗址网页打开返回 403，佐证改用该机构的第 7 分册",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://www2.senado.leg.br/jspui/handle/id/385454",
+    "uses": [],
+    "access": {
+      "url": "https://www2.senado.leg.br/jspui/handle/id/385454",
+      "material": "巴西参议院档案候选路径",
+      "locator": "指定路径返回 404，改读总统府刊载的第 3,353 号法条",
+      "date": "2026-11-25",
+      "status": "dead"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-haitian-declaration-of-independence/",
+    "uses": [],
+    "access": {
+      "url": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/the-haitian-declaration-of-independence/",
+      "material": "英国国家档案馆：海地独立宣言候选页面",
+      "locator": "工具无法读取，查阅档案号 ADM 1/254 的公开英译副本",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  },
+  {
+    "url": "https://germanhistorydocs.ghi-dc.org/pdf/eng/Doc.52-ENG-12%20Articles_en.pdf",
+    "uses": [],
+    "access": {
+      "url": "https://germanhistorydocs.ghi-dc.org/pdf/eng/Doc.52-ENG-12%20Articles_en.pdf",
+      "material": "德国历史文献与图像：施瓦本农民十二条款旧 PDF",
+      "locator": "原路径读取超时，改读同项目现行页面的全文",
       "date": "2026-11-25",
       "status": "temporary-failure"
     }
