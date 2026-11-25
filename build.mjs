@@ -23,7 +23,7 @@ if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插�
 const app = appSource.replace(readingMarker, ['history-rules.js', 'session-state.js', 'reading.js', 'subject-reader.js', 'event-map.js', 'year-discovery.js', 'chrome.js', 'year-control.js', 'offline-status.js']
   .map((file) => rd('src', file)).join('\n') + '\n' + readingMarker);
 const { world, books:subjectBooks, topics, scenes:historicalScenes, notes:timelineNotes,
-  eventLinks, mapBindings, metadata, polityNames:{names:polityNames} } = loadHistoryModel(root);
+  eventLinks, mapBindings, metadata, polityNames:{names:polityNames, relations:polityRelations} } = loadHistoryModel(root);
 const shellLinks = [...shell.matchAll(/<link[^>]+href="([^"]+)"/g)].map(match => match[1]);
 const manifest = JSON.parse(rd('manifest.webmanifest'));
 const installFiles = [...new Set([...shellLinks, ...manifest.icons.map(icon => icon.src)])];
@@ -64,6 +64,7 @@ const page = (atlasJson, reliefB64, polityB64, earthDetailB64 = '', terrainB64 =
   h = put(h, '/*POLITY*/', polityB64);
   h = put(h, '/*BUILD_ASSETS*/', JSON.stringify(assets));
   h = put(h, '/*POLITY_NAMES*/', JSON.stringify([...polityNames]).replace(/</g, '\\u003c'));
+  h = put(h, '/*POLITY_RELATIONS*/', JSON.stringify([...polityRelations]).replace(/</g, '\\u003c'));
   h = put(h, '/*TOPICS*/', JSON.stringify(topics).replace(/</g, '\\u003c'));
   h = put(h, '/*SUBJECT_BOOKS*/', JSON.stringify(subjectBooks).replace(/</g, '\\u003c'));
   h = put(h, '/*HISTORICAL_SCENES*/', JSON.stringify(historicalScenes).replace(/</g, '\\u003c'));

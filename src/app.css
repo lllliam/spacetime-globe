@@ -48,10 +48,10 @@ html.reader-paper{color-scheme:light}
 #overlay[hidden]{display:none}
 @keyframes slideUp{from{transform:translateY(14px)}to{transform:none}}
 #overlay-head{
-  position:relative;width:min(100%,680px);margin:0 auto;padding:32px var(--world-gutter) 20px;flex:none;
+  position:relative;width:min(100%,680px);margin:0 auto;padding:32px max(var(--world-gutter),env(safe-area-inset-right,0px)) 20px max(var(--world-gutter),env(safe-area-inset-left,0px));flex:none;
 }
 #overlay-head::after{
-  content:"";position:absolute;inset:auto var(--world-gutter) 0;border-bottom:1px solid #a9b6c440;
+  content:"";position:absolute;inset:auto max(var(--world-gutter),env(safe-area-inset-right,0px)) 0 max(var(--world-gutter),env(safe-area-inset-left,0px));border-bottom:1px solid #a9b6c440;
 }
 #overlay-title{
   margin:0;padding-right:50px;color:var(--ink);font:500 clamp(36px,10vw,50px)/1.12 Georgia,"Songti SC",serif;
@@ -59,14 +59,14 @@ html.reader-paper{color-scheme:light}
 }
 #overlay-sub{margin:10px 0 0;color:#b1bbc5;font-size:15px;line-height:1.5}
 #overlay-close{
-  display:grid;place-items:center;position:absolute;top:8px;right:calc(var(--world-gutter) - 9px);
+  display:grid;place-items:center;position:absolute;top:8px;right:calc(max(var(--world-gutter),env(safe-area-inset-right,0px)) - 9px);
   width:44px;height:44px;padding:0;border:0;background:none;color:#d3dada;cursor:pointer;
 }
 #overlay-close svg{width:22px;height:22px}
 #overlay-body{
   width:100%;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;
   scrollbar-width:thin;scrollbar-color:#61708066 transparent;
-  padding:0 max(var(--world-gutter),calc((100% - 680px)/2 + var(--world-gutter))) calc(var(--usable-safe-b) + 28px);
+  padding:0 max(var(--world-gutter),env(safe-area-inset-right,0px),calc((100% - 680px)/2 + var(--world-gutter))) calc(var(--usable-safe-b) + 28px) max(var(--world-gutter),env(safe-area-inset-left,0px),calc((100% - 680px)/2 + var(--world-gutter)));
 }
 #world-events-heading,.world-background summary{
   font-size:17px;font-weight:620;line-height:1.4;color:var(--ink);
@@ -439,7 +439,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 }
 #sheet::before{display:none}
 #sheet-dim{background:#05080d55}
-#sheet-top{position:relative;z-index:2;flex:none;padding:3px clamp(12px,4vw,22px) 9px;background:var(--paper-bg);border-bottom:1px solid #d5cdbb99}
+#sheet-top{position:relative;z-index:2;flex:none;padding:3px max(clamp(12px,4vw,22px),env(safe-area-inset-right,0px)) 9px max(clamp(12px,4vw,22px),env(safe-area-inset-left,0px));background:var(--paper-bg);border-bottom:1px solid #d5cdbb99}
 #sheet-top #grab{height:17px;min-height:17px;display:grid;place-items:start center;touch-action:none}
 #sheet-top #grab i{margin:5px 0 0;height:3px;width:35px;background:#c7bdad;align-self:auto}
 #sheet-gesture{display:none}
@@ -454,7 +454,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
   border:0;background:transparent;color:var(--paper-muted);cursor:pointer}
 #sheet-close[hidden]{display:none}
 #sheet-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
-#sheet-scroll{padding:10px 18px 12px;scrollbar-color:#b7ac9a transparent}
+#sheet-scroll{padding:10px max(18px,env(safe-area-inset-right,0px)) 12px max(18px,env(safe-area-inset-left,0px));scrollbar-color:#b7ac9a transparent}
 #sheet .era{color:var(--vermilion);font-variant-numeric:tabular-nums}
 #sheet .era small,#sheet .era2 small{color:var(--paper-muted)}
 #sheet .era2{color:var(--ochre)}
@@ -471,7 +471,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 #sheet.peek #sheet-inner .hint-more{display:none}
 #sheet .subject-sheet-summary{color:var(--paper-body)}
 [data-read-subject]{color:var(--vermilion)}
-#sheet.full #sheet-scroll{max-height:calc(100dvh - 110px)}
+#sheet.full #sheet-scroll{max-height:calc(var(--app-height) - 110px)}
 /* Observation uses the same globe and paper palette as Explore and Read. */
 #event-map-top{
   display:flex;justify-content:space-between;align-items:center;gap:10px;
@@ -569,4 +569,4 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 }
 #sheet-toc[data-read-subject]{background:var(--vermilion);border-color:var(--vermilion);color:#fff9f0}
 #sheet .map-sheet-summary a{color:var(--paper-muted);text-underline-offset:3px}
-#sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--safe-b))}
+#sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--usable-safe-b))}

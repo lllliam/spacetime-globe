@@ -115,8 +115,7 @@ function readingBackground(active) {
   else canvas.removeAttribute('aria-hidden');
   document.body.classList.toggle('reading-open', active);
   document.documentElement.classList.toggle('reader-paper', active);
-  themeColorMeta.content = active || standaloneGlobe && document.documentElement.classList.contains('sheet-paper')
-    ? paperThemeColor : globeThemeColor;
+  syncThemeColor();
   updateVernier();
 }
 function openBook({ resume = false } = {}) {

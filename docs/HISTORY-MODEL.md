@@ -13,7 +13,7 @@
 | 书卷与专题 | `data/books`、`data/topics` 中的稳定 `id`。书卷可通过可选 `subjectIds` 说明叙事涉及的对象，可以完全没有地图入口 |
 | 地图入口 | `data/history/map-bindings.json`。独立维护编辑关系、有效年代、范围及审校状态 |
 
-优先复用底图注册表。Cliopatria 数字索引用于当前数据包绘制和拾取，入口以原名映射，叙事和稳定编辑身份另行维护。底图几何由已有资源加载。只有明确编辑需求才在对象注册表添加记录。
+优先复用底图注册表。Cliopatria 数字索引用于当前数据包绘制和拾取，入口以原名映射，叙事和稳定编辑身份另行维护。底图几何由已有资源加载。只有明确编辑需求才在对象注册表添加记录。Cliopatria 原始包中的双边与联合关系记录（如 `Alliance between`、`Personal union of`、`Allegiance of`、`Vassalage of`）在保留原始 ID 与几何的前提下由 `tools/polity-names.mjs` 单独分类为关系元数据，不生成为地图主标签，也不参与政权图层的渲染、拾取或标签避让。
 
 ## 地图入口
 

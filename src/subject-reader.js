@@ -38,9 +38,10 @@ function subjectYears({ from, to, dateLabel }) {
 }
 
 function subjectEntityName(entity) {
-  return entity.kind === 'polity'
-    ? polityNames.get(entity.name) || '中文名待考 · ' + (entity.entId + 1)
-    : entity.name;
+  if (entity.kind !== 'polity') return entity.name;
+  return polityNames.get(entity.name)
+    || polityRelations.get(entity.name)?.description
+    || (polityRelations.has(entity.name) ? '历史关系记录' : '中文名待考 · ' + (entity.entId + 1));
 }
 
 function subjectSheetMarkup(entity) {
@@ -84,9 +85,10 @@ function renderAtlasReading() {
   const entity = reading.ent;
   const title = subjectEntityName(entity);
   const history = entity.kind === 'polity';
+  const isRelation = history && polityRelations.has(entity.name);
   const source = historyMapSources[history ? 'polity' : 'country'];
-  return '<div class="atlas-reading">' + readingHeading(title, '地图资料 · ' + yearLabel(reading.year)) +
-    '<p class="lede">这个主体的历史正文尚未收录。</p>' +
+  return '<div class="atlas-reading">' + readingHeading(title, (isRelation ? '历史关系 · ' : '地图资料 · ') + yearLabel(reading.year)) +
+    '<p class="lede">' + (isRelation ? '这是底图中的双边或联合关系记录，不作为独立政权主体。' : '这个主体的历史正文尚未收录。') + '</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
     (history && !polityNames.has(entity.name)

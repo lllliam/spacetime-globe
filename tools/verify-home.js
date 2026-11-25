@@ -70,11 +70,12 @@ async function main() {
 
     for (const [w,h,mobile,dpr] of [[320,568,true,2],[393,844,true,2],[430,932,true,3],
       [844,390,true,2],[1366,768,false,1],[1920,1080,false,1]]) {
+      const st = mobile && h > w ? 47 : 0, sb = mobile && h > w ? 24 : 0;
       await page.size(w,h,mobile,dpr);
-      await js(`document.documentElement.style.setProperty('--safe-t','${mobile && h > w ? 47 : 0}px');
-        document.documentElement.style.setProperty('--safe-b','${mobile && h > w ? 24 : 0}px');
+      await js(`document.documentElement.style.setProperty('--safe-t','${st}px');
+        document.documentElement.style.setProperty('--safe-b','${sb}px');
         dispatchEvent(new Event('resize'))`);
-      await until(() => js(`__t.view.w===${w} && __t.view.h===${h}`),'Viewport did not settle');
+      await until(() => js(`__t.view.w===${w} && __t.view.h===${h} && __t.view.safeTop===${st} && __t.view.safeBottom===${sb}`),'Viewport did not settle');
       const layout = await js(`(() => {
         const last = document.querySelector('#vernier').getBoundingClientRect();
         return { radius:__t.view.R, globeBottom:__t.view.cy+__t.view.R, timeline:Math.round(last.top),

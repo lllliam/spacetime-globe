@@ -823,11 +823,16 @@ async function main() {
       aztecLabel:__t.vecShapes.some(s=>s.name==='阿兹特克三方同盟'),
       chineseLabels:__t.vecShapes.every(s=>!s.name||/[\\u3400-\\u9fff]/.test(s.name)),
       zapotec:__t.polityNames.get('Zapotec Civilization'),
-      relation:__t.polityNames.get('Allegiance of Joseon to Ming Dynasty')};
+      relationInNames:__t.polityNames.has('Allegiance of Joseon to Ming Dynasty'),
+      relationMeta:__t.polityRelations.get('Allegiance of Joseon to Ming Dynasty')?.description,
+      noRelationShapes:!shapes.some(s=>__t.polityRelations.has(s.ent.name)),
+      mingLabel:__t.vecShapes.some(s=>s.name==='明朝'),
+      joseonLabel:__t.vecShapes.some(s=>s.name==='朝鲜王朝')};
   })()`);
-  check('同一份中文名称用于历史地图，点击同盟疆域进入帝国书卷',localized.sheet==='阿兹特克帝国' && localized.book==='aztec' &&
+  check('同一份中文名称用于历史地图，关系记录不作为主体标签并保留明朝与朝鲜王朝',localized.sheet==='阿兹特克帝国' && localized.book==='aztec' &&
     localized.anchor==='tribute-grid-pochteca' && localized.aztecLabel && localized.chineseLabels && localized.zapotec==='萨波特克文明' &&
-    localized.relation==='朝鲜王朝向明朝效忠',localized);
+    !localized.relationInNames && localized.relationMeta==='朝鲜王朝向明朝效忠' && localized.noRelationShapes &&
+    localized.mingLabel && localized.joseonLabel,localized);
   await js(`__t.closeReader();__t.closeSheet();__t.setYear(1400)`);
   check('待核定主体保留地图点击，原始名称只在可展开的底图资料中显示',await js(`(() => {
     const shape=__t.partition.shapes.find(s=>s.ent.name==='Bahrani Dynasty');

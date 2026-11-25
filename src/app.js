@@ -46,6 +46,18 @@ const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overla
 const bootEl = el('boot');
 
 const inlineText = (id) => { const n = el(id); return n ? n.textContent.trim() : ''; };
+const polityNames = new Map(JSON.parse(inlineText('polity-names') || '[]'));
+const polityRelations = new Map(JSON.parse(inlineText('polity-relations') || '[]'));
+const isDisplayPolity = (ent) => Boolean(ent && !polityRelations.has(ent.name));
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+const globeThemeColor = themeColorMeta.content;
+const paperThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim();
+const standaloneGlobe = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
+function syncThemeColor() {
+  const paper = reading.active || !overlay.hidden || standaloneGlobe && document.documentElement.classList.contains('sheet-paper');
+  const theme = paper ? paperThemeColor : globeThemeColor;
+  if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+}
 const buildAssets = JSON.parse(inlineText('build-assets'));
 const assetURL = path => buildAssets.runtime?.[path]?.url || path;
 const fetchRuntimeAsset = path => fetch(assetURL(path), {integrity:buildAssets.runtime?.[path]?.integrity || ''});
@@ -219,7 +231,9 @@ const LAYERS = {
       const out = [];
       for (let i = 0; i < pk.nSlice; i++) {
         if (pk.slices[i * 4 + 1] > y || pk.slices[i * 4 + 2] < y) continue;
-        out.push({ id: out.length + 1, ent: pk.entities[pk.slices[i * 4]], pathId: pk.slices[i * 4 + 3] });
+        const ent = pk.entities[pk.slices[i * 4]];
+        if (!isDisplayPolity(ent)) continue;
+        out.push({ id: out.length + 1, ent, pathId: pk.slices[i * 4 + 3] });
       }
       /* 小的画在上层：点在帝国里点到小王国的概率更高，也符合“实际统治层级” */
       out.sort((a, b) => polityShape(pk, b.pathId).area - polityShape(pk, a.pathId).area);
@@ -938,7 +952,6 @@ function svgRings(pathStr) {
 }
 
 let vecShapes = [];
-const polityNames = new Map(JSON.parse(inlineText('polity-names')));
 function prepareVector() {
   const layer = LAYERS[state.layerId];
   const shapes = partition.shapes;
@@ -958,7 +971,7 @@ function prepareVector() {
     if (!vecs.length) continue;
     const ent = layer.entityOfShape(s);
     const name = layer.id === 'polity'
-      ? (polityNames.get(ent?.ent?.name) || '')
+      ? (isDisplayPolity(ent?.ent) ? (polityNames.get(ent?.ent?.name) || '') : '')
       : (ent?.region?.zh || '');
     let area = 0;
     for (const v of vecs) area = Math.max(area, ringRoughArea(v.xyz));
@@ -1225,7 +1238,7 @@ function drawVector(hudBounds = globeHudBounds()) {
   const maxLabels = !chrome.labels || (worldEvent?.sceneId && !hasScenePolities) || (state.zoom === 1 && !state.focus && !hasScenePolities)
     ? 0 : hasScenePolities ? Math.min(8, focusedIds.size) : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
   const uiTop = view.safeTop + 12;
-  const uiBottom = view.h - 55;
+  const uiBottom = Math.min(view.h - 55, view.h - view.safeBottom - 24);
   const cand = drawn.filter((d) => d.area > 0 && d.name && (!hasScenePolities || focusedIds.has(d.id))).sort((a, b) => b.area - a.area);
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
@@ -1388,6 +1401,7 @@ function layout() {
   const safeBottom = bottomAlreadyReserved ? Math.max(0, reportedBottom - screenGap) : reportedBottom;
   const usableBottom = safeBottom + 'px';
   if (root.style.getPropertyValue('--usable-safe-b') !== usableBottom) root.style.setProperty('--usable-safe-b', usableBottom);
+  root.classList.toggle('standalone-safe-top', standaloneGlobe && safeTop > 0);
   const viewportChanged = w !== view.w || h !== view.h || safeTop !== view.safeTop || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
@@ -1889,10 +1903,6 @@ const sheetScroll = el('sheet-scroll'), grabEl = el('grab'), dimEl = el('sheet-d
 const sheetState = { detent: 'hidden', offset: 0, dragging: false };
 
 const SHEET_BOTTOM_GAP = 16;
-const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-const globeThemeColor = themeColorMeta.content;
-const paperThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim();
-const standaloneGlobe = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
@@ -1922,10 +1932,8 @@ function paintSheetPosition(offset) {
   sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
   if (view.w < 960) sheetEl.style.setProperty('--sheet-radius', clamp(y * .55, 0, 22) + 'px');
   const paperEdge = offset < (view.h || innerHeight) - 2 && view.w < 960;
-  const root = document.documentElement;
-  root.classList.toggle('sheet-paper', paperEdge);
-  const theme = reading.active || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
-  if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+  document.documentElement.classList.toggle('sheet-paper', paperEdge);
+  syncThemeColor();
   if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
     updateSheetGlobeCenter(offset);

@@ -28,14 +28,14 @@ const lines=['# 世界历史书的内容覆盖','',
   '| 专题 | 地区 | 覆盖年代 | 正文篇数 | 每篇正文汉字 |','| --- | --- | --- | ---: | --- |',
   ...coverageRows.map(id=>{const p=plans.get(id),t=byId.get(id);return t?`| ${t.title} | ${t.continents.join('、')} | ${t.from}—${t.to} | ${t.chapters.length} | ${t.chapters.map(lengthOf).join(' / ')} |`:`| ${p.title} | ${p.continents.join('、')} | 待完成 | 0 | — |`;}),'',
   '## 地理与时间边界','', '历史疆域覆盖取决于地图资料，书卷年代取决于所采用的叙事范围。现代区域以现代国界绘制。补充专题在历史书目中按需查阅。','',
-  `历史地图 ${polityNames.total} 条名称中，${polityNames.direct} 条有独立中文对照，${polityNames.names.size - polityNames.direct} 条使用已核对主体名组成关系名称。余下 ${polityNames.total - polityNames.names.size} 条可在地图资料中展开底图原名。`,'',
+  `历史地图 ${polityNames.total} 条原始记录中，${polityNames.names.size} 条主体有规范中文名称，${polityNames.relations.size} 条为双边或联合关系记录（不作主体标签绘制），余下 ${polityNames.total - polityNames.names.size - polityNames.relations.size} 条待考主体可在地图资料中展开底图原名。`,'',
   '## 校验结果','','历史内容模型 v' + version + ' 的稳定身份、年代、地点、来源和内部关联结构通过。正文长度与篇数描述编辑覆盖。逐条论断与证据的核对留待审校。','',
   '场景处置、全球关系的分类和必要的证据复核见 [Phase 06 报告](progress/PHASE-06.md)。','',
   '存量对象的审校覆盖、实际读过的资料和未复核清单见 [Phase 07 进度](progress/PHASE-07.md)。','',
   '《明朝》标杆书卷的目录、来源范围及单独审校记录见 [Phase 08 报告](progress/PHASE-08.md)。','',
   ...warnings.map(p=>'- 待处理 · '+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
-console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,activeScenes,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters:chapters.length,hanCharacters:chars,sourceUrls:sources.size,subjects:subjects.size,bindings:bindings.length,problems:0,warnings:warnings.length},null,2));
+console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,activeScenes,polityNames:polityNames.names.size,polityRelations:polityNames.relations.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters:chapters.length,hanCharacters:chars,sourceUrls:sources.size,subjects:subjects.size,bindings:bindings.length,problems:0,warnings:warnings.length},null,2));
 for (const warning of warnings) console.warn(warning);
 
 function bookYears({from, to}) {

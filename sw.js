@@ -1,11 +1,11 @@
 /* Generated as sw.js. The browser activates a new worker after old controlled pages close. */
 const manifest = {
-  "revision": "8270969d17fceb22",
-  "entry": "index.html?sg=8270969d17fceb22",
+  "revision": "f109174b5a1efbbb",
+  "entry": "index.html?sg=f109174b5a1efbbb",
   "resources": [
     {
-      "url": "index.html?sg=8270969d17fceb22",
-      "integrity": "sha256-xbaNCd1soASXdIZrA3g3VxNT0HVfKppmqTeogjRZT0o=",
+      "url": "index.html?sg=f109174b5a1efbbb",
+      "integrity": "sha256-UPM1dL1IjLaET/bzsDK/DHqaxjqO4H4x8j7ihGCpnNw=",
       "core": true
     },
     {

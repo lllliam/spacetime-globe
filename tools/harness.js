@@ -43,7 +43,7 @@ window.__t = {
   get sheetSettled(){ return !sheetMotion },
   get cloudDrift(){ return cloudDrift },
   entityById, entityByKey, focusKeyOf,
-  polityNames, subjectEntityName,
+  polityNames, polityRelations, subjectEntityName,
   get reading(){ return reading },
   get session(){ return session },
   get globeFramePending(){ return !!rafId },
