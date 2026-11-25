@@ -74,13 +74,16 @@ ${marker}`));
     assert.deepEqual(await yearCamera(),originalCamera);
     const migrated = await position();
     assert.equal(migrated.blockId,'p-03');
-    assert.equal(migrated.block,legacyPosition.block);
+    assert.equal(await js("document.querySelector('p[data-block-id=p-03]').dataset.previousFingerprint"),legacyPosition.block);
     assert.ok(Math.abs(migrated.offset-legacyPosition.offset)<.025);
     await until(async ()=>(await readSaved()).read.position.blockId==='p-03','Legacy fingerprint not upgraded');
     assert.equal((await readSaved()).progress.find(([key])=>key==='subject:ming')[1].position.blockId,'p-03');
     await capture('03-phase04-session-restored');
     await click('#reading-index');
-    assert.deepEqual(await chapterIds(),['founding','two-capitals','mid-ming','silver','fall']);
+    assert.deepEqual(await chapterIds(),['yuan-crisis','founding','households-garrisons','hongwu-court',
+      'two-capitals','canal-labor','indian-ocean','renxuan','mid-ming','court-paperwork','local-livelihoods',
+      'coastal-frontier','zhang-reform','silver','print-and-knowledge','wanli-imjin','liaodong-tianqi',
+      'famine-rebellion','fall','southern-ming']);
     await click('#reading-back');
     assert.equal((await position()).blockId,'p-03');
     const attached = await attachPoint('yongle-capitals');
@@ -93,7 +96,7 @@ ${marker}`));
       const book=__t.reading.subject, chapter=book.chapters.find(c=>c.id==='two-capitals');
       const p=chapter.paragraphs.splice(2,1)[0];
       p.text='重排试验。'+p.text;
-      p.refs[0]={sourceId:p.refs[0],locator:'第 1 页'};
+      p.refs[0]={sourceId:p.refs[0].sourceId,locator:'第 1 页'};
       chapter.paragraphs.splice(1,0,p);
       chapter.paragraphs.unshift({id:'test-insertion',text:'临时插入用段落。',refs:[]});
       book.sources.reverse();
@@ -138,13 +141,14 @@ ${marker}`));
     }
     const targets = await js(`(() => {
       const book=__t.subjectBooks.find(b=>b.id==='ming');
-      book.chapters[2].recommendation={priority:5,range:{from:1405,to:1405}};
+      book.chapters.find(c=>c.id==='two-capitals').recommendation={priority:5,range:{from:1405,to:1405}};
       const inferred=__t.worldReadingTarget({id:'i-040'},1405);
       const explicit=__t.worldReadingTarget({id:'i-010'},1405);
+      const maritime=__t.worldReadingTarget({id:'i-013'},1500);
       const gap=__t.worldReadingTarget({id:'i-075'},1400);
-      return [inferred.chapter.id,explicit.chapter.id,gap.book.id,gap.chapter,gap.year];
+      return [inferred.chapter.id,explicit.chapter.id,maritime.chapter.id,gap.book.id,gap.chapter,gap.year];
     })()`);
-    assert.deepEqual(targets,['mid-ming','two-capitals','aztec',null,1400]);
+    assert.deepEqual(targets,['two-capitals','indian-ocean','coastal-frontier','aztec',null,1400]);
 
     const today = await js('__t.yearBounds.max');
     await js(`__t.commitYear(${today})`);

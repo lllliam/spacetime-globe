@@ -1,0 +1,1406 @@
+{
+  "id": "05-collapse-and-continuities",
+  "access": [
+    {
+      "sourceId": "mingshi-wanli",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷21",
+      "material": "《明史》卷二十一·神宗二",
+      "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+      "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "qingshigao-nurhaci",
+      "url": "https://zh.wikisource.org/zh-hant/清史稿/卷1",
+      "material": "《清史稿》卷一·太祖",
+      "locator": "早期明朝授职、天命元年、三年及四年",
+      "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "qingshigao-hongtaiji",
+      "url": "https://zh.wikisource.org/zh-hans/清史稿/卷3",
+      "material": "《清史稿》卷三·太宗二",
+      "locator": "崇德元年四月改国号、授爵诸条",
+      "supports": "1636 年定国号为清，任命及封爵涉及多个政治群体。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-tianqi",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷22",
+      "material": "《明史》卷二十二·熹宗",
+      "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+      "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-wei-zhongxian",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷305",
+      "material": "《明史》卷三百〇五·魏忠贤传",
+      "locator": "魏忠贤传东林及天启二、三年相关段",
+      "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chongzhen-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷23",
+      "material": "《明史》卷二十三·庄烈帝一",
+      "locator": "天启七年八月、十一月至十二月及崇祯初年",
+      "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chongzhen-fall",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷24",
+      "material": "《明史》卷二十四·庄烈帝二",
+      "locator": "崇祯十四年秋冬及十七年二至五月",
+      "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-levies",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷78",
+      "material": "《明史》卷七十八·食货二",
+      "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+      "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-22",
+      "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/nine-sloughs-profiling-the-climate-history-of-the-yuan-and-ming-dynasties-12601644/DA1645CAA478E868C91AB3BBEB8BC58F",
+      "material": "卜正民：元明时期的气候史",
+      "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+      "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "von-glahn-silver-markets",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D3045EA55D654DCDCDCB3874E481A0B4/S0212610919000193a.pdf/changing_significance_of_latin_american_silver_in_the_chinese_economy_16th19th_centuries.pdf",
+      "material": "万志英：美洲白银在中国经济中的作用变迁",
+      "locator": "第 558 页海外统计缺口与第 564 页前后战乱、白银需求的讨论",
+      "supports": "明朝一侧可比数据不足，市场收缩也可能改变白银流量。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "qingshigao-shunzhi",
+      "url": "https://zh.wikisource.org/zh-hant/清史稿/卷4",
+      "material": "《清史稿》卷四·世祖一",
+      "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+      "supports": "清军入关、接收北京、留用部分明官和江南易手。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-gui-yongli",
+      "url": "https://zh.wikisource.org/zh-hans/明史/卷120",
+      "material": "《明史》卷一百二十·诸王五",
+      "locator": "桂王、唐王及后来永历诸段",
+      "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-26",
+      "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/transnational-historiography-of-a-dynastic-transition-writing-the-mingqing-transition-in-seventeenthcentury-china-korea-and-japan/9D660C38138C725154EA64427E018413",
+      "material": "《现代亚洲研究》：中国、朝鲜与日本笔下的明清易代",
+      "locator": "导言 Within China itself 与 Unofficial histories 小节",
+      "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "twhistory-zheng-century",
+      "url": "https://ws.mofa.gov.tw/001/Upload/402/relfile/20/422/779bb0cb-5fcb-47eb-8e82-84ac0c39d61b.pdf",
+      "material": "台湾历史年表英文版",
+      "locator": "Historical Timeline，1662、1683 两条",
+      "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "taijiang-zheng-records",
+      "url": "https://tucheng.kenlab.org/en/history/zheng/",
+      "material": "台江与土城仔研究：郑氏时期",
+      "locator": "1661 年郑成功来函及 1662 年投降时间线",
+      "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-chapter/ming/liaodong-tianqi",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            }
+          ],
+          "limit": "以明清双方官书交叉核年，政治处分的内幕从严取材。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            }
+          ],
+          "limit": "以明清双方官书交叉核年，政治处分的内幕从严取材。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            }
+          ],
+          "limit": "以明清双方官书交叉核年，政治处分的内幕从严取材。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            }
+          ],
+          "limit": "以明清双方官书交叉核年，政治处分的内幕从严取材。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-01",
+      "scope": "授予建州官职、1616 建金和 1618 抚顺易手。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "授予建州官职、1616 建金和 1618 抚顺易手。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            }
+          ],
+          "limit": "以互相校正的官书纪年为主，不复原个人归附的未证动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-02",
+      "scope": "从萨尔浒到天启元年辽阳、沈阳易手及赈济辽民。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从萨尔浒到天启元年辽阳、沈阳易手及赈济辽民。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历四十六、四十七年抚顺、辽饷与萨尔浒条",
+              "supports": "失去抚顺后，明廷增援和运饷，次年萨尔浒多路失利。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            }
+          ],
+          "limit": "赈济条只支持一次可定位的处置，移民规模、路径及全部生活结果待更多材料。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-03",
+      "scope": "天启政治的职权变化及崇祯即位后的处置。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "天启政治的职权变化及崇祯即位后的处置。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            }
+          ],
+          "limit": "避免把朝臣硬分为两个始终一致的集团，也不为每次战事编造宫廷动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/famine-rebellion",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-22",
+              "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+              "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 558 页海外统计缺口与第 564 页前后战乱、白银需求的讨论",
+              "supports": "明朝一侧可比数据不足，市场收缩也可能改变白银流量。"
+            }
+          ],
+          "limit": "气候、银流和军费各据对应材料讨论，账面与实际效果保留边界。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/famine-rebellion/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-22",
+              "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+              "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 558 页海外统计缺口与第 564 页前后战乱、白银需求的讨论",
+              "supports": "明朝一侧可比数据不足，市场收缩也可能改变白银流量。"
+            }
+          ],
+          "limit": "气候、银流和军费各据对应材料讨论，账面与实际效果保留边界。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/famine-rebellion/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-22",
+              "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+              "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 558 页海外统计缺口与第 564 页前后战乱、白银需求的讨论",
+              "supports": "明朝一侧可比数据不足，市场收缩也可能改变白银流量。"
+            }
+          ],
+          "limit": "气候、银流和军费各据对应材料讨论，账面与实际效果保留边界。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-01",
+      "scope": "崇祯期气候重建、地方差别与粮价证据。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "崇祯期气候重建、地方差别与粮价证据。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-22",
+              "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+              "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。"
+            }
+          ],
+          "limit": "气候推断依据文献代理，不能把所有饥荒、疫情或民变按同一条件归因。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-02",
+      "scope": "从辽饷到崇祯追加，田产和税负错配，白银统计局限。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从辽饷到崇祯追加，田产和税负错配，白银统计局限。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 558 页海外统计缺口与第 564 页前后战乱、白银需求的讨论",
+              "supports": "明朝一侧可比数据不足，市场收缩也可能改变白银流量。"
+            }
+          ],
+          "limit": "奏议中的问题不是全国比例，无法量得输入银的单一变化对各地的影响。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-03",
+      "scope": "崇祯后期战事、自成与献忠所建立政权的分别。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "崇祯后期战事、自成与献忠所建立政权的分别。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "官书用语由当时立场决定，未将地方武装一律归为同一组织。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/fall",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "旧章覆盖明末和后续，1644 年入页优先进入北京章。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/fall/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "旧章覆盖明末和后续，1644 年入页优先进入北京章。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/fall/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "旧章覆盖明末和后续，1644 年入页优先进入北京章。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/fall/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "旧章覆盖明末和后续，1644 年入页优先进入北京章。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-01",
+      "scope": "辽东失城后的人事、筹饷与天启至崇祯处分变化。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "辽东失城后的人事、筹饷与天启至崇祯处分变化。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tianqi",
+              "locator": "卷首受遗命、天启元年三月至冬及二年正月",
+              "supports": "天启继位，沈阳、辽阳失守，明廷募兵，记部分迁民得到赈济。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wei-zhongxian",
+              "locator": "魏忠贤传东林及天启二、三年相关段",
+              "supports": "记东林书院声望、若干官员遭黜与魏忠贤获掌东厂。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-early",
+              "locator": "天启七年八月、十一月至十二月及崇祯初年",
+              "supports": "崇祯继位、处置魏忠贤及其近属，释放天启诸臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            }
+          ],
+          "limit": "宫廷与辽务各有记录，无法逐项把朝廷清洗解释成前线失利。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-02",
+      "scope": "灾情、财政与地方战争相互作用的证据边界。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "灾情、财政与地方战争相互作用的证据边界。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-22",
+              "locator": "第八节末崇祯时段，及第九节 Cold and Dry, But Cold",
+              "supports": "以文献灾情和粮价比较寒冷、干旱、饥荒，讨论代理资料的限制及各地差别。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "万历四十六年起辽饷、天启元年甄淑议与崇祯加派条",
+              "supports": "军费加派反复增加，地方承担方式不齐，田已卖而粮负担仍在是奏章列举的问题。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "灾情重并不能自动推出一地支持何方，避免未证的全国死亡合计。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-03",
+      "scope": "1636 年建号、册封和后金至清的政治延续。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1636 年建号、册封和后金至清的政治延续。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-hongtaiji",
+              "locator": "崇德元年四月改国号、授爵诸条",
+              "supports": "1636 年定国号为清，任命及封爵涉及多个政治群体。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-nurhaci",
+              "locator": "早期明朝授职、天命元年、三年及四年",
+              "supports": "努尔哈赤曾获明朝授职，建立国号金，继而与明交战。"
+            }
+          ],
+          "limit": "官书记封册对象，不能据此推定各群体的私人认同。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-04",
+      "scope": "明廷覆灭、山海关战事和清军进入北京的次序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "明廷覆灭、山海关战事和清军进入北京的次序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "两部官书各有编纂立场，不用猜测说明吴三桂的隐秘动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "block/ming/fall/aside-04",
+      "scope": "都城陷落、山海关易手和南京另立之间的时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "都城陷落、山海关易手和南京另立之间的时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            }
+          ],
+          "limit": "仅定位参与争夺的地区，不提供军队精确路线。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-05",
+      "scope": "弘光与其他南明政权的延续及并行。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "弘光与其他南明政权的延续及并行。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "遵循实际地区与年代，不把所有南方势力统归同一行政系统。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-06",
+      "scope": "清接官署、郑氏与荷兰据点的结局及 1683 后续。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "清接官署、郑氏与荷兰据点的结局及 1683 后续。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "汉文纪年、东印度公司记录与不同范围的统治分别使用，不从一处政权转换推断全岛即时控制。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/southern-ming",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "以 1683 为本卷尾声的观察终点，清朝其他地区的治理以清卷继续。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "以 1683 为本卷尾声的观察终点，清朝其他地区的治理以清卷继续。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "以 1683 为本卷尾声的观察终点，清朝其他地区的治理以清卷继续。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/scope",
+      "scope": "本章范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "以 1683 为本卷尾声的观察终点，清朝其他地区的治理以清卷继续。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/dateLabel",
+      "scope": "本章年代标签",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章年代标签",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "以 1683 为本卷尾声的观察终点，清朝其他地区的治理以清卷继续。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-01",
+      "scope": "北京官署接管、南京政权与江南转换的范围。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "北京官署接管、南京政权与江南转换的范围。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "诏令证明政权打算怎样用旧官和账册，无法据此裁定各州县服从程度。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-02",
+      "scope": "区分隆武、绍武与永历及政权流动。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分隆武、绍武与永历及政权流动。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "并行朝廷以所在地区和史料明示的时序表述，不为同一时代绘定未经核实的成片边界。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-03",
+      "scope": "热兰遮城的交涉与投降，及郑氏至 1683 年的区别。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "热兰遮城的交涉与投降，及郑氏至 1683 年的区别。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            },
+            {
+              "source": "source/book/ming/twhistory-zheng-century",
+              "locator": "Historical Timeline，1662、1683 两条",
+              "supports": "分别记郑成功结束荷兰据点统治和清军于 1683 年取得控制。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "日誌局部观察须结合台湾地域多样性，不能以殖民据点替代全岛。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-04",
+      "scope": "以有记录的接管和沿海交涉收束全卷。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以有记录的接管和沿海交涉收束全卷。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "桂王、唐王及后来永历诸段",
+              "supports": "福王被俘，唐王在福建，朱由榔于肇庆监国后转往广西和西南。"
+            },
+            {
+              "source": "source/book/ming/taijiang-zheng-records",
+              "locator": "1661 年郑成功来函及 1662 年投降时间线",
+              "supports": "整理热兰遮城日誌中的双方交涉及荷兰守军投降。"
+            }
+          ],
+          "limit": "最后一段为对各章节材料的解释，制度延续的强弱须分地区、时期另定。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查战事、灾区及顺治元年至二年的政权转换，区分南明朝廷序列、云南终点与海上政权的后续。"
+      }
+    },
+    {
+      "id": "text/book/ming/summary",
+      "scope": "全卷题旨及主要时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "全卷题旨及主要时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "顺治元年四月山海关、五月入京及随后建都，次年江南条",
+              "supports": "清军入关、接收北京、留用部分明官和江南易手。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "以全卷材料解释连接的问题，覆盖范围不等于各地统一状况。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/ming/editorialNotice",
+      "scope": "主体年代、前史和尾声，以及材料类型",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "主体年代、前史和尾声，以及材料类型",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "崇祯十四年秋冬及十七年二至五月",
+              "supports": "战争分多地展开，山西诸地陷落、北京城破及清军在山海关和北京的行动。"
+            },
+            {
+              "source": "source/book/ming/source-26",
+              "locator": "导言 Within China itself 与 Unofficial histories 小节",
+              "supports": "对读大顺、大西、南明、郑氏、清多方先后与跨境记忆。"
+            }
+          ],
+          "limit": "范围提示是叙事口径，地图政权存续年保留。"
+        }
+      ]
+    }
+  ]
+}

@@ -201,7 +201,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
         }
       }
       requireAudit(ch.audit,label);
-      const blocks = new Set();
+      const blocks = new Set(), fingerprints = new Set();
       check(Array.isArray(ch.paragraphs) && ch.paragraphs.length,label + ' 缺少正文块');
       for (const p of ch.paragraphs) {
         requireBlock(p,blocks,sources,label);
@@ -211,6 +211,12 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
         if (p.callout !== undefined) {
           requireBlock(p.callout,blocks,sources,label,false);
           check(string(p.callout.label),label + ' 补充说明缺少标签');
+        }
+        for (const block of [p,p.callout].filter(block=>block?.previousFingerprint!==undefined)) {
+          const fingerprint = block.previousFingerprint;
+          check(typeof fingerprint==='string' && /^[0-9a-z]{1,7}$/.test(fingerprint) && !fingerprints.has(fingerprint),
+            label + '/' + block.id + ' 旧阅读指纹无效或重复');
+          fingerprints.add(fingerprint);
         }
       }
       if (ch.spatialThesis !== undefined) {

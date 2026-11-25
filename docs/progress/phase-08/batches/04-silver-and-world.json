@@ -1,0 +1,1134 @@
+{
+  "id": "04-silver-and-world",
+  "access": [
+    {
+      "sourceId": "source-16",
+      "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf",
+      "material": "嘉靖倭患与 1567 年海禁政策的改变",
+      "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+      "supports": "港口有限发照及其税务制度逐步落实。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-longqing",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷19",
+      "material": "《明史》卷十九·穆宗",
+      "locator": "隆庆四年冬至五年九月",
+      "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "von-glahn-silver-markets",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D3045EA55D654DCDCDCB3874E481A0B4/S0212610919000193a.pdf/changing_significance_of_latin_american_silver_in_the_chinese_economy_16th19th_centuries.pdf",
+      "material": "万志英：美洲白银在中国经济中的作用变迁",
+      "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+      "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-manila-trade",
+      "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815",
+      "material": "大都会艺术博物馆：马尼拉大帆船贸易",
+      "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+      "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-levies",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷78",
+      "material": "《明史》卷七十八·食货二",
+      "locator": "一条鞭法条及其后万历、天启折纳与加派",
+      "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zhang-juzheng",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷213",
+      "material": "《明史》卷二百一十三·张居正传",
+      "locator": "神宗继位、考成法段及太后支持和夺情",
+      "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-07",
+      "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf",
+      "material": "汉学家 John W. Dardess：张居正与明代税制改革",
+      "locator": "上一版来源，资料 PDF 返回超时",
+      "supports": "改用《明史》卷七十八和卷二百一十三。",
+      "status": "temporary-failure",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-ten-bamboo",
+      "url": "https://www.metmuseum.org/art/collection/search/63372",
+      "material": "大都会艺术博物馆：十竹斋书画谱印本",
+      "locator": "文物 CP54，首版年代与出版、版材说明",
+      "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-35",
+      "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/science-religion-and-sinowestern-exchanges-literatijesuit-translation-of-euclidean-geometry-and-its-reception-from-late-ming-to-midqing/710CD29EDADCD7FF7F362721A5A37920",
+      "material": "《中国历史学刊》：从晚明到清中叶的《几何原本》翻译与接受",
+      "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+      "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-wanli",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷21",
+      "material": "《明史》卷二十一·神宗二",
+      "locator": "万历二十九年三月至十月、四十六至四十七年",
+      "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-39",
+      "url": "https://encykorea.aks.ac.kr/Article/E0047674",
+      "material": "韩国学中央研究院：壬辰战争",
+      "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+      "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-wanli-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷20",
+      "material": "《明史》卷二十·神宗一",
+      "locator": "隆庆六年六月与万历后期的战事条",
+      "supports": "神宗继位与高拱罢职；万历中期各地军政调动分年载录。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zhou-chen",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷153",
+      "material": "《明史》卷一百五十三·陈瑄、周忱传",
+      "locator": "周忱传，金花银与两京俸米段",
+      "supports": "宣德以后江南部分收入折银并用于发俸的具体例子。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-chapter/ming/zhang-reform",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "区分万历朝廷的施行、嘉靖旧例及长期成效。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/zhang-reform/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "区分万历朝廷的施行、嘉靖旧例及长期成效。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/zhang-reform/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "区分万历朝廷的施行、嘉靖旧例及长期成效。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-01",
+      "scope": "万历初高拱罢职与张居正、太后、冯保关系。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "万历初高拱罢职与张居正、太后、冯保关系。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli-early",
+              "locator": "隆庆六年六月与万历后期的战事条",
+              "supports": "神宗继位与高拱罢职；万历中期各地军政调动分年载录。"
+            }
+          ],
+          "limit": "以可见的任免和传记范围为限，私人对话与动机不复原。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-02",
+      "scope": "考成法按事务性质设限并追究误期。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "考成法按事务性质设限并追究误期。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            }
+          ],
+          "limit": "依据传记对制度的记述，不将“政体为肃”的评价换成定量成效。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-03",
+      "scope": "汇总役费、折银及万历九年推广；征收结果与新支出分开。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "汇总役费、折银及万历九年推广；征收结果与新支出分开。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhang-juzheng",
+              "locator": "神宗继位、考成法段及太后支持和夺情",
+              "supports": "张居正、太后与冯保的关系及限期考成、对官员的压力。"
+            }
+          ],
+          "limit": "制度志是概括性记录，不推论各县同年同率或一切正赋都改征银。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/silver",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+              "supports": "港口有限发照及其税务制度逐步落实。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "隆庆四年冬至五年九月",
+              "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            }
+          ],
+          "limit": "旧章叙述仍延及东亚战争与辽东，主要推荐读贸易机制形成的年份。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/silver/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+              "supports": "港口有限发照及其税务制度逐步落实。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "隆庆四年冬至五年九月",
+              "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            }
+          ],
+          "limit": "旧章叙述仍延及东亚战争与辽东，主要推荐读贸易机制形成的年份。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/silver/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+              "supports": "港口有限发照及其税务制度逐步落实。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "隆庆四年冬至五年九月",
+              "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            }
+          ],
+          "limit": "旧章叙述仍延及东亚战争与辽东，主要推荐读贸易机制形成的年份。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/silver/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+              "supports": "港口有限发照及其税务制度逐步落实。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "隆庆四年冬至五年九月",
+              "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            }
+          ],
+          "limit": "旧章叙述仍延及东亚战争与辽东，主要推荐读贸易机制形成的年份。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-01",
+      "scope": "月港发照与隆庆对俺答封贡互市的时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "月港发照与隆庆对俺答封贡互市的时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 19—21，1566—1567 年海澄及月港管理，1572 年征税",
+              "supports": "港口有限发照及其税务制度逐步落实。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "隆庆四年冬至五年九月",
+              "supports": "把汉那吉、封俺答顺义王、贡马及三镇贡市先后。"
+            }
+          ],
+          "limit": "两处政策用于比较治理方式，不能按同一种贸易许可理解。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-02",
+      "scope": "日本银的东亚渠道和马尼拉—阿卡普尔科跨洋交易。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "日本银的东亚渠道和马尼拉—阿卡普尔科跨洋交易。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            }
+          ],
+          "limit": "账载额度、估算总量和银锭来处分别解释，不认定波托西是每批货银的来源。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "block/ming/silver/aside-02",
+      "scope": "两端港口联系、亚洲商船参与和白银估算缺口。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两端港口联系、亚洲商船参与和白银估算缺口。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "开篇与大帆船连接阿卡普尔科、马尼拉的相关叙述",
+              "supports": "跨太平洋港口之间交换来自美洲的银和包括中国瓷丝在内的亚洲货物。"
+            }
+          ],
+          "limit": "现代航图不足以复原船只航迹，场景采用无方向示意。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-03",
+      "scope": "白银征收、较早的金花银和晚明银输入分属多项变化。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "白银征收、较早的金花银和晚明银输入分属多项变化。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱传，金花银与两京俸米段",
+              "supports": "宣德以后江南部分收入折银并用于发俸的具体例子。"
+            }
+          ],
+          "limit": "账册中的银额不能代替各地各类收入的市场统计。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-04",
+      "scope": "折纳与实物供给仍需要兑换及调拨。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "折纳与实物供给仍需要兑换及调拨。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 555—558 页，日本银、马尼拉与数量估算",
+              "supports": "比较日本及美洲的输入渠道，注明数据缺口及海外统计的限制。"
+            }
+          ],
+          "limit": "交换成本属于制度分析，不把灾年粮价写成一律升降。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-05",
+      "scope": "几何原本译刻与晚明南京版刻的不同物证。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "几何原本译刻与晚明南京版刻的不同物证。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            },
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "《十竹斋》是稍晚的印刷案例，不能据其发行推定几何译本传播量。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-06",
+      "scope": "壬辰战争年段与多地军费、加派及蠲免。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "壬辰战争年段与多地军费、加派及蠲免。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            }
+          ],
+          "limit": "三大征是合称，各地及各年支出不能据同一笔财政账推成精确合计。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-07",
+      "scope": "抚顺失守、辽东运输、加派和萨尔浒的纪年。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "抚顺失守、辽东运输、加派和萨尔浒的纪年。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "只说明事态连动，不用以断定后金兴起的唯一原因。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/print-and-knowledge",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            },
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "从具体版本谈出版与合作，不外推全部读者。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/print-and-knowledge/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            },
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "从具体版本谈出版与合作，不外推全部读者。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/print-and-knowledge/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            },
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "从具体版本谈出版与合作，不外推全部读者。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-01",
+      "scope": "徐光启、利玛窦合作，前六卷及徐光启对度数之学的理解。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "徐光启、利玛窦合作，前六卷及徐光启对度数之学的理解。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            }
+          ],
+          "limit": "译本版本可识别，但不能准确推断当时全国读者数量。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-02",
+      "scope": "胡正言、南京、多版彩印与首版年代。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "胡正言、南京、多版彩印与首版年代。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "馆藏一叶能说明工艺和成品，不能估算书坊劳工制度或售价。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-03",
+      "scope": "从两本书的实物和译本史比较知识转移方式。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从两本书的实物和译本史比较知识转移方式。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-35",
+              "locator": "文章导言及徐光启、利玛窦合作与数学史的段落",
+              "supports": "北京译刻几何原本前六卷，1607 年出版，徐光启对度数之学有自己的阐释。"
+            },
+            {
+              "source": "source/book/ming/met-ten-bamboo",
+              "locator": "文物 CP54，首版年代与出版、版材说明",
+              "supports": "胡正言在南京辑印，多色多版印刷，首版为 1633 年。"
+            }
+          ],
+          "limit": "最后一段是限于两案例的编辑解释，不用少数藏品代表整个晚明文化消费。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/wanli-imjin",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "推荐范围覆盖朝鲜战争与随后的朝廷政务，战争地点用朝鲜方叙述定位。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "推荐范围覆盖朝鲜战争与随后的朝廷政务，战争地点用朝鲜方叙述定位。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "推荐范围覆盖朝鲜战争与随后的朝廷政务，战争地点用朝鲜方叙述定位。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "推荐范围覆盖朝鲜战争与随后的朝廷政务，战争地点用朝鲜方叙述定位。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-01",
+      "scope": "朝鲜方面的防御、与明共同作战，及出兵、交涉、再战。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "朝鲜方面的防御、与明共同作战，及出兵、交涉、再战。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            }
+          ],
+          "limit": "韩方机构条目辅助定位，战争长度不表示各阶段战斗连续。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-02",
+      "scope": "朝鲜记载的义州军需交接与朝鲜一侧的供应困难。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "朝鲜记载的义州军需交接与朝鲜一侧的供应困难。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "战争经过、再侵与撤兵，以及战时社会一节",
+              "supports": "日军于 1592 年由釜山进入，朝鲜陆水军和义兵抵抗，明军渡江作战及朝鲜承担的供粮负担。"
+            }
+          ],
+          "limit": "这里说明战时后勤，不按后期战争画中的路线或图像推断具体运输轨迹。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-03",
+      "scope": "1601 年册立、武昌与苏州冲突，及内库和军费分项。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1601 年册立、武昌与苏州冲突，及内库和军费分项。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "万历二十九年三月至十月、四十六至四十七年",
+              "supports": "武昌与苏州冲突、册立朱常洛、抚顺失守、萨尔浒及辽饷。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "一条鞭法条及其后万历、天启折纳与加派",
+              "supports": "说明按田亩与丁计算和折纳机制，以及地方交纳及补征的不同条件。"
+            }
+          ],
+          "limit": "不从同年事项推出直接因果，也不按长期不临朝推断全国行政停止。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读考成、银贸易、翻译及半岛战争四章，对照赋役、银渠道和朝鲜补给证据，删去缺少指向的三年时间跳转。"
+      }
+    }
+  ]
+}

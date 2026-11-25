@@ -697,13 +697,14 @@ async function main() {
     anchor:document.querySelector('.reading-entry-year')?.dataset.readingDetail,
     chapters:[...document.querySelectorAll('.reading-row')].map(b=>b.dataset.readingDetail)})`);
   const ming1500=await readOutline();
-  check('1500 年点明朝疆域打开明朝全卷与入口阶段',ming1500.title==='明朝' && ming1500.anchor==='mid-ming' && ming1500.chapters.length===5,ming1500);
+  check('1500 年点明朝疆域打开明朝全卷与弘治前后章节',ming1500.title==='明朝' && ming1500.anchor==='court-paperwork' && ming1500.chapters.length===20,ming1500);
   await readingShot('ming-book');
   await js(`document.querySelector('[data-reading-detail=founding]').click()`);
   check('正文从王朝建立讲起并可查看段落出处',await js(`document.querySelector('.subject-prose').textContent.includes('朱元璋') &&
     !!document.querySelector('.reading-refs a') && !!document.querySelector('.reading-sources a')`));
-  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=two-capitals]').click()`);
-  check('正文可沿章节顺读，地球不自动跳年',await js(`__t.reading.detail==='two-capitals' && __t.state.year===1500`));
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=households-garrisons]').click()`);
+  check('正文可沿章节顺读，地球不自动跳年',await js(`__t.reading.detail==='households-garrisons' && __t.state.year===1500`));
+  await js(`document.querySelector('#reading-index').click();document.querySelector('[data-reading-detail=two-capitals]').click()`);
   const jingnan = '[data-subject-scene=jingnan-campaign]';
   const yongle = '[data-subject-scene=yongle-capitals]';
   check('本章地图图版分别跟随数据指定的正文段落，移动阅读时不会自动打开',await js(`(() => {
@@ -733,7 +734,7 @@ async function main() {
   await readingShot('ming-observation');
   await js(`document.querySelector('.event-map-point button[data-place=nanjing]').click()`);
   check('点选南京时补充历史作用并保留阶段解释',await js(`document.getElementById('event-map-place-note').textContent.includes('建文朝廷都城') &&
-    document.getElementById('event-map-note').textContent.includes('长江下游') &&
+    document.getElementById('event-map-note').textContent.includes('皇位归属') &&
     document.getElementById('event-map-participants').hidden && document.getElementById('event-map-read').hidden`));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',windowsVirtualKeyCode:39});
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'F2',windowsVirtualKeyCode:113});
@@ -764,16 +765,17 @@ async function main() {
   check('已读主体摘要直接继续原章',mingAction==='继续阅读' && await js("__t.reading.detail==='two-capitals'"));
   await js("document.querySelector('#reading-index').click()");
   const ming1600=await readOutline();
-  check('1600 年仍打开同一卷，只切换轻量时间定位',ming1600.title===ming1500.title && ming1600.anchor==='silver' &&
+  check('1600 年仍打开同一卷，只切换轻量时间定位',ming1600.title===ming1500.title && ming1600.anchor==='wanli-imjin' &&
     ming1600.chapters.join()===ming1500.chapters.join(),ming1600);
   await js(`document.querySelector('[data-subject-resume]').click()`);
   check('跨年份进入后可继续上次章节',await js(`__t.state.year===1600 && __t.reading.detail==='two-capitals'`));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowLeft',windowsVirtualKeyCode:37});
   check('阅读方向键不改变地球年份',await js('__t.state.year===1600'));
-  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=mid-ming]').click()`);
+  for (const id of ['canal-labor','indian-ocean','renxuan','mid-ming'])
+    await js(`document.querySelector('.subject-chapter-next [data-reading-detail=${id}]').click()`);
   check('从迁都顺读到中期，北京守卫、江南市场与沿海贸易进入同一章',await js(`
-    __t.reading.detail==='mid-ming' && ['土木堡','景德镇','双屿'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
-  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=silver]').click()`);
+    __t.reading.detail==='mid-ming' && ['土木','景德镇','双屿'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
+  await js(`document.querySelector('#reading-index').click();document.querySelector('[data-reading-detail=silver]').click()`);
   for (const [scene, year, places] of [['imjin-frontier',1592,['釜山','平壤','义州']],
     ['ming-beijing-1644',1644,['北京','西安']]]) {
     const selector = '[data-subject-scene=' + scene + ']';
@@ -789,10 +791,12 @@ async function main() {
     check('返回 '+year+' 年场景对应正文的原位置',await js(`
       __t.state.year===1600 && document.activeElement.matches('${selector}') &&
       Math.abs(document.getElementById('book-body').scrollTop-${scroll})<2`));
-    if (year === 1592) await js(`document.querySelector('.subject-chapter-next [data-reading-detail=fall]').click()`);
+    if (year === 1592) await js(`document.querySelector('#reading-index').click();document.querySelector('[data-reading-detail=fall]').click()`);
   }
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=southern-ming]').click()`);
   check('末章交代北京失守后的延续和影响',await js(`
     ['弘光','永历','郑成功','1683 年'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
+  await js(`document.querySelector('.subject-chapter-next [data-reading-detail=fall]').click()`);
   await js(`document.querySelector('.reading-connections [data-subject-book=qing]').click()`);
   check('由明朝结尾顺着关系打开清朝卷，仍停在 1600 年',await js(`__t.reading.subject.id==='qing' && __t.state.year===1600`));
   await js(`document.getElementById('reading-back').click()`);
@@ -942,8 +946,8 @@ async function main() {
     }
     return {count,bad,expected:__t.subjectBooks.reduce((total,book)=>total+book.chapters.length,0),books:__t.subjectBooks.length};
   })()`);
-  check('全部书卷均可断网逐章阅读、显示来源与章节地图入口',offlineBooks.count===offlineBooks.expected &&
-    offlineBooks.books>=15 && !offlineBooks.bad.length,offlineBooks);
+  check('全部书卷均可断网逐章阅读、显示来源与章节地图入口',offlineBooks.count===243 && offlineBooks.count===offlineBooks.expected &&
+    offlineBooks.books===57 && !offlineBooks.bad.length,offlineBooks);
   await js(`document.querySelector('[data-reading-catalog]').click()`);
   const offlineAll=await js(`(()=>{
     const bad=[];let count=0;

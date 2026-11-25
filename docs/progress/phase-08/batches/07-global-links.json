@@ -1,0 +1,634 @@
+{
+  "id": "07-global-links",
+  "access": [
+    {
+      "sourceId": "mingshi-hongwu-late",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷3",
+      "material": "《明史》卷三·太祖三",
+      "locator": "太祖三，洪武二十二年至三十一年",
+      "supports": "用于确认洪武后期及朝廷的人事与边事。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-ottomans-kosovo",
+      "url": "https://www.metmuseum.org/es/toah/ht/07/eusb.html",
+      "material": "大都会艺术博物馆：巴尔干半岛 1000—1400 年",
+      "locator": "年表 1389 年",
+      "supports": "确认科索沃战事的时点，供同期比较。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "bl-catalan-atlas",
+      "url": "https://www.bl.uk/stories/blogs/posts/african-kings-on-medieval-and-renaissance-maps",
+      "material": "英国图书馆：中世纪和文艺复兴地图上的非洲国王",
+      "locator": "1375 年《加泰罗尼亚地图集》段",
+      "supports": "鉴别地图中曼萨·穆萨的像及图本年代。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-xuande",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷9",
+      "material": "《明史》卷九·宣宗",
+      "locator": "宣宗，宣德二年至五年",
+      "supports": "用于分开交阯撤军之后与宣德五年再命出使。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "unam-triple",
+      "url": "https://e1.portalacademico.cch.unam.mx/alumno/historiademexico1/unidad2/culturamexica/imperio",
+      "material": "墨西哥国立自治大学｜墨西加帝国与三方同盟",
+      "locator": "Imperio，Una vez consolidada la Triple Alianza",
+      "supports": "墨西哥国立自治大学材料采用 1428 年以定位同盟巩固与扩张。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-tumu",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷10",
+      "material": "《明史》卷十·英宗前纪",
+      "locator": "英宗前纪，正统十四年",
+      "supports": "确认明代十五世纪中叶的边防时间背景。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-ottomans-constantinople",
+      "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb",
+      "material": "大都会艺术博物馆：巴尔干半岛 1400—1600 年",
+      "locator": "Overview 首段",
+      "supports": "确认君士坦丁堡于 1453 年易手。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jiajing-rite",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷17",
+      "material": "《明史》卷十七·世宗一",
+      "locator": "世宗一，嘉靖十二年",
+      "supports": "用于核对 1533 年的明朝年代。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "si-inka-conquest",
+      "url": "https://americanindian.si.edu/nk360/inka-agua/timeline/timeline",
+      "material": "史密森尼国家美洲印第安人博物馆：印加易代年表",
+      "locator": "Línea de tiempo，1532—1533",
+      "supports": "记录阿塔瓦尔帕被俘及 1533 年遇害。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "akhbar-tax-survey",
+      "url": "https://www.cambridge.org/core/books/time-in-early-modern-islam/safavid-mughal-and-ottoman-empires/9D55F0A0262017473EC8A9A7ED86C508",
+      "material": "Stephen P. Blake：萨法维、莫卧儿与奥斯曼帝国",
+      "locator": "Akbar 段，1575 年调查与 1580 年税则",
+      "supports": "以北印度核心区域的勘丈、作物币额及税收安排为比较材料。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "ncert-mughal-empire",
+      "url": "https://sathee.iitk.ac.in/sathee-railway-exams/student-corner/ncert-books/class-07/social-science/history-our-past-2/chapter-04-the-mughals-16th-to-17th-century/",
+      "material": "印度 NCERT：莫卧儿帝国",
+      "locator": "第 4 章，Akbar 1556–1605 及 Zabt 一节",
+      "supports": "定位阿克巴在位年代，说明不同税区的作物税率。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jiajing-border",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷18",
+      "material": "《明史》卷十八·世宗二",
+      "locator": "世宗二，嘉靖三十五年",
+      "supports": "定位嘉靖时期东南沿海与边事的时间。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "ndl-edo-trade",
+      "url": "https://www.ndl.go.jp/nichiran/e/s1/s1_1.html",
+      "material": "日本国立国会图书馆：日荷交流的开始",
+      "locator": "开头江户时代年代及平户商馆段",
+      "supports": "定位江户时代开端及德川政权初期沿海贸易。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "ndl-dejima",
+      "url": "https://www.ndl.go.jp/nichiran/e/s1/s1_2.html",
+      "material": "日本国立国会图书馆：出岛商馆",
+      "locator": "首段葡萄牙与荷兰商馆的年代",
+      "supports": "葡萄牙人 1639 年被逐，荷兰商馆 1641 年移到出岛。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-levies",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷78",
+      "material": "《明史》卷七十八·食货二",
+      "locator": "食货二·赋役，一条鞭法",
+      "supports": "区分多项赋役归并折银与按作物估产计税。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-wanli-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷20",
+      "material": "《明史》卷二十·神宗一",
+      "locator": "神宗一，万历前期",
+      "supports": "限定明朝财政改革与晚明初期的时段。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chongzhen-fall",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷24",
+      "material": "《明史》卷二十四·庄烈帝二",
+      "locator": "庄烈帝二，崇祯十二年及十七年",
+      "supports": "核对 1639 年明朝时点与 1644 年北京陷落。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "qingshigao-shunzhi",
+      "url": "https://zh.wikisource.org/zh-hant/清史稿/卷4",
+      "material": "《清史稿》卷四·世祖一",
+      "locator": "世祖一，顺治元年五月与顺治二年",
+      "supports": "记清入北京、次年接手南京以及命任文职。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zheng-he",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷304",
+      "material": "《明史》卷三百〇四·郑和传",
+      "locator": "郑和传，永乐十四年冬至十七年七月",
+      "supports": "记满剌加等地使团到朝，明廷派郑和等随使往返。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-manila-trade",
+      "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815",
+      "material": "大都会艺术博物馆：马尼拉大帆船贸易",
+      "locator": "正文首两段，西属美洲白银、菲律宾、阿卡普尔科",
+      "supports": "直接记载中国商品经马尼拉运向阿卡普尔科，以西属美洲银交易。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "von-glahn-silver-markets",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D3045EA55D654DCDCDCB3874E481A0B4/S0212610919000193a.pdf/changing_significance_of_latin_american_silver_in_the_chinese_economy_16th19th_centuries.pdf",
+      "material": "万志英：美洲白银在中国经济中的作用变迁",
+      "locator": "第 554–557 页，日本及美洲白银早期流入",
+      "supports": "研究把日本贸易与马尼拉交易等渠道分开，并限制进口量推估。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-39",
+      "url": "https://encykorea.aks.ac.kr/Article/E0047674",
+      "material": "韩国学中央研究院：壬辰战争",
+      "locator": "壬辰战争，朝鲜对明求援、收复平壤与撤军段",
+      "supports": "记朝鲜求援、明军及朝鲜力量共同作战，与战争结束的时间范围。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-wanli",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷21",
+      "material": "《明史》卷二十一·神宗二",
+      "locator": "神宗二，万历二十年至二十六年朝鲜战事",
+      "supports": "明朝本纪记援朝和朝鲜各地战事的几个阶段。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "relation/book/ming/founding/world-01",
+      "scope": "洪武后期，远处的巴尔干正在经历奥斯曼扩张。沿同一时间坐标读科索沃战事及其后续。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "洪武后期，远处的巴尔干正在经历奥斯曼扩张。沿同一时间坐标读科索沃战事及其后续。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "太祖三，洪武二十二年至三十一年",
+              "supports": "用于确认洪武后期及朝廷的人事与边事。"
+            },
+            {
+              "source": "source/book/ming/met-ottomans-kosovo",
+              "locator": "年表 1389 年",
+              "supports": "确认科索沃战事的时点，供同期比较。"
+            }
+          ],
+          "limit": "仅为同年并读，覆盖 1389 年与章内洪武后期。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/founding/world-02",
+      "scope": "约 1375 年编成的《加泰罗尼亚地图集》绘有马里君主曼萨·穆萨。进入马里卷，看看这套欧洲图像怎样指向西非黄金贸易的历史。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "约 1375 年编成的《加泰罗尼亚地图集》绘有马里君主曼萨·穆萨。进入马里卷，看看这套欧洲图像怎样指向西非黄金贸易的历史。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "太祖三，洪武二十二年至三十一年",
+              "supports": "用于确认洪武后期及朝廷的人事与边事。"
+            },
+            {
+              "source": "source/book/ming/bl-catalan-atlas",
+              "locator": "1375 年《加泰罗尼亚地图集》段",
+              "supports": "鉴别地图中曼萨·穆萨的像及图本年代。"
+            }
+          ],
+          "limit": "1375 年是地图集约略年代，图中君主属于更早时期。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/two-capitals/world-01",
+      "scope": "明廷在宣德初年调整对交阯的政策。墨西哥国立自治大学材料以 1428 年定位三方同盟巩固及其扩张开端。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "明廷在宣德初年调整对交阯的政策。墨西哥国立自治大学材料以 1428 年定位三方同盟巩固及其扩张开端。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣宗，宣德二年至五年",
+              "supports": "用于分开交阯撤军之后与宣德五年再命出使。"
+            },
+            {
+              "source": "source/book/ming/unam-triple",
+              "locator": "Imperio，Una vez consolidada la Triple Alianza",
+              "supports": "墨西哥国立自治大学材料采用 1428 年以定位同盟巩固与扩张。"
+            }
+          ],
+          "limit": "时间并置采用该校材料的年次，未断言同盟成立的唯一日期。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-01",
+      "scope": "明朝中叶的北京边防问题与君士坦丁堡在 1453 年易手，可沿相近的年份分别阅读。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "明朝中叶的北京边防问题与君士坦丁堡在 1453 年易手，可沿相近的年份分别阅读。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "英宗前纪，正统十四年",
+              "supports": "确认明代十五世纪中叶的边防时间背景。"
+            },
+            {
+              "source": "source/book/ming/met-ottomans-constantinople",
+              "locator": "Overview 首段",
+              "supports": "确认君士坦丁堡于 1453 年易手。"
+            }
+          ],
+          "limit": "该边防章主线事件的年份为 1449 年，关系定位同一章所述时代。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-02",
+      "scope": "嘉靖十二年对应 1533 年。该年阿塔瓦尔帕遇害，殖民政权的形成及后来的银矿开发另有时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "嘉靖十二年对应 1533 年。该年阿塔瓦尔帕遇害，殖民政权的形成及后来的银矿开发另有时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "世宗一，嘉靖十二年",
+              "supports": "用于核对 1533 年的明朝年代。"
+            },
+            {
+              "source": "source/book/ming/si-inka-conquest",
+              "locator": "Línea de tiempo，1532—1533",
+              "supports": "记录阿塔瓦尔帕被俘及 1533 年遇害。"
+            }
+          ],
+          "limit": "仅核对同年事件及关系时序。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-03",
+      "scope": "当东南沿海与北部边防都给明廷施压时，印度北部的阿克巴在 1556 年即位。由此进入莫卧儿卷的新阶段。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "当东南沿海与北部边防都给明廷施压时，印度北部的阿克巴在 1556 年即位。由此进入莫卧儿卷的新阶段。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "世宗二，嘉靖三十五年",
+              "supports": "定位嘉靖时期东南沿海与边事的时间。"
+            },
+            {
+              "source": "source/book/ming/ncert-mughal-empire",
+              "locator": "第 4 章，Akbar 1556–1605 及 Zabt 一节",
+              "supports": "定位阿克巴在位年代，说明不同税区的作物税率。"
+            }
+          ],
+          "limit": "以双方确有内容覆盖的 1556 年作同期入口。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/silver/world-01",
+      "scope": "1603 年进入江户时代。把日本一侧的政权变动与明朝沿海市场参与域内贸易的背景并读。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1603 年进入江户时代。把日本一侧的政权变动与明朝沿海市场参与域内贸易的背景并读。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/ndl-edo-trade",
+              "locator": "开头江户时代年代及平户商馆段",
+              "supports": "定位江户时代开端及德川政权初期沿海贸易。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 554–557 页，日本及美洲白银早期流入",
+              "supports": "研究把日本贸易与马尼拉交易等渠道分开，并限制进口量推估。"
+            }
+          ],
+          "limit": "书卷并读核对 1603 年，贸易渠道按时期各自说明。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/silver/world-02",
+      "scope": "明代一条鞭法把若干地方赋役归并折银。阿克巴时期，北印度一些税区按耕地、作物和价额制定征收标准。比较两种折算各由谁掌握账册、按什么办法收取。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "明代一条鞭法把若干地方赋役归并折银。阿克巴时期，北印度一些税区按耕地、作物和价额制定征收标准。比较两种折算各由谁掌握账册、按什么办法收取。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "食货二·赋役，一条鞭法",
+              "supports": "区分多项赋役归并折银与按作物估产计税。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli-early",
+              "locator": "神宗一，万历前期",
+              "supports": "限定明朝财政改革与晚明初期的时段。"
+            },
+            {
+              "source": "source/book/ming/akhbar-tax-survey",
+              "locator": "Akbar 段，1575 年调查与 1580 年税则",
+              "supports": "以北印度核心区域的勘丈、作物币额及税收安排为比较材料。"
+            },
+            {
+              "source": "source/book/ming/ncert-mughal-empire",
+              "locator": "第 4 章，Akbar 1556–1605 及 Zabt 一节",
+              "supports": "定位阿克巴在位年代，说明不同税区的作物税率。"
+            }
+          ],
+          "limit": "明朝材料为整体制度史料，莫卧儿材料的核查范围主要为北印度的核心税区。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/fall/world-01",
+      "scope": "从清卷读取关外政权的形成及其进入北京，再与 1644 年明廷覆灭对读。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从清卷读取关外政权的形成及其进入北京，再与 1644 年明廷覆灭对读。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "庄烈帝二，崇祯十二年及十七年",
+              "supports": "核对 1639 年明朝时点与 1644 年北京陷落。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "世祖一，顺治元年五月与顺治二年",
+              "supports": "记清入北京、次年接手南京以及命任文职。"
+            }
+          ],
+          "limit": "核对 1644 年北京政权交接，清卷其他段落按其自身范围。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/fall/world-02",
+      "scope": "1639 年德川政权禁止葡萄牙船来航。1641 年荷兰商馆才从平户迁至出岛，两个步骤各有时间。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1639 年德川政权禁止葡萄牙船来航。1641 年荷兰商馆才从平户迁至出岛，两个步骤各有时间。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "庄烈帝二，崇祯十二年及十七年",
+              "supports": "核对 1639 年明朝时点与 1644 年北京陷落。"
+            },
+            {
+              "source": "source/book/ming/ndl-dejima",
+              "locator": "首段葡萄牙与荷兰商馆的年代",
+              "supports": "葡萄牙人 1639 年被逐，荷兰商馆 1641 年移到出岛。"
+            }
+          ],
+          "limit": "只核对葡萄牙与荷兰相关政策，其他渠道另见日本卷。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/fall/reading-01",
+      "scope": "从北京转向江南，看看清廷任用旧官和在新的州县建立统治的时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从北京转向江南，看看清廷任用旧官和在新的州县建立统治的时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "世祖一，顺治元年五月与顺治二年",
+              "supports": "记清入北京、次年接手南京以及命任文职。"
+            }
+          ],
+          "limit": "续读关系的范围为北京接手及次年江南政局。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/indian-ocean/reading-malacca",
+      "scope": "满剌加即马六甲。《明史》记满剌加、古里等地使团辞行后，朝廷派郑和随行。到东南亚卷，可换从海峡港口看八方船客。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "满剌加即马六甲。《明史》记满剌加、古里等地使团辞行后，朝廷派郑和随行。到东南亚卷，可换从海峡港口看八方船客。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传，永乐十四年冬至十七年七月",
+              "supports": "记满剌加等地使团到朝，明廷派郑和等随使往返。"
+            }
+          ],
+          "limit": "以永乐十四年冬至十七年七月的往返为界；具体舰船及停靠日未核。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/silver/reading-manila",
+      "scope": "马尼拉的交易把商人带来的中国商品与西属美洲白银联系起来。去伊比利亚卷可接着看殖民航运一侧。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "马尼拉的交易把商人带来的中国商品与西属美洲白银联系起来。去伊比利亚卷可接着看殖民航运一侧。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "正文首两段，西属美洲白银、菲律宾、阿卡普尔科",
+              "supports": "直接记载中国商品经马尼拉运向阿卡普尔科，以西属美洲银交易。"
+            },
+            {
+              "source": "source/book/ming/von-glahn-silver-markets",
+              "locator": "第 554–557 页，日本及美洲白银早期流入",
+              "supports": "研究把日本贸易与马尼拉交易等渠道分开，并限制进口量推估。"
+            }
+          ],
+          "limit": "选取两章覆盖的 1570 年代开展期；来源支持港口交换和渠道，贸易量及矿源比例未作认定。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    },
+    {
+      "id": "relation/book/ming/wanli-imjin/reading-joseon",
+      "scope": "朝鲜国王在义州求援。朝鲜与明军共同收复平壤，战争又在半岛延续几年。沿朝鲜卷查看从当地朝廷和军民出发的叙述。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "朝鲜国王在义州求援。朝鲜与明军共同收复平壤，战争又在半岛延续几年。沿朝鲜卷查看从当地朝廷和军民出发的叙述。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "壬辰战争，朝鲜对明求援、收复平壤与撤军段",
+              "supports": "记朝鲜求援、明军及朝鲜力量共同作战，与战争结束的时间范围。"
+            },
+            {
+              "source": "source/book/ming/mingshi-wanli",
+              "locator": "神宗二，万历二十年至二十六年朝鲜战事",
+              "supports": "明朝本纪记援朝和朝鲜各地战事的几个阶段。"
+            }
+          ],
+          "limit": "关系限于两方实际交涉和同场作战的 1592—1598 年。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查两端章的年代交集、历史说明和证据范围，分出同期、制度比较与实际记录。"
+      }
+    }
+  ]
+}

@@ -64,7 +64,7 @@ async function main() {
     await page.open(url);
     await js('__t.stopSpin()');
     await size(393,844,true,2);
-    for (const [year, recommendation] of [[1400,'two-capitals'],[1600,'silver'],[1500,'mid-ming']]) {
+    for (const [year, recommendation] of [[1400,'two-capitals'],[1600,'wanli-imjin'],[1500,'court-paperwork']]) {
       await js(`__t.setYear(${year})`);
       await pickMing();
       assert.equal(await text('#sheet-toc'),'阅读历史');
@@ -72,18 +72,21 @@ async function main() {
       assert.equal((await info()).book,'ming');
       assert.equal((await info()).detail,null);
       assert.equal(await js("document.querySelector('.reading-entry-year').dataset.readingDetail"), recommendation);
-      assert.equal(await js("document.querySelectorAll('.subject-outline .reading-row').length"),5);
+      assert.equal(await js("document.querySelectorAll('.subject-outline .reading-row').length"),20);
       if (year!==1500) { await click('#reading-exit'); await click('#sheet-close'); }
     }
     const explore = (await info()).explore;
     await capture('01-ming-contents');
     await focus('[data-reading-restart]');
     await press('Enter');
-    assert.equal((await info()).detail,'founding');
-    await click('.subject-chapter-next [data-reading-detail=two-capitals]');
+    assert.equal((await info()).detail,'yuan-crisis');
+    for (const id of ['founding','households-garrisons','hongwu-court','two-capitals']) {
+      await click('.subject-chapter-next [data-reading-detail='+id+']');
+      assert.equal((await info()).detail,id);
+    }
     assert.equal((await anchor()).top,0);
     assert.equal((await info()).detail,'two-capitals');
-    assert.match(await text('.subject-book-label'), /第 2 章 \/ 共 5 章/);
+    assert.match(await text('.subject-book-label'), /第 5 章 \/ 共 20 章/);
     assert.equal(await js("!document.querySelector('#reading-grab,.chapter-ribbon,#split-globe-bar')"),true);
     assert.equal(await js("document.querySelector('.subject-secondary').querySelector('summary').textContent"),'空间线索');
     await capture('02-mobile-chapter');
@@ -126,7 +129,7 @@ async function main() {
     await press('Enter');
     assert.equal((await info()).dir,true);
     assert.match(await text('[aria-current="location"] .chapter-status'), /正在阅读.*上次读到/);
-    assert.match(await text('.reading-row[data-reading-detail=mid-ming] .chapter-status'), /入口年份/);
+    assert.match(await text('.reading-row[data-reading-detail=court-paperwork] .chapter-status'), /入口年份/);
     await press('Escape');
     await assertAnchor(initialAnchor);
     assert.equal(await js('document.activeElement.id'),'reading-index');
@@ -137,14 +140,14 @@ async function main() {
     })()`);
     await click('#reading-back');
     await click('#reading-index');
-    assert.equal(await js("document.querySelectorAll('.subject-outline .reading-row').length"),34);
+    assert.equal(await js("document.querySelectorAll('.subject-outline .reading-row').length"),49);
     await placeInView('[data-reading-detail=test-chapter-28]');
     assert.equal(await js(`(() => {
       const r=document.querySelector('[data-reading-detail=test-chapter-28]').getBoundingClientRect();
       return r.bottom<=innerHeight && r.top>document.querySelector('#book-bar').getBoundingClientRect().bottom;
     })()`),true);
     await click('#reading-back');
-    await js('__t.reading.subject.chapters.splice(5)');
+    await js('__t.reading.subject.chapters.splice(20)');
     await assertAnchor(initialAnchor);
     await click('#reading-index');
     await click('.reading-row[data-reading-detail=mid-ming]');
@@ -181,7 +184,7 @@ async function main() {
     await click('[data-reading-size=standard]');
     await press('Escape');
     await assertAnchor(initialAnchor);
-    console.log('Ming across three years, real and 34-chapter directories, keyboard, resumable anchors, typography and restart passed.');
+    console.log('Ming across three years, real and 49-chapter directories, keyboard, resumable anchors, typography and restart passed.');
 
     const footnote = '.subject-prose > p .reading-refs a';
     await placeInView(footnote);
@@ -191,11 +194,12 @@ async function main() {
       const ref=chapter.paragraphs[0].refs[0];
       return {url:__t.reading.subject.sources.find(source=>source.id===(typeof ref==='string'?ref:ref.sourceId)).url,
         dom:source.href,name:source.textContent.replace(/\\s*↗\\s*$/,'')}; })()`);
+    expectedSource.url = new URL(expectedSource.url).href;
     assert.equal(expectedSource.dom,expectedSource.url);
     const beforeNote = await anchor();
     await focus(footnote);
     await press('Enter');
-    assert.equal(await text('#footnote-text'),expectedSource.name);
+    assert.ok((await text('#footnote-text')).startsWith(expectedSource.name));
     assert.equal(await js("document.querySelector('#footnote-link').href"),expectedSource.url);
     assert.equal(await js('document.activeElement.id'),'footnote-close');
     await press('Tab',8);
@@ -264,14 +268,17 @@ async function main() {
     assert.equal(await js(`document.activeElement.matches('${pin}')`),true);
 
     await click('#reading-index');
-    await click('.reading-row[data-reading-detail=fall]');
+    await click('.reading-row[data-reading-detail=southern-ming]');
     assert.match(await text('.subject-chapter-next'), /已到书卷末尾.*返回目录.*上一章/s);
     await click('.subject-chapter-next [data-reading-index]');
     await press('Escape');
+    await click('.subject-chapter-next [data-reading-detail=fall]');
     const related = '.reading-connections [data-subject-book=qing]';
     await placeInView(related);
     const beforeCrossBook = await anchor();
     await click(related);
+    assert.equal((await info()).detail,'conquest');
+    await click('#reading-index');
     await click('.reading-row[data-reading-detail=empire]');
     assert.equal((await info()).book,'qing');
     await press('Escape');

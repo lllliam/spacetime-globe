@@ -77,7 +77,8 @@ function restoreReadingPosition(position) {
   const blocks = readingBlocks();
   const matches = block => block && blockFingerprint(block) === position.block;
   const block = position.blockId ? blocks.find(node=>node.dataset.blockId===position.blockId)
-    : matches(blocks[position.index]) ? blocks[position.index] : blocks.find(matches);
+    : matches(blocks[position.index]) ? blocks[position.index]
+      : blocks.find(matches) || blocks.find(node=>node.dataset.previousFingerprint===position.block);
   if (!block) return;
   const box = block.getBoundingClientRect();
   bookBody.scrollTop += box.top - bookBody.getBoundingClientRect().top + position.offset * box.height;

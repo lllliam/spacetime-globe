@@ -32,6 +32,7 @@ const lines=['# 世界历史书的内容覆盖','',
   '## 校验结果','','历史内容模型 v' + version + ' 的稳定身份、年代、地点、来源和内部关联结构通过。正文长度与篇数描述编辑覆盖。逐条论断与证据的核对留待审校。','',
   '场景处置、全球关系的分类和必要的证据复核见 [Phase 06 报告](progress/PHASE-06.md)。','',
   '存量对象的审校覆盖、实际读过的资料和未复核清单见 [Phase 07 进度](progress/PHASE-07.md)。','',
+  '《明朝》标杆书卷的目录、来源范围及单独审校记录见 [Phase 08 报告](progress/PHASE-08.md)。','',
   ...warnings.map(p=>'- 待处理 · '+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
 console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,activeScenes,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters:chapters.length,hanCharacters:chars,sourceUrls:sources.size,subjects:subjects.size,bindings:bindings.length,problems:0,warnings:warnings.length},null,2));

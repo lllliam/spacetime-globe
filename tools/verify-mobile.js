@@ -180,7 +180,8 @@ async function main() {
     assert.equal(await js(`document.querySelectorAll('#book-body [data-subject-book]').length`), 57);
     await js(`document.querySelector('[data-subject-book="ming"]').scrollIntoView({block:'center'})`);
     await tap('[data-subject-book="ming"]');
-    await tap('#book-body [data-reading-detail]');
+    await js(`document.querySelector('[data-reading-detail=founding]').scrollIntoView({block:'center'})`);
+    await tap('[data-reading-detail=founding]');
     const scene = '#book-body [data-subject-scene]';
     await js(`document.querySelector('${scene}').scrollIntoView({block:'center'})`);
     const sceneType = await js(`document.querySelector('${scene}').dataset.subjectScene`);

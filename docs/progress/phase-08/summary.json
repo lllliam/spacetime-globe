@@ -1,0 +1,14 @@
+{
+  "contentBaseline": "2d8233be8fc5c54cffc5ddf7dc806c711ca8a7bc",
+  "deferredPhase07": {
+    "coverage": {
+      "disposed": 387,
+      "total": 5576
+    },
+    "severityOnePending": 106
+  },
+  "revisedExisting": 78,
+  "introduced": 186,
+  "reviewed": 188,
+  "secondPass": 127
+}

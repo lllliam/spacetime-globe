@@ -190,7 +190,7 @@ async function main() {
     await capture('07-desktop-pacific');
     await pressEscape();
     await center('.reading-connections [data-subject-book=mughal]');
-    assert.match(await text('.reading-connections h2'),/历史比较/);
+    assert.equal(await js(`document.querySelector('[data-subject-book=mughal]').closest('section').querySelector('h2').textContent`),'历史比较');
     await capture('08-historical-comparison');
     await click('#reading-exit');
 

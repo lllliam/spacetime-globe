@@ -1,0 +1,90 @@
+{
+  "id": "08-entry-review",
+  "access": [
+    {
+      "sourceId": "yuanshi-river-1351",
+      "url": "https://zh.wikisource.org/zh-hant/元史/卷042",
+      "material": "《元史》卷四十二·顺帝五",
+      "locator": "顺帝五，至正九年正月及十一年春",
+      "supports": "至正九年置行都水监；十一年任贾鲁治河，征调地方民夫、军士。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zheng-he",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷304",
+      "material": "《明史》卷三百〇四·郑和传",
+      "locator": "郑和传，永乐三年到宣德五年",
+      "supports": "确认郑和出航时段及交往对象，用全程海洋专题接郑和年表入口。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongwu-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷2",
+      "material": "《明史》卷二·太祖二",
+      "locator": "太祖二，洪武元年正月、八月",
+      "supports": "1368 年应天立明及大都易手分别发生。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chongzhen-fall",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷24",
+      "material": "《明史》卷二十四·庄烈帝二",
+      "locator": "庄烈帝二，崇祯十七年三月",
+      "supports": "确认 1644 年北京明廷结束。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "event/i-010",
+      "scope": "郑和下西洋年表条目改为直达海上世界专章。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "郑和下西洋年表条目改为直达海上世界专章。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传，永乐三年到宣德五年",
+              "supports": "确认郑和出航时段及交往对象，用全程海洋专题接郑和年表入口。"
+            }
+          ],
+          "limit": "永乐至宣德的区间及原事件 ID 保留。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-040",
+      "scope": "明朝年表 1368—1644 年维持整卷入口，随入口年份推荐。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "明朝年表 1368—1644 年维持整卷入口，随入口年份推荐。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "太祖二，洪武元年正月、八月",
+              "supports": "1368 年应天立明及大都易手分别发生。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "庄烈帝二，崇祯十七年三月",
+              "supports": "确认 1644 年北京明廷结束。"
+            }
+          ],
+          "limit": "以北京明廷为主体。前史与后续政权由章节类型标记。"
+        }
+      ]
+    }
+  ]
+}

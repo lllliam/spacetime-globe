@@ -67,7 +67,7 @@ function inventory(path) {
   };
   const relation = (owner,link) => seen('relation',owner+'/'+link.id,link,[link.label,link.reason,link.note,link.display].filter(Boolean).join(' '));
   const block = (owner,item,kind='block') => {
-    seen(kind,owner+'/'+item.id,fields(item,['heading','label','title','headline','text','refs']),
+    seen(kind,owner+'/'+item.id,fields(item,['heading','label','title','headline','text','refs','previousFingerprint']),
       [item.heading,item.label,item.title,item.headline,item.text].filter(Boolean).join(' '));
   };
   const bookIds = new Map(model.books.map(book=>[book.id,book]));
@@ -143,13 +143,17 @@ function inventory(path) {
 
 const baselineArg = process.argv[2];
 const update = process.argv.includes('--write');
+const phaseEightFlag = process.argv.indexOf('--phase-08');
+const phaseEightBaseline = phaseEightFlag === -1 ? null : process.argv[phaseEightFlag+1];
 assert(baselineArg && !baselineArg.startsWith('--'),'传入 Phase 06 归档目录，然后可选 --write');
+assert(phaseEightFlag===-1 || phaseEightBaseline && !phaseEightBaseline.startsWith('--'),
+  '--phase-08 需要暂存检查点的归档目录');
 const old = inventory(baselineArg);
-const current = inventory(root);
+const current = inventory(phaseEightBaseline || root);
 const write = (name,data) => {
   const file = join(ledger,name);
   const serialized = JSON.stringify(data,null,2)+'\n';
-  if (update) {
+  if (update && !phaseEightBaseline) {
     mkdirSync(ledger,{recursive:true});
     writeFileSync(file,serialized);
   } else {
@@ -254,3 +258,71 @@ write('unresolved.json',{notSubstantivelyReviewed:pending.map(row=>row.id),
 write('changes.json',changes);
 write('summary.json',summary);
 console.log(JSON.stringify(summary,null,2));
+
+if (phaseEightBaseline) {
+  const exemplarLedger = join(root,'docs/progress/phase-08');
+  const exemplar = inventory(root);
+  const records = new Map();
+  const trace = new Map();
+  const exemplarBatches = readdirSync(join(exemplarLedger,'batches')).filter(name=>name.endsWith('.json')).sort()
+    .map(file=>read(join(exemplarLedger,'batches',file)));
+  for (const batch of exemplarBatches) {
+    for (const entry of batch.access) {
+      assert(/^https:\/\//.test(entry.url) && accessStatus.has(entry.status) && text(entry.material) &&
+        text(entry.locator) && text(entry.supports) && date(entry.date),'标杆来源访问记录无效 '+entry.url);
+      const key = JSON.stringify([entry.url,entry.locator,entry.supports]);
+      trace.set(key,entry);
+    }
+  }
+  for (const batch of exemplarBatches) {
+    for (const record of batch.reviews) {
+      assert(exemplar.rows.has(record.id) && !records.has(record.id) && text(record.scope) &&
+        date(record.date) && actions.has(record.action) && status.has(record.status),'标杆对象审校记录无效 '+record.id);
+      if (record.status==='checked') assert(record.claims?.some(claim=>claim.result==='supported'),
+        '标杆已核对对象缺少有支持的论断 '+record.id);
+      else assert(text(record.limit),'标杆待核对对象缺少限制 '+record.id);
+      if (record.secondPass) assert(record.status==='checked' && date(record.secondPass.date) &&
+        record.secondPass.date>=record.date && text(record.secondPass.scope),'标杆第二遍复核无效 '+record.id);
+      for (const claim of record.claims || []) {
+        assert(text(claim.statement) && claimsStatus.has(claim.result) && text(claim.limit),'标杆论断无效 '+record.id);
+        if (claim.result==='supported') assert(claim.evidence?.length,'标杆有支持的论断缺少出处 '+record.id);
+        for (const citation of claim.evidence || []) {
+          const source = exemplar.rows.get(citation.source)?.data;
+          const readAt = source && trace.get(JSON.stringify([source.url,citation.locator,citation.supports]));
+          assert(readAt && ['read','abstract','replacement'].includes(readAt.status) &&
+            (readAt.status!=='abstract' || citation.locator.includes('摘要')),'标杆出处未实际查阅 '+record.id+' '+citation.source);
+        }
+      }
+      records.set(record.id,{batch:batch.id,record});
+    }
+  }
+  const changesSinceDeferral = [];
+  for (const id of current.rows.keys()) assert(exemplar.rows.has(id),'标杆丢失原稳定身份 '+id);
+  for (const [id,after] of exemplar.rows) {
+    const before = current.rows.get(id);
+    if (before?.digest===after.digest) continue;
+    if (after.kind==='source' && !before) {
+      assert([...trace.values()].some(item=>item.url===after.data.url && ['read','abstract','replacement'].includes(item.status)),
+        '标杆新增来源缺少实际访问 '+id);
+    } else {
+      assert(records.has(id) && ['revise','qualify','pause','pending'].includes(records.get(id).record.action),
+        '标杆变更缺少重新审校的处置记录 '+id);
+    }
+    changesSinceDeferral.push({id,before:before?.data ?? null,after:after.data,...(records.has(id)&&{batch:records.get(id).batch})});
+  }
+  const phaseEightSummary = {
+    contentBaseline: '2d8233be8fc5c54cffc5ddf7dc806c711ca8a7bc',
+    deferredPhase07: {coverage:summary.coverage,severityOnePending:summary.severityOnePending},
+    revisedExisting: changesSinceDeferral.filter(change=>change.before!==null).length,
+    introduced: changesSinceDeferral.filter(change=>change.before===null).length,
+    reviewed: records.size,
+    secondPass: [...records.values()].filter(item=>item.record.secondPass).length,
+  };
+  for (const [name,data] of Object.entries({'changes.json':changesSinceDeferral,'summary.json':phaseEightSummary})) {
+    const file = join(exemplarLedger,name);
+    const serialized = JSON.stringify(data,null,2)+'\n';
+    if (update) writeFileSync(file,serialized);
+    else assert.equal(readFileSync(file,'utf8').replaceAll('\r\n','\n'),serialized,'标杆审校产物与记录不符 '+name);
+  }
+  console.log(JSON.stringify(phaseEightSummary,null,2));
+}

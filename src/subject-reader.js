@@ -161,6 +161,11 @@ function decorateParagraphPlaces(text, links) {
   return output + esc(text.slice(cursor));
 }
 
+function subjectBlockAttributes(block) {
+  return ' data-block-id="' + esc(block.id) + '"' +
+    (block.previousFingerprint ? ' data-previous-fingerprint="' + esc(block.previousFingerprint) + '"' : '');
+}
+
 function renderSubjectChapter(book, chapter) {
   const index = book.chapters.indexOf(chapter);
   const next = book.chapters[index + 1];
@@ -185,13 +190,13 @@ function renderSubjectChapter(book, chapter) {
         ? '<h2 class="subject-section-heading">' + esc(paragraph.heading) + '</h2>'
         : '';
       const calloutHtml = paragraph.callout
-        ? '<aside class="subject-callout" data-block-id="' + esc(paragraph.callout.id) + '"><small>' + esc(paragraph.callout.label) + '</small>' +
+        ? '<aside class="subject-callout"' + subjectBlockAttributes(paragraph.callout) + '><small>' + esc(paragraph.callout.label) + '</small>' +
           (paragraph.callout.title ? '<strong>' + esc(paragraph.callout.title) + '</strong>' : '') +
           '<p>' + esc(paragraph.callout.text) + referencesMarkup(paragraph.callout.refs,references) + '</p></aside>'
         : '';
       const bodyHtml = decorateParagraphPlaces(paragraph.text, placeLinks.filter(link=>link.blockId===paragraph.id));
       return headingHtml +
-        '<p data-block-id="' + esc(paragraph.id) + '">' + bodyHtml + referencesMarkup(paragraph.refs,references) + '</p>' +
+        '<p' + subjectBlockAttributes(paragraph) + '>' + bodyHtml + referencesMarkup(paragraph.refs,references) + '</p>' +
         calloutHtml +
         scenes.filter(ref => ref.afterBlockId === paragraph.id).map(ref => sceneButton(ref.scene,ref.stageId)).join('');
     }).join('') + '</article>' +

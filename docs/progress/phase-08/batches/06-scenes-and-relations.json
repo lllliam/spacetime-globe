@@ -1,0 +1,552 @@
+{
+  "id": "06-scenes-and-relations",
+  "access": [
+    {
+      "sourceId": "mingshi-rise",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷1",
+      "material": "《明史》卷一·太祖一",
+      "locator": "太祖一，至正十六、二十三、二十七年",
+      "supports": "记载取集庆、鄱阳湖与苏州分属三个年次。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongwu-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷2",
+      "material": "《明史》卷二·太祖二",
+      "locator": "太祖二，洪武元年正月、八月",
+      "supports": "记载应天即位与徐达等攻入大都的先后。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jingnan",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷5",
+      "material": "《明史》卷五·成祖一",
+      "locator": "成祖一，建文元年至四年；四年正月、六月",
+      "supports": "北平起兵、建文四年徐州战事和进入南京分属不同阶段。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-grain-transport",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷79",
+      "material": "《明史》卷七十九·食货三",
+      "locator": "食货三·漕运，永乐九年至十三年",
+      "supports": "会通河兴修后，官船河运与仓储安排相继调整。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zhou-chen",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷153",
+      "material": "《明史》卷一百五十三·陈瑄、周忱传",
+      "locator": "陈瑄传，清江浦开渠及置四闸段",
+      "supports": "传记记载会通河工成后，永乐十三年改造清江浦以便漕船入淮。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-13",
+      "url": "https://www.haqjp.gov.cn/col/1063_236571/art/20190321143218_mg0DwgrU.html",
+      "material": "清江浦区地方志办公室：陈瑄",
+      "locator": "清江浦人物传，重开原文请求",
+      "supports": "重开超时，限定核查材料另见同批里运河与陈瑄传。",
+      "status": "temporary-failure",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-yongle-capital",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷7",
+      "material": "《明史》卷七·成祖三",
+      "locator": "成祖三，永乐十八年、十九年",
+      "supports": "记载宫殿建成、次年以北京为京师及正旦朝贺。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zheng-he",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷304",
+      "material": "《明史》卷三百〇四·郑和传",
+      "locator": "郑和传，永乐三年及十四年冬至宣德五年",
+      "supports": "记载首抵占城及满剌加使团与明使往返，后段列举忽鲁谟斯。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mariners-zheng-he",
+      "url": "https://exploration.marinersmuseum.org/subject/zheng-he/",
+      "material": "水手博物馆：郑和远航",
+      "locator": "Principal Voyage；Subsequent Voyages",
+      "supports": "首航抵古里，第四次到霍尔木兹，第六次涉及木骨都束；阶段年份取航次的起讫年。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-tumu",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷10",
+      "material": "《明史》卷十·英宗前纪",
+      "locator": "英宗前纪，正统十四年七月至十月",
+      "supports": "大同、宣府、土木及京师在同年危机中先后出现。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jiajing-border",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷18",
+      "material": "《明史》卷十八·世宗二",
+      "locator": "世宗二，嘉靖二十八、二十九年",
+      "supports": "边事涉及宣府、辽东与北京近郊，发生时间有先后。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "dpm-jingdezhen-excavation",
+      "url": "https://img.dpm.org.cn/Uploads/File/2018/06/01/u5b1122eb882ec.pdf",
+      "material": "故宫博物院：从考古资料谈明成化斗彩瓷器的彩绘工艺",
+      "locator": "景德镇御窑址与出土器物段",
+      "supports": "景德镇是明代制瓷生产地点，成化出土材料用于识别御窑。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-longqing",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷19",
+      "material": "《明史》卷十九·穆宗",
+      "locator": "穆宗，隆庆元年及元年福建巡抚所请段落",
+      "supports": "用本纪限定隆庆初政的阶段，并与海禁研究互校。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-16",
+      "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf",
+      "material": "嘉靖倭患与 1567 年海禁政策的改变",
+      "locator": "摘要：明代海禁、嘉靖倭患及 1567 年转向",
+      "supports": "研究确认 1567 年政策调整发生在已有沿海贸易与安全争论之后。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "met-manila-trade",
+      "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815",
+      "material": "大都会艺术博物馆：马尼拉大帆船贸易",
+      "locator": "贸易叙述，Silver from the Spanish colonies 与 On the return leg",
+      "supports": "记录跨洋交换的两端与商品类别；马尼拉和阿卡普尔科之间贸易可以示意。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-levies",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷78",
+      "material": "《明史》卷七十八·食货二",
+      "locator": "食货二·赋役，嘉靖以后与一条鞭法",
+      "supports": "记录把若干赋役合计并折银的制度描述和长期演变。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-39",
+      "url": "https://encykorea.aks.ac.kr/Article/E0047674",
+      "material": "韩国学中央研究院：壬辰战争",
+      "locator": "壬辰战争，开战与义州、平壤收复、露梁及撤军诸段",
+      "supports": "1592 年釜山失守与朝鲜朝廷北移，1593 年明军与朝鲜力量收复平壤，1598 年南岸战事与撤军。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "seonmyo-jungheungji",
+      "url": "https://encykorea.aks.ac.kr/Article/E0028687",
+      "material": "韩国学中央研究院：《宣庙中兴志》",
+      "locator": "内容段，第 2–4 册与第 6 册",
+      "supports": "注明义州求援、平壤收复及战末撤军所见于编年记录的位置。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chongzhen-fall",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷24",
+      "material": "《明史》卷二十四·庄烈帝二",
+      "locator": "庄烈帝二，崇祯十六年冬至十七年三月",
+      "supports": "李自成从关中政权范围推进，北京失守与崇祯去世在崇祯十七年三月。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "qingshigao-shunzhi",
+      "url": "https://zh.wikisource.org/zh-hant/清史稿/卷4",
+      "material": "《清史稿》卷四·世祖一",
+      "locator": "世祖一，顺治元年四至五月与顺治二年五月",
+      "supports": "记山海关及清廷进入北京的先后，之后记多铎下南京。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-gui-yongli",
+      "url": "https://zh.wikisource.org/zh-hans/明史/卷120",
+      "material": "《明史》卷一百二十·诸王五",
+      "locator": "诸王五，福王由崧、桂王由榔",
+      "supports": "南京弘光及后续南明朝廷各有时期与所在地。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "huaian-canal-gazetteer",
+      "url": "https://zx.huaian.gov.cn/col/14069_277241/art/17067168/1707010683127ZDze0wmj.html",
+      "material": "淮安市地方志办公室：里运河",
+      "locator": "里运河正文第 3–5 段，清江浦开凿与《明太宗实录》转引",
+      "supports": "地方材料将 1415 年开渠与淮安城西管家湖和鸭陈口联系，区分历史清江浦与今日新河。",
+      "status": "replacement",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "scene/ming-founding-1368",
+      "scope": "南京为何是朱元璋在长江流域扩张的起点？ 1356 年集庆成为朱元璋的据点。鄱阳湖与苏州属于两场相隔数年的竞争，1368 年大都易手。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "南京为何是朱元璋在长江流域扩张的起点？ 1356 年集庆成为朱元璋的据点。鄱阳湖与苏州属于两场相隔数年的竞争，1368 年大都易手。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "太祖一，至正十六、二十三、二十七年",
+              "supports": "记载取集庆、鄱阳湖与苏州分属三个年次。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "太祖二，洪武元年正月、八月",
+              "supports": "记载应天即位与徐达等攻入大都的先后。"
+            }
+          ],
+          "limit": "城市与湖区采用近似标点，分阶段图示没有复原行军、水战路径或元廷退却路线。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/jingnan-campaign",
+      "scope": "燕王从北平起兵，为什么最后要到南京决定朝廷归属？ 1399 年朱棣在北平起兵。长期拉锯之后，建文四年的战事波及徐州和长江下游，南京随之易手。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "燕王从北平起兵，为什么最后要到南京决定朝廷归属？ 1399 年朱棣在北平起兵。长期拉锯之后，建文四年的战事波及徐州和长江下游，南京随之易手。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "成祖一，建文元年至四年；四年正月、六月",
+              "supports": "北平起兵、建文四年徐州战事和进入南京分属不同阶段。"
+            }
+          ],
+          "limit": "仅示意城市区位与事件年代。示出的距离为两点直距。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/yongle-capitals",
+      "scope": "改在北京办朝廷以后，江南的税粮怎样运到北方？ 会通河与淮安水工分阶段改造。1421 年北京成为京师，江南粮区仍借这套运输体系供应北方。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "改在北京办朝廷以后，江南的税粮怎样运到北方？ 会通河与淮安水工分阶段改造。1421 年北京成为京师，江南粮区仍借这套运输体系供应北方。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "食货三·漕运，永乐九年至十三年",
+              "supports": "会通河兴修后，官船河运与仓储安排相继调整。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "陈瑄传，清江浦开渠及置四闸段",
+              "supports": "传记记载会通河工成后，永乐十三年改造清江浦以便漕船入淮。"
+            },
+            {
+              "source": "source/book/ming/huaian-canal-gazetteer",
+              "locator": "里运河正文第 3–5 段，清江浦开凿与《明太宗实录》转引",
+              "supports": "地方材料将 1415 年开渠与淮安城西管家湖和鸭陈口联系，区分历史清江浦与今日新河。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "成祖三，永乐十八年、十九年",
+              "supports": "记载宫殿建成、次年以北京为京师及正旦朝贺。"
+            }
+          ],
+          "limit": "线连接经查证的运道体系节点。城市标点近似，球面线未复原河槽、各段航期与停靠。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/zhenghe-voyages",
+      "scope": "从南海、印度西岸到波斯湾和东非，郑和船队怎样进入原有的港口网络？ 首航由中国东南海岸通向古里，后来航次扩展到波斯湾口及东非。马六甲也见于明使和本地使团的往返记录。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从南海、印度西岸到波斯湾和东非，郑和船队怎样进入原有的港口网络？ 首航由中国东南海岸通向古里，后来航次扩展到波斯湾口及东非。马六甲也见于明使和本地使团的往返记录。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传，永乐三年及十四年冬至宣德五年",
+              "supports": "记载首抵占城及满剌加使团与明使往返，后段列举忽鲁谟斯。"
+            },
+            {
+              "source": "source/book/ming/mariners-zheng-he",
+              "locator": "Principal Voyage；Subsequent Voyages",
+              "supports": "首航抵古里，第四次到霍尔木兹，第六次涉及木骨都束；阶段年份取航次的起讫年。"
+            }
+          ],
+          "limit": "图示仅定位港区。日期标为航次范围，没有复原具体分船、航线、停靠日或先后顺序。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/ming-nine-garrisons",
+      "scope": "京师面对北部来警时，北边不同地区与江南资源区分别处在哪些位置？ 1449 年土木危机把大同、宣府和北京牵入同一局势。一个世纪后的京畿边警，与江南生产和市场处在相隔甚远的区域。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "京师面对北部来警时，北边不同地区与江南资源区分别处在哪些位置？ 1449 年土木危机把大同、宣府和北京牵入同一局势。一个世纪后的京畿边警，与江南生产和市场处在相隔甚远的区域。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "英宗前纪，正统十四年七月至十月",
+              "supports": "大同、宣府、土木及京师在同年危机中先后出现。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "世宗二，嘉靖二十八、二十九年",
+              "supports": "边事涉及宣府、辽东与北京近郊，发生时间有先后。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "景德镇御窑址与出土器物段",
+              "supports": "景德镇是明代制瓷生产地点，成化出土材料用于识别御窑。"
+            }
+          ],
+          "limit": "山海关是东向地理参照。两阶段地点没有复原九边设立年代、墙体或由某个市场供养某一军镇的关系。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/ming-global-silver",
+      "scope": "怎样区分一对跨洋交换港口与中国市场及财政中的白银？ 福建月港的出海贸易、马尼拉与阿卡普尔科的交换、明代赋役折银分别处在不同层次。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "怎样区分一对跨洋交换港口与中国市场及财政中的白银？ 福建月港的出海贸易、马尼拉与阿卡普尔科的交换、明代赋役折银分别处在不同层次。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "穆宗，隆庆元年及元年福建巡抚所请段落",
+              "supports": "用本纪限定隆庆初政的阶段，并与海禁研究互校。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "摘要：明代海禁、嘉靖倭患及 1567 年转向",
+              "supports": "研究确认 1567 年政策调整发生在已有沿海贸易与安全争论之后。"
+            },
+            {
+              "source": "source/book/ming/met-manila-trade",
+              "locator": "贸易叙述，Silver from the Spanish colonies 与 On the return leg",
+              "supports": "记录跨洋交换的两端与商品类别；马尼拉和阿卡普尔科之间贸易可以示意。"
+            },
+            {
+              "source": "source/book/ming/mingshi-levies",
+              "locator": "食货二·赋役，嘉靖以后与一条鞭法",
+              "supports": "记录把若干赋役合计并折银的制度描述和长期演变。"
+            }
+          ],
+          "limit": "实证连线仅连接马尼拉与阿卡普尔科两个贸易港，精度为示意。矿源、精确航迹和税银去向未在图上匹配。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/imjin-frontier",
+      "scope": "同一场战争为什么先关乎朝廷能否抵达鸭绿江，再关乎半岛南岸能否结束战事？ 日本军队从半岛南端登陆，朝鲜朝廷撤到义州求援；朝鲜与明军收复平壤后，战争仍持续至 1598 年。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "同一场战争为什么先关乎朝廷能否抵达鸭绿江，再关乎半岛南岸能否结束战事？ 日本军队从半岛南端登陆，朝鲜朝廷撤到义州求援；朝鲜与明军收复平壤后，战争仍持续至 1598 年。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "壬辰战争，开战与义州、平壤收复、露梁及撤军诸段",
+              "supports": "1592 年釜山失守与朝鲜朝廷北移，1593 年明军与朝鲜力量收复平壤，1598 年南岸战事与撤军。"
+            },
+            {
+              "source": "source/book/ming/seonmyo-jungheungji",
+              "locator": "内容段，第 2–4 册与第 6 册",
+              "supports": "注明义州求援、平壤收复及战末撤军所见于编年记录的位置。"
+            }
+          ],
+          "limit": "历史城市和港口采用近似标点。图面未复原各军路线或朝鲜海军活动的全部范围。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene/ming-beijing-1644",
+      "scope": "北京失守后，为什么还要分别看山海关和南京？ 大顺取北京，山海关战事改变关内外格局。清军进入北京后，次年又取得南京。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "北京失守后，为什么还要分别看山海关和南京？ 大顺取北京，山海关战事改变关内外格局。清军进入北京后，次年又取得南京。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chongzhen-fall",
+              "locator": "庄烈帝二，崇祯十六年冬至十七年三月",
+              "supports": "李自成从关中政权范围推进，北京失守与崇祯去世在崇祯十七年三月。"
+            },
+            {
+              "source": "source/book/ming/qingshigao-shunzhi",
+              "locator": "世祖一，顺治元年四至五月与顺治二年五月",
+              "supports": "记山海关及清廷进入北京的先后，之后记多铎下南京。"
+            },
+            {
+              "source": "source/book/ming/mingshi-gui-yongli",
+              "locator": "诸王五，福王由崧、桂王由榔",
+              "supports": "南京弘光及后续南明朝廷各有时期与所在地。"
+            }
+          ],
+          "limit": "地点标记和直距说明城、关与区域相对位置。阶段为史实节点，未画行军道路或实际控制边界。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    },
+    {
+      "id": "scene-ref/ming/canal-labor/yongle-capitals",
+      "scope": "在正文解释区位与运输时打开同一张图版。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "在正文解释区位与运输时打开同一张图版。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "陈瑄传，清江浦开渠及置四闸段",
+              "supports": "传记记载会通河工成后，永乐十三年改造清江浦以便漕船入淮。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "食货三·漕运，永乐九年至十三年",
+              "supports": "会通河兴修后，官船河运与仓储安排相继调整。"
+            }
+          ],
+          "limit": "沿用原场景身份，另从新章原位进入。"
+        }
+      ]
+    },
+    {
+      "id": "scene-ref/ming/wanli-imjin/imjin-frontier",
+      "scope": "在正文解释区位与运输时打开同一张图版。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "在正文解释区位与运输时打开同一张图版。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-39",
+              "locator": "壬辰战争，开战与义州、平壤收复、露梁及撤军诸段",
+              "supports": "1592 年釜山失守与朝鲜朝廷北移，1593 年明军与朝鲜力量收复平壤，1598 年南岸战事与撤军。"
+            },
+            {
+              "source": "source/book/ming/seonmyo-jungheungji",
+              "locator": "内容段，第 2–4 册与第 6 册",
+              "supports": "注明义州求援、平壤收复及战末撤军所见于编年记录的位置。"
+            }
+          ],
+          "limit": "沿用原场景身份，另从新章原位进入。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-013",
+      "scope": "海禁与隆庆初期调整的年表入口改为直达相关专题。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "海禁与隆庆初期调整的年表入口改为直达相关专题。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "摘要：明代海禁、嘉靖倭患及 1567 年转向",
+              "supports": "研究确认 1567 年政策调整发生在已有沿海贸易与安全争论之后。"
+            },
+            {
+              "source": "source/book/ming/mingshi-longqing",
+              "locator": "穆宗，隆庆元年及元年福建巡抚所请段落",
+              "supports": "用本纪限定隆庆初政的阶段，并与海禁研究互校。"
+            }
+          ],
+          "limit": "区间仍用原事件定义，正文解释分时分地的政策。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按每个阶段复查来源、可见地点、时间和示意精度，保持旧场景及正文锚点。"
+      }
+    }
+  ]
+}

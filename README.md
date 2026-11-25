@@ -20,9 +20,9 @@
 
 ## 开发状态
 
-现有体验来自 v14.2.1 原型部署。本地基线为 [cfac746](https://github.com/lllliam/spacetime-globe/commit/cfac7462bcd232d50baecd795962c8cd74af2597)，包含 57 卷、228 章、48 个历史地球场景，以及 28 组、117 篇补充专题。覆盖和审校范围见[内容覆盖](docs/CONTENT-COVERAGE.md)与[来源核查](docs/SOURCE-AUDIT.md)。
+页首线上链接指向 v14.2.1 原型。开发分支包含 57 卷、243 章、48 个历史现场及 28 组、117 篇补充专题。[开发版内容覆盖](docs/CONTENT-COVERAGE.md) · [来源核查](docs/SOURCE-AUDIT.md)
 
-`develop/1.0` 已完成 Phase 06。读者可从正文主动进入历史现场，按阶段观察地点与有依据的空间联系，再返回原文。书卷按共时、比较、历史联系及背景组织延伸阅读。[历史现场](docs/HISTORICAL-SCENES.md) · [阶段报告与实拍](docs/progress/PHASE-06.md) · [开发路线](docs/ROADMAP.md) · [历史内容模型](docs/HISTORY-MODEL.md) · [状态模型](docs/STATE-MODEL.md)
+`develop/1.0` 的 Phase 08《明朝》已提交产品验收。全卷 20 章，从元末治河写到明清易代，包含按年份推荐的章节、八个历史现场与有出处的全球关联。可检出开发分支并启动本地服务，或下载开发分支的单文件离线版验收。[Phase 08 报告与实拍](docs/progress/PHASE-08.md) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
 
 Phase 07 已暂存，等待后续继续审校，尚未通过完整阶段验收。截至内容检查点 `2d8233b`，已实质处置 387／5,576 项，尚有 106 项一级筛查候选待审。产品负责人已授权在存量审校暂存期间，按各自指令开展 Phase 08《明朝》标杆书卷建设，以及 Phase 09 产品与工程验收和部署准备。[Phase 07 暂存与恢复](docs/progress/PHASE-07.md#暂存与恢复) · [开发路线](docs/ROADMAP.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
 
@@ -48,7 +48,7 @@ node tools/serve.mjs
 
 场景及关联验证使用 `node tools/verify-observation-model.mjs` 和 `node tools/verify-observation.js [实拍输出目录]`。源数据比对使用 `node tools/audit-observation.mjs <Phase 05 目录> [报告文件]`。[阶段报告](docs/progress/PHASE-06.md)
 
-审校专项运行 `node tools/verify-editorial-audit.mjs <Phase 06 归档目录>` 与 `node tools/verify-editorial-browser.js [实拍输出目录]`。[语料基线与复现方式](docs/progress/PHASE-07.md)
+基线审校专项使用 `node tools/verify-editorial-audit.mjs <Phase 06 归档目录> --phase-08 <2d8233b 归档目录>`，浏览器脚注回归使用 `node tools/verify-editorial-browser.js [实拍输出目录]`。标杆书卷兼容回归使用 `node tools/verify-ming-exemplar.js <5323209 构建的 index.html> [实拍输出目录]`。[审校复现方式](docs/SOURCE-AUDIT.md#phase-08-标杆台账) · [书卷专项报告](docs/progress/PHASE-08.md)
 
 [产品规范](docs/PRODUCT-SPEC.md) · [工程架构](docs/ARCHITECTURE.md) · [设计实现](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [最终验收](docs/ACCEPTANCE.md) · [版本规则](docs/VERSIONING.md) · [维护约定](AGENTS.md) · [原型历史档案](docs/archive/README.md)
 

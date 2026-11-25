@@ -1,0 +1,1167 @@
+{
+  "id": "03-institutions-and-coasts",
+  "access": [
+    {
+      "sourceId": "mingshi-tumu",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷10",
+      "material": "《明史》卷十·英宗前纪",
+      "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+      "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-yu-qian",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷170",
+      "material": "《明史》卷一百七十·于谦传",
+      "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+      "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-09",
+      "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/why-military-institutions-matter-for-ming-history/B3C345236C8588E708C661758D2DED51",
+      "material": "戴维·鲁宾逊：军事制度为什么对明史重要",
+      "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+      "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-chenghua",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷13",
+      "material": "《明史》卷十三·宪宗一",
+      "locator": "卷首、天顺八年正月及三月",
+      "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongzhi",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷15",
+      "material": "《明史》卷十五·孝宗",
+      "locator": "成化二十三年八月至十一月",
+      "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zhengde",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷16",
+      "material": "《明史》卷十六·武宗",
+      "locator": "弘治十八年五月及正德元年十月",
+      "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-offices",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷72",
+      "material": "《明史》卷七十二·职官一",
+      "locator": "内阁条，掌题奏、拟答与起草下达公文",
+      "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-eunuch-offices",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷74",
+      "material": "《明史》卷七十四·职官三",
+      "locator": "十二监司礼监与文书房条",
+      "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jiajing-rite",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷17",
+      "material": "《明史》卷十七·世宗一",
+      "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+      "supports": "朱厚熜承位，自身父母礼称引起争议。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jiajing-border",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷18",
+      "material": "《明史》卷十八·世宗二",
+      "locator": "嘉靖二十四、二十九年及四十年前后",
+      "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "dpm-chenghua-cup",
+      "url": "https://digicol.dpm.org.cn/cultural/detail?id=4ed14204ac57460d9216f3900b7e0215&page=12&source=0",
+      "material": "故宫博物院数字文物库：成化款斗彩鸡缸杯",
+      "locator": "故00145644，文物图、年代及工艺字段",
+      "supports": "成化宫廷用杯的材质和斗彩图像。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "dpm-jingdezhen-excavation",
+      "url": "https://img.dpm.org.cn/Uploads/File/2018/06/01/u5b1122eb882ec.pdf",
+      "material": "故宫博物院：从考古资料谈明成化斗彩瓷器的彩绘工艺",
+      "locator": "图二及其前后的成化斗彩出土品比较",
+      "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-households-land",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷77",
+      "material": "《明史》卷七十七·食货一",
+      "locator": "户口田制屯田庄田，逃户、流民与成化郧阳条",
+      "supports": "官府在返籍、逐遣、就地编籍与设府之间采用过不同安排。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "ming-visualizing-work",
+      "url": "https://www.cambridge.org/core/journals/international-review-of-social-history/article/work-ethics-and-work-valuations-in-a-period-of-commercialization-ming-china-15001644/4FA7B22851A0B0D2E37700E494A6570B",
+      "material": "Christine Moll-Murata：明代商品化时期的劳动观",
+      "locator": "Female Work 及长江三角洲劳动分工讨论",
+      "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-16",
+      "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf",
+      "material": "嘉靖倭患与 1567 年海禁政策的改变",
+      "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+      "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-chapter/ming/mid-ming",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "旧章仍保留这一时期的大范围主线，弘治和嘉靖另有更具体的推荐。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "旧章仍保留这一时期的大范围主线，弘治和嘉靖另有更具体的推荐。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "旧章仍保留这一时期的大范围主线，弘治和嘉靖另有更具体的推荐。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "旧章仍保留这一时期的大范围主线，弘治和嘉靖另有更具体的推荐。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-01",
+      "scope": "土木失利、郕王即位与于谦调兵守北京。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "土木失利、郕王即位与于谦调兵守北京。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            }
+          ],
+          "limit": "只写可核的政策及人物职分，不采用纪传中的精确死亡数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-02",
+      "scope": "京师应急后北部军镇和后勤的持续作用。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "京师应急后北部军镇和后勤的持续作用。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/mingshi-tumu",
+              "locator": "正统十四年秋七月至九月，另见正统六年定都条",
+              "supports": "瓦剌战争、土木兵败、英宗被俘、郕王监国与即位。"
+            }
+          ],
+          "limit": "只用代表性地名与军务维度说明长期变化，不把各镇或墙体定为同年建成。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "block/ming/mid-ming/aside-02",
+      "scope": "京师援军来自沿海和粮运等不同差役。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "京师援军来自沿海和粮运等不同差役。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            }
+          ],
+          "limit": "以传记给出的来源类别为限，不将调遣方案等同实到兵数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-03",
+      "scope": "于谦身后平反与三朝处理官署及任用通路。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "于谦身后平反与三朝处理官署及任用通路。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-yu-qian",
+              "locator": "土木失利后议守、京师防守及成化初复官至弘治二年加谥",
+              "supports": "于谦担任兵部尚书，调兵转饷，后被处死与追复。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chenghua",
+              "locator": "卷首、天顺八年正月及三月",
+              "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongzhi",
+              "locator": "成化二十三年八月至十一月",
+              "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhengde",
+              "locator": "弘治十八年五月及正德元年十月",
+              "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。"
+            }
+          ],
+          "limit": "用任免与机构事实，避免据官修褒贬概括整朝政治。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-04",
+      "scope": "成化御窑工艺和江南家庭商品生产的不同证据。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "成化御窑工艺和江南家庭商品生产的不同证据。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/dpm-chenghua-cup",
+              "locator": "故00145644，文物图、年代及工艺字段",
+              "supports": "成化宫廷用杯的材质和斗彩图像。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "图二及其前后的成化斗彩出土品比较",
+              "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。"
+            },
+            {
+              "source": "source/book/ming/ming-visualizing-work",
+              "locator": "Female Work 及长江三角洲劳动分工讨论",
+              "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。"
+            }
+          ],
+          "limit": "器物不提供全行业劳工数字，长时段研究不能换成成化某年的普查。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-05",
+      "scope": "1550 京畿危机和嘉靖东南海商、禁令与袭扰。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1550 京畿危机和嘉靖东南海商、禁令与袭扰。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "The Ming Military and Transportation 与 1550 年战后招聘讨论",
+              "supports": "军役跨越战斗、运粮和交通；1550 年后廷臣对谁募集军人有不同方案。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "分别限定北边与沿海的参与者和时间，避免“倭”一律按族籍解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-06",
+      "scope": "晚嘉靖沿海管辖试验及隆庆许可贸易的前后关系。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "晚嘉靖沿海管辖试验及隆庆许可贸易的前后关系。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "不把海防战事与开海政策缩成单一因果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/court-paperwork",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "内阁条，掌题奏、拟答与起草下达公文",
+              "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。"
+            },
+            {
+              "source": "source/book/ming/mingshi-eunuch-offices",
+              "locator": "十二监司礼监与文书房条",
+              "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chenghua",
+              "locator": "卷首、天顺八年正月及三月",
+              "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongzhi",
+              "locator": "成化二十三年八月至十一月",
+              "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhengde",
+              "locator": "弘治十八年五月及正德元年十月",
+              "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。"
+            }
+          ],
+          "limit": "推荐覆盖弘治与正德，兼及旧例。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/court-paperwork/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "内阁条，掌题奏、拟答与起草下达公文",
+              "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。"
+            },
+            {
+              "source": "source/book/ming/mingshi-eunuch-offices",
+              "locator": "十二监司礼监与文书房条",
+              "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chenghua",
+              "locator": "卷首、天顺八年正月及三月",
+              "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongzhi",
+              "locator": "成化二十三年八月至十一月",
+              "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhengde",
+              "locator": "弘治十八年五月及正德元年十月",
+              "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。"
+            }
+          ],
+          "limit": "推荐覆盖弘治与正德，兼及旧例。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/court-paperwork/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "内阁条，掌题奏、拟答与起草下达公文",
+              "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。"
+            },
+            {
+              "source": "source/book/ming/mingshi-eunuch-offices",
+              "locator": "十二监司礼监与文书房条",
+              "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。"
+            },
+            {
+              "source": "source/book/ming/mingshi-chenghua",
+              "locator": "卷首、天顺八年正月及三月",
+              "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongzhi",
+              "locator": "成化二十三年八月至十一月",
+              "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhengde",
+              "locator": "弘治十八年五月及正德元年十月",
+              "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。"
+            }
+          ],
+          "limit": "推荐覆盖弘治与正德，兼及旧例。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-01",
+      "scope": "内阁票拟、司礼监处理奏章及文书房发旨职责。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "内阁票拟、司礼监处理奏章及文书房发旨职责。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "内阁条，掌题奏、拟答与起草下达公文",
+              "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。"
+            },
+            {
+              "source": "source/book/ming/mingshi-eunuch-offices",
+              "locator": "十二监司礼监与文书房条",
+              "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。"
+            }
+          ],
+          "limit": "职官志描述长期形成的职掌，不视为每份奏疏一律循同一路径。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-02",
+      "scope": "成化朝内批任用及弘治初裁汰、入阁。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "成化朝内批任用及弘治初裁汰、入阁。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-chenghua",
+              "locator": "卷首、天顺八年正月及三月",
+              "supports": "朱见深继位，撤销部分镇守与侦察安排，同时命考核外官。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongzhi",
+              "locator": "成化二十三年八月至十一月",
+              "supports": "孝宗继位，裁汰传奉官，徐溥、刘健进入内阁。"
+            },
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "内阁条，掌题奏、拟答与起草下达公文",
+              "supports": "阁臣对奏章起草处理意见，内阁与外廷各官各有职分。"
+            }
+          ],
+          "limit": "将机构与特定任命作为例子，不把数朝的全部用人划成固定阵营。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-03",
+      "scope": "正德元年十月围绕宦官的奏请、任命及阁臣去留。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "正德元年十月围绕宦官的奏请、任命及阁臣去留。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-eunuch-offices",
+              "locator": "十二监司礼监与文书房条",
+              "supports": "司礼监掌印管理内外章奏，秉笔处理批红，文书房记录发出旨意。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhengde",
+              "locator": "弘治十八年五月及正德元年十月",
+              "supports": "朱厚照继位后，刘瑾掌司礼监，刘健、谢迁辞去。"
+            }
+          ],
+          "limit": "靠本纪核实公开行动，不替当事人补私人谈话。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/local-livelihoods",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，逃户、流民与成化郧阳条",
+              "supports": "官府在返籍、逐遣、就地编籍与设府之间采用过不同安排。"
+            },
+            {
+              "source": "source/book/ming/dpm-chenghua-cup",
+              "locator": "故00145644，文物图、年代及工艺字段",
+              "supports": "成化宫廷用杯的材质和斗彩图像。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "图二及其前后的成化斗彩出土品比较",
+              "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。"
+            },
+            {
+              "source": "source/book/ming/ming-visualizing-work",
+              "locator": "Female Work 及长江三角洲劳动分工讨论",
+              "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。"
+            }
+          ],
+          "limit": "流民与器物材料来自不同地区，用以呈现不同侧面的地方社会。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/local-livelihoods/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，逃户、流民与成化郧阳条",
+              "supports": "官府在返籍、逐遣、就地编籍与设府之间采用过不同安排。"
+            },
+            {
+              "source": "source/book/ming/dpm-chenghua-cup",
+              "locator": "故00145644，文物图、年代及工艺字段",
+              "supports": "成化宫廷用杯的材质和斗彩图像。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "图二及其前后的成化斗彩出土品比较",
+              "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。"
+            },
+            {
+              "source": "source/book/ming/ming-visualizing-work",
+              "locator": "Female Work 及长江三角洲劳动分工讨论",
+              "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。"
+            }
+          ],
+          "limit": "流民与器物材料来自不同地区，用以呈现不同侧面的地方社会。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/local-livelihoods/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，逃户、流民与成化郧阳条",
+              "supports": "官府在返籍、逐遣、就地编籍与设府之间采用过不同安排。"
+            },
+            {
+              "source": "source/book/ming/dpm-chenghua-cup",
+              "locator": "故00145644，文物图、年代及工艺字段",
+              "supports": "成化宫廷用杯的材质和斗彩图像。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "图二及其前后的成化斗彩出土品比较",
+              "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。"
+            },
+            {
+              "source": "source/book/ming/ming-visualizing-work",
+              "locator": "Female Work 及长江三角洲劳动分工讨论",
+              "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。"
+            }
+          ],
+          "limit": "流民与器物材料来自不同地区，用以呈现不同侧面的地方社会。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-01",
+      "scope": "荆襄流民处置、就地安置和郧阳设府。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "荆襄流民处置、就地安置和郧阳设府。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，逃户、流民与成化郧阳条",
+              "supports": "官府在返籍、逐遣、就地编籍与设府之间采用过不同安排。"
+            }
+          ],
+          "limit": "食货志流民数字的计数单位和覆盖不一，正文取可核的政策先后。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-02",
+      "scope": "商品生产中的家庭分工与“女红”表述的资料区分。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "商品生产中的家庭分工与“女红”表述的资料区分。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/ming-visualizing-work",
+              "locator": "Female Work 及长江三角洲劳动分工讨论",
+              "supports": "江南商品生产与家中女性的纺织、农业劳动在研究中分地区与时代看待。"
+            }
+          ],
+          "limit": "研究横跨明代后期及其后，无法给中期某年或所有地区配置同一劳动比例。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-03",
+      "scope": "传世成化杯与御窑出土残件的工艺比照。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "传世成化杯与御窑出土残件的工艺比照。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/dpm-chenghua-cup",
+              "locator": "故00145644，文物图、年代及工艺字段",
+              "supports": "成化宫廷用杯的材质和斗彩图像。"
+            },
+            {
+              "source": "source/book/ming/dpm-jingdezhen-excavation",
+              "locator": "图二及其前后的成化斗彩出土品比较",
+              "supports": "窑址残件与传世成品可对照，说明制瓷和装饰过程。"
+            }
+          ],
+          "limit": "考古遗物不能独立回答工薪、工匠户籍和烧造总量。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/coastal-frontier",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+              "supports": "朱厚熜承位，自身父母礼称引起争议。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            }
+          ],
+          "limit": "年表的长范围用于说明政策的两个节点，日常推荐以嘉靖时期为主。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+              "supports": "朱厚熜承位，自身父母礼称引起争议。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            }
+          ],
+          "limit": "年表的长范围用于说明政策的两个节点，日常推荐以嘉靖时期为主。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+              "supports": "朱厚熜承位，自身父母礼称引起争议。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            }
+          ],
+          "limit": "年表的长范围用于说明政策的两个节点，日常推荐以嘉靖时期为主。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/scope",
+      "scope": "本章范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+              "supports": "朱厚熜承位，自身父母礼称引起争议。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            }
+          ],
+          "limit": "年表的长范围用于说明政策的两个节点，日常推荐以嘉靖时期为主。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-01",
+      "scope": "大礼议与海禁作为旧制，在不同事务中各有争议。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "大礼议与海禁作为旧制，在不同事务中各有争议。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jiajing-rite",
+              "locator": "正德十六年入继、嘉靖元年称谓及三年复议",
+              "supports": "朱厚熜承位，自身父母礼称引起争议。"
+            },
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "前段并置政治语境，不以礼议作为海贸政策的具体原因。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-02",
+      "scope": "海商与武装人员活动，以及福建、浙江、广东的不同实践。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "海商与武装人员活动，以及福建、浙江、广东的不同实践。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            }
+          ],
+          "limit": "限于论文所查沿海官府和商港案例，不推定参与者的统一族籍、法律身份或规模。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-03",
+      "scope": "1567 年放宽月港私人航海及贸易范围，北边的另行管辖。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1567 年放宽月港私人航海及贸易范围，北边的另行管辖。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-16",
+              "locator": "印刷页 15—21，双屿、清查、港口管理与月港放宽限制",
+              "supports": "东南多地实施方式不同，部议逐渐形成月港有限许可，仍禁往日本贸易。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jiajing-border",
+              "locator": "嘉靖二十四、二十九年及四十年前后",
+              "supports": "俺答屡入北边，庚戌兵临京师与同期各地灾政、沿海警报。"
+            }
+          ],
+          "limit": "沿海研究支持港口政策及约束。隆庆北边议和详情在下一部另据本纪。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读至嘉靖，复核土木、近畿边防和月港并非同一时点；把御窑个案细节集中到地方生活专题。"
+      }
+    }
+  ]
+}

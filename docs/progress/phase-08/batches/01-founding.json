@@ -1,0 +1,1093 @@
+{
+  "id": "01-founding",
+  "access": [
+    {
+      "sourceId": "yuanshi-river-1351",
+      "url": "https://zh.wikisource.org/zh-hant/元史/卷042",
+      "material": "《元史》卷四十二·顺帝五",
+      "locator": "至正十一年四月、五月条",
+      "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-rise",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷1",
+      "material": "《明史》卷一·太祖一",
+      "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+      "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongwu-early",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷2",
+      "material": "《明史》卷二·太祖二",
+      "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+      "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongwu-late",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷3",
+      "material": "《明史》卷三·太祖三",
+      "locator": "洪武十七年三月、十八年十月、二十二年四月",
+      "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-households-land",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷77",
+      "material": "《明史》卷七十七·食货一",
+      "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+      "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-offices",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷72",
+      "material": "《明史》卷七十二·职官一",
+      "locator": "官制总序、六部改秩与内阁条",
+      "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-09",
+      "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/why-military-institutions-matter-for-ming-history/B3C345236C8588E708C661758D2DED51",
+      "material": "戴维·鲁宾逊：军事制度为什么对明史重要",
+      "locator": "Military Households 与 The Ming Military and Transportation 各段",
+      "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-09",
+      "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/why-military-institutions-matter-for-ming-history/B3C345236C8588E708C661758D2DED51",
+      "material": "戴维·鲁宾逊：军事制度为什么对明史重要",
+      "locator": "导论及 Military Households 关于军户与地方管辖的段落",
+      "supports": "军事编户是地方治理制度，军民辖属相互交错。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jianwen",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷4",
+      "material": "《明史》卷四·恭闵帝",
+      "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+      "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "bm-hongwu-260",
+      "url": "https://www.britishmuseum.org/collection/object/C_CIB-EA-260",
+      "material": "大英博物馆 CIB,EA.260 藏品页",
+      "locator": "藏品页请求返回 403",
+      "supports": "改查博物馆第 68 厅公开展签，未以本页支持论断。",
+      "status": "restricted",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "bm-hongwu-note",
+      "url": "https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf",
+      "material": "大英博物馆第 68 厅《货币》展签",
+      "locator": "Case 9，Ming dynasty paper money",
+      "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-chapter/ming/yuan-crisis",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            },
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "纪年按元、明史书，调发数与民间灾情按不同口径阅读。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            },
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "纪年按元、明史书，调发数与民间灾情按不同口径阅读。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            },
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "纪年按元、明史书，调发数与民间灾情按不同口径阅读。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/scope",
+      "scope": "本章范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            },
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "纪年按元、明史书，调发数与民间灾情按不同口径阅读。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/dateLabel",
+      "scope": "本章年代标签",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章年代标签",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            },
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "纪年按元、明史书，调发数与民间灾情按不同口径阅读。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-01",
+      "scope": "河工权责与按军民身份征发的不同成本。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "河工权责与按军民身份征发的不同成本。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "顺帝五，至正九年正月及十一年春",
+              "supports": "至正九年置行都水监；十一年任贾鲁治河，征调地方民夫、军士。"
+            }
+          ],
+          "limit": "前两句据本纪；家庭劳力压力来自征发机制，不据史书点名重建个人遭遇。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-02",
+      "scope": "红巾起事的官修记载以及河工与起事的时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "红巾起事的官修记载以及河工与起事的时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/yuanshi-river-1351",
+              "locator": "至正十一年四月、五月条",
+              "supports": "治黄河由贾鲁主持，调发军民。颍州刘福通起兵在随后一个月内另记。"
+            }
+          ],
+          "limit": "本纪采用元朝秩序的语言。相邻纪事不能独立确立河工和起事的普遍因果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-03",
+      "scope": "濠州组织、郭子兴与韩林儿政治关系。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "濠州组织、郭子兴与韩林儿政治关系。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "《明史》是后出的开国叙事。它记饥疫与投军，可与其出生异象等塑造形象的段落区分。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/founding",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "旧章保留开国、制度与延续至继承问题的范围，推荐只用于开国附近。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/founding/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "旧章保留开国、制度与延续至继承问题的范围，推荐只用于开国附近。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/founding/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "旧章保留开国、制度与延续至继承问题的范围，推荐只用于开国附近。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/founding/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "旧章保留开国、制度与延续至继承问题的范围，推荐只用于开国附近。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-01",
+      "scope": "从和州渡江、巢湖水军加入与集庆改制。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从和州渡江、巢湖水军加入与集庆改制。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            }
+          ],
+          "limit": "卷一足以核对据点和政权设置，兵员及船只数字没有用作实数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-02",
+      "scope": "鄱阳湖、平江、洪武称帝和徐达入大都的时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "鄱阳湖、平江、洪武称帝和徐达入大都的时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "开国、夺都与统治范围分别表述，地图位置只用于识别政权活动空间。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "block/ming/founding/aside-02",
+      "scope": "大都接管中图籍、库藏及禁约的记载。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "大都接管中图籍、库藏及禁约的记载。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "诏令提供政权意图，不能据以推断军队处处遵行。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-03",
+      "scope": "应天周郡免租与克大都后的复业、转运诏令。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "应天周郡免租与克大都后的复业、转运诏令。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-rise",
+              "locator": "至正十二年、十五至十六年、二十三年、二十六至二十七年",
+              "supports": "濠州、渡江、定集庆、应天建置、陈友谅与张士诚战事。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "只写所见政策及其张力，没有估算实际转运范围。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-04",
+      "scope": "军户、卫所和军屯为驻扎军队提供人员及粮食。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "军户、卫所和军屯为驻扎军队提供人员及粮食。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            }
+          ],
+          "limit": "各地军田与出丁安排不同。不能从一套法定比例推出全国实况。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-05",
+      "scope": "洪武十三年胡案与中央行政、军事机构变化。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "洪武十三年胡案与中央行政、军事机构变化。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            },
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "官制总序、六部改秩与内阁条",
+              "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。"
+            }
+          ],
+          "limit": "按官方处置书写案件，不把官方指控等同于已经证明的全案。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-06",
+      "scope": "燕王就藩和朱标、朱允炆继承时序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "燕王就藩和朱标、朱允炆继承时序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+              "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。"
+            }
+          ],
+          "limit": "只从封藩和护卫的证据说明制度张力，不假定建文诸臣此时已经选定所有政策。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/households-garrisons",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            },
+            {
+              "source": "source/book/ming/bm-hongwu-note",
+              "locator": "Case 9，Ming dynasty paper money",
+              "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。"
+            }
+          ],
+          "limit": "利用制度志与实物并读，户类非现代职业普查。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            },
+            {
+              "source": "source/book/ming/bm-hongwu-note",
+              "locator": "Case 9，Ming dynasty paper money",
+              "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。"
+            }
+          ],
+          "limit": "利用制度志与实物并读，户类非现代职业普查。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            },
+            {
+              "source": "source/book/ming/bm-hongwu-note",
+              "locator": "Case 9，Ming dynasty paper money",
+              "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。"
+            }
+          ],
+          "limit": "利用制度志与实物并读，户类非现代职业普查。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            },
+            {
+              "source": "source/book/ming/bm-hongwu-note",
+              "locator": "Case 9，Ming dynasty paper money",
+              "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。"
+            }
+          ],
+          "limit": "利用制度志与实物并读，户类非现代职业普查。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-01",
+      "scope": "黄册副本、里甲轮役与丁粮排序。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "黄册副本、里甲轮役与丁粮排序。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            }
+          ],
+          "limit": "册面和役法据食货志。因缺额出现的分摊是制度压力，不能当作每里一例。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-02",
+      "scope": "户籍资料与实际征收中白册的用处。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "户籍资料与实际征收中白册的用处。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            }
+          ],
+          "limit": "全国各地记录形态、留存情况与实际办理程序不必相同。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-03",
+      "scope": "军户承役与卫所的军务、民事和救济功能。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "军户承役与卫所的军务、民事和救济功能。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "Military Households 与 The Ming Military and Transportation 各段",
+              "supports": "军户出丁，卫所管理军籍、军田与抚恤，并承担运输和地方行政事务。"
+            },
+            {
+              "source": "source/book/ming/source-09",
+              "locator": "导论及 Military Households 关于军户与地方管辖的段落",
+              "supports": "军事编户是地方治理制度，军民辖属相互交错。"
+            }
+          ],
+          "limit": "把研究中可见的制度和衔接写作可能的经验，不虚构军户个人履历。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-04",
+      "scope": "迁民安置诏令与洪武宝钞实物。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "迁民安置诏令与洪武宝钞实物。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-households-land",
+              "locator": "户口田制屯田庄田，黄册、户类、移民与屯田各段",
+              "supports": "记户帖、里甲与黄册制度，及民、军、匠等户籍，移民和军屯。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            },
+            {
+              "source": "source/book/ming/bm-hongwu-note",
+              "locator": "Case 9，Ming dynasty paper money",
+              "supports": "宝钞 1375 年开始发行，馆藏一贯钞用钱串图示标明面额。"
+            }
+          ],
+          "limit": "展签支持发行和名义面额，不支持购买力与移民实领情况。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/hongwu-court",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "官制总序、六部改秩与内阁条",
+              "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+              "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。"
+            }
+          ],
+          "limit": "区分洪武时期顾问与后世内阁，案情与中央制度各有证据。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/hongwu-court/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "官制总序、六部改秩与内阁条",
+              "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+              "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。"
+            }
+          ],
+          "limit": "区分洪武时期顾问与后世内阁，案情与中央制度各有证据。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/hongwu-court/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "官制总序、六部改秩与内阁条",
+              "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+              "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。"
+            }
+          ],
+          "limit": "区分洪武时期顾问与后世内阁，案情与中央制度各有证据。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-01",
+      "scope": "六部权责、中书省撤销和殿阁大学士的早期职能。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "六部权责、中书省撤销和殿阁大学士的早期职能。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-offices",
+              "locator": "官制总序、六部改秩与内阁条",
+              "supports": "说明中书省撤去、六部升秩和供顾问的大学士，以及后来内阁职掌。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "职官志写制度沿革，不能把成熟时期的票拟前移至洪武。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-02",
+      "scope": "洪武十七、十八年的考试程式和取士，开国另有荐举。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "洪武十七、十八年的考试程式和取士，开国另有荐举。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "本纪可核取士安排，没有据此估算入学机会和考取比例。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-03",
+      "scope": "《大诰》颁行、郭桓案与地方赈恤的编年记录。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "《大诰》颁行、郭桓案与地方赈恤的编年记录。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongwu-late",
+              "locator": "洪武十七年三月、十八年十月、二十二年四月",
+              "supports": "颁科举取士式与《大诰》，迁江南民至淮南并给钞复税。"
+            }
+          ],
+          "limit": "不使用缺少统一口径的牵连人数，也从制度要求与具体结果之间保留差别。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-04",
+      "scope": "皇太孙继位与建文初年有关诸王的诏令。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "皇太孙继位与建文初年有关诸王的诏令。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "卷首太子标卒、皇太孙立及建文元年二月至七月",
+              "supports": "朱标死后立允炆为皇太孙，继位后约束藩王并发生冲突。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongwu-early",
+              "locator": "洪武元年正月、七月至八月及十三年正月、三月",
+              "supports": "应天即位、进入元都与招抚，胡惟庸案、罢中书省及燕王赴北平。"
+            }
+          ],
+          "limit": "仅说明制度条件与公开措施，个人动机保留。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读前史、开国、户籍与废相叙事，核对设河工官署、应天与大都、文书责任及编户差役的时间；移除郭子兴去世与拥立韩林儿之间未经精确记录的先后。"
+      }
+    }
+  ]
+}

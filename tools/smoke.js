@@ -90,7 +90,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const beforeRead = await st();
   await js(`document.querySelector('[data-read-subject]').click()`);
   await sleep(400);
-  ok('明朝疆域打开主体书卷', await js(`!document.getElementById('book').hidden && __t.reading.subject?.id==='ming' && document.querySelectorAll('[data-reading-detail].reading-card').length===5`));
+  ok('明朝疆域打开主体书卷', await js(`!document.getElementById('book').hidden && __t.reading.subject?.id==='ming' && document.querySelectorAll('[data-reading-detail].reading-card').length===20`));
   await js(`document.querySelector('[data-reading-detail]').click()`);
   ok('第一章包含连续正文与来源', await js(`document.querySelectorAll('#book-body .subject-prose p').length>=3 && document.querySelectorAll('.reading-sources a').length>=2`));
   await js(`document.getElementById('reading-exit').click()`);

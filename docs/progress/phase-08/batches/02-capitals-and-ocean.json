@@ -1,0 +1,1063 @@
+{
+  "id": "02-capitals-and-ocean",
+  "access": [
+    {
+      "sourceId": "mingshi-jianwen",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷4",
+      "material": "《明史》卷四·恭闵帝",
+      "locator": "建文元年二月至七月、建文四年五月及六月",
+      "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-jingnan",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷5",
+      "material": "《明史》卷五·成祖一",
+      "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+      "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-yongle-capital",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷7",
+      "material": "《明史》卷七·成祖三",
+      "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+      "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-grain-transport",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷79",
+      "material": "《明史》卷七十九·食货三",
+      "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+      "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zhou-chen",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷153",
+      "material": "《明史》卷一百五十三·陈瑄、周忱传",
+      "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+      "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "unesco-grain-canal",
+      "url": "https://whc.unesco.org/en/list/1443/",
+      "material": "联合国教科文组织世界遗产中心：大运河",
+      "locator": "Brief synthesis 与 Criterion (iii)",
+      "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-zheng-he",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷304",
+      "material": "《明史》卷三百〇四·郑和传",
+      "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+      "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "source-30",
+      "url": "https://doi.org/10.1017/S2059163222000457",
+      "material": "郑和远航的停止与私人航海的兴起",
+      "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+      "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-hongxi",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷8",
+      "material": "《明史》卷八·仁宗",
+      "locator": "永乐二十二年八至十一月条",
+      "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "sourceId": "mingshi-xuande",
+      "url": "https://zh.wikisource.org/zh-hant/明史/卷9",
+      "material": "《明史》卷九·宣宗",
+      "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+      "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-chapter/ming/two-capitals",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "旧章覆盖靖难至仁宣的主线；京名、制度和地球入口各自遵循年代。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "旧章覆盖靖难至仁宣的主线；京名、制度和地球入口各自遵循年代。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "旧章覆盖靖难至仁宣的主线；京名、制度和地球入口各自遵循年代。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "旧章覆盖靖难至仁宣的主线；京名、制度和地球入口各自遵循年代。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-01",
+      "scope": "建文削藩、调动北平军卫与燕王起兵。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "建文削藩、调动北平军卫与燕王起兵。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            }
+          ],
+          "limit": "靖难是燕方政治说法，不能当成战争性质的中立认定。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-02",
+      "scope": "南京失守、陈瑄附燕与政权接管。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "南京失守、陈瑄附燕与政权接管。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-jianwen",
+              "locator": "建文元年二月至七月、建文四年五月及六月",
+              "supports": "限制诸王节制文武人员，燕军入南京，建文帝下落两说。"
+            },
+            {
+              "source": "source/book/ming/mingshi-jingnan",
+              "locator": "建文三年十一、十二月至四年六月，继位后八至十月",
+              "supports": "从北平再出兵后发生南下战事、金川门入城，及战后任官和封赏。"
+            }
+          ],
+          "limit": "不裁定建文出亡传说，不据官方奖励名单反推每个人的私人动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-03",
+      "scope": "迁都诏令与朝仪，两京官署和北方粮食供给。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "迁都诏令与朝仪，两京官署和北方粮食供给。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "区分可见的地理、机构及工程条件与皇帝难以直接确认的内心选择。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-04",
+      "scope": "运河疏浚、仓粮分段接运及清江浦所在的淮安转运节点。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "运河疏浚、仓粮分段接运及清江浦所在的淮安转运节点。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "陈瑄传，清江浦开渠及置四闸段",
+              "supports": "传记记载会通河工成后，永乐十三年改造清江浦以便漕船入淮。"
+            },
+            {
+              "source": "source/book/ming/huaian-canal-gazetteer",
+              "locator": "里运河正文第 3–5 段，清江浦开凿与《明太宗实录》转引",
+              "supports": "地方材料将 1415 年开渠与淮安城西管家湖和鸭陈口联系，区分历史清江浦与今日新河。"
+            }
+          ],
+          "limit": "运输制度与各阶段实到量分开。传统记述保留局部海运，不写为所有海运同时停止。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "block/ming/two-capitals/aside-04",
+      "scope": "用支运解释仓储如何衔接不同运输区段。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "用支运解释仓储如何衔接不同运输区段。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            }
+          ],
+          "limit": "制度志与遗产范围支持节点关系，连线精度以场景图例为准。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-05",
+      "scope": "1405 年出使和持诏、给赐、带回使者的任务。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1405 年出使和持诏、给赐、带回使者的任务。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "按史料定位主要活动，避免从朝贡名目推断对每个港口的管辖。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-06",
+      "scope": "仁宗暂停船队及复用夏原吉，宣宗撤交趾并重派远航。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "仁宗暂停船队及复用夏原吉，宣宗撤交趾并重派远航。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            },
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+              "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "限定支出争议和具体政策的关联，停航成因另在海路章展开。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/canal-labor",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            }
+          ],
+          "limit": "追踪制度变化至弘治初，不把中期定额作为永乐实绩。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            }
+          ],
+          "limit": "追踪制度变化至弘治初，不把中期定额作为永乐实绩。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            }
+          ],
+          "limit": "追踪制度变化至弘治初，不把中期定额作为永乐实绩。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            },
+            {
+              "source": "source/book/ming/unesco-grain-canal",
+              "locator": "Brief synthesis 与 Criterion (iii)",
+              "supports": "运河为跨流域水系，长期用于运送粮食，遗产范围与运输体系并非单年现状。"
+            }
+          ],
+          "limit": "追踪制度变化至弘治初，不把中期定额作为永乐实绩。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-01",
+      "scope": "宣德交兑办法分配民户与运军的运输区间。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "宣德交兑办法分配民户与运军的运输区间。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "交兑办法有阶段和地区差异，地名仅对应史料明示的节点。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-02",
+      "scope": "交兑的耗费、监收与周忱的量器和两种漕簿。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "交兑的耗费、监收与周忱的量器和两种漕簿。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "周忱传对改革成效有所称许，措施的存在与地方实际效果分别理解。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-03",
+      "scope": "成化定额与弘治马文升所奏船料、补役问题。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "成化定额与弘治马文升所奏船料、补役问题。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-grain-transport",
+              "locator": "漕运仓库，洪武至宣德六年；另见成化定额与弘治筹船",
+              "supports": "疏浚会通河、运输分段、宣德交兌费用与后来定额；同时保留局部海运。"
+            }
+          ],
+          "limit": "奏疏说明请改制度时所举情形，不据此估算全体运军的资产损失。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/indian-ocean",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "使团覆盖与商人的活动分别讨论，停航原因呈现研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "使团覆盖与商人的活动分别讨论，停航原因呈现研究解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "使团覆盖与商人的活动分别讨论，停航原因呈现研究解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/spatialThesis",
+      "scope": "本章空间论点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章空间论点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "使团覆盖与商人的活动分别讨论，停航原因呈现研究解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-01",
+      "scope": "船队自中国东南出航，涉及南海、印度沿岸、波斯湾口与东非港口。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "船队自中国东南出航，涉及南海、印度沿岸、波斯湾口与东非港口。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "史书总表有异名与不同航次，地点共现不能直接补成单艘船的日程。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-02",
+      "scope": "朝贡往返、给赐和锡兰冲突在传记中的记载。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "朝贡往返、给赐和锡兰冲突在传记中的记载。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            }
+          ],
+          "limit": "传记主要采用明廷视角。地方是否接受其说法及这类行动的长期效果不由同一份文献认定。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-03",
+      "scope": "七次远航止于宣德年间，费用与财政竞争为解释线索。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "七次远航止于宣德年间，费用与财政竞争为解释线索。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zheng-he",
+              "locator": "郑和传永乐三年、十四年与宣德五年条，及所历地点总述",
+              "supports": "官营使团从刘家河经福建出海，载诏书和给赐，有战事；七次出使覆盖多个海域。"
+            },
+            {
+              "source": "source/book/ming/source-30",
+              "locator": "期刊 PDF 第 95—97 页引言、第 113—114 页结论",
+              "supports": "远航为 1405—1433 年间。作者比较成本解释与宫廷、官僚财政竞争，并讨论民间贸易。"
+            }
+          ],
+          "limit": "研究解释归给作者，暂不确定统一的财政成本或停航直接动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-chapter/ming/renxuan",
+      "scope": "章的主体年代、章型和推荐范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章的主体年代、章型和推荐范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+              "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "本章取材以可追溯的措施为主，朝代总体评价与其成效分开。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "text/chapter/ming/renxuan/title",
+      "scope": "本章标题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章标题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+              "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "本章取材以可追溯的措施为主，朝代总体评价与其成效分开。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/ming/renxuan/summary",
+      "scope": "本章摘要",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "本章摘要",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+              "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。"
+            },
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "本章取材以可追溯的措施为主，朝代总体评价与其成效分开。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-01",
+      "scope": "仁宗即位初复夏原吉，停船、停采办并处理建文旧案。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "仁宗即位初复夏原吉，停船、停采办并处理建文旧案。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-hongxi",
+              "locator": "永乐二十二年八至十一月条",
+              "supports": "朱高炽即位时停止远航及若干采办，恢复夏原吉官职，赦免部分建文旧臣家属。"
+            },
+            {
+              "source": "source/book/ming/mingshi-yongle-capital",
+              "locator": "永乐十八年九月、十一至十二月及十九年正月、十一月",
+              "supports": "诏次年改两京名号、北京宫殿建成、北京朝贺及军粮调发。"
+            }
+          ],
+          "limit": "以所读取的诏令与事件为限，对受惠范围及执行速度不作统一估计。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-02",
+      "scope": "宣德二年王通与黎利议和、明军撤离，三年追论王通。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "宣德二年王通与黎利议和、明军撤离，三年追论王通。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-xuande",
+              "locator": "宣德元年、二年秋冬及五年，辅以郑和传",
+              "supports": "黎利抵抗、撤交趾官吏士卒与后一次下西洋分属不同政策选择。"
+            }
+          ],
+          "limit": "以明方本纪定位事件。当地政权的内部形成不据明廷语词单独还原。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-03",
+      "scope": "宣德五年周忱就任，平米、设仓和贷款的范围。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "宣德五年周忱就任，平米、设仓和贷款的范围。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ming/mingshi-zhou-chen",
+              "locator": "周忱到任问逋税至设濟农仓、议淮安瓜洲交兌",
+              "supports": "清查江南欠赋，设置水边收纳点、征收与漕运账簿、救济和交兑。"
+            }
+          ],
+          "limit": "案例属于江南诸府，不能当作全国减税和赈济长期效果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查靖难及迁都日期、会通河和清江浦、陈瑄建议与宣德转运的先后；分开官营航行和港口网络。"
+      }
+    }
+  ]
+}
