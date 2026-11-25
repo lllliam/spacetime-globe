@@ -1,0 +1,432 @@
+{
+  "id": "10-repression-and-displacement",
+  "access": [
+    {
+      "url": "https://www.gov.za/about-sa/public-holidays",
+      "material": "南非政府：人权日、青年节与全国妇女节",
+      "locator": "21 March、16 June 和 9 August 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/599/",
+      "material": "UNESCO：莫桑比克岛",
+      "locator": "遗产简介及突出普遍价值，标准（vi）",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/144/",
+      "material": "联合国教科文组织：基尔瓦基斯瓦尼与松戈马拉港口遗址",
+      "locator": "突出普遍价值：简要综述及标准（iii）",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_korea-march-first-declaration.htm",
+      "material": "三一独立宣言，1919（哥伦比亚大学原始文献导读）",
+      "locator": "宣言节选及开头两段导读",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://theme.archives.go.kr/next/victimSearch02/viewMain.do",
+      "material": "韩国国家档案院：三一运动遇害者名册",
+      "locator": "名册概要与构成",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.kr/next/common/archivedata/render.do?filePath=2F757046696c652F70616c67616e2F32303136303232365f303030362e706466",
+      "material": "韩国国家档案院：三一运动女性参与者判决文献集",
+      "locator": "编者说明第 49—52 页，判决文献整理与统计差异",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://history.archives.go.kr/front/service/information",
+      "material": "韩国国家档案院：强制动员相关名册",
+      "locator": "名册介绍、保管记录分类与日本移交劳动名册说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archive.much.go.kr/1945/storytelling_1",
+      "material": "韩国国立近现代史博物馆：1945 年档案展的强制动员材料",
+      "locator": "强制动员部分及 1939 年征用、1944 年征兵条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.mofa.go.jp/a_o/rp/page25e_000344.html",
+      "material": "日本外务省公布的 1993 年战时调查结果",
+      "locator": "结果第 4—7 项，人数、来源、管理与征募",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/nanna/record/228137/files/E_CN.4_1996_53_Add.1-EN.pdf?registerDownload=1&version=1&withMetadata=0&withWatermark=0",
+      "material": "联合国人权委员会特别报告员：战时军事性奴役调查报告",
+      "locator": "E/CN.4/1996/53/Add.1 第 4—8、45—48 段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://avalon.law.yale.edu/20th_century/palmanda.asp",
+      "material": "耶鲁大学法学院阿瓦隆计划：巴勒斯坦委任统治文本",
+      "locator": "文件序言、第 2、4、6 条及生效说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/displaced-persons",
+      "material": "美国大屠杀纪念馆：欧洲流离失所者",
+      "locator": "犹太幸存者、流离失所者营地与赴巴勒斯坦准备段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.un.org/unispal/wp-content/uploads/1947/11/ARES181.pdf",
+      "material": "联合国大会第 181（II）号决议全文",
+      "locator": "1947 年 11 月 29 日决议 A 部分、分治方案第一部分 A 节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://unispal.un.org/pdfs/38D6C47FC5FB0CDD852575D6006C70D4.pdf",
+      "material": "联合国新闻部：巴勒斯坦难民问题及联合国",
+      "locator": "1948 年调停与难民部分，转引联合国调停员 A/648 报告",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://unispal.un.org/pdfs/96A68276D7E800D885256D560066330D.pdf",
+      "material": "联合国巴勒斯坦和解委员会：难民问题工作报告",
+      "locator": "A/AC.25/CCP.RWA/2 第 1 段，转录第 194（III）号决议第 11 段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.un.org/unispal/document/auto-insert-198227/",
+      "material": "联合国调停员 A/648 报告在线页面",
+      "locator": "打开返回 403，改读联合国新闻部回顾中引述的报告段",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://www.un.org/unispal/document/auto-insert-184992/",
+      "material": "联合国年鉴 1947 至 1948 年巴勒斯坦问题旧链接",
+      "locator": "打开返回 403，本批阅读改用可取得的联合国原始决议、委员会工作报告及新闻部出版物",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/228137/files/E_CN.4_1996_53_Add.1-EN.pdf",
+      "material": "联合国战时军事性奴役调查原始 PDF 入口",
+      "locator": "打开返回 403，经数字图书馆下载路径阅读同一报告",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/invasion-of-poland-fall-1939",
+      "material": "美国大屠杀纪念馆：1939 年入侵波兰",
+      "locator": "开头 Key Facts 与 Invasion and Partition of Poland",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.education.gov.za/Portals/0/Documents/Publications/BeTheLegacy%20Booklet.pdf?ver=2019-06-20-105648-813",
+      "material": "南非基础教育部：1956 年妇女游行的照片与参加者回忆",
+      "locator": "The 1956 Women’s March，游行照片、图说及索菲娅·威廉斯-德布鲁因回忆",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.un.org/unispal/wp-content/uploads/2024/08/Ardi-Imseis-2024-The-Nakba-and-the-UNs-Permanent-Responsibility-for-the-Question-of-Palestine.pdf",
+      "material": "联合国巴勒斯坦人民行使不可剥夺权利委员会活动存档：1948—2024 年纳克巴",
+      "locator": "2024 年 5 月 17 日小组讨论存档，第 1 页标题，仅证实纪念名称",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "block/topic/africa-modern/south-africa/section-02",
+      "scope": "以三组有日期和行动者的事件说明反种族隔离抗争",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以三组有日期和行动者的事件说明反种族隔离抗争",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/africa-modern/south-africa/za-gov-struggle",
+              "locator": "21 March、16 June 和 9 August 条",
+              "supports": "1956 年妇女请愿反对通行证制度，1960 年沙佩维尔警方射杀抗议者，1976 年索韦托学生抗议种族隔离教育。"
+            },
+            {
+              "source": "source/topic/africa-modern/south-africa/sa-womens-march-photo",
+              "locator": "The 1956 Women’s March，游行照片、图说及索菲娅·威廉斯-德布鲁因回忆",
+              "supports": "1956 年 8 月 9 日反通行证游行到达比勒陀利亚联合大厦。"
+            }
+          ],
+          "limit": "政府纪念页记录具体事件，未由此推算所有反种族隔离行动和死伤。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照南非纪念页面的三个日期条，将妇女请愿、警察开枪与学生抗议分开。"
+      }
+    },
+    {
+      "id": "block/topic/east-southern-africa/mozambique/section-04",
+      "scope": "以两个具体遗址对读斯瓦希里贸易与葡萄牙据点",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以两个具体遗址对读斯瓦希里贸易与葡萄牙据点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-southern-africa/mozambique/source-01",
+              "locator": "遗产简介及突出普遍价值，标准（vi）",
+              "supports": "莫桑比克岛参与印度洋交换，后来成为葡萄牙通往印度航路上的据点。"
+            },
+            {
+              "source": "source/topic/east-southern-africa/mozambique/mozambique-unesco-kilwa",
+              "locator": "突出普遍价值：简要综述及标准（iii）",
+              "supports": "基尔瓦与松戈马拉的斯瓦希里商贸，基尔瓦跨海交换，葡萄牙在 16 世纪建立堡垒。"
+            }
+          ],
+          "limit": "此节只比较可定位的港口用途，印度洋和大西洋奴役制度的对比仍需具体航次及劳役记录。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/east-asia-modern/korean-independence/section-03",
+      "scope": "三一运动镇压、遇害档案和后来有限的文化空间",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "三一运动镇压、遇害档案和后来有限的文化空间",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/source-02",
+              "locator": "宣言节选及开头两段导读",
+              "supports": "宣言主张民族自决，殖民当局武力镇压，后来有限放宽文化表达，继续压制反殖民政治行动。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-nak-march-victims",
+              "locator": "名册概要与构成",
+              "supports": "名册来自韩国战后调查，记录遇害地点与情形，其中还混入关东大地震的遇害者。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-nak-march-trials",
+              "locator": "编者说明第 49—52 页，判决文献整理与统计差异",
+              "supports": "留存法院材料可见女性参与者受到起诉、判刑等处分，各文献统计区间与人群不同。"
+            }
+          ],
+          "limit": "战后汇编不是全体遇害者名册，包含不同来源甚至不同事件的条目，不据此估算运动总伤亡。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读名册构成和判决文献集中的汇编范围，分别确认战后调查、审判记录和伤亡估计的证据性质。"
+      }
+    },
+    {
+      "id": "block/topic/east-asia-modern/korean-independence/section-04",
+      "scope": "区分强制劳动、征兵与日军性奴役的行为主体和对象",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分强制劳动、征兵与日军性奴役的行为主体和对象",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-nak-forced-labor",
+              "locator": "名册介绍、保管记录分类与日本移交劳动名册说明",
+              "supports": "日本 1938 年后扩大动员，档案分别记载军人、军属和劳动者，保存日本移交的部分事业场所材料。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-much-wartime",
+              "locator": "强制动员部分及 1939 年征用、1944 年征兵条",
+              "supports": "战争后期朝鲜人被强派至矿场和军需工厂，部分人被征入军队。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-japan-forced-sex-system",
+              "locator": "结果第 4—7 项，人数、来源、管理与征募",
+              "supports": "调查确认来自朝鲜半岛等地的女性遭强制，日军参与设施的设置和管理，人数无法由所得档案确定。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/korean-independence/korea-un-sexual-slavery",
+              "locator": "E/CN.4/1996/53/Add.1 第 4—8、45—48 段",
+              "supports": "特别报告员以实地访谈、受害者证言和文献为基础，认定日军所涉制度属于战时军事性奴役。"
+            }
+          ],
+          "limit": "档案按不同动员类别和地区形成，不能简单合并计数。人数不确切不妨碍确认日军参与、强制与伤害。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读日本调查的来源、管理及征募各项，并与联合国报告的定义和证词导言交叉核查。"
+      }
+    },
+    {
+      "id": "block/topic/east-asia-modern/china-revolutions/section-04",
+      "scope": "区分大跃进与饥荒、文革政治迫害及相应责任",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分大跃进与饥荒、文革政治迫害及相应责任",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/resolution-1981",
+              "locator": "第 17、20—23 段，大跃进、文革阶段及责任",
+              "supports": "文件评述大跃进与反右倾延误纠错，记述文革发动、迫害与毛泽东的主要责任。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/famine-procurement",
+              "locator": "第 2.1—2.2 节及结论，征购、农村粮食可得性与饥荒时序",
+              "supports": "研究说明征购政策与农村可得粮食受限的关系，分地区比较严重程度及估计局限。"
+            }
+          ],
+          "limit": "征购研究解释一个制度机制，党内决议是事后定性。各地受害过程和死亡估算仍须另据人口研究与地方档案。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读大跃进及文革的不同段落，核对不同事件、政策证据和责任归属。"
+      }
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-01",
+      "scope": "委任文本的两类规定与战后犹太幸存者的处境",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "委任文本的两类规定与战后犹太幸存者的处境",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/un-palestine-mandate",
+              "locator": "文件序言、第 2、4、6 条及生效说明",
+              "supports": "英国受委任管理，文本规定促进犹太民族家园及移民，也规定居民民事、宗教权利。"
+            },
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-ushmm-dp",
+              "locator": "犹太幸存者、流离失所者营地与赴巴勒斯坦准备段",
+              "supports": "战后欧洲一些犹太幸存者流离失所，并有人在营地准备前往巴勒斯坦。"
+            }
+          ],
+          "limit": "书写文件所设义务及可定位的迁移经历，不把条文当作当地政治诉求已获平等实现，也不将所有犹太移民概括为同一背景。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-02",
+      "scope": "区分联大建议、以色列建国与战后地面变化",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分联大建议、以色列建国与战后地面变化",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-un-resolution-181",
+              "locator": "1947 年 11 月 29 日决议 A 部分、分治方案第一部分 A 节",
+              "supports": "联大建议实行分治方案，设阿拉伯国、犹太国并为耶路撒冷设置特别国际制度。"
+            },
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-un-dpi-refugees",
+              "locator": "1948 年调停与难民部分，转引联合国调停员 A/648 报告",
+              "supports": "记载许多巴勒斯坦阿拉伯人在 1948 年战争中逃离或被驱逐，调停员提出返回及财产补偿议题。"
+            }
+          ],
+          "limit": "决议图示的拟议范围不能替代停战线或用来判定当代边界。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对决议第 181（II）号中建议性质以及两国与耶路撒冷的条款，再对照联合国难民史文献的战事时序。"
+      }
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-03",
+      "scope": "记录 1948 年逃离与驱逐、联大难民条文的条件及范围",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "记录 1948 年逃离与驱逐、联大难民条文的条件及范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-un-dpi-refugees",
+              "locator": "1948 年调停与难民部分，转引联合国调停员 A/648 报告",
+              "supports": "记载许多巴勒斯坦阿拉伯人在 1948 年战争中逃离或被驱逐，调停员提出返回及财产补偿议题。"
+            },
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-unccp-refugees-1950",
+              "locator": "A/AC.25/CCP.RWA/2 第 1 段，转录第 194（III）号决议第 11 段",
+              "supports": "大会提出返乡条件与适当补偿，并委托和解委员会协助落实。"
+            },
+            {
+              "source": "source/topic/west-asia-modern/palestine-israel/pal-nakba-commemoration",
+              "locator": "2024 年 5 月 17 日小组讨论存档，第 1 页标题，仅证实纪念名称",
+              "supports": "联合国会议档案沿用 Nakba 名称；发言者的历史及法律意见不作为本文事实依据。"
+            }
+          ],
+          "limit": "联合国回顾与同时代工作文件可确认难民问题与所议措施，不由该文书推断彻底落实，不混写其他时期的人口迁移。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "分别复核联合国新闻部对调停报告的引文、和解委员会转录的返乡条件与补偿文字。"
+      }
+    },
+    {
+      "id": "text/topic/europe-modern/world-war-two/title",
+      "scope": "标题明确欧洲范围，并保留对侵略与种族灭绝责任的区分",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "标题明确欧洲范围，并保留对侵略与种族灭绝责任的区分",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-modern/world-war-two/ushmm-invasion-1939",
+              "locator": "开头 Key Facts 与 Invasion and Partition of Poland",
+              "supports": "纳粹德国于 1939 年 9 月 1 日入侵波兰，英法随后宣战，苏联于 9 月 17 日从东面入侵。"
+            },
+            {
+              "source": "source/topic/europe-modern/world-war-two/source-01",
+              "locator": "Introduction 与 Key Facts 两段",
+              "supports": "区分欧洲战争与纳粹德国及其合作者对犹太人的系统性迫害和杀害。"
+            }
+          ],
+          "limit": "专题以欧洲为中心，标题不覆盖战争在亚洲、非洲和太平洋的全部历史。"
+        }
+      ]
+    }
+  ]
+}

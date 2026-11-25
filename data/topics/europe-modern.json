@@ -265,7 +265,7 @@
       "id": "world-war-two",
       "year": 1942,
       "date": "1933—1945年",
-      "title": "战争与种族灭绝，怎样被组织起来？",
+      "title": "欧洲二战中的侵略、占领与纳粹大屠杀",
       "summary": "侵略、国家制度和社会协作共同构成灾难，不能归为抽象仇恨。",
       "place": {
         "label": "柏林",
@@ -299,6 +299,11 @@
           "id": "warsaw-uprising-1944",
           "title": "美国大屠杀纪念馆｜1944 年华沙起义",
           "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising"
+        },
+        {
+          "id": "ushmm-invasion-1939",
+          "title": "美国大屠杀纪念馆：1939 年入侵波兰",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/invasion-of-poland-fall-1939"
         }
       ],
       "sections": [

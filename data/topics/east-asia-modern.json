@@ -152,6 +152,36 @@
           "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_korea-march-first-declaration.htm",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "korea-nak-march-victims",
+          "title": "韩国国家档案院：三一运动遇害者名册",
+          "url": "https://theme.archives.go.kr/next/victimSearch02/viewMain.do"
+        },
+        {
+          "id": "korea-nak-march-trials",
+          "title": "韩国国家档案院：三一运动女性参与者判决文献集",
+          "url": "https://www.archives.go.kr/next/common/archivedata/render.do?filePath=2F757046696c652F70616c67616e2F32303136303232365f303030362e706466"
+        },
+        {
+          "id": "korea-nak-forced-labor",
+          "title": "韩国国家档案院：强制动员相关名册",
+          "url": "https://history.archives.go.kr/front/service/information"
+        },
+        {
+          "id": "korea-much-wartime",
+          "title": "韩国国立近现代史博物馆：1945 年档案展的强制动员材料",
+          "url": "https://archive.much.go.kr/1945/storytelling_1"
+        },
+        {
+          "id": "korea-japan-forced-sex-system",
+          "title": "日本外务省公布的 1993 年战时调查结果",
+          "url": "https://www.mofa.go.jp/a_o/rp/page25e_000344.html"
+        },
+        {
+          "id": "korea-un-sexual-slavery",
+          "title": "联合国人权委员会特别报告员：战时军事性奴役调查报告",
+          "url": "https://digitallibrary.un.org/nanna/record/228137/files/E_CN.4_1996_53_Add.1-EN.pdf?registerDownload=1&version=1&withMetadata=0&withWatermark=0"
         }
       ],
       "sections": [
@@ -175,19 +205,50 @@
         },
         {
           "title": "回应：有限开放没有消除统治关系",
-          "text": "殖民当局镇压示威，之后一度容许较多文化表达，但不接受真正的独立政治行动。文化空间的变化与殖民权力的延续可以同时发生。报刊、学校和城市文化为人们提供交流机会，也处在审查和控制之下。因此应区分社会活动有所扩展，与居民能够决定国家政治前途这两件不同的事。",
+          "text": "1919 年，殖民当局动用武力镇压三一运动，造成人员遇害，并以法院程序追究一批参与者。韩国国家档案院收藏的战后调查名册记录了部分遇害者的地点和经过，法院卷宗也保存了一些女性参与者的判决。随后殖民当局一度放宽部分文化表达，争取独立的政治行动仍受到压制。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-02",
+              "locator": "宣言节选及开头两段导读",
+              "note": "宣言主张民族自决，殖民当局武力镇压，后来有限放宽文化表达，继续压制反殖民政治行动。"
+            },
+            {
+              "sourceId": "korea-nak-march-victims",
+              "locator": "名册概要与构成",
+              "note": "名册来自韩国战后调查，记录遇害地点与情形，其中还混入关东大地震的遇害者。"
+            },
+            {
+              "sourceId": "korea-nak-march-trials",
+              "locator": "编者说明第 49—52 页，判决文献整理与统计差异",
+              "note": "留存法院材料可见女性参与者受到起诉、判刑等处分，各文献统计区间与人群不同。"
+            }
           ],
           "id": "section-03"
         },
         {
           "title": "战争：动员进入劳动与身体",
-          "text": "随着日本在中国与太平洋的战争扩大，殖民社会受到更严厉的动员。朝鲜人被征用于工厂、军事服务和其他战时劳动，许多女性遭受日军性奴役。战争并非远离日常生活的外交事件，而是通过工作、家庭和个人安全改变社会。呈现这一历史，需要同时承认个人的行动与他们面对的强制条件。",
+          "text": "日本扩大侵略战争后，殖民机关依据 1938 年《国家总动员法》等规定征用朝鲜人。有人被强派到日本本土和其他地区的矿场、军需工厂，也有人在战争后期遭征兵。日军参与设置和管理所谓“慰安所”，来自朝鲜半岛等地的女性被强迫提供性服务。联合国特别报告员在听取幸存者证言后，将这一制度定性为战时军事性奴役。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "korea-nak-forced-labor",
+              "locator": "名册介绍、保管记录分类与日本移交劳动名册说明",
+              "note": "日本 1938 年后扩大动员，档案分别记载军人、军属和劳动者，保存日本移交的部分事业场所材料。"
+            },
+            {
+              "sourceId": "korea-much-wartime",
+              "locator": "强制动员部分及 1939 年征用、1944 年征兵条",
+              "note": "战争后期朝鲜人被强派至矿场和军需工厂，部分人被征入军队。"
+            },
+            {
+              "sourceId": "korea-japan-forced-sex-system",
+              "locator": "结果第 4—7 项，人数、来源、管理与征募",
+              "note": "调查确认来自朝鲜半岛等地的女性遭强制，日军参与设施的设置和管理，人数无法由所得档案确定。"
+            },
+            {
+              "sourceId": "korea-un-sexual-slavery",
+              "locator": "E/CN.4/1996/53/Add.1 第 4—8、45—48 段",
+              "note": "特别报告员以实地访谈、受害者证言和文献为基础，认定日军所涉制度属于战时军事性奴役。"
+            }
           ],
           "id": "section-04"
         },
@@ -277,6 +338,11 @@
           "id": "nanjing-1938-allison",
           "title": "美国国务院历史办公室｜南京使馆电报及证词摘要",
           "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53"
+        },
+        {
+          "id": "famine-procurement",
+          "title": "孟昕、钱楠、Pierre Yared：中国大饥荒的制度成因",
+          "url": "https://www.kellogg.northwestern.edu/faculty/qian/resources/MPQY_FINAL.pdf"
         }
       ],
       "sections": [
@@ -317,10 +383,18 @@
         },
         {
           "title": "代价：政策动员怎样影响个人安全",
-          "text": "大跃进及其后的严重饥荒、文化大革命中的政治迫害和社会动荡，造成广泛苦难。理解这些事件，需要分析权力约束、信息传递和政策执行，而不能以发展目标替实际伤害作解释。伤亡估算与地方经历需要可靠材料支持，但数值争论不应遮住受害者，以及组织和纠错机制为何失灵的问题。",
+          "text": "1958 年开始的大跃进和人民公社化推动了高指标及粮食征购。1959 至 1961 年间，农村多地发生严重饥荒。粮食产量与征购研究显示，统一政策在各地造成的口粮压力有差别。1966 至 1976 年的文化大革命是另一场政治运动，不少干部、知识分子和普通群众遭到迫害。中共 1981 年的决议认定毛泽东对文化大革命负主要责任。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "resolution-1981",
+              "locator": "第 17、20—23 段，大跃进、文革阶段及责任",
+              "note": "文件评述大跃进与反右倾延误纠错，记述文革发动、迫害与毛泽东的主要责任。"
+            },
+            {
+              "sourceId": "famine-procurement",
+              "locator": "第 2.1—2.2 节及结论，征购、农村粮食可得性与饥荒时序",
+              "note": "研究说明征购政策与农村可得粮食受限的关系，分地区比较严重程度及估计局限。"
+            }
           ],
           "id": "section-04"
         },

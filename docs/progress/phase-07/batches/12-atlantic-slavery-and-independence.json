@@ -1,0 +1,840 @@
+{
+  "id": "12-atlantic-slavery-and-independence",
+  "access": [
+    {
+      "url": "https://www.metmuseum.org/exhibitions/listings/2013/interwoven-globe",
+      "material": "大都会艺术博物馆：跨洋纺织品贸易展",
+      "locator": "展览中的西班牙贸易和跨大西洋奴役部分",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/214310",
+      "material": "大都会艺术博物馆：秘鲁女式婚披",
+      "locator": "藏品 08.108.10，时间、产地、材料与入藏信息",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html",
+      "material": "美国国会图书馆：廷巴克图古抄本展",
+      "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.kaowarsom.be/documents/MEMOIRES_VERHANDELINGEN/Sciences_morales_politique/Hum.Sc.%28NS%29_T.XLI%2C3_JADIN%20L.%20et%20DICORATO%20M._Correspondance%20de%20Dom%20Afonso%2C%20roi%20du%20congo_1974.pdf",
+      "material": "比利时皇家海外科学院：刚果国王阿丰索致葡萄牙国王书信",
+      "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf",
+      "material": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+      "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/420/",
+      "material": "联合国教科文组织：波托西矿城",
+      "locator": "西班牙语遗产简介及突出普遍价值",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.argentina.gob.ar/sites/default/files/2025/07/acta_de_la_independencia_-_castellano.pdf",
+      "material": "阿根廷政府：《独立宣言》西班牙语转录",
+      "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.loc.gov/item/02012425/",
+      "material": "美国国会图书馆：圣多明各殖民议会 1791 年报告书目",
+      "locator": "馆藏 F1923 .S235，书目摘要及全标题；影像入口访问受限",
+      "date": "2026-11-25",
+      "status": "abstract"
+    },
+    {
+      "url": "https://www.nps.gov/jame/learn/historyculture/a-short-history-of-jamestown.htm?ya_src=serp300",
+      "material": "美国国家公园管理局：詹姆斯敦简史",
+      "locator": "1612 年烟草、1619 年非洲人到达和 1622 年冲突各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nps.gov/jame/learn/historyculture/chronology-of-jamestown-events.htm",
+      "material": "美国国家公园管理局：詹姆斯敦大事纪",
+      "locator": "1612、1619、1622 及 1661 年条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/founding-docs/constitution-transcript",
+      "material": "美国国家档案馆：合众国宪法转录",
+      "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://avalon.law.yale.edu/19th_century/csa_missec.asp",
+      "material": "耶鲁大学阿瓦隆项目：密西西比州脱离联邦理由书",
+      "locator": "1861 年《脱离联邦理由书》首段及列举的理由",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://haitianinstitute.org/wp-content/uploads/2017/10/D%C3%A9claration-dinpendance-dHa%C3%AFti-_Texte-Fran%C3%A7ais.pdf",
+      "material": "英国国家档案馆：海地独立宣言法文转录（复本）",
+      "locator": "CO 137/111，PDF 第 2—3 页，独立誓词与戈纳伊夫署日",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.loc.gov/resource/gdclccn.02012425/?sp=7&st=text",
+      "material": "圣多明各殖民议会报告馆藏正文页",
+      "locator": "影像及纯文本入口无法打开；在产品中只引用书目摘要。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/topic/europe-early-modern/atlantic-empires/summary",
+      "scope": "早期大西洋贸易、贩运和工艺的三类证据",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "早期大西洋贸易、贩运和工艺的三类证据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/met-interwoven-atlantic",
+              "locator": "展览中的西班牙贸易和跨大西洋奴役部分",
+              "supports": "印度棉布进入西非交易，欧洲工场仿制供跨大西洋贩运使用的棉布"
+            },
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/met-peru-mantle",
+              "locator": "藏品 08.108.10，时间、产地、材料与入藏信息",
+              "supports": "馆藏秘鲁婚披的编目区分制作地、棉经与驼科动物毛纬、入藏日期"
+            }
+          ],
+          "limit": "展览呈现选定商品及地区，航次研究的分区与藏品产地有各自的口径。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-02",
+      "scope": "印度棉布及仿制品如何进入奴隶贸易",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "印度棉布及仿制品如何进入奴隶贸易",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/met-interwoven-atlantic",
+              "locator": "展览中的西班牙贸易和跨大西洋奴役部分",
+              "supports": "印度棉布进入西非交易，欧洲工场仿制供跨大西洋贩运使用的棉布"
+            }
+          ],
+          "limit": "并非每件类似的纺织品都可追溯到贩运航次。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-03",
+      "scope": "直接航线、巴西商人、许可与估算口径",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "直接航线、巴西商人、许可与估算口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "limit": "巴伊亚的船只和货物无法代表所有跨洋航线。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新核对巴伊亚贸易许可、黄金海岸和贝宁湾，以及安哥拉另立估算的段落。"
+      }
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-05",
+      "scope": "以一件秘鲁藏品区分制作信息与收藏记录",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以一件秘鲁藏品区分制作信息与收藏记录",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/atlantic-empires/met-peru-mantle",
+              "locator": "藏品 08.108.10，时间、产地、材料与入藏信息",
+              "supports": "馆藏秘鲁婚披的编目区分制作地、棉经与驼科动物毛纬、入藏日期"
+            }
+          ],
+          "limit": "编目字段没有给出织工姓名或从秘鲁到博物馆的完整路线。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-africa/sahel/section-04",
+      "scope": "萨赫勒的商事、政权和奴役规范来自不同手稿",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "萨赫勒的商事、政权和奴役规范来自不同手稿",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/sahel/loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "supports": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            }
+          ],
+          "limit": "抄本讨论法理与义务，无法量化实际贩运或赋税。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-africa/courts/section-04",
+      "scope": "1526 年阿丰索王书信中的掳掠、抗议与交涉",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1526 年阿丰索王书信中的掳掠、抗议与交涉",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/courts/kongo-afonso-1526",
+              "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+              "supports": "阿丰索投诉臣民被掳走贩卖，请葡萄牙国王干预"
+            }
+          ],
+          "limit": "投诉代表发信者的立场，信中对人口损失的表述不用于估算。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读第 53 号文献的署日期、贩卖投诉和请葡王干预段。"
+      }
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-01",
+      "scope": "巴西的多条跨洋贩运航线与估算依据",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "巴西的多条跨洋贩运航线与估算依据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/atlantic/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "limit": "港口分类对应登船和抵达地，无法据此判断被奴役者的出生地或身份。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-03",
+      "scope": "被奴役者自述中的语言、教育、被迫渡海与逃亡",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "被奴役者自述中的语言、教育、被迫渡海与逃亡",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/atlantic/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "自传经历属于一人，无法用来推断多数被奴役者的教育或信仰。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对馆刊的手稿照片和译文摘录，分清被俘、逃离和写作的时间。"
+      }
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-01",
+      "scope": "圣多明各起义和图库曼独立表决的行动主体与时间",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "圣多明各起义和图库曼独立表决的行动主体与时间",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/independences/loc-saint-domingue-1791",
+              "locator": "馆藏 F1923 .S235，书目摘要中的完整标题",
+              "supports": "完整标题记载 1791 年 8 月起义及 11 月 3 日殖民议会代表报告，未从影像查阅报告细节。"
+            },
+            {
+              "source": "source/topic/latin-america/independences/haiti-declaration-1804",
+              "locator": "CO 137/111，PDF 第 2—3 页，独立誓词与戈纳伊夫署日",
+              "supports": "原告示的法文转录列出独立誓词、宣布地点和 1804 年 1 月 1 日日期。"
+            },
+            {
+              "source": "source/topic/latin-america/independences/argentina-acta-1816",
+              "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+              "supports": "图库曼会议的代表宣告联合省脱离西班牙王室"
+            }
+          ],
+          "limit": "圣多明各报告保留殖民统治者用语；两份宣言只能说明其政治主张。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照报告书目摘要的标题和海地宣言法文转录，再核对图库曼宣告的主语和对象。"
+      }
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-03",
+      "scope": "以图库曼会议宣言界定西属美洲独立个案中的代表权和主权",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以图库曼会议宣言界定西属美洲独立个案中的代表权和主权",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/independences/argentina-acta-1816",
+              "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+              "supports": "图库曼会议的代表宣告联合省脱离西班牙王室"
+            }
+          ],
+          "limit": "此文献只覆盖宣布独立的联合省及其会议，后续民权与财产权不在该宣告的条文范围内。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/colonial-contact/section-03",
+      "scope": "弗吉尼亚烟草贸易、强行运抵、奴役入法和波瓦坦抵抗的时间",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "弗吉尼亚烟草贸易、强行运抵、奴役入法和波瓦坦抵抗的时间",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/colonial-contact/nps-jamestown-history",
+              "locator": "1612 年烟草、1619 年非洲人到达和 1622 年冲突各段",
+              "supports": "材料区分殖民贸易、强制运送与波瓦坦抵抗"
+            },
+            {
+              "source": "source/topic/north-america-modern/colonial-contact/nps-jamestown-chronology",
+              "locator": "1612、1619、1622 及 1661 年条目",
+              "supports": "区分烟草出口、强行运抵与奴役被写入成文法"
+            }
+          ],
+          "limit": "弗吉尼亚个案不代表北美各殖民地；避免概括最初一批被强运者逐人的法律身份。"
+        }
+      ]
+    },
+    {
+      "id": "text/topic/north-america-modern/republic/summary",
+      "scope": "新宪法保留奴役时的代表权和法律规则",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "新宪法保留奴役时的代表权和法律规则",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/republic/us-constitution-original",
+              "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+              "supports": "众议院选民资格沿用州的门槛，奴役涉及席位和直接税计算、贩运限制及追索条款"
+            }
+          ],
+          "limit": "原始宪法对代表和税额的规定与后来修正案不同。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/republic/section-02",
+      "scope": "众议院选民资格与五分之三条款的效力",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "众议院选民资格与五分之三条款的效力",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/republic/us-constitution-original",
+              "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+              "supports": "众议院选民资格沿用州的门槛，奴役涉及席位和直接税计算、贩运限制及追索条款"
+            }
+          ],
+          "limit": "不能从第 1 条第 2 款推出当时每州全部居民的实际权利；最后一句为根据计席规则作出的解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读第 1 条第 2 款，确认计入的是席位和直接税口径，区别选民条款及原住民限定。"
+      }
+    },
+    {
+      "id": "block/topic/north-america-modern/republic/section-03",
+      "scope": "奴役保护条款与被奴役者采取的个人行动",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "奴役保护条款与被奴役者采取的个人行动",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/republic/us-constitution-original",
+              "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+              "supports": "众议院选民资格沿用州的门槛，奴役涉及席位和直接税计算、贩运限制及追索条款"
+            },
+            {
+              "source": "source/topic/north-america-modern/republic/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "自传不能单独证明抓捕直接依据宪法追索条款。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-02",
+      "scope": "密西西比州公开表明奴隶制度是脱离联邦的理由",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "密西西比州公开表明奴隶制度是脱离联邦的理由",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/mississippi-secession",
+              "locator": "1861 年《脱离联邦理由书》首段及列举的理由",
+              "supports": "邦联一方的州政府明确把保护奴隶制度列为分离理由"
+            },
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/us-emancipation-text",
+              "locator": "1863 年 1 月 1 日正文，适用州及豁免县名单、承认自由与接纳服役条款",
+              "supports": "战时命令指明适用范围，并规定符合条件的人可进入联邦军队"
+            }
+          ],
+          "limit": "该文献只代表密西西比州分离派官方文件。后段涉及战时法律和宪法修正案的效力，另见第 03 批。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读理由书首段和与贸易、财产相关的条目，确认论断限于一份州公告。"
+      }
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-05",
+      "scope": "区分逃亡个案和联邦军队新获准接收人员的政策",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分逃亡个案和联邦军队新获准接收人员的政策",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/us-emancipation-text",
+              "locator": "1863 年 1 月 1 日正文，适用州及豁免县名单、承认自由与接纳服役条款",
+              "supports": "战时命令指明适用范围，并规定符合条件的人可进入联邦军队"
+            },
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "奥马尔的逃亡早于内战；这里不推断他本人参加了联邦部队或获得宣言保护。"
+        }
+      ]
+    },
+    {
+      "id": "text/topic/west-africa/summary",
+      "scope": "目录摘要中的史料、历史范围与人口迁徙",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "目录摘要中的史料、历史范围与人口迁徙",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "supports": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            },
+            {
+              "source": "source/topic/west-africa/kongo-afonso-1526",
+              "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+              "supports": "阿丰索投诉臣民被掳走贩卖，请葡萄牙国王干预"
+            },
+            {
+              "source": "source/topic/west-africa/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "不同材料跨数世纪，各自指向特定地区和当事人。"
+        }
+      ]
+    },
+    {
+      "id": "text/topic/latin-america/summary",
+      "scope": "目录摘要中的矿业遗址、强迫迁徙入口和独立文本",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "目录摘要中的矿业遗址、强迫迁徙入口和独立文本",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/unesco-potosi-mining",
+              "locator": "西班牙语遗产简介及突出普遍价值",
+              "supports": "银矿、水力设施、铸币厂和矿工住区是不同环节的物证"
+            },
+            {
+              "source": "source/topic/latin-america/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            },
+            {
+              "source": "source/topic/latin-america/argentina-acta-1816",
+              "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+              "supports": "图库曼会议的代表宣告联合省脱离西班牙王室"
+            }
+          ],
+          "limit": "来源验证目录选取的个案，智利部分已有第 08 批的专题审校记录。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/west-africa/topic-link-02",
+      "scope": "到里约寻找被迫登陆的遗迹。从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "到里约寻找被迫登陆的遗迹。从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "source": "source/topic/west-africa/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "limit": "里约是具体目的地，考古街区不能反推所有出发地点。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/west-africa/sahel/topic-link-02",
+      "scope": "延伸阅读巴西的跨洋迁徙。读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "延伸阅读巴西的跨洋迁徙。读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/sahel/loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "supports": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            },
+            {
+              "source": "source/topic/west-africa/sahel/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "limit": "链接连接两次阅读，现有材料未给出萨赫勒商路与该码头的直接因果。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/west-africa/manuscripts/topic-link-02",
+      "scope": "从抄本另读巴西登陆遗址。廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从抄本另读巴西登陆遗址。廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/manuscripts/loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "supports": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            },
+            {
+              "source": "source/topic/west-africa/manuscripts/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "limit": "法学范畴和巴西的制度及执法需要分别取证。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/west-africa/courts/topic-link-02",
+      "scope": "从刚果宫廷转读里约港。阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从刚果宫廷转读里约港。阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/courts/kongo-afonso-1526",
+              "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+              "supports": "阿丰索投诉臣民被掳走贩卖，请葡萄牙国王干预"
+            },
+            {
+              "source": "source/topic/west-africa/courts/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "limit": "相隔近三个世纪的材料不追踪同一批人或同一航次。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/west-africa/atlantic/topic-link-02",
+      "scope": "在巴西追查跨洋航线的抵达地。把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "在巴西追查跨洋航线的抵达地。把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/atlantic/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "source": "source/topic/west-africa/atlantic/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "limit": "航次分区覆盖巴西诸港，不能把地区合计用于瓦隆古码头。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对里约为巴西东南部个案，以及 1811 年的码头建造起点。"
+      }
+    },
+    {
+      "id": "relation/topic/latin-america/topic-link-01",
+      "scope": "从美洲回看非洲的出发地。巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从美洲回看非洲的出发地。巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            },
+            {
+              "source": "source/topic/latin-america/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "source": "source/topic/latin-america/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "并读时保留地区差异；人物自传中的抵达港是查尔斯顿。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/latin-america/conquest-silver/topic-link-01",
+      "scope": "另读跨洋贩运的出发地。波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "另读跨洋贩运的出发地。波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/conquest-silver/unesco-potosi-mining",
+              "locator": "西班牙语遗产简介及突出普遍价值",
+              "supports": "银矿、水力设施、铸币厂和矿工住区是不同环节的物证"
+            },
+            {
+              "source": "source/topic/latin-america/conquest-silver/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "limit": "两组材料分别追踪矿业劳动与跨洋强迫迁移，此处未确立具体航线或劳动力流向。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/latin-america/independences/topic-link-01",
+      "scope": "给海地起义补充跨洋奴役背景。从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "给海地起义补充跨洋奴役背景。从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/independences/loc-saint-domingue-1791",
+              "locator": "馆藏 F1923 .S235，书目摘要中的完整标题",
+              "supports": "完整标题记载 1791 年 8 月起义及 11 月 3 日殖民议会代表报告，未从影像查阅报告细节。"
+            },
+            {
+              "source": "source/topic/latin-america/independences/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "limit": "链接给圣多明各个案提供背景，不概括整个西属美洲的独立运动。"
+        }
+      ]
+    },
+    {
+      "id": "relation/topic/latin-america/brazil/topic-link-01",
+      "scope": "从瓦隆古码头逆查大西洋航路。把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "从瓦隆古码头逆查大西洋航路。把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/brazil/unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            },
+            {
+              "source": "source/topic/latin-america/brazil/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "limit": "里约港的入境数和航次数据库的巴西东南部估算口径不同。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对两来源的空间口径，确认在文章中保留具体码头与航次地区区别。"
+      }
+    },
+    {
+      "id": "relation/topic/latin-america/resources-democracy/topic-link-01",
+      "scope": "另读大西洋强迫迁徙。读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "另读大西洋强迫迁徙。读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/latin-america/resources-democracy/voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "supports": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "source": "source/topic/latin-america/resources-democracy/loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "supports": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "limit": "这是延伸阅读，所引史料未支持智利个案与该贸易的直接关联。"
+        }
+      ]
+    }
+  ]
+}

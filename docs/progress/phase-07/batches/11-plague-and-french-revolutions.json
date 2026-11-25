@@ -1,0 +1,448 @@
+{
+  "id": "11-plague-and-french-revolutions",
+  "access": [
+    {
+      "url": "https://sourcebooks.web.fordham.edu/source/1354ibnbattuta-plague.asp",
+      "material": "福特汉姆大学史料集：伊本·白图泰记 1348 年大马士革瘟疫",
+      "locator": "《游记》节选，1348 年 7 月大马士革与集体仪式",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://iris.uniroma1.it/handle/11573/1616437",
+      "material": "Izdebski 等：黑死病时期欧洲各地土地利用变化",
+      "locator": "罗马第一大学存档的论文摘要，出版全文路径返回 403",
+      "date": "2026-11-25",
+      "status": "abstract"
+    },
+    {
+      "url": "https://iris.uniroma1.it/retrieve/e383532e-0515-15e8-e053-a505fe0a3de9/Izdebski_Palaeoecological-data-indicates_2022.pdf",
+      "material": "黑死病地区比较的期刊版 PDF",
+      "locator": "公开仓储附件路径在本次打开时返回 403",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://www.history.ox.ac.uk/society-economy-and-law-fourteenth-century-england",
+      "material": "牛津大学历史系：14世纪英格兰的社会、经济与法律",
+      "locator": "Mark Bailey 对法、租佃、价格和实际工资的讲座概要",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://sourcebooks.fordham.edu/seth/statute-labourers.asp",
+      "material": "福特汉姆大学史料集：1351 年英格兰《劳工法》",
+      "locator": "农作、季节用工例外和手工业工价段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://sourcebooks.fordham.edu/seth/ordinance-labourers.asp",
+      "material": "福特汉姆大学史料集：1349 年英格兰《劳工敕令》",
+      "locator": "序言及关于受雇、收付工资的条款",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://sourcebooks.fordham.edu/jewish/1348-jewsblackdeath.asp",
+      "material": "福特汉姆大学史料集：黑死病时期的犹太社群文献",
+      "locator": "第二份斯特拉斯堡编年史节选及第三份托莱多墓志",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://museeprotestant.org/wp-content/uploads/2014/01/Edit-de-Fontainebleau-Revocation-de-lEdit-de-Nantes-1685-Musee-protestant.pdf",
+      "material": "法国新教博物馆：《枫丹白露敕令》转录",
+      "locator": "第 1、4、9、10、12 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://museeprotestant.org/notice/lemigration/",
+      "material": "法国新教博物馆：胡格诺派迁徙",
+      "locator": "离境与收容地段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://rdf.archives-nationales.culture.gouv.fr/garance/entities/agent/051694/",
+      "material": "法国国家档案馆：国民公会档案背景",
+      "locator": "Contexte général，1792 至 1794 年的政体与非常措施",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961",
+      "material": "巴黎市：巴黎公社的起因与 1870 年共和国宣告",
+      "locator": "直接起因，色当与 1870 年 9 月 4 日巴黎宣告",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archives.paris.fr/offre-pedagogique/ressources-pedagogiques/la-commune-de-paris/la-fin-de-lexperience-et-le-souvenir-de-la-commune",
+      "material": "巴黎档案馆：巴黎公社的终结与记忆",
+      "locator": "1871 年 5 月的军事镇压与其后司法镇压段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://wwws.loc.gov/law/help/national-parliaments/france.php",
+      "material": "美国国会图书馆：法国议会制度史",
+      "locator": "Introduction 的 1791、1875 年沿革",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.elysee.fr/en/french-presidency/the-declaration-of-the-rights-of-man-and-of-the-citizen",
+      "material": "法国总统府：1789年人权与公民权宣言",
+      "locator": "第 1、3、6 条，平等、民族主权、参与立法",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/juniors/histoire/1848-1852-la-iie-republique",
+      "material": "法国国民议会：第二共和国与选举权沿革",
+      "locator": "法国大革命后的纳税和选举资格段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www2.assemblee-nationale.fr/15/evenements/2021/abolition-de-l-esclavage-1794-et-1848/1794-la-premiere-abolition",
+      "material": "法国国民议会：1794 年首次废奴",
+      "locator": "圣多明各起义及 1793、1794 年废奴时序段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/consulat-et-premier-empire/retablissement-progressif-de-l-esclavage",
+      "material": "法国国民议会：1802 至 1804 年逐步恢复奴隶制",
+      "locator": "1802 年 5 月 20 日法与圣多明各结局段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/declaration-of-independence",
+      "material": "美国国家档案馆：1776 年《独立宣言》",
+      "locator": "正文序言和结尾独立声明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "block/topic/europe-medieval/plague/section-01",
+      "scope": "大马士革与英格兰的年代证据和欧洲地区差异",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "大马士革与英格兰的年代证据和欧洲地区差异",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-medieval/plague/plague-damascus-battuta",
+              "locator": "《游记》节选，1348 年 7 月大马士革与集体仪式",
+              "supports": "伊本·白图泰自述亲见大马士革疫情期间的居民活动。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/source-02",
+              "locator": "Mark Bailey 对法、租佃、价格和实际工资的讲座概要",
+              "supports": "英格兰瘟疫后劳力短缺，立法和租佃有变化，工资购买力受价格等影响。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/plague-izdebski-abstract",
+              "locator": "罗马第一大学学术仓储，2022 年研究摘要",
+              "supports": "摘要报告欧洲多地化石花粉样本的土地使用变化不同，从中讨论不同地区受影响程度。"
+            }
+          ],
+          "limit": "游记只能证当地记录，花粉研究摘要不支持具体地点的死亡比例或某条唯一传播路线。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-02",
+      "scope": "英格兰 1349 与 1351 年劳动法规和实际购买力",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "英格兰 1349 与 1351 年劳动法规和实际购买力",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-medieval/plague/plague-england-1349",
+              "locator": "序言及关于受雇、收付工资的条款",
+              "supports": "王室以疫后招工困难为由，要求部分居民按以往工资受雇。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/plague-england-1351",
+              "locator": "农作、季节用工例外和手工业工价段",
+              "supports": "法规限制收割、木工等工种的报酬和部分劳工外出，部分地区保有季节性例外。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/source-02",
+              "locator": "Mark Bailey 对法、租佃、价格和实际工资的讲座概要",
+              "supports": "英格兰瘟疫后劳力短缺，立法和租佃有变化，工资购买力受价格等影响。"
+            }
+          ],
+          "limit": "法令是应然条款。论述限定在英格兰，不由工资上限或用工压力推定全欧劳动制度。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读两份文书的受雇与工资条款，再与 Bailey 对租佃和实际工资的总结交叉核对。"
+      }
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-03",
+      "scope": "斯特拉斯堡迫害中的污名、地方决定及行动者",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "斯特拉斯堡迫害中的污名、地方决定及行动者",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-medieval/plague/plague-strasbourg-toledo",
+              "locator": "第二份斯特拉斯堡编年史节选及第三份托莱多墓志",
+              "supports": "分别记载斯特拉斯堡对犹太居民的暴力和托莱多一例犹太居民病死。"
+            }
+          ],
+          "limit": "编年史成书晚于事件，其归因和人数不能当作独立确数，也不能代表欧洲各地。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读第二份文献中市政更替、逮捕和财产段，确认叙事主语和资料性质。"
+      }
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-04",
+      "scope": "对比公共仪式记录和疫后立法的用途",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "对比公共仪式记录和疫后立法的用途",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-medieval/plague/plague-damascus-battuta",
+              "locator": "《游记》节选，1348 年 7 月大马士革与集体仪式",
+              "supports": "伊本·白图泰自述亲见大马士革疫情期间的居民活动。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/plague-england-1349",
+              "locator": "序言及关于受雇、收付工资的条款",
+              "supports": "王室以疫后招工困难为由，要求部分居民按以往工资受雇。"
+            }
+          ],
+          "limit": "限于两个有可读资料的地点，不推断两地采用彼此的办法或措施效果相同。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-05",
+      "scope": "区分个体墓志、劳工文件与土地利用指标",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分个体墓志、劳工文件与土地利用指标",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-medieval/plague/plague-strasbourg-toledo",
+              "locator": "第二份斯特拉斯堡编年史节选及第三份托莱多墓志",
+              "supports": "分别记载斯特拉斯堡对犹太居民的暴力和托莱多一例犹太居民病死。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/plague-england-1351",
+              "locator": "农作、季节用工例外和手工业工价段",
+              "supports": "法规限制收割、木工等工种的报酬和部分劳工外出，部分地区保有季节性例外。"
+            },
+            {
+              "source": "source/topic/europe-medieval/plague/plague-izdebski-abstract",
+              "locator": "罗马第一大学学术仓储，2022 年研究摘要",
+              "supports": "摘要报告欧洲多地化石花粉样本的土地使用变化不同，从中讨论不同地区受影响程度。"
+            }
+          ],
+          "limit": "花粉可反映植被和土地利用，无法直接登记死者。已阅研究摘要的结论只用于说明地区差异。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/france/renaissance-sun-king/p-05",
+      "scope": "撤销宗教权利、两类出境规定及流亡去向",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "撤销宗教权利、两类出境规定及流亡去向",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/france/fr-fontainebleau-1685",
+              "locator": "第 1、4、9、10、12 条",
+              "supports": "撤销《南特敕令》，禁止新教举行礼拜，对牧师和其他居民的迁离设不同规则。"
+            },
+            {
+              "source": "source/book/france/fr-huguenot-migration",
+              "locator": "离境与收容地段",
+              "supports": "部分新教徒离开法国，前往英格兰、荷兰联省、日内瓦及德意志地区等。"
+            }
+          ],
+          "limit": "撤去把人数当作确定且都是产业精英的断言，另待核对战争支出、税负与人口流失规模。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读敕令第 4、10、12 条及迁移展陈，区分牧师和其他居民的法律处境。"
+      }
+    },
+    {
+      "id": "book-paragraph/france/revolution-napoleon-republic/p-02",
+      "scope": "第一共和国成立与后续司法镇压的制度时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "第一共和国成立与后续司法镇压的制度时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/france/fr-an-convention",
+              "locator": "Contexte général，1792 至 1794 年的政体与非常措施",
+              "supports": "国民公会 1792 年废除君主制，路易十六于 1793 年被处决，国民公会在战争内外压力下采用征兵令与嫌疑人法。"
+            }
+          ],
+          "limit": "划清 1792 与 1793 年，不把拘捕、判决、处决和其他伤亡混算，也不把全部行动归于一个人。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读国民公会档案背景对废君、处决、征召和嫌疑人法的各自日期。"
+      }
+    },
+    {
+      "id": "book-paragraph/france/revolution-napoleon-republic/p-06",
+      "scope": "区分共和国宣告、公社及镇压、共和国宪制成形",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分共和国宣告、公社及镇压、共和国宪制成形",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/france/fr-paris-republic-1870",
+              "locator": "直接起因，色当与 1870 年 9 月 4 日巴黎宣告",
+              "supports": "色当战败后，共和国在 1870 年 9 月宣布，巴黎公社发生于次年。"
+            },
+            {
+              "source": "source/book/france/fr-paris-commune-repression",
+              "locator": "1871 年 5 月的军事镇压与其后司法镇压段",
+              "supports": "梯也尔政府的凡尔赛军夺回巴黎，军事镇压之后有处决、监禁和流放。"
+            },
+            {
+              "source": "source/book/france/fr-loc-1875-laws",
+              "locator": "Introduction 的 1791、1875 年沿革",
+              "supports": "1875 年宪法性法律确立第三共和国的两院制结构。"
+            }
+          ],
+          "limit": "不同资料的死者范围和估计有差异，本段保留行为与后果，撤去把第三共和国的建立放在公社镇压之后的错误。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照巴黎市的宣告日期和档案馆的镇压时间，再核对 1875 年两院制法律。"
+      }
+    },
+    {
+      "id": "block/topic/europe-early-modern/revolution/section-03",
+      "scope": "权利宣言、选举资格与殖民地废奴的法律时序",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "权利宣言、选举资格与殖民地废奴的法律时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/revolution/source-01",
+              "locator": "第 1、3、6 条，平等、民族主权、参与立法",
+              "supports": "宣言提出平等原则和公民参与立法。"
+            },
+            {
+              "source": "source/topic/europe-early-modern/revolution/fr-an-early-suffrage",
+              "locator": "法国大革命后的纳税和选举资格段",
+              "supports": "大革命初年选举资格与纳税条件相联。"
+            },
+            {
+              "source": "source/topic/europe-early-modern/revolution/fr-an-1794-abolition",
+              "locator": "圣多明各起义及 1793、1794 年废奴时序段",
+              "supports": "起义、殖民地宣布解放和国民公会废奴是不同节点。"
+            },
+            {
+              "source": "source/topic/europe-early-modern/revolution/fr-an-1802-slavery",
+              "locator": "1802 年 5 月 20 日法与圣多明各结局段",
+              "supports": "法国在一些殖民地依法维持或随后重新实施奴役，圣多明各的征服行动失败，海地独立。"
+            }
+          ],
+          "limit": "民权原则、实际选举资格与殖民地地位分别查证，废奴和恢复的执行不能推及所有殖民地同一时点。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "再读宣言第 6 条、选举制度沿革及 1802 年法说明，核对三种文件的适用对象。"
+      }
+    },
+    {
+      "id": "block/topic/europe-early-modern/revolution/section-04",
+      "scope": "比较三份革命文件的范围和政治目标",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "比较三份革命文件的范围和政治目标",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-early-modern/revolution/source-01",
+              "locator": "第 1、3、6 条，平等、民族主权、参与立法",
+              "supports": "宣言提出平等原则和公民参与立法。"
+            },
+            {
+              "source": "source/topic/europe-early-modern/revolution/us-nara-declaration-1776",
+              "locator": "正文序言和结尾独立声明",
+              "supports": "宣布平等原则与殖民地脱离英国。"
+            },
+            {
+              "source": "source/topic/europe-early-modern/revolution/haiti-adm-declaration",
+              "locator": "第 1 页，1804 年 1 月 1 日宣言",
+              "supports": "德萨林及诸将宣布脱离法国并宣誓捍卫独立。"
+            }
+          ],
+          "limit": "并读用于区分政治主张，未用这些文本证明直接借鉴或全部制度效果。"
+        }
+      ]
+    }
+  ]
+}

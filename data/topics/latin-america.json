@@ -41,7 +41,7 @@
     "南美洲"
   ],
   "priority": 10,
-  "summary": "以银矿、奴役、革命与资源主权为线索，理解殖民秩序留下的长期问题。",
+  "summary": "从波托西的矿工住区、瓦隆古码头与独立宣言入手，追踪安第斯与大西洋两岸的劳动和政权变迁，再读近现代智利的资源与政治。",
   "scope": "以加勒比、巴西与西属美洲的选择性历史，1492—2000为范围，选取四个相互联系的历史节点。现代国家与地区仅作为空间入口，不表示当时疆界；地点标记用于定位，不能代替事件的完整分布。各节的理解线索是基于所列资料的解释，不代表只有一种史学观点。",
   "chapters": [
     {
@@ -67,6 +67,16 @@
           "url": "https://www.loc.gov/exhibits/exploring-the-early-americas/conflict-and-accommodation.html",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "unesco-potosi-mining",
+          "title": "联合国教科文组织：波托西矿城",
+          "url": "https://whc.unesco.org/en/list/420/"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
         }
       ],
       "sections": [
@@ -120,13 +130,29 @@
         {
           "topicId": "west-africa",
           "chapterId": "atlantic",
-          "label": "把大西洋两岸连起来",
-          "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context",
+          "label": "另读跨洋贩运的出发地",
+          "reason": "波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。",
+          "relation": "further",
           "id": "topic-link-01",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "另读跨洋贩运的出发地。波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "unesco-potosi-mining",
+              "locator": "西班牙语遗产简介及突出普遍价值",
+              "note": "银矿、水力设施、铸币厂和矿工住区是不同环节的物证"
+            },
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "previousRelation": "context",
+          "display": "波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。"
         },
         {
           "topicId": "north-america-modern",
@@ -182,15 +208,48 @@
           "id": "brazil-an-bahia-1823",
           "title": "巴西国家档案馆：巴伊亚的独立战争",
           "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/especial-bicentenario-da-independencia/apontamentos-sobre-a-independencia-do-brasil-na-bahia"
+        },
+        {
+          "id": "loc-saint-domingue-1791",
+          "title": "美国国会图书馆：圣多明各殖民议会 1791 年报告书目",
+          "url": "https://www.loc.gov/item/02012425/"
+        },
+        {
+          "id": "haiti-declaration-1804",
+          "title": "英国国家档案馆：海地独立宣言法文转录（复本）",
+          "url": "https://haitianinstitute.org/wp-content/uploads/2017/10/D%C3%A9claration-dinpendance-dHa%C3%AFti-_Texte-Fran%C3%A7ais.pdf"
+        },
+        {
+          "id": "argentina-acta-1816",
+          "title": "阿根廷政府：《独立宣言》西班牙语转录",
+          "url": "https://www.argentina.gob.ar/sites/default/files/2025/07/acta_de_la_independencia_-_castellano.pdf"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
         }
       ],
       "sections": [
         {
           "title": "殖民秩序的差别",
-          "text": "加勒比种植园与西属美洲城市、矿业地区具有不同人口和经济结构，反殖民诉求也因此不同。法国革命与欧洲战争改变政治条件，但本地行动者并非只复制远方思想。谁想结束奴役、谁要求政治代表、谁希望控制税收和贸易，这些目标有时重合，有时产生尖锐冲突。",
+          "text": "1791 年 8 月，法属圣多明各爆发了被奴役者的起义，殖民议会代表随后到法国国民议会报告。1804 年海地宣布独立。1816 年，图库曼会议则以联合省代表的名义宣告脱离西班牙王室。把两地放在一起读，先要区分反奴役起义、战争和代表会议宣告主权这几种行动。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "loc-saint-domingue-1791",
+              "locator": "馆藏 F1923 .S235，书目摘要中的完整标题",
+              "note": "完整标题记载 1791 年 8 月起义及 11 月 3 日殖民议会代表报告，未从影像查阅报告细节。"
+            },
+            {
+              "sourceId": "haiti-declaration-1804",
+              "locator": "CO 137/111，PDF 第 2—3 页，独立誓词与戈纳伊夫署日",
+              "note": "原告示的法文转录列出独立誓词、宣布地点和 1804 年 1 月 1 日日期。"
+            },
+            {
+              "sourceId": "argentina-acta-1816",
+              "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+              "note": "图库曼会议的代表宣告联合省脱离西班牙王室"
+            }
           ],
           "id": "section-01"
         },
@@ -213,10 +272,13 @@
         },
         {
           "title": "大陆的独立战争",
-          "text": "西属美洲在王朝危机、地方政治和长期战争中形成多个新国家，玻利瓦尔、圣马丁等人联系不同战场。克里奥尔精英、混血群体、原住民和被奴役者的目标并不一致，独立也未立即消除土地与种族等级。殖民帝国终结是一项重大改变，却不能自动等同社会所有成员共同获得平等。",
+          "text": "1816 年 7 月 9 日，图库曼会议宣告联合省与西班牙王室决裂。宣言以各代表所代表的民众名义发出，并主张各省有权选择政府的形式。文本可用来辨认代表会议当时的政治诉求。要知道独立后谁获得选举权、能否拥有土地或何时摆脱奴役，还需查看各地随后的法律和执行记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "argentina-acta-1816",
+              "locator": "第 1—2 页，1816 年 7 月 9 日，开头与宣告条款",
+              "note": "图库曼会议的代表宣告联合省脱离西班牙王室"
+            }
           ],
           "id": "section-03"
         },
@@ -251,13 +313,28 @@
         {
           "topicId": "west-africa",
           "chapterId": "atlantic",
-          "label": "把大西洋两岸连起来",
-          "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
+          "label": "给海地起义补充跨洋奴役背景",
+          "reason": "从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。",
           "relation": "context",
           "id": "topic-link-01",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "给海地起义补充跨洋奴役背景。从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "loc-saint-domingue-1791",
+              "locator": "馆藏 F1923 .S235，书目摘要中的完整标题",
+              "note": "完整标题记载 1791 年 8 月起义及 11 月 3 日殖民议会代表报告，未从影像查阅报告细节。"
+            },
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "display": "从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。"
         },
         {
           "topicId": "north-america-modern",
@@ -318,6 +395,16 @@
           "id": "brazil-an-abolition",
           "title": "巴西国家档案馆：帝国时期废奴立法",
           "url": "https://www.gov.br/arquivonacional/pt-br/sites_eventos/sites-tematicos-1/brasil-oitocentista/temas-oitocentistas/legislacao-abolicionista-no-imperio"
+        },
+        {
+          "id": "unesco-valongo",
+          "title": "联合国教科文组织：瓦隆古码头考古遗址",
+          "url": "https://whc.unesco.org/en/list/1548/"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
         }
       ],
       "sections": [
@@ -406,13 +493,28 @@
         {
           "topicId": "west-africa",
           "chapterId": "atlantic",
-          "label": "把大西洋两岸连起来",
-          "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
+          "label": "从瓦隆古码头逆查大西洋航路",
+          "reason": "把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。",
           "relation": "context",
           "id": "topic-link-01",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "从瓦隆古码头逆查大西洋航路。把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            },
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
+          ],
+          "display": "把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。"
         },
         {
           "topicId": "north-america-modern",
@@ -464,6 +566,16 @@
           "id": "chile-decreto-98",
           "title": "智利第 98 号法令：寻找强迫失踪者的国家计划",
           "url": "https://www.bcn.cl/leychile/navegar?idNorma=1197778&idParte=10468658&idVersion=2023-11-10"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+        },
+        {
+          "id": "loc-omar-memoir",
+          "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+          "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
         }
       ],
       "sections": [
@@ -529,13 +641,29 @@
         {
           "topicId": "west-africa",
           "chapterId": "atlantic",
-          "label": "把大西洋两岸连起来",
-          "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context",
+          "label": "另读大西洋强迫迁徙",
+          "reason": "读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。",
+          "relation": "further",
           "id": "topic-link-01",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "另读大西洋强迫迁徙。读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "sourceId": "loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "note": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
+          ],
+          "previousRelation": "context",
+          "display": "读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。"
         },
         {
           "topicId": "north-america-modern",
@@ -558,13 +686,33 @@
     {
       "topicId": "west-africa",
       "chapterId": "atlantic",
-      "label": "把大西洋两岸连起来",
-      "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
+      "label": "从美洲回看非洲的出发地",
+      "reason": "巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。",
       "relation": "context",
       "id": "topic-link-01",
       "audit": {
-        "status": "legacy"
-      }
+        "status": "checked",
+        "scope": "从美洲回看非洲的出发地。巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。",
+        "checkedAt": "2026-11-25"
+      },
+      "evidence": [
+        {
+          "sourceId": "unesco-valongo",
+          "locator": "突出普遍价值，简要综述及完整性",
+          "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+        },
+        {
+          "sourceId": "voyages-routes",
+          "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+          "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+        },
+        {
+          "sourceId": "loc-omar-memoir",
+          "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+          "note": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+        }
+      ],
+      "display": "巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。"
     },
     {
       "topicId": "north-america-modern",
@@ -579,5 +727,32 @@
       "previousRelation": "contemporary"
     }
   ],
-  "from": 1492
+  "from": 1492,
+  "sources": [
+    {
+      "id": "unesco-potosi-mining",
+      "title": "联合国教科文组织：波托西矿城",
+      "url": "https://whc.unesco.org/en/list/420/"
+    },
+    {
+      "id": "unesco-valongo",
+      "title": "联合国教科文组织：瓦隆古码头考古遗址",
+      "url": "https://whc.unesco.org/en/list/1548/"
+    },
+    {
+      "id": "argentina-acta-1816",
+      "title": "阿根廷政府：《独立宣言》西班牙语转录",
+      "url": "https://www.argentina.gob.ar/sites/default/files/2025/07/acta_de_la_independencia_-_castellano.pdf"
+    },
+    {
+      "id": "voyages-routes",
+      "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+      "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+    },
+    {
+      "id": "loc-omar-memoir",
+      "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+      "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
+    }
+  ]
 }

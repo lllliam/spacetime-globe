@@ -506,7 +506,6 @@
     "book-paragraph/france/renaissance-sun-king/p-03",
     "book-paragraph/france/renaissance-sun-king/p-04",
     "block/france/renaissance-sun-king/aside-04",
-    "book-paragraph/france/renaissance-sun-king/p-05",
     "book-paragraph/france/renaissance-sun-king/p-06",
     "relation/book/france/renaissance-sun-king/world-01",
     "book-chapter/france/revolution-napoleon-republic",
@@ -515,11 +514,9 @@
     "text/chapter/france/revolution-napoleon-republic/spatialThesis",
     "book-paragraph/france/revolution-napoleon-republic/p-01",
     "block/france/revolution-napoleon-republic/aside-01",
-    "book-paragraph/france/revolution-napoleon-republic/p-02",
     "book-paragraph/france/revolution-napoleon-republic/p-03",
     "book-paragraph/france/revolution-napoleon-republic/p-04",
     "book-paragraph/france/revolution-napoleon-republic/p-05",
-    "book-paragraph/france/revolution-napoleon-republic/p-06",
     "scene-ref/france/revolution-napoleon-republic/france-europe-hub",
     "relation/book/france/revolution-napoleon-republic/world-01",
     "book-chapter/france/world-wars-european-pillar",
@@ -2685,7 +2682,6 @@
     "relation/book/tibet-himalaya/modern-himalaya-corridor/world-01",
     "book/tokugawa",
     "text/book/tokugawa/title",
-    "text/book/tokugawa/summary",
     "source/book/tokugawa/source-01",
     "source/book/tokugawa/source-02",
     "source/book/tokugawa/source-03",
@@ -2694,22 +2690,15 @@
     "source/book/tokugawa/source-06",
     "book-chapter/tokugawa/sekigahara-bakuhan",
     "text/chapter/tokugawa/sekigahara-bakuhan/title",
-    "text/chapter/tokugawa/sekigahara-bakuhan/summary",
     "text/chapter/tokugawa/sekigahara-bakuhan/spatialThesis",
-    "book-paragraph/tokugawa/sekigahara-bakuhan/p-01",
-    "book-paragraph/tokugawa/sekigahara-bakuhan/p-02",
     "book-paragraph/tokugawa/sekigahara-bakuhan/p-03",
     "book-paragraph/tokugawa/sekigahara-bakuhan/p-04",
-    "book-paragraph/tokugawa/sekigahara-bakuhan/p-05",
-    "block/tokugawa/sekigahara-bakuhan/aside-05",
-    "book-paragraph/tokugawa/sekigahara-bakuhan/p-06",
     "relation/book/tokugawa/sekigahara-bakuhan/reading-01",
     "relation/book/tokugawa/sekigahara-bakuhan/world-01",
     "book-chapter/tokugawa/sakoku-genroku",
     "text/chapter/tokugawa/sakoku-genroku/title",
     "text/chapter/tokugawa/sakoku-genroku/summary",
     "text/chapter/tokugawa/sakoku-genroku/spatialThesis",
-    "book-paragraph/tokugawa/sakoku-genroku/p-01",
     "book-paragraph/tokugawa/sakoku-genroku/p-02",
     "book-paragraph/tokugawa/sakoku-genroku/p-03",
     "book-paragraph/tokugawa/sakoku-genroku/p-04",
@@ -2718,28 +2707,17 @@
     "book-paragraph/tokugawa/sakoku-genroku/p-06",
     "relation/book/tokugawa/sakoku-genroku/world-01",
     "book-chapter/tokugawa/reforms-rangaku",
-    "text/chapter/tokugawa/reforms-rangaku/title",
-    "text/chapter/tokugawa/reforms-rangaku/summary",
     "text/chapter/tokugawa/reforms-rangaku/spatialThesis",
     "book-paragraph/tokugawa/reforms-rangaku/p-01",
-    "book-paragraph/tokugawa/reforms-rangaku/p-02",
     "book-paragraph/tokugawa/reforms-rangaku/p-03",
     "book-paragraph/tokugawa/reforms-rangaku/p-04",
-    "book-paragraph/tokugawa/reforms-rangaku/p-05",
-    "block/tokugawa/reforms-rangaku/aside-05",
     "book-paragraph/tokugawa/reforms-rangaku/p-06",
     "relation/book/tokugawa/reforms-rangaku/world-01",
     "book-chapter/tokugawa/kurofune-bakumatsu",
     "text/chapter/tokugawa/kurofune-bakumatsu/title",
-    "text/chapter/tokugawa/kurofune-bakumatsu/summary",
     "text/chapter/tokugawa/kurofune-bakumatsu/spatialThesis",
-    "book-paragraph/tokugawa/kurofune-bakumatsu/p-01",
-    "book-paragraph/tokugawa/kurofune-bakumatsu/p-02",
     "book-paragraph/tokugawa/kurofune-bakumatsu/p-03",
     "book-paragraph/tokugawa/kurofune-bakumatsu/p-04",
-    "book-paragraph/tokugawa/kurofune-bakumatsu/p-05",
-    "block/tokugawa/kurofune-bakumatsu/aside-05",
-    "book-paragraph/tokugawa/kurofune-bakumatsu/p-06",
     "scene-ref/tokugawa/kurofune-bakumatsu/tokugawa-opening",
     "relation/book/tokugawa/kurofune-bakumatsu/reading-01",
     "relation/book/tokugawa/kurofune-bakumatsu/world-01",
@@ -3054,7 +3032,6 @@
     "text/topic/africa-modern/south-africa/title",
     "text/topic/africa-modern/south-africa/summary",
     "block/topic/africa-modern/south-africa/section-01",
-    "block/topic/africa-modern/south-africa/section-02",
     "block/topic/africa-modern/south-africa/section-03",
     "block/topic/africa-modern/south-africa/section-04",
     "block/topic/africa-modern/south-africa/section-05",
@@ -3315,8 +3292,6 @@
     "text/topic/east-asia-modern/korean-independence/summary",
     "block/topic/east-asia-modern/korean-independence/section-01",
     "block/topic/east-asia-modern/korean-independence/section-02",
-    "block/topic/east-asia-modern/korean-independence/section-03",
-    "block/topic/east-asia-modern/korean-independence/section-04",
     "block/topic/east-asia-modern/korean-independence/section-05",
     "source/topic/east-asia-modern/korean-independence/source-01",
     "source/topic/east-asia-modern/korean-independence/source-02",
@@ -3326,7 +3301,6 @@
     "text/topic/east-asia-modern/china-revolutions/summary",
     "block/topic/east-asia-modern/china-revolutions/section-01",
     "block/topic/east-asia-modern/china-revolutions/section-03",
-    "block/topic/east-asia-modern/china-revolutions/section-04",
     "source/topic/east-asia-modern/china-revolutions/source-01",
     "source/topic/east-asia-modern/china-revolutions/source-02",
     "relation/topic/east-asia-modern/china-revolutions/topic-link-01",
@@ -3449,7 +3423,6 @@
     "block/topic/east-southern-africa/mozambique/section-01",
     "block/topic/east-southern-africa/mozambique/section-02",
     "block/topic/east-southern-africa/mozambique/section-03",
-    "block/topic/east-southern-africa/mozambique/section-04",
     "block/topic/east-southern-africa/mozambique/section-05",
     "source/topic/east-southern-africa/mozambique/source-01",
     "source/topic/east-southern-africa/mozambique/source-02",
@@ -3528,12 +3501,8 @@
     "relation/topic/europe-early-modern/print-reformation/topic-link-02",
     "article/europe-early-modern/atlantic-empires",
     "text/topic/europe-early-modern/atlantic-empires/title",
-    "text/topic/europe-early-modern/atlantic-empires/summary",
     "block/topic/europe-early-modern/atlantic-empires/section-01",
-    "block/topic/europe-early-modern/atlantic-empires/section-02",
-    "block/topic/europe-early-modern/atlantic-empires/section-03",
     "block/topic/europe-early-modern/atlantic-empires/section-04",
-    "block/topic/europe-early-modern/atlantic-empires/section-05",
     "source/topic/europe-early-modern/atlantic-empires/source-01",
     "source/topic/europe-early-modern/atlantic-empires/source-02",
     "relation/topic/europe-early-modern/atlantic-empires/topic-link-01",
@@ -3543,8 +3512,6 @@
     "text/topic/europe-early-modern/revolution/summary",
     "block/topic/europe-early-modern/revolution/section-01",
     "block/topic/europe-early-modern/revolution/section-02",
-    "block/topic/europe-early-modern/revolution/section-03",
-    "block/topic/europe-early-modern/revolution/section-04",
     "block/topic/europe-early-modern/revolution/section-05",
     "source/topic/europe-early-modern/revolution/source-01",
     "source/topic/europe-early-modern/revolution/source-02",
@@ -3608,11 +3575,6 @@
     "article/europe-medieval/plague",
     "text/topic/europe-medieval/plague/title",
     "text/topic/europe-medieval/plague/summary",
-    "block/topic/europe-medieval/plague/section-01",
-    "block/topic/europe-medieval/plague/section-02",
-    "block/topic/europe-medieval/plague/section-03",
-    "block/topic/europe-medieval/plague/section-04",
-    "block/topic/europe-medieval/plague/section-05",
     "source/topic/europe-medieval/plague/source-01",
     "source/topic/europe-medieval/plague/source-02",
     "relation/topic/europe-medieval/plague/topic-link-01",
@@ -3649,7 +3611,6 @@
     "relation/topic/europe-modern/russian-revolution/topic-link-01",
     "relation/topic/europe-modern/russian-revolution/topic-link-02",
     "article/europe-modern/world-war-two",
-    "text/topic/europe-modern/world-war-two/title",
     "text/topic/europe-modern/world-war-two/summary",
     "block/topic/europe-modern/world-war-two/section-01",
     "block/topic/europe-modern/world-war-two/section-04",
@@ -3783,10 +3744,8 @@
     "relation/topic/islamic-networks/ocean-trade/topic-link-02",
     "topic/latin-america",
     "text/topic/latin-america/title",
-    "text/topic/latin-america/summary",
     "text/topic/latin-america/subtitle",
     "text/topic/latin-america/scope",
-    "relation/topic/latin-america/topic-link-01",
     "relation/topic/latin-america/topic-link-02",
     "article/latin-america/conquest-silver",
     "text/topic/latin-america/conquest-silver/title",
@@ -3798,23 +3757,18 @@
     "block/topic/latin-america/conquest-silver/section-05",
     "source/topic/latin-america/conquest-silver/source-01",
     "source/topic/latin-america/conquest-silver/source-02",
-    "relation/topic/latin-america/conquest-silver/topic-link-01",
     "relation/topic/latin-america/conquest-silver/topic-link-02",
     "article/latin-america/independences",
     "text/topic/latin-america/independences/title",
     "text/topic/latin-america/independences/summary",
-    "block/topic/latin-america/independences/section-01",
-    "block/topic/latin-america/independences/section-03",
     "block/topic/latin-america/independences/section-05",
     "source/topic/latin-america/independences/source-01",
     "source/topic/latin-america/independences/source-02",
-    "relation/topic/latin-america/independences/topic-link-01",
     "relation/topic/latin-america/independences/topic-link-02",
     "article/latin-america/brazil",
     "text/topic/latin-america/brazil/title",
     "source/topic/latin-america/brazil/source-01",
     "source/topic/latin-america/brazil/source-02",
-    "relation/topic/latin-america/brazil/topic-link-01",
     "relation/topic/latin-america/brazil/topic-link-02",
     "article/latin-america/resources-democracy",
     "text/topic/latin-america/resources-democracy/title",
@@ -3826,7 +3780,6 @@
     "source/topic/latin-america/resources-democracy/source-01",
     "source/topic/latin-america/resources-democracy/source-02",
     "source/topic/latin-america/resources-democracy/source-03",
-    "relation/topic/latin-america/resources-democracy/topic-link-01",
     "relation/topic/latin-america/resources-democracy/topic-link-02",
     "topic/mesoamerica-andes",
     "text/topic/mesoamerica-andes/title",
@@ -4057,7 +4010,6 @@
     "text/topic/north-america-modern/colonial-contact/summary",
     "block/topic/north-america-modern/colonial-contact/section-01",
     "block/topic/north-america-modern/colonial-contact/section-02",
-    "block/topic/north-america-modern/colonial-contact/section-03",
     "block/topic/north-america-modern/colonial-contact/section-04",
     "block/topic/north-america-modern/colonial-contact/section-05",
     "source/topic/north-america-modern/colonial-contact/source-01",
@@ -4066,10 +4018,7 @@
     "relation/topic/north-america-modern/colonial-contact/topic-link-02",
     "article/north-america-modern/republic",
     "text/topic/north-america-modern/republic/title",
-    "text/topic/north-america-modern/republic/summary",
     "block/topic/north-america-modern/republic/section-01",
-    "block/topic/north-america-modern/republic/section-02",
-    "block/topic/north-america-modern/republic/section-03",
     "block/topic/north-america-modern/republic/section-04",
     "block/topic/north-america-modern/republic/section-05",
     "source/topic/north-america-modern/republic/source-01",
@@ -4079,9 +4028,7 @@
     "article/north-america-modern/expansion-emancipation",
     "text/topic/north-america-modern/expansion-emancipation/title",
     "text/topic/north-america-modern/expansion-emancipation/summary",
-    "block/topic/north-america-modern/expansion-emancipation/section-02",
     "block/topic/north-america-modern/expansion-emancipation/section-04",
-    "block/topic/north-america-modern/expansion-emancipation/section-05",
     "source/topic/north-america-modern/expansion-emancipation/source-01",
     "source/topic/north-america-modern/expansion-emancipation/source-02",
     "source/topic/north-america-modern/expansion-emancipation/source-03",
@@ -4428,23 +4375,19 @@
     "relation/topic/southeast-asia-networks/malacca/topic-link-02",
     "topic/west-africa",
     "text/topic/west-africa/title",
-    "text/topic/west-africa/summary",
     "text/topic/west-africa/subtitle",
     "text/topic/west-africa/scope",
     "relation/topic/west-africa/topic-link-01",
-    "relation/topic/west-africa/topic-link-02",
     "article/west-africa/sahel",
     "text/topic/west-africa/sahel/title",
     "text/topic/west-africa/sahel/summary",
     "block/topic/west-africa/sahel/section-01",
     "block/topic/west-africa/sahel/section-02",
     "block/topic/west-africa/sahel/section-03",
-    "block/topic/west-africa/sahel/section-04",
     "block/topic/west-africa/sahel/section-05",
     "source/topic/west-africa/sahel/source-01",
     "source/topic/west-africa/sahel/source-02",
     "relation/topic/west-africa/sahel/topic-link-01",
-    "relation/topic/west-africa/sahel/topic-link-02",
     "article/west-africa/manuscripts",
     "text/topic/west-africa/manuscripts/title",
     "text/topic/west-africa/manuscripts/summary",
@@ -4456,30 +4399,24 @@
     "source/topic/west-africa/manuscripts/source-01",
     "source/topic/west-africa/manuscripts/source-02",
     "relation/topic/west-africa/manuscripts/topic-link-01",
-    "relation/topic/west-africa/manuscripts/topic-link-02",
     "article/west-africa/courts",
     "text/topic/west-africa/courts/title",
     "text/topic/west-africa/courts/summary",
     "block/topic/west-africa/courts/section-01",
     "block/topic/west-africa/courts/section-02",
     "block/topic/west-africa/courts/section-03",
-    "block/topic/west-africa/courts/section-04",
     "block/topic/west-africa/courts/section-05",
     "source/topic/west-africa/courts/source-01",
     "source/topic/west-africa/courts/source-02",
     "relation/topic/west-africa/courts/topic-link-01",
-    "relation/topic/west-africa/courts/topic-link-02",
     "article/west-africa/atlantic",
     "text/topic/west-africa/atlantic/title",
     "text/topic/west-africa/atlantic/summary",
-    "block/topic/west-africa/atlantic/section-01",
     "block/topic/west-africa/atlantic/section-02",
-    "block/topic/west-africa/atlantic/section-03",
     "block/topic/west-africa/atlantic/section-04",
     "source/topic/west-africa/atlantic/source-01",
     "source/topic/west-africa/atlantic/source-02",
     "relation/topic/west-africa/atlantic/topic-link-01",
-    "relation/topic/west-africa/atlantic/topic-link-02",
     "topic/west-asia-ancient",
     "text/topic/west-asia-ancient/title",
     "text/topic/west-asia-ancient/summary",
@@ -4568,9 +4505,6 @@
     "article/west-asia-modern/palestine-israel",
     "text/topic/west-asia-modern/palestine-israel/title",
     "text/topic/west-asia-modern/palestine-israel/summary",
-    "block/topic/west-asia-modern/palestine-israel/section-01",
-    "block/topic/west-asia-modern/palestine-israel/section-02",
-    "block/topic/west-asia-modern/palestine-israel/section-03",
     "block/topic/west-asia-modern/palestine-israel/section-04",
     "block/topic/west-asia-modern/palestine-israel/section-05",
     "source/topic/west-asia-modern/palestine-israel/source-01",
@@ -5946,6 +5880,336 @@
       "id": "book-paragraph/central-eastern-europe/austria-hungary-and-balkan-powder-keg/p-06",
       "claim": "1918 年地方权力变化及卡尔一世的声明",
       "limit": "撤去各地区统一宣布独立、整个解体过程均和平及未经界定的军队语言数字。"
+    },
+    {
+      "id": "block/topic/africa-modern/south-africa/section-02",
+      "claim": "以三组有日期和行动者的事件说明反种族隔离抗争",
+      "limit": "政府纪念页记录具体事件，未由此推算所有反种族隔离行动和死伤。"
+    },
+    {
+      "id": "block/topic/east-southern-africa/mozambique/section-04",
+      "claim": "以两个具体遗址对读斯瓦希里贸易与葡萄牙据点",
+      "limit": "此节只比较可定位的港口用途，印度洋和大西洋奴役制度的对比仍需具体航次及劳役记录。"
+    },
+    {
+      "id": "block/topic/east-asia-modern/korean-independence/section-03",
+      "claim": "三一运动镇压、遇害档案和后来有限的文化空间",
+      "limit": "战后汇编不是全体遇害者名册，包含不同来源甚至不同事件的条目，不据此估算运动总伤亡。"
+    },
+    {
+      "id": "block/topic/east-asia-modern/korean-independence/section-04",
+      "claim": "区分强制劳动、征兵与日军性奴役的行为主体和对象",
+      "limit": "档案按不同动员类别和地区形成，不能简单合并计数。人数不确切不妨碍确认日军参与、强制与伤害。"
+    },
+    {
+      "id": "block/topic/east-asia-modern/china-revolutions/section-04",
+      "claim": "区分大跃进与饥荒、文革政治迫害及相应责任",
+      "limit": "征购研究解释一个制度机制，党内决议是事后定性。各地受害过程和死亡估算仍须另据人口研究与地方档案。"
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-01",
+      "claim": "委任文本的两类规定与战后犹太幸存者的处境",
+      "limit": "书写文件所设义务及可定位的迁移经历，不把条文当作当地政治诉求已获平等实现，也不将所有犹太移民概括为同一背景。"
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-02",
+      "claim": "区分联大建议、以色列建国与战后地面变化",
+      "limit": "决议图示的拟议范围不能替代停战线或用来判定当代边界。"
+    },
+    {
+      "id": "block/topic/west-asia-modern/palestine-israel/section-03",
+      "claim": "记录 1948 年逃离与驱逐、联大难民条文的条件及范围",
+      "limit": "联合国回顾与同时代工作文件可确认难民问题与所议措施，不由该文书推断彻底落实，不混写其他时期的人口迁移。"
+    },
+    {
+      "id": "text/topic/europe-modern/world-war-two/title",
+      "claim": "标题明确欧洲范围，并保留对侵略与种族灭绝责任的区分",
+      "limit": "专题以欧洲为中心，标题不覆盖战争在亚洲、非洲和太平洋的全部历史。"
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-01",
+      "claim": "大马士革与英格兰的年代证据和欧洲地区差异",
+      "limit": "游记只能证当地记录，花粉研究摘要不支持具体地点的死亡比例或某条唯一传播路线。"
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-02",
+      "claim": "英格兰 1349 与 1351 年劳动法规和实际购买力",
+      "limit": "法令是应然条款。论述限定在英格兰，不由工资上限或用工压力推定全欧劳动制度。"
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-03",
+      "claim": "斯特拉斯堡迫害中的污名、地方决定及行动者",
+      "limit": "编年史成书晚于事件，其归因和人数不能当作独立确数，也不能代表欧洲各地。"
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-04",
+      "claim": "对比公共仪式记录和疫后立法的用途",
+      "limit": "限于两个有可读资料的地点，不推断两地采用彼此的办法或措施效果相同。"
+    },
+    {
+      "id": "block/topic/europe-medieval/plague/section-05",
+      "claim": "区分个体墓志、劳工文件与土地利用指标",
+      "limit": "花粉可反映植被和土地利用，无法直接登记死者。已阅研究摘要的结论只用于说明地区差异。"
+    },
+    {
+      "id": "book-paragraph/france/renaissance-sun-king/p-05",
+      "claim": "撤销宗教权利、两类出境规定及流亡去向",
+      "limit": "撤去把人数当作确定且都是产业精英的断言，另待核对战争支出、税负与人口流失规模。"
+    },
+    {
+      "id": "book-paragraph/france/revolution-napoleon-republic/p-02",
+      "claim": "第一共和国成立与后续司法镇压的制度时序",
+      "limit": "划清 1792 与 1793 年，不把拘捕、判决、处决和其他伤亡混算，也不把全部行动归于一个人。"
+    },
+    {
+      "id": "book-paragraph/france/revolution-napoleon-republic/p-06",
+      "claim": "区分共和国宣告、公社及镇压、共和国宪制成形",
+      "limit": "不同资料的死者范围和估计有差异，本段保留行为与后果，撤去把第三共和国的建立放在公社镇压之后的错误。"
+    },
+    {
+      "id": "block/topic/europe-early-modern/revolution/section-03",
+      "claim": "权利宣言、选举资格与殖民地废奴的法律时序",
+      "limit": "民权原则、实际选举资格与殖民地地位分别查证，废奴和恢复的执行不能推及所有殖民地同一时点。"
+    },
+    {
+      "id": "block/topic/europe-early-modern/revolution/section-04",
+      "claim": "比较三份革命文件的范围和政治目标",
+      "limit": "并读用于区分政治主张，未用这些文本证明直接借鉴或全部制度效果。"
+    },
+    {
+      "id": "text/topic/europe-early-modern/atlantic-empires/summary",
+      "claim": "早期大西洋贸易、贩运和工艺的三类证据",
+      "limit": "展览呈现选定商品及地区，航次研究的分区与藏品产地有各自的口径。"
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-02",
+      "claim": "印度棉布及仿制品如何进入奴隶贸易",
+      "limit": "并非每件类似的纺织品都可追溯到贩运航次。"
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-03",
+      "claim": "直接航线、巴西商人、许可与估算口径",
+      "limit": "巴伊亚的船只和货物无法代表所有跨洋航线。"
+    },
+    {
+      "id": "block/topic/europe-early-modern/atlantic-empires/section-05",
+      "claim": "以一件秘鲁藏品区分制作信息与收藏记录",
+      "limit": "编目字段没有给出织工姓名或从秘鲁到博物馆的完整路线。"
+    },
+    {
+      "id": "block/topic/west-africa/sahel/section-04",
+      "claim": "萨赫勒的商事、政权和奴役规范来自不同手稿",
+      "limit": "抄本讨论法理与义务，无法量化实际贩运或赋税。"
+    },
+    {
+      "id": "block/topic/west-africa/courts/section-04",
+      "claim": "1526 年阿丰索王书信中的掳掠、抗议与交涉",
+      "limit": "投诉代表发信者的立场，信中对人口损失的表述不用于估算。"
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-01",
+      "claim": "巴西的多条跨洋贩运航线与估算依据",
+      "limit": "港口分类对应登船和抵达地，无法据此判断被奴役者的出生地或身份。"
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-03",
+      "claim": "被奴役者自述中的语言、教育、被迫渡海与逃亡",
+      "limit": "自传经历属于一人，无法用来推断多数被奴役者的教育或信仰。"
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-01",
+      "claim": "圣多明各起义和图库曼独立表决的行动主体与时间",
+      "limit": "圣多明各报告保留殖民统治者用语；两份宣言只能说明其政治主张。"
+    },
+    {
+      "id": "block/topic/latin-america/independences/section-03",
+      "claim": "以图库曼会议宣言界定西属美洲独立个案中的代表权和主权",
+      "limit": "此文献只覆盖宣布独立的联合省及其会议，后续民权与财产权不在该宣告的条文范围内。"
+    },
+    {
+      "id": "block/topic/north-america-modern/colonial-contact/section-03",
+      "claim": "弗吉尼亚烟草贸易、强行运抵、奴役入法和波瓦坦抵抗的时间",
+      "limit": "弗吉尼亚个案不代表北美各殖民地；避免概括最初一批被强运者逐人的法律身份。"
+    },
+    {
+      "id": "text/topic/north-america-modern/republic/summary",
+      "claim": "新宪法保留奴役时的代表权和法律规则",
+      "limit": "原始宪法对代表和税额的规定与后来修正案不同。"
+    },
+    {
+      "id": "block/topic/north-america-modern/republic/section-02",
+      "claim": "众议院选民资格与五分之三条款的效力",
+      "limit": "不能从第 1 条第 2 款推出当时每州全部居民的实际权利；最后一句为根据计席规则作出的解释。"
+    },
+    {
+      "id": "block/topic/north-america-modern/republic/section-03",
+      "claim": "奴役保护条款与被奴役者采取的个人行动",
+      "limit": "自传不能单独证明抓捕直接依据宪法追索条款。"
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-02",
+      "claim": "密西西比州公开表明奴隶制度是脱离联邦的理由",
+      "limit": "该文献只代表密西西比州分离派官方文件。后段涉及战时法律和宪法修正案的效力，另见第 03 批。"
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-05",
+      "claim": "区分逃亡个案和联邦军队新获准接收人员的政策",
+      "limit": "奥马尔的逃亡早于内战；这里不推断他本人参加了联邦部队或获得宣言保护。"
+    },
+    {
+      "id": "text/topic/west-africa/summary",
+      "claim": "目录摘要中的史料、历史范围与人口迁徙",
+      "limit": "不同材料跨数世纪，各自指向特定地区和当事人。"
+    },
+    {
+      "id": "text/topic/latin-america/summary",
+      "claim": "目录摘要中的矿业遗址、强迫迁徙入口和独立文本",
+      "limit": "来源验证目录选取的个案，智利部分已有第 08 批的专题审校记录。"
+    },
+    {
+      "id": "relation/topic/west-africa/topic-link-02",
+      "claim": "到里约寻找被迫登陆的遗迹。从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。",
+      "limit": "里约是具体目的地，考古街区不能反推所有出发地点。"
+    },
+    {
+      "id": "relation/topic/west-africa/sahel/topic-link-02",
+      "claim": "延伸阅读巴西的跨洋迁徙。读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。",
+      "limit": "链接连接两次阅读，现有材料未给出萨赫勒商路与该码头的直接因果。"
+    },
+    {
+      "id": "relation/topic/west-africa/manuscripts/topic-link-02",
+      "claim": "从抄本另读巴西登陆遗址。廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。",
+      "limit": "法学范畴和巴西的制度及执法需要分别取证。"
+    },
+    {
+      "id": "relation/topic/west-africa/courts/topic-link-02",
+      "claim": "从刚果宫廷转读里约港。阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。",
+      "limit": "相隔近三个世纪的材料不追踪同一批人或同一航次。"
+    },
+    {
+      "id": "relation/topic/west-africa/atlantic/topic-link-02",
+      "claim": "在巴西追查跨洋航线的抵达地。把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。",
+      "limit": "航次分区覆盖巴西诸港，不能把地区合计用于瓦隆古码头。"
+    },
+    {
+      "id": "relation/topic/latin-america/topic-link-01",
+      "claim": "从美洲回看非洲的出发地。巴西篇记载瓦隆古码头，西非大西洋篇补充被奴役者登船的区域和亲历者自述。",
+      "limit": "并读时保留地区差异；人物自传中的抵达港是查尔斯顿。"
+    },
+    {
+      "id": "relation/topic/latin-america/conquest-silver/topic-link-01",
+      "claim": "另读跨洋贩运的出发地。波托西遗址涉及安第斯矿工，西非专题则追查被奴役者在哪里登船、被送往何处。",
+      "limit": "两组材料分别追踪矿业劳动与跨洋强迫迁移，此处未确立具体航线或劳动力流向。"
+    },
+    {
+      "id": "relation/topic/latin-america/independences/topic-link-01",
+      "claim": "给海地起义补充跨洋奴役背景。从 1791 年被奴役者的起义，回看美洲殖民地怎样得到被强运的劳动力。",
+      "limit": "链接给圣多明各个案提供背景，不概括整个西属美洲的独立运动。"
+    },
+    {
+      "id": "relation/topic/latin-america/brazil/topic-link-01",
+      "claim": "从瓦隆古码头逆查大西洋航路。把里约的登陆遗址与航次资料对读，留意从安哥拉和西非沿岸出发的人分别被送往何处。",
+      "limit": "里约港的入境数和航次数据库的巴西东南部估算口径不同。"
+    },
+    {
+      "id": "relation/topic/latin-america/resources-democracy/topic-link-01",
+      "claim": "另读大西洋强迫迁徙。读完近现代智利铜业与政治，可转到西非专题读更早的跨洋贩运档案与个人叙述。",
+      "limit": "这是延伸阅读，所引史料未支持智利个案与该贸易的直接关联。"
+    },
+    {
+      "id": "text/book/tokugawa/summary",
+      "claim": "江户入城、关原与就任将军分别发生，江户城交接后战争仍持续。",
+      "limit": "撤出百万江户、整个东亚长期和平与金银外流造成政权倒台的概括。"
+    },
+    {
+      "id": "text/chapter/tokugawa/sekigahara-bakuhan/summary",
+      "claim": "江户入城、幕府开设、参勤与道路的先后",
+      "limit": "参勤制度形成于幕府建立以后，各地大名的执行存在差异。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-01",
+      "claim": "入江户、关原获胜、就任征夷大将军和已有城池的顺序",
+      "limit": "朝廷和大名当时的私下态度未由所引资料证实。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-02",
+      "claim": "江户城分期修筑与城下填地",
+      "limit": "现有材料不支持千艘帆船或以工程耗尽诸侯金库的推断。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-05",
+      "claim": "参勤交代的法制化与大名的支出",
+      "limit": "撤出把人数、路程与开销比例套用于各藩的笼统数字。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-06",
+      "claim": "道路早于参勤成文化，宿站逐段设立，城市人口另有口径",
+      "limit": "撤出由一项法令直接造成统一市场和城市人口突破百万的断言。"
+    },
+    {
+      "id": "block/tokugawa/sekigahara-bakuhan/aside-05",
+      "claim": "大井川渡河制度与仍可定位的实物",
+      "limit": "所引渡河票据和制度晚于首次参勤法令，不能重建 1635 年某个大名队伍的过河人数或开销。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/sakoku-genroku/p-01",
+      "claim": "区分 1635 年航海禁令、岛原起义与 1639 年禁葡船",
+      "limit": "撤出未经本批核实的围城军人数，以及把两项海禁归因于一次战事的说法。"
+    },
+    {
+      "id": "text/chapter/tokugawa/reforms-rangaku/title",
+      "claim": "标题标明可以定位的灾荒与知识主题",
+      "limit": "标题采用有明确材料的事件名称。"
+    },
+    {
+      "id": "text/chapter/tokugawa/reforms-rangaku/summary",
+      "claim": "改革时间、灾荒地区与兰学译著的范围",
+      "limit": "摘要采用书卷能定位的事件，不预判改革成败或近代转型的因果。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/reforms-rangaku/p-02",
+      "claim": "天明饥荒中的歉收、喷发和粮荒不是同一事件",
+      "limit": "不同地区的灾情和人口损失材料不宜合计。材料不支持由火山喷发单独推导全国饥荒或田沼下台。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/reforms-rangaku/p-05",
+      "claim": "《解体新书》的底本、协作者与刊年",
+      "limit": "书志可定位译著与图版，不概括所有兰学者的社会地位。"
+    },
+    {
+      "id": "block/tokugawa/reforms-rangaku/aside-05",
+      "claim": "译书出版信息与回忆录的不同材料性质",
+      "limit": "刊本及目录不足以重建小冢原刑场的天气、对话和研究者的心理。"
+    },
+    {
+      "id": "text/chapter/tokugawa/kurofune-bakumatsu/summary",
+      "claim": "开港、政权交接与戊辰战争的阶段",
+      "limit": "摘要不把战争简化为政权和平更迭。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-01",
+      "claim": "佩里船队中区分蒸汽舰与帆船，以及递交国书、签约的不同年份",
+      "limit": "此次核对限于舰队编成及基本外交时序。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-02",
+      "claim": "和亲条约与通商条约的不同效力及地名",
+      "limit": "条文所列地名和实际开港地点、时点应分开。所引条款无法核准旧文中的金银比价与外流规模。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-05",
+      "claim": "奉还、王政复古与鸟羽伏见冲突的先后",
+      "limit": "保留年号日期与西历年份的对应，撤下未经证实的石高和内心动机。"
+    },
+    {
+      "id": "block/tokugawa/kurofune-bakumatsu/aside-05",
+      "claim": "会谈步骤、城池交接及此后军事实况",
+      "limit": "移除未经档案支持的烧城安排、会谈对白、列强必然介入与百万居民的断言。"
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-06",
+      "claim": "区分江户城交接与戊辰战争结束，限定长期社会解释",
+      "limit": "撤出全国识字率及三十年内完成工业化等未标明口径和证据的判断。"
     },
     {
       "id": "map/country/IN/india-classical-modern/1947",

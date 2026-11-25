@@ -36,7 +36,7 @@
     "非洲"
   ],
   "priority": 10,
-  "summary": "黄金与书籍、王权与工艺、跨大西洋奴役，让非洲历史与全球变化相连。",
+  "summary": "从萨赫勒商路、廷巴克图抄本和王室书信，读到大西洋沿岸的掳掠、贩运与被奴役者的自述。",
   "scope": "以萨赫勒、几内亚湾与刚果的选择性历史，800—1800为范围，选取四个相互联系的历史节点。现代国家与地区仅作为空间入口，不表示当时疆界；地点标记用于定位，不能代替事件的完整分布。各节的理解线索是基于所列资料的解释，不代表只有一种史学观点。",
   "chapters": [
     {
@@ -62,6 +62,16 @@
           "url": "https://www.metmuseum.org/fr/exhibitions/sahel-art-empire-sahara/inside-the-exhibition",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "loc-timbuktu-manuscripts",
+          "title": "美国国会图书馆：廷巴克图古抄本展",
+          "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html"
+        },
+        {
+          "id": "unesco-valongo",
+          "title": "联合国教科文组织：瓦隆古码头考古遗址",
+          "url": "https://whc.unesco.org/en/list/1548/"
         }
       ],
       "sections": [
@@ -94,10 +104,13 @@
         },
         {
           "title": "理解线索",
-          "text": "把萨赫勒与地中海、中亚对读，可以发现沙漠、草原和海洋都曾成为交流媒介，具体方式却各不相同。跨地区联系创造机会，也包含人口奴役、战争和税负。理解网络需要同时记录货物与权力，不把繁荣写成人人获益，更不把外来宗教或商人当成本地国家出现的唯一原因。",
+          "text": "在廷巴克图保存的抄本里，一份商事诗文讨论买卖和借贷双方的义务，另一份著作记录桑海统治范围内的宗教和法律问题。艾哈迈德·巴巴回答摩洛哥学者的著作则讨论什么情形下可奴役他人。这些抄本保存了商人和学者面对的具体问题，商路上的税负和被贩运人数还要另找账簿与人口记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "note": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            }
           ],
           "id": "section-04"
         },
@@ -126,13 +139,29 @@
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
-          "label": "强制迁徙之后的生活",
-          "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context",
+          "label": "延伸阅读巴西的跨洋迁徙",
+          "reason": "读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。",
+          "relation": "further",
           "id": "topic-link-02",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "延伸阅读巴西的跨洋迁徙。读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "note": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            },
+            {
+              "sourceId": "unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "previousRelation": "context",
+          "display": "读过萨赫勒商路与手稿后，可另看十九世纪里约的瓦隆古码头。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -160,6 +189,16 @@
           "url": "https://www.loc.gov/collections/islamic-manuscripts-from-mali/about-this-collection/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "loc-timbuktu-manuscripts",
+          "title": "美国国会图书馆：廷巴克图古抄本展",
+          "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html"
+        },
+        {
+          "id": "unesco-valongo",
+          "title": "联合国教科文组织：瓦隆古码头考古遗址",
+          "url": "https://whc.unesco.org/en/list/1548/"
         }
       ],
       "sections": [
@@ -224,13 +263,29 @@
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
-          "label": "强制迁徙之后的生活",
-          "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context",
+          "label": "从抄本另读巴西登陆遗址",
+          "reason": "廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。",
+          "relation": "further",
           "id": "topic-link-02",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "从抄本另读巴西登陆遗址。廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "loc-timbuktu-manuscripts",
+              "locator": "第 4—6 件，商事法、桑海与伊斯兰及艾哈迈德·巴巴论奴役",
+              "note": "区分商事规范、地方政治与奴役资格争论，展品各有来历"
+            },
+            {
+              "sourceId": "unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "previousRelation": "context",
+          "display": "廷巴克图手稿留下关于奴役资格的法学讨论，巴西篇从一处登陆遗址讲被奴役者的迁徙。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -258,6 +313,16 @@
           "url": "https://www.metmuseum.org/it/essays/christianity-kongo-visual-culture",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "kongo-afonso-1526",
+          "title": "比利时皇家海外科学院：刚果国王阿丰索致葡萄牙国王书信",
+          "url": "https://www.kaowarsom.be/documents/MEMOIRES_VERHANDELINGEN/Sciences_morales_politique/Hum.Sc.%28NS%29_T.XLI%2C3_JADIN%20L.%20et%20DICORATO%20M._Correspondance%20de%20Dom%20Afonso%2C%20roi%20du%20congo_1974.pdf"
+        },
+        {
+          "id": "unesco-valongo",
+          "title": "联合国教科文组织：瓦隆古码头考古遗址",
+          "url": "https://whc.unesco.org/en/list/1548/"
         }
       ],
       "sections": [
@@ -290,10 +355,13 @@
         },
         {
           "title": "理解线索",
-          "text": "跨大西洋接触打开外交、物品与技术交流，也伴随奴役贸易扩张和严重权力不平等。不能因为非洲统治者具有行动能力，就减轻外部暴力与人口掠夺的责任。比较两国时，应同时看见合作与强制，尤其留意宫廷获得的收益，与普通家庭可能承受的损失并不一致。",
+          "text": "1526 年 7 月，刚果国王阿丰索一世致信葡萄牙国王若昂三世。他指责商人掳走自己的臣民，其中包括贵族和亲属，要求葡萄牙方面干预。信中也谈到两国的宗教与外交往来。刚果宫廷能与葡萄牙交涉，臣民遭到掳掠后能否获释则还要查其他材料。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "kongo-afonso-1526",
+              "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+              "note": "阿丰索投诉臣民被掳走贩卖，请葡萄牙国王干预"
+            }
           ],
           "id": "section-04"
         },
@@ -322,13 +390,29 @@
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
-          "label": "强制迁徙之后的生活",
-          "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context",
+          "label": "从刚果宫廷转读里约港",
+          "reason": "阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。",
+          "relation": "further",
           "id": "topic-link-02",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "从刚果宫廷转读里约港。阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "kongo-afonso-1526",
+              "locator": "第 243—246 页，文献 53，1526 年 7 月 6 日书信法译",
+              "note": "阿丰索投诉臣民被掳走贩卖，请葡萄牙国王干预"
+            },
+            {
+              "sourceId": "unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "previousRelation": "context",
+          "display": "阿丰索写信揭露臣民被掳，后续可在巴西篇阅读三个世纪之后修建的瓦隆古码头。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -361,15 +445,33 @@
           "id": "slavevoyages-estimates",
           "title": "Eltis 与 Lachance｜跨大西洋奴隶贸易规模及方向估计",
           "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+        },
+        {
+          "id": "loc-omar-memoir",
+          "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+          "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
+        },
+        {
+          "id": "unesco-valongo",
+          "title": "联合国教科文组织：瓦隆古码头考古遗址",
+          "url": "https://whc.unesco.org/en/list/1548/"
         }
       ],
       "sections": [
         {
           "title": "一种暴力经济",
-          "text": "跨大西洋奴隶贸易把大量非洲人强行运往美洲，为殖民种植园和其他劳动体系提供被奴役人口。欧洲航运、殖民政权、商人以及非洲不同政治势力在其中具有各自角色。参与者并非权力相等，受害者更不能与出售他人的精英混为一谈；明确这些差别，才能讨论责任和利益。",
+          "text": "被奴役者被商人从非洲多处港口强行运往美洲。例如十七世纪后期，巴伊亚商人开始从黄金海岸和贝宁湾购入被奴役者，用船运往巴西。巴伊亚与安哥拉之间也曾有大量贩运。SlaveVoyages 按出发和抵达地区整理资料，遇到档案断缺时另作估算。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
           ],
           "id": "section-01"
         },
@@ -384,10 +486,13 @@
         },
         {
           "title": "知识与信仰的延续",
-          "text": "被奴役者来自不同语言、职业和宗教背景，部分人能够以阿拉伯文书写，保留学习和信仰经验。抵达美洲后，他们在极度不平等的条件下重组亲属、文化与社群。强制迁徙没有使人变成没有过去的劳动力，个人材料能够让我们重新看到被贸易数字遮住的生命与思想。",
+          "text": "来自富塔托罗的穆斯林学者奥马尔·伊本·赛义德在被俘后被运到查尔斯顿。他后来逃离最初的奴役者，在北卡罗来纳被捕，再度被转卖。1831 年，他仍受奴役时用阿拉伯语写下自传，回忆战前所受的教育、被迫渡海和在异地的经历。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "note": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
           ],
           "id": "section-03"
         },
@@ -428,13 +533,28 @@
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
-          "label": "强制迁徙之后的生活",
-          "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
+          "label": "在巴西追查跨洋航线的抵达地",
+          "reason": "把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。",
           "relation": "context",
           "id": "topic-link-02",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "在巴西追查跨洋航线的抵达地。把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。",
+            "checkedAt": "2026-11-25"
+          },
+          "evidence": [
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            },
+            {
+              "sourceId": "unesco-valongo",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+            }
+          ],
+          "display": "把安哥拉和贝宁湾等出发地区的航次资料，与巴西篇里约瓦隆古码头的登陆遗迹对读。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -455,14 +575,56 @@
     {
       "topicId": "latin-america",
       "chapterId": "brazil",
-      "label": "强制迁徙之后的生活",
-      "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
+      "label": "到里约寻找被迫登陆的遗迹",
+      "reason": "从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。",
       "relation": "context",
       "id": "topic-link-02",
       "audit": {
-        "status": "legacy"
-      }
+        "status": "checked",
+        "scope": "到里约寻找被迫登陆的遗迹。从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。",
+        "checkedAt": "2026-11-25"
+      },
+      "evidence": [
+        {
+          "sourceId": "voyages-routes",
+          "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+          "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+        },
+        {
+          "sourceId": "unesco-valongo",
+          "locator": "突出普遍价值，简要综述及完整性",
+          "note": "里约码头自 1811 年起修建，用于被奴役的非洲人登陆，早期铺石仍在"
+        }
+      ],
+      "display": "从大西洋航线转到里约瓦隆古码头，查阅被奴役者在巴西下船的遗址与记载。"
     }
   ],
-  "from": 800
+  "from": 800,
+  "sources": [
+    {
+      "id": "loc-timbuktu-manuscripts",
+      "title": "美国国会图书馆：廷巴克图古抄本展",
+      "url": "https://www.loc.gov/exhibits/mali/mali-exhibit.html"
+    },
+    {
+      "id": "kongo-afonso-1526",
+      "title": "比利时皇家海外科学院：刚果国王阿丰索致葡萄牙国王书信",
+      "url": "https://www.kaowarsom.be/documents/MEMOIRES_VERHANDELINGEN/Sciences_morales_politique/Hum.Sc.%28NS%29_T.XLI%2C3_JADIN%20L.%20et%20DICORATO%20M._Correspondance%20de%20Dom%20Afonso%2C%20roi%20du%20congo_1974.pdf"
+    },
+    {
+      "id": "loc-omar-memoir",
+      "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+      "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
+    },
+    {
+      "id": "voyages-routes",
+      "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+      "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+    },
+    {
+      "id": "unesco-valongo",
+      "title": "联合国教科文组织：瓦隆古码头考古遗址",
+      "url": "https://whc.unesco.org/en/list/1548/"
+    }
+  ]
 }

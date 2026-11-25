@@ -417,6 +417,16 @@
           "url": "https://omalley.nelsonmandela.org/index.php/site/q/03lv02039/04lv02128/05lv02130.htm",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "za-gov-struggle",
+          "title": "南非政府：人权日、青年节与全国妇女节",
+          "url": "https://www.gov.za/about-sa/public-holidays"
+        },
+        {
+          "id": "sa-womens-march-photo",
+          "title": "南非基础教育部：1956 年妇女游行的照片与参加者回忆",
+          "url": "https://www.education.gov.za/Portals/0/Documents/Publications/BeTheLegacy%20Booklet.pdf?ver=2019-06-20-105648-813"
         }
       ],
       "sections": [
@@ -431,10 +441,18 @@
         },
         {
           "title": "长期的行动",
-          "text": "反种族隔离斗争包括政党、工人、学生、妇女、社区组织以及不同形式的政治行动，国际制裁和声援也发挥作用。曼德拉是重要人物，但不能用个人传记替代众多行动者。镇压、监禁、流亡和政治暴力塑造了过程，后来能够谈判并不意味着此前的制度可以靠少数人的善意轻易终结。",
+          "text": "1956 年 8 月，妇女组织在比勒陀利亚集会，提交反对通行证制度的请愿。1960 年 3 月，泛非主义者大会号召抗议通行证法，南非警方在沙佩维尔向示威者开枪。1976 年 6 月，索韦托学生走上街头，抗议强制使用南非荷兰语授课及更广泛的种族隔离教育。三次行动的组织者、诉求和受到的镇压各有记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "za-gov-struggle",
+              "locator": "21 March、16 June 和 9 August 条",
+              "note": "1956 年妇女请愿反对通行证制度，1960 年沙佩维尔警方射杀抗议者，1976 年索韦托学生抗议种族隔离教育。"
+            },
+            {
+              "sourceId": "sa-womens-march-photo",
+              "locator": "The 1956 Women’s March，游行照片、图说及索菲娅·威廉斯-德布鲁因回忆",
+              "note": "1956 年 8 月 9 日反通行证游行到达比勒陀利亚联合大厦。"
+            }
           ],
           "id": "section-02"
         },

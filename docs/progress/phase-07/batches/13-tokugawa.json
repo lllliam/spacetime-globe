@@ -1,0 +1,774 @@
+{
+  "id": "13-tokugawa",
+  "access": [
+    {
+      "url": "https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/nenpyo",
+      "material": "东京都：东京年表",
+      "locator": "1590、1603、1604 年条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/rekishitomonogatari/history01.html",
+      "material": "日本国立公文书馆：历史与物语年表",
+      "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.toshiseibi.metro.tokyo.lg.jp/keikaku_chousa_singikai/pdf/tokyotoshizukuri/0_01.pdf",
+      "material": "东京都都市整备局：江户的扩展",
+      "locator": "第 1 页，“江戸の広がり”“五街道と宿場町”",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.soumu.metro.tokyo.lg.jp/01soumu-archives/06kanko_butsu/0601sisiko/0601kojo01",
+      "material": "东京都公文书馆：《东京市史稿》皇城篇第一册",
+      "locator": "皇城1-0242 与皇城1-0353 的标题及文献清单",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ktr.mlit.go.jp/yokohama/tokaido/02_tokaido/04_qa/index1/a0107.htm",
+      "material": "日本国土交通省关东地方整备局：参勤交代",
+      "locator": "问答第 7 节及《加贺藩大名行列图屏风》图说",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.library-archives.pref.fukui.lg.jp/fukui/07/kenshi/T3/T3-4-01-03-01-01.htm",
+      "material": "福井县文书馆：《福井县史》通史第三卷：幕府宿驿制度",
+      "locator": "第四章第三节，江户幕府的宿驿制度",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.city.shimada.shizuoka.jp/shimahaku/docs/kawagoshi-seido.html",
+      "material": "岛田市博物馆：大井川渡河制度",
+      "locator": "江户的交通制度、渡河收费与渡法",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.city.shimada.shizuoka.jp/shimahaku/docs/collection-15.html",
+      "material": "岛田市博物馆：大井川渡河藏品",
+      "locator": "川札、台札与渡河人夫报酬收据条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.jstage.jst.go.jp/article/jshhe1931/43/1-2/43_1-2_1/_pdf/-char/ja",
+      "material": "秋山房雄等：天明饥荒及其社会经济背景",
+      "locator": "第 7 页，表 4，津轻、弘前的灾情记载",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.jstage.jst.go.jp/article/chirikagaku/67/3/67_KJ00008274910/_pdf",
+      "material": "《地理科学》：从历史天气日记重建十八世纪末日本气候",
+      "locator": "第四节“天明の飢饉と気候変動”，1783 年日记及引文",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/publication/kita/pdf/kita44_p003.pdf",
+      "material": "日本国立公文书馆：《书物方年代记》解题之三",
+      "locator": "印刷第 34—35 页，天明七年，第 112—113 册释读",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ndl.go.jp/nichiran/data/R/042/042-001r.html",
+      "material": "日本国立国会图书馆：《解体新书》原书影像",
+      "locator": "标准画像 042-001，书志号 わ490.9-15",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html",
+      "material": "日本国立公文书馆：幕末年表",
+      "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/henbou/contents/02.html",
+      "material": "日本国立公文书馆：废止町奉行与设置市政裁判所",
+      "locator": "庆应四年四至五月条目、设立各裁判所文书展品",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/henbou/contents/01.html",
+      "material": "日本国立公文书馆：大久保利通的大坂迁都论",
+      "locator": "庆应三年十月十四日、同年十二月与庆应四年正月条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/ayumi/kobetsu/m01_1868_01.html",
+      "material": "日本国立公文书馆：戊辰战争的开端",
+      "locator": "“鸟羽伏见之战”正文，从 1868 年正月到 1869 年五月",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ndl.go.jp/jikihitsu/part2/s1_3",
+      "material": "日本国立国会图书馆：旧幕臣与福泽谕吉",
+      "locator": "“幕末の三舟”与展品 73、74 的说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/hatamotogokenin/contents/56.html",
+      "material": "日本国立公文书馆：榎本釜次郎脱舰一件书与处分记录",
+      "locator": "第 56 件，旧幕臣榎本武扬的档案及说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/contents/20.html",
+      "material": "日本国立公文书馆：《五国条约并税则》",
+      "locator": "第 20 件，安政六年刊本与 1858 年条约说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.history.navy.mil/content/history/nhhc/research/library/online-reading-room/title-list-alphabetically/b/brief-summary-perry-expedition-japan-1853.html",
+      "material": "美国海军历史与遗产司令部：1853 年佩里航行简表",
+      "locator": "美海军官网航行简表入口暂时返回 502；改查国会档案与日方国书记录。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/SERIALSET-04234_00_00-003-0174-0000/pdf/SERIALSET-04234_00_00-003-0174-0000.pdf",
+      "material": "美国国会档案：日本佩里纪念碑档案汇编",
+      "locator": "印刷第 13 页贝尔兹利回忆与第 19 页佐久间象山书信译文",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/book/tokugawa/summary",
+      "scope": "全卷摘要中的幕府建立、材料范围与军事冲突时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "江户入城、关原与就任将军分别发生，江户城交接后战争仍持续。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/tokyo-edo-chronology",
+              "locator": "1590、1603、1604 年条目",
+              "supports": "区分家康进入江户城、就任将军与江户城修筑"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            },
+            {
+              "source": "source/book/tokugawa/jstage-tenmei-local-sources",
+              "locator": "第 7 页，表 4，津轻、弘前的灾情记载",
+              "supports": "地方史料记录 1782 年之前或当年的减收、随后冷害及歉收，口径各异"
+            },
+            {
+              "source": "source/book/tokugawa/ndl-kaitai-shinsho",
+              "locator": "标准画像 042-001，书志号 わ490.9-15",
+              "supports": "德文原著经荷兰文转译，杉田玄白等翻译和小田野直武绘图，1774 年刊行"
+            },
+            {
+              "source": "source/book/tokugawa/source-06",
+              "locator": "“鸟羽伏见之战”正文，从 1868 年正月到 1869 年五月",
+              "supports": "旧幕府军在鸟羽、伏见落败，战争延续至箱馆"
+            }
+          ],
+          "limit": "撤出百万江户、整个东亚长期和平与金银外流造成政权倒台的概括。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "按江户和戊辰战争两端的年代重读材料，确认接掌江户前后的顺序。"
+      }
+    },
+    {
+      "id": "text/chapter/tokugawa/sekigahara-bakuhan/summary",
+      "scope": "江户入城、幕府开设、参勤与道路的先后",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "江户入城、幕府开设、参勤与道路的先后",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/tokyo-edo-chronology",
+              "locator": "1590、1603、1604 年条目",
+              "supports": "区分家康进入江户城、就任将军与江户城修筑"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            },
+            {
+              "source": "source/book/tokugawa/mlit-alternate-attendance",
+              "locator": "问答第 7 节及《加贺藩大名行列图屏风》图说",
+              "supports": "1635 年法度把参勤制度写入规则，江户与领国之间的往返增加开支"
+            },
+            {
+              "source": "source/book/tokugawa/fukui-historic-post-stations",
+              "locator": "第四章第三节，江户幕府的宿驿制度",
+              "supports": "东海道等宿站逐渐建立，承担公用运输及住宿，需提供人马"
+            }
+          ],
+          "limit": "参勤制度形成于幕府建立以后，各地大名的执行存在差异。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-01",
+      "scope": "入江户、关原获胜、就任征夷大将军和已有城池的顺序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "入江户、关原获胜、就任征夷大将军和已有城池的顺序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/tokyo-edo-chronology",
+              "locator": "1590、1603、1604 年条目",
+              "supports": "区分家康进入江户城、就任将军与江户城修筑"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            },
+            {
+              "source": "source/book/tokugawa/tokyo-edo-castle-archives",
+              "locator": "皇城1-0242 与皇城1-0353 的标题及文献清单",
+              "supports": "江户城转归德川与 1606 年扩建是分别编目的事件"
+            }
+          ],
+          "limit": "朝廷和大名当时的私下态度未由所引资料证实。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读东京年表、关原大事记和江户城档案目录，核对江户入城先于关原。"
+      }
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-02",
+      "scope": "江户城分期修筑与城下填地",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "江户城分期修筑与城下填地",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/tokyo-edo-chronology",
+              "locator": "1590、1603、1604 年条目",
+              "supports": "区分家康进入江户城、就任将军与江户城修筑"
+            },
+            {
+              "source": "source/book/tokugawa/tokyo-edo-castle-archives",
+              "locator": "皇城1-0242 与皇城1-0353 的标题及文献清单",
+              "supports": "江户城转归德川与 1606 年扩建是分别编目的事件"
+            },
+            {
+              "source": "source/book/tokugawa/tokyo-edo-urban-growth",
+              "locator": "第 1 页，“江戸の広がり”“五街道と宿場町”",
+              "supports": "记录城下低湿地的填筑、日本桥与道路和宿场"
+            }
+          ],
+          "limit": "现有材料不支持千艘帆船或以工程耗尽诸侯金库的推断。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-05",
+      "scope": "参勤交代的法制化与大名的支出",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "参勤交代的法制化与大名的支出",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/mlit-alternate-attendance",
+              "locator": "问答第 7 节及《加贺藩大名行列图屏风》图说",
+              "supports": "1635 年法度把参勤制度写入规则，江户与领国之间的往返增加开支"
+            },
+            {
+              "source": "source/book/tokugawa/fukui-historic-post-stations",
+              "locator": "第四章第三节，江户幕府的宿驿制度",
+              "supports": "东海道等宿站逐渐建立，承担公用运输及住宿，需提供人马"
+            }
+          ],
+          "limit": "撤出把人数、路程与开销比例套用于各藩的笼统数字。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/sekigahara-bakuhan/p-06",
+      "scope": "道路早于参勤成文化，宿站逐段设立，城市人口另有口径",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "道路早于参勤成文化，宿站逐段设立，城市人口另有口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/fukui-historic-post-stations",
+              "locator": "第四章第三节，江户幕府的宿驿制度",
+              "supports": "东海道等宿站逐渐建立，承担公用运输及住宿，需提供人马"
+            },
+            {
+              "source": "source/book/tokugawa/tokyo-edo-urban-growth",
+              "locator": "第 1 页，“江戸の広がり”“五街道と宿場町”",
+              "supports": "记录城下低湿地的填筑、日本桥与道路和宿场"
+            },
+            {
+              "source": "source/book/tokugawa/mlit-alternate-attendance",
+              "locator": "问答第 7 节及《加贺藩大名行列图屏风》图说",
+              "supports": "1635 年法度把参勤制度写入规则，江户与领国之间的往返增加开支"
+            }
+          ],
+          "limit": "撤出由一项法令直接造成统一市场和城市人口突破百万的断言。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读宿站条目的创建年与寛永时期定型说明，对照参勤成文之年。"
+      }
+    },
+    {
+      "id": "block/tokugawa/sekigahara-bakuhan/aside-05",
+      "scope": "大井川渡河制度与仍可定位的实物",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "大井川渡河制度与仍可定位的实物",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/shimada-oi-crossing",
+              "locator": "江户的交通制度、渡河收费与渡法",
+              "supports": "岛田、金谷两宿分列大井川两侧，1696 年起统制收费，渡河需雇人力"
+            },
+            {
+              "source": "source/book/tokugawa/shimada-oi-crossing-collection",
+              "locator": "川札、台札与渡河人夫报酬收据条目",
+              "supports": "留存渡河凭证及收据，馆方把台札起点系于元禄时期"
+            }
+          ],
+          "limit": "所引渡河票据和制度晚于首次参勤法令，不能重建 1635 年某个大名队伍的过河人数或开销。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/sakoku-genroku/p-01",
+      "scope": "区分 1635 年航海禁令、岛原起义与 1639 年禁葡船",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分 1635 年航海禁令、岛原起义与 1639 年禁葡船",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/source-05",
+              "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+              "supports": "分别记录航海禁令、通商条约、奉还、交城和战争结束"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            }
+          ],
+          "limit": "撤出未经本批核实的围城军人数，以及把两项海禁归因于一次战事的说法。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照幕末与通史两个年表所列先后。"
+      }
+    },
+    {
+      "id": "text/chapter/tokugawa/reforms-rangaku/title",
+      "scope": "标题标明可以定位的灾荒与知识主题",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "标题标明可以定位的灾荒与知识主题",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/jstage-tenmei-local-sources",
+              "locator": "第 7 页，表 4，津轻、弘前的灾情记载",
+              "supports": "地方史料记录 1782 年之前或当年的减收、随后冷害及歉收，口径各异"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            },
+            {
+              "source": "source/book/tokugawa/ndl-kaitai-shinsho",
+              "locator": "标准画像 042-001，书志号 わ490.9-15",
+              "supports": "德文原著经荷兰文转译，杉田玄白等翻译和小田野直武绘图，1774 年刊行"
+            }
+          ],
+          "limit": "标题采用有明确材料的事件名称。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/tokugawa/reforms-rangaku/summary",
+      "scope": "改革时间、灾荒地区与兰学译著的范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "改革时间、灾荒地区与兰学译著的范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/archives-edo-chronology",
+              "locator": "1598—1643 年、1716—1841 年与 1867—1868 年各条",
+              "supports": "记录关原、大坂之阵、岛原起义、三次改革与政权变动"
+            },
+            {
+              "source": "source/book/tokugawa/jstage-tenmei-local-sources",
+              "locator": "第 7 页，表 4，津轻、弘前的灾情记载",
+              "supports": "地方史料记录 1782 年之前或当年的减收、随后冷害及歉收，口径各异"
+            },
+            {
+              "source": "source/book/tokugawa/archives-tenmei-rice-riot",
+              "locator": "印刷第 34—35 页，天明七年，第 112—113 册释读",
+              "supports": "1787 年幕府记录载有江户打毁风潮、米价与借米申请"
+            },
+            {
+              "source": "source/book/tokugawa/ndl-kaitai-shinsho",
+              "locator": "标准画像 042-001，书志号 わ490.9-15",
+              "supports": "德文原著经荷兰文转译，杉田玄白等翻译和小田野直武绘图，1774 年刊行"
+            }
+          ],
+          "limit": "摘要采用书卷能定位的事件，不预判改革成败或近代转型的因果。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/reforms-rangaku/p-02",
+      "scope": "天明饥荒中的歉收、喷发和粮荒不是同一事件",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "天明饥荒中的歉收、喷发和粮荒不是同一事件",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/jstage-tenmei-local-sources",
+              "locator": "第 7 页，表 4，津轻、弘前的灾情记载",
+              "supports": "地方史料记录 1782 年之前或当年的减收、随后冷害及歉收，口径各异"
+            },
+            {
+              "source": "source/book/tokugawa/jstage-tenmei-weather-diaries",
+              "locator": "第四节“天明の飢饉と気候変動”，1783 年日记及引文",
+              "supports": "地方记载分别描述夏季低温雨水、灰降与作物受损"
+            },
+            {
+              "source": "source/book/tokugawa/archives-tenmei-rice-riot",
+              "locator": "印刷第 34—35 页，天明七年，第 112—113 册释读",
+              "supports": "1787 年幕府记录载有江户打毁风潮、米价与借米申请"
+            }
+          ],
+          "limit": "不同地区的灾情和人口损失材料不宜合计。材料不支持由火山喷发单独推导全国饥荒或田沼下台。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读灾情表、1783 年地方天气记录及 1787 年江户日记，核对区间和材料所及空间。"
+      }
+    },
+    {
+      "id": "book-paragraph/tokugawa/reforms-rangaku/p-05",
+      "scope": "《解体新书》的底本、协作者与刊年",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "《解体新书》的底本、协作者与刊年",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/ndl-kaitai-shinsho",
+              "locator": "标准画像 042-001，书志号 わ490.9-15",
+              "supports": "德文原著经荷兰文转译，杉田玄白等翻译和小田野直武绘图，1774 年刊行"
+            }
+          ],
+          "limit": "书志可定位译著与图版，不概括所有兰学者的社会地位。"
+        }
+      ]
+    },
+    {
+      "id": "block/tokugawa/reforms-rangaku/aside-05",
+      "scope": "译书出版信息与回忆录的不同材料性质",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "译书出版信息与回忆录的不同材料性质",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/ndl-kaitai-shinsho",
+              "locator": "标准画像 042-001，书志号 わ490.9-15",
+              "supports": "德文原著经荷兰文转译，杉田玄白等翻译和小田野直武绘图，1774 年刊行"
+            }
+          ],
+          "limit": "刊本及目录不足以重建小冢原刑场的天气、对话和研究者的心理。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/tokugawa/kurofune-bakumatsu/summary",
+      "scope": "开港、政权交接与戊辰战争的阶段",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "开港、政权交接与戊辰战争的阶段",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/source-05",
+              "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+              "supports": "分别记录航海禁令、通商条约、奉还、交城和战争结束"
+            },
+            {
+              "source": "source/book/tokugawa/archives-1858-treaty-schedule",
+              "locator": "第 20 件，安政六年刊本与 1858 年条约说明",
+              "supports": "标出通商港和开市城市的分期、关税和领事裁判权条款"
+            },
+            {
+              "source": "source/book/tokugawa/source-06",
+              "locator": "“鸟羽伏见之战”正文，从 1868 年正月到 1869 年五月",
+              "supports": "旧幕府军在鸟羽、伏见落败，战争延续至箱馆"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-handover",
+              "locator": "庆应四年四至五月条目、设立各裁判所文书展品",
+              "supports": "先有江户城交接，其后上野交战，奉行机关职能继续调整"
+            }
+          ],
+          "limit": "摘要不把战争简化为政权和平更迭。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-01",
+      "scope": "佩里船队中区分蒸汽舰与帆船，以及递交国书、签约的不同年份",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "佩里船队中区分蒸汽舰与帆船，以及递交国书、签约的不同年份",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/us-navy-perry-1853",
+              "locator": "印刷第 13 页贝尔兹利回忆与第 19 页佐久间象山书信译文",
+              "supports": "首航浦贺的四艘船中两艘是蒸汽舰，其余为帆船"
+            },
+            {
+              "source": "source/book/tokugawa/source-05",
+              "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+              "supports": "分别记录航海禁令、通商条约、奉还、交城和战争结束"
+            }
+          ],
+          "limit": "此次核对限于舰队编成及基本外交时序。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复核美方舰名和动力与日方年表中的 1853、1854 年条目。"
+      }
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-02",
+      "scope": "和亲条约与通商条约的不同效力及地名",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "和亲条约与通商条约的不同效力及地名",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/source-05",
+              "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+              "supports": "分别记录航海禁令、通商条约、奉还、交城和战争结束"
+            },
+            {
+              "source": "source/book/tokugawa/archives-1858-treaty-schedule",
+              "locator": "第 20 件，安政六年刊本与 1858 年条约说明",
+              "supports": "标出通商港和开市城市的分期、关税和领事裁判权条款"
+            }
+          ],
+          "limit": "条文所列地名和实际开港地点、时点应分开。所引条款无法核准旧文中的金银比价与外流规模。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新核对幕末年表与条约目录，按条文用神奈川和兵库。"
+      }
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-05",
+      "scope": "奉还、王政复古与鸟羽伏见冲突的先后",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "奉还、王政复古与鸟羽伏见冲突的先后",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/archives-restoration-context",
+              "locator": "庆应三年十月十四日、同年十二月与庆应四年正月条目",
+              "supports": "依次记录庆喜提出奉还、朝廷宣布王政复古与鸟羽伏见战争后议政"
+            },
+            {
+              "source": "source/book/tokugawa/source-05",
+              "locator": "1635、1639 年条目与 1853—1869 年幕末条目",
+              "supports": "分别记录航海禁令、通商条约、奉还、交城和战争结束"
+            },
+            {
+              "source": "source/book/tokugawa/source-06",
+              "locator": "“鸟羽伏见之战”正文，从 1868 年正月到 1869 年五月",
+              "supports": "旧幕府军在鸟羽、伏见落败，战争延续至箱馆"
+            }
+          ],
+          "limit": "保留年号日期与西历年份的对应，撤下未经证实的石高和内心动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对庆应三年十月十四日提出奉还、年底王政复古与庆应四年正月交战的原资料时序。"
+      }
+    },
+    {
+      "id": "block/tokugawa/kurofune-bakumatsu/aside-05",
+      "scope": "会谈步骤、城池交接及此后军事实况",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "会谈步骤、城池交接及此后军事实况",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/ndl-katsu-edo-negotiations",
+              "locator": "“幕末の三舟”与展品 73、74 的说明",
+              "supports": "分列山冈铁舟赴骏府与胜海舟会见西乡隆盛的步骤"
+            },
+            {
+              "source": "source/book/tokugawa/archives-edo-handover",
+              "locator": "庆应四年四至五月条目、设立各裁判所文书展品",
+              "supports": "先有江户城交接，其后上野交战，奉行机关职能继续调整"
+            }
+          ],
+          "limit": "移除未经档案支持的烧城安排、会谈对白、列强必然介入与百万居民的断言。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读档案的会谈先后、交城和上野战事，核对“无血”只限江户城交接。"
+      }
+    },
+    {
+      "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-06",
+      "scope": "区分江户城交接与戊辰战争结束，限定长期社会解释",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分江户城交接与戊辰战争结束，限定长期社会解释",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/tokugawa/archives-edo-handover",
+              "locator": "庆应四年四至五月条目、设立各裁判所文书展品",
+              "supports": "先有江户城交接，其后上野交战，奉行机关职能继续调整"
+            },
+            {
+              "source": "source/book/tokugawa/source-06",
+              "locator": "“鸟羽伏见之战”正文，从 1868 年正月到 1869 年五月",
+              "supports": "旧幕府军在鸟羽、伏见落败，战争延续至箱馆"
+            },
+            {
+              "source": "source/book/tokugawa/archives-enomoto-hakodate",
+              "locator": "第 56 件，旧幕臣榎本武扬的档案及说明",
+              "supports": "江户城交接后拒交军舰，转战箱馆，1869 年投降"
+            }
+          ],
+          "limit": "撤出全国识字率及三十年内完成工业化等未标明口径和证据的判断。"
+        }
+      ]
+    }
+  ]
+}

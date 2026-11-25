@@ -270,33 +270,92 @@
           "url": "https://www.un.org/unispal/document/auto-insert-184992/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "un-palestine-mandate",
+          "title": "耶鲁大学法学院阿瓦隆计划：巴勒斯坦委任统治文本",
+          "url": "https://avalon.law.yale.edu/20th_century/palmanda.asp"
+        },
+        {
+          "id": "pal-ushmm-dp",
+          "title": "美国大屠杀纪念馆：欧洲流离失所者",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/displaced-persons"
+        },
+        {
+          "id": "pal-un-resolution-181",
+          "title": "联合国大会第 181（II）号决议全文",
+          "url": "https://www.un.org/unispal/wp-content/uploads/1947/11/ARES181.pdf"
+        },
+        {
+          "id": "pal-un-dpi-refugees",
+          "title": "联合国新闻部：巴勒斯坦难民问题及联合国",
+          "url": "https://unispal.un.org/pdfs/38D6C47FC5FB0CDD852575D6006C70D4.pdf"
+        },
+        {
+          "id": "pal-unccp-refugees-1950",
+          "title": "联合国巴勒斯坦和解委员会：难民问题工作报告",
+          "url": "https://unispal.un.org/pdfs/96A68276D7E800D885256D560066330D.pdf"
+        },
+        {
+          "id": "pal-nakba-commemoration",
+          "title": "联合国巴勒斯坦人民行使不可剥夺权利委员会活动存档：1948—2024 年纳克巴",
+          "url": "https://www.un.org/unispal/wp-content/uploads/2024/08/Ardi-Imseis-2024-The-Nakba-and-the-UNs-Permanent-Responsibility-for-the-Question-of-Palestine.pdf"
         }
       ],
       "sections": [
         {
           "title": "委任统治的背景",
-          "text": "英国委任统治时期，巴勒斯坦阿拉伯人的政治诉求与犹太复国主义运动在移民、土地和主权问题上发生尖锐冲突。欧洲的反犹迫害及大屠杀，使犹太人的安全和建国愿望更加迫切；巴勒斯坦人的自决与居住权利同样不能从叙述中消失，两种经历需要分别说明。",
+          "text": "1922 年，国际联盟批准由英国管理巴勒斯坦的委任文件。文件要求英国为建立犹太民族家园创造条件，也要求保障当地居民的民事和宗教权利。移民、土地和未来政权因而成为当地政治争议。纳粹在欧洲实施迫害和大屠杀后，一些犹太幸存者在流离失所者营地准备前往巴勒斯坦。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "un-palestine-mandate",
+              "locator": "文件序言、第 2、4、6 条及生效说明",
+              "note": "英国受委任管理，文本规定促进犹太民族家园及移民，也规定居民民事、宗教权利。"
+            },
+            {
+              "sourceId": "pal-ushmm-dp",
+              "locator": "犹太幸存者、流离失所者营地与赴巴勒斯坦准备段",
+              "note": "战后欧洲一些犹太幸存者流离失所，并有人在营地准备前往巴勒斯坦。"
+            }
           ],
           "id": "section-01"
         },
         {
           "title": "方案与战争",
-          "text": "一九四七年联合国大会提出分治方案，设想建立阿拉伯国与犹太国，并对耶路撒冷作特殊安排。方案没有带来双方认可的和平实施过程。一九四八年以色列宣布独立，战争进一步扩大；停战后的控制线与最初分治地图并不相同，也没有完成所有国家安排。",
+          "text": "1947 年 11 月 29 日，联合国大会建议将委任统治下的巴勒斯坦划为阿拉伯国和犹太国，并为耶路撒冷设立特别国际制度。1948 年 5 月以色列宣布独立。1948 年的战争及此后停战安排改变了地面控制，拟议的阿拉伯国和耶路撒冷制度没有按原方案建立。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "pal-un-resolution-181",
+              "locator": "1947 年 11 月 29 日决议 A 部分、分治方案第一部分 A 节",
+              "note": "联大建议实行分治方案，设阿拉伯国、犹太国并为耶路撒冷设置特别国际制度。"
+            },
+            {
+              "sourceId": "pal-un-dpi-refugees",
+              "locator": "1948 年调停与难民部分，转引联合国调停员 A/648 报告",
+              "note": "记载许多巴勒斯坦阿拉伯人在 1948 年战争中逃离或被驱逐，调停员提出返回及财产补偿议题。"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "流离失所",
-          "text": "大量巴勒斯坦人在战争期间逃离或遭驱逐，形成持续的难民问题，巴勒斯坦社会称这一创伤为灾难。犹太社群也带着欧洲迫害以及后来从其他地区迁移的经历进入新国家。不同人口移动具有各自的原因和权力关系，不能用一种遭遇抵消另一种遭遇的具体责任。",
+          "text": "1948 年战争期间，大量巴勒斯坦阿拉伯人因战事逃离家园或遭驱逐，造成长期流离失所。巴勒斯坦社会称这段经历为“纳克巴”，即“灾难”。联合国大会第 194（III）号决议提出，愿意返回并与邻居和平相处的难民应尽早获准回家，也提出财产补偿。了解各地发生的驱逐、逃亡和损失，需要进一步查当地资料。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "pal-un-dpi-refugees",
+              "locator": "1948 年调停与难民部分，转引联合国调停员 A/648 报告",
+              "note": "记载许多巴勒斯坦阿拉伯人在 1948 年战争中逃离或被驱逐，调停员提出返回及财产补偿议题。"
+            },
+            {
+              "sourceId": "pal-unccp-refugees-1950",
+              "locator": "A/AC.25/CCP.RWA/2 第 1 段，转录第 194（III）号决议第 11 段",
+              "note": "大会提出返乡条件与适当补偿，并委托和解委员会协助落实。"
+            },
+            {
+              "sourceId": "pal-nakba-commemoration",
+              "locator": "2024 年 5 月 17 日小组讨论存档，第 1 页标题，仅证实纪念名称",
+              "note": "联合国会议档案沿用 Nakba 名称；发言者的历史及法律意见不作为本文事实依据。"
+            }
           ],
           "id": "section-03"
         },

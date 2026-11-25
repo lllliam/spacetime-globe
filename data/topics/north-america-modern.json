@@ -43,6 +43,16 @@
           "url": "https://home.nps.gov/people/powhatan.htm",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "nps-jamestown-history",
+          "title": "美国国家公园管理局：詹姆斯敦简史",
+          "url": "https://www.nps.gov/jame/learn/historyculture/a-short-history-of-jamestown.htm?ya_src=serp300"
+        },
+        {
+          "id": "nps-jamestown-chronology",
+          "title": "美国国家公园管理局：詹姆斯敦大事纪",
+          "url": "https://www.nps.gov/jame/learn/historyculture/chronology-of-jamestown-events.htm"
         }
       ],
       "sections": [
@@ -66,10 +76,18 @@
         },
         {
           "title": "扩张的后果",
-          "text": "殖民点逐渐扩大，对土地、粮食和劳动力的要求增加，冲突与疾病严重冲击原住民社会。烟草等生产又使区域进入更广阔的大西洋经济，劳动制度随后强化种族化奴役。殖民者生存与殖民社会成长不是同一个问题，前者的艰难不能自动证明后者取得土地与劳动力具有正当性。",
+          "text": "十七世纪初，烟草成为弗吉尼亚殖民地的出口作物。1619 年已有记录显示，非洲人被强行带到当地。最早抵达者的身份在记录里并不一致，随后殖民当局把奴役写入法律。种植扩展也继续占用波瓦坦诸族的土地，1622 年奥佩钱卡诺领导的袭击针对多个英格兰定居点，殖民者随后发动报复。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nps-jamestown-history",
+              "locator": "1612 年烟草、1619 年非洲人到达和 1622 年冲突各段",
+              "note": "材料区分殖民贸易、强制运送与波瓦坦抵抗"
+            },
+            {
+              "sourceId": "nps-jamestown-chronology",
+              "locator": "1612、1619、1622 及 1661 年条目",
+              "note": "区分烟草出口、强行运抵与奴役被写入成文法"
+            }
           ],
           "id": "section-03"
         },
@@ -124,7 +142,7 @@
       "year": 1776,
       "date": "1776年及其后",
       "title": "宣告人人平等，为什么仍有排斥？",
-      "summary": "共和国的成立开启权利讨论，也保留了奴役与有限成员资格。",
+      "summary": "从美国独立后的选举门槛、席位算法与追索条款，读新宪法如何安排代表权并保护奴役制度。",
       "place": {
         "label": "费城",
         "lon": -75.16,
@@ -142,6 +160,16 @@
           "url": "https://www.archives.gov/founding-docs/amendments-11-27",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "us-constitution-original",
+          "title": "美国国家档案馆：合众国宪法转录",
+          "url": "https://www.archives.gov/founding-docs/constitution-transcript"
+        },
+        {
+          "id": "loc-omar-memoir",
+          "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+          "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
         }
       ],
       "sections": [
@@ -156,19 +184,30 @@
         },
         {
           "title": "建立联邦",
-          "text": "战争结束不等于国家结构已经稳定，新宪法重新安排联邦、州及不同机构之间的权力。对权力限制与代表机制的设计具有重要影响，但制度也建立在妥协与排斥之上。不同州的政治参与资格并不相同，妇女、被奴役者及原住民在新国家中具有不同且不平等的位置，不能用公民一词将他们全部含混覆盖。",
+          "text": "1787 年美国宪法规定，各州的联邦众议院选民须满足本州议会人数较多一院的选民资格。分摊众议院席位和直接税时，条文按五分之三计入被奴役者，排除不纳税的原住民。这个算法让蓄奴州因被奴役的人口增加席位，被计入计算的人则没有取得选票。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "us-constitution-original",
+              "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+              "note": "众议院选民资格沿用州的门槛，奴役涉及席位和直接税计算、贩运限制及追索条款"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "奴隶制的矛盾",
-          "text": "部分建国政治人物参与或维护奴役制度，与宣称的自由原则构成尖锐矛盾。被奴役者和后来的废奴运动并非只是等待精英完成承诺，而会利用原则、逃离、组织和行动争取改变。识别这种矛盾，不必否认宣言的历史影响，也不能因其影响重大，就把现实排斥当作可以忽略的时代背景。",
+          "text": "宪法第 4 条要求交还逃到另一州的被奴役者；第 1 条限制国会在 1808 年前禁止当时各州所接纳的人口输入。被奴役者仍会采取行动。奥马尔·伊本·赛义德的自传记下他逃离查尔斯顿的奴役者、进入北卡罗来纳后被捕的经历。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "us-constitution-original",
+              "locator": "第 1 条第 2、9 款和第 4 条第 2 款",
+              "note": "众议院选民资格沿用州的门槛，奴役涉及席位和直接税计算、贩运限制及追索条款"
+            },
+            {
+              "sourceId": "loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "note": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
           ],
           "id": "section-03"
         },
@@ -267,6 +306,21 @@
           "id": "amendment-13",
           "title": "美国国家档案馆｜宪法第十三修正案",
           "url": "https://www.archives.gov/milestone-documents/13th-amendment"
+        },
+        {
+          "id": "mississippi-secession",
+          "title": "耶鲁大学阿瓦隆项目：密西西比州脱离联邦理由书",
+          "url": "https://avalon.law.yale.edu/19th_century/csa_missec.asp"
+        },
+        {
+          "id": "us-emancipation-text",
+          "title": "美国国家档案馆：《解放宣言》",
+          "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation"
+        },
+        {
+          "id": "loc-omar-memoir",
+          "title": "美国国会图书馆馆刊：奥马尔·伊本·赛义德自传",
+          "url": "https://www.loc.gov/lcm/pdf/LCM_2019_0304.pdf"
         }
       ],
       "sections": [
@@ -289,11 +343,18 @@
         },
         {
           "title": "奴役与政治危机",
-          "text": "棉花经济与奴役扩张使南北政治争议不断激化，联邦、州权和新领土安排都与奴隶制问题相连。内战不能被抽象成完全脱离奴役的地区性格冲突。战争初期维护联邦的目标，与后来推动解放的政策之间存在变化，被奴役者自身逃离和参与也影响了战争的政治意义。",
+          "text": "1861 年，密西西比州的《脱离联邦理由书》公开宣称，奴隶制度与本州利益密不可分，并以种植园生产和跨国贸易为理由维护它。这份由分离一方自己发布的文件，使人能把维护奴隶制作为脱离联邦的公开理由来查证。联邦一方稍后通过战时行政命令推进解放，法律上的适用范围需要再读命令正文。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "mississippi-secession",
+              "locator": "1861 年《脱离联邦理由书》首段及列举的理由",
+              "note": "邦联一方的州政府明确把保护奴隶制度列为分离理由"
+            },
+            {
+              "sourceId": "us-emancipation-text",
+              "locator": "1863 年 1 月 1 日正文，适用州及豁免县名单、承认自由与接纳服役条款",
+              "note": "战时命令指明适用范围，并规定符合条件的人可进入联邦军队"
+            }
           ],
           "id": "section-02"
         },
@@ -326,11 +387,18 @@
         },
         {
           "title": "法律与人的行动",
-          "text": "法令显示国家允许或要求什么，迁移记录和个人经历则显示实际代价。被迁移者、逃离奴役者与服役者不只是政策对象，也会采取集体与个人行动。把国家决定与这些行动联系，能够避免把历史写成总统之间的政策接力，同时区分有能力制定规则的人与被迫承受规则的人所处的位置。",
+          "text": "《解放宣言》写明，联邦行政和军事当局不得阻挠适用地区的人为争取实际自由采取行动，符合条件者可以进入联邦军队。对照奥马尔·伊本·赛义德更早的逃亡经历，可以分别看到一项战时政策的边界，以及一个人在奴役制度下为改变处境作过的尝试。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "us-emancipation-text",
+              "locator": "1863 年 1 月 1 日正文，适用州及豁免县名单、承认自由与接纳服役条款",
+              "note": "战时命令指明适用范围，并规定符合条件的人可进入联邦军队"
+            },
+            {
+              "sourceId": "loc-omar-memoir",
+              "locator": "2019 年 3—4 月刊，第 18—21 页，馆藏手稿影像及自述译文摘录",
+              "note": "记载他在富塔托罗被俘，经查尔斯顿被卖，在北卡罗来纳被奴役期间写下自传"
+            }
           ],
           "id": "section-05"
         }

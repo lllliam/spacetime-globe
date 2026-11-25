@@ -9,6 +9,36 @@
       "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
       "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
       "id": "source-01"
+    },
+    {
+      "id": "fr-fontainebleau-1685",
+      "title": "法国新教博物馆：《枫丹白露敕令》转录",
+      "url": "https://museeprotestant.org/wp-content/uploads/2014/01/Edit-de-Fontainebleau-Revocation-de-lEdit-de-Nantes-1685-Musee-protestant.pdf"
+    },
+    {
+      "id": "fr-huguenot-migration",
+      "title": "法国新教博物馆：胡格诺派迁徙",
+      "url": "https://museeprotestant.org/notice/lemigration/"
+    },
+    {
+      "id": "fr-an-convention",
+      "title": "法国国家档案馆：国民公会档案背景",
+      "url": "https://rdf.archives-nationales.culture.gouv.fr/garance/entities/agent/051694/"
+    },
+    {
+      "id": "fr-paris-republic-1870",
+      "title": "巴黎市：巴黎公社的起因与 1870 年共和国宣告",
+      "url": "https://www.paris.fr/pages/les-150-ans-de-la-commune-l-origine-1-5-16961"
+    },
+    {
+      "id": "fr-paris-commune-repression",
+      "title": "巴黎档案馆：巴黎公社的终结与记忆",
+      "url": "https://archives.paris.fr/offre-pedagogique/ressources-pedagogiques/la-commune-de-paris/la-fin-de-lexperience-et-le-souvenir-de-la-commune"
+    },
+    {
+      "id": "fr-loc-1875-laws",
+      "title": "美国国会图书馆：法国议会制度史",
+      "url": "https://wwws.loc.gov/law/help/national-parliaments/france.php"
     }
   ],
   "chapters": [
@@ -133,10 +163,19 @@
           "id": "p-04"
         },
         {
-          "heading": "霸权透支与旧制度的财政死结",
-          "text": "太阳王的荣耀建立在骇人的军费透支之上。为追逐莱茵河“自然疆界”与西班牙王位继承权，路易十四晚年陷入全欧反法同盟围攻，又在 1685 年鲁莽废除《南特敕令》，迫使二十余万手工业与金融精英流亡英荷普鲁士。重税压在无权无势的农民肩上，饥荒频仍，国库在太阳落山之际已然空虚。",
+          "heading": "废除《南特敕令》与新教徒流亡",
+          "text": "1685 年，路易十四颁行《枫丹白露敕令》，撤销《南特敕令》，禁止新教公开礼拜。拒绝改宗的牧师须限期离境，其他新教居民则面临禁止移居国外的规定。一些新教家庭仍选择出走。法国新教博物馆记录了分赴英格兰、荷兰联省和日内瓦等地的案例。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "fr-fontainebleau-1685",
+              "locator": "第 1、4、9、10、12 条",
+              "note": "撤销《南特敕令》，禁止新教举行礼拜，对牧师和其他居民的迁离设不同规则。"
+            },
+            {
+              "sourceId": "fr-huguenot-migration",
+              "locator": "离境与收容地段",
+              "note": "部分新教徒离开法国，前往英格兰、荷兰联省、日内瓦及德意志地区等。"
+            }
           ],
           "id": "p-05"
         },
@@ -187,9 +226,13 @@
           "id": "p-01"
         },
         {
-          "text": "然而立宪派温和试验很快被国内外危机吞噬。路易十六化装出逃瓦雷讷失败耗尽信任，普奥联军压境更把革命推向激进深渊。1792 年法兰西第一共和国成立并处决国王，罗伯斯庇尔领导的雅各宾派一方面动员全国青壮组建百万国民军击退外敌，另一方面却在“恐怖统治”下把数万人送上断头台，最终反噬自身。",
+          "text": "1792 年 9 月，国民公会废除君主制，第一共和国由此建立。路易十六经过审判，在次年 1 月被处决。面对对外战争和国内起事，公会在 1793 年先后通过全民征召法令与《嫌疑人法》。各地监察委员会拘捕被列为嫌疑的人，革命法庭参与非常时期的司法镇压。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "fr-an-convention",
+              "locator": "Contexte général，1792 至 1794 年的政体与非常措施",
+              "note": "国民公会 1792 年废除君主制，路易十六于 1793 年被处决，国民公会在战争内外压力下采用征兵令与嫌疑人法。"
+            }
           ],
           "id": "p-02"
         },
@@ -217,9 +260,23 @@
           "id": "p-05"
         },
         {
-          "text": "1870 年普法战争色当惨败令第二帝国瞬间崩塌，阿尔萨斯与洛林割让德国，巴黎市民怒而建立短暂而悲壮的巴黎公社。血腥镇压后勉强诞生的第三共和国历经德雷福斯事件与 1905 年《政教分离法》洗礼，逐步确立世俗共和共识，同时在北非、西非与印度支那拼出仅次于英国的第二大殖民帝国，并与英俄结盟直面德意志崛起。",
+          "text": "色当战败后，巴黎于 1870 年 9 月 4 日宣布建立共和国。1871 年春，巴黎公社与梯也尔领导的政府发生冲突。5 月，凡尔赛军夺回巴黎，结束公社。军事镇压之后，参与者面临处决、监禁或流放。到 1875 年，宪法性法律进一步确立第三共和国的议会制度。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "fr-paris-republic-1870",
+              "locator": "直接起因，色当与 1870 年 9 月 4 日巴黎宣告",
+              "note": "色当战败后，共和国在 1870 年 9 月宣布，巴黎公社发生于次年。"
+            },
+            {
+              "sourceId": "fr-paris-commune-repression",
+              "locator": "1871 年 5 月的军事镇压与其后司法镇压段",
+              "note": "梯也尔政府的凡尔赛军夺回巴黎，军事镇压之后有处决、监禁和流放。"
+            },
+            {
+              "sourceId": "fr-loc-1875-laws",
+              "locator": "Introduction 的 1791、1875 年沿革",
+              "note": "1875 年宪法性法律确立第三共和国的两院制结构。"
+            }
           ],
           "id": "p-06"
         }

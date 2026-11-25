@@ -150,7 +150,7 @@
       "year": 1650,
       "date": "16—18世纪",
       "title": "海洋连接怎样变成殖民秩序？",
-      "summary": "远航、贸易与艺术交流，和战争、占地及奴役同时扩展。",
+      "summary": "从印度棉布、巴西航次和秘鲁婚披追索商品贸易、强制迁徙与地方工艺各自留下的证据。",
       "place": {
         "label": "里斯本",
         "lon": -9.14,
@@ -168,6 +168,21 @@
           "url": "https://www.nationalarchives.gov.uk/explore-the-collection/explore-by-time-period/georgians/transatlantic-slave-trade/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "met-interwoven-atlantic",
+          "title": "大都会艺术博物馆：跨洋纺织品贸易展",
+          "url": "https://www.metmuseum.org/exhibitions/listings/2013/interwoven-globe"
+        },
+        {
+          "id": "voyages-routes",
+          "title": "SlaveVoyages：Eltis 与 Lachance 的跨大西洋贩运估算方法",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
+        },
+        {
+          "id": "met-peru-mantle",
+          "title": "大都会艺术博物馆：秘鲁女式婚披",
+          "url": "https://www.metmuseum.org/art/collection/search/214310"
         }
       ],
       "sections": [
@@ -182,19 +197,25 @@
         },
         {
           "title": "消费与全球生产",
-          "text": "织物、瓷器、香料、糖等商品进入不同阶层的生活，纹样和工艺在订单与仿制中跨地区变化。精美物品表明创造性交流，也依赖原料、劳动力与运输。欧洲消费者的居室可能连接亚洲作坊、美洲种植园和非洲人口的强制迁徙，这些联系不能只按商品的美感与利润来叙述。",
+          "text": "大都会艺术博物馆的贸易展显示，西非市场曾购买条纹或格纹的印度棉布。棉布也被跨洋贩运商用来交换遭到奴役的人。到十八世纪中叶，一些欧洲工场开始生产供贩运商使用的仿制布。沿着棉布追查商路，可以看到亚洲织工、西非市场和欧洲制造者在一项贸易中的不同位置。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "met-interwoven-atlantic",
+              "locator": "展览中的西班牙贸易和跨大西洋奴役部分",
+              "note": "印度棉布进入西非交易，欧洲工场仿制供跨大西洋贩运使用的棉布"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "殖民与奴役",
-          "text": "跨大西洋奴隶贸易为美洲殖民生产输送被强行剥夺自由的人，欧洲国家、公司和商人从中获益。贸易常被画成三角形，实际航线和中介远比图示复杂。更重要的是，图上的商品箭头与人口箭头具有不同伦理和社会性质，不能把被奴役者描述成与糖或金属一样的普通货物。",
+          "text": "一些从巴伊亚出发的商船直接驶向黄金海岸和贝宁湾，用巴西烟草购买被奴役者，再把他们运往巴西。殖民政府发出的直接贸易许可和荷兰商人的记录都留下线索。SlaveVoyages 的研究把这些航次和从安哥拉开出的航次分开处理，也明确列出档案缺口。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "voyages-routes",
+              "locator": "第 12—16、18—19 页，巴西诸港流向及档案缺口",
+              "note": "以安哥拉、贝宁湾、巴伊亚和巴西东南部为例，区分分区、航次记录和历史估算"
+            }
           ],
           "id": "section-03"
         },
@@ -209,10 +230,13 @@
         },
         {
           "title": "物品与档案的对读",
-          "text": "艺术展览展示材料和设计如何变化，公司记录则常以利润和运输为中心，两类证据都各有盲点。寻找工匠、船员和被奴役者的经历，能够补足精英消费与贸易账簿遗漏的生命。一个器物的制作、销售和后来的收藏可以具有不同路线，读者需要避免把今天的收藏地点当作它最初的社会归属。",
+          "text": "大都会艺术博物馆编号 08.108.10 的秘鲁婚披编织于十六世纪末至十七世纪初，经线是棉，纬线取自驼科动物毛。馆方的 1908 年入藏记录和器物的制作年代相隔约三个世纪。如果要追查制作者和流传经过，还要寻找工坊、委托人或收藏转手的记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "met-peru-mantle",
+              "locator": "藏品 08.108.10，时间、产地、材料与入藏信息",
+              "note": "馆藏秘鲁婚披的编目区分制作地、棉经与驼科动物毛纬、入藏日期"
+            }
           ],
           "id": "section-05"
         }
@@ -270,6 +294,31 @@
           "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/french-revolution/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "fr-an-early-suffrage",
+          "title": "法国国民议会：第二共和国与选举权沿革",
+          "url": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/juniors/histoire/1848-1852-la-iie-republique"
+        },
+        {
+          "id": "fr-an-1794-abolition",
+          "title": "法国国民议会：1794 年首次废奴",
+          "url": "https://www2.assemblee-nationale.fr/15/evenements/2021/abolition-de-l-esclavage-1794-et-1848/1794-la-premiere-abolition"
+        },
+        {
+          "id": "fr-an-1802-slavery",
+          "title": "法国国民议会：1802 至 1804 年逐步恢复奴隶制",
+          "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/consulat-et-premier-empire/retablissement-progressif-de-l-esclavage"
+        },
+        {
+          "id": "us-nara-declaration-1776",
+          "title": "美国国家档案馆：1776 年《独立宣言》",
+          "url": "https://www.archives.gov/milestone-documents/declaration-of-independence"
+        },
+        {
+          "id": "haiti-adm-declaration",
+          "title": "《海地独立宣言》同时代英译，英国国家档案馆 ADM 1/254",
+          "url": "https://api.nuvel.nu/uploads/independance_ayiti_en_72c6dd8709.pdf"
         }
       ],
       "sections": [
@@ -293,19 +342,50 @@
         },
         {
           "title": "资格的争夺",
-          "text": "妇女、贫民和殖民地被奴役者的权利并未因普遍语言立即获得平等保障。谁是公民、谁能投票、殖民地是否适用相同原则，成为持续斗争的议题。革命后来经历战争与政治暴力，不能只用自由或恐怖任一个词概括全部过程，不同阶段的制度和行动者需要分别理解。",
+          "text": "1789 年法国《人权与公民权宣言》提出法律面前平等和公民参与立法。随后的选举制度仍以纳税等条件区分选民资格。殖民地的法律也另有进程：圣多明各被奴役者起义后，当地先宣布解放，国民公会于 1794 年颁令废奴。1802 年起法国又在部分殖民地维持或恢复奴役。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-01",
+              "locator": "第 1、3、6 条，平等、民族主权、参与立法",
+              "note": "宣言提出平等原则和公民参与立法。"
+            },
+            {
+              "sourceId": "fr-an-early-suffrage",
+              "locator": "法国大革命后的纳税和选举资格段",
+              "note": "大革命初年选举资格与纳税条件相联。"
+            },
+            {
+              "sourceId": "fr-an-1794-abolition",
+              "locator": "圣多明各起义及 1793、1794 年废奴时序段",
+              "note": "起义、殖民地宣布解放和国民公会废奴是不同节点。"
+            },
+            {
+              "sourceId": "fr-an-1802-slavery",
+              "locator": "1802 年 5 月 20 日法与圣多明各结局段",
+              "note": "法国在一些殖民地依法维持或随后重新实施奴役，圣多明各的征服行动失败，海地独立。"
+            }
           ],
           "id": "section-03"
         },
         {
           "title": "理解线索",
-          "text": "将法国革命与美国独立、海地革命放在一起，可以看见共同的权利语言如何产生不同政治要求。思想传播不是原样复制，地方的奴役制度、土地关系和国际战争会改变诉求。普遍原则与实际排斥之间的矛盾，也为后来的人提供继续批判和行动的依据，而非只是一项已经完成的成就。",
+          "text": "可把 1776 年美国《独立宣言》、1789 年法国《人权与公民权宣言》和 1804 年海地《独立宣言》并读。美国宣言宣布十三个殖民地脱离英国，法国宣言讨论权利和主权，海地宣言记录反殖民战争之后对法国统治的拒绝。比较这些文件时，需要再查各自的选举规则及废奴措施，才能知道哪些人实际享有权利。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "source-01",
+              "locator": "第 1、3、6 条，平等、民族主权、参与立法",
+              "note": "宣言提出平等原则和公民参与立法。"
+            },
+            {
+              "sourceId": "us-nara-declaration-1776",
+              "locator": "正文序言和结尾独立声明",
+              "note": "宣布平等原则与殖民地脱离英国。"
+            },
+            {
+              "sourceId": "haiti-adm-declaration",
+              "locator": "第 1 页，1804 年 1 月 1 日宣言",
+              "note": "德萨林及诸将宣布脱离法国并宣誓捍卫独立。"
+            }
           ],
           "id": "section-04"
         },
