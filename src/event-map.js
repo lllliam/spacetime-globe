@@ -534,6 +534,7 @@ function returnToWorld() {
   cancelGlobeFly();
   document.body.classList.remove('event-map-open','scene-observation');
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
+  syncTopChrome();
   el('event-map-place-chips').replaceChildren();
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();

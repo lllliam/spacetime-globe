@@ -391,6 +391,160 @@ async function main() {
     await tap('#vernier-events');
     assert.equal(await js(`document.querySelector('#overlay').hidden`), false);
     console.log('Timeline: fractional tracking, fixed height, snap, cancel, single-year keys, bounded momentum and explicit events');
+
+    await tap('#overlay-close');
+    await until(() => js(`document.querySelector('#overlay').hidden`), 'Overlay did not close');
+
+    // Four-state top & bottom safe-area regression in split standalone viewport (html=874px, visualViewport=812px)
+    await size(874);
+    await js(`
+      document.documentElement.style.setProperty('--safe-t', '62px');
+      document.documentElement.style.setProperty('--safe-b', '34px');
+      Object.defineProperty(visualViewport, 'height', { value: 812, configurable: true });
+      dispatchEvent(new Event('resize'));
+    `);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px'`),
+      'Standalone split viewport did not apply --app-height: 812px');
+
+    const safeSurface = () => js(`(() => {
+      const root = document.documentElement;
+      const rootStyle = getComputedStyle(root);
+      const afterStyle = getComputedStyle(root, '::after');
+      const book = document.querySelector('#book');
+      const bookBefore = getComputedStyle(book, '::before');
+      const panel = document.querySelector('#event-map-panel');
+      const sheet = document.querySelector('#sheet');
+      return {
+        mode: __t.session.mode,
+        rootBg: rootStyle.backgroundColor,
+        themeColor: document.querySelector('meta[name="theme-color"]').content,
+        appHeight: root.style.getPropertyValue('--app-height'),
+        usableSafeB: root.style.getPropertyValue('--usable-safe-b'),
+        htmlH: Math.round(root.getBoundingClientRect().height),
+        bodyBottom: Math.round(document.body.getBoundingClientRect().bottom),
+        bottomPaper: root.classList.contains('bottom-paper'),
+        bottomObserve: root.classList.contains('bottom-observe-panel'),
+        afterTop: Math.round(parseFloat(afterStyle.top)),
+        afterHeight: Math.round(parseFloat(afterStyle.height)),
+        afterWidth: Math.round(parseFloat(afterStyle.width)),
+        afterBg: afterStyle.backgroundColor,
+        bookBeforeHeight: bookBefore.height,
+        bookBeforeBg: bookBefore.backgroundColor,
+        bookBeforeImg: bookBefore.backgroundImage,
+        bookBottom: book.hidden ? null : Math.round(book.getBoundingClientRect().bottom),
+        sheetOpen: document.body.classList.contains('sheet-open'),
+        sheetTop: Math.round(sheet.getBoundingClientRect().top),
+        panelVisible: !panel.hidden,
+        panelBottom: panel.hidden ? null : Math.round(panel.getBoundingClientRect().bottom),
+        panelWidth: panel.hidden ? null : Math.round(panel.getBoundingClientRect().width),
+        hudTop: Math.round(document.querySelector('#hud').getBoundingClientRect().top),
+        vernierBottom: Math.round(document.querySelector('#vernier').getBoundingClientRect().bottom),
+        observeTopPad: getComputedStyle(document.querySelector('#event-map-top')).paddingTop,
+      };
+    })()`);
+
+    // 1. Explore: top cosmos + bottom cosmos (no light fill)
+    const exp = await safeSurface();
+    assert.equal(exp.rootBg, 'rgb(10, 16, 22)');
+    assert.equal(exp.themeColor, '#0a1016');
+    assert.equal(exp.htmlH, 874);
+    assert.equal(exp.bodyBottom, 812);
+    assert.equal(exp.usableSafeB, '34px');
+    assert.equal(exp.bottomPaper, false);
+    assert.equal(exp.bottomObserve, false);
+    assert.equal(exp.afterBg, 'rgba(0, 0, 0, 0)');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundImage`), 'none');
+    assert.ok(exp.hudTop >= 62 && exp.vernierBottom <= 812);
+
+    // 2. Sheet: top stays cosmos + bottom fills 812..874 with rice-paper (#f6f2e9)
+    await tap(await location(114, 34, { x: 251, y: 382 }));
+    await until(() => js(`document.body.classList.contains('sheet-open')`), 'Sheet did not open for China');
+    const sh = await safeSurface();
+    assert.equal(sh.rootBg, 'rgb(10, 16, 22)');
+    assert.equal(sh.themeColor, '#0a1016');
+    assert.equal(sh.bottomPaper, true);
+    assert.equal(sh.bottomObserve, false);
+    assert.equal(sh.afterTop, 812);
+    assert.equal(sh.afterHeight, 62);
+    assert.equal(sh.afterBg, 'rgb(246, 242, 233)');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundSize`), '100% 200%');
+    assert.ok(sh.sheetTop >= 500, 'Peek sheet must leave top cosmos undisturbed');
+
+    // Also verify short standalone viewport (html=812, screenHeight=874, usable-safe-b=0px):
+    // top remains #0a1016 while html background-image supplies 50%..100% (#f6f2e9 below 812px).
+    await js(`delete visualViewport.height`);
+    await size(812);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '0px'`),
+      'Short standalone sheet viewport must reserve 0px bottom inset');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(10, 16, 22)');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundSize`), '100% 200%');
+    assert.equal(await js(`document.querySelector('meta[name="theme-color"]').content`), '#0a1016');
+    await size(874);
+    await js(`Object.defineProperty(visualViewport, 'height', { value: 812, configurable: true });
+      dispatchEvent(new Event('resize'));`);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px'`),
+      'Split standalone viewport did not restore --app-height: 812px');
+
+    // 3. Read: top solid #0a1016 safe-t + bottom fills 812..874 with rice-paper (#f6f2e9)
+    await tap('#sheet-toc');
+    await fillsViewport();
+    const rd = await safeSurface();
+    assert.equal(rd.rootBg, 'rgb(10, 16, 22)');
+    assert.equal(rd.themeColor, '#0a1016');
+    assert.equal(rd.bookBeforeHeight, '62px');
+    assert.equal(rd.bookBeforeBg, 'rgb(10, 16, 22)');
+    assert.equal(rd.bookBeforeImg, 'none');
+    assert.equal(rd.bookBottom, 812);
+    assert.equal(rd.bottomPaper, true);
+    assert.equal(rd.bottomObserve, false);
+    assert.equal(rd.afterTop, 812);
+    assert.equal(rd.afterHeight, 62);
+    assert.equal(rd.afterBg, 'rgb(246, 242, 233)');
+
+    // Return to Explore cleanly (verify zero residual classes/colors)
+    await tap('#reading-exit');
+    await assertPreview();
+    await swipe('#grab', 90);
+    await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Sheet did not dismiss');
+    const backExp = await safeSurface();
+    assert.equal(backExp.bottomPaper, false);
+    assert.equal(backExp.afterBg, 'rgba(0, 0, 0, 0)');
+
+    // 4. Observe: top cosmos + bottom matches #event-map-panel (#f6f2e9) seamlessly down to 874px
+    await goToYear(1453);
+    await tap('#vernier-events');
+    await until(() => js(`!document.querySelector('#overlay').hidden`), 'Year overlay did not open');
+    const ov = await safeSurface();
+    assert.equal(ov.rootBg, 'rgb(10, 16, 22)');
+    assert.equal(ov.bottomPaper, true);
+    assert.equal(ov.afterBg, 'rgb(246, 242, 233)');
+    await tap('[data-event]');
+    await until(() => js(`__t.session.mode === 'Observe' && !document.querySelector('#event-map-panel').hidden`),
+      'Observe panel did not open');
+    const obs = await safeSurface();
+    assert.equal(obs.rootBg, 'rgb(10, 16, 22)');
+    assert.equal(obs.themeColor, '#0a1016');
+    assert.equal(obs.bottomPaper, false);
+    assert.equal(obs.bottomObserve, true);
+    assert.equal(obs.panelVisible, true);
+    assert.equal(obs.panelBottom, 812);
+    assert.equal(obs.afterTop, 812);
+    assert.equal(obs.afterHeight, 62);
+    assert.equal(obs.afterWidth, obs.panelWidth);
+    assert.equal(obs.afterBg, 'rgb(246, 242, 233)');
+    assert.ok(parseFloat(obs.observeTopPad) >= 62);
+
+    await tap('#event-map-return');
+    await until(() => js(`__t.session.mode === 'Explore'`), 'Did not return from Observe');
+    await tap('#overlay-close');
+    await until(() => js(`document.querySelector('#overlay').hidden`), 'Overlay did not close after Observe');
+    const finalExp = await safeSurface();
+    assert.equal(finalExp.bottomPaper, false);
+    assert.equal(finalExp.bottomObserve, false);
+    assert.equal(finalExp.afterBg, 'rgba(0, 0, 0, 0)');
+
+    await js(`delete visualViewport.height; dispatchEvent(new Event('resize'));`);
+    console.log('Four-state top & bottom safe-area surfaces: Explore, Sheet, Read, Observe verified');
   } finally {
     ws?.close();
     proc.kill();

@@ -21,9 +21,9 @@
 
 ### 首轮实际使用修复 · 2026-11-25
 
-- **iOS 全屏沉浸与顶部状态栏修复**：在页面头部补充 `apple-mobile-web-app-status-bar-style="black-translucent"` 并统一顶部颜色管理 `syncTopChrome()`，补齐横屏左右安全区避让并修正 `max-height:500px` 下 `#hud` 遗漏 `var(--safe-t)` 的问题。移除导致底部摘要抽屉（Sheet）与阅读模式在 iOS 主屏幕 standalone 下出现顶部灰白/浅棕磨砂层的 `sheet-paper` 类及 `theme-color` 切换至 `#f6f2e9` 的行为，确保 Explore、Observe 与 Sheet 的顶部状态栏及根背景始终保持纯净深空 `#0a1016`；Read（`#book`）与「这一年」（`#overlay`）的顶部 `var(--safe-t)` 安全区采用无渐变、无毛玻璃的纯净深色 `#0a1016` 承载白色系统图标，米纸导航栏从安全区下方开始。Safari 普通网页在顶部安全区为 `0px` 时仍通过 `theme-color` 与阅读纸面协调。已安装的旧版 iOS 主屏幕 PWA 需删除旧图标并重新添加到主屏幕以生效新的状态栏元配置。
+- **iOS 全屏沉浸与上下安全区独立管理**：在页面头部启用 `apple-mobile-web-app-status-bar-style="black-translucent"` 并统一由 `syncTopChrome()` 管理顶部与底部背景状态。保持 `html` 根背景色与独立应用 `theme-color` 固定为深空 `#0a1016`，确保 Explore、Sheet、Observe 与 Read 顶部状态栏均不出现灰白渐变或磨砂层（Read 与「这一年」在 `var(--safe-t)` 顶部安全区使用纯净深色 `#0a1016` 衬托白色系统图标，米纸导航栏从安全区下方开始）。同时针对 iOS standalone 下 `body` 被 `--app-height` 截断或 `100%` 低于物理屏高导致底部安全区露出黑边的问题，在 `src/app.css` 通过 `html::after`（覆盖 `inset: var(--app-height) 0 0`）与 `html.bottom-paper` / `html.bottom-observe-panel` 延伸底色独立管理底部边缘：Explore 上下保持深空色；Sheet、Read 与「这一年」底部米纸色 `#f6f2e9` 延伸至屏幕物理底缘；Observe 在打开底部解释面板时沿 `min(100vw, 660px)` 面板列向下延伸米纸底色、收起时上下保持深空色，内容与控件仍严格避让 `--usable-safe-b`。Safari 普通网页在顶部安全区为 `0px` 时仍通过 `theme-color` 与阅读纸面协调。已安装的旧版 iOS 主屏幕 PWA 需删除旧图标并重新添加到主屏幕以生效新的状态栏元配置。
 - **历史地图主体标签语义治理**：在 `tools/polity-names.mjs`、`build.mjs`、`src/app.js` 与 `src/subject-reader.js` 中严格区分 Cliopatria 原始记录、规范主体中文名与双边/联合关系记录（同盟、共主邦联、效忠、臣属共 50 条）。保留 `data/polity.bin` 原始记录、稳定 ID、年代与几何，但不再将关系描述生成到地图主标签，并使关系复合多边形不参与地图图层绘制、标签避让、拾取与重叠主体列举，解决 1500 年明朝区域显示「朝鲜王朝向明朝效忠」及同类跨年代复合标签遮挡问题；1500 年中国区域正确显示「明朝」，朝鲜半岛在相应缩放下显示「朝鲜王朝」。
-- **验证**：已通过内容校验、在线与离线构建、WebGL 与 Canvas2D 全量 UI 回归、首页/移动端/阅读/观察/冒烟/真实产品路径测试，以及跨版本 PWA 缓存更新与旧阅读进度恢复验证；iPhone 真机体验与主屏幕实测仍待产品负责人确认。
+- **验证**：已通过内容校验、在线与离线构建、WebGL 与 Canvas2D 全量 UI 回归、四状态上下安全区覆盖与颜色回归，以及首页/移动端/阅读/观察/冒烟/真实产品路径测试和跨版本 PWA 缓存更新与旧阅读进度恢复验证；iPhone 真机体验与主屏幕实测仍待产品负责人确认。
 
 ### 待验收
 

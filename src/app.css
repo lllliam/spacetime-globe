@@ -12,6 +12,11 @@ html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
 @supports(height:100dvh){:root{--app-height:100dvh}}
 html{background:var(--page-bg)}
+html::after{content:"";position:fixed;inset:var(--app-height) 0 0;box-sizing:border-box;pointer-events:none;z-index:0}
+html.bottom-paper{background-image:linear-gradient(180deg,var(--page-bg) 0,var(--page-bg) 50%,var(--paper-bg) 50%,var(--paper-bg) 100%);background-size:100% 200%;background-position:0 0;background-repeat:no-repeat}
+html.bottom-paper::after{background:var(--paper-bg)}
+html.bottom-observe-panel{background-image:linear-gradient(180deg,var(--page-bg) 0,var(--page-bg) 50%,var(--paper-bg) 50%,var(--paper-bg) 100%);background-size:min(100vw,660px) 200%;background-position:50% 0;background-repeat:no-repeat}
+html.bottom-observe-panel::after{margin:0 auto;width:min(100vw,660px);background:var(--paper-bg);border-inline:1px solid var(--paper-border)}
 body{position:fixed;inset:0 0 auto;height:var(--app-height);
   background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
 html.reader-paper{color-scheme:light}

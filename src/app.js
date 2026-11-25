@@ -61,6 +61,14 @@ function syncTopChrome() {
   // Only in normal Safari with zero top inset (browser chrome outside viewport) tint Safari's bar to match paper.
   const theme = !standaloneGlobe && safeTop === 0 && paperScreen ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
+
+  // Keep bottom extension outside body's --app-height clip independent from html's top #0a1016 background.
+  const rootClasses = document.documentElement.classList;
+  const sheetOpen = document.body.classList.contains('sheet-open');
+  const observePanelOpen = !reading.active && session.mode === 'Observe' && !eventMapPanel.hidden;
+  const bottomPaper = !observePanelOpen && (reading.active || !overlay.hidden || sheetOpen);
+  rootClasses.toggle('bottom-paper', bottomPaper);
+  rootClasses.toggle('bottom-observe-panel', observePanelOpen);
 }
 const buildAssets = JSON.parse(inlineText('build-assets'));
 const assetURL = path => buildAssets.runtime?.[path]?.url || path;
@@ -1958,6 +1966,7 @@ function applySheetOffset(offset, animate = true) {
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
   document.body.classList.toggle('sheet-open', show);
+  syncTopChrome();
   if (typeof updateVernier === 'function') updateVernier();
 }
 
