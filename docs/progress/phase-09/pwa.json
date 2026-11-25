@@ -1,0 +1,16 @@
+{
+  "firstRevision": "8270969d17fceb22",
+  "nextRevision": "dfdb5dbe825ba82b",
+  "optionalFailures": 2,
+  "findings": [
+    "Prototype cfac746 reproduced incomplete map precache and unscoped activation deletion. Its real UI wrote globe.display.v4.",
+    "Legacy → RC retained actual display preferences and old cache, isolated sibling caches, and prepared all core resources even with HD texture failures.",
+    "Core eviction changed the status, and retry restored completeness. Offline reload used the full RC snapshot.",
+    "HTTP 503, a disconnected resource request, and the wrong world-data integrity rejected the update. The active RC snapshot still loaded.",
+    "An overridden real browser quota rejected a partial install and kept the last usable cache.",
+    "Closing the browser during an incomplete installation left the old version available on a disconnected restart.",
+    "The waiting build could not take over while an older tab was open. Activation retired only the previous activated cache in this scope.",
+    "Closed and restarted Edge with network disabled and the origin unavailable. The PWA restored its full map and legacy display preferences.",
+    "The cached app opened Ming and the Canal observation and recovered its reading chapter on a second disconnected load."
+  ]
+}

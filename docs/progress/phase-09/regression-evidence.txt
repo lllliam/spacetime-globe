@@ -1,0 +1,46 @@
+[webgl]
+  ok   全部书卷均可断网逐章阅读、显示来源与章节地图入口  {"count":243,"bad":[],"expected":243,"books":57}
+  ok   全部117篇可断网逐篇导航、显示来源并返回目录  {"count":117,"bad":[],"topics":28}
+PASSED · 122/122
+
+[canvas]
+  ok   全部书卷均可断网逐章阅读、显示来源与章节地图入口  {"count":243,"bad":[],"expected":243,"books":57}
+  ok   全部117篇可断网逐篇导航、显示来源并返回目录  {"count":117,"bad":[],"topics":28}
+PASSED · 122/122
+
+[repeat-readers]
+Viewport 320×568 DPR 2: globe, safe area, controls and year picker passed.
+Viewport 393×844 DPR 2: globe, safe area, controls and year picker passed.
+Viewport 430×932 DPR 3: globe, safe area, controls and year picker passed.
+Viewport 844×390 DPR 2: globe, safe area, controls and year picker passed.
+Viewport 1366×768 DPR 1: globe, safe area, controls and year picker passed.
+Viewport 1920×1080 DPR 1: globe, safe area, controls and year picker passed.
+Year formats, calendar limits, actual map years, event categories and return context passed.
+Historical picking, explicit reading/resume, camera reset, modern reference and saved preferences passed.
+320×568 DPR 2: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+393×844 DPR 2: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+430×932 DPR 3: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+844×390 DPR 2: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+1366×768 DPR 1: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+1920×1080 DPR 1: fullscreen, safe area, column, selectable text, 44px navigation and paused globe passed.
+Ming across three years, real and 49-chapter directories, keyboard, resumable anchors, typography and restart passed.
+Citation target and annotation focus passed.
+Trusted browser copy event passed without writing to the system clipboard.
+Sources, clipboard, native pinch, repeat observation, inline places, sequential and cross-volume navigation passed.
+Legacy half-view migration, nested event/scene return, event-list return and map-only archive passed. Installed reader fonts: [ 'STSong', 'Consolas' ]
+Observation browser: six viewports, precise phases and return, sources, date line, asynchronous and unavailable maps, real global relation, event lists, topic observation and offline recovery passed.
+PASSED · 18/18
+
+[repeat-legacy]
+History browser: actual Phase 04 storage on same origin, stable positions after edit/reorder/delete, sources, scene placement and return, event defaults, six map entries and offline migration passed.
+Read ↔ Observe, phase and place selection, repeated and interrupted returns, cross-book navigation, Escape and reflow passed.
+Reload and real browser restart, latest reading position, desktop fullscreen isolation and event-list return passed.
+Invalid schema and IDs, blocked storage and stale asynchronous selection protection passed.
+Editorial browser: targeted source, map scope, book notice, revised scene anchor and offline footnotes passed.
+Phase 08: 5 real legacy chapter sessions, 31 retained paragraphs, 8 scene entrances and returns, 20 sequential chapters, and 4 text sizes at 320px passed.
+Phase 08: 5 real legacy chapter sessions, 31 retained paragraphs, 8 scene entrances and returns, 20 sequential chapters, and 4 text sizes at 320px passed.
+Phase 08: 5 real legacy chapter sessions, 31 retained paragraphs, 8 scene entrances and returns, 20 sequential chapters, and 4 text sizes at 320px passed.
+
+[repeat-resilience]
+Real HTML and CDP input: cold Explore → Ming → notes → Canal phases and camera → return → Aztec → resume, Qin −221, year event map and topic, and restart passed.
+Real WebGL loss/restore and Canvas2D, world retry, AX names, 50 returns, freeze/resume, raw polity fallback, disconnected file:// and late map data passed.

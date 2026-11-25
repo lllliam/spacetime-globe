@@ -1,0 +1,47 @@
+{
+  "renderer": "ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "webgl": [
+    35.29231241370746,
+    37.39601617952213,
+    39.176524811815874
+  ],
+  "canvas2d": [
+    30.520372348555647,
+    32.23330775135687,
+    31.71486823228256
+  ],
+  "start": {
+    "documents": 1,
+    "nodes": 918,
+    "jsEventListeners": 101
+  },
+  "roundTrip": [
+    {
+      "count": 25,
+      "ms": 1386.7000000001863
+    },
+    {
+      "count": 25,
+      "ms": 1411.2000000001863
+    }
+  ],
+  "mid": {
+    "documents": 1,
+    "nodes": 918,
+    "jsEventListeners": 101
+  },
+  "end": {
+    "documents": 1,
+    "nodes": 918,
+    "jsEventListeners": 101
+  },
+  "slowNetwork": {
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 2097152,
+    "years": [
+      1400,
+      1600
+    ],
+    "returned": 1600
+  }
+}

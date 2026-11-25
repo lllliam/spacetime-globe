@@ -48,7 +48,7 @@ async function main() {
     await page.send('Emulation.setTouchEmulationEnabled', {enabled:true, maxTouchPoints:2});
     let paused;
     page.events.set('Fetch.requestPaused', event => { paused = event.requestId; });
-    await page.send('Fetch.enable', { patterns:[{urlPattern:'*/data/polity.bin.gz'}] });
+    await page.send('Fetch.enable', { patterns:[{urlPattern:'*/data/polity.bin.gz*'}] });
     await page.send('Page.navigate', { url });
     await until(() => paused,'Cold start did not request the historical package');
     const loading = await info();

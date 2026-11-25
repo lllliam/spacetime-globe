@@ -15,6 +15,7 @@
 | `src/year-discovery.js` | 当年史事与长期背景分类、游标事件标记与列表中的观察和阅读入口 |
 | `src/reading.js`、`src/subject-reader.js` | 阅读会话、导航、手势、位置、目录与正文呈现、主体匹配 |
 | `src/event-map.js` | 观察阶段投影、当前地点与证据线型、年代分区、说明区与按来源返回 |
+| `src/offline-status.js`、`src/sw-template.js` | 视图设置中的离线准备状态，以及按站点路径和构建隔离的 Service Worker |
 
 `build.mjs` 合并三张样式表，在 `app.js` 的启动标记前拼接各模块。各脚本共享应用作用域，启动在地图、画布和分区准备后恢复已验证的会话。详见 [状态模型](STATE-MODEL.md)。
 
@@ -33,8 +34,9 @@
 ## 构建与部署
 
 - 内容校验与构建共用 `tools/history-model.mjs` 校验和编译书卷、专题、场景、事件、地图入口及审校记录。内容校验生成 [内容覆盖](CONTENT-COVERAGE.md)，构建生成 `data/topics.json` 及在线与离线 HTML。`tools/migrate-history-model.mjs` 可用 Phase 04 数据快照核对兼容迁移。
-- 在线页内嵌书卷与基础纹理，并从同源加载年表、历史疆域、地形等资源。离线页内嵌地图数据、高清资源和所需图标，移除清单链接。在线安全上下文注册 Service Worker。导航网络优先，其他同源 GET 缓存优先。
-- `.github/workflows/build-site.yml` 使用 Node.js 22 运行内容、构建和部分语法检查，必要时将生成物提交回 `main`。目前通过 GitHub Pages 提供在线与离线入口。浏览器测试须另行运行，发布见 [版本规范](VERSIONING.md)。
+- 在线页内嵌书卷和基础地表。构建把地图资源内容标识与 SHA-256 完整性写进页面和生成的 `sw.js`。核心缓存包含 HTML、清单与图标、世界数据、压缩及未压缩疆域和浮雕。高清地表与 4K 地形按需缓存。单文件内嵌原始疆域二进制和所需图标及图像，浏览器无需 `DecompressionStream` 即可读取。
+- 安全上下文中的 Service Worker 先验证并缓存所有核心资源，再完成安装。等待中的新版在旧受控窗口关闭后激活，导航使用活动版本的 HTML。回收限于本路径由旧候选激活过的缓存。旧原型缓存保留其原名，其他应用缓存保留。核心文件被清理后，联网可由视图设置重试准备。
+- `.github/workflows/build-site.yml` 只在 `main` 执行只读构建核对，使用 Node.js 22 检查已提交的候选产物是否可复现。GitHub Pages 从授权合并后的 `main` 根目录提供网页。浏览器回归与发布顺序见 [最终验收](ACCEPTANCE.md) 和 [发布清单](RELEASE-CHECKLIST.md)。
 - `tools/build-data.js` 用上游 Atlas HTML 重建世界数据和疆域二进制。高程与图标各有资产生成工具。日常站点构建使用已入库的地图数据、贴图和图标。
 
 [原型架构快照](archive/design/ARCHITECTURE-PROTOTYPE.md)

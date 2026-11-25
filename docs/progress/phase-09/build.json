@@ -1,0 +1,34 @@
+{
+  "sourceCommit": "ee264892d1c9e00a569c661fc5812e7f05330e2e",
+  "node": "22.23.5",
+  "platform": "Windows 10 19045",
+  "cleanBuild": true,
+  "noGeneratedDiff": true,
+  "artifacts": [
+    {
+      "path": "index.html",
+      "size": 3275723,
+      "sha256": "c5b68d09dd6ca0049774866b037837571353d0755f2a9a66a937a88234594f4a"
+    },
+    {
+      "path": "index.offline.html",
+      "size": 14123424,
+      "sha256": "6e1bbd1dcd60f68ef05fd97dd3a6b565512a8d37659191b4820d901ce9e89f1e"
+    },
+    {
+      "path": "sw.js",
+      "size": 6605,
+      "sha256": "4e7dec7f1235cd7180e883eab2bd8ccf5f915883ce3d91ee6316d7103948d505"
+    },
+    {
+      "path": "data/topics.json",
+      "size": 523723,
+      "sha256": "4f9b07944d190705272ba1933534170468457ce8b1b0c140661908c3c6b2b07b"
+    },
+    {
+      "path": "docs/CONTENT-COVERAGE.md",
+      "size": 7756,
+      "sha256": "e2382ac9e19b02af317a1e3f5fbc6e8700b443a17ca33bcaac8293d56758cd20"
+    }
+  ]
+}

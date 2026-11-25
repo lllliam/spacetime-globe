@@ -17,7 +17,7 @@
 | 主体点选与地图档案 | `app.js` 基于当前几何拾取主体并显示摘要，`subject-reader.js` 使用实体 ID 或带年代的现代 ISO 找书。无匹配书卷仍可查看地图资料及来源 |
 | 阅读 | `reading.js` 与 `subject-reader.js` 支持书目、卷目录、章节、前后章、引文、延伸阅读及当前页面会话内的进度。移动端有摘要、半窗和全窗，桌面宽屏可呈现书球同屏 |
 | 观察 | `event-map.js` 提供世界事件地图和从正文主动打开的场景，有地点角色、路线、多阶段、前后场景和返回。观察可阻止探索控件干扰，返回依靠内存镜头、滚动及焦点快照。桌面同屏还有随书卷、章节和滚动自动更新的地图 |
-| 数据工具和发布 | `verify-content.mjs`、`subject-books.mjs`、`historical-scenes.mjs`、`polity-names.mjs` 校验和载入内容。`build-data.js`、`build-terrain.py`、`build-icons.ps1` 负责资产再生成。`fetch-stories.js`、`enrich-pilot.js` 是素材工具。`serve.mjs` 与 harness 提供本地验证服务，`shots.js`、`_text.js` 和 UI 脚本可生成截图。日常线上构建使用 GitHub Actions，`deploy-gh.mjs` 另保留旧 API 部署脚本 |
+| 数据工具和发布 | `verify-content.mjs`、`subject-books.mjs`、`historical-scenes.mjs`、`polity-names.mjs` 校验和载入内容。`build-data.js`、`build-terrain.py`、`build-icons.ps1` 负责资产再生成。`fetch-stories.js`、`enrich-pilot.js` 是素材工具。原型通过 GitHub Actions 构建，并保留了 [旧 API 部署脚本档案](archive/deploy-gh-prototype.mjs.txt)。现行合并和回退见 [正式发布清单](RELEASE-CHECKLIST.md) |
 
 ## 内容与数据规模
 

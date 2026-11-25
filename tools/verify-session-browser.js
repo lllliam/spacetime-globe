@@ -233,7 +233,7 @@ async function main() {
     });
     let request;
     page.events.set('Fetch.requestPaused', data => { request = data.requestId; });
-    await page.send('Fetch.enable', { patterns: [{ urlPattern:'*/data/polity.bin.gz' }] });
+    await page.send('Fetch.enable', { patterns: [{ urlPattern:'*/data/polity.bin.gz*' }] });
     await page.open(url);
     await until(() => request, 'Did not intercept the historical geometry load');
     await setYear(1900);

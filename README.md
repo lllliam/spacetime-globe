@@ -2,7 +2,7 @@
 
 一本可以通过时间和空间进入历史现场的世界历史书。
 
-[在线体验](https://lllliam.github.io/spacetime-globe/) · [下载单文件离线版](https://lllliam.github.io/spacetime-globe/index.offline.html)（保存 HTML 后用浏览器打开）
+[稳定原型在线体验](https://lllliam.github.io/spacetime-globe/) · [稳定原型离线版](https://lllliam.github.io/spacetime-globe/index.offline.html)
 
 <a id="操作"></a>
 
@@ -12,17 +12,17 @@
 - 从摘要进入历史书卷，用目录切换章节、查看段落出处。只有地图资料的主体可查看覆盖年代和来源。
 - 从正文打开历史场景，观察地点、路线和时间阶段，再返回原章继续阅读。
 
-| 探索地球 | 阅读书卷 |
-| --- | --- |
-| <img src="docs/archive/screenshots/v14.2.1-explore.png" alt="v14.2.1 原型首页的地球与时间轴" width="248"> | <img src="docs/archive/screenshots/v14.2.1-reading.png" alt="v14.2.1 原型移动端《明朝》正文" width="248"> |
+| 探索地球 | 阅读书卷 | 观察历史 |
+| --- | --- | --- |
+| <img src="docs/progress/phase-09/screenshots/01-explore.png" alt="1500 年地球和时间游标" width="330"> | <img src="docs/progress/phase-09/screenshots/02-read.png" alt="《明朝》全屏正文" width="330"> | <img src="docs/progress/phase-09/screenshots/03-observe.png" alt="1421 年大运河观察" width="330"> |
 
-以上为 v14.2.1 原型实拍。[历史截图档案](docs/archive/screenshots/README.md)
+以上为工程候选 `1.0.0-rc.1` 的 Edge 实拍。[候选验收报告](docs/progress/PHASE-09.md) · [原型实拍档案](docs/archive/screenshots/README.md)
 
 ## 开发状态
 
-页首线上链接指向 v14.2.1 原型。开发分支包含 57 卷、243 章、48 个历史现场及 28 组、117 篇补充专题。[开发版内容覆盖](docs/CONTENT-COVERAGE.md) · [来源核查](docs/SOURCE-AUDIT.md)
+页首链接是 v14.2.1 稳定线上原型。`develop/1.0` 提供 1.0 工程候选，包含 57 卷、243 章、48 个历史现场及 28 组、117 篇补充专题。候选版的人工体验、真机和全库内容验收另有清单。[候选分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0) · [最终验收](docs/ACCEPTANCE.md) · [内容覆盖](docs/CONTENT-COVERAGE.md)
 
-`develop/1.0` 的 Phase 08《明朝》已提交产品验收。全卷 20 章，从元末治河写到明清易代，包含按年份推荐的章节、八个历史现场与有出处的全球关联。可检出开发分支并启动本地服务，或下载开发分支的单文件离线版验收。[Phase 08 报告与实拍](docs/progress/PHASE-08.md) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
+Phase 08《明朝》已由产品负责人通过验收。全卷 20 章，从元末治河写到明清易代，并提供按年份推荐的章节、八个历史现场与全球关联。[《明朝》专项报告](docs/progress/PHASE-08.md)
 
 Phase 07 已暂存，等待后续继续审校，尚未通过完整阶段验收。截至内容检查点 `2d8233b`，已实质处置 387／5,576 项，尚有 106 项一级筛查候选待审。产品负责人已授权在存量审校暂存期间，按各自指令开展 Phase 08《明朝》标杆书卷建设，以及 Phase 09 产品与工程验收和部署准备。[Phase 07 暂存与恢复](docs/progress/PHASE-07.md#暂存与恢复) · [开发路线](docs/ROADMAP.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
 
@@ -34,7 +34,7 @@ Phase 07 已暂存，等待后续继续审校，尚未通过完整阶段验收�
 
 ## 开发与构建
 
-使用 Node.js 22 或更新版本。界面在 `src/`，编辑源文件在 `data/books/`、`data/topics/` 和 `data/scenes.json`。在线和离线 HTML 均由构建生成。
+使用 Node.js 22 或更新版本。源码在 `src/`，历史编辑源在 `data/books/`、`data/topics/` 和 `data/scenes.json`。在线、离线 HTML 和 `sw.js` 由构建生成。
 
 ```sh
 node tools/verify-content.mjs
@@ -43,6 +43,8 @@ node tools/serve.mjs
 ```
 
 打开本地服务地址体验在线构建，或直接打开 `index.offline.html`。浏览器回归使用 `npm run verify`、`npm run verify:mobile`、`npm run smoke`、`node tools/verify-home.js` 和 `node tools/verify-reading.js`，依赖 Chromium 或 Edge。给首页或阅读专项传入输出目录即可保存实拍。会话回归使用 `node tools/verify-session-state.mjs` 和 `node tools/verify-session-browser.js`。验证脚本和构建会写出生成文件，文档阶段在临时副本运行。
+
+在线页面在安全上下文的地球视图里显示离线准备状态。显示「离线核心资料已准备」后可以断网使用。单文件版可直接保存打开。浏览器进度保留在当前设备及来源。[候选专项与运行命令](docs/progress/PHASE-09.md) · [真机预览步骤](docs/progress/phase-09/device-checklist.md)
 
 历史模型专项使用 `node tools/verify-history-model.mjs`。同源旧会话迁移使用 `node tools/verify-history-browser.js <Phase-04 生成的 index.html> [实拍输出目录]`，基线和复核命令见 [Phase 05 报告](docs/progress/PHASE-05.md)。
 

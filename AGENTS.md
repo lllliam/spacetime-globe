@@ -10,6 +10,7 @@
 ## 源文件与验证
 
 - 功能源码在 `src/`，主体书卷在 `data/books/*.json`，补充专题在 `data/topics/*.json`，历史场景在 `data/scenes.json`。构建生成 `data/topics.json`、`index.html` 和 `index.offline.html`。内容校验生成 `docs/CONTENT-COVERAGE.md`。修改其输入，避免直接编辑生成物。
+- `build.mjs` 同时生成 `sw.js`。缓存与内容标识变更须跑完整准备、跨版本更新、损坏资源、失败恢复、多标签与同源缓存保全。[PWA 验收](docs/progress/PHASE-09.md#pwa-与离线)
 - 保持书卷、章节及场景 ID 稳定，依据编辑选择和真实来源组织正文；地图几何与书卷叙事采用各自的数据口径。维护细节见 [阅读与内容组织](docs/READING.md)。
 - 每轮完成后运行规定的验证。先执行 `node tools/verify-content.mjs` 和 `node build.mjs`，涉及交互时运行适用的 UI、移动端和 smoke 回归。仅允许文档或档案变更的阶段在临时副本中验证，保持生成物在工作区的原样。区分浏览器模拟、真机、结构检查和内容审校，如实记录失败、未执行项及原因。
 - 涉及地球首页或选年时，运行 `node tools/verify-home.js`，核对地图生效年、选择范围、史事统计和视口适配。阶段实拍保存在对应的 `docs/progress/phase-NN/`。
@@ -26,3 +27,4 @@
 - 阶段成果统一保存在 `develop/1.0`。每阶段通过验收后，审查 diff、运行构建和回归、更新 README 和 [阶段报告](docs/progress/)，建立本地 Git 提交。经授权暂存的审校批次也可提交检查点，阶段状态以报告为准。远程连接正常时推荐推送至 `origin/develop/1.0` 并核对远端 commit。推送失败时保留本地提交并如实记录。远端推送与独立克隆属于可选同步验证。保留他人改动，禁止强制推送及重写历史。
 - 提交仅纳入阶段工程成果、必要构建产物和证据。排除凭据、个人文件、浏览器配置、临时测试产物和无关修改。
 - `main` 保持稳定线上版本。包括完整历史内容验收在内的最终验收通过并获正式发布授权后，按 [版本规范](docs/VERSIONING.md) 合并和发布。等待 Pages 部署完成后核对在线与离线入口。[仓库](https://github.com/lllliam/spacetime-globe) · [网站](https://lllliam.github.io/spacetime-globe/)
+- Phase 09 工程候选使用 `1.0.0-rc.1`。仓库的构建工作流仅以只读权限核对 `main`。正式合并、部署核对及回退由 [发布操作清单](docs/RELEASE-CHECKLIST.md) 管理。

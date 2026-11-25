@@ -1,0 +1,413 @@
+{
+  "label": "1.0.0-rc.1",
+  "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "environment": "1366×768 DPR 1, Windows Chromium headless, GPU disabled, reduced motion, local HTTP, no network or CPU throttling. Warm repeat in the same browser/profile with HTTP cache, Service Worker bypassed.",
+  "cold": [
+    {
+      "boot": 3566,
+      "history": 3561.7999999998137,
+      "response": 29.40000000037253,
+      "htmlBytes": 3280218,
+      "renderer": "webgl",
+      "book": 88,
+      "chapter": 88.79999999981374,
+      "roundTrip": 102.09999999962747,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 8.5,
+          "bytes": 537053
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 8.599999999627471,
+          "bytes": 104738
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 15,
+          "bytes": 1086447
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 31.100000000558794,
+          "bytes": 1151578
+        }
+      ]
+    },
+    {
+      "boot": 3450.5,
+      "history": 3446.7000000001863,
+      "response": 115.59999999962747,
+      "htmlBytes": 3280218,
+      "renderer": "webgl",
+      "book": 91.09999999962747,
+      "chapter": 91.5,
+      "roundTrip": 83.40000000037253,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 2.300000000745058,
+          "bytes": 537053
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 1.099999999627471,
+          "bytes": 104738
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 4.8999999994412065,
+          "bytes": 1086447
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 8.900000000372529,
+          "bytes": 1151578
+        }
+      ]
+    },
+    {
+      "boot": 3648.9000000003725,
+      "history": 3644.9000000003725,
+      "response": 92.59999999962747,
+      "htmlBytes": 3280218,
+      "renderer": "webgl",
+      "book": 98.8999999994412,
+      "chapter": 87.29999999981374,
+      "roundTrip": 108.6000000005588,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 2.3999999994412065,
+          "bytes": 537053
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 1.2999999998137355,
+          "bytes": 104738
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 7,
+          "bytes": 1086447
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 15,
+          "bytes": 1151578
+        }
+      ]
+    },
+    {
+      "boot": 3384.699999999255,
+      "history": 3381,
+      "response": 88.3999999994412,
+      "htmlBytes": 3280218,
+      "renderer": "webgl",
+      "book": 85.09999999962747,
+      "chapter": 88.79999999981374,
+      "roundTrip": 76.59999999962747,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 2.3999999994412065,
+          "bytes": 537053
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 1.3999999994412065,
+          "bytes": 104738
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 11.200000000186265,
+          "bytes": 1086447
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 12.599999999627471,
+          "bytes": 1151578
+        }
+      ]
+    },
+    {
+      "boot": 3345.9000000003725,
+      "history": 3341.600000000559,
+      "response": 127,
+      "htmlBytes": 3280218,
+      "renderer": "webgl",
+      "book": 86.19999999925494,
+      "chapter": 87.80000000074506,
+      "roundTrip": 101.59999999962747,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 3,
+          "bytes": 537053
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 1.7999999998137355,
+          "bytes": 104738
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 11.599999999627471,
+          "bytes": 1151578
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 4.900000000372529,
+          "bytes": 1086447
+        }
+      ]
+    }
+  ],
+  "warm": [
+    {
+      "boot": 3153.100000000559,
+      "history": 3418.4000000003725,
+      "response": 15.800000000745058,
+      "htmlBytes": 0,
+      "renderer": "webgl",
+      "book": 113.1000000005588,
+      "chapter": 2.099999999627471,
+      "roundTrip": 72.79999999981374,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 1.099999999627471,
+          "bytes": 0
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 0.599999999627471,
+          "bytes": 0
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 15.5,
+          "bytes": 0
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 14.800000000745058,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "boot": 3116.100000000559,
+      "history": 3374.300000000745,
+      "response": 13.900000000372529,
+      "htmlBytes": 0,
+      "renderer": "webgl",
+      "book": 112.90000000037253,
+      "chapter": 2.2000000001862645,
+      "roundTrip": 78.79999999981374,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 1.1000000005587935,
+          "bytes": 0
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 0.599999999627471,
+          "bytes": 0
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 26.899999999441206,
+          "bytes": 0
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 27.09999999962747,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "boot": 3323.5,
+      "history": 3596,
+      "response": 14.900000000372529,
+      "htmlBytes": 0,
+      "renderer": "webgl",
+      "book": 124.3999999994412,
+      "chapter": 2.1000000005587935,
+      "roundTrip": 75,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 1.2000000001862645,
+          "bytes": 0
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 0.6000000005587935,
+          "bytes": 0
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 24.399999999441206,
+          "bytes": 0
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 24.59999999962747,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "boot": 3100.4000000003725,
+      "history": 3367.5,
+      "response": 14.900000000372529,
+      "htmlBytes": 0,
+      "renderer": "webgl",
+      "book": 118.70000000018626,
+      "chapter": 2.2000000001862645,
+      "roundTrip": 78.70000000018626,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 1.2999999998137355,
+          "bytes": 0
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 0.6000000005587935,
+          "bytes": 0
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 27.399999999441206,
+          "bytes": 0
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 28,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "boot": 3165.899999999441,
+      "history": 3420.5999999996275,
+      "response": 15,
+      "htmlBytes": 0,
+      "renderer": "webgl",
+      "book": 124.59999999962747,
+      "chapter": 2.099999999627471,
+      "roundTrip": 72.6000000005588,
+      "readerFramePending": false,
+      "polity": true,
+      "year": 1500,
+      "resources": [
+        {
+          "name": "/data/world.json",
+          "ms": 1.1000000005587935,
+          "bytes": 0
+        },
+        {
+          "name": "/data/relief.jpg",
+          "ms": 0.7000000001862645,
+          "bytes": 0
+        },
+        {
+          "name": "/data/polity.bin.gz",
+          "ms": 25.299999999813735,
+          "bytes": 0
+        },
+        {
+          "name": "/data/earth-detail.jpg",
+          "ms": 25.40000000037253,
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "cold": {
+      "boot": {
+        "median": 3450.5,
+        "slowest": 3648.9000000003725
+      },
+      "history": {
+        "median": 3446.7000000001863,
+        "slowest": 3644.9000000003725
+      },
+      "response": {
+        "median": 92.59999999962747,
+        "slowest": 127
+      },
+      "book": {
+        "median": 88,
+        "slowest": 98.8999999994412
+      },
+      "chapter": {
+        "median": 88.79999999981374,
+        "slowest": 91.5
+      },
+      "roundTrip": {
+        "median": 101.59999999962747,
+        "slowest": 108.6000000005588
+      }
+    },
+    "warm": {
+      "boot": {
+        "median": 3153.100000000559,
+        "slowest": 3323.5
+      },
+      "history": {
+        "median": 3418.4000000003725,
+        "slowest": 3596
+      },
+      "response": {
+        "median": 14.900000000372529,
+        "slowest": 15.800000000745058
+      },
+      "book": {
+        "median": 118.70000000018626,
+        "slowest": 124.59999999962747
+      },
+      "chapter": {
+        "median": 2.1000000005587935,
+        "slowest": 2.2000000001862645
+      },
+      "roundTrip": {
+        "median": 75,
+        "slowest": 78.79999999981374
+      }
+    }
+  }
+}
