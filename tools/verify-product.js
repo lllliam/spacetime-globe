@@ -34,7 +34,7 @@ async function main() {
   const key=async (name,code)=>{
     for(const type of ['rawKeyDown','keyUp'])await page.send('Input.dispatchKeyEvent',{type,key:name,code:name,windowsVirtualKeyCode:code});
   };
-  const boot=()=>until(()=>js('!document.querySelector("#boot") && document.querySelector("#year-num").textContent.length>0'),'Real app startup');
+  const boot=()=>until(()=>js('Boolean(document.querySelector("#year-num")?.textContent && !document.querySelector("#boot"))'),'Real app startup');
   const shot=async name=>{
     if(!output)return;
     await wait(150);

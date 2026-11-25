@@ -24,6 +24,7 @@ async function main() {
     return result.value;
   };
   const click=selector=>js('document.querySelector('+JSON.stringify(selector)+').click()');
+  const closeView=()=>page.send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
   const waitFor=(expression,label)=>until(()=>js(expression),label);
   const camera=()=>js('(({year,yaw,tilt,zoom,panX,panY})=>({year,yaw,tilt,zoom,panX,panY}))(__t.state)');
   const reopen=async()=>{await page.close();page=await connectBrowser(browser,browserState);await page.size(1366,768,false,1);};
@@ -139,7 +140,7 @@ async function main() {
     await page.open(online);
     await click('#hud-view');
     await click('[data-view=modern]');
-    await click('#view-shade');
+    await closeView();
     await js('__t.saveVisibleSession()');
     let delayed;
     page.events.set('Fetch.requestPaused',event=>{ delayed=event.requestId; });
@@ -147,7 +148,7 @@ async function main() {
     await page.open(online);
     await click('#hud-view');
     await click('[data-view=history]');
-    await click('#view-shade');
+    await closeView();
     await until(()=>delayed,'No actual map request was intercepted');
     await js('__t.setYear(1400);__t.setYear(1600)');
     assert.equal(await js('__t.polityLoaded'),false);

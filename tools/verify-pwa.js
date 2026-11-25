@@ -64,6 +64,11 @@ async function main() {
   const build=()=>js('JSON.parse(document.querySelector("#build-assets").textContent).revision');
   const ready=()=>pause('document.querySelector("#offline-status").textContent.includes("已准备")','Offline readiness missing');
   const click=selector=>js('document.querySelector('+JSON.stringify(selector)+').click()');
+  const closeView=async()=>{
+    await page.send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
+    await page.send('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
+    await pause('document.querySelector("#view-panel").hidden','View panel did not close');
+  };
   const update=()=>asyncJS(reg+'.then(r=>r.update()).then(()=>true)');
   const waiting=()=>pause(reg+'.then(r=>r?.waiting?.state==="installed")','Replacement worker not waiting');
   function candidateCache(id, present) {
@@ -131,7 +136,7 @@ async function main() {
     await pause('!document.querySelector("#offline-retry").hidden','Deleted core resource still reported as ready');
     await js('document.querySelector("#offline-retry").click()');
     await ready();
-    await js('document.querySelector("#view-shade").click()');
+    await closeView();
     report('Core eviction changed the status, and retry restored completeness. Offline reload used the full RC snapshot.');
 
     root=next;
@@ -199,7 +204,7 @@ async function main() {
       await page.size(w,h,true,2);
       await click('#hud-view');
       assert(await js('document.querySelector("#view-panel").getBoundingClientRect().bottom<=innerHeight'));
-      await click('#view-shade');
+      await closeView();
     }
     await page.size(393,844,true,2);
     await click('#hud-view');
@@ -208,7 +213,7 @@ async function main() {
       const {data}=await page.send('Page.captureScreenshot',{format:'png'});
       writeFileSync(join(output,'04-offline-ready.png'),Buffer.from(data,'base64'));
     }
-    await click('#view-shade');
+    await closeView();
     await page.size(1366,768,false,1);
     await pause('document.querySelector("#globe").getBoundingClientRect().height===768','Desktop viewport did not settle');
     const l=110*Math.PI/180-1.65,b=34*Math.PI/180,r=768*.34;
