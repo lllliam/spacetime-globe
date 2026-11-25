@@ -2,23 +2,50 @@
   "i-140": {
     "summary": "义和团危机升级，八国联军进入北京。",
     "paragraphs": [
-      "1900 年，义和团运动在华北扩展，北京使馆区遭到围困。包括英国、日本、俄国等国在内的联军从天津推进，8 月进入北京。战争也波及当地居民，联军占领后发生了掠夺。",
-      "1901 年，清政府与列强签订《辛丑条约》。赔款和驻军安排让这场危机的影响延续到战争结束以后。"
+      {
+        "id": "p-01",
+        "text": "1900 年，义和团运动在华北扩展，北京使馆区遭到围困。包括英国、日本、俄国等国在内的联军从天津推进，8 月进入北京。战争也波及当地居民，联军占领后发生了掠夺。"
+      },
+      {
+        "id": "p-02",
+        "text": "1901 年，清政府与列强签订《辛丑条约》。赔款和驻军安排让这场危机的影响延续到战争结束以后。"
+      }
     ],
     "sources": [
-      { "title": "英国国家陆军博物馆 · 义和团与联军行动", "url": "https://www.nam.ac.uk/explore/boxer-rebellion" },
-      { "title": "美国国务院历史办公室 · 门户开放与 1900 年危机", "url": "https://history.state.gov/milestones/1899-1913/hay-and-china" }
+      {
+        "title": "英国国家陆军博物馆 · 义和团与联军行动",
+        "url": "https://www.nam.ac.uk/explore/boxer-rebellion",
+        "id": "source-01"
+      },
+      {
+        "title": "美国国务院历史办公室 · 门户开放与 1900 年危机",
+        "url": "https://history.state.gov/milestones/1899-1913/hay-and-china",
+        "id": "source-02"
+      }
     ],
-    "related": { "topicId": "china-late-qing", "chapterId": "boxers" }
+    "related": {
+      "topicId": "china-late-qing",
+      "chapterId": "boxers"
+    }
   },
   "i-084": {
     "summary": "政治运动扩展到学校、机关和基层社会。",
     "paragraphs": [
-      "1966 年，毛泽东发动文化大革命。运动初期，红卫兵活动迅速扩散，学校停课，批斗和武斗不断发生，干部、知识分子和普通民众都受到冲击。",
-      "1976 年，江青等人被捕，运动结束。中共在 1981 年通过的历史决议中，回顾并否定了发动这场运动的理论与实践。"
+      {
+        "id": "p-01",
+        "text": "1966 年，毛泽东发动文化大革命。运动初期，红卫兵活动迅速扩散，学校停课，批斗和武斗不断发生，干部、知识分子和普通民众都受到冲击。"
+      },
+      {
+        "id": "p-02",
+        "text": "1976 年，江青等人被捕，运动结束。中共在 1981 年通过的历史决议中，回顾并否定了发动这场运动的理论与实践。"
+      }
     ],
     "sources": [
-      { "title": "1981 年《关于建国以来党的若干历史问题的决议》", "url": "https://yndx.gov.cn/html/210507/14467.html" }
+      {
+        "title": "1981 年《关于建国以来党的若干历史问题的决议》",
+        "url": "https://yndx.gov.cn/html/210507/14467.html",
+        "id": "source-01"
+      }
     ]
   },
   "i-085": {
@@ -26,37 +53,78 @@
     "end": 1978,
     "summary": "经济建设成为工作重心，改革从试点逐步展开。",
     "paragraphs": [
-      "1978 年 12 月，中共十一届三中全会决定把工作重心转向社会主义现代化建设。此后几年，农村生产经营制度逐步调整，部分沿海地区设立经济特区，试行引入外资、扩大对外贸易等政策。",
-      "改革是持续多年的过程。农村经营、工业企业和对外贸易的政策先后变化，各地推进的节奏也不同。1978 年标记的是这一阶段的起点。"
+      {
+        "id": "p-01",
+        "text": "1978 年 12 月，中共十一届三中全会决定把工作重心转向社会主义现代化建设。此后几年，农村生产经营制度逐步调整，部分沿海地区设立经济特区，试行引入外资、扩大对外贸易等政策。"
+      },
+      {
+        "id": "p-02",
+        "text": "改革是持续多年的过程。农村经营、工业企业和对外贸易的政策先后变化，各地推进的节奏也不同。1978 年标记的是这一阶段的起点。"
+      }
     ],
     "sources": [
-      { "title": "世界银行 · 回顾中国改革四十年", "url": "https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms" },
-      { "title": "1981 年历史决议 · 十一届三中全会后的转折", "url": "https://yndx.gov.cn/html/210507/14467.html" }
+      {
+        "title": "世界银行 · 回顾中国改革四十年",
+        "url": "https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms",
+        "id": "source-01"
+      },
+      {
+        "title": "1981 年历史决议 · 十一届三中全会后的转折",
+        "url": "https://yndx.gov.cn/html/210507/14467.html",
+        "id": "source-02"
+      }
     ]
   },
   "i-041": {
     "title": "清朝入关以后",
     "end": 1912,
     "paragraphs": [
-      "1644 年，清军入关并进入北京。这里从清朝以北京为都城讲起。到了晚清，外来战争和内部冲突改变了清朝的财政、军队和政治制度。1911 年革命爆发，次年清帝退位。"
+      {
+        "id": "p-01",
+        "text": "1644 年，清军入关并进入北京。这里从清朝以北京为都城讲起。到了晚清，外来战争和内部冲突改变了清朝的财政、军队和政治制度。1911 年革命爆发，次年清帝退位。"
+      }
     ],
     "sources": [
-      { "title": "故宫博物院 · 清廷迁都北京", "url": "https://www.dpm.org.cn/court/event/159873.html" },
-      { "title": "美国国务院历史办公室 · 1911 年中国革命", "url": "https://history.state.gov/milestones/1899-1913/chinese-rev" }
+      {
+        "title": "故宫博物院 · 清廷迁都北京",
+        "url": "https://www.dpm.org.cn/court/event/159873.html",
+        "id": "source-01"
+      },
+      {
+        "title": "美国国务院历史办公室 · 1911 年中国革命",
+        "url": "https://history.state.gov/milestones/1899-1913/chinese-rev",
+        "id": "source-02"
+      }
     ],
-    "related": { "topicId": "china-late-qing" }
+    "related": {
+      "topicId": "china-late-qing"
+    }
   },
   "i-042": {
     "title": "中华民国的大陆时期",
     "start": 1912,
     "context": true,
     "paragraphs": [
-      "1912 年，中华民国临时政府在南京成立。清帝退位后，新政府面对地方力量分立、对外战争等问题，中国大陆经历了多次政局变动。",
-      "1949 年，中华人民共和国成立，中华民国政府迁至台湾。这里的年代标记以中国大陆为观察范围。"
+      {
+        "id": "p-01",
+        "text": "1912 年，中华民国临时政府在南京成立。清帝退位后，新政府面对地方力量分立、对外战争等问题，中国大陆经历了多次政局变动。"
+      },
+      {
+        "id": "p-02",
+        "text": "1949 年，中华人民共和国成立，中华民国政府迁至台湾。这里的年代标记以中国大陆为观察范围。"
+      }
     ],
     "sources": [
-      { "title": "美国国务院历史办公室 · 1911 年中国革命", "url": "https://history.state.gov/milestones/1899-1913/chinese-rev" },
-      { "title": "美国国务院历史办公室 · 1949 年中国革命", "url": "https://history.state.gov/milestones/1945-1952/chinese-rev" }
+      {
+        "title": "美国国务院历史办公室 · 1911 年中国革命",
+        "url": "https://history.state.gov/milestones/1899-1913/chinese-rev",
+        "id": "source-01"
+      },
+      {
+        "title": "美国国务院历史办公室 · 1949 年中国革命",
+        "url": "https://history.state.gov/milestones/1945-1952/chinese-rev",
+        "id": "source-02"
+      }
     ]
   },
   "i-033": {
@@ -64,10 +132,17 @@
     "date": "1949 年起",
     "context": true,
     "paragraphs": [
-      "1949 年 10 月 1 日，中华人民共和国中央人民政府宣告成立。国家档案局收录了当日的成立公告、中央人民政府委员会会议记录和典礼程序。"
+      {
+        "id": "p-01",
+        "text": "1949 年 10 月 1 日，中华人民共和国中央人民政府宣告成立。国家档案局收录了当日的成立公告、中央人民政府委员会会议记录和典礼程序。"
+      }
     ],
     "sources": [
-      { "title": "国家档案局 · 从“五一口号”到开国大典档案文献专辑", "url": "https://www.saac.gov.cn/daj/gqzt/06.html" }
+      {
+        "title": "国家档案局 · 从“五一口号”到开国大典档案文献专辑",
+        "url": "https://www.saac.gov.cn/daj/gqzt/06.html",
+        "id": "source-01"
+      }
     ]
   }
 }

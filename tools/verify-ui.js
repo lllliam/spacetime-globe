@@ -709,7 +709,8 @@ async function main() {
     const refs=__t.reading.subject.chapters.find(chapter=>chapter.id==='two-capitals').sceneRefs;
     return !__t.worldEvent && refs.every(ref=>{
       const card=prose.querySelector('[data-subject-scene="'+ref.id+'"]');
-      return card && paragraphs.filter(p=>p.compareDocumentPosition(card)&Node.DOCUMENT_POSITION_FOLLOWING).length===ref.after;
+      return card && paragraphs.findLast(p=>p.compareDocumentPosition(card)&Node.DOCUMENT_POSITION_FOLLOWING)
+        ?.dataset.blockId===ref.afterBlockId;
     });
   })()`));
   await js(`document.querySelector('${jingnan}').scrollIntoView({block:'center'})`);

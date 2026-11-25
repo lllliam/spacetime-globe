@@ -188,7 +188,8 @@ async function main() {
     const expectedSource = await js(`(() => {
       const link=document.querySelector('${footnote}'), source=document.querySelector(link.hash);
       const chapter=__t.reading.subject.chapters.find(ch=>ch.id===__t.reading.detail);
-      return {url:__t.reading.subject.sources[chapter.paragraphs[0].refs[0]].url,
+      const ref=chapter.paragraphs[0].refs[0];
+      return {url:__t.reading.subject.sources.find(source=>source.id===(typeof ref==='string'?ref:ref.sourceId)).url,
         dom:source.href,name:source.textContent.replace(/\\s*↗\\s*$/,'')}; })()`);
     assert.equal(expectedSource.dom,expectedSource.url);
     const beforeNote = await anchor();

@@ -23,11 +23,13 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：阿契美尼德波斯帝国",
-        "url": "https://www.metmuseum.org/de/essays/the-achaemenid-persian-empire-550-330-b-c"
+        "url": "https://www.metmuseum.org/de/essays/the-achaemenid-persian-empire-550-330-b-c",
+        "id": "source-01"
       },
       {
         "title": "芝加哥大学古代文化研究所：波斯波利斯城防泥版",
-        "url": "https://isac.uchicago.edu/publications/persepolis-fortification-tablets"
+        "url": "https://isac.uchicago.edu/publications/persepolis-fortification-tablets",
+        "id": "source-02"
       }
     ]
   },
@@ -62,15 +64,18 @@
     "sources": [
       {
         "title": "墨西哥国立人类学与历史研究所：特诺奇蒂特兰大神庙遗址",
-        "url": "https://www.difusion.inah.gob.mx/images/guias/115_zona-arqueologica-templo-mayor.pdf"
+        "url": "https://www.difusion.inah.gob.mx/images/guias/115_zona-arqueologica-templo-mayor.pdf",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆：特诺奇蒂特兰",
-        "url": "https://www.metmuseum.org/essays/tenochtitlan"
+        "url": "https://www.metmuseum.org/essays/tenochtitlan",
+        "id": "source-02"
       },
       {
         "title": "墨西哥国立人类学与历史研究所：墨西哥的历史与多样性",
-        "url": "https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A843/datastream/OBJ/view"
+        "url": "https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A843/datastream/OBJ/view",
+        "id": "source-03"
       }
     ]
   },
@@ -98,11 +103,13 @@
     "sources": [
       {
         "title": "史密森尼国家美洲印第安人博物馆：道路的行政与礼仪功能",
-        "url": "https://americanindian.si.edu/inkaroad/engineering/activity/great-inka-road.html"
+        "url": "https://americanindian.si.edu/inkaroad/engineering/activity/great-inka-road.html",
+        "id": "source-01"
       },
       {
         "title": "史密森尼国家美洲印第安人博物馆：征服与道路",
-        "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html"
+        "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html",
+        "id": "source-02"
       }
     ]
   },
@@ -130,11 +137,13 @@
     "sources": [
       {
         "title": "联合国教科文组织：吴哥世界遗产",
-        "url": "https://whc.unesco.org/en/list/668/"
+        "url": "https://whc.unesco.org/en/list/668/",
+        "id": "source-01"
       },
       {
         "title": "柬埔寨世界遗产申报资料：贡开遗址与早期高棉都城",
-        "url": "https://whc.unesco.org/document/186494"
+        "url": "https://whc.unesco.org/document/186494",
+        "id": "source-02"
       }
     ]
   },
@@ -169,11 +178,13 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：西部与中部苏丹 1000—1400 年",
-        "url": "https://www.metmuseum.org/ru/toah/ht/07/afu.html"
+        "url": "https://www.metmuseum.org/ru/toah/ht/07/afu.html",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆：萨赫勒过去如何被看见",
-        "url": "https://www.metmuseum.org/it/perspectives/visualizing-a-sahelian-past"
+        "url": "https://www.metmuseum.org/it/perspectives/visualizing-a-sahelian-past",
+        "id": "source-02"
       }
     ]
   },
@@ -282,15 +293,18 @@
     "sources": [
       {
         "title": "哥伦比亚大学：带注释的中国历史年表",
-        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
+        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
+        "id": "source-01"
       },
       {
         "title": "《剑桥中国史》：明朝的军事起源",
-        "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/military-origins-of-ming-china/9FBC4D529871CF62DD44D8EEE74ED974"
+        "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/military-origins-of-ming-china/9FBC4D529871CF62DD44D8EEE74ED974",
+        "id": "source-02"
       },
       {
         "title": "戴维·鲁宾逊：在成吉思汗后裔的世界中崛起",
-        "url": "https://www.cambridge.org/core/books/ming-china-and-its-allies/march-to-power-in-a-chinggisid-world/66519489DE8F7EE6B3D798C3D5D48F0A"
+        "url": "https://www.cambridge.org/core/books/ming-china-and-its-allies/march-to-power-in-a-chinggisid-world/66519489DE8F7EE6B3D798C3D5D48F0A",
+        "id": "source-03"
       }
     ]
   },
@@ -383,19 +397,23 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：中国 1400—1600 年",
-        "url": "https://www.metmuseum.org/zh/toah/ht/08/eac"
+        "url": "https://www.metmuseum.org/zh/toah/ht/08/eac",
+        "id": "source-01"
       },
       {
         "title": "故宫博物院：永乐皇帝",
-        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html",
+        "id": "source-02"
       },
       {
         "title": "故宫博物院：靖难之役",
-        "url": "https://www.dpm.org.cn/lemmas/243017.html"
+        "url": "https://www.dpm.org.cn/lemmas/243017.html",
+        "id": "source-03"
       },
       {
         "title": "故宫博物院：靖难起家——朱棣",
-        "url": "https://www.dpm.org.cn/explode/others/208160.html"
+        "url": "https://www.dpm.org.cn/explode/others/208160.html",
+        "id": "source-04"
       }
     ]
   },
@@ -500,15 +518,18 @@
     "sources": [
       {
         "title": "故宫博物院：永乐皇帝",
-        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html",
+        "id": "source-01"
       },
       {
         "title": "故宫博物院：《燕王府与紫禁城》",
-        "url": "https://www.dpm.org.cn/court/talk/203529.html"
+        "url": "https://www.dpm.org.cn/court/talk/203529.html",
+        "id": "source-02"
       },
       {
         "title": "清江浦区地方志办公室：陈瑄",
-        "url": "https://www.haqjp.gov.cn/col/1063_236571/art/20190321143218_mg0DwgrU.html"
+        "url": "https://www.haqjp.gov.cn/col/1063_236571/art/20190321143218_mg0DwgrU.html",
+        "id": "source-03"
       }
     ],
     "from": 1411,
@@ -681,15 +702,18 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：永乐朝的宫廷艺术与对外交往",
-        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf"
+        "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf",
+        "id": "source-01"
       },
       {
         "title": "故宫博物院：永乐皇帝",
-        "url": "https://www.dpm.org.cn/court/lineage/226257.html"
+        "url": "https://www.dpm.org.cn/court/lineage/226257.html",
+        "id": "source-02"
       },
       {
         "title": "郑和远航的停止与私人航海的兴起",
-        "url": "https://doi.org/10.1017/S2059163222000457"
+        "url": "https://doi.org/10.1017/S2059163222000457",
+        "id": "source-03"
       }
     ]
   },
@@ -811,15 +835,18 @@
     "sources": [
       {
         "title": "戴维·鲁宾逊：十五世纪中叶危机中的将领与权威",
-        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2C5745C9E62DB3BDF49D250DC026D4FC/S2059163224000379a.pdf/ability_and_authority_in_the_context_of_crisis_and_conflict_the_midfifteenth_century.pdf"
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2C5745C9E62DB3BDF49D250DC026D4FC/S2059163224000379a.pdf/ability_and_authority_in_the_context_of_crisis_and_conflict_the_midfifteenth_century.pdf",
+        "id": "source-01"
       },
       {
         "title": "牛津亚洲史研究百科：十六世纪明朝的白银、海盗与消费",
-        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620"
+        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620",
+        "id": "source-02"
       },
       {
         "title": "故宫博物院：俺答汗",
-        "url": "https://www.dpm.org.cn/lemmas/243967.html"
+        "url": "https://www.dpm.org.cn/lemmas/243967.html",
+        "id": "source-03"
       }
     ],
     "distanceBetween": [
@@ -966,19 +993,23 @@
     "sources": [
       {
         "title": "嘉靖倭患与 1567 年海禁政策的改变",
-        "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf"
+        "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf",
+        "id": "source-01"
       },
       {
         "title": "牛津亚洲史研究百科：十六世纪明朝的白银、海盗与消费",
-        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620"
+        "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620",
+        "id": "source-02"
       },
       {
         "title": "《考古计量学》：结合史料与科学分析研究美洲白银流通",
-        "url": "https://doi.org/10.1111/arcm.12617"
+        "url": "https://doi.org/10.1111/arcm.12617",
+        "id": "source-03"
       },
       {
         "title": "汉学家 John W. Dardess：张居正与明代税制改革",
-        "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf"
+        "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf",
+        "id": "source-04"
       }
     ]
   },
@@ -1094,15 +1125,18 @@
     "sources": [
       {
         "title": "肯尼思·斯沃普：1592—1598 年东亚战争中的明朝战略",
-        "url": "https://www.cambridge.org/core/books/abs/east-asia-in-the-world/ming-grand-strategy-during-the-great-east-asian-war-15921598/AB038744ED15D6ADB4940F932E762743"
+        "url": "https://www.cambridge.org/core/books/abs/east-asia-in-the-world/ming-grand-strategy-during-the-great-east-asian-war-15921598/AB038744ED15D6ADB4940F932E762743",
+        "id": "source-01"
       },
       {
         "title": "《英国皇家历史学会会刊》：壬辰战争的影响",
-        "url": "https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/legacies-of-the-imjin-war-15921598-in-and-beyond-east-asia/7AE8D0DDCD54827E221A7E37F5AC5C3B"
+        "url": "https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/legacies-of-the-imjin-war-15921598-in-and-beyond-east-asia/7AE8D0DDCD54827E221A7E37F5AC5C3B",
+        "id": "source-02"
       },
       {
         "title": "韩国学中央研究院：壬辰战争",
-        "url": "https://encykorea.aks.ac.kr/Article/E0047674"
+        "url": "https://encykorea.aks.ac.kr/Article/E0047674",
+        "id": "source-03"
       }
     ]
   },
@@ -1222,15 +1256,18 @@
     "sources": [
       {
         "title": "故宫博物院：清廷迁都北京",
-        "url": "https://www.dpm.org.cn/court/event/159873.html"
+        "url": "https://www.dpm.org.cn/court/event/159873.html",
+        "id": "source-01"
       },
       {
         "title": "故宫博物院：李自成",
-        "url": "https://www.dpm.org.cn/lemmas/243081.html"
+        "url": "https://www.dpm.org.cn/lemmas/243081.html",
+        "id": "source-02"
       },
       {
         "title": "《现代亚洲研究》：中国、朝鲜与日本笔下的明清易代",
-        "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/transnational-historiography-of-a-dynastic-transition-writing-the-mingqing-transition-in-seventeenthcentury-china-korea-and-japan/9D660C38138C725154EA64427E018413"
+        "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/transnational-historiography-of-a-dynastic-transition-writing-the-mingqing-transition-in-seventeenthcentury-china-korea-and-japan/9D660C38138C725154EA64427E018413",
+        "id": "source-03"
       }
     ],
     "from": 1644,
@@ -1260,11 +1297,13 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：1600 年以前的莫卧儿艺术",
-        "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600"
+        "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600",
+        "id": "source-01"
       },
       {
         "title": "联合国教科文组织：法泰赫普尔西格里",
-        "url": "https://whc.unesco.org/en/list/255/"
+        "url": "https://whc.unesco.org/en/list/255/",
+        "id": "source-02"
       }
     ]
   },
@@ -1292,11 +1331,13 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：巴尔干半岛 1400—1600 年",
-        "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb"
+        "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb",
+        "id": "source-01"
       },
       {
         "title": "美国国会图书馆：奥斯曼土耳其研究参考",
-        "url": "https://guides.loc.gov/ottoman-turkish/reference"
+        "url": "https://guides.loc.gov/ottoman-turkish/reference",
+        "id": "source-02"
       }
     ]
   },
@@ -1331,11 +1372,13 @@
     "sources": [
       {
         "title": "大都会艺术博物馆：中国 500—1000 年",
-        "url": "https://www.metmuseum.org/de/toah/ht/06/eac.html"
+        "url": "https://www.metmuseum.org/de/toah/ht/06/eac.html",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学：中国带注释历史年表",
-        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm"
+        "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -1370,11 +1413,13 @@
     "sources": [
       {
         "title": "日本国立国会图书馆：开国",
-        "url": "https://www.ndl.go.jp/modern/cha1/description01.html"
+        "url": "https://www.ndl.go.jp/modern/cha1/description01.html",
+        "id": "source-01"
       },
       {
         "title": "日本国立公文书馆：幕末年表",
-        "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html"
+        "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html",
+        "id": "source-02"
       }
     ]
   },
@@ -1481,11 +1526,13 @@
     "sources": [
       {
         "title": "华盛顿大学《丝绸之路地理：中国段》",
-        "url": "https://depts.washington.edu/silkroad/geography/china/china.html"
+        "url": "https://depts.washington.edu/silkroad/geography/china/china.html",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《汉朝、六朝与唐朝中国》",
-        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+        "id": "source-02"
       }
     ]
   },
@@ -1571,11 +1618,13 @@
     "sources": [
       {
         "title": "大英百科全书《汉朝、六朝与唐朝中国》",
-        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -1677,11 +1726,13 @@
     "sources": [
       {
         "title": "大英百科全书《汉朝、六朝与唐朝中国》",
-        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+        "id": "source-01"
       },
       {
         "title": "华盛顿大学《丝绸之路地理：中国段》",
-        "url": "https://depts.washington.edu/silkroad/geography/china/china.html"
+        "url": "https://depts.washington.edu/silkroad/geography/china/china.html",
+        "id": "source-02"
       }
     ]
   },
@@ -1796,11 +1847,13 @@
     "sources": [
       {
         "title": "大英百科全书《汉朝、六朝与唐朝中国》",
-        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -1900,11 +1953,13 @@
     "sources": [
       {
         "title": "大英百科全书《宋朝历史、艺术与文化》",
-        "url": "https://www.britannica.com/topic/Song-dynasty"
+        "url": "https://www.britannica.com/topic/Song-dynasty",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
-        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2005,11 +2060,13 @@
     "sources": [
       {
         "title": "大英百科全书《宋朝历史、艺术与文化》",
-        "url": "https://www.britannica.com/topic/Song-dynasty"
+        "url": "https://www.britannica.com/topic/Song-dynasty",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
-        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2110,11 +2167,13 @@
     "sources": [
       {
         "title": "大英百科全书《宋朝历史、艺术与文化》",
-        "url": "https://www.britannica.com/topic/Song-dynasty"
+        "url": "https://www.britannica.com/topic/Song-dynasty",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学东亚课程《宋代社会、商业与理学》",
-        "url": "https://afe.easia.columbia.edu/songdynasty-module/confucian-neo.html"
+        "url": "https://afe.easia.columbia.edu/songdynasty-module/confucian-neo.html",
+        "id": "source-02"
       }
     ]
   },
@@ -2213,11 +2272,13 @@
     "sources": [
       {
         "title": "大英百科全书《元朝历史与制度》",
-        "url": "https://www.britannica.com/topic/Yuan-dynasty"
+        "url": "https://www.britannica.com/topic/Yuan-dynasty",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
-        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2318,11 +2379,13 @@
     "sources": [
       {
         "title": "大英百科全书《元朝历史与制度》",
-        "url": "https://www.britannica.com/topic/Yuan-dynasty"
+        "url": "https://www.britannica.com/topic/Yuan-dynasty",
+        "id": "source-01"
       },
       {
         "title": "哥伦比亚大学东亚课程《宋元中国（1000–1450）》",
-        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm"
+        "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2421,11 +2484,13 @@
     "sources": [
       {
         "title": "大英百科全书《清朝历史与版图》",
-        "url": "https://www.britannica.com/topic/Qing-dynasty"
+        "url": "https://www.britannica.com/topic/Qing-dynasty",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2526,11 +2591,13 @@
     "sources": [
       {
         "title": "大英百科全书《清朝历史与版图》",
-        "url": "https://www.britannica.com/topic/Qing-dynasty"
+        "url": "https://www.britannica.com/topic/Qing-dynasty",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2614,7 +2681,8 @@
     "sources": [
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-01"
       }
     ]
   },
@@ -2700,11 +2768,13 @@
     "sources": [
       {
         "title": "大英百科全书《秦朝历史与制度》",
-        "url": "https://www.britannica.com/topic/Qin-dynasty"
+        "url": "https://www.britannica.com/topic/Qin-dynasty",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2791,11 +2861,13 @@
     "sources": [
       {
         "title": "大英百科全书《六朝、汉与唐代中国》",
-        "url": "https://www.britannica.com/place/China/The-Six-Dynasties"
+        "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+        "id": "source-01"
       },
       {
         "title": "大都会艺术博物馆《中国历代统治者与年表》",
-        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm"
+        "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+        "id": "source-02"
       }
     ]
   },
@@ -2881,7 +2953,8 @@
     "sources": [
       {
         "title": "大英百科全书《隋朝统一与大运河》",
-        "url": "https://www.britannica.com/topic/Sui-dynasty"
+        "url": "https://www.britannica.com/topic/Sui-dynasty",
+        "id": "source-01"
       }
     ]
   },
@@ -2974,7 +3047,8 @@
     "sources": [
       {
         "title": "大英百科全书《近现代中国与北京》",
-        "url": "https://www.britannica.com/place/Beijing/Cultural-life"
+        "url": "https://www.britannica.com/place/Beijing/Cultural-life",
+        "id": "source-01"
       }
     ]
   },
@@ -3044,7 +3118,8 @@
     "sources": [
       {
         "title": "大英百科全书《古埃及历史与尼罗河文明》",
-        "url": "https://www.britannica.com/place/ancient-Egypt/Egypt-from-1076-bce-to-the-Macedonian-invasion"
+        "url": "https://www.britannica.com/place/ancient-Egypt/Egypt-from-1076-bce-to-the-Macedonian-invasion",
+        "id": "source-01"
       }
     ]
   },
@@ -3129,11 +3204,13 @@
     "sources": [
       {
         "title": "大英百科全书《古希腊帕特农与城邦文明》",
-        "url": "https://www.britannica.com/topic/Parthenon"
+        "url": "https://www.britannica.com/topic/Parthenon",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
-        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+        "id": "source-02"
       }
     ]
   },
@@ -3218,7 +3295,8 @@
     "sources": [
       {
         "title": "大英百科全书《阿拔斯哈里发与阿拉伯帝国》",
-        "url": "https://www.britannica.com/topic/Abbasid-caliphate"
+        "url": "https://www.britannica.com/topic/Abbasid-caliphate",
+        "id": "source-01"
       }
     ]
   },
@@ -3303,11 +3381,13 @@
     "sources": [
       {
         "title": "大英百科全书《萨珊波斯帝国》",
-        "url": "https://www.britannica.com/topic/Sasanian-dynasty"
+        "url": "https://www.britannica.com/topic/Sasanian-dynasty",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《萨法维波斯王朝》",
-        "url": "https://www.britannica.com/topic/Safavid-dynasty"
+        "url": "https://www.britannica.com/topic/Safavid-dynasty",
+        "id": "source-02"
       }
     ]
   },
@@ -3392,7 +3472,8 @@
     "sources": [
       {
         "title": "大英百科全书《蒙古帝国起源、版图与遗产》",
-        "url": "https://www.britannica.com/place/Mongol-empire"
+        "url": "https://www.britannica.com/place/Mongol-empire",
+        "id": "source-01"
       }
     ]
   },
@@ -3465,11 +3546,13 @@
     "sources": [
       {
         "title": "大英百科全书《孔雀帝国与古代印度》",
-        "url": "https://www.britannica.com/place/Mauryan-Empire"
+        "url": "https://www.britannica.com/place/Mauryan-Empire",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《近代印度与独立运动》",
-        "url": "https://www.britannica.com/topic/Indian-Independence-Movement"
+        "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
+        "id": "source-02"
       }
     ]
   },
@@ -3553,11 +3636,13 @@
     "sources": [
       {
         "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
-        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《近代印度与独立运动》",
-        "url": "https://www.britannica.com/topic/Indian-Independence-Movement"
+        "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
+        "id": "source-02"
       }
     ]
   },
@@ -3642,7 +3727,8 @@
     "sources": [
       {
         "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
-        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+        "id": "source-01"
       }
     ]
   },
@@ -3711,7 +3797,8 @@
     "sources": [
       {
         "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
-        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+        "id": "source-01"
       }
     ]
   },
@@ -3780,11 +3867,13 @@
     "sources": [
       {
         "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
-        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history"
+        "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《冷战与二十世纪格局》",
-        "url": "https://www.britannica.com/event/Cold-War"
+        "url": "https://www.britannica.com/event/Cold-War",
+        "id": "source-02"
       }
     ]
   },
@@ -3853,11 +3942,13 @@
     "sources": [
       {
         "title": "大英百科全书《神圣罗马帝国与中欧史》",
-        "url": "https://www.britannica.com/place/Holy-Roman-Empire"
+        "url": "https://www.britannica.com/place/Holy-Roman-Empire",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《冷战与二十世纪格局》",
-        "url": "https://www.britannica.com/event/Cold-War"
+        "url": "https://www.britannica.com/event/Cold-War",
+        "id": "source-02"
       }
     ]
   },
@@ -3925,11 +4016,13 @@
     "sources": [
       {
         "title": "大英百科全书《美利坚合众国历史与地理》",
-        "url": "https://www.britannica.com/place/United-States"
+        "url": "https://www.britannica.com/place/United-States",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《冷战与二十世纪格局》",
-        "url": "https://www.britannica.com/event/Cold-War"
+        "url": "https://www.britannica.com/event/Cold-War",
+        "id": "source-02"
       }
     ]
   },
@@ -4014,11 +4107,13 @@
     "sources": [
       {
         "title": "大英百科全书《日本明治维新与近代化》",
-        "url": "https://www.britannica.com/place/Japan/Development-of-the-modern-system"
+        "url": "https://www.britannica.com/place/Japan/Development-of-the-modern-system",
+        "id": "source-01"
       },
       {
         "title": "大英百科全书《朝鲜王朝与半岛历史》",
-        "url": "https://www.britannica.com/topic/Joseon-dynasty"
+        "url": "https://www.britannica.com/topic/Joseon-dynasty",
+        "id": "source-02"
       }
     ]
   }

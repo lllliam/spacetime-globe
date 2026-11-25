@@ -1,0 +1,3021 @@
+{
+  "legacyContentSha256": "fbd0905d671b25dceab5d51f922cc8d5d7b146a95453056721fd0ee475a09505",
+  "migratedContentSha256": "fbd0905d671b25dceab5d51f922cc8d5d7b146a95453056721fd0ee475a09505",
+  "inventory": [
+    {
+      "file": "data/books/achaemenid.json",
+      "sha256": "16ecb82dbaf5331593e0c5c5a31014181fda27a9cf1be2d656b38a3db0a12576",
+      "chapters": [
+        {
+          "id": "cyrus-rise-and-tolerance",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "685489c3fb8d51dfad7bda5d83f2cbe20de3eeae569d98915a672b1c44694afa"
+        },
+        {
+          "id": "darius-satrapy-royal-road",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 1,
+          "sha256": "a5818ca5da761c8dbc5dde5dbacd0f987ffc8d7d4d249edc288f4933f51635f7"
+        },
+        {
+          "id": "xerxes-aegean-chessboard",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "26396bf2dece18ee671d792eae5f4895eb0bf62a4b81691511222e32f530eb21"
+        },
+        {
+          "id": "satrap-revolt-and-alexander",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "9962d5a6fc555b72401c5391354373dbb7c0067f70e35ca1565a418a0572dc37"
+        }
+      ]
+    },
+    {
+      "file": "data/books/aztec.json",
+      "sha256": "f2f1467d7c1b3762ecb4dd82b2234324b7c64a2cc736730c22bd968a5062aa64",
+      "chapters": [
+        {
+          "id": "triple-alliance-chinampas",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 1,
+          "sha256": "a82e9dc43b5f309c45482bb7d22805de3a51e569a8678d2f7e131e50bae576bf"
+        },
+        {
+          "id": "tribute-grid-pochteca",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "b59175d53d960a0d6f5ddd70af338eb3229b3873fff5efd6a39a81a05af5db55"
+        },
+        {
+          "id": "tenochtitlan-tlatelolco-zenith",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "c5a27d8115dd9635802b92da91a9d9e3c5382a7c1636147c5ae3ec6213cfa199"
+        },
+        {
+          "id": "cortes-siege-lake-fall",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "3114e0c2f1cf268d2a493cc4e126e91acf2fd34914d5e3744af19373f324f308"
+        }
+      ]
+    },
+    {
+      "file": "data/books/british-empire.json",
+      "sha256": "af75e9db0ccd303a7bfa3920010e868f80f7835661a95806760cec7154f38849",
+      "chapters": [
+        {
+          "id": "norman-magna-carta",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f070229d94324f5fa1456b304f782e19d6e5b3a3581e0fab3fc59fde3e8a661e"
+        },
+        {
+          "id": "tudor-glorious-revolution",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8969c82b737bbd53c084e33f33ef284e6307f3d251dbce5e43c8adff0587df71"
+        },
+        {
+          "id": "industrial-pax-britannica",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "151a357f5e19a713ac4e83421e44c56dfc0015e0c5ab5d9f4c185e7b110fdc8b"
+        },
+        {
+          "id": "world-wars-post-imperial",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "fd59c826c3a0791a04bceb6a32078eb3c5989d658c5686624f9aa979ad98bc79"
+        }
+      ]
+    },
+    {
+      "file": "data/books/caliphate.json",
+      "sha256": "2e525f3f68aa3347ad0e9365ae9ebfc328f23497bd20de757f5457a9930075c3",
+      "chapters": [
+        {
+          "id": "rashidun-conquests",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c064805a18545089cc3cabd0766cc41b6efb37545829f2928fb5668a01cbfcfc"
+        },
+        {
+          "id": "umayyad-damascus",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8c5be79fef6123ca6889539f5a9cbaae57ab60cea4407b41c0e80bc6ee713a6d"
+        },
+        {
+          "id": "abbasid-baghdad-golden-age",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "9d3d794c4a08e1fd64f4dc59f225424ca501dfbd6314a692a85a1ed355a3fac5"
+        },
+        {
+          "id": "fragmentation-crusades-mongols",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "ef52ff26885e9b9ca115a039d8164ef1f52709fa4f4c3cb2d7ead5f7793cf2b3"
+        }
+      ]
+    },
+    {
+      "file": "data/books/canada-north-america.json",
+      "sha256": "741347b13b1c89732a58263efcb520bb03049a9daf6f4ee8ede60e0ac419312a",
+      "chapters": [
+        {
+          "id": "north-america-indigenous",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "36487db741fe5d33254b49f6a267866c6383f0445ea1886fb3d93f72f1917524"
+        },
+        {
+          "id": "new-france-fur-trade",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a1ed676a515882bc7fd7cc0e7163dc2733935e659de6bf31cbdc590ab16084a9"
+        },
+        {
+          "id": "british-north-america-confederation",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "0c76f2f8cc7af028285df1478c6e738ad0aa07ad5c1cca2b0b7e7d14172f3f24"
+        },
+        {
+          "id": "modern-canada-arctic",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "10763edb8dc8983752437f4e5db842934dbf58e1771edd5e6c6e87fc7eaeb6f0"
+        }
+      ]
+    },
+    {
+      "file": "data/books/central-asia-silk-road.json",
+      "sha256": "f1dc56c1d25b558bf2a469924999bea669fa467de58f26dd775fa3edbbca855d",
+      "chapters": [
+        {
+          "id": "xiongnu-kushan-oasis-crossroads",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5f618c84bcbf255813084dea657c603bcf67a9008c08cf9aa4589b91fb09f5e8"
+        },
+        {
+          "id": "turkic-khaganates-samanid-to-khwarazm",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "522528d5328c25511b318b133dc8452d69d0d3e31380d1f1528e3d1843d5c3bc"
+        },
+        {
+          "id": "timurid-renaissance-and-three-khanates",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6aabf61a0f63bb45d47aea292f35205093e1fa337b34ebb4cfd805715f227b1d"
+        },
+        {
+          "id": "great-game-soviet-to-modern-central-asia",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b672beb33c82dc4ce2b7777a5a9d8b8c99d28ea3de8603e64110eeb74561d643"
+        }
+      ]
+    },
+    {
+      "file": "data/books/central-eastern-europe.json",
+      "sha256": "0d67a69b3092be41880057679a16830a57f23d0d507bc747a7c6a23e0af39363",
+      "chapters": [
+        {
+          "id": "medieval-kingdoms-danube-balkans",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "72bb93ac7514278590c12287ef2b7d25ce952293b4ac406f7cb6cea92d613dec"
+        },
+        {
+          "id": "commonwealth-and-habsburg-bulwark",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a31976d067642c50db44ebefadf8cabef88e082954c7d423d01778bd0d6fb295"
+        },
+        {
+          "id": "austria-hungary-and-balkan-powder-keg",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a4ddf3e194b59b85a4128c5568b5e5dddf315d3b961ad128f137f37202229f33"
+        },
+        {
+          "id": "interwar-iron-curtain-to-european-integration",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "17cf49e679a81cff9d58c1badf6309351855893750a5aaa74a1f267f885a7c83"
+        }
+      ]
+    },
+    {
+      "file": "data/books/egypt.json",
+      "sha256": "3aa43c77d0aed75a4f3749d413c8d12f28ac04d434e76f1952f8a0a23ca3dd43",
+      "chapters": [
+        {
+          "id": "old-kingdom-pyramids",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "c0e979c665b509122612603bd503ac2e47e3814981e9196b1e49eb38788ea514"
+        },
+        {
+          "id": "middle-kingdom-hyksos",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "b3f395e909471f24921ce5ffe65af9e6aa7078ebd0807c447cf93333c97f8e9c"
+        },
+        {
+          "id": "new-kingdom-empire",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "959441034df3b018e7aa821940838cd9f9a137f42c76a24bae81c5d8119f6d55"
+        },
+        {
+          "id": "late-period-ptolemy",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "4c6ba352d163e301221c93085583a64415d4cef4103ed7081757ec2b0e64a883"
+        }
+      ]
+    },
+    {
+      "file": "data/books/ethiopia.json",
+      "sha256": "04cd2a2ca62104bb8ade6cdb522e4e11377013de36ce6f455bf9791d45958f04",
+      "chapters": [
+        {
+          "id": "aksum-red-sea",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "21e1beb6da217b26643b128e003309161b2a6a3d4bd034d4a4c9e26301ff1a79"
+        },
+        {
+          "id": "zagwe-solomonic-highlands",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "fdae88b1ffe43575124bbda0b625e231f0d3af68b8c420127ea7d3e9e7b91a8f"
+        },
+        {
+          "id": "gondar-menelik-adwa",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "322b8d60db7a3555090f55f939f272bce3ffb12e9232c92b0e958d37d16baf25"
+        },
+        {
+          "id": "haile-selassie-modern-horn",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "9d89c25bd4ade1128aaa02c2d1c8116ff53906564a3cea71f030f6503c957c63"
+        }
+      ]
+    },
+    {
+      "file": "data/books/five-dynasties.json",
+      "sha256": "2ed2f465e9758ce5900d48134d48b3ad1a25bf07bf8ec2fd319718ac102fead2",
+      "chapters": [
+        {
+          "id": "five-dynasties-yanyun",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "419635a558997a4dc428f456d97928c1ab13a7b7b93dc361e8d0a4c043f1c01c"
+        },
+        {
+          "id": "ten-kingdoms-south",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8a77b23a24789cabaa44083ee7dee1d79e9795c5ab9096429d35f69caff4906f"
+        },
+        {
+          "id": "chai-rong-to-song",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "51895d3c773c5d91fa6badc199a2746b32c3d23f506e3b1dc1578d5fc7a85345"
+        }
+      ]
+    },
+    {
+      "file": "data/books/france.json",
+      "sha256": "8084abb79ec3f29bb6d872c5a08f3fd51003c910df9a37312f2dc77b795092e3",
+      "chapters": [
+        {
+          "id": "franks-capetian-centralization",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "b7f243f51fe476a55e5a96ce92793e2ff77488885a31262897e8ed354b1154ca"
+        },
+        {
+          "id": "renaissance-sun-king",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "0a164932a65f7f0a8fc095eb0c96e0d3e44c29ce999ac54d4562dcc093df18af"
+        },
+        {
+          "id": "revolution-napoleon-republic",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "28fd3e2e5ef605678e57d7050bb5a4945ee52f93e2c6367d80c09000933bcbee"
+        },
+        {
+          "id": "world-wars-european-pillar",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "ab5cf97626fa9a3436f1467a6eb1d79f8eef4bddb439149ebe9a126b76f721ca"
+        }
+      ]
+    },
+    {
+      "file": "data/books/germany-hre.json",
+      "sha256": "35716965d374825147c8c673f094c33e22ddf101bb25dc5cdea25d9640a796fd",
+      "chapters": [
+        {
+          "id": "otto-hre-empire",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a01e1cf5f6fd460a678d1f8e63d51fb7437a289e8c8bb5183d08c5655f137521"
+        },
+        {
+          "id": "reformation-prussia-rise",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "dd9fb1612d2674cbee9cefebc3c104bf42f3b4e61085d93b1b03a3a5cad8f69c"
+        },
+        {
+          "id": "bismarck-reich-catastrophe",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "32d40bd0909be28f52c19954d07eda41d94807811a67e98b46f356e183fcd0db"
+        },
+        {
+          "id": "cold-war-eu-germany",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6ba60210422cee66d582c43be8ebc6e04c381ba14fc108babee238c71042121a"
+        }
+      ]
+    },
+    {
+      "file": "data/books/greece-macedon.json",
+      "sha256": "5f80211f30a3dfb00f1b898c509492b9f1d6303d273eda072fc82b28491e93b7",
+      "chapters": [
+        {
+          "id": "archaic-polis-colonization",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5810c541f0e3e3390bb067b50e8e1348915880d958cc8c9d368fbf232400fde9"
+        },
+        {
+          "id": "classical-persian-peloponnesian",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "178889dad5493e5a38b2cb80db07856abf1f01909253987a8e6cffb4311a8d57"
+        },
+        {
+          "id": "macedon-alexander",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "15e68459188f26c92335aafa83f8737bd3361275a32190edd1cd0129cdd98e75"
+        },
+        {
+          "id": "hellenistic-rome",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "1d7735eb1f7b034aec60571b560856602f2c460d7a622ee644cf241fed668b47"
+        }
+      ]
+    },
+    {
+      "file": "data/books/han.json",
+      "sha256": "1d05d4cff1fb12f3ea1c1d40aa4bd0624d8b7c9c7d40e23463feb91ec0db400b",
+      "chapters": [
+        {
+          "id": "western-han",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 0,
+          "sha256": "13d97f87646c2cbb41f4b9f98ed50991a5e5b7076fd2b1c92443b4379167cdca"
+        },
+        {
+          "id": "wudi",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 1,
+          "sha256": "9a908bfd2a7b9fdb0eaebdc219cd4b99608e5d3efb95e7a4c800f8acbfc27310"
+        },
+        {
+          "id": "interregnum",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 0,
+          "sha256": "f16bb33914fb526beaf091ba85c406ad19ec9a9fb39268c64a8a96f691e0b610"
+        },
+        {
+          "id": "eastern-han",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 1,
+          "sha256": "684617104a1c22f19dd0bc82c0025562b4a990add93151197113328fed0ac9bf"
+        }
+      ]
+    },
+    {
+      "file": "data/books/inca.json",
+      "sha256": "3a5c0b7c4f4ec77d4a711cc9b0c341aace985383cd4fa6fa2e79d734f80abc58",
+      "chapters": [
+        {
+          "id": "pachacuti-cusco-tawantinsuyu",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "db8f2a3f2c98d40eefabf60c8add7cdb739bd5b3a94c11b79013973fc0b0c762"
+        },
+        {
+          "id": "qhapaq-nan-quipu-mita",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "c622558e3eb766537b6480b8ca884fcbf54235647082742dda148d7dca233dae"
+        },
+        {
+          "id": "huayna-capac-two-capitals",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "76f3e7088ce877ffea0b20376dec3e62057e4ce55351a9dc6bcb8e2c3d4762da"
+        },
+        {
+          "id": "cajamarca-ambush-collapse",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 1,
+          "sha256": "d608b836e3dad3442de0ea0ae3e945532c102ee7a5be2e010fee091c06e1bfb4"
+        }
+      ]
+    },
+    {
+      "file": "data/books/india-classical-modern.json",
+      "sha256": "3b9a995a23763319c91c7bb2ce1054f5c03cdfc7ae5b1b5d61c6c7c48336f826",
+      "chapters": [
+        {
+          "id": "maurya-ashoka-kushan",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "51ccc8b719f4d40ddbe4e9798a5b395b9093e99cbdc1948f2692be3dd31b6986"
+        },
+        {
+          "id": "gupta-chola-delhi",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6cfe039223224aac555ae3e0573c5ce9211ec484a68c170cb478d7b8e379ec05"
+        },
+        {
+          "id": "mughal-company-raj",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8374cd15741a4b6336c90380826f875f2dce9faeedfc7f6ccb2890e78040f278"
+        },
+        {
+          "id": "independence-partition-republic",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3afa2391de992e6d94c9769216dc836a5feaead6dac085eb903c02a1f061df72"
+        }
+      ]
+    },
+    {
+      "file": "data/books/italy-renaissance.json",
+      "sha256": "ef1958feae2c11685bdbb666a3139da42f6898dc27cbf51fb18bf1607b42d90a",
+      "chapters": [
+        {
+          "id": "lagoon-maritime-republics",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "e592eef50597025b9c1e616b11a47d30c6316fe55843145c6293867e883aa0b0"
+        },
+        {
+          "id": "renaissance-banking-citystates",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "36b0863b2f2efa94d7bbd38c78278e72edef9ea762563b60752294fee93cc578"
+        },
+        {
+          "id": "foreign-rule-risorgimento",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f9b32468526e47bf8743f9c6f7f71f047d84f2c54b02df16b6bc18d732bc9a40"
+        },
+        {
+          "id": "modern-italy-europe-hub",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b601b749df27836d69db776248e3e260de184bdd2ac1f964d8b0d24da9105b52"
+        }
+      ]
+    },
+    {
+      "file": "data/books/japan.json",
+      "sha256": "ad518d935f734aeaa6d34885d22f80ab74c8463500c18b2cf17acd859baaf5dd",
+      "chapters": [
+        {
+          "id": "asuka-nara-heian",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "1ccf02a41e4e25760352fef45ceea1d320aabf09f3bc55b7bc05563bec2d2803"
+        },
+        {
+          "id": "kamakura-sengoku-unification",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "18d229ba569e57780caa1fe3c1f235a4839dbd0ba63cb4dc68d33d5d01bc6150"
+        },
+        {
+          "id": "edo-sakoku-black-ships",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "469def4bf67f49bb55847cf19a4b0f43669f9320ce8d522eb9a5326c52552a6b"
+        },
+        {
+          "id": "meiji-war-postwar-miracle",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "b7505ae0467ae8e5c2c8869ce914bfcc55ae82873e5e95b47464698a4fa8295b"
+        }
+      ]
+    },
+    {
+      "file": "data/books/khmer.json",
+      "sha256": "9d7ef03ccb06680e4b193c7ede0c6842f02b6e8bd96edb8ebcd8c35afedb59f3",
+      "chapters": [
+        {
+          "id": "kulen-baray",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 1,
+          "sha256": "570c323f063beab2c1d0a4abe89a1b3a11ff2750815e7ec3dd64af57c18a3263"
+        },
+        {
+          "id": "angkor-wat-zenith",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "962d77c5234a85cab51c25de55dcb49e0b241f53ff37ea1149e985640a803b15"
+        },
+        {
+          "id": "jayavarman-vii-bayon",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "ef9088bb2b1e30893961ba0d73fec3462253a502f1c04bcdc7c193045efa60e2"
+        },
+        {
+          "id": "zhou-daguan-collapse",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "183482a70ced1beb687bbc4a00a5784558fa4ed582b398993a0df5cbed5ca906"
+        }
+      ]
+    },
+    {
+      "file": "data/books/korea.json",
+      "sha256": "11873943c7edf79278d440fcdddf5cfa57751b10ddf293af0d29c8c44d839400",
+      "chapters": [
+        {
+          "id": "three-kingdoms-silla",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "28dfb4278cb69fadff05aac9cd3afd6172996f956b0960730552fc51f05b8ded"
+        },
+        {
+          "id": "goryeo-tripitaka-mongols",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "ce4d8e9d3c6132a89eec39c6adc32ee39c4f6ea5daf8fd07f2c978afc3409ef5"
+        },
+        {
+          "id": "joseon-hangul-imjin",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "23ea3baf3a63fdf413743e536620f50449bada8e1ff9a230b0d915fcda0b7f05"
+        },
+        {
+          "id": "colonial-division-han-miracle",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "c3ec88f5dd525dc1a5d5a54c24d7f70a1221cac66edda934b084b96c194ece27"
+        }
+      ]
+    },
+    {
+      "file": "data/books/latin-america.json",
+      "sha256": "da505db2a8860d1f0a6fd3f5c3a537fc69a642630376b2ff9a11ff3650aedb74",
+      "chapters": [
+        {
+          "id": "andes-liberation-empire",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "f174c15227aba224054864dca4bbbf247dd00b97c9b6f24cf8033d59e1c4dead"
+        },
+        {
+          "id": "caudillos-silver-export-boom",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "9c26c121b0e551fc6c0284708e19cb72198ae2386afef10ffa4cd9edff3ea868"
+        },
+        {
+          "id": "revolution-isi-cold-war",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "f73797993017145ff322421a8c578949bb9e19b41c664e1b60cfddb8356665e6"
+        },
+        {
+          "id": "debt-democratization-global-south",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "475577d75019f0a178d1fd3637d32e460961be73919d70ac6d7990a28c4b3532"
+        }
+      ]
+    },
+    {
+      "file": "data/books/liao-jin-xia.json",
+      "sha256": "093381bc45dbf5c70c531804fea53a8f61f82e565c0346e94096cebdb24f933d",
+      "chapters": [
+        {
+          "id": "liao-dual-empire",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "c8002d3c1a6c4b020519841ee6c1358df26ea27efd8bd8015797489829b8c486"
+        },
+        {
+          "id": "xixia-hexisilk",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "45b8574072e7f3e231f4a848ab7a80848af76d0269e90f23967aae828670ae00"
+        },
+        {
+          "id": "jin-rise-zhongdu",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "f6223ffe6c46761c6edf58258505c6c999fd3ca458e53f1b812dacaa81f8c7b2"
+        },
+        {
+          "id": "jin-golden-to-mongol",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "ff6f52182406bdf1e42a77292e32ae6f2b53e1a8db12d5e72605841fddce09ab"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mainland-southeast-asia.json",
+      "sha256": "6cf147e9b2003981ee7006bcab8d8e42d5a825ca895a962a7df04408d8d120fc",
+      "chapters": [
+        {
+          "id": "pagan-sukhothai-theravada-corridor",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "75561d8250e4ee38deae3d7ad7509711893916b67c53e754955ef7edf0c7bd73"
+        },
+        {
+          "id": "ayutthaya-toungoo-and-lan-xang",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "524ea4922e6d9268d0e3d4910e5088358b280966d9b68dff74d2756b0fb45a62"
+        },
+        {
+          "id": "konbaung-rattanakosin-and-colonial-squeeze",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3a04ae11144723d6a04e24c669ad3c60fc71331c07fb3e34b9b58850158993fd"
+        },
+        {
+          "id": "independence-cold-war-and-mekong-modernity",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3f91c9bb6933550340c731f22215dd2f61431c3849d36e9e2f427341d23543b0"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mali.json",
+      "sha256": "1d3f07ae1f590ba4943353cdd1ee2ccde7561d8fe8b7cb070fa339deefb8f423",
+      "chapters": [
+        {
+          "id": "sundiata-kirina",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "f7aba5bb272c046f030212a28831b5588bb225c28a72233d1cc2c6f91e4b43c5"
+        },
+        {
+          "id": "mansa-musa-gold",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 1,
+          "sha256": "27740e25d9d7a223e52379b5ffb6685b6496e95473b542ec9f4ceb0f838fb029"
+        },
+        {
+          "id": "timbuktu-ibn-battuta",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "d67e55ba6a382d720afebd59de10dcf273b0762b2b667194c99751959533b679"
+        },
+        {
+          "id": "songhai-atlantic-shift",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "dad4cc2e26431057f44b6895d976439a5f648f80a6fa244a48b730967ad9cf98"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mesoamerica-maya.json",
+      "sha256": "ca22a98634fc7769dc25f0dc2e58e49f17f2ea6d816d99ca9d99ae666faf75bc",
+      "chapters": [
+        {
+          "id": "olmec-zapotec-formative",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "7f116893c9dc8a7dc2eef9c03d7187ae4dd402f992f6687e44c887999373d67f"
+        },
+        {
+          "id": "teotihuacan-highland-metropolis",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "fa14c72cbf719ee4ea28f5c598d9d2096cc276471291d4b68472616f1131d4b3"
+        },
+        {
+          "id": "classic-maya-city-states",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "3f1bb8ad58c7ce33e33bcffcba9ba9b14ea461041e437450d479ad44c8b65b8a"
+        },
+        {
+          "id": "postclassic-toltec-maya-andes",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "b9c9ff2149f9d7d72d4cb2cee2f3aa8a43059e864bd03ca653d9d7aa655d4545"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mesopotamia-near-east.json",
+      "sha256": "78c6988d28e91a8c72135f9097211c9f8553d6871387e3f266afc21b1dc0af95",
+      "chapters": [
+        {
+          "id": "sumer-akkad-ur",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3439861f4f847969516bc1911b55f3d1be43eaff768e2626f518228f1b9828d3"
+        },
+        {
+          "id": "babylon-hittite-bronze-age",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "e9462183dc970477670fd69500e534b21841057309e89dfdeaa4a61028f2de44"
+        },
+        {
+          "id": "neo-assyria-levant-iron-age",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c7a09859deb64f1a696492cb23f361a323a0c1f6040c18e6e7745895ffe44ba9"
+        },
+        {
+          "id": "neo-babylon-cyrus-539",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8b50f9e85ddc59fac73aab2ebb3cc80d4270ffcba7453332a662fa012387d4ad"
+        }
+      ]
+    },
+    {
+      "file": "data/books/ming.json",
+      "sha256": "56a0f3fd650eee447327c763cfb736cae571d2b8b097c0ab8f9d69c4eaeb0ed0",
+      "chapters": [
+        {
+          "id": "founding",
+          "blocks": 6,
+          "sources": 41,
+          "sceneRefs": 1,
+          "sha256": "ee05a702cc52838b4cc7ea529cf3989744c56696abfc9a242672366675465fe7"
+        },
+        {
+          "id": "two-capitals",
+          "blocks": 6,
+          "sources": 41,
+          "sceneRefs": 3,
+          "sha256": "1a020d5e6be0c0cd20ab53e1ed8595153d1995f9b459b0ab41d3034a3a413665"
+        },
+        {
+          "id": "mid-ming",
+          "blocks": 6,
+          "sources": 41,
+          "sceneRefs": 1,
+          "sha256": "63cb9a46bd945d08bf1d85739928c1cb46e40a5d2a3d7bf3175668830bb8f296"
+        },
+        {
+          "id": "silver",
+          "blocks": 7,
+          "sources": 41,
+          "sceneRefs": 2,
+          "sha256": "968f437bbfafe564c684c494bd2b65f82db39fdf81e9530218a33034b32e975e"
+        },
+        {
+          "id": "fall",
+          "blocks": 6,
+          "sources": 41,
+          "sceneRefs": 1,
+          "sha256": "35905ed6ce033306bbb217f966ae392faa836b7d1eeddedf9171013f01d84d33"
+        }
+      ]
+    },
+    {
+      "file": "data/books/modern-middle-east.json",
+      "sha256": "537ebf17fb82cc7c06d8181c20c56be9918df71bf33fcb2953359648577acaa9",
+      "chapters": [
+        {
+          "id": "reform-suez-ottoman-twilight",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a7e290e7ba98fd805c847caeb768a06753de2839bb21d214cef7c3c3aec60a47"
+        },
+        {
+          "id": "sykes-picot-mandates-republics",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "908ab2091357e70d764ad846ff562725bc13980f1c6e59d3c81642bbc5d32c29"
+        },
+        {
+          "id": "arab-israeli-oil-nasser-iran",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c579f4dd85772d16a8384deb2b5ece3cd4453e972762bdf98a629b05c8ad4f84"
+        },
+        {
+          "id": "post-cold-war-21st-century-mideast",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "280bfa0c2d193148e8f82bc824e2565f5bce0780cb6fda103c8d72be1b12bcf1"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mongol-empire.json",
+      "sha256": "5aca8f8e131e55c401f96d0503c10281ceeb8c664eb894d1cdad78e0b1f5c973",
+      "chapters": [
+        {
+          "id": "chinggis-steppe-forging",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "1a3201486d220284a82ca51d67a1f27f8d0cba79e101638aea06240ed4b10fb3"
+        },
+        {
+          "id": "western-campaigns-karakoram",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "c44d1195abc2f82dae9edac4329d9965015b8fd1db0da9cf9f101b2a475e85fc"
+        },
+        {
+          "id": "pax-mongolica-four-khanates",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "d0d99fb2df1f7ef4d9a4d96ce8d69eccf047327bd87937f7317985662e160abd"
+        },
+        {
+          "id": "plague-fragmentation-twilight",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "e9f553b15d826c984dc6bcff6e9c852054d70c4181d821a1fddec57652689ed7"
+        }
+      ]
+    },
+    {
+      "file": "data/books/mughal.json",
+      "sha256": "7aed9d2ef6148655c4414ed49333b469f2d9683bf1fddae2a2939c4e6cc170bd",
+      "chapters": [
+        {
+          "id": "babur-humayun-foundation",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "1c8df9461ec3501405ade433c04824117196d8321916343e7e75f587817d9b9f"
+        },
+        {
+          "id": "akbar-mansabdar-tolerance",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 1,
+          "sha256": "5cfc77def4696ecea44ad52bcaffb54a11f24a4d0a5efb563929cef324492958"
+        },
+        {
+          "id": "jahangir-shah-jahan-silver-peak",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "62a7a9a24f206f0a1495e3a4d1f183f19380cd258ee09ef5b4ca78f35b1d80d2"
+        },
+        {
+          "id": "aurangzeb-deccan-company-takeover",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "e07b06644b0e0a0674aca788248d200972f9500d8ee040e537a47d31e9d15211"
+        }
+      ]
+    },
+    {
+      "file": "data/books/netherlands-low-countries.json",
+      "sha256": "fafc04d72cc091db14bb75aeac53b289023c0c5c6af8fae4f5487433a3ba514c",
+      "chapters": [
+        {
+          "id": "dutch-revolt-republic",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "e6e455dc59f3a1d54eec985a35425a6834255f6a19f960e687f9c3c5ca9f54f4"
+        },
+        {
+          "id": "golden-age-finance-art",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5481cca89454b260e4a0a5d6c9716fcb6d27523388403a33cb1c56c7f84b83b8"
+        },
+        {
+          "id": "batavian-belgium-industrial",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "4dee29cbf066cc38a30508d609cf010ce7a71d2a9cc5e787a3ddbed2da9cd796"
+        },
+        {
+          "id": "benelux-eu-heartland",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "63222e4456da4e5e2b959383bfad42317f9b86fe69d629366f02b29989bddd17"
+        }
+      ]
+    },
+    {
+      "file": "data/books/nordic-vikings.json",
+      "sha256": "1679fc013ec4616a5d0cabd98ba05868db26b047bac45c0b0959de1be250bbef",
+      "chapters": [
+        {
+          "id": "viking-longships-north-sea",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f9aa230d52b0ece1539bf90498ed01ae4f99fa05124d7f1433e92af27dc65242"
+        },
+        {
+          "id": "kalmar-union-hanseatic",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "582a19e915cafebfddf536dae1a6017117c9ccca10a4e40f2790fb479204495e"
+        },
+        {
+          "id": "baltic-empire-realignment",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "151ba5b3890ac63e3b68a3df59326a4cb4c1564aa4144e750144a38df408b0dc"
+        },
+        {
+          "id": "nordic-model-modern",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f5ed6c0505ae7061d3c92bc3924435e13993895314fc693e7865bf83b2064a17"
+        }
+      ]
+    },
+    {
+      "file": "data/books/north-africa-maghreb.json",
+      "sha256": "0db0ae116135400853a6613aad58f02420c534825422dd8cd049688ea961c288",
+      "chapters": [
+        {
+          "id": "carthage-punic-numidia",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "790147e21a598be2737c5f966adfa0ff1267c9bf0ddcb70657a83ea8d9848d8b"
+        },
+        {
+          "id": "roman-vandal-islamic-maghreb",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "472fc2e755ba058621f0a82c719dd53439e7696417770962a24d498da4fd4269"
+        },
+        {
+          "id": "berber-empires-barbary-corsairs",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7be4ac81565c01c95c5d7ad21c193b86fa2696dadc4e95f2d8af03c4e4ebc975"
+        },
+        {
+          "id": "colonialism-decolonization-maghreb",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d65bfc00ec853ef37c479372027b1dfca6dc62383e9767fd7b5dd4424cc6fcc9"
+        }
+      ]
+    },
+    {
+      "file": "data/books/oceania-australia.json",
+      "sha256": "59c79bf7521746a675d06c8f2a5e20b432bff359ac707058644c73bba8673366",
+      "chapters": [
+        {
+          "id": "polynesian-wayfinding-tonga",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "880c7bea65943540e50489016325741d996b81afb8ba55749951dac07450db08"
+        },
+        {
+          "id": "cook-convict-waitangi",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "bb19fd813bad1107e356778a887cde52a3e3f4cfd4cd77354ea1867d2c7913ed"
+        },
+        {
+          "id": "gold-rush-dominions",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c298c0477b2bea113a2992c93625a5a22f41b9406e2711c893f8e4820cabc9fc"
+        },
+        {
+          "id": "modern-oceania-pacific",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3fa16ef4653987189b121cea0487e607202516df427459b681099b28666eeab0"
+        }
+      ]
+    },
+    {
+      "file": "data/books/ottoman.json",
+      "sha256": "5e833d021de4d7d8adb53fd5f004c5bd4ea13f269b60a7e83c8c9b445970a218",
+      "chapters": [
+        {
+          "id": "ghazi-beylik-to-istanbul",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 1,
+          "sha256": "4634b197c5935a98955a7189d338f5e75c47791ec07562ed27ad4d30b8cc589f"
+        },
+        {
+          "id": "suleiman-classical-zenith",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 0,
+          "sha256": "dc6e86e90686dbbb1e96e0e5331d622a7b633ee161d6ef4a11c6a0b2a6ccd7d7"
+        },
+        {
+          "id": "silver-inflation-and-retreat",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 0,
+          "sha256": "e48be1ec88ae3ec8414b858ae9ba0932bc6713ee4ef0319656fde39a3734ee06"
+        },
+        {
+          "id": "tanzimat-sick-man-collapse",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 0,
+          "sha256": "9a4633139f00b6a8e37b17ef635e8b42d212e94ada4a3fa63e484ed7a6d15609"
+        }
+      ]
+    },
+    {
+      "file": "data/books/persia-sasanian-safavid.json",
+      "sha256": "f61986205e33c7fdf21f175d8e4d43631b333dd72900fe9b1c55e8f7c26d5237",
+      "chapters": [
+        {
+          "id": "sasanian-ctesiphon",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d77beef5def2c41cd9143b4946e131e364eda97eada600275ec4874ccaee0ed5"
+        },
+        {
+          "id": "persianate-renaissance",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d66c65b5f992824eb72dcb1bb9cbb0b8c7fe19df9cb7ee616c277a2b2b7483f5"
+        },
+        {
+          "id": "ilkhanate-timurid-turmoil",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "42c71939962fa6fd4891d84430d0469fd668db65ad033e5a6369e6c807b6a222"
+        },
+        {
+          "id": "safavid-isfahan",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "840fb414f831b80d60f0be04f9fb77d68680fa8e8497785465f05c6f80caa2eb"
+        }
+      ]
+    },
+    {
+      "file": "data/books/prc.json",
+      "sha256": "d694830052005e4a512953dda0e9a6bac60d1df0d5f63ee3dfc017378c5a9b7a",
+      "chapters": [
+        {
+          "id": "state-making",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "e8638da23883531373f21973dd36bc1596cc2a106d5b52389d07d32816450119"
+        },
+        {
+          "id": "mass-mobilization",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "0984622aa4bc391c32d27517c3c4e726f6ef7bcf6f90ec8ba718c066eb88448f"
+        },
+        {
+          "id": "reform",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "14beadbb9b8cfb0f161fa9b2b8f172fdc8b8cd910ec6479f37b412e9347a26cf"
+        },
+        {
+          "id": "global-economy",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "ee8a662ee4a5e9df25ee6f16c717e1b781d7057cf837d78a3305c0f1a9494c3b"
+        }
+      ]
+    },
+    {
+      "file": "data/books/qin.json",
+      "sha256": "79294ce9f5e208cff25e3f8fb7dbcd67efff6feb634d6809f6d9a3351e616c86",
+      "chapters": [
+        {
+          "id": "first-emperor-system",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "48418c74cb52c7a6756a57bf5950428bc43e3b3264024fa4c090c13719b6d6e8"
+        },
+        {
+          "id": "great-wall-mega-projects",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "0b4322945d7f6f5ec5530f7473966409eb9e9e5b77c65518b037aa9b22f94e5f"
+        },
+        {
+          "id": "dazexiang-chu-han",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "fc241b0884babab2b946b7acdaf78ec76a975a687795e750746d98c8fb07efe1"
+        }
+      ]
+    },
+    {
+      "file": "data/books/qing.json",
+      "sha256": "f122c496b14bada9ead3a1834647c847725b1f2a0ee490c03b289570ba78a620",
+      "chapters": [
+        {
+          "id": "conquest",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 0,
+          "sha256": "ed47ea6ce34103cc40a73d4aa611bbea7aae563da8085fa660b944c1549706e9"
+        },
+        {
+          "id": "empire",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 1,
+          "sha256": "49e2921c7e12ec66cf11d49780e0ae8b9a52e11a62f789b59bb4ab360d41643a"
+        },
+        {
+          "id": "crisis",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 2,
+          "sha256": "d31b56a272279bb51a87428d94d64c0f823bc251a08bda5991e7b21fd0806a8c"
+        },
+        {
+          "id": "reforms",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 1,
+          "sha256": "362700555a7233fa565da65c245aefe57c8056f4413353264d64360071cbbef1"
+        },
+        {
+          "id": "abdication",
+          "blocks": 6,
+          "sources": 8,
+          "sceneRefs": 0,
+          "sha256": "4293f9e95b51ba28f92ab95f9715173f3ce1dd52bccafc80b9c589fabc3e7652"
+        }
+      ]
+    },
+    {
+      "file": "data/books/roc.json",
+      "sha256": "1adc93798d689bc3c073d7c7b2751973efa4ed0df34fb72fa5edc49f5ef4c9d2",
+      "chapters": [
+        {
+          "id": "beiyang-may4",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a538dac041a7b090098373584e91c63453596dbe219e2ceabdea1cc1d95a6de3"
+        },
+        {
+          "id": "nanjing-decade",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "4057305bbbfcf9b366707d1545fc1005267fa19f3680a0d5b984e3606f2462e5"
+        },
+        {
+          "id": "war-resistance",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "96f663646efffa9e8f94769344ffdb49845d56148917f4d4f05ff87874e6818c"
+        },
+        {
+          "id": "civil-war-1949",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "745a942e6221bfc006368fe4dcf178fd434f9117b31382ff203c716272e52f89"
+        }
+      ]
+    },
+    {
+      "file": "data/books/roman.json",
+      "sha256": "3a00fb3ccb64082d244bfcd640dda15cac05b037cc3f7538ea72d71adac76de5",
+      "chapters": [
+        {
+          "id": "principate-mare-nostrum",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "593660882be5d23049098301fff93fb7331c5bf15a58f880b744eaba394c9a4f"
+        },
+        {
+          "id": "crisis-tetrarchy-west-fall",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "923168f66db7dcb4c031baa150de92060b20008171c7d20493783725a7f888fc"
+        },
+        {
+          "id": "byzantine-themes-macedonian",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "5f0d7038495128b1e7ce43dc0e80a74a3aae67bf6402571463622e9e6b3c5c06"
+        },
+        {
+          "id": "crusades-commercial-bleed-1453",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 1,
+          "sha256": "b2c8355d479c8cbdb5b1b73e4ba61f3d666e6cc0caa73da07f189f7056a04892"
+        }
+      ]
+    },
+    {
+      "file": "data/books/russia-ussr.json",
+      "sha256": "5c9177b477d6f87c4d41a304ccb7d591f494fb0c4b2ec5719077293d0bb7da71",
+      "chapters": [
+        {
+          "id": "kiev-moscow-siberia",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6bcc495affd643792b7d617cd91bdf19eda8517a0d7696520587598be7d0c94b"
+        },
+        {
+          "id": "peter-imperial-crisis",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "881c8df4e356a0fd54c68ce20b32b94e769b8d8e84368e6941a2f723c8563278"
+        },
+        {
+          "id": "revolution-stalin-ww2",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a1ca76b8099332931585e0c8c0ca2787b2e68cf829291f7b70d5cf9ec6c6bffd"
+        },
+        {
+          "id": "cold-war-collapse-russia",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d78913115bb245396af0fb44b9e9b8bb309ddc1f3ebc751e33541095f68d57ee"
+        }
+      ]
+    },
+    {
+      "file": "data/books/shang-zhou.json",
+      "sha256": "4573b88b18e1cba3e3e85288809c5da760415352a3e0c390343986e031050815",
+      "chapters": [
+        {
+          "id": "erlitou-shang-bronze",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "7b5b18c1471f231b2ece921d20c9c7f3d4385b8d0b032772f54d46e88721e3eb"
+        },
+        {
+          "id": "yinxu-oracle-wuding",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "c21388518d82e7ffc8b15537e7c05a2cb98291006665cc6456a342477caa0e1a"
+        },
+        {
+          "id": "muye-fengjian",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "9f5b2b9ca20eb41622d5da74a4b39851eec9601ecf1ad8249c04fbb0fe7ad791"
+        },
+        {
+          "id": "western-zhou-decline",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "f12b2afc1bf50718092eb45b4447871b1fd4e8b9d79a76295c8d9a02b7fd409a"
+        }
+      ]
+    },
+    {
+      "file": "data/books/song.json",
+      "sha256": "ca54494c5208d441ced0f07712b2cb59b30e39db2212d72937874328ecb6ffff",
+      "chapters": [
+        {
+          "id": "northern-founding",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 1,
+          "sha256": "888486713b77ab70703a62b81e78466a1bd2a9d0e967c7960f5b91b99c27d632"
+        },
+        {
+          "id": "commercial-reform",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "dc162e4957c6849a630428fe1e8dd6ae4bd68b628d1fe1dbb3ba15be759f7de9"
+        },
+        {
+          "id": "jingkang-south",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 1,
+          "sha256": "56a94382427685167c2514deb6e32beb7e5b7f96a08f9097b1d87f4a7578b214"
+        },
+        {
+          "id": "southern-prosperity",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 0,
+          "sha256": "326e541884b8442963ffac3406d574d7bacaa0d412af957e12bc97060480b606"
+        },
+        {
+          "id": "xiangyang-yashan",
+          "blocks": 6,
+          "sources": 5,
+          "sceneRefs": 1,
+          "sha256": "4f64270a95804a3a8430300bf855ec2c1e9dffcfdbda007d03754625cefb982f"
+        }
+      ]
+    },
+    {
+      "file": "data/books/songhai.json",
+      "sha256": "fca899db91288a20de0660c2ee942341faa0e4fcc7840e274b28bceeb8359307",
+      "chapters": [
+        {
+          "id": "sonni-ali-river-fleet",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "8aa209526cfa1fc901e5a4711bd40763144e7658101cf25619b9c9cb11c9c7de"
+        },
+        {
+          "id": "askia-muhammad-pilgrimage",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "085aede4ab305252c0e834c4857a9acdcde853dd059461da404a67beaee5ec67"
+        },
+        {
+          "id": "timbuktu-salt-gold-books",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "ae57a5c7393d2aed71fd46b19790bd8f1fdc3b9af7486949353726f47da8c647"
+        },
+        {
+          "id": "tondibi-muskets-collapse",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "1e84a7db9895f859f894b2eaea7e0df092f7bf038dafa6331f53e7536ca19dc7"
+        }
+      ]
+    },
+    {
+      "file": "data/books/southeast-asia-maritime.json",
+      "sha256": "10df3f95edf9f66577714bee243f7fcae4cf3bb94420d33b072ae29c1e1d56cf",
+      "chapters": [
+        {
+          "id": "srivijaya-monsoon-straits",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "361354b50d223adf4be1ea6a0d571739be4b66431fae227e296a8a592434b334"
+        },
+        {
+          "id": "majapahit-malacca-crossroads",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "43662d05cc4ffc58bdb27f9412667750465cf0b44c997fefdf4d2c6d0f729b71"
+        },
+        {
+          "id": "spice-monopoly-colonial-divide",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "971d6bc26b382e2ff2b9806baeb68e2011d039bed13c305313229a87ef90d811"
+        },
+        {
+          "id": "decolonization-asean-hub",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "2ea4ace6ee4594eb3416a137f3d736e11ebcf87274b0d0f79478bf68af828d99"
+        }
+      ]
+    },
+    {
+      "file": "data/books/southern-eastern-africa.json",
+      "sha256": "7423e3ba7c13fd4767f4f7bbad349557efa1515277456e772ab8555c918cef70",
+      "chapters": [
+        {
+          "id": "swahili-kilwa-monsoon",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "c451aa02b769ae1ba51caeac92ef6ce4c4c5314037decaab1197c8712773b78f"
+        },
+        {
+          "id": "great-zimbabwe-mutapa-inland",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "c26ada68ca12ea3b05527f9c8514f24541dfaae1b26179e04d6fb88a1b25dbdc"
+        },
+        {
+          "id": "zulu-mfecane-mineral-colonial",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "188d25dcd2479a1a71ba8d1d1e5b557b52db668e319ecc700833b38078e1a01c"
+        },
+        {
+          "id": "liberation-rainbow-east-south",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "d25370953916fe38a5031a1cd66ff8758d69a9db82cbb75852d596f2d05492fa"
+        }
+      ]
+    },
+    {
+      "file": "data/books/spain-portugal.json",
+      "sha256": "ffa3f7acdb7975dcf500523d541cea5883265af29d59b6c6ce30b9a5cf1ef23d",
+      "chapters": [
+        {
+          "id": "ceuta-tordesillas-ocean",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "6237133235de59e19b6928e9e9155ccb52145081a7fa00238a63931d49a2faad"
+        },
+        {
+          "id": "conquistadors-silver-galleon",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 1,
+          "sha256": "809dc8dbc44c237760d32109a493ab1f7a3cf0fa252195f85104355c82c678ce"
+        },
+        {
+          "id": "iberian-union-fiscal-overstretch",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "4e864202b4fdc69e63bd99ce213b87e807a7b5ddffdbfb1d782b3b117a4dd33a"
+        },
+        {
+          "id": "bourbon-reforms-imperial-sunset",
+          "blocks": 6,
+          "sources": 1,
+          "sceneRefs": 0,
+          "sha256": "0a9e4b2f1ee60a10310e1fa9807a7014a667d3ad4354d9065cce2b30cfe8d435"
+        }
+      ]
+    },
+    {
+      "file": "data/books/sui.json",
+      "sha256": "8391f396539f625086984fd6a8c6e96c917b87becf650582351e9b8243479523",
+      "chapters": [
+        {
+          "id": "kaihuang-unification",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8c611846962b78a4b951ff6b35c756a75b4093567fa829d508cfacb387c24659"
+        },
+        {
+          "id": "grand-canal-luoyang",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "dd2d206bc13b55ca29ecfaf289f1f833a4ef3f3794453d49fcd18146275525d1"
+        },
+        {
+          "id": "goguryeo-collapse",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f245bdfad2ea170e863315e1245249562a23dae9e42a4745f44405775d04d1ce"
+        }
+      ]
+    },
+    {
+      "file": "data/books/tang.json",
+      "sha256": "249a412e022ac4b728f0d658312bad6d5ec7b2345fb386b8f47b1e9f6a7615d9",
+      "chapters": [
+        {
+          "id": "founding",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 1,
+          "sha256": "6802d2ffecf5e37b0931ba34402271764a7261c5e674e60865c59071acaf7154"
+        },
+        {
+          "id": "two-capitals",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 0,
+          "sha256": "c182eaba2bf3f24053b92dfa5f5ccd7739fde967ee633f944143daad832f1326"
+        },
+        {
+          "id": "frontier",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 2,
+          "sha256": "a961f0581b1784bea1fbbf48717523d7a84cc900dd1b391f16c9730c4cb06eec"
+        },
+        {
+          "id": "late-tang",
+          "blocks": 6,
+          "sources": 7,
+          "sceneRefs": 0,
+          "sha256": "6d3ec43e0447dddfc4ef6c85c80dd375d6efaeb5d657d943728c66c083970c04"
+        }
+      ]
+    },
+    {
+      "file": "data/books/tibet-himalaya.json",
+      "sha256": "2ea0fe318bbd41fff9bf59cccb23bfc773437f55244e3e7f7f9f4277ffcc6c5b",
+      "chapters": [
+        {
+          "id": "tibetan-empire-plateau",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "12a3b3a55300633e44902f67ce52ef72bbe7229bc102b2aae12a22ab54cff72c"
+        },
+        {
+          "id": "guge-sakya-phagmodrupa",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7894c9bd87bafce64bcab26f7c64f85781726fd15cd7f969e917c442b5382c6a"
+        },
+        {
+          "id": "ganden-phodrang-gorkha-bhutan",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "080576c22f956807823e8cbee43696bfd69836e6f0bd0030d961f16273453135"
+        },
+        {
+          "id": "modern-himalaya-corridor",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "14c1ff11fdd002c0edd9e54e81f80fb4843cbe2b710c307d87ac331ab462f83b"
+        }
+      ]
+    },
+    {
+      "file": "data/books/tokugawa.json",
+      "sha256": "25878668fae444befac3e5674ed4ef2a8cef951edfc18b5f72d62d8c343373a5",
+      "chapters": [
+        {
+          "id": "sekigahara-bakuhan",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "35cc673e28fc027eb29b6694a273a53c848bf8d4b6027c42cf486be13cb8b8c4"
+        },
+        {
+          "id": "sakoku-genroku",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "f7249d73b4203af7f64e759f5425e023bbb246e0d660449ee8d139c7541f06d4"
+        },
+        {
+          "id": "reforms-rangaku",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 0,
+          "sha256": "dd746fe8a66d09789853b26a7e06350b066b9b7f11a53909056161eb1a178f34"
+        },
+        {
+          "id": "kurofune-bakumatsu",
+          "blocks": 6,
+          "sources": 6,
+          "sceneRefs": 1,
+          "sha256": "4f7c61a85dc43417995d58e308df58667a43bb64e48bda65549c6da73fb93939"
+        }
+      ]
+    },
+    {
+      "file": "data/books/usa.json",
+      "sha256": "f9795f9214c4e52f094c61c0c83cb6197fa33628ff8532ea58a6373d2dd3e617",
+      "chapters": [
+        {
+          "id": "founding-constitution-frontier",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "44618960d0d49474cb6d66c42f70394e7290763944311296f41023f1a3532578"
+        },
+        {
+          "id": "civil-war-gilded-industry",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "14c4e1667acbbe218df86b659b1a7212b550f02e3636b12b647574f9f563b6f5"
+        },
+        {
+          "id": "depression-ww2-superpower",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "05615aff2940ab915764d1e86e493ae672ed0c8b21373d9d282f3f96eff94edf"
+        },
+        {
+          "id": "apollo-silicon-valley-21c",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "953fd42c9f3fa081a8a7d72242ad96d0648f63ae65e33dd198cc76884169546a"
+        }
+      ]
+    },
+    {
+      "file": "data/books/warring-states.json",
+      "sha256": "a388c292605b8111b2cbcdac01e2c85bfeac64f4bfbb8cdc909ba8179f73e368",
+      "chapters": [
+        {
+          "id": "spring-autumn-hegemony",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d855feaadc5151a94db87546831165e79f09b63456f9982ef95dd88989e7b113"
+        },
+        {
+          "id": "wu-yue-three-jin",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "cba8f2522a5d1f12c0a7cca85414c6118fd61983aeeb171d1c66e5ee25dc088f"
+        },
+        {
+          "id": "shang-yang-hundred-schools",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "347f228aed1cb6bdc93a0f7a5d2229247861b5dbaad29640d0c7484ac4168bb1"
+        },
+        {
+          "id": "changping-unification",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "4e18fabfb04d1ccf077eb6063250f0a57b4d2329ecaa9f5d03404702daff6776"
+        }
+      ]
+    },
+    {
+      "file": "data/books/wei-jin.json",
+      "sha256": "75ed3f2fc72698bb4a824e6adab7e7c446f600a94973c53b8f1e20d73667036b",
+      "chapters": [
+        {
+          "id": "three-kingdoms",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c83f63659c637cd20e5749d738db47cfcc1678ff27e1f0cd1df54ff7423286c9"
+        },
+        {
+          "id": "yongjia-southward",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "278e1466fdbdc195fbf9661019b34a7e51cd380e50c52606d833d9e50b7dc40a"
+        },
+        {
+          "id": "northern-wei-sinicization",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 1,
+          "sha256": "718986e9a7fd0cf37233dee62f90c47b2a0540423478282ab2f4d7c0839295c9"
+        },
+        {
+          "id": "jiangnan-fission-to-sui",
+          "blocks": 6,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "ccd183121032004cae97e5b646aa43f606a61b2164f132ac8e708c60ac21de3b"
+        }
+      ]
+    },
+    {
+      "file": "data/books/west-central-africa.json",
+      "sha256": "c6ad926946a605f36a7c19dde5e523cd40473150a2621235d4958b9dd127baaf",
+      "chapters": [
+        {
+          "id": "ghana-kanem-trans-saharan",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "69d91c3f6327963e8080669c83a0188144a9f05260abd8d0d4eb763b1188d6c7"
+        },
+        {
+          "id": "benin-oyo-kongo-forest",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "3945a6f37f5bf0ffc521d585937165d94abc11d94cbede3ab34ebb83e514b280"
+        },
+        {
+          "id": "ashanti-sokoto-colonial",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "915217fbb4448140bb914912086120bd1b8a0b3dca35478cb623ca333dd48aa1"
+        },
+        {
+          "id": "postcolonial-west-central-africa",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "f67de49067646af3dac60e85b757a6f894476de010b8ca6c39c1cf563816fa1c"
+        }
+      ]
+    },
+    {
+      "file": "data/books/yuan.json",
+      "sha256": "a2e6f7af96a3e6578d3f37ec127666119a7128dd9a2eceb5a7fd3f11fcbc4262",
+      "chapters": [
+        {
+          "id": "kublai-founding",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 1,
+          "sha256": "f26637d7f22adff197044ffbde32feea83aa58a3db01324b72ca7a57fa4f3d22"
+        },
+        {
+          "id": "provinces-canal",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "6d5a66f9c00f4cf5d2c217fc6680e84f39c131a211cf8e3e83b1995edcb420d8"
+        },
+        {
+          "id": "eurasia-quanzhou",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 1,
+          "sha256": "c947fb4ec9b9a9929d50ea5307af6f1a15f63052d4baa52480e05c5e9ce68cec"
+        },
+        {
+          "id": "red-turban-fall",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "7e5466efe54038b377bad819fcd37ec74fb69a90e561c9f3375a5288630b1927"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/africa-modern.json",
+      "sha256": "b24f6adec48822d8fe2b0ef12cb0a330d0bef927752112756fc87113e177dd56",
+      "chapters": [
+        {
+          "id": "partition",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7e26adcffa044dfd5e7b29dea462a5893116aa8014af0ea969758ae275959939"
+        },
+        {
+          "id": "adwa",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "afba55a2c0bfa9be2d71b91c594fcc5682a0ebdf78b06454f9d81c6ad5993f74"
+        },
+        {
+          "id": "independence",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5e8e54fe5b7a09857b2429d56a15b9a11f203db9738a645b1558a1814f55fb22"
+        },
+        {
+          "id": "south-africa",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "72ff9130b164aa01bb3bada243d4b30137811134a78305551c71fb82ddfbb05c"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/central-asia.json",
+      "sha256": "569266dd94ebe1137bad9591879fb7b54d191622f858124e2aa32f30b19f55b2",
+      "chapters": [
+        {
+          "id": "sogdians",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "94d23e0aabbccc69b70536a98debf671251b05264b5de21ebb5f5c91025d4a19"
+        },
+        {
+          "id": "mongols",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "64c1a2c178efc05b9c19478336df39719b291ba4c915e7ee7a79f52ce702ba44"
+        },
+        {
+          "id": "timurids",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "608ac4a6a8e883745aabc16fbfb961bbc3fc41342448d5a862a2ed0fc1be25cc"
+        },
+        {
+          "id": "republics",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c7f68a3d1291736633f402e10efd9a4826c13bcc5078b07e2192c7eef191ecd4"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/china-early.json",
+      "sha256": "a76e9059318528a4223bbf2d739186a9f53ab1af36e6d34276d5bec93cb4b4db",
+      "chapters": [
+        {
+          "id": "bronze",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f9e35afb68caf67dd8b7aca84fb6d18d92d18277e4811e5974e1abcfddc7bc9b"
+        },
+        {
+          "id": "qin",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b546816241c0b4c2ec1902ecd445e030a970717832e2b565175891809cbcef4c"
+        },
+        {
+          "id": "han",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "e987d6c26ee1e49350f1ead711d617699c1a400e94f99250b96a7dfa4f657cb3"
+        },
+        {
+          "id": "buddhism",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "989543dcbf4830fe5616941346d6e543bb66bb648156d58a653ab29447c16d35"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/china-late-qing.json",
+      "sha256": "b35e12c67c5da44bb328f254305ffae748511c85480e704f30c760c6be4e4896",
+      "chapters": [
+        {
+          "id": "ports",
+          "blocks": 6,
+          "sources": 4,
+          "sceneRefs": 0,
+          "sha256": "77898e6da8f4466bae057bf763974b30a472d4301d5d66837f263db99559d600"
+        },
+        {
+          "id": "civil-war",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "4f74546ee603f48978e9ebef05d7590f63350f84c8606d9aa7baf043752cdc8c"
+        },
+        {
+          "id": "industry",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "e87a0132721164bcc8f378ac6af78c120f87f4c42eaf21c1a1b44747d6c7faf6"
+        },
+        {
+          "id": "defeat",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "498ae0cc9bd672756f258398350647eb842c002624c5556c5f6b59d3636c742a"
+        },
+        {
+          "id": "reform-1898",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "72e424f3e9ac4ee62e10bbb518ca566e90a0d592c40800329cf4677b669cd89b"
+        },
+        {
+          "id": "boxers",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "8446d67b8c3f4afe8ce4af6f7846f18959f38abf464c9f7b2ce6035493577ba7"
+        },
+        {
+          "id": "new-policies",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "415dca9132e9e2b4da6612f2c28de0512d898599aa7db6b4528b41650d00a6b9"
+        },
+        {
+          "id": "revolution",
+          "blocks": 6,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "46abf7b57b6f7b421e416077e1f8fd77d67e7885388fc04097273e594f6a18c9"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/east-asia-modern.json",
+      "sha256": "7a49847e360f209d21cf1fbc770afb45f3d6500966401ed1d484f7444fcfb4dd",
+      "chapters": [
+        {
+          "id": "meiji",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "0d758a4a76590dd52b89a4603f40aa00490d73cad81695ca5f8e278ab1910f63"
+        },
+        {
+          "id": "korean-independence",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "02832422f5c3782b3f672bd837d7fe79b8fad24deecaea2aad307f5c3c6d9ae0"
+        },
+        {
+          "id": "china-revolutions",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a3119dd611b9cb59cded878cb860c127ab4442d4e437eeb17cb1bb52cc9375da"
+        },
+        {
+          "id": "postwar",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "25cd76648db39dcd1aefcaf85692d0cbbc2d03c9becf6588ff04d5059980b74b"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/east-asia-networks.json",
+      "sha256": "8dd2b213c456ea9d10aba8dfca526bcb176ee713a25fcb93c042c72b7c66235f",
+      "chapters": [
+        {
+          "id": "tang",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "2a9fc7fb4d5ffcc1a9b379e147a4aa563a715e2598bd3db818cd66013fb8ce95"
+        },
+        {
+          "id": "song",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "c05262820192432f83df82574be3c1b4fa5c244dd0bbbec2c42e1c6be9325ec8"
+        },
+        {
+          "id": "korea",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "ec03603b85655a1b27cf2279ceffe6fff0b8ca69149d98216b5ee559b252defe"
+        },
+        {
+          "id": "tokugawa",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "cb9f2bff683683aad20fefdb3bc5f4cb0d6ed0e27bcbb657de91734b8679722d"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/east-southern-africa.json",
+      "sha256": "2411aed1bddcf396647d5665c8203533f74bab3812ef0dbec1f0f41e40fd0c2d",
+      "chapters": [
+        {
+          "id": "lalibela",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8de88b95bc253f45f62e72dc72a9e401115e17dcaf104e57cec2dd346f8632d9"
+        },
+        {
+          "id": "kilwa",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b06000f1036edc720eccf666a383b22ceb752f6822c8fa1fe13f6cfb306c2530"
+        },
+        {
+          "id": "zimbabwe",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7d7d47b08982741c7aa0b86ce245cc2cf7e5deeece94c260faeea9744c0c285c"
+        },
+        {
+          "id": "mozambique",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "62dd3ec16db349f8484d8c4d505f544830246f2a53716f25df681aa09aa2dcd4"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/europe-classical.json",
+      "sha256": "2672a42d1218ca7c2a6680677fabe2296eb2c32c21c5e7cacbfd531aeaca855b",
+      "chapters": [
+        {
+          "id": "polis",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "039b36eeacd338b492829a00b107368b401fdee1a994ef4427775163278313cb"
+        },
+        {
+          "id": "hellenistic",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "eff6bdec763678b8c3e330ea00e5f2bac81573f1d84534d9f44e6d53ac4fb00a"
+        },
+        {
+          "id": "rome",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6f08415371f0270b9036fd0688f1856a4a332b2c96b9cf8b0a405079a7a62fda"
+        },
+        {
+          "id": "late-antiquity",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f2675101491ed807f3edfc2c58d48574975e3304c3cceb46716dae8e33ec7e41"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/europe-early-modern.json",
+      "sha256": "979e3f61fb2785d282761ad29f771c41c624701f67a4feb2159913c7aaabded7",
+      "chapters": [
+        {
+          "id": "print-reformation",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "ef8760db0cc1786670dbecdb6fa525a1bb2f5cea594850bac19da10de560e23c"
+        },
+        {
+          "id": "atlantic-empires",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7f258d40f61ce7133e1d0c6d51b1499861b85b25f1d68279133170cc4fd890cd"
+        },
+        {
+          "id": "revolution",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6068712767658dd91eda2b82201c68569a44cc4809f809ed15e0161894003f3e"
+        },
+        {
+          "id": "industry",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c601d83f55b1efe0cb8b08b5b2b7ddf04539650387e1eb45ebda45c102bf5cc6"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/europe-medieval.json",
+      "sha256": "7a8f988548d4cb5be7a02c371b06142653bcb1b6d062677a6087b47c798f0958",
+      "chapters": [
+        {
+          "id": "eastern-europe",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a7bcb445727f667eb1b6272a69db0ea79ed8e7427f645254e8ecd1f5665a88ad"
+        },
+        {
+          "id": "land-and-lordship",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "fea429920438f119633d8c8c0d235aec110f69e41682da2170053074c6a8a317"
+        },
+        {
+          "id": "towns",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "01ddd07db2a23de223863709713b8e65e426d02295c451769058876760dd0b5e"
+        },
+        {
+          "id": "plague",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d30fa2882a2e103ccb946e9d3fc6f6dd7956b5d1179ea5a7eb7e8afca8a70f8b"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/europe-modern.json",
+      "sha256": "03906b0e96e877c947689c6cd6645ccdc162ecf81faf09628be42578e6503260",
+      "chapters": [
+        {
+          "id": "world-war-one",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "937d6b23d24b2ff9aa290184f2b4be51d2b104d53066c414c6f573e990c02627"
+        },
+        {
+          "id": "russian-revolution",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "336de01397f05df414e915f9c1863defb00ebc9507df8e1860c8b28ca1c3f016"
+        },
+        {
+          "id": "world-war-two",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "8273805784269bc3099418804fb9c504a0e48f78b056ca082468fab870b7fc96"
+        },
+        {
+          "id": "reconstruction",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "496f2b9e39bfe8ffc37e9b9a4a20086d82a29d35b935c30928bafa9b01da867a"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/global-connections.json",
+      "sha256": "1413d2ec24a5722933e916ca47bd938d9aeb62b7c49ce33e0bbbb46d3cb84c7f",
+      "chapters": [
+        {
+          "id": "united-nations",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "909818516bcb623f87c65d79f5fa0fd143127da4c84d45ceeae4e9d5a29afa3d"
+        },
+        {
+          "id": "bandung",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "82e495fe0e04af50ca6f3190a55cb79169ac0f99095c5d3c31201996daeddddd"
+        },
+        {
+          "id": "production-networks",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "803fa3c71cbcd0d774af768717beea2dac59bfe35f449393f6e98a7ff795d823"
+        },
+        {
+          "id": "shared-challenges",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "9269070aa92cfae8cc0fea23c1a4ba10e152384b6a87ed5abd75cd42ce287d1b"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/islamic-networks.json",
+      "sha256": "4802ec65283cf817c3617266ece11b4cb48ce90e171cf308273375ab20665de3",
+      "chapters": [
+        {
+          "id": "caliphates",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f2c4fe71587c42715d8e418b6ee7013ede93e7f844c9e531160565fc28594667"
+        },
+        {
+          "id": "baghdad",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a1b004311c1324cffaad035e2aeca235dc1c168e214afc3341c180acd6ad8254"
+        },
+        {
+          "id": "al-andalus",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "852f77bdce55cabb9e789fc023a5424d148d886ce1d1ffec61126ceac10b2385"
+        },
+        {
+          "id": "ocean-trade",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "d425e113b542ef12ec277916c8bf016752bf2b966caecb9e497a1067e6a8d6bb"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/latin-america.json",
+      "sha256": "524dd0d7c7894dab97a0abc77de17fd62e9e8163731966f94ee9196a25bf58e9",
+      "chapters": [
+        {
+          "id": "conquest-silver",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7ea37caee217a1fb8ac118fe0eae53771a084b027328b3b3b24d7818759c921e"
+        },
+        {
+          "id": "independences",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "457d24021eea82c3ecded6679d09c1d1bfa330786640e8efd0c4086ac187b875"
+        },
+        {
+          "id": "brazil",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "9e08498786b1611d2184da7815e1ad772448d015987b2f2eecf3ad5a1881c41f"
+        },
+        {
+          "id": "resources-democracy",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "9b234eae7caaab660475865c4518473a5039c0029dbd0a6350fbc91fa7224ce4"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/mesoamerica-andes.json",
+      "sha256": "76d769289d3c935fe2e82a398481ec82ec9b26baebf2c7b674d21fb0158cf9f3",
+      "chapters": [
+        {
+          "id": "early-andes",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "30f4e805dc7034cdfa6012b4d8026a7acd95285bd8dae890129fcf377bb700aa"
+        },
+        {
+          "id": "maya",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7f4d07609922b014c5362a4cb6dd863820409396c016852df66b46154cbb5ec6"
+        },
+        {
+          "id": "mexica",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7b1876d9ff2d1680057e9e560ea6b13373af957a0ac9ea415ec1901accc7e234"
+        },
+        {
+          "id": "inca",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7c51ba99fd14124d1dc9442d2f8d22d50eb0f7d14190fea1e6c67dba253e0504"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/nile-civilizations.json",
+      "sha256": "0cf99e457d23e1c58a74f010dae37a6d47a91d94b00ec5d25c9881d662312e52",
+      "chapters": [
+        {
+          "id": "pyramids",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "978a9a6760e836c58d2fc1f09e998b4926ef4b5c37f615ceac89249c3c366714"
+        },
+        {
+          "id": "thebes",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "61f7962338f2dc63559fbe6a5b8ef05b5e6d8260d02f57968743aef48f8c5f16"
+        },
+        {
+          "id": "kush",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "1df43c630e9ca725c870dc0bff3eb8542eaa96ef7a9344c823f55f3296b8f4fc"
+        },
+        {
+          "id": "aksum",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "014efbec2a4c80c592c432bf8550989313b68ac17ea5e97d968ae13ca20e2034"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/north-africa.json",
+      "sha256": "a3d1c9f81cb787ddec1277e9a81656758f44254e4a4a88d16f8d07a1b0da77cb",
+      "chapters": [
+        {
+          "id": "carthage",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "e4d50173d1731d2713abf41df007505c383e39d8550bed10e42365f6dcdc97be"
+        },
+        {
+          "id": "kairouan",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "6402c26a4fa14fc9627a7c33b04e8cc7d65e20c980fe2100ced82afa5ad3e979"
+        },
+        {
+          "id": "fez",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "54411aa37b5baf75e838fb5f4019fd751185c1a8c4cea7a1d10e6fdee8957740"
+        },
+        {
+          "id": "algiers",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "05167c94c32445810f1e3743ffbbfce2c454bd08cacd5257015881c525469863"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/north-america-indigenous.json",
+      "sha256": "c866398cb799ec322217d0957658a968ec3270850cede41bae885eb53f1f0867",
+      "chapters": [
+        {
+          "id": "pueblo",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "df0aa888d2c14d109bf129aae1d92be4ae74525ae205d158effc1fc1fd1e241b"
+        },
+        {
+          "id": "cahokia",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "787da53c05614b74bf6c206763aaf572f1939b80abefc7b24115b676443517fb"
+        },
+        {
+          "id": "haudenosaunee",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "f635c6926d2d24fd63ace593999dfadb056723e16a0891acc521c569c27fe455"
+        },
+        {
+          "id": "northwest-coast",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3dee8485a9b351661a26c650c4fee075c5e0089ee6b9ea0c01c96662f6b5595e"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/north-america-modern.json",
+      "sha256": "252d5497283aa3a668e22c8a5ca50036ff5ea04172d8e9402cfd3b3bf1726a80",
+      "chapters": [
+        {
+          "id": "colonial-contact",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5d03cfa8f55182c3ae5d9b1b35bf33320e0218226e7bcea6856e041832a332f5"
+        },
+        {
+          "id": "republic",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "2427d9d3a1b8a7c183fddf9ebad8163ece5693c36c894b9ce359952a2c346f8a"
+        },
+        {
+          "id": "expansion-emancipation",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "8849b0419400801c39a31cc46bd22bcf06b64a4ba4d28ee09414e99e916ed728"
+        },
+        {
+          "id": "rights-and-memory",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "91cf91a94fe2b2fedb1361f3a1a9c4a6fe736f81bce559e32c07c13328c8972a"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/oceania.json",
+      "sha256": "4b0c19276747aee368aaa3ed7b195b9469d952f4a0c21a13322862d0f20b2546",
+      "chapters": [
+        {
+          "id": "voyaging",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "0ea3e4958d5a629cafc265b7a3039730204a22195dd1e5dd763242b074382753"
+        },
+        {
+          "id": "australia",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "9022bf22676551edeb3254e84cbc476568dc5a9d07cd3119c16e30138befb792"
+        },
+        {
+          "id": "waitangi",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3c7b06003309656c31fa24887ac14460b99f1b357bb8c41ccf947733ffa359c7"
+        },
+        {
+          "id": "pacific-sovereignty",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "22943fd5b96aaea2ec774d84add1023216eae2f53604a91e2aa64bbb9f5674a8"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/ottoman-persia.json",
+      "sha256": "a2fd2497ac2889f1d7ce5ad4e4aeda09d5bcd6a0e36d35120b5dfb152f466207",
+      "chapters": [
+        {
+          "id": "istanbul",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c0e7bd4fe811a5bb98f7b934ef2a88c295052447798b50cfb8ac1eccbe1282c0"
+        },
+        {
+          "id": "governing",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "71598a5fea4dc3e3ee954df85ab505f2ae40e7677a5d4336b997a1b2e8bd5d0c"
+        },
+        {
+          "id": "isfahan",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "374c628269b085ae7ccf58d766fc15b6f2f32f4ddf3bb54df5cbfea6c4bbd4cb"
+        },
+        {
+          "id": "changing-empires",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "32678c97781a3a474d0c3ec42862e47489723e614842bf29ac5a431b3c8eb29e"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/south-asia-early.json",
+      "sha256": "238d658f39f5fedc855cc2268a71e7e3b762b242a81d5e329d3d41ba393f6620",
+      "chapters": [
+        {
+          "id": "indus",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "7b799422043d50f9be14e3024386f2ddcbd5a85725f8d28342b50b5fc499668e"
+        },
+        {
+          "id": "ashoka",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "9b70d1c1b0723bcd31ce7baedef4900233eb2893138d410e2ec1f15b1123e26b"
+        },
+        {
+          "id": "buddhist-networks",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "beb628771ad3c902f1f69942fd9c01b0efb51ee84f40387ce72e753275032705"
+        },
+        {
+          "id": "chola",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "87a4e44b09f566956978d96165c0cded64572b39dc39bee8fe9e0386d45a117e"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/south-asia-modern.json",
+      "sha256": "a9803d4eb834c61c7dbd4fa3f8a4035aea0f36994e93af9b593af8cec5dee978",
+      "chapters": [
+        {
+          "id": "sultanates-and-hampi",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "1908c286e23b6442856207bb190344f978adf1eff2bc216486a01690e304cfd3"
+        },
+        {
+          "id": "mughal",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "bd41a6af3b0b00d9f031c47945e85e5d5ed654cb175e08a5a559eaabeb797d9f"
+        },
+        {
+          "id": "company-rule",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a1834b2d014346aef5c7bf3642706cc3d4903725521424b108742a8c202969ba"
+        },
+        {
+          "id": "nationalism",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "97eee797ed4dab1ac00d9ecb7b1fb5913026689e3d517a0e94124f63eca801d3"
+        },
+        {
+          "id": "partition",
+          "blocks": 5,
+          "sources": 3,
+          "sceneRefs": 0,
+          "sha256": "a8fa18a39d1ffaa0b8456232b772640e24486b99d530f1078d6dc1820daf0a5f"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/southeast-asia-modern.json",
+      "sha256": "6312b746359eead8fd7fc57c818ffdffe099bd2c1c1ef07a428d5b709efc3276",
+      "chapters": [
+        {
+          "id": "colonial-port",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c932ce4178b9698b8f26eb9f15d97b9ac2233d6f2d03babe97867b505c6be48f"
+        },
+        {
+          "id": "indonesian-revolution",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "5b4a0f9c34c80303c591fdb286cf0c3b594a950f7a5d3640108e50122b869626"
+        },
+        {
+          "id": "indochina",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "edb3a737a0c4145b7047019899e1eaa095201751a1afc6b0c4addd5bd633adf0"
+        },
+        {
+          "id": "asean",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b47a239db5541aa27a32368203edc6e79da7d7f8027c092d2467ee02f172bb50"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/southeast-asia-networks.json",
+      "sha256": "c35fac297a9b40e4ca0cb51b4f0a292168151675db53a0811ba6c8165deef18e",
+      "chapters": [
+        {
+          "id": "srivijaya",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "33199656cd6e4c8a227b74d902c64a3394d62bec2488124135d2ae07cc4ee684"
+        },
+        {
+          "id": "borobudur",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "dfee6ee83f08142cf5941a603c1f162f77a246b948b254f4d6adcad764ef0b6a"
+        },
+        {
+          "id": "angkor",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c701207858083b2a4d4585e9a1c5fb5fe1230677e887f81807130b272ac9b98e"
+        },
+        {
+          "id": "malacca",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "18c33fcaf7d862affda4fec25c520de0511f76ea8dc48065e5628ace658f20c6"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/west-africa.json",
+      "sha256": "beb2a97e5673f722cb2c2eb67eb92597c82f7f45a3f3dbed102bc638f7d4e323",
+      "chapters": [
+        {
+          "id": "sahel",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "ef2e4c15a66a0e806789206fa009422744a11606bfe6cbc4cf887c957e14e137"
+        },
+        {
+          "id": "manuscripts",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "172b17acb73ba5cd18489e6daa156baae60cfc6b6ef5ad034bc02ed3690d0fd2"
+        },
+        {
+          "id": "courts",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b424f07096d9aa3004fb81dfaa11d79aaa8479ec44f75383f742e46f220d3681"
+        },
+        {
+          "id": "atlantic",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "98629a102614b13e60ada837c07d571828f1cd20b28918bd680d0ef9bfb41af2"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/west-asia-ancient.json",
+      "sha256": "30f7f64c0f0be583b19d8b143858ae90e1f58d356790458456794714e1e7c8ac",
+      "chapters": [
+        {
+          "id": "uruk",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "06194803e432323276f70817cd2d51ad41d08f924616761256617c049e55357f"
+        },
+        {
+          "id": "babylon-law",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "3bc1f0aa4681a3f72b61daefcf6730f70b23a07b21065501d7ff64081f67a94f"
+        },
+        {
+          "id": "achaemenids",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "a10570981c91761d95e2785afdd87e2d9a433dfb7ac17a29fcb653f575ed707c"
+        },
+        {
+          "id": "sasanians",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "b3f7984b55a3933db62e013932672ad18dd0f126bc13c37b7c640514efacf6eb"
+        }
+      ]
+    },
+    {
+      "file": "data/topics/west-asia-modern.json",
+      "sha256": "e2515a858da86bea730c079cebdeb08677fd52f0d4e1b9a5bfbf6828c1530a59",
+      "chapters": [
+        {
+          "id": "reform",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "c43132b1eafc47b0ab6ae42f4cd87bca982986d67df697a91e18a849562fb775"
+        },
+        {
+          "id": "mandates",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "393fcb30630b674d5ce0a7a3794d852575ee47e8fe875ed6d654250d76e5bd56"
+        },
+        {
+          "id": "palestine-israel",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "78fdeff7d88d5e5d5f0aef17fa24e592bf5769aecc03fb3f8b7104165552a88e"
+        },
+        {
+          "id": "oil-sovereignty",
+          "blocks": 5,
+          "sources": 2,
+          "sceneRefs": 0,
+          "sha256": "bc4cdf550896dd2d41dd9edac96a9ba01759b34bddb0a59699742e451ac1857f"
+        }
+      ]
+    },
+    {
+      "file": "data/scenes.json",
+      "sha256": "593059a05f149da6eb968d904d2c210d4a734b7208412f23f806ae9875c50f68"
+    },
+    {
+      "file": "data/reading-timeline.json",
+      "sha256": "2a11b2c9c1a46bb0e900cac3d4312b00687aafdd9f5d6f09e1eee1296ec37fdc"
+    },
+    {
+      "file": "data/world-reading.json",
+      "sha256": "27eb5fd6b391004bd0da1cfa9a5e37cb13a55d190a2ae0a61200373b2ac09969"
+    }
+  ],
+  "bindings": {
+    "total": 471,
+    "primary": 467,
+    "related": 4,
+    "intentionalChanges": [
+      {
+        "bookId": "british-empire",
+        "iso": "IE",
+        "before": "primary",
+        "after": "related",
+        "range": {
+          "from": 1922,
+          "to": null
+        },
+        "chapterId": "world-wars-post-imperial",
+        "scope": "本卷涉及英国和爱尔兰自由邦独立的背景。"
+      },
+      {
+        "bookId": "canada-north-america",
+        "iso": "GL",
+        "before": "primary",
+        "after": "related",
+        "range": {
+          "from": 1953,
+          "to": null
+        },
+        "chapterId": "modern-canada-arctic",
+        "scope": "本卷涉及格陵兰与加拿大北极的因纽特文化及地缘背景。"
+      },
+      {
+        "bookId": "india-classical-modern",
+        "iso": "IN",
+        "before": "primary",
+        "after": "primary",
+        "range": {
+          "from": 1947,
+          "to": null
+        },
+        "chapterId": "independence-partition-republic",
+        "scope": "本卷聚焦南亚次大陆部分古代历史、殖民与分治，以及现代印度共和国。"
+      },
+      {
+        "bookId": "india-classical-modern",
+        "iso": "PK",
+        "before": "primary",
+        "after": "related",
+        "range": {
+          "from": 1947,
+          "to": null
+        },
+        "chapterId": "independence-partition-republic",
+        "scope": "本卷涉及英属印度分治与克什米尔背景。"
+      },
+      {
+        "bookId": "india-classical-modern",
+        "iso": "BD",
+        "before": "primary",
+        "after": "map-only",
+        "range": {
+          "from": 1971,
+          "to": null
+        },
+        "scope": "书卷涉及南亚区域史，现有正文未充分覆盖孟加拉国自身历史。"
+      },
+      {
+        "bookId": "india-classical-modern",
+        "iso": "LK",
+        "before": "primary",
+        "after": "related",
+        "range": {
+          "from": 1948,
+          "to": null
+        },
+        "chapterId": "maurya-ashoka-kushan",
+        "scope": "本卷涉及阿育王时期佛教向斯里兰卡传播。"
+      }
+    ]
+  }
+}

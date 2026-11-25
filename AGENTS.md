@@ -13,6 +13,7 @@
 - 每轮完成后运行规定的验证。先执行 `node tools/verify-content.mjs` 和 `node build.mjs`，涉及交互时运行适用的 UI、移动端和 smoke 回归。仅允许文档或档案变更的阶段在临时副本中验证，保持生成物在工作区的原样。区分浏览器模拟、真机、结构检查和内容审校，如实记录失败、未执行项及原因。
 - 涉及地球首页或选年时，运行 `node tools/verify-home.js`，核对地图生效年、选择范围、史事统计和视口适配。阶段实拍保存在对应的 `docs/progress/phase-NN/`。
 - 涉及阅读时，运行 `node tools/verify-reading.js`，验证正文位置、旧会话、字号、引用、主动观察及全屏隔离，并保留全量断网正文回归。
+- 历史内容按 [历史内容模型](docs/HISTORY-MODEL.md) 维护。正文块、来源和场景关系使用显式稳定 ID，地图入口在 `data/history/map-bindings.json` 编目，史料核查独立记录。内容结构变更运行 `node tools/verify-history-model.mjs`，触及兼容层时再用 Phase 04 构建运行 `node tools/verify-history-browser.js`。
 - 功能、交互、修复、图标与内容覆盖变化须核对并更新 README 和受影响的现行文档。按 [版本规范](docs/VERSIONING.md) 记录阶段变化和正式更新，自动生成产物的单独提交无需重复记录。
 
 ## 开发分支与网站发布

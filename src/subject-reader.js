@@ -1,19 +1,16 @@
 const subjectBooks = JSON.parse(inlineText('subject-books'));
 const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
 const subjectsById = new Map(subjectBooks.map((book) => [book.id, book]));
-const subjectsByPolity = new Map(subjectBooks.flatMap((book) => book.polityIds.map((id, i) =>
-  [id, { book, name: book.polities[i] }])));
-const subjectsByEvent = new Map(subjectBooks.flatMap((book) => book.chapters.flatMap((chapter) =>
-  (chapter.eventIds || []).map((id) => [id, { book, chapter }]))));
+const bindingsByMapObject = new Map(JSON.parse(inlineText('history-map-bindings')));
 
-const coversYear = ({ from, to }, year) => year >= from && (to == null || year <= to);
+function historyBindingsFor(entity, year) {
+  if (!entity) return [];
+  const key = entity.kind === 'polity' ? 'polity:' + entity.name : 'country:' + entity.iso;
+  return (bindingsByMapObject.get(key) || []).filter(([,from,to]) => historyIncludes({from,to},year));
+}
 function subjectBookForEntity(entity, year = state.year) {
-  if (entity.kind === 'polity') {
-    const binding = subjectsByPolity.get(entity.entId);
-    return binding?.name === entity.name && coversYear(binding.book, year) ? binding.book : null;
-  }
-  return subjectBooks.find((book) =>
-    book.countries?.some((binding) => entity.iso === binding.iso && coversYear(binding, year))) || null;
+  const binding = historyBindingsFor(entity,year).find(row=>row[3]==='primary');
+  return binding ? subjectsById.get(binding[0]) : null;
 }
 
 function politySelectionsAt(point, primaryId) {
@@ -34,6 +31,7 @@ function politySelectionsAt(point, primaryId) {
 
 function subjectYears({ from, to, dateLabel }) {
   if (dateLabel) return dateLabel;
+  if (from == null) return '年代待考';
   const year = (y) => y < 0 ? '公元前 ' + -y : String(y);
   if (from === to) return year(from) + ' 年';
   return year(from) + (to == null ? ' 年至今' : '—' + year(to) + ' 年');
@@ -48,11 +46,9 @@ function subjectEntityName(entity) {
 function subjectSheetMarkup(entity) {
   const book = subjectBookForEntity(entity);
   if (book) return '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>';
-  const source = entity.kind === 'polity'
-    ? ['Cliopatria', 'https://github.com/Seshat-Global-History-Databank/cliopatria']
-    : ['Natural Earth', 'https://www.naturalearthdata.com/'];
+  const source = historyMapSources[entity.kind === 'polity' ? 'polity' : 'country'];
   return '<p class="subject-sheet-summary map-sheet-summary">仅有地图资料。 ' +
-    '<a href="' + source[1] + '" target="_blank" rel="noopener noreferrer">' + source[0] + ' ↗</a></p>';
+    '<a href="' + esc(source.source) + '" target="_blank" rel="noopener noreferrer">' + esc(source.name) + ' ↗</a></p>';
 }
 
 function savedSubjectProgress(book) {
@@ -88,38 +84,50 @@ function renderAtlasReading() {
   const entity = reading.ent;
   const title = subjectEntityName(entity);
   const history = entity.kind === 'polity';
+  const source = historyMapSources[history ? 'polity' : 'country'];
   return '<div class="atlas-reading">' + readingHeading(title, '地图资料 · ' + yearLabel(reading.year)) +
     '<p class="lede">这个主体的历史正文尚未收录。</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
     (history && !polityNames.has(entity.name)
       ? '<details class="subject-secondary"><summary>底图原名</summary><p>' + esc(entity.name) + '</p></details>' : '') +
-    subjectNeighbors() +
-    sourcesMarkup(history ? [{title:'历史疆域 · Cliopatria',url:'https://github.com/Seshat-Global-History-Databank/cliopatria'}]
-      : [{title:'现代参考边界 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) + '</div>';
+    relatedMapReading() + subjectNeighbors() +
+    sourcesMarkup([{title:(history ? '历史疆域' : '现代参考边界') + ' · ' + source.name,url:source.source}]) + '</div>';
 }
 
+function relatedMapReading(currentBook) {
+  const related = historyBindingsFor(reading.ent,reading.year).filter(([bookId,,,relation]) => relation==='related' && bookId!==currentBook);
+  if (!related.length) return '';
+  return '<section class="reading-connections"><h2>相关历史</h2>' + related.map(([bookId,,,,scope,chapter]) =>
+    '<button type="button" class="reading-link" data-subject-book="' + esc(bookId) +
+    '" data-subject-chapter="' + esc(chapter || '') + '"><strong>' + esc(subjectsById.get(bookId).title) +
+    '</strong><span>' + esc(scope) + '</span>' + readingArrow + '</button>').join('') + '</section>';
+}
 function renderSubjectOutline(book) {
-  const anchor = book.chapters.find((c) => coversYear(c, reading.year));
+  const recommended = recommendChapters(book,reading.year);
+  const anchor = recommended.length === 1 ? recommended[0] : null;
+  const scope = historyBindingsFor(reading.ent,reading.year).find(row=>row[0]===book.id && row[3]==='primary')?.[4];
   const progress = savedSubjectProgress(book);
   const current = reading.directory ? reading.trail.at(-1)?.detail : null;
   return '<div class="reading-cover">' + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
+    (scope ? '<p class="reading-note">' + esc(scope) + '</p>' : '') +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
     (progress ? '<button type="button" class="reading-primary" data-subject-resume>继续阅读</button>' : '') +
     subjectChapterButton(book.chapters[0].id, '从头读', progress ? ' data-reading-restart' : ' class="reading-primary" data-reading-restart') +
     '</nav>' + (anchor ? '<button type="button" class="reading-entry-year" data-reading-detail="' + esc(anchor.id) + '">' +
-      esc(yearLabel(reading.year) + '对应章节 · ' + anchor.title) + readingArrow + '</button>' : '') +
+      esc(yearLabel(reading.year) + '对应章节 · ' + anchor.title) + readingArrow + '</button>' :
+      recommended.length ? '<p class="reading-note">' + esc(yearLabel(reading.year)) + '有多章相关，见目录标记。</p>' : '') +
     '</div><section class="subject-outline" aria-labelledby="reading-index-title"><h2 id="reading-index-title">章节目录</h2>' +
     '<ol class="reading-list">' + book.chapters.map((chapter, index) => {
       const active = chapter.id === current;
-      const status = [active ? '正在阅读' : '', chapter === anchor ? '入口年份' : '',
+      const status = [active ? '正在阅读' : '', recommended.includes(chapter) ? '入口年份' : '',
         chapter.id === progress?.chapter ? '上次读到' : ''].filter(Boolean).join(' · ');
       return '<li><button type="button" class="reading-row reading-card" data-reading-detail="' + esc(chapter.id) + '"' +
         (active ? ' aria-current="location"' : '') + '><span class="chapter-number" aria-hidden="true">' +
         String(index + 1).padStart(2, '0') + '</span><span class="reading-row-copy"><strong>' + esc(chapter.title) + '</strong>' +
         (status ? '<span class="chapter-status">' + esc(status) + '</span>' : '') + '</span><small>' +
         esc(subjectYears(chapter)) + '</small></button></li>';
-    }).join('') + '</ol></section>' + subjectNeighbors();
+    }).join('') + '</ol></section>' + relatedMapReading(book.id) + subjectNeighbors();
 }
 
 function sceneButton(scene) {
@@ -152,17 +160,13 @@ function renderSubjectChapter(book, chapter) {
   const index = book.chapters.indexOf(chapter);
   const next = book.chapters[index + 1];
   const previous = book.chapters[index - 1];
-  const scenes = (chapter.sceneRefs || []).map(ref => ({after:ref.after, scene:historicalScenes.get(ref.id)}));
-  const refs = [...new Set(chapter.paragraphs.flatMap((p) => p.refs))];
+  const scenes = (chapter.sceneRefs || []).map(ref => ({afterBlockId:ref.afterBlockId, scene:historicalScenes.get(ref.id)}));
+  const refs = [...new Set(chapter.paragraphs.flatMap(p=>[...p.refs,...(p.callout?.refs || [])]).map(referenceId))];
   const references = new Map(refs.map((id, i) => [id, i]));
-  const sources = refs.map(id => book.sources[id]);
-  const urls = new Set(sources.map(source => source.url));
+  const bookSources = new Map(book.sources.map(source=>[source.id,source]));
+  const sources = refs.map(id => bookSources.get(id));
   for (const {scene} of scenes) {
-    for (const source of scene.sources) {
-      if (urls.has(source.url)) continue;
-      urls.add(source.url);
-      sources.push(source);
-    }
+    sources.push(...scene.sources);
   }
   // Build inline place matchers from chapter scenes (longer names first)
   const placeMatchers = [];
@@ -197,26 +201,27 @@ function renderSubjectChapter(book, chapter) {
   return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章 / 共 ' + book.chapters.length + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
     '<p id="reading-progress" class="reading-progress"></p>' +
-    '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {
+    '<article class="subject-prose">' + chapter.paragraphs.map(paragraph => {
       const headingHtml = paragraph.heading
         ? '<h2 class="subject-section-heading">' + esc(paragraph.heading) + '</h2>'
         : '';
       const calloutHtml = paragraph.callout
-        ? '<aside class="subject-callout"><small>' + esc(paragraph.callout.label) + '</small>' +
+        ? '<aside class="subject-callout" data-block-id="' + esc(paragraph.callout.id) + '"><small>' + esc(paragraph.callout.label) + '</small>' +
           (paragraph.callout.title ? '<strong>' + esc(paragraph.callout.title) + '</strong>' : '') +
-          '<p>' + esc(paragraph.callout.text) + '</p></aside>'
+          '<p>' + esc(paragraph.callout.text) + referencesMarkup(paragraph.callout.refs,references) + '</p></aside>'
         : '';
       const bodyHtml = decorateParagraphPlaces(paragraph.text, placeMatchers, linkedPlaces);
       return headingHtml +
-        '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
+        '<p data-block-id="' + esc(paragraph.id) + '">' + bodyHtml + referencesMarkup(paragraph.refs,references) + '</p>' +
         calloutHtml +
-        scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('');
+        scenes.filter(ref => ref.afterBlockId === paragraph.id).map(ref => sceneButton(ref.scene)).join('');
     }).join('') + '</article>' +
     '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
     (next ? subjectChapterButton(next.id, '下一章 · ' + next.title, ' class="reading-primary" data-reading-sequence')
       : '<p>已到书卷末尾</p><button type="button" data-reading-index>返回目录' + readingArrow + '</button>') +
     (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' +
-    (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p>' + esc(chapter.spatialThesis) + '</p></details>' : '') +
+    (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p data-block-id="' +
+      esc(chapter.spatialThesisId) + '">' + esc(chapter.spatialThesis) + '</p></details>' : '') +
     contemporaries +
     (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
       related + '</nav></details>' : '') +

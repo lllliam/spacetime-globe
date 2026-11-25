@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "id": "ming-dynasty",
+      "type": "polity",
+      "name": "明朝",
+      "range": {
+        "from": 1368,
+        "to": 1644
+      },
+      "maps": [
+        {
+          "type": "polity",
+          "key": "Ming Dynasty"
+        }
+      ],
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "id": "south-asian-subcontinent",
+      "type": "region",
+      "name": "南亚次大陆",
+      "scope": "此地理区域用于说明书卷的部分叙事范围。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "id": "maya-societies",
+      "type": "civilization",
+      "name": "玛雅文明与社会",
+      "scope": "中部美洲的玛雅社会与文化，涵盖多个城邦和时期。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    }
+  ],
+  "mapSources": {
+    "polity": {
+      "name": "Cliopatria",
+      "source": "https://github.com/Seshat-Global-History-Databank/cliopatria",
+      "version": null,
+      "retrievedAt": null,
+      "generatedAt": null,
+      "coverage": {
+        "from": -3400,
+        "to": 2024
+      },
+      "license": "CC BY 4.0",
+      "asset": "data/polity.bin.gz",
+      "limitations": "使用底图原名定位。没有完整的地区覆盖，资产未记录精确的上游提交或本地生成日期。"
+    },
+    "country": {
+      "name": "Natural Earth",
+      "source": "https://www.naturalearthdata.com/about/terms-of-use/",
+      "version": null,
+      "retrievedAt": null,
+      "generatedAtFrom": "world.generatedAt",
+      "coverage": null,
+      "license": "Public Domain",
+      "asset": "data/world.json",
+      "limitations": "现代参考边界。时间戳为本地世界数据包生成时间，底图快照年未记录。"
+    }
+  }
+}

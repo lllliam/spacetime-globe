@@ -1,4 +1,4 @@
-const worldReadingLinks = new Map(Object.entries(JSON.parse(inlineText('world-reading'))));
+const worldReadingLinks = new Map(JSON.parse(inlineText('world-reading')));
 const worldPin = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 10c0 5-7 10-7 10S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg>';
 const worldBook = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C9 3 5.5 3 2.5 4.5v13c3-1.5 6.5-1.5 9.5.5 3-2 6.5-2 9.5-.5v-13C18.5 3 15 3 12 5Zm0 0v13"/></svg>';
 const worldChevron = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
@@ -41,17 +41,14 @@ function worldEventYear(event) {
 }
 
 function worldReadingTarget(event, year) {
-  const mapped = subjectsByEvent.get(event.id);
-  if (mapped) return { ...mapped, year: clamp(year, mapped.chapter.from, mapped.chapter.to ?? YMAX) };
   const link = worldReadingLinks.get(event.id);
   if (!link) return null;
-  const [bookId, chapterId] = link.split('/');
+  const [bookId, chapterId] = link;
   const book = subjectsById.get(bookId);
-  const chapter = chapterId
-    ? book.chapters.find(c => c.id === chapterId)
-    : book.chapters.find(c => coversYear(c, year));
-  if (!chapter) return null;
-  return { book, chapter, year: clamp(year, chapter.from, chapter.to ?? YMAX) };
+  const recommendations = chapterId ? [] : recommendChapters(book,year);
+  const chapter = chapterId ? book.chapters.find(c=>c.id===chapterId)
+    : recommendations.length===1 ? recommendations[0] : null;
+  return {book,chapter,year};
 }
 
 function worldEntryMarkup(item) {
@@ -140,7 +137,7 @@ overlayBody.addEventListener('click', event => {
   if (button.dataset.event) { openWorldEvent(entry); return; }
   const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
-  beginReading(null, null, target.chapter.id, target.book, {
+  beginReading(null, null, target.chapter?.id, target.book, {
     entryYear:target.year, source:worldSource(id, 'read'),
   });
 });

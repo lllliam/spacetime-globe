@@ -51,7 +51,7 @@ function readingKey() {
 }
 function readingBlocks() {
   return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, ' +
-    '.scene-plate, .reading-sources, .subject-chapter-next, details > summary, details[open] button, details[open] li, ' +
+    '[data-block-id], .scene-plate, .reading-sources, .subject-chapter-next, details > summary, details[open] button, details[open] li, ' +
     '.contemporary-card, .reading-connections .reading-link')].filter(node => node.getClientRects().length);
 }
 function blockFingerprint(node) {
@@ -68,17 +68,20 @@ function captureReadingPosition() {
   const index = blocks.findLastIndex(block => block.getBoundingClientRect().top <= edge);
   if (index < 0) return session.position({ top });
   const block = blocks[index], box = block.getBoundingClientRect();
-  return session.position({ top, block: blockFingerprint(block), index, offset: (edge - box.top) / Math.max(1, box.height) });
+  return session.position({ top, block: blockFingerprint(block), blockId:block.dataset.blockId, index,
+    offset:(edge - box.top) / Math.max(1, box.height) });
 }
 function restoreReadingPosition(position) {
   bookBody.scrollTop = position.top;
-  if (!position.block) return;
+  if (!position.blockId && !position.block) return;
   const blocks = readingBlocks();
   const matches = block => block && blockFingerprint(block) === position.block;
-  const block = matches(blocks[position.index]) ? blocks[position.index] : blocks.find(matches);
+  const block = position.blockId ? blocks.find(node=>node.dataset.blockId===position.blockId)
+    : matches(blocks[position.index]) ? blocks[position.index] : blocks.find(matches);
   if (!block) return;
   const box = block.getBoundingClientRect();
   bookBody.scrollTop += box.top - bookBody.getBoundingClientRect().top + position.offset * box.height;
+  return block;
 }
 function measureReader() {
   readerWidth = bookBody.clientWidth;
@@ -207,8 +210,14 @@ function sourcesMarkup(sources) {
   return '<details class="reading-sources"><summary>来源</summary><ol>' +
     sources.map((s, i) => '<li><a id="reading-source-' + i + '" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.title) + (s.note ? ' · ' + esc(s.note) : '') + ' ↗</a></li>').join('') + '</ol></details>';
 }
-function referencesMarkup(refs) {
-  return refs && refs.length ? '<span class="reading-refs">' + refs.map((i) => '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '">[' + (i + 1) + ']</a>').join(' ') + '</span>' : '';
+function referencesMarkup(refs, indices) {
+  if (!refs?.length) return '';
+  return '<span class="reading-refs">' + refs.map(ref=>{
+    const i = indices.get(referenceId(ref));
+    const location = [ref.locator,ref.note].filter(Boolean).join(' · ');
+    return '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '"' +
+      (location ? ' data-reference-location="' + esc(location) + '"' : '') + '>[' + (i + 1) + ']</a>';
+  }).join(' ') + '</span>';
 }
 function connectionsMarkup(topic, item) {
   const links = item ? (item.connections || []) : (topic.connections || []);
@@ -258,8 +267,11 @@ function readingHeading(title, meta) {
 }
 function renderReadingArticle(topic, items, item) {
   const opening = item.opening?.text || item.summary;
-  const body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
-    '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
+  const references = new Map(item.sources.map((source,index)=>[source.id,index]));
+  const body = '<p class="reading-opening" data-block-id="' + esc(item.opening?.id ?? item.openingBlockId) + '">' +
+    esc(opening) + referencesMarkup(item.opening?.refs,references) + '</p>' + item.sections.map((s) =>
+    '<article><h2>' + esc(s.title) + '</h2><p data-block-id="' + esc(s.id) + '">' + esc(s.text) +
+    referencesMarkup(s.refs,references) + '</p></article>').join('');
   const next = items[items.indexOf(item) + 1];
   return '<p class="subject-book-label">' + esc(topic.title) + ' · 第 ' + (items.indexOf(item) + 1) + ' 篇 / 共 ' +
     items.length + ' 篇</p>' + readingHeading(item.opening?.headline || item.title, readingDate(item)) +
@@ -293,7 +305,15 @@ function renderReading() {
     const details = bookBody.querySelectorAll('details');
     for (const index of reading.disclosures) if (details[index]) details[index].open = true;
     updateReadingLocation();
-    restoreReadingPosition(reading.position);
+    const position = reading.position;
+    const matched = restoreReadingPosition(position);
+    if (!position.blockId && matched?.dataset.blockId) {
+      reading.position = session.position({...position, blockId:matched.dataset.blockId});
+      const saved = session.readingProgress(readingKey());
+      if (saved?.chapter === reading.detail && !saved.position.blockId && saved.position.block === position.block)
+        session.updateReadingPosition(readingKey(),reading.detail,{...saved.position,blockId:matched.dataset.blockId},
+          saved.scroll,saved.disclosures);
+    }
   }
   else bookBody.scrollTop = reading.catalog ? reading.catalogScroll : reading.scroll;
   measureReader();
@@ -386,7 +406,8 @@ function openFootnote(link) {
   if (!source) return false;
   el('footnote-heading').textContent = '史料与注释 · ' + link.textContent.trim();
   footnoteTrigger = link;
-  el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
+  el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '') +
+    (link.dataset.referenceLocation ? ' · ' + link.dataset.referenceLocation : '');
   el('footnote-link').href = source.href;
   el('footnote-shade').hidden = el('footnote-popover').hidden = false;
   bookEl.inert = true;

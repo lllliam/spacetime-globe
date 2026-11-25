@@ -1,0 +1,8487 @@
+{
+  "bindings": [
+    {
+      "map": {
+        "type": "polity",
+        "key": "Achaemenid Empire"
+      },
+      "target": {
+        "bookId": "achaemenid"
+      },
+      "range": {
+        "from": -550,
+        "to": -330
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Aztec Triple Alliance"
+      },
+      "target": {
+        "bookId": "aztec"
+      },
+      "range": {
+        "from": 1428,
+        "to": 1521
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of England"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Commonwealth of England"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Great Britain"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "English Colonial Empire"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "British Colonial Empire"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "British Empire"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1066,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GB"
+      },
+      "target": {
+        "bookId": "british-empire"
+      },
+      "range": {
+        "from": 1707,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IE"
+      },
+      "target": {
+        "bookId": "british-empire",
+        "chapterId": "world-wars-post-imperial"
+      },
+      "range": {
+        "from": 1922,
+        "to": null
+      },
+      "relation": "related",
+      "scope": "本卷涉及英国和爱尔兰自由邦独立的背景。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Rashidun Caliphate"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Umayyad Caliphate"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Abbasid Caliphate"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Abbasid Caliphate/Buyid Dynasty"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Fatimid Caliphate"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Caliphate of Córdoba"
+      },
+      "target": {
+        "bookId": "caliphate"
+      },
+      "range": {
+        "from": 632,
+        "to": 1258
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Haudenosaunee"
+      },
+      "target": {
+        "bookId": "canada-north-america"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "New France"
+      },
+      "target": {
+        "bookId": "canada-north-america"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Canada"
+      },
+      "target": {
+        "bookId": "canada-north-america"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CA"
+      },
+      "target": {
+        "bookId": "canada-north-america"
+      },
+      "range": {
+        "from": 1867,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GL"
+      },
+      "target": {
+        "bookId": "canada-north-america",
+        "chapterId": "modern-canada-arctic"
+      },
+      "range": {
+        "from": 1953,
+        "to": null
+      },
+      "relation": "related",
+      "scope": "本卷涉及格陵兰与加拿大北极的因纽特文化及地缘背景。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xiongnu"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kushan Empire"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Rouran Khaganate"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Göktürk Khaganate"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Uyghur Khaganate"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Samanid Empire"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ghaznavid Empire"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Timurid Empire"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kazakh Khanate"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Khanate of Bukhara"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Khanate of Khiva"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Khanate of Kokand"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Durrani Empire"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Emirate of Afghanistan"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Georgia"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Armenia"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kazakhstan"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Afghanistan"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": -209,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KZ"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "UZ"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TM"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KG"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TJ"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AF"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1919,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AZ"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AM"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GE"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MN"
+      },
+      "target": {
+        "bookId": "central-asia-silk-road"
+      },
+      "range": {
+        "from": 1911,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Poland"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Grand Duchy of Lithuania"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Polish-Lithuanian Commonwealth"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Hungary"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Bohemia"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Austrian Empire"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Austria-Hungary"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "First Bulgarian Empire"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Second Bulgarian Empire"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Serbian Empire"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yugoslavia"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Czechoslovakia"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Hungary"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ukraine"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PL"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1918,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AT"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1918,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "HU"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1918,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CZ"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1918,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SK"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1993,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "RO"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1878,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BG"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1878,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "RS"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1918,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "HR"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SI"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BA"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1992,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ME"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 2006,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MK"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AL"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1912,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "UA"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BY"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LT"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1990,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LV"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "EE"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MD"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1991,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CH"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1848,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GR"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1830,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CY"
+      },
+      "target": {
+        "bookId": "central-eastern-europe"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Early Dynastic Period of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Old Kingdom of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Middle Kingdom of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "New Kingdom of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Twenty-sixth Dynasty of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Thirtieth Dynasty of Egypt"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ptolemaic Kingdom"
+      },
+      "target": {
+        "bookId": "egypt"
+      },
+      "range": {
+        "from": -2686,
+        "to": -30
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Axum"
+      },
+      "target": {
+        "bookId": "ethiopia"
+      },
+      "range": {
+        "from": 100,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zagwe dynasty"
+      },
+      "target": {
+        "bookId": "ethiopia"
+      },
+      "range": {
+        "from": 100,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ethiopian Empire"
+      },
+      "target": {
+        "bookId": "ethiopia"
+      },
+      "range": {
+        "from": 100,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ethiopia"
+      },
+      "target": {
+        "bookId": "ethiopia"
+      },
+      "range": {
+        "from": 100,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ET"
+      },
+      "target": {
+        "bookId": "ethiopia"
+      },
+      "range": {
+        "from": 1855,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Five Dynasties and Ten Kingdoms"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Liang Dynasty"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Tang"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Jin"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Han"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Zhou"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Former Shu"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Shu"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Southern Tang"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wuyue"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Southern Han"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Min"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Northern Han"
+      },
+      "target": {
+        "bookId": "five-dynasties"
+      },
+      "range": {
+        "from": 907,
+        "to": 979
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of the Franks"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Carolingian Empire"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "West Franks"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of France"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Bourbon Kingdom of France"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "French First Republic"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "First French Empire"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Second French Empire"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "French Third Republic"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "French Fourth Republic"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "French Fifth Republic"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 481,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "FR"
+      },
+      "target": {
+        "bookId": "france"
+      },
+      "range": {
+        "from": 1789,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Holy Roman Empire"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Habsburg Monarchy"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Prussia"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "German Confederation"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "German Empire"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Weimar Republic"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Nazi Germany"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "German Democratic Republic"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Federal Republic of Germany"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "DE"
+      },
+      "target": {
+        "bookId": "germany-hre"
+      },
+      "range": {
+        "from": 1871,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Greek City-States"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Greek Colonies"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Athenian Coalition"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Peloponnesian League"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Macedonian Empire"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Antigonid Macedonia"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Seleucid Empire"
+      },
+      "target": {
+        "bookId": "greece-macedon"
+      },
+      "range": {
+        "from": -800,
+        "to": -146
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han"
+      },
+      "range": {
+        "from": -206,
+        "to": 220
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xin Dynasty"
+      },
+      "target": {
+        "bookId": "han"
+      },
+      "range": {
+        "from": -206,
+        "to": 220
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Inca Empire"
+      },
+      "target": {
+        "bookId": "inca"
+      },
+      "range": {
+        "from": 1438,
+        "to": 1572
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Maurya Empire"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Gupta Empire"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Delhi Sultanate"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chola Empire"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Vijayanagara Empire"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Maratha Empire"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "British Raj"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of India"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": -321,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IN"
+      },
+      "target": {
+        "bookId": "india-classical-modern"
+      },
+      "range": {
+        "from": 1947,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "本卷聚焦南亚次大陆部分古代历史、殖民与分治，以及现代印度共和国。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PK"
+      },
+      "target": {
+        "bookId": "india-classical-modern",
+        "chapterId": "independence-partition-republic"
+      },
+      "range": {
+        "from": 1947,
+        "to": null
+      },
+      "relation": "related",
+      "scope": "本卷涉及英属印度分治与克什米尔背景。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LK"
+      },
+      "target": {
+        "bookId": "india-classical-modern",
+        "chapterId": "maurya-ashoka-kushan"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "related",
+      "scope": "本卷涉及阿育王时期佛教向斯里兰卡传播。",
+      "audit": {
+        "status": "unreviewed"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ostrogothic Kingdom"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of Venice"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of Genoa"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of Florence"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Duchy of Milan"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Papal States"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Sicily"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Naples"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of the Two Sicilies"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Sardinia"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Italy"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Italian Republic"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 476,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IT"
+      },
+      "target": {
+        "bookId": "italy-renaissance"
+      },
+      "range": {
+        "from": 1861,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Asuka Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Nara Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Heian Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kamakura Shogunate"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kenmu Restoration"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ashikaga Shogunate"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Warring States Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Empire of Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Japan"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 592,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "JP"
+      },
+      "target": {
+        "bookId": "japan"
+      },
+      "range": {
+        "from": 1868,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Khmer Empire"
+      },
+      "target": {
+        "bookId": "khmer"
+      },
+      "range": {
+        "from": 802,
+        "to": 1431
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Goguryeo"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Baekje"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Silla"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Unified Silla"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Goryeo"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Joseon"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Korean Empire"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of Korea"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Democratic People's Republic of Korea"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 300,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KR"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KP"
+      },
+      "target": {
+        "bookId": "korea"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Gran Colombia"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1810,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Empire of Brazil"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1810,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BR"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1822,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MX"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AR"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1816,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CL"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1818,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PE"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CO"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1819,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "VE"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1811,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "EC"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1822,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BO"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1825,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PY"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1811,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "UY"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1828,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CU"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1902,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "DO"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1844,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "HT"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1810,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GT"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "HN"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SV"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NI"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CR"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1821,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PA"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1903,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "JM"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TT"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GY"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SR"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1975,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BZ"
+      },
+      "target": {
+        "bookId": "latin-america"
+      },
+      "range": {
+        "from": 1981,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Liao Dynasty"
+      },
+      "target": {
+        "bookId": "liao-jin-xia"
+      },
+      "range": {
+        "from": 907,
+        "to": 1234
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Xia"
+      },
+      "target": {
+        "bookId": "liao-jin-xia"
+      },
+      "range": {
+        "from": 907,
+        "to": 1234
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Great Jin"
+      },
+      "target": {
+        "bookId": "liao-jin-xia"
+      },
+      "range": {
+        "from": 907,
+        "to": 1234
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Pagan Kingdom"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ava Kingdom"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Konbaung Dynasty"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Sukhothai Kingdom"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ayutthaya Kingdom"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Rattanakosin Kingdom"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Lan Xang"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Burma"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 849,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TH"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 1782,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MM"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LA"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 1953,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KH"
+      },
+      "target": {
+        "bookId": "mainland-southeast-asia"
+      },
+      "range": {
+        "from": 1953,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Mali Empire"
+      },
+      "target": {
+        "bookId": "mali"
+      },
+      "range": {
+        "from": 1235,
+        "to": 1600
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Teotihuacan"
+      },
+      "target": {
+        "bookId": "mesoamerica-maya"
+      },
+      "range": {
+        "from": -1200,
+        "to": 1521
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chimor"
+      },
+      "target": {
+        "bookId": "mesoamerica-maya"
+      },
+      "range": {
+        "from": -1200,
+        "to": 1521
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Akkadian Empire"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Babylonia"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Assyria"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Neo-Assyrian Empire"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Neo-Babylonian Empire"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Mitanni"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Elam"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Phoenicia"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Israel"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Judah"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Lydia"
+      },
+      "target": {
+        "bookId": "mesopotamia-near-east"
+      },
+      "range": {
+        "from": -3000,
+        "to": -539
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ming Dynasty"
+      },
+      "target": {
+        "bookId": "ming"
+      },
+      "range": {
+        "from": 1368,
+        "to": 1644
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      },
+      "subjectId": "ming-dynasty"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Khedivate of Egypt"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qajar Dynasty"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Pahlavi Dynasty"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Emirate of Nejd"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Hejaz"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of Turkey"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Syria"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Lebanon"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1805,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TR"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1923,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "EG"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1922,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IR"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1925,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IQ"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1932,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SA"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1932,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SY"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1946,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "JO"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1946,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LB"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1943,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IL"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PS"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1948,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AE"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1971,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "QA"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1971,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KW"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1961,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "OM"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1950,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "YE"
+      },
+      "target": {
+        "bookId": "modern-middle-east"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Great Mongol State"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Mongol Empire"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Mongol Khanate"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Golden Horde"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chagatai Khanate"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ilkhanate"
+      },
+      "target": {
+        "bookId": "mongol-empire"
+      },
+      "range": {
+        "from": 1206,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Mughal Empire"
+      },
+      "target": {
+        "bookId": "mughal"
+      },
+      "range": {
+        "from": 1526,
+        "to": 1858
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Dutch Republic"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1568,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Netherlands"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1568,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Duchy of Burgundy"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1568,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Batavian Republic"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1568,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NL"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1815,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BE"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1830,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LU"
+      },
+      "target": {
+        "bookId": "netherlands-low-countries"
+      },
+      "range": {
+        "from": 1867,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Denmark"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Norway"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Sweden"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "North Sea Empire"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kalmar Union"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Denmark-Norway"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Swedish Empire"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Denmark"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 793,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SE"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 1814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NO"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 1905,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "DK"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 1814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "FI"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 1917,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "IS"
+      },
+      "target": {
+        "bookId": "nordic-vikings"
+      },
+      "range": {
+        "from": 1944,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Carthage"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Vandal Kingdom"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Almoravid Dynasty"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Almohad Caliphate"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Marinid Sultanate"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Hafsid Dynasty"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Saadi Sultanate"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Morocco"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": -814,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TN"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": 1956,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MA"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": 1956,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "DZ"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LY"
+      },
+      "target": {
+        "bookId": "north-africa-maghreb"
+      },
+      "range": {
+        "from": 1951,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Commonwealth of Australia"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "New Zealand"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AU"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1901,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NZ"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1907,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PG"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1975,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "FJ"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1970,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SB"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1978,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "VU"
+      },
+      "target": {
+        "bookId": "oceania-australia"
+      },
+      "range": {
+        "from": 1980,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ottoman Empire"
+      },
+      "target": {
+        "bookId": "ottoman"
+      },
+      "range": {
+        "from": 1299,
+        "to": 1922
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Sasanian Empire"
+      },
+      "target": {
+        "bookId": "persia-sasanian-safavid"
+      },
+      "range": {
+        "from": 224,
+        "to": 1736
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Safavid Dynasty"
+      },
+      "target": {
+        "bookId": "persia-sasanian-safavid"
+      },
+      "range": {
+        "from": 224,
+        "to": 1736
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "People's Republic of China"
+      },
+      "target": {
+        "bookId": "prc"
+      },
+      "range": {
+        "from": 1949,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CN"
+      },
+      "target": {
+        "bookId": "prc"
+      },
+      "range": {
+        "from": 1949,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin"
+      },
+      "range": {
+        "from": -221,
+        "to": -206
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Eighteen Kingdoms"
+      },
+      "target": {
+        "bookId": "qin"
+      },
+      "range": {
+        "from": -221,
+        "to": -206
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Chu"
+      },
+      "target": {
+        "bookId": "qin"
+      },
+      "range": {
+        "from": -221,
+        "to": -206
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qing Dynasty"
+      },
+      "target": {
+        "bookId": "qing"
+      },
+      "range": {
+        "from": 1636,
+        "to": 1912
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Later Jin Dynasty"
+      },
+      "target": {
+        "bookId": "qing"
+      },
+      "range": {
+        "from": 1636,
+        "to": 1912
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Taiping Heavenly Kingdom"
+      },
+      "target": {
+        "bookId": "qing"
+      },
+      "range": {
+        "from": 1636,
+        "to": 1912
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Republic of China"
+      },
+      "target": {
+        "bookId": "roc"
+      },
+      "range": {
+        "from": 1912,
+        "to": 1949
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Empire of China"
+      },
+      "target": {
+        "bookId": "roc"
+      },
+      "range": {
+        "from": 1912,
+        "to": 1949
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kuomintang"
+      },
+      "target": {
+        "bookId": "roc"
+      },
+      "range": {
+        "from": 1912,
+        "to": 1949
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CN"
+      },
+      "target": {
+        "bookId": "roc"
+      },
+      "range": {
+        "from": 1912,
+        "to": 1948
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Roman Empire"
+      },
+      "target": {
+        "bookId": "roman"
+      },
+      "range": {
+        "from": -27,
+        "to": 1453
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Roman Empire"
+      },
+      "target": {
+        "bookId": "roman"
+      },
+      "range": {
+        "from": -27,
+        "to": 1453
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Eastern Roman Empire"
+      },
+      "target": {
+        "bookId": "roman"
+      },
+      "range": {
+        "from": -27,
+        "to": 1453
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Byzantine Empire"
+      },
+      "target": {
+        "bookId": "roman"
+      },
+      "range": {
+        "from": -27,
+        "to": 1453
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Nicaean Empire"
+      },
+      "target": {
+        "bookId": "roman"
+      },
+      "range": {
+        "from": -27,
+        "to": 1453
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kievan Rus'"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Grand Principality of Moscow"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Tsardom of Russia"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Russian Empire"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Union of Soviet Socialist Republics"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Russian Federation"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 882,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "RU"
+      },
+      "target": {
+        "bookId": "russia-ussr"
+      },
+      "range": {
+        "from": 1917,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xia"
+      },
+      "target": {
+        "bookId": "shang-zhou"
+      },
+      "range": {
+        "from": -1600,
+        "to": -771
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Shang Dynasty"
+      },
+      "target": {
+        "bookId": "shang-zhou"
+      },
+      "range": {
+        "from": -1600,
+        "to": -771
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yin"
+      },
+      "target": {
+        "bookId": "shang-zhou"
+      },
+      "range": {
+        "from": -1600,
+        "to": -771
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhou Dynasty"
+      },
+      "target": {
+        "bookId": "shang-zhou"
+      },
+      "range": {
+        "from": -1600,
+        "to": -771
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Northern Song"
+      },
+      "target": {
+        "bookId": "song"
+      },
+      "range": {
+        "from": 960,
+        "to": 1279
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Southern Song"
+      },
+      "target": {
+        "bookId": "song"
+      },
+      "range": {
+        "from": 960,
+        "to": 1279
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Songhai Empire"
+      },
+      "target": {
+        "bookId": "songhai"
+      },
+      "range": {
+        "from": 1464,
+        "to": 1591
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Srivijaya"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 650,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Majapahit"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 650,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ID"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 1945,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "VN"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 1945,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MY"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 1957,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BN"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 1984,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PH"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 1946,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TL"
+      },
+      "target": {
+        "bookId": "southeast-asia-maritime"
+      },
+      "range": {
+        "from": 2002,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Sultanate of Zanzibar"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Adal Sultanate"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Merina Kingdom"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Kush"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Makuria"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Funj Sultanate"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "South Africa"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1000,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ZA"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1910,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "KE"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1963,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TZ"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1961,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "UG"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ZW"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1980,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ZM"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1964,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MW"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1964,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MZ"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1975,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BW"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NA"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1990,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MG"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "RW"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BI"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1962,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SO"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SD"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1956,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SS"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 2011,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "DJ"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1977,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ER"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1993,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LS"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1966,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SZ"
+      },
+      "target": {
+        "bookId": "southern-eastern-africa"
+      },
+      "range": {
+        "from": 1968,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Portugal"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Portuguese Empire"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Crown of Castile"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Crown of Aragon"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Spain"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Iberian Union"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Spanish Empire"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ES"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1516,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "PT"
+      },
+      "target": {
+        "bookId": "spain-portugal"
+      },
+      "range": {
+        "from": 1415,
+        "to": 1898
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Sui Dynasty"
+      },
+      "target": {
+        "bookId": "sui"
+      },
+      "range": {
+        "from": 581,
+        "to": 618
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Tang Dynasty"
+      },
+      "target": {
+        "bookId": "tang"
+      },
+      "range": {
+        "from": 618,
+        "to": 907
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Tibetan Empire"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 618,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Tibet"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 618,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Gorkha Kingdom"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 618,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Nanzhao"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 618,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NP"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 1768,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BT"
+      },
+      "target": {
+        "bookId": "tibet-himalaya"
+      },
+      "range": {
+        "from": 1907,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Tokugawa Shogunate"
+      },
+      "target": {
+        "bookId": "tokugawa"
+      },
+      "range": {
+        "from": 1603,
+        "to": 1868
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "United States of America"
+      },
+      "target": {
+        "bookId": "usa"
+      },
+      "range": {
+        "from": 1776,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Confederate States of America"
+      },
+      "target": {
+        "bookId": "usa"
+      },
+      "range": {
+        "from": 1776,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "US"
+      },
+      "target": {
+        "bookId": "usa"
+      },
+      "range": {
+        "from": 1776,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Spring and Autumn States"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Warring States China"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi Kingdom"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Jin"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yan"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yan Kingdom"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Hán"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wu"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yue"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Lu"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Song"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zheng"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhongshan"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Cao Cao"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Cao Wei"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Shu Han"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Eastern Wu"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Jin"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Former Qin"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Liu Song Dynasty"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Southern Qi"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Liang Dynasty"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chen Dynasty"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Northern Wei"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Eastern Wei"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Wei"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Northern Qi"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Northern Zhou"
+      },
+      "target": {
+        "bookId": "wei-jin"
+      },
+      "range": {
+        "from": 220,
+        "to": 589
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ghana Empire"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Bornu Empire"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Oyo Empire"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ashanti Empire"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Sokoto Caliphate"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Kingdom of Kongo"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Ghana"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 700,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NG"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GH"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1957,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SN"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CI"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CM"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CD"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CG"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "AO"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1975,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BJ"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TG"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "BF"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "NE"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "ML"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GN"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1958,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "SL"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1961,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "LR"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1847,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "TD"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "CF"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GA"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GQ"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1968,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GM"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1965,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "GW"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1974,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "country",
+        "key": "MR"
+      },
+      "target": {
+        "bookId": "west-central-africa"
+      },
+      "range": {
+        "from": 1960,
+        "to": null
+      },
+      "relation": "primary",
+      "scope": "原现代地图入口，书卷范围以其叙事内容为准。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yuan Dynasty"
+      },
+      "target": {
+        "bookId": "yuan"
+      },
+      "range": {
+        "from": 1271,
+        "to": 1368
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
+  ]
+}

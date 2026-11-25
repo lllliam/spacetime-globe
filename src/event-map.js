@@ -522,7 +522,7 @@ function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
   hideReader();
   const sceneOrder = [...new Set(reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [])];
   showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId,
-    historical: scene.year >= -3400 && scene.year <= POLITY_END, back: '返回正文' });
+    historical: hasHistoricalCoverage(scene.year), back: '返回正文' });
 }
 
 function returnToWorld() {
@@ -557,7 +557,7 @@ function returnToWorld() {
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
-  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, target.book,
+  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter?.id, target.book,
     { entryYear:target.year, source:session.observe.source });
 });
 
@@ -602,7 +602,7 @@ function navigateReadingScene(delta) {
   const scene = historicalScenes.get(id);
   if (!scene) return;
   showEventMap({...scene, sceneId:scene.id, sceneOrder:order,
-    historical:scene.year>=-3400 && scene.year<=POLITY_END, back:'返回正文'});
+    historical:hasHistoricalCoverage(scene.year), back:'返回正文'});
 }
 el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
 el('event-map-next').addEventListener('click', () => navigateReadingScene(1));

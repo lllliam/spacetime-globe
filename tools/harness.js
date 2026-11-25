@@ -49,7 +49,7 @@ window.__t = {
   get globeFramePending(){ return !!rafId },
   get globeSettled(){ return !globeFlyRaf },
   captureReadingPosition,
-  get topics(){return TOPICS}, subjectBooks, subjectBookForEntity,
+  get topics(){return TOPICS}, subjectBooks, subjectBookForEntity, historyBindingsFor, recommendChapters, worldReadingTarget,
   readingGoBack, closeReader,
   get worldEvent(){ return worldEvent },
   get timeline(){ return { position: vernierPosition, year: yearAtIndex(vernierPosition), moving: !!vernierGlideFrame }; },

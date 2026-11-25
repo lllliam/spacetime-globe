@@ -17,7 +17,8 @@ const YMAX = THIS_YEAR;
 const YMIN = -3500;
 const DEFAULT_EXPLORE_YEAR = 1500;
 const HOME_CAMERA = { yaw:-1.65, tilt:.42, zoom:1, panX:0, panY:0 };
-const POLITY_START = -3400, POLITY_END = 2024;
+const historyMapSources = JSON.parse(document.getElementById('history-map-sources').textContent);
+const {from:POLITY_START,to:POLITY_END} = historyMapSources.polity.coverage;
 const hasHistoricalCoverage = year => year >= POLITY_START && year <= POLITY_END;
 
 const ord = (y) => (y < 0 ? y + 1 : y);

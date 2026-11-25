@@ -13,11 +13,12 @@ function createSession({ minYear, maxYear }) {
     tilt: number(value?.tilt, -.62, 1.02, .30), zoom: number(value?.zoom, 1, 6, 1),
     panX: number(value?.panX, -1e5, 1e5, 0), panY: number(value?.panY, -1e5, 1e5, 0),
   });
-  const position = value => ({
-    top: number(value?.top, 0, 1e7, 0), block: id(value?.block),
-    index: Number.isInteger(value?.index) ? number(value.index, 0, 10000, 0) : 0,
-    offset: number(value?.offset, -2, 2, 0),
-  });
+  function position(value) {
+    const blockId = id(value?.blockId);
+    return { top: number(value?.top, 0, 1e7, 0), block: id(value?.block), ...(blockId && {blockId}),
+      index: Number.isInteger(value?.index) ? number(value.index, 0, 10000, 0) : 0,
+      offset: number(value?.offset, -2, 2, 0) };
+  }
   const disclosures = value => Array.isArray(value)
     ? value.filter(index => Number.isInteger(index) && index >= 0 && index < 128).slice(0, 24) : [];
   const entity = value => {
@@ -265,6 +266,7 @@ function restoreSession() {
     }
   }
   sessionReady = true;
+  if (restored?.read && session.mode === 'Read') saveSession();
   return Boolean(restored);
 }
 

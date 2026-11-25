@@ -1,5 +1,5 @@
-import {readFileSync} from 'node:fs';
-import {join} from 'node:path';
+import rules from '../src/history-rules.js';
+const {isHistoryYear:validYear,historyIncludes,referenceId} = rules;
 
 function distanceLabel(first, second) {
   const rad = Math.PI / 180;
@@ -17,14 +17,12 @@ const validCoord = (pair) => Array.isArray(pair) && pair.length === 2 &&
   Number.isFinite(pair[0]) && Math.abs(pair[0]) <= 180 &&
   Number.isFinite(pair[1]) && Math.abs(pair[1]) <= 90;
 
-export function loadHistoricalScenes(root, books, topics) {
-  const records = JSON.parse(readFileSync(join(root, 'data/scenes.json'), 'utf8'));
+export function compileHistoricalScenes(records, books, topics) {
   const topicEvents = new Map(topics.flatMap(topic => topic.chapters.filter(chapter => chapter.mapStory)
     .map(chapter => [chapter.mapStory.worldEntryId, chapter])));
   const scenes = new Map();
   const linkedEvents = new Set();
-  const validYear = year => Number.isSafeInteger(year) && year !== 0;
-  const require = (condition, label) => { if (!condition) throw new Error('历史场景校验失败：' + label); };
+  const require = (condition, label) => { if (!condition) throw new Error('data/scenes.json 场景校验失败：' + label); };
 
   for (const record of records) {
     const {id, topicEvent} = record;
@@ -39,7 +37,7 @@ export function loadHistoricalScenes(root, books, topics) {
       scene = {
         id, topicEvent, year:chapter.year, title:story.title, summary:story.summary,
         places:[{id:'main', name, role, lon:chapter.place.lon, lat:chapter.place.lat}, ...story.places],
-        sources:story.refs.map(index => chapter.sources[index]),
+        sources:story.refs.map(ref => chapter.sources.find(source => source.id === referenceId(ref))),
       };
     }
     require(scene.title && scene.summary && validYear(scene.year) &&
@@ -83,17 +81,19 @@ export function loadHistoricalScenes(root, books, topics) {
   for (const book of books) {
     for (const chapter of book.chapters) {
       const seen = new Set();
-      require(!chapter.map, book.id + '/' + chapter.id + ' 应使用场景引用');
+      require(!chapter.map && (chapter.sceneRefs===undefined || Array.isArray(chapter.sceneRefs)),
+        book.id + '/' + chapter.id + ' 应使用场景引用数组');
+      const blockIds = new Set(chapter.paragraphs.map(p=>p.id));
       for (const ref of chapter.sceneRefs || []) {
-        const scene = scenes.get(ref.id);
-        require(scene && !seen.has(ref.id) && Number.isInteger(ref.after) && ref.after >= 1 &&
-          ref.after <= chapter.paragraphs.length && scene.year >= chapter.from &&
-          scene.year <= (chapter.to ?? Infinity), book.id + '/' + chapter.id + ' → ' + ref.id);
+        const scene = scenes.get(ref?.id);
+        require(scene && !seen.has(ref.id) && ref.after===undefined && blockIds.has(ref.afterBlockId) &&
+          (historyIncludes(chapter,scene.year) || typeof ref.scope==='string' && ref.scope.trim()),
+          'data/books/' + book.id + '/' + chapter.id + ' → ' + ref?.id + ' 正文块 ' + ref?.afterBlockId);
         seen.add(ref.id);
         used.add(ref.id);
       }
     }
   }
-  require(used.size === scenes.size, '存在未关联书卷的场景');
+  for (const [id,scene] of scenes) require(used.has(id) || scene.topicEvent,id + ' 无有效进入路径');
   return [...scenes.values()];
 }
