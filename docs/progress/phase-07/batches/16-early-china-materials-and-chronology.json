@@ -1,0 +1,534 @@
+{
+  "id": "16-early-china-materials-and-chronology",
+  "access": [
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006",
+      "material": "《史记》卷六《秦始皇本纪》",
+      "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202010/t20201028_247940.shtml",
+      "material": "中国国家博物馆：琅琊刻石",
+      "locator": "馆藏残石图像及前 219 年、前 209 年说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7055",
+      "material": "《史记》卷五十五《留侯世家》",
+      "locator": "开头，秦灭韩、张良与客在博浪沙狙击",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html",
+      "material": "西安市文物局：2025 年阿房宫遗址联合考古通报",
+      "locator": "2002 至 2004 年前殿调查与 2025 年台基剖面、结论",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nopss.gov.cn/n1/2021/1101/c219544-32270305.html",
+      "material": "王巍：百年考古、成就辉煌",
+      "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7004",
+      "material": "《史记》卷四《周本纪》",
+      "locator": "周平王节，东迁雒邑与诸侯形势",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046",
+      "material": "《史记》卷四十六《田敬仲完世家》",
+      "locator": "齐宣王节，列出稷下受礼遇的游说之士",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7068",
+      "material": "《史记》卷六十八《商君列传》",
+      "locator": "秦孝公用卫鞅及新令诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7065",
+      "material": "《史记》卷六十五《孙子吴起列传》",
+      "locator": "吴起在魏、入楚及任楚相诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029",
+      "material": "《史记》卷二十九《河渠书》",
+      "locator": "蜀守李冰的成都水利，以及郑国渠各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1001/",
+      "material": "联合国教科文组织：青城山与都江堰水利工程",
+      "locator": "突出普遍价值，简要综述及完整性",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7004",
+      "material": "《汉书》卷四《文帝纪》",
+      "locator": "文帝十二年减当年租税、十三年六月除田租诏",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7005",
+      "material": "《汉书》卷五《景帝纪》",
+      "locator": "景帝元年五月“令田半租”",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110",
+      "material": "《史记》卷一百一十《匈奴列传》",
+      "locator": "马邑事件、河西与漠北战事以及后续往来诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://museum.sinica.edu.tw/collection/20/item/1029/",
+      "material": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+      "locator": "展品影像与廪名籍说明，二十三至二十九燧及箕山亭",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%AD",
+      "material": "《汉书》卷九十九中《王莽传》",
+      "locator": "始建国三年，魏郡决河及清河以东受灾",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%8B",
+      "material": "《汉书》卷九十九下《王莽传》",
+      "locator": "地皇三至四年，南阳、青徐的起事和进军记载",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8A",
+      "material": "《汉书》卷二十四上《食货志》",
+      "locator": "王莽末年粮荒与朝廷救济段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/chapter/qin/first-emperor-system/spatialThesis",
+      "scope": "设郡与修驰道的文本和遗址证据",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "设郡与修驰道的文本和遗址证据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qin/shiji-qin-chronology",
+              "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+              "supports": "记兼并齐、设三十六郡、称帝、治驰道、巡行、宫室工程与秦亡时的政局。"
+            },
+            {
+              "source": "source/book/qin/wang-wei-archaeology-review",
+              "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+              "supports": "按遗址、墓葬和器物梳理各时期政治与交流的考古材料。"
+            }
+          ],
+          "limit": "本纪所列三十六郡是兼并六国之初的记载，不能当作秦全时期固定总数。删去道路“首次直达”以及推定工程线位的断言。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读秦王二十六年设官与次年治驰道两条。"
+      }
+    },
+    {
+      "id": "book-paragraph/qin/first-emperor-system/p-06",
+      "scope": "区分巡行刻文的年代、残石保存部分与博浪沙行动者",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分巡行刻文的年代、残石保存部分与博浪沙行动者",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qin/shiji-qin-chronology",
+              "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+              "supports": "记兼并齐、设三十六郡、称帝、治驰道、巡行、宫室工程与秦亡时的政局。"
+            },
+            {
+              "source": "source/book/qin/national-museum-langya-inscription",
+              "locator": "馆藏残石图像及前 219 年、前 209 年说明",
+              "supports": "说明秦始皇初刻和秦二世补刻，残石只保存全文的一部分。"
+            },
+            {
+              "source": "source/book/qin/shiji-zhang-liang-bolang",
+              "locator": "开头，秦灭韩、张良与客在博浪沙狙击",
+              "supports": "列张良筹划和同伙参与，不能说挥椎者就是张良。"
+            }
+          ],
+          "limit": "前 218 年据《史记》始皇二十九年纪事，而二世补刻属更晚时期；文献无法提供现场亲见者的记录。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "回查前 219 年残石纪年与《留侯世家》的参与者表述。"
+      }
+    },
+    {
+      "id": "book-paragraph/qin/great-wall-mega-projects/p-04",
+      "scope": "宫室未成、陵墓役作与遗址所能证实的范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "宫室未成、陵墓役作与遗址所能证实的范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qin/shiji-qin-chronology",
+              "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+              "supports": "记兼并齐、设三十六郡、称帝、治驰道、巡行、宫室工程与秦亡时的政局。"
+            },
+            {
+              "source": "source/book/qin/xian-epang-excavation-2025",
+              "locator": "2002 至 2004 年前殿调查与 2025 年台基剖面、结论",
+              "supports": "报告以前殿台基及南缘地层区分夯筑、建筑完成和遗址后来的用途。"
+            },
+            {
+              "source": "source/book/qin/wang-wei-archaeology-review",
+              "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+              "supports": "按遗址、墓葬和器物梳理各时期政治与交流的考古材料。"
+            }
+          ],
+          "limit": "不把同一来源中的征发数字跨工程、跨年代累加，也不把总人口和劳役人数作无口径的对照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读本纪中二世恢复工程的叙述与前殿南缘的发掘报告。"
+      }
+    },
+    {
+      "id": "text/chapter/warring-states/shang-yang-hundred-schools/summary",
+      "scope": "秦楚改革和齐稷下活动的制度、出处",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "秦楚改革和齐稷下活动的制度、出处",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/warring-states/shiji-wu-qi-reforms",
+              "locator": "吴起在魏、入楚及任楚相诸段",
+              "supports": "记载在魏任西河守，后来到楚国改革法令和官职。"
+            },
+            {
+              "source": "source/book/warring-states/shiji-shang-yang-reforms",
+              "locator": "秦孝公用卫鞅及新令诸段",
+              "supports": "记军功授爵、户口相联和秦国下令后的争论。"
+            },
+            {
+              "source": "source/book/warring-states/shiji-qi-jixia",
+              "locator": "齐宣王节，列出稷下受礼遇的游说之士",
+              "supports": "列举邹衍、淳于髡等人物，并描述任上大夫而不直接治理。"
+            }
+          ],
+          "limit": "几篇传记写法不同；不把制度效果或学术“最辉煌”当成已证实的同比结论。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照三篇传记的人物、管辖范围和行为描写。"
+      }
+    },
+    {
+      "id": "block/warring-states/shang-yang-hundred-schools/aside-03",
+      "scope": "齐宣王礼遇稷下人物与《史记》的原文范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "齐宣王礼遇稷下人物与《史记》的原文范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/warring-states/shiji-qi-jixia",
+              "locator": "齐宣王节，列出稷下受礼遇的游说之士",
+              "supports": "列举邹衍、淳于髡等人物，并描述任上大夫而不直接治理。"
+            }
+          ],
+          "limit": "这段史书未证明每个人的学派归属，也不能据此重建一场具体辩论。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读齐宣王条列出的人名和所任职责，剔除无法核定的发言内容。"
+      }
+    },
+    {
+      "id": "book-paragraph/warring-states/changping-unification/p-02",
+      "scope": "成都水工与关中郑国渠两项工程的地理、用途和记载性质",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "成都水工与关中郑国渠两项工程的地理、用途和记载性质",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/warring-states/shiji-qin-waterworks",
+              "locator": "蜀守李冰的成都水利，以及郑国渠各段",
+              "supports": "分述成都的水道整治、运输与灌溉，以及郑国渠的引泾与灌溉。"
+            },
+            {
+              "source": "source/book/warring-states/unesco-dujiangyan-water-system",
+              "locator": "突出普遍价值，简要综述及完整性",
+              "supports": "工程利用河道条件，汇集引水及灌溉设施；后世历有维护和改建。"
+            }
+          ],
+          "limit": "撤出不明时代和范围的灌溉亩数以及无据可定的参与者。后世遗产状态不能直接说明战国工程原貌；古籍的外交故事是传述。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "把河渠书的成都、关中两段与都江堰遗产条目对读。"
+      }
+    },
+    {
+      "id": "book-paragraph/han/western-han/p-04",
+      "scope": "区别文帝减免诏令与景帝初年田租调整",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区别文帝减免诏令与景帝初年田租调整",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/han/hanshu-wen-land-tax",
+              "locator": "文帝十二年减当年租税、十三年六月除田租诏",
+              "supports": "文帝在不同年份公布减半与免田租诏令。"
+            },
+            {
+              "source": "source/book/han/hanshu-jing-land-tax",
+              "locator": "景帝元年五月“令田半租”",
+              "supports": "景帝初命令田租减半，属于后来重新调整。"
+            }
+          ],
+          "limit": "纪传说明当年的政策，未提供逐年征收记录。本段撤出无对应材料的连续年数和农户规模。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读文帝十二、十三年与景帝元年的纪年及用词。"
+      }
+    },
+    {
+      "id": "book-paragraph/han/wudi/p-01",
+      "scope": "马邑与河西、漠北的先后，区分边贸、邦交、王庭位置",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "马邑与河西、漠北的先后，区分边贸、邦交、王庭位置",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/han/shiji-xiongnu-han-campaigns",
+              "locator": "马邑事件、河西与漠北战事以及后续往来诸段",
+              "supports": "依次记马邑未战、和亲中断、河西和漠北出兵及随后仍有往来。"
+            }
+          ],
+          "limit": "未把列传所记动员量、战果与捕获人数视作独立统计，也不由王庭北移推断匈奴在漠南完全消失。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读马邑事件结束段、河西战事、漠北战役及随后交涉。"
+      }
+    },
+    {
+      "id": "block/han/wudi/aside-03",
+      "scope": "一组居延简如何记录口粮申请",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "一组居延简如何记录口粮申请",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/han/as-ihp-juyan-grain-roll",
+              "locator": "展品影像与廪名籍说明，二十三至二十九燧及箕山亭",
+              "supports": "官府粮食申请的名籍列出身份和隶属，多处烽燧与亭并列。"
+            }
+          ],
+          "limit": "名册不说明每人每日实际得到多少粮食。撤出克制计量、麻鞋、商队和全部烽燧通报的场景推断。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照展品名称和馆方所列烽燧与亭的范围，确认文书用途。"
+      }
+    },
+    {
+      "id": "book-paragraph/han/interregnum/p-05",
+      "scope": "黄河决口、缺粮与各地起事的区域、时间与材料界限",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "黄河决口、缺粮与各地起事的区域、时间与材料界限",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/han/hanshu-wang-mang-flood",
+              "locator": "始建国三年，魏郡决河及清河以东受灾",
+              "supports": "记河决于魏郡，淹及清河以东数郡；相邻条目另记蝗灾。"
+            },
+            {
+              "source": "source/book/han/hanshu-wang-mang-insurgents",
+              "locator": "地皇三至四年，南阳、青徐的起事和进军记载",
+              "supports": "分列南阳一带诸军与青徐地区起事，不支持同一批流民分别涌入两地。"
+            },
+            {
+              "source": "source/book/han/hanshu-wang-mang-food-shortage",
+              "locator": "王莽末年粮荒与朝廷救济段",
+              "supports": "记北边和青徐出现粮荒、政府开仓及流民处境。"
+            }
+          ],
+          "limit": "撤出泛滥整个华北、两地同源和百万流民的笼统说法。史书各类记载的地理边界不同。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读卷九十九中灾害与卷九十九下各地动员条目，分开附近两条灾害。"
+      }
+    },
+    {
+      "id": "text/book/qin/summary",
+      "scope": "秦的设郡与规范、工程证据及秦末事件的范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "秦的设郡与规范、工程证据及秦末事件的范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qin/shiji-qin-chronology",
+              "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+              "supports": "记兼并齐、设三十六郡、称帝、治驰道、巡行、宫室工程与秦亡时的政局。"
+            },
+            {
+              "source": "source/book/qin/national-museum-langya-inscription",
+              "locator": "馆藏残石图像及前 219 年、前 209 年说明",
+              "supports": "说明秦始皇初刻和秦二世补刻，残石只保存全文的一部分。"
+            },
+            {
+              "source": "source/book/qin/xian-epang-excavation-2025",
+              "locator": "2002 至 2004 年前殿调查与 2025 年台基剖面、结论",
+              "supports": "报告以前殿台基及南缘地层区分夯筑、建筑完成和遗址后来的用途。"
+            },
+            {
+              "source": "source/book/qin/wang-wei-archaeology-review",
+              "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+              "supports": "按遗址、墓葬和器物梳理各时期政治与交流的考古材料。"
+            }
+          ],
+          "limit": "以考古与历代文献分读制度、工程和秦亡，不以“最彻底”排名，也不把帝国灭亡归于一个雨夜或一项工程。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照本纪的秦始皇、二世诸条与遗址报告，区分政策宣布、遗址和政权终结。"
+      }
+    },
+    {
+      "id": "text/book/warring-states/summary",
+      "scope": "春秋战国的政治变动及可定位的器物和文献范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "春秋战国的政治变动及可定位的器物和文献范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/warring-states/shiji-zhou-eastward",
+              "locator": "周平王节，东迁雒邑与诸侯形势",
+              "supports": "记平王东迁洛邑，以及诸侯势力变化。"
+            },
+            {
+              "source": "source/book/warring-states/wang-wei-archaeology-review",
+              "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+              "supports": "按遗址、墓葬和器物梳理各时期政治与交流的考古材料。"
+            },
+            {
+              "source": "source/book/warring-states/shiji-shang-yang-reforms",
+              "locator": "秦孝公用卫鞅及新令诸段",
+              "supports": "记军功授爵、户口相联和秦国下令后的争论。"
+            },
+            {
+              "source": "source/book/warring-states/shiji-qi-jixia",
+              "locator": "齐宣王节，列出稷下受礼遇的游说之士",
+              "supports": "列举邹衍、淳于髡等人物，并描述任上大夫而不直接治理。"
+            }
+          ],
+          "limit": "将器物与史书各自用来说明具体案例，不以单一战斗估值代表所有列国。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照平王条、稷下和商鞅列传，确认全卷提要采用有材料的范围。"
+      }
+    }
+  ]
+}

@@ -44,6 +44,41 @@
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
       "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
       "id": "source-08"
+    },
+    {
+      "id": "hanshu-wen-land-tax",
+      "title": "《汉书》卷四《文帝纪》",
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7004"
+    },
+    {
+      "id": "hanshu-jing-land-tax",
+      "title": "《汉书》卷五《景帝纪》",
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7005"
+    },
+    {
+      "id": "shiji-xiongnu-han-campaigns",
+      "title": "《史记》卷一百一十《匈奴列传》",
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110"
+    },
+    {
+      "id": "as-ihp-juyan-grain-roll",
+      "title": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+      "url": "https://museum.sinica.edu.tw/collection/20/item/1029/"
+    },
+    {
+      "id": "hanshu-wang-mang-flood",
+      "title": "《汉书》卷九十九中《王莽传》",
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%AD"
+    },
+    {
+      "id": "hanshu-wang-mang-insurgents",
+      "title": "《汉书》卷九十九下《王莽传》",
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%8B"
+    },
+    {
+      "id": "hanshu-wang-mang-food-shortage",
+      "title": "《汉书》卷二十四上《食货志》",
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8A"
     }
   ],
   "chapters": [
@@ -85,11 +120,18 @@
           "id": "p-03"
         },
         {
-          "text": "对内，汉初奉行“黄老无为”，不再像秦朝那样大兴土木，而是让复员士兵解甲归田，田租从十五税一降至三十税一，文帝年间甚至连续十二年免收田租。朝廷把治理成本压到最低，让千万小农家庭在和平里默默繁衍与垦荒。",
+          "text": "《汉书》记载，汉文帝曾减免当年田租的一半，又在次年下诏免除田租。景帝即位之初仍按新诏调整田租。几次政令针对的是土地租税；研究汉初家庭负担，还需要查其他税目、徭役及各地执行记录。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "hanshu-wen-land-tax",
+              "locator": "文帝十二年减当年租税、十三年六月除田租诏",
+              "note": "文帝在不同年份公布减半与免田租诏令。"
+            },
+            {
+              "sourceId": "hanshu-jing-land-tax",
+              "locator": "景帝元年五月“令田半租”",
+              "note": "景帝初命令田租减半，属于后来重新调整。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 汉初长安太仓与马政",
@@ -158,11 +200,13 @@
       "paragraphs": [
         {
           "heading": "从马邑之谋到漠北决战",
-          "text": "公元前 133 年，年轻的汉武帝彻底撕毁维持六十余年的和亲旧约。外戚出身的卫青与年仅二十出头的霍去病先后率数万骑兵长途奔袭，突破阴山、收复河套、直捣祁连山与狼居胥山。公元前 119 年漠北决战后，“漠南无王庭”，匈奴被迫远遁大漠以北。",
+          "text": "前 133 年马邑设伏未成，《史记》记载双方此后中断和亲，边境仍有贸易。卫青和霍去病先后参与对匈奴的多次战事，河套与河西的战事发生在不同年份。前 119 年，两军越过大漠。史书所称漠南没有单于王庭，指一段时期内王庭的变化，随后两方仍有交涉和边境冲突。",
           "refs": [
-            "source-01",
-            "source-03",
-            "source-04"
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "马邑事件、河西与漠北战事以及后续往来诸段",
+              "note": "依次记马邑未战、和亲中断、河西和漠北出兵及随后仍有往来。"
+            }
           ],
           "id": "p-01"
         },
@@ -183,10 +227,17 @@
             "source-03"
           ],
           "callout": {
-            "label": "历史现场 · 居延与敦煌汉简",
-            "title": "戈壁烽燧里的每日粮饷账",
-            "text": "在河西戈壁出土的数万枚木简上，细密记录着每一个边卒领了多少升粟米、几双麻鞋、何时举起烽火、哪支西域商队持过所文书入关——正是这套精确到克与日的文书官僚系统，让长安得以遥控三千里外的绿洲。",
-            "id": "aside-03"
+            "label": "史料 · 居延汉简",
+            "title": "一份十二月领粮名册",
+            "text": "这组居延汉简是第廿三部申请十二月口粮时留下的名籍，登记了二十三至二十九燧和箕山亭的戍卒。名册上的姓名、身份和所属地点，能说明当时哪些人员由这个单位向官府申请粮食。名籍与实发账要结合阅读。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "as-ihp-juyan-grain-roll",
+                "locator": "展品影像与廪名籍说明，二十三至二十九燧及箕山亭",
+                "note": "官府粮食申请的名籍列出身份和隶属，多处烽燧与亭并列。"
+              }
+            ]
           },
           "id": "p-03"
         },
@@ -288,10 +339,23 @@
         },
         {
           "heading": "黄河改道与绿林赤眉烽火",
-          "text": "公元 11 年，黄河在今河北大名一带决口改道，滔滔洪水淹没整个华北平原，紧接着连年旱灾蝗灾爆发，百万饥民涌向荆州绿林山与山东琅琊，汇聚成浩大的绿林军与赤眉军。",
+          "text": "《汉书》在王莽始建国三年记下魏郡黄河决口，洪水影响清河以东数郡。卷内另有沿河蝗灾的记录。新朝末年，北边及青、徐等地出现严重缺粮，朝廷曾下令开仓。南阳与青、徐的武装起事也见于《王莽传》，各地队伍的形成须按地方和时间分别考证。",
           "refs": [
-            "source-03",
-            "source-05"
+            {
+              "sourceId": "hanshu-wang-mang-flood",
+              "locator": "始建国三年，魏郡决河及清河以东受灾",
+              "note": "记河决于魏郡，淹及清河以东数郡；相邻条目另记蝗灾。"
+            },
+            {
+              "sourceId": "hanshu-wang-mang-insurgents",
+              "locator": "地皇三至四年，南阳、青徐的起事和进军记载",
+              "note": "分列南阳一带诸军与青徐地区起事，不支持同一批流民分别涌入两地。"
+            },
+            {
+              "sourceId": "hanshu-wang-mang-food-shortage",
+              "locator": "王莽末年粮荒与朝廷救济段",
+              "note": "记北边和青徐出现粮荒、政府开仓及流民处境。"
+            }
           ],
           "id": "p-05"
         },

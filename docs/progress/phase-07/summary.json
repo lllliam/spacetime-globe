@@ -19,98 +19,98 @@
     "topic": 28
   },
   "riskCandidates": 956,
-  "recorded": 367,
+  "recorded": 420,
   "reviewed": {
     "article": 6,
-    "block": 98,
+    "block": 106,
     "book": 4,
     "book-chapter": 16,
-    "book-paragraph": 146,
+    "book-paragraph": 177,
     "event": 9,
     "map": 2,
-    "relation": 13,
+    "relation": 16,
     "scene": 3,
     "scene-ref": 1,
     "source": 1,
-    "text": 58,
+    "text": 69,
     "topic": 6
   },
   "checked": {
     "article": 6,
-    "block": 96,
-    "book-paragraph": 146,
+    "block": 104,
+    "book-paragraph": 177,
     "event": 9,
     "map": 2,
-    "relation": 13,
+    "relation": 16,
     "scene": 3,
     "scene-ref": 1,
-    "text": 22
+    "text": 33
   },
   "unreviewed": {
     "article": 111,
-    "block": 733,
+    "block": 725,
     "book": 53,
     "book-chapter": 212,
-    "book-paragraph": 1223,
+    "book-paragraph": 1192,
     "event": 39,
     "event-map": 2,
     "map": 469,
     "map-source": 2,
     "place-link": 1,
-    "relation": 570,
+    "relation": 567,
     "scene": 45,
     "scene-ref": 48,
     "source": 584,
-    "text": 1099,
+    "text": 1088,
     "topic": 22
   },
   "pendingDisposition": {
     "article": 111,
-    "block": 735,
+    "block": 727,
     "book": 57,
     "book-chapter": 228,
-    "book-paragraph": 1223,
+    "book-paragraph": 1192,
     "event": 39,
     "event-map": 2,
     "map": 469,
     "map-source": 2,
     "place-link": 1,
-    "relation": 570,
+    "relation": 567,
     "scene": 45,
     "scene-ref": 48,
     "source": 585,
-    "text": 1099,
+    "text": 1088,
     "topic": 28
   },
   "coverage": {
-    "disposed": 334,
+    "disposed": 387,
     "total": 5576
   },
   "claimVerification": {
-    "supported": 298,
-    "total": 301
+    "supported": 351,
+    "total": 354
   },
-  "addedSources": 294,
-  "secondPass": 66,
-  "confirmedSevere": 141,
-  "knownUrls": 610,
-  "accessed": 268,
+  "addedSources": 395,
+  "secondPass": 108,
+  "confirmedSevere": 175,
+  "knownUrls": 699,
+  "accessed": 360,
   "sourceAccess": {
-    "read": 237,
+    "read": 328,
     "irrelevant": 0,
     "abstract": 2,
     "restricted": 17,
-    "temporary-failure": 8,
+    "temporary-failure": 9,
     "rate-limited": 0,
     "dead": 2,
     "replacement": 2
   },
   "claims": {
-    "supported": 298,
+    "supported": 351,
     "disputed": 3
   },
-  "changed": 321,
-  "existingChanges": 317,
+  "changed": 374,
+  "existingChanges": 370,
   "sceneAvailability": {
     "available": 44,
     "paused": 4
@@ -118,10 +118,10 @@
   "relationTypes": {
     "compare": 77,
     "contemporary": 2,
-    "context": 161,
+    "context": 164,
     "documented": 1,
     "further": 90,
-    "legacy": 252
+    "legacy": 249
   },
-  "severityOnePending": 148
+  "severityOnePending": 106
 }

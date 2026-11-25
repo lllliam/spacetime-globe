@@ -74,6 +74,16 @@
       "id": "germany-barch-crossings",
       "title": "德国联邦档案馆：两德统一过程中的东德政党和组织",
       "url": "https://www.bundesarchiv.de/themen-entdecken/online-entdecken/themenbeitraege/parteien-und-organisationen-der-ddr-im-prozess-der-wiedervereinigung/"
+    },
+    {
+      "id": "bundestag-agenda-2010",
+      "title": "德国联邦议院：施罗德 2003 年的《2010 议程》",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2003-03-14-agenda2010-211202"
+    },
+    {
+      "id": "bnetza-gas-report-2022",
+      "title": "德国联邦网络局：2022 年天然气供应统计",
+      "url": "https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2023/20230105_RueckblickGas2022.html?r=1"
     }
   ],
   "chapters": [
@@ -430,10 +440,18 @@
           "id": "p-05"
         },
         {
-          "text": "统一后的德国投入逾两万亿欧元重塑东部基建与工业，在二十一世纪初又借“二〇一〇议程”劳动力改革重夺出口桂冠，成为抵御欧元区债务危机的压舱石。然而 2020 年代的新考题接踵而至：俄乌冲突骤然终结了支撑德国化工与制造数十年的廉价俄罗斯管道天然气，叠加汽车电动化转型、数字基建滞后与老龄化压力，这个欧洲核心引擎正被迫开启又一轮深刻的结构重塑。",
+          "text": "2003 年，德国总理施罗德在联邦议院提出《2010 议程》。议会档案记载，其中的劳动力市场改革包括改变就业服务方式，把原先的失业救济和社会救助并入新的制度。近二十年后，德国的能源进口结构发生变化。联邦网络局统计，俄罗斯天然气占德国进口量的份额从 2021 年的 52% 降至 2022 年的 22%，北溪一号则在 2022 年 9 月初停止输气。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "bundestag-agenda-2010",
+              "locator": "2003 年 3 月 14 日政府声明、哈茨法案及 2005 年生效段",
+              "note": "列出改革的提出时间、就业服务变化和失业救济与社会救助的合并。"
+            },
+            {
+              "sourceId": "bnetza-gas-report-2022",
+              "locator": "2023 年 1 月 6 日发布的 Gas imports and exports",
+              "note": "分列 2021 与 2022 年俄罗斯进口份额，记录北溪一号在 2022 年初秋停止供气。"
+            }
           ],
           "id": "p-06"
         }

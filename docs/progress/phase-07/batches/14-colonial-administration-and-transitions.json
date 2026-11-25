@@ -1,0 +1,705 @@
+{
+  "id": "14-colonial-administration-and-transitions",
+  "access": [
+    {
+      "url": "https://whc.unesco.org/en/list/198/",
+      "material": "联合国教科文组织：卡霍基亚土丘历史遗址",
+      "locator": "突出普遍价值，简要综述与遗址范围",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.onondaganation.org/culture/wampum/hiawatha-belt/",
+      "material": "奥农达加民族：海华沙贝珠带",
+      "locator": "贝珠带五个图案、各民族议事火与共同法律",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.onondaganation.org/government/sovereignty/",
+      "material": "奥农达加民族：主权与《大和平法》",
+      "locator": "成员自治与联盟议事会各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://publications.gc.ca/collections/collection_2017/statcan/CS99-541-1972-eng.pdf",
+      "material": "加拿大统计局：加拿大生育趋势与因素",
+      "locator": "第 1 章第 1 页及注 1，1760 年法裔人口的重建",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://parks.canada.ca/lhn-nhs/qc/fortchambly/culture/histoire-history/site/conquete-conquest",
+      "material": "加拿大公园管理局：尚布利堡的七年战争材料",
+      "locator": "俄亥俄谷、欧洲开战与《巴黎条约》各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.biographi.ca/en/special.php?p=9&project_id=75",
+      "material": "《加拿大人物传记辞典》：达勒姆与责任政府",
+      "locator": "Lord Durham, His Report, and the Union（1839—1842），并引拉方丹 1840 年宣言",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://parks.canada.ca/lhn-nhs/qc/saintlouisforts/culture/histoire-history/britannique-british",
+      "material": "加拿大公园管理局：殖民总督的职责变化",
+      "locator": "1791—1848 年，任命和责任政府各段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://hansard.parliament.uk/Lords/1882-06-19/debates/da61cae4-7cf1-4b60-8288-c4a8804a33d1/LordsChamber",
+      "material": "英国议会上院：苏伊士运河辩论",
+      "locator": "1882 年 6 月 19 日，Egypt—The Suez Canal",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://hansard.parliament.uk/commons/1876-02-14/debates/509d9d36-bc23-408e-a5e3-01d21b712ed2/Supply%E2%80%94TheSuezCanalShares",
+      "material": "英国议会下院：苏伊士运河股份购款辩论",
+      "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nam.ac.uk/explore/egypt-and-sudan",
+      "material": "英国国家陆军博物馆：埃及与苏丹档案展",
+      "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://cas.bg/wp-content/uploads/2020/04/ID-Reader-vol1-Late-Enlighten.pdf",
+      "material": "中欧大学出版社：1839 年《古尔哈内敕令》节译",
+      "locator": "The Gülhane Edict，英译正文开头与三项目标",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.anayasa.gov.tr/media/4761/adnanguriz.pdf",
+      "material": "土耳其宪法法院文集：宪法中的经济权利与义务",
+      "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Ottoman_constitution_of_1876.pdf",
+      "material": "《美国国际法杂志》：1876 年奥斯曼宪法英译",
+      "locator": "印刷第 368 页，第 8、11 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://publications.parliament.uk/pa/cm201213/cmselect/cmfaff/80/80we03.htm",
+      "material": "英国议会：外交部提交的埃及抗议记录",
+      "locator": "书面证据第 217—225 段，开罗示威与穆巴拉克辞职",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/3901557/files/A_HRC_46_54-EN.pdf",
+      "material": "联合国叙利亚问题独立国际调查委员会报告",
+      "locator": "A/HRC/46/54 第 3—6 段，抗议、镇压及武装冲突",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/779117/files/A_HRC_27_44-EN.pdf",
+      "material": "联合国人权高专办：也门过渡进程人权状况报告",
+      "locator": "A/HRC/27/44 第 5—9 段，过渡安排与全国对话会议",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.mea.gov.in/Images/CPV/3631-LS-13-03-2026.pdf",
+      "material": "印度外交部提交人民院的出境就业许可统计",
+      "locator": "附件 A，2021 至 2025 年按目的地发放的出境就业许可",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ilo.org/sites/default/files/2024-06/labour-migration-asia-trends-skills-seasonalwork-2024-en.pdf",
+      "material": "国际劳工组织等：亚洲劳工迁移、技能认证与季节性工作",
+      "locator": "第 1.2.2 节，海湾合作委员会成员国移民工作技能",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/704492/files/A_1949_Add-1-EN.pdf",
+      "material": "联合国利比亚专员的最终报告",
+      "locator": "A/1949/Add.1，Chapter I，1949 年决议与 1951 年独立日",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://legal.un.org/legislativeseries/pdfs/chapters/book17/book17_part1_II.pdf",
+      "material": "联合国法律资料丛刊：法国与摩洛哥联合声明",
+      "locator": "第 355—356 页，1956 年 3 月 2 日共同声明与议定书",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/wx7lgqsn3vf2",
+      "material": "法国外交档案馆：突尼斯独立与机构移交",
+      "locator": "馆藏 711PO 的历史说明，1956 年 3 月 20 日议定书",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://elmouhami.com/wp-content/uploads/2016/06/EVIAN_JO_N_67_20_mars_1962.pdf",
+      "material": "法国《官方公报》：阿尔及利亚停火协议与政府声明",
+      "locator": "1962 年 3 月 20 日，第 3019—3020 页，停火协议与自决程序",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/3801945/files/A_CN.4_730-FR.pdf",
+      "material": "联合国国际法委员会：阿尔及利亚与法国的外交换文摘录",
+      "locator": "A/CN.4/730，第 26 例，7 月 1 日投票和 7 月 3 日换文",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://avalon.law.yale.edu/18th_century/bar1795e.asp",
+      "material": "耶鲁大学阿瓦隆项目：1795 年阿尔及尔与美国条约",
+      "locator": "1930 年译文第 2 条，船只和货物",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://avalon.law.yale.edu/19th_century/bar1815t.asp",
+      "material": "耶鲁大学阿瓦隆项目：1815 年阿尔及尔与美国和约",
+      "locator": "第 3—4 条，交还俘虏、赎金和补偿",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://njsy.nanjing.gov.cn/syrw/202010/t20201009_2426477.html",
+      "material": "南京双拥网：渡江战役亲历者徐法全等访谈",
+      "locator": "徐法全访谈末段，23 日午夜入城与 24 日凌晨进入总统府两处",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://dfz.nanjing.gov.cn/gzdt/202404/t20240424_4215576.html",
+      "material": "南京市地方志工作办公室：渡江战役与总统府",
+      "locator": "正文“红旗插上总统府”一节，23 日夜入城及 24 日凌晨抵达",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.anayasa.gov.tr/tr/mevzuat/onceki-anayasalar/1876-kanun-i-esasi/",
+      "material": "土耳其宪法法院：1876 年宪法正文",
+      "locator": "页面返回 502，改查载有原宪法英译的期刊扫描件。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    },
+    {
+      "url": "https://cpc.people.com.cn/GB/64162/64164/4416007.html",
+      "material": "中共中央党史研究室《中国共产党大事记·1949年》",
+      "locator": "1949 年 4 月 15—21 日条，协定答复及渡江",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx",
+      "material": "苏伊士运河管理局《运河史》",
+      "locator": "The Legendary Inauguration Ceremony 一节，1869 年 11 月 17 日",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://wwws.loc.gov/exhibits/night-at-the-opera/giuseppe-verdi-and-italian-opera.html",
+      "material": "美国国会图书馆《阿依达》1871 年开罗版及展签",
+      "locator": "Verdi’s Aida 及开罗 1871 年印行剧本（029.00.00）",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/chapter/canada-north-america/north-america-indigenous/summary",
+      "scope": "卡霍基亚人口估计与豪德诺索尼联盟依据",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "卡霍基亚人口估计与豪德诺索尼联盟依据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/unesco-cahokia-peak",
+              "locator": "突出普遍价值，简要综述与遗址范围",
+              "supports": "遗址包含中心土丘、村落和周边聚落；1050 至 1150 年的人口为估计。"
+            },
+            {
+              "source": "source/book/canada-north-america/onondaga-hiawatha-belt",
+              "locator": "贝珠带五个图案、各民族议事火与共同法律",
+              "supports": "记录五个原始成员的结盟传统及共同法律。"
+            },
+            {
+              "source": "source/book/canada-north-america/onondaga-great-law",
+              "locator": "成员自治与联盟议事会各段",
+              "supports": "成员保留内部事务的管辖，诸民族依据《大和平法》处理共同事务。"
+            }
+          ],
+          "limit": "遗址人口为估算，贝珠带和民族解释提供另一地区的自身传统，无法据此给出结盟的精确年份。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复核卡霍基亚遗址范围与奥农达加民族对联盟和成员自治的陈述。"
+      }
+    },
+    {
+      "id": "book-paragraph/canada-north-america/north-america-indigenous/p-01",
+      "scope": "卡霍基亚的规模、遗址构成与人口估计口径",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "卡霍基亚的规模、遗址构成与人口估计口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/unesco-cahokia-peak",
+              "locator": "突出普遍价值，简要综述与遗址范围",
+              "supports": "遗址包含中心土丘、村落和周边聚落；1050 至 1150 年的人口为估计。"
+            }
+          ],
+          "limit": "公布的人口区间不是古代普查结果，不能和北美其他区域简单排名。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/canada-north-america/north-america-indigenous/p-03",
+      "scope": "五个原始联盟成员及成员自治的依据",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "五个原始联盟成员及成员自治的依据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/onondaga-hiawatha-belt",
+              "locator": "贝珠带五个图案、各民族议事火与共同法律",
+              "supports": "记录五个原始成员的结盟传统及共同法律。"
+            },
+            {
+              "source": "source/book/canada-north-america/onondaga-great-law",
+              "locator": "成员自治与联盟议事会各段",
+              "supports": "成员保留内部事务的管辖，诸民族依据《大和平法》处理共同事务。"
+            }
+          ],
+          "limit": "部族自述是联盟制度和政治传统的证据；此处不据此推断唯一的成立日期。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/canada-north-america/new-france-fur-trade/p-05",
+      "scope": "北美战争早于欧洲开战，殖民人口估计有族群与地域口径",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "北美战争早于欧洲开战，殖民人口估计有族群与地域口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/statcan-new-france-1760",
+              "locator": "第 1 章第 1 页及注 1，1760 年法裔人口的重建",
+              "supports": "分列新法兰西和早已割让的阿卡迪亚，并保留不同作者估值。"
+            },
+            {
+              "source": "source/book/canada-north-america/parks-canada-seven-years",
+              "locator": "俄亥俄谷、欧洲开战与《巴黎条约》各段",
+              "supports": "俄亥俄谷 1754 年战事有原住民参加，1756 年冲突扩大到欧洲及其他地区。"
+            }
+          ],
+          "limit": "研究统计不是同年的双方普查。军事段落不以人口对比推导战果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读人口研究脚注与历史遗址 1754、1756 年记录，核对领地和人口统计范围。"
+      }
+    },
+    {
+      "id": "book-paragraph/canada-north-america/british-north-america-confederation/p-03",
+      "scope": "起义、调查、合并及责任政府形成的时序与实际制度",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "起义、调查、合并及责任政府形成的时序与实际制度",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/dcb-durham-responsible",
+              "locator": "Lord Durham, His Report, and the Union（1839—1842），并引拉方丹 1840 年宣言",
+              "supports": "区分起义、达勒姆的合并与责任政府提议，以及改革派关于议会多数的主张。"
+            },
+            {
+              "source": "source/book/canada-north-america/parks-canada-colonial-governors",
+              "locator": "1791—1848 年，任命和责任政府各段",
+              "supports": "上下加拿大在 1841 年合并。1848 年总督仍负任命职责，政府需获民选议会多数信任。"
+            }
+          ],
+          "limit": "不把一个殖民地的时序套到英属北美其余各省，也不将总督职责说成消失。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对照 1840 年拉方丹宣言和加拿大公园管理局所记总督任命职责。"
+      }
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-03",
+      "scope": "运河通航、运河公司股权与占领埃及是三个有独立史料的事件",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "运河通航、运河公司股权与占领埃及是三个有独立史料的事件",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/suez-1869-hansard",
+              "locator": "1882 年 6 月 19 日，Egypt—The Suez Canal",
+              "supports": "英国议员按 1869 年通航汇报运量，辩论仍区分持股收益与管营。"
+            },
+            {
+              "source": "source/book/modern-middle-east/suez-shares-parliament",
+              "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+              "supports": "英国政府买的是埃及赫迪夫持有的公司股份。"
+            },
+            {
+              "source": "source/book/modern-middle-east/suez-egypt-occupation",
+              "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+              "supports": "以馆藏物件串联 1882 年奥拉比运动、英国军事介入和占领。"
+            }
+          ],
+          "limit": "议会记录表明英方财务和航运利益；英方馆藏与议会辩论不足以推断伊斯梅尔私下的动机。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新核对公司股份的归属、1882 年议会仍讨论何种经营权，以及从亚历山大到开罗的时间顺序。"
+      }
+    },
+    {
+      "id": "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-02",
+      "scope": "坦齐马特时期的敕令与 1876 年宪法的臣民、财产和信仰条款",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "坦齐马特时期的敕令与 1876 年宪法的臣民、财产和信仰条款",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/gulhane-decree-1839",
+              "locator": "The Gülhane Edict，英译正文开头与三项目标",
+              "supports": "保障生命、名誉和财产，重新规定税收和征兵，并把保障扩及各信仰的臣民。"
+            },
+            {
+              "source": "source/book/ottoman/ottoman-constitutional-economic-rights",
+              "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+              "supports": "区分两次敕令的承诺与 1876 年宪法中可定位的财产权、结社条文。"
+            },
+            {
+              "source": "source/book/ottoman/ottoman-1876-constitution",
+              "locator": "印刷第 368 页，第 8、11 条",
+              "supports": "不分宗教称帝国臣民为奥斯曼人，保留国教并在一定条件下保障其他宗教礼仪。"
+            }
+          ],
+          "limit": "成文条款不足以证明各地实践已经平等。撤出缺少定义和地区比较的“伊斯兰世界第一”。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读 1839、1856 年的文件比较及宪法第 8、11 条，分别核对称谓、保障与条件。"
+      }
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-02",
+      "scope": "1839 和 1856 年敕令的政策范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1839 和 1856 年敕令的政策范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/gulhane-decree-1839",
+              "locator": "The Gülhane Edict，英译正文开头与三项目标",
+              "supports": "保障生命、名誉和财产，重新规定税收和征兵，并把保障扩及各信仰的臣民。"
+            },
+            {
+              "source": "source/book/modern-middle-east/ottoman-constitutional-economic-rights",
+              "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+              "supports": "区分两次敕令的承诺与 1876 年宪法中可定位的财产权、结社条文。"
+            }
+          ],
+          "limit": "不把埃及压力或俄奥关系单独用来解释全部坦齐马特改革。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-03",
+      "scope": "埃及辞职交权、叙利亚镇压及也门对话的不同时间和行动者",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "埃及辞职交权、叙利亚镇压及也门对话的不同时间和行动者",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/uk-fco-egypt-feb-2011",
+              "locator": "书面证据第 217—225 段，开罗示威与穆巴拉克辞职",
+              "supports": "记录副总统苏莱曼于 2 月 11 日宣布穆巴拉克辞职，并由军方接管国务。"
+            },
+            {
+              "source": "source/book/modern-middle-east/un-syria-inquiry-2011",
+              "locator": "A/HRC/46/54 第 3—6 段，抗议、镇压及武装冲突",
+              "supports": "记录 2011 年德拉抗议和叙利亚政府安全部队的镇压，其后冲突升级。"
+            },
+            {
+              "source": "source/book/modern-middle-east/ohchr-yemen-national-dialogue",
+              "locator": "A/HRC/27/44 第 5—9 段，过渡安排与全国对话会议",
+              "supports": "列出也门政治过渡安排，以及 2014 年 1 月完成的全国对话及后续条件。"
+            }
+          ],
+          "limit": "三份材料各指具体国家和时点，不提供开罗抗议的总人数，也不支持由一条地区因果解释三国。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新核对埃及报道的宣布人、叙利亚报告对德拉的指认和也门对话的日期。"
+      }
+    },
+    {
+      "id": "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-03",
+      "scope": "北非各地独立的程序、文件、时点和签署人",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "北非各地独立的程序、文件、时点和签署人",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/north-africa-maghreb/un-libya-independence-1951",
+              "locator": "A/1949/Add.1，Chapter I，1949 年决议与 1951 年独立日",
+              "supports": "报告记录依据第 289（IV）号决议的移交，并载明 1951 年 12 月 24 日利比亚独立。"
+            },
+            {
+              "source": "source/book/north-africa-maghreb/un-morocco-joint-declaration",
+              "locator": "第 355—356 页，1956 年 3 月 2 日共同声明与议定书",
+              "supports": "承认摩洛哥独立，协商移交保护国时期保留的权力。"
+            },
+            {
+              "source": "source/book/north-africa-maghreb/fr-diplomatic-tunisian-protocol",
+              "locator": "馆藏 711PO 的历史说明，1956 年 3 月 20 日议定书",
+              "supports": "突尼斯部长会议主席塔哈尔·本·阿马尔同法国外交部长签署独立承认议定书。"
+            },
+            {
+              "source": "source/book/north-africa-maghreb/evian-ceasefire-1962",
+              "locator": "1962 年 3 月 20 日，第 3019—3020 页，停火协议与自决程序",
+              "supports": "载法国政府与民族解放阵线谈判，3 月 19 日起停火，并规定自决投票。"
+            },
+            {
+              "source": "source/book/north-africa-maghreb/un-ilc-algeria-recognition",
+              "locator": "A/CN.4/730，第 26 例，7 月 1 日投票和 7 月 3 日换文",
+              "supports": "法国在自决投票后以外交换文承认独立并移交主权。"
+            }
+          ],
+          "limit": "条约和外交换文能界定承认的法律过程，无法概括战争暴力、各地组织或政权内部的争论。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读突尼斯协议档案及《官方公报》关于停火、自决的各条，区分阿尔及利亚投票和法国承认。"
+      }
+    },
+    {
+      "id": "block/topic/north-africa/algiers/section-02",
+      "scope": "区分港口税、拘留人员交换及补偿",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分港口税、拘留人员交换及补偿",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-africa/algiers/avalon-1795-algiers-treaty",
+              "locator": "1930 年译文第 2 条，船只和货物",
+              "supports": "规定港口贸易关税及适用对象。"
+            },
+            {
+              "source": "source/topic/north-africa/algiers/avalon-1815-algiers-treaty",
+              "locator": "第 3—4 条，交还俘虏、赎金和补偿",
+              "supports": "写明双方交还被扣押者，并另列补偿条款及所涉人员。"
+            }
+          ],
+          "limit": "双边条款不代表整个地中海，也不会完整呈现被拘留者的经历。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roc/civil-war-1949/p-05",
+      "scope": "渡江战役和南京入城、进入总统府相邻两日的时间区分",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "渡江战役和南京入城、进入总统府相邻两日的时间区分",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roc/nanjing-xu-faquan-interview",
+              "locator": "徐法全访谈末段，23 日午夜入城与 24 日凌晨进入总统府两处",
+              "supports": "亲历者分别记下部队进入南京与进入总统府的时间。"
+            },
+            {
+              "source": "source/book/roc/nanjing-crossriver-chronicle",
+              "locator": "正文“红旗插上总统府”一节，23 日夜入城及 24 日凌晨抵达",
+              "supports": "官修地方记载把入城与总统府交接、随后保护档案分别叙述。"
+            },
+            {
+              "source": "source/book/roc/cpc-chronicle-apr-1949",
+              "locator": "1949 年 4 月 15—21 日条，协定答复及渡江",
+              "supports": "记最后修正案与南京政府拒绝接受，以及随后发布进军命令。"
+            }
+          ],
+          "limit": "用亲历访谈说明总统府的时点；地方记载在接近午夜时有不同写法，正文不精确到分钟。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "回查亲历者访谈的午夜及凌晨两个时间和地方志的入城、保护档案段。"
+      }
+    },
+    {
+      "id": "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-02",
+      "scope": "有统计依据的印度至海湾就业迁移背景",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "有统计依据的印度至海湾就业迁移背景",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/india-emigration-clearance-gulf",
+              "locator": "附件 A，2021 至 2025 年按目的地发放的出境就业许可",
+              "supports": "统计分列前往沙特阿拉伯、阿联酋等地签发的许可。"
+            },
+            {
+              "source": "source/book/modern-middle-east/ilo-gcc-labor-migration-2024",
+              "locator": "第 1.2.2 节，海湾合作委员会成员国移民工作技能",
+              "supports": "说明部分亚洲劳工受雇于建筑和家庭照护等行业，行业与学历分布须单列。"
+            }
+          ],
+          "limit": "出境许可由特定制度签发，不等同于当地印度居民总量或各行业从业人数。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查附件 A 的统计对象、国家行与印度卷所涉年代。"
+      }
+    },
+    {
+      "id": "relation/book/modern-middle-east/reform-suez-ottoman-twilight/world-02",
+      "scope": "以英国股权交易和军事占领作为跨卷阅读背景",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以英国股权交易和军事占领作为跨卷阅读背景",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/suez-shares-parliament",
+              "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+              "supports": "英国政府买的是埃及赫迪夫持有的公司股份。"
+            },
+            {
+              "source": "source/book/modern-middle-east/suez-egypt-occupation",
+              "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+              "supports": "以馆藏物件串联 1882 年奥拉比运动、英国军事介入和占领。"
+            }
+          ],
+          "limit": "没有资料支持英国海运在 1882 年突然完成从地中海到印度洋的全面控制。"
+        }
+      ]
+    },
+    {
+      "id": "block/modern-middle-east/reform-suez-ottoman-twilight/aside-03",
+      "scope": "区分 1869 年运河通航与 1871 年《阿依达》开罗首演。",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分 1869 年运河通航与 1871 年《阿依达》开罗首演。",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/suez-authority-opening",
+              "locator": "The Legendary Inauguration Ceremony 一节，1869 年 11 月 17 日",
+              "supports": "通航庆典来宾包括欧仁妮，船队由 L’Aigle 领航。"
+            },
+            {
+              "source": "source/book/modern-middle-east/loc-aida-cairo-1871",
+              "locator": "Verdi’s Aida 及开罗 1871 年印行剧本（029.00.00）",
+              "supports": "开罗赫迪夫歌剧院于 1869 年开幕，《阿依达》于 1871 年 12 月 24 日在那里首演。"
+            }
+          ],
+          "limit": "运河管理局仅用于核对通航庆典，剧院与首演另据馆藏剧本和展签。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复查运河管理局的通航庆典段以及国会图书馆开罗初版剧本和展签。"
+      }
+    }
+  ]
+}

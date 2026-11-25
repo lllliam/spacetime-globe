@@ -14,6 +14,76 @@
       "title": "大英百科全书《赛克斯-皮科协定与奥斯曼解体》",
       "url": "https://www.britannica.com/event/Sykes-Picot-Agreement",
       "id": "source-02"
+    },
+    {
+      "id": "suez-1869-hansard",
+      "title": "英国议会上院：苏伊士运河辩论",
+      "url": "https://hansard.parliament.uk/Lords/1882-06-19/debates/da61cae4-7cf1-4b60-8288-c4a8804a33d1/LordsChamber"
+    },
+    {
+      "id": "suez-shares-parliament",
+      "title": "英国议会下院：苏伊士运河股份购款辩论",
+      "url": "https://hansard.parliament.uk/commons/1876-02-14/debates/509d9d36-bc23-408e-a5e3-01d21b712ed2/Supply%E2%80%94TheSuezCanalShares"
+    },
+    {
+      "id": "suez-egypt-occupation",
+      "title": "英国国家陆军博物馆：埃及与苏丹档案展",
+      "url": "https://www.nam.ac.uk/explore/egypt-and-sudan"
+    },
+    {
+      "id": "gulhane-decree-1839",
+      "title": "中欧大学出版社：1839 年《古尔哈内敕令》节译",
+      "url": "https://cas.bg/wp-content/uploads/2020/04/ID-Reader-vol1-Late-Enlighten.pdf"
+    },
+    {
+      "id": "ottoman-constitutional-economic-rights",
+      "title": "土耳其宪法法院文集：宪法中的经济权利与义务",
+      "url": "https://www.anayasa.gov.tr/media/4761/adnanguriz.pdf"
+    },
+    {
+      "id": "uk-fco-egypt-feb-2011",
+      "title": "英国议会：外交部提交的埃及抗议记录",
+      "url": "https://publications.parliament.uk/pa/cm201213/cmselect/cmfaff/80/80we03.htm"
+    },
+    {
+      "id": "un-syria-inquiry-2011",
+      "title": "联合国叙利亚问题独立国际调查委员会报告",
+      "url": "https://digitallibrary.un.org/record/3901557/files/A_HRC_46_54-EN.pdf"
+    },
+    {
+      "id": "ohchr-yemen-national-dialogue",
+      "title": "联合国人权高专办：也门过渡进程人权状况报告",
+      "url": "https://digitallibrary.un.org/record/779117/files/A_HRC_27_44-EN.pdf"
+    },
+    {
+      "id": "india-emigration-clearance-gulf",
+      "title": "印度外交部提交人民院的出境就业许可统计",
+      "url": "https://www.mea.gov.in/Images/CPV/3631-LS-13-03-2026.pdf"
+    },
+    {
+      "id": "ilo-gcc-labor-migration-2024",
+      "title": "国际劳工组织等：亚洲劳工迁移、技能认证与季节性工作",
+      "url": "https://www.ilo.org/sites/default/files/2024-06/labour-migration-asia-trends-skills-seasonalwork-2024-en.pdf"
+    },
+    {
+      "id": "us-public-law-107-243",
+      "title": "美国国会：2002 年对伊拉克使用军事力量的授权",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ243/html/PLAW-107publ243.htm"
+    },
+    {
+      "id": "uk-iraq-inquiry-2016",
+      "title": "英国伊拉克调查委员会：执行摘要",
+      "url": "https://assets.publishing.service.gov.uk/media/5a80f42ced915d74e6231626/The_Report_of_the_Iraq_Inquiry_-_Executive_Summary.pdf"
+    },
+    {
+      "id": "suez-authority-opening",
+      "title": "苏伊士运河管理局《运河史》",
+      "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx"
+    },
+    {
+      "id": "loc-aida-cairo-1871",
+      "title": "美国国会图书馆《阿依达》1871 年开罗版及展签",
+      "url": "https://wwws.loc.gov/exhibits/night-at-the-opera/giuseppe-verdi-and-italian-opera.html"
     }
   ],
   "chapters": [
@@ -34,23 +104,58 @@
           "id": "p-01"
         },
         {
-          "text": "在埃及的强力刺激与俄国南下压力下，伊斯坦布尔的奥斯曼苏丹亦于一八三九年启动“坦齐马特”全面改革，颁布世俗商法典、组建新式陆军与电报铁路网，并宣布帝国各宗教臣民法律平等。然而工业基础薄弱的帝国在欧洲廉价商品与治外法权冲击下债台高筑，一八七五年被迫宣布主权违约，财政大权落入欧洲债权机构之手。",
+          "text": "1839 年，奥斯曼苏丹阿卜杜勒迈吉德一世公布《古尔哈内敕令》，提出保障臣民生命、名誉和财产，并用成文规则改革税收和征兵。1856 年，改革敕令重申了人身与财产保障。官员如何在各地落实这些条款，需要读地方行政和诉讼记录。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "gulhane-decree-1839",
+              "locator": "The Gülhane Edict，英译正文开头与三项目标",
+              "note": "保障生命、名誉和财产，重新规定税收和征兵，并把保障扩及各信仰的臣民。"
+            },
+            {
+              "sourceId": "ottoman-constitutional-economic-rights",
+              "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+              "note": "区分两次敕令的承诺与 1876 年宪法中可定位的财产权、结社条文。"
+            }
           ],
           "id": "p-02"
         },
         {
           "heading": "苏伊士运河、英军占领与波斯油井",
-          "text": "一八六九年苏伊士运河的盛大通航，本是埃及总督伊斯梅尔意欲“让埃及融入欧洲”的雄心壮举，却因沉重外债沦为丧失主权的导火索。一八七五年英国闪电买下埃及所持运河股份，一八八二年更以镇压奥拉比民族起义为由出兵占领开罗与亚历山大港，从此牢牢扼住通往英属印度的咽喉水道。",
+          "text": "1869 年，苏伊士运河通航。1875 年，英国政府买下埃及赫迪夫伊斯梅尔持有的运河公司股份，随后英国议会辩论拨款。1882 年，英国派军介入奥拉比运动期间的埃及政局，从炮击亚历山大港发展到占领开罗。公司股权交易和军事占领相隔七年，分别改变了英国在运河公司和埃及政局中的地位。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "suez-1869-hansard",
+              "locator": "1882 年 6 月 19 日，Egypt—The Suez Canal",
+              "note": "英国议员按 1869 年通航汇报运量，辩论仍区分持股收益与管营。"
+            },
+            {
+              "sourceId": "suez-shares-parliament",
+              "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+              "note": "英国政府买的是埃及赫迪夫持有的公司股份。"
+            },
+            {
+              "sourceId": "suez-egypt-occupation",
+              "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+              "note": "以馆藏物件串联 1882 年奥拉比运动、英国军事介入和占领。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 1869 年 11 月塞得港运河通航典礼",
-            "title": "一条人工水道重塑全球帝国版图",
-            "text": "法国欧仁妮皇后乘坐游艇率先驶入碧蓝的苏伊士运河，开罗新建的歌剧院为庆典筹备着威尔第的《阿依达》。这条全长逾一百六十公里的人工河道，将伦敦到孟买的航程骤然缩短近半，却也在短短十余年间把负债累累的埃及推入了英国“隐蔽保护国”的漫长岁月。",
-            "id": "aside-03"
+            "title": "运河通航庆典与开罗歌剧院",
+            "text": "1869 年 11 月 17 日，苏伊士运河举行通航庆典，法国皇后欧仁妮到场，船队由鹰号领航。开罗的赫迪夫歌剧院同年启用。威尔第的《阿依达》在这座剧院首演的日子是 1871 年 12 月 24 日，两件事相隔两年。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "suez-authority-opening",
+                "locator": "The Legendary Inauguration Ceremony 一节，1869 年 11 月 17 日",
+                "note": "通航庆典来宾包括欧仁妮，船队由 L’Aigle 领航。"
+              },
+              {
+                "sourceId": "loc-aida-cairo-1871",
+                "locator": "Verdi’s Aida 及开罗 1871 年印行剧本（029.00.00）",
+                "note": "开罗赫迪夫歌剧院于 1869 年开幕，《阿依达》于 1871 年 12 月 24 日在那里首演。"
+              }
+            ]
           },
           "id": "p-03"
         },
@@ -93,13 +198,30 @@
         {
           "book": "british-empire",
           "year": 1882,
-          "label": "大英帝国掌控红海与印度洋生命线",
-          "note": "从直布罗陀、马耳他到苏伊士运河与亚丁港，英国在 1882 年占领埃及后彻底闭环了通往印度的帝国海上走廊。",
+          "label": "英国占领埃及与运河公司",
+          "note": "英国购入埃及方面持有的股份、随后占领埃及。两项行动对英国在运河的影响须分开读。",
           "id": "world-02",
-          "relation": "legacy",
+          "relation": "context",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "以英国股权交易和军事占领作为跨卷阅读背景",
+            "checkedAt": "2026-11-25"
+          },
+          "chapter": "industrial-pax-britannica",
+          "display": "参看英国方面关于公司股份和军事介入的记录。",
+          "previousRelation": "legacy",
+          "evidence": [
+            {
+              "sourceId": "suez-shares-parliament",
+              "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+              "note": "英国政府买的是埃及赫迪夫持有的公司股份。"
+            },
+            {
+              "sourceId": "suez-egypt-occupation",
+              "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+              "note": "以馆藏物件串联 1882 年奥拉比运动、英国军事介入和占领。"
+            }
+          ]
         }
       ],
       "kind": "narrative",
@@ -308,10 +430,23 @@
         },
         {
           "heading": "阿拉伯之春与破碎的新月地带",
-          "text": "二零一一年初，源自突尼斯的抗议浪潮迅速席卷中东：开罗解放广场的百万民众迫使执政三十年的穆巴拉克下台，但埃及历经政局反复后重归强人治理；而叙利亚与也门的和平示威则迅速滑向毁灭性内战，吸引地区大国与俄美力量深度介入，极端组织“伊斯兰国”更于二零一四年趁虚跨过伊叙边界，一度宣称废除百年赛克斯-皮科国界。",
+          "text": "2011 年，埃及、叙利亚和也门的抗议引出了不同的政治进程。2 月 11 日，埃及副总统宣布穆巴拉克辞职，由军方接管国事。叙利亚政府安全部队在德拉以及抗议扩散后的多地镇压示威，随后冲突升级。也门一度依照过渡安排举行全国对话会议，并于 2014 年 1 月通过会议成果。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "uk-fco-egypt-feb-2011",
+              "locator": "书面证据第 217—225 段，开罗示威与穆巴拉克辞职",
+              "note": "记录副总统苏莱曼于 2 月 11 日宣布穆巴拉克辞职，并由军方接管国务。"
+            },
+            {
+              "sourceId": "un-syria-inquiry-2011",
+              "locator": "A/HRC/46/54 第 3—6 段，抗议、镇压及武装冲突",
+              "note": "记录 2011 年德拉抗议和叙利亚政府安全部队的镇压，其后冲突升级。"
+            },
+            {
+              "sourceId": "ohchr-yemen-national-dialogue",
+              "locator": "A/HRC/27/44 第 5—9 段，过渡安排与全国对话会议",
+              "note": "列出也门政治过渡安排，以及 2014 年 1 月完成的全国对话及后续条件。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 21 世纪波斯湾超大型港口与霍尔木兹海峡",
@@ -348,24 +483,58 @@
         {
           "book": "usa",
           "year": 2003,
-          "label": "二十一世纪初的全球战略转向",
-          "note": "2003 年伊拉克战争深刻消耗了冷战后美国的战略资源，也在无意间加速了全球向多极格局的演变。",
+          "label": "美国对伊拉克的用武授权",
+          "note": "2002 年美国国会另行授权对伊拉克使用武力，2003 年入侵。可转入美国卷对照两项用武法案。",
           "id": "world-01",
-          "relation": "legacy",
+          "relation": "context",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "checkedAt": "2026-11-25",
+            "scope": "2003 年伊拉克战争与美国国内授权的背景"
+          },
+          "chapter": "apollo-silicon-valley-21c",
+          "previousRelation": "legacy",
+          "display": "对照 2002 年授权和 2003 年开战决策。",
+          "evidence": [
+            {
+              "sourceId": "us-public-law-107-243",
+              "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+              "note": "国会以单独决议授权总统对伊拉克使用美军。"
+            },
+            {
+              "sourceId": "uk-iraq-inquiry-2016",
+              "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+              "note": "记录开战前情报争议、2003 年 3 月开战，以及战后未找到所称武器库存。"
+            }
+          ]
         },
         {
           "book": "india-classical-modern",
-          "year": 2020,
-          "label": "印度洋—海湾经贸与能源走廊",
-          "note": "数百万南亚劳工与科技人才深度参与海湾城市建设，印度与中东正共同构筑起阿拉伯海两岸的新兴经贸圈。",
+          "year": 2023,
+          "label": "印度劳工前往海湾",
+          "note": "印度外交部的统计分列前往沙特阿拉伯、阿联酋等地签发的出境就业许可。可从印度卷了解迁移来源地的历史。",
           "id": "world-02",
-          "relation": "legacy",
+          "relation": "context",
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "有统计依据的印度至海湾就业迁移背景",
+            "checkedAt": "2026-11-25"
+          },
+          "chapter": "independence-partition-republic",
+          "display": "从海湾转向印度，查看出境就业许可反映的人口流动。",
+          "previousRelation": "legacy",
+          "evidence": [
+            {
+              "sourceId": "india-emigration-clearance-gulf",
+              "locator": "附件 A，2021 至 2025 年按目的地发放的出境就业许可",
+              "note": "统计分列前往沙特阿拉伯、阿联酋等地签发的许可。"
+            },
+            {
+              "sourceId": "ilo-gcc-labor-migration-2024",
+              "locator": "第 1.2.2 节，海湾合作委员会成员国移民工作技能",
+              "note": "说明部分亚洲劳工受雇于建筑和家庭照护等行业，行业与学历分布须单列。"
+            }
+          ]
         }
       ],
       "kind": "narrative",

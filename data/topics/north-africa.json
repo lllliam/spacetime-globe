@@ -339,6 +339,16 @@
           "url": "https://www.metmuseum.org/de/essays/the-greater-ottoman-empire-1600-1800",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "avalon-1795-algiers-treaty",
+          "title": "耶鲁大学阿瓦隆项目：1795 年阿尔及尔与美国条约",
+          "url": "https://avalon.law.yale.edu/18th_century/bar1795e.asp"
+        },
+        {
+          "id": "avalon-1815-algiers-treaty",
+          "title": "耶鲁大学阿瓦隆项目：1815 年阿尔及尔与美国和约",
+          "url": "https://avalon.law.yale.edu/19th_century/bar1815t.asp"
         }
       ],
       "sections": [
@@ -353,10 +363,18 @@
         },
         {
           "title": "海上财富与强制",
-          "text": "海洋提供贸易机会，也存在战争、劫掠和俘虏赎金等暴力经济，不同岸边的势力均曾参与。被俘者和奴役人口的经验不能被浪漫化为冒险故事。研究港口财富时，应区分商品交易、国家授权的海上袭击与人口强制流动，了解每一种活动对不同社会群体意味着什么。",
+          "text": "阿尔及尔港既有贸易，也曾发生海上扣押和强制拘留。1795 年阿尔及尔与美国的条约规定了港口商品税。1815 年的和约另要求双方交还被扣押者，并列出部分人遭扣留或弃置财产的补偿条款。两份文件留下了贸易和拘留分别如何在外交中处理的证据。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "avalon-1795-algiers-treaty",
+              "locator": "1930 年译文第 2 条，船只和货物",
+              "note": "规定港口贸易关税及适用对象。"
+            },
+            {
+              "sourceId": "avalon-1815-algiers-treaty",
+              "locator": "第 3—4 条，交还俘虏、赎金和补偿",
+              "note": "写明双方交还被扣押者，并另列补偿条款及所涉人员。"
+            }
           ],
           "id": "section-02"
         },

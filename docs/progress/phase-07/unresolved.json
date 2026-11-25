@@ -220,11 +220,8 @@
     "source/book/canada-north-america/source-02",
     "book-chapter/canada-north-america/north-america-indigenous",
     "text/chapter/canada-north-america/north-america-indigenous/title",
-    "text/chapter/canada-north-america/north-america-indigenous/summary",
     "text/chapter/canada-north-america/north-america-indigenous/spatialThesis",
-    "book-paragraph/canada-north-america/north-america-indigenous/p-01",
     "book-paragraph/canada-north-america/north-america-indigenous/p-02",
-    "book-paragraph/canada-north-america/north-america-indigenous/p-03",
     "block/canada-north-america/north-america-indigenous/aside-03",
     "book-paragraph/canada-north-america/north-america-indigenous/p-04",
     "book-paragraph/canada-north-america/north-america-indigenous/p-05",
@@ -240,7 +237,6 @@
     "book-paragraph/canada-north-america/new-france-fur-trade/p-03",
     "book-paragraph/canada-north-america/new-france-fur-trade/p-04",
     "block/canada-north-america/new-france-fur-trade/aside-04",
-    "book-paragraph/canada-north-america/new-france-fur-trade/p-05",
     "book-paragraph/canada-north-america/new-france-fur-trade/p-06",
     "relation/book/canada-north-america/new-france-fur-trade/world-01",
     "relation/book/canada-north-america/new-france-fur-trade/world-02",
@@ -250,7 +246,6 @@
     "text/chapter/canada-north-america/british-north-america-confederation/spatialThesis",
     "book-paragraph/canada-north-america/british-north-america-confederation/p-01",
     "book-paragraph/canada-north-america/british-north-america-confederation/p-02",
-    "book-paragraph/canada-north-america/british-north-america-confederation/p-03",
     "book-paragraph/canada-north-america/british-north-america-confederation/p-04",
     "block/canada-north-america/british-north-america-confederation/aside-04",
     "book-paragraph/canada-north-america/british-north-america-confederation/p-05",
@@ -446,9 +441,7 @@
     "source/book/five-dynasties/source-02",
     "book-chapter/five-dynasties/five-dynasties-yanyun",
     "text/chapter/five-dynasties/five-dynasties-yanyun/title",
-    "text/chapter/five-dynasties/five-dynasties-yanyun/summary",
     "text/chapter/five-dynasties/five-dynasties-yanyun/spatialThesis",
-    "book-paragraph/five-dynasties/five-dynasties-yanyun/p-01",
     "book-paragraph/five-dynasties/five-dynasties-yanyun/p-02",
     "book-paragraph/five-dynasties/five-dynasties-yanyun/p-03",
     "book-paragraph/five-dynasties/five-dynasties-yanyun/p-04",
@@ -576,7 +569,6 @@
     "book-paragraph/germany-hre/cold-war-eu-germany/p-02",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-04",
     "book-paragraph/germany-hre/cold-war-eu-germany/p-05",
-    "book-paragraph/germany-hre/cold-war-eu-germany/p-06",
     "relation/book/germany-hre/cold-war-eu-germany/world-01",
     "book/greece-macedon",
     "text/book/greece-macedon/title",
@@ -650,7 +642,6 @@
     "book-paragraph/han/western-han/p-01",
     "book-paragraph/han/western-han/p-02",
     "book-paragraph/han/western-han/p-03",
-    "book-paragraph/han/western-han/p-04",
     "block/han/western-han/aside-04",
     "book-paragraph/han/western-han/p-05",
     "book-paragraph/han/western-han/p-06",
@@ -660,10 +651,8 @@
     "text/chapter/han/wudi/title",
     "text/chapter/han/wudi/summary",
     "text/chapter/han/wudi/spatialThesis",
-    "book-paragraph/han/wudi/p-01",
     "book-paragraph/han/wudi/p-02",
     "book-paragraph/han/wudi/p-03",
-    "block/han/wudi/aside-03",
     "book-paragraph/han/wudi/p-04",
     "book-paragraph/han/wudi/p-05",
     "book-paragraph/han/wudi/p-06",
@@ -678,7 +667,6 @@
     "book-paragraph/han/interregnum/p-03",
     "block/han/interregnum/aside-03",
     "book-paragraph/han/interregnum/p-04",
-    "book-paragraph/han/interregnum/p-05",
     "book-paragraph/han/interregnum/p-06",
     "relation/book/han/interregnum/world-01",
     "book-chapter/han/eastern-han",
@@ -1047,7 +1035,6 @@
     "text/chapter/liao-jin-xia/liao-dual-empire/summary",
     "text/chapter/liao-jin-xia/liao-dual-empire/spatialThesis",
     "book-paragraph/liao-jin-xia/liao-dual-empire/p-01",
-    "book-paragraph/liao-jin-xia/liao-dual-empire/p-02",
     "book-paragraph/liao-jin-xia/liao-dual-empire/p-03",
     "block/liao-jin-xia/liao-dual-empire/aside-03",
     "book-paragraph/liao-jin-xia/liao-dual-empire/p-04",
@@ -1074,13 +1061,11 @@
     "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-02",
     "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-03",
     "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-04",
-    "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-05",
     "block/liao-jin-xia/jin-rise-zhongdu/aside-05",
     "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-06",
     "relation/book/liao-jin-xia/jin-rise-zhongdu/world-01",
     "book-chapter/liao-jin-xia/jin-golden-to-mongol",
     "text/chapter/liao-jin-xia/jin-golden-to-mongol/title",
-    "text/chapter/liao-jin-xia/jin-golden-to-mongol/summary",
     "text/chapter/liao-jin-xia/jin-golden-to-mongol/spatialThesis",
     "book-paragraph/liao-jin-xia/jin-golden-to-mongol/p-01",
     "book-paragraph/liao-jin-xia/jin-golden-to-mongol/p-02",
@@ -1444,14 +1429,10 @@
     "text/chapter/modern-middle-east/reform-suez-ottoman-twilight/summary",
     "text/chapter/modern-middle-east/reform-suez-ottoman-twilight/spatialThesis",
     "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-01",
-    "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-02",
-    "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-03",
-    "block/modern-middle-east/reform-suez-ottoman-twilight/aside-03",
     "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-04",
     "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-05",
     "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-06",
     "relation/book/modern-middle-east/reform-suez-ottoman-twilight/world-01",
-    "relation/book/modern-middle-east/reform-suez-ottoman-twilight/world-02",
     "book-chapter/modern-middle-east/sykes-picot-mandates-republics",
     "text/chapter/modern-middle-east/sykes-picot-mandates-republics/title",
     "text/chapter/modern-middle-east/sykes-picot-mandates-republics/summary",
@@ -1484,13 +1465,10 @@
     "text/chapter/modern-middle-east/post-cold-war-21st-century-mideast/spatialThesis",
     "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-01",
     "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-02",
-    "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-03",
     "block/modern-middle-east/post-cold-war-21st-century-mideast/aside-03",
     "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-04",
     "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-05",
     "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-06",
-    "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-01",
-    "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-02",
     "book/mongol-empire",
     "text/book/mongol-empire/title",
     "text/book/mongol-empire/summary",
@@ -1762,7 +1740,6 @@
     "text/chapter/north-africa-maghreb/colonialism-decolonization-maghreb/spatialThesis",
     "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-01",
     "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-02",
-    "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-03",
     "block/north-africa-maghreb/colonialism-decolonization-maghreb/aside-03",
     "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-04",
     "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-05",
@@ -1868,7 +1845,6 @@
     "text/chapter/ottoman/tanzimat-sick-man-collapse/summary",
     "text/chapter/ottoman/tanzimat-sick-man-collapse/spatialThesis",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-01",
-    "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-02",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-03",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-04",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-06",
@@ -1942,20 +1918,17 @@
     "relation/book/prc/global-economy/world-01",
     "book/qin",
     "text/book/qin/title",
-    "text/book/qin/summary",
     "source/book/qin/source-01",
     "source/book/qin/source-02",
     "book-chapter/qin/first-emperor-system",
     "text/chapter/qin/first-emperor-system/title",
     "text/chapter/qin/first-emperor-system/summary",
-    "text/chapter/qin/first-emperor-system/spatialThesis",
     "book-paragraph/qin/first-emperor-system/p-01",
     "book-paragraph/qin/first-emperor-system/p-02",
     "book-paragraph/qin/first-emperor-system/p-03",
     "block/qin/first-emperor-system/aside-03",
     "book-paragraph/qin/first-emperor-system/p-04",
     "book-paragraph/qin/first-emperor-system/p-05",
-    "book-paragraph/qin/first-emperor-system/p-06",
     "scene-ref/qin/first-emperor-system/qin-empire-roads",
     "relation/book/qin/first-emperor-system/world-01",
     "book-chapter/qin/great-wall-mega-projects",
@@ -1966,7 +1939,6 @@
     "book-paragraph/qin/great-wall-mega-projects/p-02",
     "block/qin/great-wall-mega-projects/aside-02",
     "book-paragraph/qin/great-wall-mega-projects/p-03",
-    "book-paragraph/qin/great-wall-mega-projects/p-04",
     "book-paragraph/qin/great-wall-mega-projects/p-05",
     "book-paragraph/qin/great-wall-mega-projects/p-06",
     "relation/book/qin/great-wall-mega-projects/world-01",
@@ -2106,7 +2078,6 @@
     "block/roc/civil-war-1949/aside-02",
     "book-paragraph/roc/civil-war-1949/p-03",
     "book-paragraph/roc/civil-war-1949/p-04",
-    "book-paragraph/roc/civil-war-1949/p-05",
     "book-paragraph/roc/civil-war-1949/p-06",
     "relation/book/roc/civil-war-1949/reading-01",
     "relation/book/roc/civil-war-1949/world-01",
@@ -2565,7 +2536,6 @@
     "relation/book/sui/goguryeo-collapse/reading-01",
     "book/tang",
     "text/book/tang/title",
-    "text/book/tang/summary",
     "source/book/tang/source-01",
     "source/book/tang/source-02",
     "source/book/tang/source-03",
@@ -2582,7 +2552,6 @@
     "book-paragraph/tang/founding/p-03",
     "book-paragraph/tang/founding/p-04",
     "book-paragraph/tang/founding/p-05",
-    "block/tang/founding/aside-05",
     "book-paragraph/tang/founding/p-06",
     "scene-ref/tang/founding/tang-changan-west",
     "relation/book/tang/founding/world-01",
@@ -2600,10 +2569,7 @@
     "relation/book/tang/two-capitals/world-01",
     "book-chapter/tang/frontier",
     "text/chapter/tang/frontier/title",
-    "text/chapter/tang/frontier/summary",
     "text/chapter/tang/frontier/spatialThesis",
-    "book-paragraph/tang/frontier/p-01",
-    "book-paragraph/tang/frontier/p-02",
     "book-paragraph/tang/frontier/p-03",
     "book-paragraph/tang/frontier/p-04",
     "book-paragraph/tang/frontier/p-05",
@@ -2614,14 +2580,12 @@
     "relation/book/tang/frontier/world-01",
     "book-chapter/tang/late-tang",
     "text/chapter/tang/late-tang/title",
-    "text/chapter/tang/late-tang/summary",
     "text/chapter/tang/late-tang/spatialThesis",
     "book-paragraph/tang/late-tang/p-01",
     "book-paragraph/tang/late-tang/p-02",
     "block/tang/late-tang/aside-02",
     "book-paragraph/tang/late-tang/p-03",
     "book-paragraph/tang/late-tang/p-04",
-    "book-paragraph/tang/late-tang/p-05",
     "book-paragraph/tang/late-tang/p-06",
     "relation/book/tang/late-tang/reading-01",
     "relation/book/tang/late-tang/world-01",
@@ -2741,20 +2705,17 @@
     "text/chapter/usa/civil-war-gilded-industry/spatialThesis",
     "book-paragraph/usa/civil-war-gilded-industry/p-01",
     "block/usa/civil-war-gilded-industry/aside-03",
-    "book-paragraph/usa/civil-war-gilded-industry/p-05",
     "book-paragraph/usa/civil-war-gilded-industry/p-06",
     "relation/book/usa/civil-war-gilded-industry/world-01",
     "book-chapter/usa/depression-ww2-superpower",
     "text/chapter/usa/depression-ww2-superpower/title",
     "text/chapter/usa/depression-ww2-superpower/summary",
     "text/chapter/usa/depression-ww2-superpower/spatialThesis",
-    "book-paragraph/usa/depression-ww2-superpower/p-01",
     "book-paragraph/usa/depression-ww2-superpower/p-02",
     "book-paragraph/usa/depression-ww2-superpower/p-03",
     "book-paragraph/usa/depression-ww2-superpower/p-04",
     "block/usa/depression-ww2-superpower/aside-04",
     "book-paragraph/usa/depression-ww2-superpower/p-05",
-    "book-paragraph/usa/depression-ww2-superpower/p-06",
     "scene-ref/usa/depression-ww2-superpower/usa-continental-pacific",
     "relation/book/usa/depression-ww2-superpower/world-01",
     "book-chapter/usa/apollo-silicon-valley-21c",
@@ -2765,13 +2726,9 @@
     "block/usa/apollo-silicon-valley-21c/aside-01",
     "book-paragraph/usa/apollo-silicon-valley-21c/p-02",
     "book-paragraph/usa/apollo-silicon-valley-21c/p-03",
-    "book-paragraph/usa/apollo-silicon-valley-21c/p-04",
-    "book-paragraph/usa/apollo-silicon-valley-21c/p-05",
-    "book-paragraph/usa/apollo-silicon-valley-21c/p-06",
     "relation/book/usa/apollo-silicon-valley-21c/world-01",
     "book/warring-states",
     "text/book/warring-states/title",
-    "text/book/warring-states/summary",
     "source/book/warring-states/source-01",
     "source/book/warring-states/source-02",
     "book-chapter/warring-states/spring-autumn-hegemony",
@@ -2800,12 +2757,10 @@
     "relation/book/warring-states/wu-yue-three-jin/world-01",
     "book-chapter/warring-states/shang-yang-hundred-schools",
     "text/chapter/warring-states/shang-yang-hundred-schools/title",
-    "text/chapter/warring-states/shang-yang-hundred-schools/summary",
     "text/chapter/warring-states/shang-yang-hundred-schools/spatialThesis",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-01",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-02",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-03",
-    "block/warring-states/shang-yang-hundred-schools/aside-03",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-04",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-05",
     "book-paragraph/warring-states/shang-yang-hundred-schools/p-06",
@@ -2815,7 +2770,6 @@
     "text/chapter/warring-states/changping-unification/summary",
     "text/chapter/warring-states/changping-unification/spatialThesis",
     "book-paragraph/warring-states/changping-unification/p-01",
-    "book-paragraph/warring-states/changping-unification/p-02",
     "block/warring-states/changping-unification/aside-02",
     "book-paragraph/warring-states/changping-unification/p-03",
     "book-paragraph/warring-states/changping-unification/p-04",
@@ -2825,7 +2779,6 @@
     "relation/book/warring-states/changping-unification/world-01",
     "book/wei-jin",
     "text/book/wei-jin/title",
-    "text/book/wei-jin/summary",
     "source/book/wei-jin/source-01",
     "source/book/wei-jin/source-02",
     "book-chapter/wei-jin/three-kingdoms",
@@ -2835,7 +2788,6 @@
     "book-paragraph/wei-jin/three-kingdoms/p-01",
     "book-paragraph/wei-jin/three-kingdoms/p-02",
     "book-paragraph/wei-jin/three-kingdoms/p-03",
-    "block/wei-jin/three-kingdoms/aside-03",
     "book-paragraph/wei-jin/three-kingdoms/p-04",
     "book-paragraph/wei-jin/three-kingdoms/p-05",
     "book-paragraph/wei-jin/three-kingdoms/p-06",
@@ -2848,8 +2800,6 @@
     "book-paragraph/wei-jin/yongjia-southward/p-02",
     "book-paragraph/wei-jin/yongjia-southward/p-03",
     "book-paragraph/wei-jin/yongjia-southward/p-04",
-    "book-paragraph/wei-jin/yongjia-southward/p-05",
-    "block/wei-jin/yongjia-southward/aside-05",
     "book-paragraph/wei-jin/yongjia-southward/p-06",
     "relation/book/wei-jin/yongjia-southward/world-01",
     "book-chapter/wei-jin/northern-wei-sinicization",
@@ -2871,8 +2821,6 @@
     "text/chapter/wei-jin/jiangnan-fission-to-sui/spatialThesis",
     "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-01",
     "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-02",
-    "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-03",
-    "block/wei-jin/jiangnan-fission-to-sui/aside-03",
     "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-04",
     "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-05",
     "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-06",
@@ -3935,7 +3883,6 @@
     "text/topic/north-africa/algiers/title",
     "text/topic/north-africa/algiers/summary",
     "block/topic/north-africa/algiers/section-01",
-    "block/topic/north-africa/algiers/section-02",
     "block/topic/north-africa/algiers/section-03",
     "block/topic/north-africa/algiers/section-04",
     "block/topic/north-africa/algiers/section-05",
@@ -6210,6 +6157,271 @@
       "id": "book-paragraph/tokugawa/kurofune-bakumatsu/p-06",
       "claim": "区分江户城交接与戊辰战争结束，限定长期社会解释",
       "limit": "撤出全国识字率及三十年内完成工业化等未标明口径和证据的判断。"
+    },
+    {
+      "id": "text/chapter/canada-north-america/north-america-indigenous/summary",
+      "claim": "卡霍基亚人口估计与豪德诺索尼联盟依据",
+      "limit": "遗址人口为估算，贝珠带和民族解释提供另一地区的自身传统，无法据此给出结盟的精确年份。"
+    },
+    {
+      "id": "book-paragraph/canada-north-america/north-america-indigenous/p-01",
+      "claim": "卡霍基亚的规模、遗址构成与人口估计口径",
+      "limit": "公布的人口区间不是古代普查结果，不能和北美其他区域简单排名。"
+    },
+    {
+      "id": "book-paragraph/canada-north-america/north-america-indigenous/p-03",
+      "claim": "五个原始联盟成员及成员自治的依据",
+      "limit": "部族自述是联盟制度和政治传统的证据；此处不据此推断唯一的成立日期。"
+    },
+    {
+      "id": "book-paragraph/canada-north-america/new-france-fur-trade/p-05",
+      "claim": "北美战争早于欧洲开战，殖民人口估计有族群与地域口径",
+      "limit": "研究统计不是同年的双方普查。军事段落不以人口对比推导战果。"
+    },
+    {
+      "id": "book-paragraph/canada-north-america/british-north-america-confederation/p-03",
+      "claim": "起义、调查、合并及责任政府形成的时序与实际制度",
+      "limit": "不把一个殖民地的时序套到英属北美其余各省，也不将总督职责说成消失。"
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-03",
+      "claim": "运河通航、运河公司股权与占领埃及是三个有独立史料的事件",
+      "limit": "议会记录表明英方财务和航运利益；英方馆藏与议会辩论不足以推断伊斯梅尔私下的动机。"
+    },
+    {
+      "id": "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-02",
+      "claim": "坦齐马特时期的敕令与 1876 年宪法的臣民、财产和信仰条款",
+      "limit": "成文条款不足以证明各地实践已经平等。撤出缺少定义和地区比较的“伊斯兰世界第一”。"
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/reform-suez-ottoman-twilight/p-02",
+      "claim": "1839 和 1856 年敕令的政策范围",
+      "limit": "不把埃及压力或俄奥关系单独用来解释全部坦齐马特改革。"
+    },
+    {
+      "id": "book-paragraph/modern-middle-east/post-cold-war-21st-century-mideast/p-03",
+      "claim": "埃及辞职交权、叙利亚镇压及也门对话的不同时间和行动者",
+      "limit": "三份材料各指具体国家和时点，不提供开罗抗议的总人数，也不支持由一条地区因果解释三国。"
+    },
+    {
+      "id": "book-paragraph/north-africa-maghreb/colonialism-decolonization-maghreb/p-03",
+      "claim": "北非各地独立的程序、文件、时点和签署人",
+      "limit": "条约和外交换文能界定承认的法律过程，无法概括战争暴力、各地组织或政权内部的争论。"
+    },
+    {
+      "id": "block/topic/north-africa/algiers/section-02",
+      "claim": "区分港口税、拘留人员交换及补偿",
+      "limit": "双边条款不代表整个地中海，也不会完整呈现被拘留者的经历。"
+    },
+    {
+      "id": "book-paragraph/roc/civil-war-1949/p-05",
+      "claim": "渡江战役和南京入城、进入总统府相邻两日的时间区分",
+      "limit": "用亲历访谈说明总统府的时点；地方记载在接近午夜时有不同写法，正文不精确到分钟。"
+    },
+    {
+      "id": "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-02",
+      "claim": "有统计依据的印度至海湾就业迁移背景",
+      "limit": "出境许可由特定制度签发，不等同于当地印度居民总量或各行业从业人数。"
+    },
+    {
+      "id": "relation/book/modern-middle-east/reform-suez-ottoman-twilight/world-02",
+      "claim": "以英国股权交易和军事占领作为跨卷阅读背景",
+      "limit": "没有资料支持英国海运在 1882 年突然完成从地中海到印度洋的全面控制。"
+    },
+    {
+      "id": "block/modern-middle-east/reform-suez-ottoman-twilight/aside-03",
+      "claim": "区分 1869 年运河通航与 1871 年《阿依达》开罗首演。",
+      "limit": "运河管理局仅用于核对通航庆典，剧院与首演另据馆藏剧本和展签。"
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-05",
+      "claim": "航空试飞与汽车装配线分别有日记和影像证据",
+      "limit": "馆方的组装耗时统计属于工厂和工序的历史回顾；这些材料无法支持全国工业总产值排名，或说明多少工人家庭买得起汽车。"
+    },
+    {
+      "id": "book-paragraph/usa/depression-ww2-superpower/p-01",
+      "claim": "美国对德宣战与参议院对《凡尔赛条约》的处理",
+      "limit": "档案能核对参战背景和参议院表决。文中省去没有相同口径支持的外债、海外兵员总量和全球金融中心断言。"
+    },
+    {
+      "id": "book-paragraph/usa/depression-ww2-superpower/p-06",
+      "claim": "区分福利资格、住房歧视、民权动员及两部法律的适用范围",
+      "limit": "法案文本用于说明制度和通过时的执行机制，不能据此断言不平等随颁法消失。"
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-04",
+      "claim": "商业周期长度、联邦综合预算和世贸组织成立的可核节点",
+      "limit": "经济扩张时间是按美国全国经济研究所月度序列。预算分类和贸易协定本身不能量化产业外迁对各地就业的影响。"
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-05",
+      "claim": "用武授权与危机应对的机关、文书和日期",
+      "limit": "两项美国国内授权不能相互替用。财政支出、救助授权额度与央行资产购买不合成一个金额。"
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-06",
+      "claim": "能源进出口按产品与热量区分，科技投资采用明确年份和统计指标",
+      "limit": "此处不以产业个案推断收入分配、联邦债务、两党分歧或未来结果。"
+    },
+    {
+      "id": "book-paragraph/germany-hre/cold-war-eu-germany/p-06",
+      "claim": "劳动力市场改革文件与 2021—2022 年德国天然气进口统计",
+      "limit": "进口份额与单条管道流量分别计量。材料无法推出改革单独带来出口增长，也不能核定旧文给出的统一成本总额。"
+    },
+    {
+      "id": "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-01",
+      "claim": "2003 年伊拉克战争与美国国内授权的背景",
+      "limit": "此处转向同一事件的另一叙述角度，未用议会授权或调查报告推导全球格局变化。"
+    },
+    {
+      "id": "text/chapter/qin/first-emperor-system/spatialThesis",
+      "claim": "设郡与修驰道的文本和遗址证据",
+      "limit": "本纪所列三十六郡是兼并六国之初的记载，不能当作秦全时期固定总数。删去道路“首次直达”以及推定工程线位的断言。"
+    },
+    {
+      "id": "book-paragraph/qin/first-emperor-system/p-06",
+      "claim": "区分巡行刻文的年代、残石保存部分与博浪沙行动者",
+      "limit": "前 218 年据《史记》始皇二十九年纪事，而二世补刻属更晚时期；文献无法提供现场亲见者的记录。"
+    },
+    {
+      "id": "book-paragraph/qin/great-wall-mega-projects/p-04",
+      "claim": "宫室未成、陵墓役作与遗址所能证实的范围",
+      "limit": "不把同一来源中的征发数字跨工程、跨年代累加，也不把总人口和劳役人数作无口径的对照。"
+    },
+    {
+      "id": "text/chapter/warring-states/shang-yang-hundred-schools/summary",
+      "claim": "秦楚改革和齐稷下活动的制度、出处",
+      "limit": "几篇传记写法不同；不把制度效果或学术“最辉煌”当成已证实的同比结论。"
+    },
+    {
+      "id": "block/warring-states/shang-yang-hundred-schools/aside-03",
+      "claim": "齐宣王礼遇稷下人物与《史记》的原文范围",
+      "limit": "这段史书未证明每个人的学派归属，也不能据此重建一场具体辩论。"
+    },
+    {
+      "id": "book-paragraph/warring-states/changping-unification/p-02",
+      "claim": "成都水工与关中郑国渠两项工程的地理、用途和记载性质",
+      "limit": "撤出不明时代和范围的灌溉亩数以及无据可定的参与者。后世遗产状态不能直接说明战国工程原貌；古籍的外交故事是传述。"
+    },
+    {
+      "id": "book-paragraph/han/western-han/p-04",
+      "claim": "区别文帝减免诏令与景帝初年田租调整",
+      "limit": "纪传说明当年的政策，未提供逐年征收记录。本段撤出无对应材料的连续年数和农户规模。"
+    },
+    {
+      "id": "book-paragraph/han/wudi/p-01",
+      "claim": "马邑与河西、漠北的先后，区分边贸、邦交、王庭位置",
+      "limit": "未把列传所记动员量、战果与捕获人数视作独立统计，也不由王庭北移推断匈奴在漠南完全消失。"
+    },
+    {
+      "id": "block/han/wudi/aside-03",
+      "claim": "一组居延简如何记录口粮申请",
+      "limit": "名册不说明每人每日实际得到多少粮食。撤出克制计量、麻鞋、商队和全部烽燧通报的场景推断。"
+    },
+    {
+      "id": "book-paragraph/han/interregnum/p-05",
+      "claim": "黄河决口、缺粮与各地起事的区域、时间与材料界限",
+      "limit": "撤出泛滥整个华北、两地同源和百万流民的笼统说法。史书各类记载的地理边界不同。"
+    },
+    {
+      "id": "text/book/qin/summary",
+      "claim": "秦的设郡与规范、工程证据及秦末事件的范围",
+      "limit": "以考古与历代文献分读制度、工程和秦亡，不以“最彻底”排名，也不把帝国灭亡归于一个雨夜或一项工程。"
+    },
+    {
+      "id": "text/book/warring-states/summary",
+      "claim": "春秋战国的政治变动及可定位的器物和文献范围",
+      "limit": "将器物与史书各自用来说明具体案例，不以单一战斗估值代表所有列国。"
+    },
+    {
+      "id": "text/book/tang/summary",
+      "claim": "唐卷总览限定长安市政考古、江淮转运及起兵、战后财政的时序。",
+      "limit": "材料可辨市场和转运网络，无法据此给出长安都城人口或划定统一的文化盛衰时长。"
+    },
+    {
+      "id": "block/tang/founding/aside-05",
+      "claim": "长安西市旁栏用发掘道路、水沟与国家博物馆开元通宝取代假定场面。",
+      "limit": "钱币藏品与西市发掘是分别登记的证据，无法确认同一地点的银币流通或访客规模。"
+    },
+    {
+      "id": "book-paragraph/tang/frontier/p-01",
+      "claim": "裴耀卿漕运重写为雨害后提议、次年置仓及三年总运量。",
+      "limit": "七百万石为三年合计，不能当作每年入长安的江南粮食或跨时代可换算的精确重量。"
+    },
+    {
+      "id": "book-paragraph/tang/frontier/p-02",
+      "claim": "天宝两份户口数标注公元年、户籍口径与各自来源。",
+      "limit": "朝廷上报数据不能代替实际人口普查；表列口数不能反推农具普及或都城人口。"
+    },
+    {
+      "id": "book-paragraph/tang/late-tang/p-05",
+      "claim": "分列朱温降唐、唐军收复长安和黄巢败亡，并留下藩镇后续竞争的时序。",
+      "limit": "不据军功奏报判断城中全部宫殿被毁或裁定黄巢遇害细节。"
+    },
+    {
+      "id": "book-paragraph/five-dynasties/five-dynasties-yanyun/p-01",
+      "claim": "白马驿清洗与后梁建立分别系于 905、907 年，说明两都称谓。",
+      "limit": "白马驿受害者数量按史书原记，单一事件无法确定门第网络消失或此后首都的永久位置。"
+    },
+    {
+      "id": "text/book/wei-jin/summary",
+      "claim": "魏晋卷总览以政权分合和北南都城资料代替持续分裂、族群血统和江南从荒芜起步的包揽论断。",
+      "limit": "都城遗址和宫廷事件的可见范围有限，不能用来概括所有地区的人口迁移与经济增长。"
+    },
+    {
+      "id": "block/wei-jin/three-kingdoms/aside-03",
+      "claim": "五丈原旁栏改用同时期屯田与病逝记录，移除两国人口比例和推定动机。",
+      "limit": "不同政权的户口数字往往年份不一，不能用后期册籍计算 234 年双方的人口比例。"
+    },
+    {
+      "id": "book-paragraph/wei-jin/yongjia-southward/p-05",
+      "claim": "淝水正文区分谢石与谢玄职分、晋军总规模、前秦号称和会战实到。",
+      "limit": "数字按列传报道和号称转述，无法据此得出战场精确人数。"
+    },
+    {
+      "id": "book-paragraph/wei-jin/jiangnan-fission-to-sui/p-03",
+      "claim": "梁武帝段核定刘裕即位及同泰寺法会，删除未定位的建康人口和士族群体评价。",
+      "limit": "宫廷佛事可作为一例，材料不能把诗歌中的寺院数当作统计，也不能提供同时点城市人口。"
+    },
+    {
+      "id": "book-paragraph/liao-jin-xia/liao-dual-empire/p-02",
+      "claim": "辽段区分渤海与东丹、后晋与十六州安排、幽州升南京的三个年代。",
+      "limit": "地理志县户并非同年可加总的完整民族人口统计。"
+    },
+    {
+      "id": "book-paragraph/liao-jin-xia/jin-rise-zhongdu/p-05",
+      "claim": "金中都段区分 1153 年迁都改名和 1157 年拆毁旧宫室。",
+      "limit": "本纪所记为朝廷行政和营建举措，不能据此核定被迁人口总数或把拆宫写成迁都当年。"
+    },
+    {
+      "id": "text/chapter/liao-jin-xia/jin-golden-to-mongol/summary",
+      "claim": "金末章节摘要将编户范围限定在金境，分写西夏和金亡并补南宋参战。",
+      "limit": "户口奏数不能换作中原所有居民；卷次记载的西夏投降及蔡州陷落分属两个年代。"
+    },
+    {
+      "id": "text/chapter/tang/frontier/summary",
+      "claim": "与正文同步说明分段漕运、户籍及起兵时间。",
+      "limit": "户口和起兵记事不能证明单一制度因素决定安史之乱。"
+    },
+    {
+      "id": "text/chapter/tang/late-tang/summary",
+      "claim": "中晚唐摘要与战后漕运和黄巢年代相合。",
+      "limit": "黄巢起事及收复长安的纪事不能证明漕运在此永久中断。"
+    },
+    {
+      "id": "text/chapter/five-dynasties/five-dynasties-yanyun/summary",
+      "claim": "五代章节摘要与后梁两都、后晋和契丹的边界变化同步。",
+      "limit": "开平元年所定京名只适用于当时的安排，不能据此概括之后历代都城。"
+    },
+    {
+      "id": "block/wei-jin/yongjia-southward/aside-05",
+      "claim": "谢安棋局作为列传逸闻归属来源，移除对军队群体的臆测。",
+      "limit": "后出的列传能说明这则逸闻的写法，无法给出独立的在场证词。"
+    },
+    {
+      "id": "block/wei-jin/jiangnan-fission-to-sui/aside-03",
+      "claim": "梁末旁栏区分围都和宫城陷落的年份，给抢掠记载保留出处。",
+      "limit": "王朝本纪不足以断定每个家族的经历或社会结构的终止时间。"
     },
     {
       "id": "map/country/IN/india-classical-modern/1947",

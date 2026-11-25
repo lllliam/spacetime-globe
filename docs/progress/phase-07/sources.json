@@ -267,6 +267,98 @@
     }
   },
   {
+    "url": "https://whc.unesco.org/en/list/198/",
+    "uses": [
+      "source/book/canada-north-america/unesco-cahokia-peak",
+      "source/topic/north-america-indigenous/cahokia/source-01"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/list/198/",
+      "material": "联合国教科文组织：卡霍基亚土丘历史遗址",
+      "locator": "突出普遍价值，简要综述与遗址范围",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.onondaganation.org/culture/wampum/hiawatha-belt/",
+    "uses": [
+      "source/book/canada-north-america/onondaga-hiawatha-belt"
+    ],
+    "access": {
+      "url": "https://www.onondaganation.org/culture/wampum/hiawatha-belt/",
+      "material": "奥农达加民族：海华沙贝珠带",
+      "locator": "贝珠带五个图案、各民族议事火与共同法律",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.onondaganation.org/government/sovereignty/",
+    "uses": [
+      "source/book/canada-north-america/onondaga-great-law"
+    ],
+    "access": {
+      "url": "https://www.onondaganation.org/government/sovereignty/",
+      "material": "奥农达加民族：主权与《大和平法》",
+      "locator": "成员自治与联盟议事会各段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://publications.gc.ca/collections/collection_2017/statcan/CS99-541-1972-eng.pdf",
+    "uses": [
+      "source/book/canada-north-america/statcan-new-france-1760"
+    ],
+    "access": {
+      "url": "https://publications.gc.ca/collections/collection_2017/statcan/CS99-541-1972-eng.pdf",
+      "material": "加拿大统计局：加拿大生育趋势与因素",
+      "locator": "第 1 章第 1 页及注 1，1760 年法裔人口的重建",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://parks.canada.ca/lhn-nhs/qc/fortchambly/culture/histoire-history/site/conquete-conquest",
+    "uses": [
+      "source/book/canada-north-america/parks-canada-seven-years"
+    ],
+    "access": {
+      "url": "https://parks.canada.ca/lhn-nhs/qc/fortchambly/culture/histoire-history/site/conquete-conquest",
+      "material": "加拿大公园管理局：尚布利堡的七年战争材料",
+      "locator": "俄亥俄谷、欧洲开战与《巴黎条约》各段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.biographi.ca/en/special.php?p=9&project_id=75",
+    "uses": [
+      "source/book/canada-north-america/dcb-durham-responsible"
+    ],
+    "access": {
+      "url": "https://www.biographi.ca/en/special.php?p=9&project_id=75",
+      "material": "《加拿大人物传记辞典》：达勒姆与责任政府",
+      "locator": "Lord Durham, His Report, and the Union（1839—1842），并引拉方丹 1840 年宣言",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://parks.canada.ca/lhn-nhs/qc/saintlouisforts/culture/histoire-history/britannique-british",
+    "uses": [
+      "source/book/canada-north-america/parks-canada-colonial-governors"
+    ],
+    "access": {
+      "url": "https://parks.canada.ca/lhn-nhs/qc/saintlouisforts/culture/histoire-history/britannique-british",
+      "material": "加拿大公园管理局：殖民总督的职责变化",
+      "locator": "1791—1848 年，任命和责任政府各段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/topic/Kushan-dynasty",
     "uses": [
       "source/book/central-asia-silk-road/source-01"
@@ -664,6 +756,47 @@
     }
   },
   {
+    "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷265",
+    "uses": [
+      "source/book/five-dynasties/tongjian-baima-905"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷265",
+      "material": "《资治通鉴》卷二百六十五·白马驿",
+      "locator": "天祐二年（905）五月贬官及六月白马驿",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷266",
+    "uses": [
+      "source/book/five-dynasties/tongjian-liang-907",
+      "source/book/tang/zztj-li-zhu-907"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷266",
+      "material": "《资治通鉴》卷二百六十六·开平元年",
+      "locator": "开平元年四月朱全忠即位、河东称唐天祐年号",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.shidianguji.com/book/HY2041/chapter/1kw7pydzvhl47",
+    "uses": [
+      "source/book/five-dynasties/tongjian-liaoshi-yanyun",
+      "source/book/liao-jin-xia/liaoshi-nanjing-route"
+    ],
+    "access": {
+      "url": "https://www.shidianguji.com/book/HY2041/chapter/1kw7pydzvhl47",
+      "material": "《辽史》卷四十·地理志四",
+      "locator": "南京道，南京析津府开篇",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://museeprotestant.org/wp-content/uploads/2014/01/Edit-de-Fontainebleau-Revocation-de-lEdit-de-Nantes-1685-Musee-protestant.pdf",
     "uses": [
       "source/book/france/fr-fontainebleau-1685"
@@ -909,6 +1042,32 @@
     }
   },
   {
+    "url": "https://www.bundestag.de/dokumente/textarchiv/2003-03-14-agenda2010-211202",
+    "uses": [
+      "source/book/germany-hre/bundestag-agenda-2010"
+    ],
+    "access": {
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2003-03-14-agenda2010-211202",
+      "material": "德国联邦议院：施罗德 2003 年的《2010 议程》",
+      "locator": "2003 年 3 月 14 日政府声明、哈茨法案及 2005 年生效段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2023/20230105_RueckblickGas2022.html?r=1",
+    "uses": [
+      "source/book/germany-hre/bnetza-gas-report-2022"
+    ],
+    "access": {
+      "url": "https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2023/20230105_RueckblickGas2022.html?r=1",
+      "material": "德国联邦网络局：2022 年天然气供应统计",
+      "locator": "2023 年 1 月 6 日发布的 Gas imports and exports",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/topic/Parthenon",
     "uses": [
       "source/book/greece-macedon/source-01",
@@ -1003,6 +1162,97 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7004",
+    "uses": [
+      "source/book/han/hanshu-wen-land-tax"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7004",
+      "material": "《汉书》卷四《文帝纪》",
+      "locator": "文帝十二年减当年租税、十三年六月除田租诏",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7005",
+    "uses": [
+      "source/book/han/hanshu-jing-land-tax"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7005",
+      "material": "《汉书》卷五《景帝纪》",
+      "locator": "景帝元年五月“令田半租”",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110",
+    "uses": [
+      "source/book/han/shiji-xiongnu-han-campaigns"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110",
+      "material": "《史记》卷一百一十《匈奴列传》",
+      "locator": "马邑事件、河西与漠北战事以及后续往来诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://museum.sinica.edu.tw/collection/20/item/1029/",
+    "uses": [
+      "source/book/han/as-ihp-juyan-grain-roll"
+    ],
+    "access": {
+      "url": "https://museum.sinica.edu.tw/collection/20/item/1029/",
+      "material": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+      "locator": "展品影像与廪名籍说明，二十三至二十九燧及箕山亭",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%AD",
+    "uses": [
+      "source/book/han/hanshu-wang-mang-flood"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%AD",
+      "material": "《汉书》卷九十九中《王莽传》",
+      "locator": "始建国三年，魏郡决河及清河以东受灾",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%8B",
+    "uses": [
+      "source/book/han/hanshu-wang-mang-insurgents"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7099%E4%B8%8B",
+      "material": "《汉书》卷九十九下《王莽传》",
+      "locator": "地皇三至四年，南阳、青徐的起事和进军记载",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8A",
+    "uses": [
+      "source/book/han/hanshu-wang-mang-food-shortage"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8A",
+      "material": "《汉书》卷二十四上《食货志》",
+      "locator": "王莽末年粮荒与朝廷救济段",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -1712,6 +1962,84 @@
     }
   },
   {
+    "url": "https://www.shidianguji.com/book/NGJ892411999008509102451/chapter/1lusq6hdl1yxb",
+    "uses": [
+      "source/book/liao-jin-xia/liaoshi-bohai-926"
+    ],
+    "access": {
+      "url": "https://www.shidianguji.com/book/NGJ892411999008509102451/chapter/1lusq6hdl1yxb",
+      "material": "《辽史》卷二·太祖本纪下",
+      "locator": "天显元年（926）正月至三月，渤海投降、改置东丹及诸府后续反抗",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://wwj.beijing.gov.cn/bjww/resource/cms/article/bjww_362762/436174432/2023080311135385699.pdf",
+    "uses": [
+      "source/book/liao-jin-xia/liao-nanjing-archaeology"
+    ],
+    "access": {
+      "url": "https://wwj.beijing.gov.cn/bjww/resource/cms/article/bjww_362762/436174432/2023080311135385699.pdf",
+      "material": "《试析燕山南麓辽代随葬陶器》",
+      "locator": "前言，936 年十六州、938 年升南京与墓葬研究范围",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/金史/卷5",
+    "uses": [
+      "source/book/liao-jin-xia/jinshi-hailing-capital"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/金史/卷5",
+      "material": "《金史》卷五·海陵本纪",
+      "locator": "贞元元年三月迁都诏，正隆二年八月、十月上京条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/金史/卷46",
+    "uses": [
+      "source/book/liao-jin-xia/jinshi-household-returns"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/金史/卷46",
+      "material": "《金史》卷四十六·食货志一",
+      "locator": "金章宗明昌元年、明昌六年及泰和七年户口奏数",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/元史/卷001",
+    "uses": [
+      "source/book/liao-jin-xia/yuanshi-xia-1227"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/元史/卷001",
+      "material": "《元史》卷一·太祖本纪",
+      "locator": "太祖二十二年丁亥，六月夏主李晛降及下文",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/元史/卷002",
+    "uses": [
+      "source/book/liao-jin-xia/yuanshi-jin-1234"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/元史/卷002",
+      "material": "《元史》卷二·太宗本纪",
+      "locator": "太宗五年癸巳十一月至六年甲午正月",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Pagan-kingdom",
     "uses": [
       "source/book/mainland-southeast-asia/source-01"
@@ -2236,6 +2564,192 @@
     }
   },
   {
+    "url": "https://hansard.parliament.uk/Lords/1882-06-19/debates/da61cae4-7cf1-4b60-8288-c4a8804a33d1/LordsChamber",
+    "uses": [
+      "source/book/modern-middle-east/suez-1869-hansard"
+    ],
+    "access": {
+      "url": "https://hansard.parliament.uk/Lords/1882-06-19/debates/da61cae4-7cf1-4b60-8288-c4a8804a33d1/LordsChamber",
+      "material": "英国议会上院：苏伊士运河辩论",
+      "locator": "1882 年 6 月 19 日，Egypt—The Suez Canal",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://hansard.parliament.uk/commons/1876-02-14/debates/509d9d36-bc23-408e-a5e3-01d21b712ed2/Supply%E2%80%94TheSuezCanalShares",
+    "uses": [
+      "source/book/modern-middle-east/suez-shares-parliament"
+    ],
+    "access": {
+      "url": "https://hansard.parliament.uk/commons/1876-02-14/debates/509d9d36-bc23-408e-a5e3-01d21b712ed2/Supply%E2%80%94TheSuezCanalShares",
+      "material": "英国议会下院：苏伊士运河股份购款辩论",
+      "locator": "1876 年 2 月 14 日，购款拨款动议与争论",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/egypt-and-sudan",
+    "uses": [
+      "source/book/modern-middle-east/suez-egypt-occupation"
+    ],
+    "access": {
+      "url": "https://www.nam.ac.uk/explore/egypt-and-sudan",
+      "material": "英国国家陆军博物馆：埃及与苏丹档案展",
+      "locator": "Egypt 占领背景、亚历山大港炮击与开罗段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://cas.bg/wp-content/uploads/2020/04/ID-Reader-vol1-Late-Enlighten.pdf",
+    "uses": [
+      "source/book/modern-middle-east/gulhane-decree-1839",
+      "source/book/ottoman/gulhane-decree-1839"
+    ],
+    "access": {
+      "url": "https://cas.bg/wp-content/uploads/2020/04/ID-Reader-vol1-Late-Enlighten.pdf",
+      "material": "中欧大学出版社：1839 年《古尔哈内敕令》节译",
+      "locator": "The Gülhane Edict，英译正文开头与三项目标",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.anayasa.gov.tr/media/4761/adnanguriz.pdf",
+    "uses": [
+      "source/book/modern-middle-east/ottoman-constitutional-economic-rights",
+      "source/book/ottoman/ottoman-constitutional-economic-rights"
+    ],
+    "access": {
+      "url": "https://www.anayasa.gov.tr/media/4761/adnanguriz.pdf",
+      "material": "土耳其宪法法院文集：宪法中的经济权利与义务",
+      "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://publications.parliament.uk/pa/cm201213/cmselect/cmfaff/80/80we03.htm",
+    "uses": [
+      "source/book/modern-middle-east/uk-fco-egypt-feb-2011"
+    ],
+    "access": {
+      "url": "https://publications.parliament.uk/pa/cm201213/cmselect/cmfaff/80/80we03.htm",
+      "material": "英国议会：外交部提交的埃及抗议记录",
+      "locator": "书面证据第 217—225 段，开罗示威与穆巴拉克辞职",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/3901557/files/A_HRC_46_54-EN.pdf",
+    "uses": [
+      "source/book/modern-middle-east/un-syria-inquiry-2011"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/3901557/files/A_HRC_46_54-EN.pdf",
+      "material": "联合国叙利亚问题独立国际调查委员会报告",
+      "locator": "A/HRC/46/54 第 3—6 段，抗议、镇压及武装冲突",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/779117/files/A_HRC_27_44-EN.pdf",
+    "uses": [
+      "source/book/modern-middle-east/ohchr-yemen-national-dialogue"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/779117/files/A_HRC_27_44-EN.pdf",
+      "material": "联合国人权高专办：也门过渡进程人权状况报告",
+      "locator": "A/HRC/27/44 第 5—9 段，过渡安排与全国对话会议",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.mea.gov.in/Images/CPV/3631-LS-13-03-2026.pdf",
+    "uses": [
+      "source/book/modern-middle-east/india-emigration-clearance-gulf"
+    ],
+    "access": {
+      "url": "https://www.mea.gov.in/Images/CPV/3631-LS-13-03-2026.pdf",
+      "material": "印度外交部提交人民院的出境就业许可统计",
+      "locator": "附件 A，2021 至 2025 年按目的地发放的出境就业许可",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.ilo.org/sites/default/files/2024-06/labour-migration-asia-trends-skills-seasonalwork-2024-en.pdf",
+    "uses": [
+      "source/book/modern-middle-east/ilo-gcc-labor-migration-2024"
+    ],
+    "access": {
+      "url": "https://www.ilo.org/sites/default/files/2024-06/labour-migration-asia-trends-skills-seasonalwork-2024-en.pdf",
+      "material": "国际劳工组织等：亚洲劳工迁移、技能认证与季节性工作",
+      "locator": "第 1.2.2 节，海湾合作委员会成员国移民工作技能",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ243/html/PLAW-107publ243.htm",
+    "uses": [
+      "source/book/modern-middle-east/us-public-law-107-243",
+      "source/book/usa/us-public-law-107-243"
+    ],
+    "access": {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ243/html/PLAW-107publ243.htm",
+      "material": "美国国会：2002 年对伊拉克使用军事力量的授权",
+      "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://assets.publishing.service.gov.uk/media/5a80f42ced915d74e6231626/The_Report_of_the_Iraq_Inquiry_-_Executive_Summary.pdf",
+    "uses": [
+      "source/book/modern-middle-east/uk-iraq-inquiry-2016",
+      "source/book/usa/uk-iraq-inquiry-2016"
+    ],
+    "access": {
+      "url": "https://assets.publishing.service.gov.uk/media/5a80f42ced915d74e6231626/The_Report_of_the_Iraq_Inquiry_-_Executive_Summary.pdf",
+      "material": "英国伊拉克调查委员会：执行摘要",
+      "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx",
+    "uses": [
+      "source/book/modern-middle-east/suez-authority-opening"
+    ],
+    "access": {
+      "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx",
+      "material": "苏伊士运河管理局《运河史》",
+      "locator": "The Legendary Inauguration Ceremony 一节，1869 年 11 月 17 日",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://wwws.loc.gov/exhibits/night-at-the-opera/giuseppe-verdi-and-italian-opera.html",
+    "uses": [
+      "source/book/modern-middle-east/loc-aida-cairo-1871"
+    ],
+    "access": {
+      "url": "https://wwws.loc.gov/exhibits/night-at-the-opera/giuseppe-verdi-and-italian-opera.html",
+      "material": "美国国会图书馆《阿依达》1871 年开罗版及展签",
+      "locator": "Verdi’s Aida 及开罗 1871 年印行剧本（029.00.00）",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Mongol-empire",
     "uses": [
       "source/book/mongol-empire/source-01",
@@ -2354,6 +2868,71 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/704492/files/A_1949_Add-1-EN.pdf",
+    "uses": [
+      "source/book/north-africa-maghreb/un-libya-independence-1951"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/704492/files/A_1949_Add-1-EN.pdf",
+      "material": "联合国利比亚专员的最终报告",
+      "locator": "A/1949/Add.1，Chapter I，1949 年决议与 1951 年独立日",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://legal.un.org/legislativeseries/pdfs/chapters/book17/book17_part1_II.pdf",
+    "uses": [
+      "source/book/north-africa-maghreb/un-morocco-joint-declaration"
+    ],
+    "access": {
+      "url": "https://legal.un.org/legislativeseries/pdfs/chapters/book17/book17_part1_II.pdf",
+      "material": "联合国法律资料丛刊：法国与摩洛哥联合声明",
+      "locator": "第 355—356 页，1956 年 3 月 2 日共同声明与议定书",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/wx7lgqsn3vf2",
+    "uses": [
+      "source/book/north-africa-maghreb/fr-diplomatic-tunisian-protocol"
+    ],
+    "access": {
+      "url": "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/wx7lgqsn3vf2",
+      "material": "法国外交档案馆：突尼斯独立与机构移交",
+      "locator": "馆藏 711PO 的历史说明，1956 年 3 月 20 日议定书",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://elmouhami.com/wp-content/uploads/2016/06/EVIAN_JO_N_67_20_mars_1962.pdf",
+    "uses": [
+      "source/book/north-africa-maghreb/evian-ceasefire-1962"
+    ],
+    "access": {
+      "url": "https://elmouhami.com/wp-content/uploads/2016/06/EVIAN_JO_N_67_20_mars_1962.pdf",
+      "material": "法国《官方公报》：阿尔及利亚停火协议与政府声明",
+      "locator": "1962 年 3 月 20 日，第 3019—3020 页，停火协议与自决程序",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/3801945/files/A_CN.4_730-FR.pdf",
+    "uses": [
+      "source/book/north-africa-maghreb/un-ilc-algeria-recognition"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/3801945/files/A_CN.4_730-FR.pdf",
+      "material": "联合国国际法委员会：阿尔及利亚与法国的外交换文摘录",
+      "locator": "A/CN.4/730，第 26 例，7 月 1 日投票和 7 月 3 日换文",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -2596,6 +3175,19 @@
       "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915",
       "material": "澳大利亚战争纪念馆｜1915 年加里波利战事",
       "locator": "首段及撤离部分的澳军部队日志资料",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Ottoman_constitution_of_1876.pdf",
+    "uses": [
+      "source/book/ottoman/ottoman-1876-constitution"
+    ],
+    "access": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Ottoman_constitution_of_1876.pdf",
+      "material": "《美国国际法杂志》：1876 年奥斯曼宪法英译",
+      "locator": "印刷第 368 页，第 8、11 条",
       "date": "2026-11-25",
       "status": "read"
     }
@@ -2920,6 +3512,73 @@
     }
   },
   {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006",
+    "uses": [
+      "source/book/qin/shiji-qin-chronology"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006",
+      "material": "《史记》卷六《秦始皇本纪》",
+      "locator": "始皇二十六至二十九年、三十五年和二世三年诸条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202010/t20201028_247940.shtml",
+    "uses": [
+      "source/book/qin/national-museum-langya-inscription"
+    ],
+    "access": {
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202010/t20201028_247940.shtml",
+      "material": "中国国家博物馆：琅琊刻石",
+      "locator": "馆藏残石图像及前 219 年、前 209 年说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7055",
+    "uses": [
+      "source/book/qin/shiji-zhang-liang-bolang"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7055",
+      "material": "《史记》卷五十五《留侯世家》",
+      "locator": "开头，秦灭韩、张良与客在博浪沙狙击",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html",
+    "uses": [
+      "source/book/qin/xian-epang-excavation-2025"
+    ],
+    "access": {
+      "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html",
+      "material": "西安市文物局：2025 年阿房宫遗址联合考古通报",
+      "locator": "2002 至 2004 年前殿调查与 2025 年台基剖面、结论",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.nopss.gov.cn/n1/2021/1101/c219544-32270305.html",
+    "uses": [
+      "source/book/qin/wang-wei-archaeology-review",
+      "source/book/warring-states/wang-wei-archaeology-review",
+      "source/book/wei-jin/early-medieval-sites"
+    ],
+    "access": {
+      "url": "https://www.nopss.gov.cn/n1/2021/1101/c219544-32270305.html",
+      "material": "王巍：百年考古、成就辉煌",
+      "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://asia.si.edu/education/educator-resources/teaching-china-with-the-smithsonian/explore-by-dynasty/qing-dynasty/",
     "uses": [
       "source/book/qing/source-01"
@@ -3144,6 +3803,45 @@
       "locator": "导论，日本战争罪行文献研究中南京段，PDF 第 38 页",
       "status": "read",
       "date": "2026-11-25"
+    }
+  },
+  {
+    "url": "https://njsy.nanjing.gov.cn/syrw/202010/t20201009_2426477.html",
+    "uses": [
+      "source/book/roc/nanjing-xu-faquan-interview"
+    ],
+    "access": {
+      "url": "https://njsy.nanjing.gov.cn/syrw/202010/t20201009_2426477.html",
+      "material": "南京双拥网：渡江战役亲历者徐法全等访谈",
+      "locator": "徐法全访谈末段，23 日午夜入城与 24 日凌晨进入总统府两处",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://dfz.nanjing.gov.cn/gzdt/202404/t20240424_4215576.html",
+    "uses": [
+      "source/book/roc/nanjing-crossriver-chronicle"
+    ],
+    "access": {
+      "url": "https://dfz.nanjing.gov.cn/gzdt/202404/t20240424_4215576.html",
+      "material": "南京市地方志工作办公室：渡江战役与总统府",
+      "locator": "正文“红旗插上总统府”一节，23 日夜入城及 24 日凌晨抵达",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://cpc.people.com.cn/GB/64162/64164/4416007.html",
+    "uses": [
+      "source/book/roc/cpc-chronicle-apr-1949"
+    ],
+    "access": {
+      "url": "https://cpc.people.com.cn/GB/64162/64164/4416007.html",
+      "material": "中共中央党史研究室《中国共产党大事记·1949年》",
+      "locator": "1949 年 4 月 15—21 日条，协定答复及渡江",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -3654,6 +4352,97 @@
     }
   },
   {
+    "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷49",
+    "uses": [
+      "source/book/tang/old-tang-food-transport"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷49",
+      "material": "《旧唐书》卷四十九·食货志",
+      "locator": "开元二十一、二十二年裴耀卿条及三年漕运总数",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://ejournal.press.ntu.edu.tw/index.php?act=Article%2Fpdf%2F9194",
+    "uses": [
+      "source/book/tang/tang-tax-household-study"
+    ],
+    "access": {
+      "url": "https://ejournal.press.ntu.edu.tw/index.php?act=Article%2Fpdf%2F9194",
+      "material": "《兴元、贞元灾变》中的唐代户籍统计",
+      "locator": "表 1，天宝十三载、十四载两行",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷12",
+    "uses": [
+      "source/book/tang/old-tang-dezong-accounts"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷12",
+      "material": "《旧唐书》卷十二·德宗上",
+      "locator": "建中元年（780），三月江淮水陆运使及十二月户部计帐",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷9",
+    "uses": [
+      "source/book/tang/old-tang-xuanzong-era"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷9",
+      "material": "《旧唐书》卷九·玄宗纪下",
+      "locator": "开元二十九年末，天宝元年及天宝十四载十一月",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archaeologysr.net/2024-09/30/content_10849806.html",
+    "uses": [
+      "source/book/tang/tang-west-market-excavation"
+    ],
+    "access": {
+      "url": "https://www.archaeologysr.net/2024-09/30/content_10849806.html",
+      "material": "何岁利《唐长安城西市考古新发现与相关研究》",
+      "locator": "西市的街道、东北十字街、北大街中段石涵洞",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.chnmuseum.cn/zp/zpml/hb/202208/t20220810_256911.shtml",
+    "uses": [
+      "source/book/tang/kaiyuan-coin-national-museum"
+    ],
+    "access": {
+      "url": "https://www.chnmuseum.cn/zp/zpml/hb/202208/t20220810_256911.shtml",
+      "material": "中国国家博物馆“开元通宝”青铜钱",
+      "locator": "藏品图录及武德四年始铸说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷200下",
+    "uses": [
+      "source/book/tang/old-tang-huang-chao"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/舊唐書/卷200下",
+      "material": "《旧唐书》卷二百下·黄巢传",
+      "locator": "中和二年九月、三年四月及四年黄巢末条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Tibet/History",
     "uses": [
       "source/book/tibet-himalaya/source-01"
@@ -4085,6 +4874,386 @@
       "url": "https://www.archives.gov/milestone-documents/homestead-act",
       "material": "美国国家档案馆｜1862 年宅地法",
       "locator": "第 1—2 条，土地申请、居住和耕作规定",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://home.nps.gov/articles/wright-brothers-national-memorial-site-of-the-first-controlled-powered-flight-teaching-with-historic-places.htm",
+    "uses": [
+      "source/book/usa/nps-wright-1903-diary"
+    ],
+    "access": {
+      "url": "https://home.nps.gov/articles/wright-brothers-national-memorial-site-of-the-first-controlled-powered-flight-teaching-with-historic-places.htm",
+      "material": "美国国家公园管理局：莱特兄弟国家纪念地，附飞行日记",
+      "locator": "材料 1，奥维尔·莱特 1903 年 12 月 17 日日记",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops?trk=article-ssr-frontend-pulse_little-text-block",
+    "uses": [
+      "source/book/usa/thf-1913-ford-assembly"
+    ],
+    "access": {
+      "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops?trk=article-ssr-frontend-pulse_little-text-block",
+      "material": "亨利·福特博物馆：福特装配方法与厂房",
+      "locator": "档案照片 THF91696 及 1913—1914 年组装工序",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://corporate.ford.com/corporate/corporate/articles/history/highland-park/",
+    "uses": [
+      "source/book/usa/ford-highland-park-plant"
+    ],
+    "access": {
+      "url": "https://corporate.ford.com/corporate/corporate/articles/history/highland-park/",
+      "material": "福特公司历史档案：高地公园工厂",
+      "locator": "Highland Park 正文，第 2—3 段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+    "uses": [
+      "source/book/usa/nara-zimmermann-telegram"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+      "material": "美国国家档案馆：齐默尔曼电报",
+      "locator": "译电稿首段及 1917 年美国参战的档案说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/topics/wwi",
+    "uses": [
+      "source/book/usa/nara-ww1-entry-resolution"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/topics/wwi",
+      "material": "美国国家档案馆：第一次世界大战档案",
+      "locator": "1917 年 4 月 6 日，Public Resolution 65-1，宣战联合决议",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.senate.gov/legislative/RejectedTreaties.htm",
+    "uses": [
+      "source/book/usa/senate-versailles-votes"
+    ],
+    "access": {
+      "url": "https://www.senate.gov/legislative/RejectedTreaties.htm",
+      "material": "美国参议院：未获同意的条约表",
+      "locator": "1919 年 11 月 19 日及 1920 年 3 月 19 日表决记录",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/servicemens-readjustment-act",
+    "uses": [
+      "source/book/usa/nara-gi-bill-1944"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/servicemens-readjustment-act",
+      "material": "美国国家档案馆：《退伍军人重新适应法》",
+      "locator": "1944 年 6 月 22 日法案原件与档案馆的黑人退伍军人贷款说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
+    "uses": [
+      "source/book/usa/nara-civil-rights-1964",
+      "source/topic/north-america-modern/rights-and-memory/source-01"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
+      "material": "美国国家档案馆：《1964 年民权法》",
+      "locator": "Title II 第 201 节与 Title VII 第 703 节",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/voting-rights-act",
+    "uses": [
+      "source/book/usa/nara-voting-rights-1965"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/voting-rights-act",
+      "material": "美国国家档案馆：《1965 年投票权法》",
+      "locator": "引言的塞尔玛游行与第 2—4 节",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.nber.org/sites/default/files/2020-11/june2020.pdf",
+    "uses": [
+      "source/book/usa/nber-2020-cycle-dating"
+    ],
+    "access": {
+      "url": "https://www.nber.org/sites/default/files/2020-11/june2020.pdf",
+      "material": "美国全国经济研究所：商业周期委员会 2020 年公告",
+      "locator": "2020 年 6 月 8 日公告首段，1991—2001 与 2009—2020 的扩张期",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.govinfo.gov/content/pkg/BUDGET-2021-TAB/pdf/BUDGET-2021-TAB.pdf",
+    "uses": [
+      "source/book/usa/omb-historical-budget-table"
+    ],
+    "access": {
+      "url": "https://www.govinfo.gov/content/pkg/BUDGET-2021-TAB/pdf/BUDGET-2021-TAB.pdf",
+      "material": "美国行政管理和预算局：预算历史统计",
+      "locator": "表 1.1，1998 至 2001 财年，Total 栏的盈余与赤字",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.wto.org/English/docs_e/legal_e/legal_e.htm",
+    "uses": [
+      "source/book/usa/wto-marrakesh-agreement"
+    ],
+    "access": {
+      "url": "https://www.wto.org/English/docs_e/legal_e/legal_e.htm",
+      "material": "世界贸易组织：《马拉喀什协定》及法律文本目录",
+      "locator": "马拉喀什协定开头与附件说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ40/html/PLAW-107publ40.htm",
+    "uses": [
+      "source/book/usa/us-public-law-107-40"
+    ],
+    "access": {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ40/html/PLAW-107publ40.htm",
+      "material": "美国国会：第 107-40 号公共法律",
+      "locator": "115 Stat. 224，2001 年 9 月 18 日，第 2 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+    "uses": [
+      "source/book/usa/fed-2008-recession-history"
+    ],
+    "access": {
+      "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+      "material": "美联储历史档案：大衰退及其后果",
+      "locator": "危机加剧及货币政策两段，雷曼破产和后续购买",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.govinfo.gov/content/pkg/PLAW-110publ343/html/PLAW-110publ343.htm",
+    "uses": [
+      "source/book/usa/us-emergency-economic-stabilization-2008"
+    ],
+    "access": {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-110publ343/html/PLAW-110publ343.htm",
+      "material": "美国国会：《2008 年紧急经济稳定法》",
+      "locator": "122 Stat. 3765，Division A，第 101 条 TARP 授权",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20081125b.htm",
+    "uses": [
+      "source/book/usa/fed-2008-first-asset-purchases"
+    ],
+    "access": {
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20081125b.htm",
+      "material": "美联储：开始购买住房机构债务及按揭支持证券的公告",
+      "locator": "2008 年 11 月 25 日公告，第 1 段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.eia.gov/energyexplained/us-energy-facts/imports-and-exports.php?module=inline&pgtype=article",
+    "uses": [
+      "source/book/usa/eia-annual-total-energy-trade"
+    ],
+    "access": {
+      "url": "https://www.eia.gov/energyexplained/us-energy-facts/imports-and-exports.php?module=inline&pgtype=article",
+      "material": "美国能源信息署：能源进出口口径与年度结果",
+      "locator": "年度总能源净出口、原油和天然气三部分",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.ncses.nsf.gov/pubs/nsbsep20261/executive-summary",
+    "uses": [
+      "source/book/usa/nsf-science-and-engineering-2026"
+    ],
+    "access": {
+      "url": "https://www.ncses.nsf.gov/pubs/nsbsep20261/executive-summary",
+      "material": "美国国家科学基金会：美国科学与工程指标报告",
+      "locator": "2026 年报告摘要，Innovation 和 Discovery，2023—2024 年数据",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7004",
+    "uses": [
+      "source/book/warring-states/shiji-zhou-eastward"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7004",
+      "material": "《史记》卷四《周本纪》",
+      "locator": "周平王节，东迁雒邑与诸侯形势",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046",
+    "uses": [
+      "source/book/warring-states/shiji-qi-jixia"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046",
+      "material": "《史记》卷四十六《田敬仲完世家》",
+      "locator": "齐宣王节，列出稷下受礼遇的游说之士",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7068",
+    "uses": [
+      "source/book/warring-states/shiji-shang-yang-reforms"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7068",
+      "material": "《史记》卷六十八《商君列传》",
+      "locator": "秦孝公用卫鞅及新令诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7065",
+    "uses": [
+      "source/book/warring-states/shiji-wu-qi-reforms"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7065",
+      "material": "《史记》卷六十五《孙子吴起列传》",
+      "locator": "吴起在魏、入楚及任楚相诸段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029",
+    "uses": [
+      "source/book/warring-states/shiji-qin-waterworks"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029",
+      "material": "《史记》卷二十九《河渠书》",
+      "locator": "蜀守李冰的成都水利，以及郑国渠各段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1001/",
+    "uses": [
+      "source/book/warring-states/unesco-dujiangyan-water-system"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/list/1001/",
+      "material": "联合国教科文组织：青城山与都江堰水利工程",
+      "locator": "突出普遍价值，简要综述及完整性",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷119",
+    "uses": [
+      "source/book/wei-jin/tongjian-liu-song-420"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷119",
+      "material": "《资治通鉴》卷一百一十九·刘宋建国",
+      "locator": "宋武帝永初元年（420）六月，晋恭帝禅位、刘裕即位",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷177",
+    "uses": [
+      "source/book/wei-jin/tongjian-chen-sui-589"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/資治通鑑/卷177",
+      "material": "《资治通鉴》卷一百七十七·隋灭陈",
+      "locator": "隋开皇九年（589）正月，建康失守及陈后主被俘",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/wiki/梁書/卷03",
+    "uses": [
+      "source/book/wei-jin/liang-wudi-tongtai",
+      "source/book/wei-jin/liang-wudi-jiankang-siege"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/wiki/梁書/卷03",
+      "material": "《梁书》卷三·武帝下",
+      "locator": "太清元年（547）二月接纳侯景、三月同泰寺舍身",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/三國志/卷35",
+    "uses": [
+      "source/book/wei-jin/sanguozhi-zhuge-wuzhang"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/三國志/卷35",
+      "material": "《三国志》卷三十五·诸葛亮传",
+      "locator": "建兴十二年五丈原段及陈寿进论中的青龙二年",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://zh.wikisource.org/zh-hant/晉書/卷079",
+    "uses": [
+      "source/book/wei-jin/jinshu-xieshi-xiexuan",
+      "source/book/wei-jin/jinshu-xie-an-account"
+    ],
+    "access": {
+      "url": "https://zh.wikisource.org/zh-hant/晉書/卷079",
+      "material": "《晋书》卷七十九·谢石、谢玄传",
+      "locator": "谢石传淝水任征讨大都督及谢玄传前锋条",
       "date": "2026-11-25",
       "status": "read"
     }
@@ -5763,6 +6932,32 @@
     }
   },
   {
+    "url": "https://avalon.law.yale.edu/18th_century/bar1795e.asp",
+    "uses": [
+      "source/topic/north-africa/algiers/avalon-1795-algiers-treaty"
+    ],
+    "access": {
+      "url": "https://avalon.law.yale.edu/18th_century/bar1795e.asp",
+      "material": "耶鲁大学阿瓦隆项目：1795 年阿尔及尔与美国条约",
+      "locator": "1930 年译文第 2 条，船只和货物",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://avalon.law.yale.edu/19th_century/bar1815t.asp",
+    "uses": [
+      "source/topic/north-africa/algiers/avalon-1815-algiers-treaty"
+    ],
+    "access": {
+      "url": "https://avalon.law.yale.edu/19th_century/bar1815t.asp",
+      "material": "耶鲁大学阿瓦隆项目：1815 年阿尔及尔与美国和约",
+      "locator": "第 3—4 条，交还俘虏、赎金和补偿",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://home.nps.gov/chcu/learn/historyculture/pueblo-period.htm",
     "uses": [
       "source/topic/north-america-indigenous/pueblo/source-01"
@@ -5775,15 +6970,6 @@
     "url": "https://whc.unesco.org/en/list/27/",
     "uses": [
       "source/topic/north-america-indigenous/pueblo/source-02"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
-    "url": "https://whc.unesco.org/en/list/198/",
-    "uses": [
-      "source/topic/north-america-indigenous/cahokia/source-01"
     ],
     "access": {
       "status": "unaccessed"
@@ -5930,15 +7116,6 @@
       "locator": "1861 年《脱离联邦理由书》首段及列举的理由",
       "date": "2026-11-25",
       "status": "read"
-    }
-  },
-  {
-    "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
-    "uses": [
-      "source/topic/north-america-modern/rights-and-memory/source-01"
-    ],
-    "access": {
-      "status": "unaccessed"
     }
   },
   {
@@ -6913,6 +8090,17 @@
       "url": "https://www.history.navy.mil/content/history/nhhc/research/library/online-reading-room/title-list-alphabetically/b/brief-summary-perry-expedition-japan-1853.html",
       "material": "美国海军历史与遗产司令部：1853 年佩里航行简表",
       "locator": "美海军官网航行简表入口暂时返回 502；改查国会档案与日方国书记录。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  },
+  {
+    "url": "https://www.anayasa.gov.tr/tr/mevzuat/onceki-anayasalar/1876-kanun-i-esasi/",
+    "uses": [],
+    "access": {
+      "url": "https://www.anayasa.gov.tr/tr/mevzuat/onceki-anayasalar/1876-kanun-i-esasi/",
+      "material": "土耳其宪法法院：1876 年宪法正文",
+      "locator": "页面返回 502，改查载有原宪法英译的期刊扫描件。",
       "date": "2026-11-25",
       "status": "temporary-failure"
     }

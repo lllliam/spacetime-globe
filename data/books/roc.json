@@ -54,6 +54,21 @@
       "id": "nanjing-disarmed-archive",
       "title": "美国国家档案馆｜日本战争罪行档案研究导论",
       "url": "https://www.archives.gov/files/iwg/japanese-war-crimes/introductory-essays.pdf?level=1"
+    },
+    {
+      "id": "nanjing-xu-faquan-interview",
+      "title": "南京双拥网：渡江战役亲历者徐法全等访谈",
+      "url": "https://njsy.nanjing.gov.cn/syrw/202010/t20201009_2426477.html"
+    },
+    {
+      "id": "nanjing-crossriver-chronicle",
+      "title": "南京市地方志工作办公室：渡江战役与总统府",
+      "url": "https://dfz.nanjing.gov.cn/gzdt/202404/t20240424_4215576.html"
+    },
+    {
+      "id": "cpc-chronicle-apr-1949",
+      "title": "中共中央党史研究室《中国共产党大事记·1949年》",
+      "url": "https://cpc.people.com.cn/GB/64162/64164/4416007.html"
     }
   ],
   "chapters": [
@@ -398,10 +413,23 @@
         },
         {
           "heading": "百万雄师过大江与两岸分治格局",
-          "text": "1949 年 4 月北平和谈破裂后，中国人民解放军发动渡江战役，一夜突破号称“固若金汤”的长江防线。4 月 23 日解放军占领南京总统府，挂在门楼上的民国日历永远定格在了这一天；随后上海、武汉、广州、重庆相继解放。",
+          "text": "北平和谈在 1949 年 4 月未能达成协议，随后中国人民解放军分路渡过长江。就南京而言，部队在 4 月 23 日夜已开始进入城区。参战者徐法全的回忆把进入总统府、在门楼升旗记在 4 月 24 日凌晨。入城和占领政府机关是两个相继发生的节点。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nanjing-xu-faquan-interview",
+              "locator": "徐法全访谈末段，23 日午夜入城与 24 日凌晨进入总统府两处",
+              "note": "亲历者分别记下部队进入南京与进入总统府的时间。"
+            },
+            {
+              "sourceId": "nanjing-crossriver-chronicle",
+              "locator": "正文“红旗插上总统府”一节，23 日夜入城及 24 日凌晨抵达",
+              "note": "官修地方记载把入城与总统府交接、随后保护档案分别叙述。"
+            },
+            {
+              "sourceId": "cpc-chronicle-apr-1949",
+              "locator": "1949 年 4 月 15—21 日条，协定答复及渡江",
+              "note": "记最后修正案与南京政府拒绝接受，以及随后发布进军命令。"
+            }
           ],
           "id": "p-05"
         },

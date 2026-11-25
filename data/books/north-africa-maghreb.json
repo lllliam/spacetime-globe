@@ -14,6 +14,31 @@
       "title": "大都会艺术博物馆《北非艺术中的符号与纹样》",
       "url": "https://www.metmuseum.org/essays/the-magic-of-signs-and-patterns-in-north-african-art",
       "id": "source-02"
+    },
+    {
+      "id": "un-libya-independence-1951",
+      "title": "联合国利比亚专员的最终报告",
+      "url": "https://digitallibrary.un.org/record/704492/files/A_1949_Add-1-EN.pdf"
+    },
+    {
+      "id": "un-morocco-joint-declaration",
+      "title": "联合国法律资料丛刊：法国与摩洛哥联合声明",
+      "url": "https://legal.un.org/legislativeseries/pdfs/chapters/book17/book17_part1_II.pdf"
+    },
+    {
+      "id": "fr-diplomatic-tunisian-protocol",
+      "title": "法国外交档案馆：突尼斯独立与机构移交",
+      "url": "https://archivesdiplomatiques.diplomatie.gouv.fr/ark:/14366/wx7lgqsn3vf2"
+    },
+    {
+      "id": "evian-ceasefire-1962",
+      "title": "法国《官方公报》：阿尔及利亚停火协议与政府声明",
+      "url": "https://elmouhami.com/wp-content/uploads/2016/06/EVIAN_JO_N_67_20_mars_1962.pdf"
+    },
+    {
+      "id": "un-ilc-algeria-recognition",
+      "title": "联合国国际法委员会：阿尔及利亚与法国的外交换文摘录",
+      "url": "https://digitallibrary.un.org/record/3801945/files/A_CN.4_730-FR.pdf"
     }
   ],
   "chapters": [
@@ -309,9 +334,33 @@
         },
         {
           "heading": "战后独立风暴与八年阿尔及利亚战争",
-          "text": "第二次世界大战重创了欧洲老牌殖民帝国，北非战场的隆美尔与盟军拉锯更让当地民族独立意识全面觉醒。一九五一年利比亚在联合国框架下率先独立，一九五六年摩洛哥苏丹穆罕默德五世与突尼斯领袖布尔吉巴亦通过谈判与抗争相继摆脱法国保护，唯独被巴黎视作“本土海外省”且聚居百万欧洲移民的阿尔及利亚陷入了最血腥的独立战争。",
+          "text": "利比亚在联合国参与的过渡进程中于 1951 年 12 月宣布独立。1956 年 3 月，法国分别承认摩洛哥和突尼斯独立，突尼斯议定书由部长会议主席塔哈尔·本·阿马尔签署。法国政府与阿尔及利亚民族解放阵线达成停火后，阿尔及利亚于 1962 年 7 月举行自决投票，法国随即承认其独立。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "un-libya-independence-1951",
+              "locator": "A/1949/Add.1，Chapter I，1949 年决议与 1951 年独立日",
+              "note": "报告记录依据第 289（IV）号决议的移交，并载明 1951 年 12 月 24 日利比亚独立。"
+            },
+            {
+              "sourceId": "un-morocco-joint-declaration",
+              "locator": "第 355—356 页，1956 年 3 月 2 日共同声明与议定书",
+              "note": "承认摩洛哥独立，协商移交保护国时期保留的权力。"
+            },
+            {
+              "sourceId": "fr-diplomatic-tunisian-protocol",
+              "locator": "馆藏 711PO 的历史说明，1956 年 3 月 20 日议定书",
+              "note": "突尼斯部长会议主席塔哈尔·本·阿马尔同法国外交部长签署独立承认议定书。"
+            },
+            {
+              "sourceId": "evian-ceasefire-1962",
+              "locator": "1962 年 3 月 20 日，第 3019—3020 页，停火协议与自决程序",
+              "note": "载法国政府与民族解放阵线谈判，3 月 19 日起停火，并规定自决投票。"
+            },
+            {
+              "sourceId": "un-ilc-algeria-recognition",
+              "locator": "A/CN.4/730，第 26 例，7 月 1 日投票和 7 月 3 日换文",
+              "note": "法国在自决投票后以外交换文承认独立并移交主权。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 1962 年 7 月阿尔及尔的欢呼人群",

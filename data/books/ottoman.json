@@ -64,6 +64,21 @@
       "id": "gallipoli-awm",
       "title": "澳大利亚战争纪念馆｜1915 年加里波利战事",
       "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915"
+    },
+    {
+      "id": "gulhane-decree-1839",
+      "title": "中欧大学出版社：1839 年《古尔哈内敕令》节译",
+      "url": "https://cas.bg/wp-content/uploads/2020/04/ID-Reader-vol1-Late-Enlighten.pdf"
+    },
+    {
+      "id": "ottoman-constitutional-economic-rights",
+      "title": "土耳其宪法法院文集：宪法中的经济权利与义务",
+      "url": "https://www.anayasa.gov.tr/media/4761/adnanguriz.pdf"
+    },
+    {
+      "id": "ottoman-1876-constitution",
+      "title": "《美国国际法杂志》：1876 年奥斯曼宪法英译",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Ottoman_constitution_of_1876.pdf"
     }
   ],
   "chapters": [
@@ -350,10 +365,23 @@
           "id": "p-01"
         },
         {
-          "text": "一八三九至一八七六年间，奥斯曼推行声势浩大的“坦齐马特”改革，颁布《玫瑰园敕令》宣布帝国境内不论宗教信仰一律享有生命财产平等权，引入现代法典、电报线、邮政、世俗学堂与纸币，甚至在一八七六年颁行伊斯兰世界第一部成文宪法。然而改革既招致保守派反弹，又未能平息巴尔干各民族脱离帝国独立的渴望。",
+          "text": "1839 年《古尔哈内敕令》承诺保障臣民的生命、名誉与财产，并就税收和征兵提出改革。1856 年的改革敕令重申保障。1876 年颁行的宪法规定，不分宗教称帝国臣民为奥斯曼人，同时列明伊斯兰教为国教，并就其他信仰的礼仪作有条件的保障。几份文件反映了不同阶段的改革承诺。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "gulhane-decree-1839",
+              "locator": "The Gülhane Edict，英译正文开头与三项目标",
+              "note": "保障生命、名誉和财产，重新规定税收和征兵，并把保障扩及各信仰的臣民。"
+            },
+            {
+              "sourceId": "ottoman-constitutional-economic-rights",
+              "locator": "1839、1856 年诏书与 1876 年宪法第 13、21、24 条对读段",
+              "note": "区分两次敕令的承诺与 1876 年宪法中可定位的财产权、结社条文。"
+            },
+            {
+              "sourceId": "ottoman-1876-constitution",
+              "locator": "印刷第 368 页，第 8、11 条",
+              "note": "不分宗教称帝国臣民为奥斯曼人，保留国教并在一定条件下保障其他宗教礼仪。"
+            }
           ],
           "id": "p-02"
         },

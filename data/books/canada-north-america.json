@@ -29,6 +29,41 @@
       "id": "trc-children-record",
       "title": "加拿大真相与和解委员会｜失踪儿童及无标记墓葬",
       "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf"
+    },
+    {
+      "id": "unesco-cahokia-peak",
+      "title": "联合国教科文组织：卡霍基亚土丘历史遗址",
+      "url": "https://whc.unesco.org/en/list/198/"
+    },
+    {
+      "id": "onondaga-hiawatha-belt",
+      "title": "奥农达加民族：海华沙贝珠带",
+      "url": "https://www.onondaganation.org/culture/wampum/hiawatha-belt/"
+    },
+    {
+      "id": "onondaga-great-law",
+      "title": "奥农达加民族：主权与《大和平法》",
+      "url": "https://www.onondaganation.org/government/sovereignty/"
+    },
+    {
+      "id": "statcan-new-france-1760",
+      "title": "加拿大统计局：加拿大生育趋势与因素",
+      "url": "https://publications.gc.ca/collections/collection_2017/statcan/CS99-541-1972-eng.pdf"
+    },
+    {
+      "id": "parks-canada-seven-years",
+      "title": "加拿大公园管理局：尚布利堡的七年战争材料",
+      "url": "https://parks.canada.ca/lhn-nhs/qc/fortchambly/culture/histoire-history/site/conquete-conquest"
+    },
+    {
+      "id": "dcb-durham-responsible",
+      "title": "《加拿大人物传记辞典》：达勒姆与责任政府",
+      "url": "https://www.biographi.ca/en/special.php?p=9&project_id=75"
+    },
+    {
+      "id": "parks-canada-colonial-governors",
+      "title": "加拿大公园管理局：殖民总督的职责变化",
+      "url": "https://parks.canada.ca/lhn-nhs/qc/saintlouisforts/culture/histoire-history/britannique-british"
     }
   ],
   "chapters": [
@@ -37,14 +72,18 @@
       "title": "密西西比土丘与易洛魁长屋联盟",
       "from": 1000,
       "to": 1607,
-      "summary": "在欧洲殖民船队深入内陆之前，密西西比河中游已崛起卡霍基亚等数万人的土丘城邦，五大湖与圣劳伦斯流域则孕育出以《大和平法》维系的豪德诺索尼联盟。",
+      "summary": "从密西西比河流域的卡霍基亚遗址和五大湖以东的豪德诺索尼结盟传统，了解两类北美原住民社会及其留下的材料。",
       "spatialThesis": "北美东北部没有欧亚大陆式的陆路驰道，却拥有由圣劳伦斯河、五大湖、渥太华河与密西西比水系构成的天生航道网，桦树皮独木舟让原住民商旅与盟约得以跨越数千公里。",
       "paragraphs": [
         {
           "heading": "河谷土丘与玉米农耕网络",
-          "text": "公元十一世纪前后，密西西比河与密苏里河交汇处的卡霍基亚崛起为北美墨西哥以北最庞大的城市聚落。居民依托高产玉米、豆类与南瓜的“三姐妹”混作农业，修筑起上百座阶梯状平台土丘与木柱天文阵。以铜器、贝壳珠与燧石为媒介的远程贸易网，向北延伸至五大湖铜矿区，向南直抵墨西哥湾沿岸。",
+          "text": "卡霍基亚位于今伊利诺伊州，在密西西比河流域的农业聚落中规模突出。遗址包括中央的僧侣土丘，也有小型土丘和周边村落。列入世界遗产时，报告把约 1050 至 1150 年列为人口高峰，给出约一万至两万的估计。估值所依据的聚落范围和时间会影响可比性。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "unesco-cahokia-peak",
+              "locator": "突出普遍价值，简要综述与遗址范围",
+              "note": "遗址包含中心土丘、村落和周边聚落；1050 至 1150 年的人口为估计。"
+            }
           ],
           "id": "p-01"
         },
@@ -57,9 +96,18 @@
         },
         {
           "heading": "长屋议会与大和平法",
-          "text": "在安大略湖以南的森林谷地，莫霍克、奥奈达、奥农达加、卡尤加与塞内卡五个易洛魁语族部族终结长期血仇，缔结了被称为“豪德诺索尼”的五部联盟。各部族以母系氏族长屋为社会基石，由氏族女长老推举并监督五十名和平酋长赴大议会共商外交与战和，形成了美洲北部最具制度韧性的联邦体制。",
+          "text": "奥农达加民族用海华沙贝珠带讲述结盟传统。五个图案对应莫霍克、奥奈达、奥农达加、卡尤加与塞内卡。各民族继续在本地议事，联盟依据《大和平法》处理共同事务。贝珠带把这种约定保存在实物与口述故事中。",
           "refs": [
-            "source-02"
+            {
+              "sourceId": "onondaga-hiawatha-belt",
+              "locator": "贝珠带五个图案、各民族议事火与共同法律",
+              "note": "记录五个原始成员的结盟传统及共同法律。"
+            },
+            {
+              "sourceId": "onondaga-great-law",
+              "locator": "成员自治与联盟议事会各段",
+              "note": "成员保留内部事务的管辖，诸民族依据《大和平法》处理共同事务。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 贝珠腰带（Wampum）",
@@ -166,9 +214,18 @@
         },
         {
           "heading": "七年战争与亚伯拉罕平原",
-          "text": "十八世纪中叶，英属十三殖民地人口已逾百万，而新法兰西全境居民不足七万，双方围绕俄亥俄河谷控制权爆发全面冲突并演变为全球七年战争。战火初起时，法国名将蒙卡尔姆凭借森林游击战术与原住民盟友屡挫英军，但英国皇家海军牢牢封锁大西洋航线，令魁北克补给日渐枯竭。",
+          "text": "1754 年，法国与英属北美殖民势力在俄亥俄河谷发生战事，部分原住民与法方共同作战。1756 年冲突扩大到欧洲等地。加拿大统计局的历史人口研究对 1760 年前后新法兰西与阿卡迪亚的法裔人口分别估算，不能把这些数直接当作北美法属领地全部居民或印第安盟友的人数。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "statcan-new-france-1760",
+              "locator": "第 1 章第 1 页及注 1，1760 年法裔人口的重建",
+              "note": "分列新法兰西和早已割让的阿卡迪亚，并保留不同作者估值。"
+            },
+            {
+              "sourceId": "parks-canada-seven-years",
+              "locator": "俄亥俄谷、欧洲开战与《巴黎条约》各段",
+              "note": "俄亥俄谷 1754 年战事有原住民参加，1756 年冲突扩大到欧洲及其他地区。"
+            }
           ],
           "id": "p-05"
         },
@@ -233,9 +290,18 @@
         },
         {
           "heading": "责任政府与 1867 年联邦诞生",
-          "text": "1837 年，上下加拿大因议会缺乏行政实权先后爆发武装起义。尽管起义迅速被镇压，但奉命赴北美调查的达勒姆勋爵在报告中主张赋予殖民地内政自治权。十余年间，英属北美各省和平演进出“责任政府”制度，内阁改由民选议会多数派组成，摆脱了伦敦总督的直接干预。",
+          "text": "1837 至 1838 年，上、下加拿大发生起义。达勒姆奉命调查，于 1839 年提出合并两地，并主张行政向民选议会负责。两地在 1841 年组成加拿大省。1848 年实行责任政府后，总督仍任命政府首脑，该政府需要获得民选议会多数的信任。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "dcb-durham-responsible",
+              "locator": "Lord Durham, His Report, and the Union（1839—1842），并引拉方丹 1840 年宣言",
+              "note": "区分起义、达勒姆的合并与责任政府提议，以及改革派关于议会多数的主张。"
+            },
+            {
+              "sourceId": "parks-canada-colonial-governors",
+              "locator": "1791—1848 年，任命和责任政府各段",
+              "note": "上下加拿大在 1841 年合并。1848 年总督仍负任命职责，政府需获民选议会多数信任。"
+            }
           ],
           "id": "p-03"
         },

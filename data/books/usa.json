@@ -54,6 +54,106 @@
       "id": "homestead-act-1862",
       "title": "美国国家档案馆｜1862 年宅地法",
       "url": "https://www.archives.gov/milestone-documents/homestead-act"
+    },
+    {
+      "id": "nps-wright-1903-diary",
+      "title": "美国国家公园管理局：莱特兄弟国家纪念地，附飞行日记",
+      "url": "https://home.nps.gov/articles/wright-brothers-national-memorial-site-of-the-first-controlled-powered-flight-teaching-with-historic-places.htm"
+    },
+    {
+      "id": "thf-1913-ford-assembly",
+      "title": "亨利·福特博物馆：福特装配方法与厂房",
+      "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops?trk=article-ssr-frontend-pulse_little-text-block"
+    },
+    {
+      "id": "ford-highland-park-plant",
+      "title": "福特公司历史档案：高地公园工厂",
+      "url": "https://corporate.ford.com/corporate/corporate/articles/history/highland-park/"
+    },
+    {
+      "id": "nara-zimmermann-telegram",
+      "title": "美国国家档案馆：齐默尔曼电报",
+      "url": "https://www.archives.gov/milestone-documents/zimmermann-telegram"
+    },
+    {
+      "id": "nara-ww1-entry-resolution",
+      "title": "美国国家档案馆：第一次世界大战档案",
+      "url": "https://www.archives.gov/topics/wwi"
+    },
+    {
+      "id": "senate-versailles-votes",
+      "title": "美国参议院：未获同意的条约表",
+      "url": "https://www.senate.gov/legislative/RejectedTreaties.htm"
+    },
+    {
+      "id": "nara-gi-bill-1944",
+      "title": "美国国家档案馆：《退伍军人重新适应法》",
+      "url": "https://www.archives.gov/milestone-documents/servicemens-readjustment-act"
+    },
+    {
+      "id": "nara-civil-rights-1964",
+      "title": "美国国家档案馆：《1964 年民权法》",
+      "url": "https://www.archives.gov/milestone-documents/civil-rights-act"
+    },
+    {
+      "id": "nara-voting-rights-1965",
+      "title": "美国国家档案馆：《1965 年投票权法》",
+      "url": "https://www.archives.gov/milestone-documents/voting-rights-act"
+    },
+    {
+      "id": "nber-2020-cycle-dating",
+      "title": "美国全国经济研究所：商业周期委员会 2020 年公告",
+      "url": "https://www.nber.org/sites/default/files/2020-11/june2020.pdf"
+    },
+    {
+      "id": "omb-historical-budget-table",
+      "title": "美国行政管理和预算局：预算历史统计",
+      "url": "https://www.govinfo.gov/content/pkg/BUDGET-2021-TAB/pdf/BUDGET-2021-TAB.pdf"
+    },
+    {
+      "id": "wto-marrakesh-agreement",
+      "title": "世界贸易组织：《马拉喀什协定》及法律文本目录",
+      "url": "https://www.wto.org/English/docs_e/legal_e/legal_e.htm"
+    },
+    {
+      "id": "us-public-law-107-40",
+      "title": "美国国会：第 107-40 号公共法律",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ40/html/PLAW-107publ40.htm"
+    },
+    {
+      "id": "us-public-law-107-243",
+      "title": "美国国会：2002 年对伊拉克使用军事力量的授权",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ243/html/PLAW-107publ243.htm"
+    },
+    {
+      "id": "uk-iraq-inquiry-2016",
+      "title": "英国伊拉克调查委员会：执行摘要",
+      "url": "https://assets.publishing.service.gov.uk/media/5a80f42ced915d74e6231626/The_Report_of_the_Iraq_Inquiry_-_Executive_Summary.pdf"
+    },
+    {
+      "id": "fed-2008-recession-history",
+      "title": "美联储历史档案：大衰退及其后果",
+      "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath"
+    },
+    {
+      "id": "us-emergency-economic-stabilization-2008",
+      "title": "美国国会：《2008 年紧急经济稳定法》",
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-110publ343/html/PLAW-110publ343.htm"
+    },
+    {
+      "id": "fed-2008-first-asset-purchases",
+      "title": "美联储：开始购买住房机构债务及按揭支持证券的公告",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20081125b.htm"
+    },
+    {
+      "id": "eia-annual-total-energy-trade",
+      "title": "美国能源信息署：能源进出口口径与年度结果",
+      "url": "https://www.eia.gov/energyexplained/us-energy-facts/imports-and-exports.php?module=inline&pgtype=article"
+    },
+    {
+      "id": "nsf-science-and-engineering-2026",
+      "title": "美国国家科学基金会：美国科学与工程指标报告",
+      "url": "https://www.ncses.nsf.gov/pubs/nsbsep20261/executive-summary"
     }
   ],
   "chapters": [
@@ -220,9 +320,23 @@
         },
         {
           "heading": "爱迪生电力、流水线与反垄断转向",
-          "text": "技术创新同步迎来大爆发。门洛帕克实验室里的托马斯·爱迪生与交流电先驱特斯拉点亮了城市夜空，莱特兄弟在基蒂霍克驾机升空，亨利·福特在 1913 年导入移动装配流水线，把 T 型车组装时间从十二小时压至九十三分钟，让汽车首次走入普通工人车库。早在十九世纪九十年代，美国工业总产值便超越大英帝国，稳居全球第一。",
+          "text": "1903 年 12 月 17 日，莱特兄弟在北卡罗来纳完成动力飞行。奥维尔在日记里写下试飞过程。十年后，福特在密歇根州高地公园工厂试行移动式装配线，1914 年初又把若干工序接成连续生产线。馆藏照片显示工人如何把发动机装到正在移动的底盘上。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "nps-wright-1903-diary",
+              "locator": "材料 1，奥维尔·莱特 1903 年 12 月 17 日日记",
+              "note": "首飞日期和现场记录，由参与者写成。"
+            },
+            {
+              "sourceId": "thf-1913-ford-assembly",
+              "locator": "档案照片 THF91696 及 1913—1914 年组装工序",
+              "note": "1913 年高地公园工厂分段推进，1914 年初若干线并成连续生产线。"
+            },
+            {
+              "sourceId": "ford-highland-park-plant",
+              "locator": "Highland Park 正文，第 2—3 段",
+              "note": "记载 1913 年移动式装配线的启用地点和月份。"
+            }
           ],
           "id": "p-05"
         },
@@ -260,9 +374,23 @@
       "paragraphs": [
         {
           "heading": "一战债权国与 1929 年大萧条崩塌",
-          "text": "1914 年欧洲列强陷入堑壕血战时，美国先以中立国身份向协约国源源不断输出军火与粮食，从战前债务国一跃成为全球最大债权国；1917 年因德国无限制潜艇战参战后，两百万美军生力军迅速打破僵局。战后国会虽拒绝加入威尔逊倡议的国际联盟、退回孤立主义，但华尔街已不可逆转地取代伦敦金融城，成为世界资本新枢纽。",
+          "text": "美国在第一次世界大战初期保持中立。1917 年，德国恢复无限制潜艇战，英国又向美国交付了齐默尔曼电报。美国在同年 4 月 6 日对德宣战。战后，参议院两次表决都未批准包含国际联盟盟约的《凡尔赛条约》，美国未加入国际联盟。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "nara-zimmermann-telegram",
+              "locator": "译电稿首段及 1917 年美国参战的档案说明",
+              "note": "电文提及恢复无限制潜艇战，并向墨西哥提出结盟。"
+            },
+            {
+              "sourceId": "nara-ww1-entry-resolution",
+              "locator": "1917 年 4 月 6 日，Public Resolution 65-1，宣战联合决议",
+              "note": "美国终止中立并对德宣战。"
+            },
+            {
+              "sourceId": "senate-versailles-votes",
+              "locator": "1919 年 11 月 19 日及 1920 年 3 月 19 日表决记录",
+              "note": "两次表决均未达到批准《凡尔赛条约》的票数。"
+            }
           ],
           "id": "p-01"
         },
@@ -305,10 +433,23 @@
           "id": "p-05"
         },
         {
-          "text": "战后二十年，《退伍军人法案》送数百万青年入读大学，州际高速公路网、郊区住宅与电视普及锻造出庞大中产阶层。但南方仍矗立着刺眼的种族隔离牌匾；从蒙哥马利公交抵制到 1963 年林肯纪念堂前演讲，马丁·路德·金以非暴力抗争推动国会通过《民权法案》与《投票权法案》，重塑了美国平等底线。",
+          "text": "1944 年《退伍军人重新适应法》提供联邦教育和住房支持。许多黑人退伍军人在申请住房贷款或购房时仍遭遇种族歧视。战后民权运动由许多社区与组织推动。1964 年《民权法》规定公共服务场所与就业等领域不得实行列举的歧视。1965 年塞尔玛游行遭州警袭击后，国会通过《投票权法》，为制止种族性选举限制增设联邦执行机制。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nara-gi-bill-1944",
+              "locator": "1944 年 6 月 22 日法案原件与档案馆的黑人退伍军人贷款说明",
+              "note": "列出教育、贷款等支持；档案说明部分黑人退伍军人在住房贷款中遭歧视。"
+            },
+            {
+              "sourceId": "nara-civil-rights-1964",
+              "locator": "Title II 第 201 节与 Title VII 第 703 节",
+              "note": "规定公共服务场所不得实施列举的歧视，并设就业歧视条款。"
+            },
+            {
+              "sourceId": "nara-voting-rights-1965",
+              "locator": "引言的塞尔玛游行与第 2—4 节",
+              "note": "规定不得以种族或肤色为由剥夺投票权，并为特定地区设置联邦执行措施。"
+            }
           ],
           "id": "p-06"
         }
@@ -376,26 +517,76 @@
           "id": "p-03"
         },
         {
-          "text": "1991 年苏联解体让美国迎来前所未有的“单极时刻”。克林顿执政的九十年代，冷战和平红利叠加互联网生产率跃升，缔造了美国历史上最长的连续经济扩张与难得的财政盈余；华盛顿同时推动北美自由贸易协定与世界贸易组织成立，跨国公司把制造环节大举外包至亚洲，廉价商品压低了国内通胀，却也在中西部工业小镇埋下了漫长而深沉的失落感。",
+          "text": "美国全国经济研究所把 1991 年 3 月至 2001 年 3 月列为一个扩张期，2009 至 2020 年的扩张随后超过这项纪录。联邦综合预算在 1998 至 2001 财年出现盈余。与此同时，多国签订的《马拉喀什协定》于 1995 年生效，正式建立世界贸易组织。扩张期、预算盈余和贸易规则是不同口径的历史记录。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nber-2020-cycle-dating",
+              "locator": "2020 年 6 月 8 日公告首段，1991—2001 与 2009—2020 的扩张期",
+              "note": "1991 至 2001 年扩张曾创当时纪录，2009 至 2020 年扩张超过该纪录。"
+            },
+            {
+              "sourceId": "omb-historical-budget-table",
+              "locator": "表 1.1，1998 至 2001 财年，Total 栏的盈余与赤字",
+              "note": "联邦综合预算在 1998 至 2001 财年均有盈余；分项口径不同。"
+            },
+            {
+              "sourceId": "wto-marrakesh-agreement",
+              "locator": "马拉喀什协定开头与附件说明",
+              "note": "列出 1994 年签署、1995 年生效和主要多边框架。"
+            }
           ],
           "id": "p-04"
         },
         {
           "heading": "9·11 硝烟与 2008 年华尔街风暴",
-          "text": "二十一世纪的钟声刚响，历史便骤然转向。2001 年九月十一日，恐怖分子劫持客机撞毁纽约世贸中心双子塔与五角大楼一翼，震动全球；美国随即发动阿富汗与伊拉克战争，耗资数万亿美元却未能换来中东稳定。祸不单行，2008 年华尔街次级房贷衍生品链式引爆，百年投行雷曼兄弟一夜破产，引发 1929 年以来最严重的全球金融海啸，联邦政府与美联储被迫以数万亿美元量化宽松救市。",
+          "text": "九一一袭击后，美国国会在 2001 年通过针对袭击责任方的用武授权。对伊拉克动武由国会在 2002 年另行授权，2003 年美英等国入侵伊拉克。2008 年，雷曼兄弟破产加剧了已有的金融危机。同年国会授权财政部实施问题资产救助计划，美联储另行公布购买住房机构债务及按揭支持证券的计划。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "us-public-law-107-40",
+              "locator": "115 Stat. 224，2001 年 9 月 18 日，第 2 条",
+              "note": "针对九一一事件相关责任人的用武授权。"
+            },
+            {
+              "sourceId": "us-public-law-107-243",
+              "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+              "note": "国会以单独决议授权总统对伊拉克使用美军。"
+            },
+            {
+              "sourceId": "uk-iraq-inquiry-2016",
+              "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+              "note": "记录开战前情报争议、2003 年 3 月开战，以及战后未找到所称武器库存。"
+            },
+            {
+              "sourceId": "fed-2008-recession-history",
+              "locator": "危机加剧及货币政策两段，雷曼破产和后续购买",
+              "note": "雷曼破产是危机加剧的节点，美联储的资产购买是货币政策。"
+            },
+            {
+              "sourceId": "us-emergency-economic-stabilization-2008",
+              "locator": "122 Stat. 3765，Division A，第 101 条 TARP 授权",
+              "note": "资金计划由国会授权财政部开展，区别于美联储购券。"
+            },
+            {
+              "sourceId": "fed-2008-first-asset-purchases",
+              "locator": "2008 年 11 月 25 日公告，第 1 段",
+              "note": "公布首轮购买中涉及的机构债务和按揭证券。"
+            }
           ],
           "id": "p-05"
         },
         {
-          "text": "2010 年代以来，智能手机、云计算与生成式人工智能再次彰显出美国汇聚全球顶尖人才与风险资本的惊人创新弹性，页岩油气革命更让美国逆转为能源净出口国。但硬币的另一面同样醒目：贫富差距拉大、医疗与基建成本高企、突破三十万亿美元的联邦债务，以及日益撕裂的两党文化政治与多极世界的供应链重构，正考验着这部运行近两百五十年的宪政机器的自我修复能力。",
+          "text": "按美国能源信息署对各能源品类所含热量的统一折算，美国从 2019 年起成为年度总能源净出口国。单看原油，2024 年仍是净进口。科技投资可从另一套统计观察。美国国家科学基金会发布的 2026 年报告分别列出企业研发、专利和风险投资，给出了人工智能等领域的分项数据。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "eia-annual-total-energy-trade",
+              "locator": "年度总能源净出口、原油和天然气三部分",
+              "note": "2019 年总能源热量净出口；按燃料单算仍有差别，2024 年原油仍净进口。"
+            },
+            {
+              "sourceId": "nsf-science-and-engineering-2026",
+              "locator": "2026 年报告摘要，Innovation 和 Discovery，2023—2024 年数据",
+              "note": "报告分别统计研发投入、产出与风险资本，不将其换算成社会综合指标。"
+            }
           ],
           "id": "p-06"
         }

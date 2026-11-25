@@ -1,0 +1,447 @@
+{
+  "id": "15-war-civil-rights-and-economic-records",
+  "access": [
+    {
+      "url": "https://home.nps.gov/articles/wright-brothers-national-memorial-site-of-the-first-controlled-powered-flight-teaching-with-historic-places.htm",
+      "material": "美国国家公园管理局：莱特兄弟国家纪念地，附飞行日记",
+      "locator": "材料 1，奥维尔·莱特 1903 年 12 月 17 日日记",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops?trk=article-ssr-frontend-pulse_little-text-block",
+      "material": "亨利·福特博物馆：福特装配方法与厂房",
+      "locator": "档案照片 THF91696 及 1913—1914 年组装工序",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://corporate.ford.com/corporate/corporate/articles/history/highland-park/",
+      "material": "福特公司历史档案：高地公园工厂",
+      "locator": "Highland Park 正文，第 2—3 段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/zimmermann-telegram",
+      "material": "美国国家档案馆：齐默尔曼电报",
+      "locator": "译电稿首段及 1917 年美国参战的档案说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/topics/wwi",
+      "material": "美国国家档案馆：第一次世界大战档案",
+      "locator": "1917 年 4 月 6 日，Public Resolution 65-1，宣战联合决议",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.senate.gov/legislative/RejectedTreaties.htm",
+      "material": "美国参议院：未获同意的条约表",
+      "locator": "1919 年 11 月 19 日及 1920 年 3 月 19 日表决记录",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/servicemens-readjustment-act",
+      "material": "美国国家档案馆：《退伍军人重新适应法》",
+      "locator": "1944 年 6 月 22 日法案原件与档案馆的黑人退伍军人贷款说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
+      "material": "美国国家档案馆：《1964 年民权法》",
+      "locator": "Title II 第 201 节与 Title VII 第 703 节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/voting-rights-act",
+      "material": "美国国家档案馆：《1965 年投票权法》",
+      "locator": "引言的塞尔玛游行与第 2—4 节",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nber.org/sites/default/files/2020-11/june2020.pdf",
+      "material": "美国全国经济研究所：商业周期委员会 2020 年公告",
+      "locator": "2020 年 6 月 8 日公告首段，1991—2001 与 2009—2020 的扩张期",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/BUDGET-2021-TAB/pdf/BUDGET-2021-TAB.pdf",
+      "material": "美国行政管理和预算局：预算历史统计",
+      "locator": "表 1.1，1998 至 2001 财年，Total 栏的盈余与赤字",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.wto.org/English/docs_e/legal_e/legal_e.htm",
+      "material": "世界贸易组织：《马拉喀什协定》及法律文本目录",
+      "locator": "马拉喀什协定开头与附件说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ40/html/PLAW-107publ40.htm",
+      "material": "美国国会：第 107-40 号公共法律",
+      "locator": "115 Stat. 224，2001 年 9 月 18 日，第 2 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-107publ243/html/PLAW-107publ243.htm",
+      "material": "美国国会：2002 年对伊拉克使用军事力量的授权",
+      "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://assets.publishing.service.gov.uk/media/5a80f42ced915d74e6231626/The_Report_of_the_Iraq_Inquiry_-_Executive_Summary.pdf",
+      "material": "英国伊拉克调查委员会：执行摘要",
+      "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+      "material": "美联储历史档案：大衰退及其后果",
+      "locator": "危机加剧及货币政策两段，雷曼破产和后续购买",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.govinfo.gov/content/pkg/PLAW-110publ343/html/PLAW-110publ343.htm",
+      "material": "美国国会：《2008 年紧急经济稳定法》",
+      "locator": "122 Stat. 3765，Division A，第 101 条 TARP 授权",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20081125b.htm",
+      "material": "美联储：开始购买住房机构债务及按揭支持证券的公告",
+      "locator": "2008 年 11 月 25 日公告，第 1 段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.eia.gov/energyexplained/us-energy-facts/imports-and-exports.php?module=inline&pgtype=article",
+      "material": "美国能源信息署：能源进出口口径与年度结果",
+      "locator": "年度总能源净出口、原油和天然气三部分",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ncses.nsf.gov/pubs/nsbsep20261/executive-summary",
+      "material": "美国国家科学基金会：美国科学与工程指标报告",
+      "locator": "2026 年报告摘要，Innovation 和 Discovery，2023—2024 年数据",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2003-03-14-agenda2010-211202",
+      "material": "德国联邦议院：施罗德 2003 年的《2010 议程》",
+      "locator": "2003 年 3 月 14 日政府声明、哈茨法案及 2005 年生效段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/EN/2023/20230105_RueckblickGas2022.html?r=1",
+      "material": "德国联邦网络局：2022 年天然气供应统计",
+      "locator": "2023 年 1 月 6 日发布的 Gas imports and exports",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-05",
+      "scope": "航空试飞与汽车装配线分别有日记和影像证据",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "航空试飞与汽车装配线分别有日记和影像证据",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/nps-wright-1903-diary",
+              "locator": "材料 1，奥维尔·莱特 1903 年 12 月 17 日日记",
+              "supports": "首飞日期和现场记录，由参与者写成。"
+            },
+            {
+              "source": "source/book/usa/thf-1913-ford-assembly",
+              "locator": "档案照片 THF91696 及 1913—1914 年组装工序",
+              "supports": "1913 年高地公园工厂分段推进，1914 年初若干线并成连续生产线。"
+            },
+            {
+              "source": "source/book/usa/ford-highland-park-plant",
+              "locator": "Highland Park 正文，第 2—3 段",
+              "supports": "记载 1913 年移动式装配线的启用地点和月份。"
+            }
+          ],
+          "limit": "馆方的组装耗时统计属于工厂和工序的历史回顾；这些材料无法支持全国工业总产值排名，或说明多少工人家庭买得起汽车。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "回查日记日期、1913 年照片说明与连续生产线建成时间，区分两个节点。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/depression-ww2-superpower/p-01",
+      "scope": "美国对德宣战与参议院对《凡尔赛条约》的处理",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "美国对德宣战与参议院对《凡尔赛条约》的处理",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/nara-zimmermann-telegram",
+              "locator": "译电稿首段及 1917 年美国参战的档案说明",
+              "supports": "电文提及恢复无限制潜艇战，并向墨西哥提出结盟。"
+            },
+            {
+              "source": "source/book/usa/nara-ww1-entry-resolution",
+              "locator": "1917 年 4 月 6 日，Public Resolution 65-1，宣战联合决议",
+              "supports": "美国终止中立并对德宣战。"
+            },
+            {
+              "source": "source/book/usa/senate-versailles-votes",
+              "locator": "1919 年 11 月 19 日及 1920 年 3 月 19 日表决记录",
+              "supports": "两次表决均未达到批准《凡尔赛条约》的票数。"
+            }
+          ],
+          "limit": "档案能核对参战背景和参议院表决。文中省去没有相同口径支持的外债、海外兵员总量和全球金融中心断言。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对宣战机关、日期与 1919、1920 年参议院表决条目。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/depression-ww2-superpower/p-06",
+      "scope": "区分福利资格、住房歧视、民权动员及两部法律的适用范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分福利资格、住房歧视、民权动员及两部法律的适用范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/nara-gi-bill-1944",
+              "locator": "1944 年 6 月 22 日法案原件与档案馆的黑人退伍军人贷款说明",
+              "supports": "列出教育、贷款等支持；档案说明部分黑人退伍军人在住房贷款中遭歧视。"
+            },
+            {
+              "source": "source/book/usa/nara-civil-rights-1964",
+              "locator": "Title II 第 201 节与 Title VII 第 703 节",
+              "supports": "规定公共服务场所不得实施列举的歧视，并设就业歧视条款。"
+            },
+            {
+              "source": "source/book/usa/nara-voting-rights-1965",
+              "locator": "引言的塞尔玛游行与第 2—4 节",
+              "supports": "规定不得以种族或肤色为由剥夺投票权，并为特定地区设置联邦执行措施。"
+            }
+          ],
+          "limit": "法案文本用于说明制度和通过时的执行机制，不能据此断言不平等随颁法消失。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读黑人退伍军人贷款说明以及 1964 年公共服务条款、1965 年选举条款，核对行动与立法顺序。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-04",
+      "scope": "商业周期长度、联邦综合预算和世贸组织成立的可核节点",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "商业周期长度、联邦综合预算和世贸组织成立的可核节点",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/nber-2020-cycle-dating",
+              "locator": "2020 年 6 月 8 日公告首段，1991—2001 与 2009—2020 的扩张期",
+              "supports": "1991 至 2001 年扩张曾创当时纪录，2009 至 2020 年扩张超过该纪录。"
+            },
+            {
+              "source": "source/book/usa/omb-historical-budget-table",
+              "locator": "表 1.1，1998 至 2001 财年，Total 栏的盈余与赤字",
+              "supports": "联邦综合预算在 1998 至 2001 财年均有盈余；分项口径不同。"
+            },
+            {
+              "source": "source/book/usa/wto-marrakesh-agreement",
+              "locator": "马拉喀什协定开头与附件说明",
+              "supports": "列出 1994 年签署、1995 年生效和主要多边框架。"
+            }
+          ],
+          "limit": "经济扩张时间是按美国全国经济研究所月度序列。预算分类和贸易协定本身不能量化产业外迁对各地就业的影响。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读 120、128 个月的先后及财政表 Total 列，核对财年和商业周期月份。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-05",
+      "scope": "用武授权与危机应对的机关、文书和日期",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "用武授权与危机应对的机关、文书和日期",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/us-public-law-107-40",
+              "locator": "115 Stat. 224，2001 年 9 月 18 日，第 2 条",
+              "supports": "针对九一一事件相关责任人的用武授权。"
+            },
+            {
+              "source": "source/book/usa/us-public-law-107-243",
+              "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+              "supports": "国会以单独决议授权总统对伊拉克使用美军。"
+            },
+            {
+              "source": "source/book/usa/uk-iraq-inquiry-2016",
+              "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+              "supports": "记录开战前情报争议、2003 年 3 月开战，以及战后未找到所称武器库存。"
+            },
+            {
+              "source": "source/book/usa/fed-2008-recession-history",
+              "locator": "危机加剧及货币政策两段，雷曼破产和后续购买",
+              "supports": "雷曼破产是危机加剧的节点，美联储的资产购买是货币政策。"
+            },
+            {
+              "source": "source/book/usa/us-emergency-economic-stabilization-2008",
+              "locator": "122 Stat. 3765，Division A，第 101 条 TARP 授权",
+              "supports": "资金计划由国会授权财政部开展，区别于美联储购券。"
+            },
+            {
+              "source": "source/book/usa/fed-2008-first-asset-purchases",
+              "locator": "2008 年 11 月 25 日公告，第 1 段",
+              "supports": "公布首轮购买中涉及的机构债务和按揭证券。"
+            }
+          ],
+          "limit": "两项美国国内授权不能相互替用。财政支出、救助授权额度与央行资产购买不合成一个金额。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读两项公共法律的第 2、3 条适用对象，并核对财政部授权与美联储公告。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/apollo-silicon-valley-21c/p-06",
+      "scope": "能源进出口按产品与热量区分，科技投资采用明确年份和统计指标",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "能源进出口按产品与热量区分，科技投资采用明确年份和统计指标",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/eia-annual-total-energy-trade",
+              "locator": "年度总能源净出口、原油和天然气三部分",
+              "supports": "2019 年总能源热量净出口；按燃料单算仍有差别，2024 年原油仍净进口。"
+            },
+            {
+              "source": "source/book/usa/nsf-science-and-engineering-2026",
+              "locator": "2026 年报告摘要，Innovation 和 Discovery，2023—2024 年数据",
+              "supports": "报告分别统计研发投入、产出与风险资本，不将其换算成社会综合指标。"
+            }
+          ],
+          "limit": "此处不以产业个案推断收入分配、联邦债务、两党分歧或未来结果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对 2019 年总能源口径、2024 年原油方向和科技统计的观察年份。"
+      }
+    },
+    {
+      "id": "book-paragraph/germany-hre/cold-war-eu-germany/p-06",
+      "scope": "劳动力市场改革文件与 2021—2022 年德国天然气进口统计",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "劳动力市场改革文件与 2021—2022 年德国天然气进口统计",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/germany-hre/bundestag-agenda-2010",
+              "locator": "2003 年 3 月 14 日政府声明、哈茨法案及 2005 年生效段",
+              "supports": "列出改革的提出时间、就业服务变化和失业救济与社会救助的合并。"
+            },
+            {
+              "source": "source/book/germany-hre/bnetza-gas-report-2022",
+              "locator": "2023 年 1 月 6 日发布的 Gas imports and exports",
+              "supports": "分列 2021 与 2022 年俄罗斯进口份额，记录北溪一号在 2022 年初秋停止供气。"
+            }
+          ],
+          "limit": "进口份额与单条管道流量分别计量。材料无法推出改革单独带来出口增长，也不能核定旧文给出的统一成本总额。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读 2003 年声明与 2005 年相关法令生效日期，并复核两个进口百分比的分母。"
+      }
+    },
+    {
+      "id": "relation/book/modern-middle-east/post-cold-war-21st-century-mideast/world-01",
+      "scope": "2003 年伊拉克战争与美国国内授权的背景",
+      "action": "qualify",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "2003 年伊拉克战争与美国国内授权的背景",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/modern-middle-east/us-public-law-107-243",
+              "locator": "116 Stat. 1501，第 2—3 条与 2002 年 10 月生效日期",
+              "supports": "国会以单独决议授权总统对伊拉克使用美军。"
+            },
+            {
+              "source": "source/book/modern-middle-east/uk-iraq-inquiry-2016",
+              "locator": "第 6 段与第 571 段，2003 年开战决策与武器库存查无结果",
+              "supports": "记录开战前情报争议、2003 年 3 月开战，以及战后未找到所称武器库存。"
+            }
+          ],
+          "limit": "此处转向同一事件的另一叙述角度，未用议会授权或调查报告推导全球格局变化。"
+        }
+      ]
+    }
+  ]
+}
