@@ -81,4 +81,4 @@ Phase 05 已完成结构建设和兼容迁移，并通过阶段验证。Phase 01
 - 迁移 `data/books/`、`data/topics/`、`data/scenes.json`、`data/reading-timeline.json` 并重新生成 `data/topics.json`。旧 `tools/subject-books.mjs` 由共享模型校验取代。更新构建、会话与阅读、首页事件与观察入口、场景编译及相应回归。在线与离线 HTML 均重新生成。
 - 更新 README、AGENTS、ROADMAP、ARCHITECTURE、READING、STATE-MODEL、BOOK-EXEMPLAR-GUIDE、CONTENT-COVERAGE 与 SOURCE-AUDIT。原型固定模板保留在历史档案并标记失效。
 
-本轮验收通过，未发现阻断项。实施提交使用 `refactor(1.0): phase 05 - historical content model`。[开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
+本轮验收通过，未发现阻断项。实现提交 `2a5cb066e05a6bd6af57801424920827bf9094c6`（`refactor(1.0): phase 05 - historical content model`）已推送至 `origin/develop/1.0` 并经远端查询核对。稳定分支 `origin/main` 指向 `cfac7462bcd232d50baecd795962c8cd74af2597`。[实现提交](https://github.com/lllliam/spacetime-globe/commit/2a5cb066e05a6bd6af57801424920827bf9094c6) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
