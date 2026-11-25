@@ -98,7 +98,7 @@ function openWorld() {
 
 function restoreWorld(button, scroll) {
   overlay.hidden = false;
-  syncThemeColor();
+  syncTopChrome();
   updateVernier();
   canvas.inert = el('hud').inert = true;
   overlayBody.scrollTop = scroll;
@@ -127,7 +127,7 @@ function restoreWorldSource(source) {
 function closeWorld(focus = false) {
   if (overlay.hidden) return;
   overlay.hidden = true;
-  syncThemeColor();
+  syncTopChrome();
   updateVernier();
   canvas.inert = el('hud').inert = false;
   if (focus) vernierEventsBtn.focus({preventScroll:true});

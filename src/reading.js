@@ -115,7 +115,7 @@ function readingBackground(active) {
   else canvas.removeAttribute('aria-hidden');
   document.body.classList.toggle('reading-open', active);
   document.documentElement.classList.toggle('reader-paper', active);
-  syncThemeColor();
+  syncTopChrome();
   updateVernier();
 }
 function openBook({ resume = false } = {}) {

@@ -1,9 +1,8 @@
-body.reading-open,html.reader-paper{background:var(--paper-bg)}
 body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,#event-map-points){visibility:hidden}
 
-html.standalone-safe-top #book::before{
-  content:"";position:absolute;inset:0 0 auto;height:calc(var(--safe-t) + 14px);pointer-events:none;z-index:2;
-  background:linear-gradient(180deg,rgba(44,41,36,.66) 0%,rgba(44,41,36,.56) calc(var(--safe-t) - 8px),rgba(44,41,36,.18) var(--safe-t),rgba(44,41,36,0) 100%);
+#book::before{
+  content:"";position:absolute;inset:0 0 auto;height:var(--safe-t);pointer-events:none;z-index:2;
+  background:var(--page-bg);
 }
 
 #book{

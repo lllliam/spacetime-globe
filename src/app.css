@@ -12,7 +12,6 @@ html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--
   overscroll-behavior:none;-webkit-user-select:none;user-select:none}
 @supports(height:100dvh){:root{--app-height:100dvh}}
 html{background:var(--page-bg)}
-html.sheet-paper{background:var(--paper-bg)}
 body{position:fixed;inset:0 0 auto;height:var(--app-height);
   background:radial-gradient(120% 70% at 50% 34%,#16202c 0%,#0a1016 65%,#0a1016 100%)}
 html.reader-paper{color-scheme:light}

@@ -53,9 +53,13 @@ const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const globeThemeColor = themeColorMeta.content;
 const paperThemeColor = getComputedStyle(document.documentElement).getPropertyValue('--paper-bg').trim();
 const standaloneGlobe = navigator.standalone === true || matchMedia('(display-mode: standalone)').matches;
-function syncThemeColor() {
-  const paper = reading.active || !overlay.hidden || standaloneGlobe && document.documentElement.classList.contains('sheet-paper');
-  const theme = paper ? paperThemeColor : globeThemeColor;
+function syncTopChrome() {
+  const paperScreen = reading.active || !overlay.hidden;
+  const safeTop = view.safeTop || 0;
+  // In standalone PWA (black-translucent) or whenever a top safe-area inset is present,
+  // keep theme-color fixed at deep cosmos (#0a1016) so iOS never tints the translucent status bar beige/gray.
+  // Only in normal Safari with zero top inset (browser chrome outside viewport) tint Safari's bar to match paper.
+  const theme = !standaloneGlobe && safeTop === 0 && paperScreen ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
 }
 const buildAssets = JSON.parse(inlineText('build-assets'));
@@ -1401,12 +1405,12 @@ function layout() {
   const safeBottom = bottomAlreadyReserved ? Math.max(0, reportedBottom - screenGap) : reportedBottom;
   const usableBottom = safeBottom + 'px';
   if (root.style.getPropertyValue('--usable-safe-b') !== usableBottom) root.style.setProperty('--usable-safe-b', usableBottom);
-  root.classList.toggle('standalone-safe-top', standaloneGlobe && safeTop > 0);
   const viewportChanged = w !== view.w || h !== view.h || safeTop !== view.safeTop || safeBottom !== view.safeBottom;
   const dpr = Math.min(devicePixelRatio || 1, 3);
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = safeTop;
   view.safeBottom = safeBottom;
+  syncTopChrome();
   const shortLandscape = session.mode !== 'Observe' && w > h && h <= 500;
   const shortPortrait = session.mode !== 'Observe' && h > w && h <= 640;
   view.cx = w / 2;
@@ -1931,9 +1935,6 @@ function paintSheetPosition(offset) {
   const y = Math.round(offset);
   sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
   if (view.w < 960) sheetEl.style.setProperty('--sheet-radius', clamp(y * .55, 0, 22) + 'px');
-  const paperEdge = offset < (view.h || innerHeight) - 2 && view.w < 960;
-  document.documentElement.classList.toggle('sheet-paper', paperEdge);
-  syncThemeColor();
   if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
     updateSheetGlobeCenter(offset);

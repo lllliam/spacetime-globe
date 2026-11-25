@@ -233,9 +233,9 @@
 
 /* ── 纸张阅读与史事全屏层保持暖宣纸美学 ── */
 #overlay{background:var(--paper-bg);color:var(--paper-ink)}
-html.standalone-safe-top #overlay::before{
-  content:"";position:absolute;inset:0 0 auto;height:calc(var(--safe-t) + 14px);pointer-events:none;z-index:2;
-  background:linear-gradient(180deg,rgba(44,41,36,.66) 0%,rgba(44,41,36,.56) calc(var(--safe-t) - 8px),rgba(44,41,36,.18) var(--safe-t),rgba(44,41,36,0) 100%);
+#overlay::before{
+  content:"";position:absolute;inset:0 0 auto;height:var(--safe-t);pointer-events:none;z-index:2;
+  background:var(--page-bg);
 }
 #overlay-title,#world-events-heading,.world-background summary{color:var(--paper-ink)}
 #overlay-sub{color:var(--paper-muted)}

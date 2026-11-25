@@ -150,7 +150,7 @@ async function main() {
       assert.equal(await timelineVisible(), false, 'Returning to the preview should keep the timeline hidden');
     };
     const archiveTitle = await js(`document.querySelector('#reading-title').textContent`);
-    assert.equal((await fillsViewport()).theme, '#f6f2e9');
+    assert.equal((await fillsViewport()).theme, '#0a1016');
     assert.equal((await fillsViewport()).reader, true, 'Map-only archives also use fullscreen reading');
     await size(812);
     await until(() => js(`document.querySelector('#book').getBoundingClientRect().bottom === 812`), 'Open archive did not resize');
@@ -172,7 +172,7 @@ async function main() {
     await fillsViewport();
     await tap('#reading-exit');
     await assertPreview();
-    assert.equal((await report()).theme, '#f6f2e9');
+    assert.equal((await report()).theme, '#0a1016');
     console.log('Map-only archive: fullscreen, viewport resize, catalog/back, gesture isolation and explicit close.');
 
     await tap('#sheet-toc');
@@ -232,7 +232,7 @@ async function main() {
       const {left,top} = sheet.getBoundingClientRect();
       return sheet.contains(document.elementFromPoint(left + 2, top + 2));
     })()`), false, 'The square header must not cover the rounded corner');
-    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(10, 16, 22)');
     const peek = (await report()).sheet;
     const mapBeforeReading = await mapCamera();
     await swipe('#grab', -20, { pause:150 });
@@ -275,7 +275,10 @@ async function main() {
     await fillsViewport();
     assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening the chapter list must preserve the map camera');
     assert.equal(await js(`getComputedStyle(document.querySelector('#book-bar')).paddingTop`), '62px');
-    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(10, 16, 22)');
+    assert.equal(await js(`getComputedStyle(document.querySelector('#book'), '::before').height`), '62px');
+    assert.equal(await js(`getComputedStyle(document.querySelector('#book'), '::before').backgroundColor`), 'rgb(10, 16, 22)');
+    assert.equal(await js(`getComputedStyle(document.querySelector('#book'), '::before').backgroundImage`), 'none');
     await swipe('#book-bar', 175, { pause:150 });
     await fillsViewport();
     await tap('.reading-row[data-reading-detail]');
