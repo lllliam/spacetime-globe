@@ -24,9 +24,9 @@
 
 `develop/1.0` 已完成 Phase 06。读者可从正文主动进入历史现场，按阶段观察地点与有依据的空间联系，再返回原文。书卷按共时、比较、历史联系及背景组织延伸阅读。[历史现场](docs/HISTORICAL-SCENES.md) · [阶段报告与实拍](docs/progress/PHASE-06.md) · [开发路线](docs/ROADMAP.md) · [历史内容模型](docs/HISTORY-MODEL.md) · [状态模型](docs/STATE-MODEL.md)
 
-Phase 07 正在审校存量内容。首批从四部优先书卷及其地图、年表入口开始，续审按战争暴行、强制迁移、饥荒和条约等一级风险分批查证，也逐条复核跨专题阅读关系的史料和范围，并按档案、考古报告与户籍记录核对事件日期和统计口径。已查证的范围和待处理对象逐项登记。[Phase 07 进度](docs/progress/PHASE-07.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
+Phase 07 已暂存，等待后续继续审校，尚未通过完整阶段验收。截至内容检查点 `2d8233b`，已实质处置 387／5,576 项，尚有 106 项一级筛查候选待审。产品负责人已授权在存量审校暂存期间，按各自指令开展 Phase 08《明朝》标杆书卷建设，以及 Phase 09 产品与工程验收和部署准备。[Phase 07 暂存与恢复](docs/progress/PHASE-07.md#暂存与恢复) · [开发路线](docs/ROADMAP.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
 
-正式版 `1.0.0` 在最终验收通过后发布。
+正式版 `1.0.0` 须通过包括完整历史内容验收在内的最终验收，并获产品负责人发布授权。[最终验收标准](docs/ACCEPTANCE.md)
 
 <a id="版本记录"></a>
 
