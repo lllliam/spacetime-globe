@@ -46,3 +46,5 @@
 若 `a` 或 `b` 在某阶段隐藏而该阶段仍显式启用这条线，或给此示意线增加 `directed:true`，构建会报错。公元 0 年、阶段超出原历史范围、错误坐标、未知来源 ID 与暂停场景上的地名按钮也是结构错误。
 
 新增场景时先确认正文中实际需要地图回答的问题，再选用最低足够的地理精度。核对地点、年份、路线和方向各自的证据，使用新的稳定 ID。通过 `node tools/verify-content.mjs`、`node build.mjs`、`node tools/verify-observation-model.mjs` 和 `node tools/verify-observation.js` 检查数据和真实交互。编辑核查范围另记。[历史内容模型](HISTORY-MODEL.md) · [审校记录](SOURCE-AUDIT.md)
+
+正文史实发生修订时，复查相关图版、地名和文案，保证地图的问题与邻近段落对应。例如何时只用孟斐斯一带作区域参照，何时以古都和海峡港城进行地点比较。必要时调整挂载的正文块，记录依据并验证返回位置。[Phase 07 核查示例](progress/PHASE-07.md)

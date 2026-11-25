@@ -1,0 +1,452 @@
+{
+  "id": "india-classical-modern",
+  "access": [
+    {
+      "url": "https://whc.unesco.org/en/tentativelists/6803/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度提交联合国教科文组织｜阿育王敕令遗址预备清单",
+      "locator": "国家申报档案原文，公元前 3 世纪石刻、岩敕和柱敕的形制及交通线。"
+    },
+    {
+      "url": "https://nri.up.gov.in/article/en/sarnath",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "北方邦政府｜鹿野苑与狮柱柱头",
+      "locator": "鹿野苑遗址及现代印度国徽所据的狮柱柱头。"
+    },
+    {
+      "url": "https://www.metmuseum.org/toah/ht/07/sss.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜南亚南部 1000—1400 年",
+      "locator": "公元约 1000 年坦贾武尔神庙、拉金德拉一世时对三佛齐的海上军事行动和朱罗在斯里兰卡的扩张。"
+    },
+    {
+      "url": "https://searcharchives.bl.uk/catalog/040-003394110",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "英国图书馆｜奥姆档案 Mss Eur Orme India XI",
+      "locator": "英印档案馆藏目录第 17 项记录 1757 年 6 月普拉西战斗，Scope & Content 说明米尔·贾法尔成为纳瓦卜。"
+    },
+    {
+      "url": "https://nationalarchives.nic.in/sites/default/files/2026-01/34.%20Our%20Heritage.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度国家档案馆｜沙阿拉姆敕令馆藏说明",
+      "locator": "Public Records 第 1 项，Home Public Cons., 9 September 1765, No. 2。"
+    },
+    {
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/collections1/collections2/1947-indian-independence-act/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "英国议会档案｜1947 年印度独立法",
+      "locator": "HL/PO/PU/1/1947/10&11G6c30 馆方说明，两自治领、旁遮普和孟加拉分割及人口被迫迁移。"
+    },
+    {
+      "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度外交部｜印巴关系档案汇编",
+      "locator": "导言关于边界委员会报告，8 月 16 日讨论与 17 日刊布。"
+    },
+    {
+      "url": "https://malda.gov.in/history/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度马尔达行政区｜分治时期的马尔达",
+      "locator": "1947 年条目记述裁决发布前当地数日的不确定状态及其后归属。"
+    },
+    {
+      "url": "https://www.legislative.gov.in/static/uploads/2025/07/359f70a69695affb9d72f8393102bd2e.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度立法部｜印度宪法汇编",
+      "locator": "英语正文第 17 条和第 394 条。"
+    },
+    {
+      "url": "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2024-economic-forecast-gradual-rebound-adverse-environment/indias-economic-surge-regional-global-economic-player_en",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "欧盟委员会｜2024 年印度经济专题",
+      "locator": "Structural features and challenges 对国际收支危机、1991 年改革与此后服务业的分析。"
+    },
+    {
+      "url": "https://desapublications.un.org/policy-briefs/un-desa-policy-brief-no-153-india-overtakes-china-worlds-most-populous-country",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "联合国经社部｜2023 年人口政策简报第 153 号",
+      "locator": "2023 年 4 月简报、图 1 的历史估算和预测。"
+    },
+    {
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "英国国家档案馆｜英属印度分治资料",
+      "locator": "HTTP 403。颁布时点改用印度外交部档案汇编，地方实例改用马尔达公开资料。"
+    },
+    {
+      "url": "https://www.loc.gov/item/94840377/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "美国国会图书馆｜William Watts 普拉西战役记述",
+      "locator": "HTTP 403。战役年代改用英国图书馆公开馆藏目录。"
+    },
+    {
+      "url": "https://projects.iq.harvard.edu/files/epod/files/khwaja_a_-_partition_of_india_june_2009.pdf",
+      "status": "temporary-failure",
+      "date": "2026-11-25",
+      "material": "哈佛 EPoD｜印巴分治研究",
+      "locator": "PDF 未能打开。暂不采用具体伤亡与人口迁移估算。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/book/india-classical-modern/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "撤下把南北社会发展归为两种固定模式的表述。",
+      "limit": "撤下把南北社会发展归为两种固定模式的表述。"
+    },
+    {
+      "id": "text/book/india-classical-modern/editorialNotice",
+      "status": "issues",
+      "action": "revise",
+      "scope": "交代全卷地域范围和分治、当代数据的边界。",
+      "limit": "交代全卷地域范围和分治、当代数据的边界。"
+    },
+    {
+      "id": "book/india-classical-modern",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "审查古代南亚与现代国家的叙述范围",
+      "limit": "仅核对可以定位到下列资料的高风险段落。四章其余段落仍列在未复核清单。"
+    },
+    {
+      "id": "text/chapter/india-classical-modern/maurya-ashoka-kushan/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "避免在摘要中把转变为佛教徒与特定战役直接串成未经核验的单线因果。",
+      "limit": "避免在摘要中把转变为佛教徒与特定战役直接串成未经核验的单线因果。"
+    },
+    {
+      "id": "book-chapter/india-classical-modern/maurya-ashoka-kushan",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "石刻、柱敕和当代使用的重点复核",
+      "limit": "军事伤亡、贵霜及海上交流的旧段落需另读资料。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/maurya-ashoka-kushan/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "征服后石刻发布，区分原文表态和实际政策",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "征服后石刻发布，区分原文表态和实际政策",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/ashokan-sites",
+              "locator": "Description，羯陵伽之后段落及岩敕、柱敕部分",
+              "supports": "战后有沿交通线公开的石刻文告，载体和体裁有差异。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/india-classical-modern/maurya-ashoka-kushan/aside-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "鹿野苑狮柱柱头与印度共和国国徽",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "鹿野苑狮柱柱头与印度共和国国徽",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/sarnath-emblem",
+              "locator": "Sarnath 段落，狮柱遗址与现代国徽",
+              "supports": "国徽图案取自鹿野苑狮柱柱头。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/india-classical-modern/gupta-chola-delhi/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "撤下将零归于单一时期和用族群军事标签概括德里苏丹国的总论。",
+      "limit": "撤下将零归于单一时期和用族群军事标签概括德里苏丹国的总论。"
+    },
+    {
+      "id": "book-chapter/india-classical-modern/gupta-chola-delhi",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "朱罗南印度寺院与三佛齐关系重点核对",
+      "limit": "数位记法与零的术语和分期，德里苏丹国各阶段仍需核对。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/gupta-chola-delhi/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "朱罗寺庙营建与针对三佛齐的行动",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "朱罗寺庙营建与针对三佛齐的行动",
+          "result": "supported",
+          "limit": "待核对铭文后再确定远征的精确年份、停靠地点及动机。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/met-chola",
+              "locator": "约 1000 年及约 1014—1044 年条目",
+              "supports": "罗阇罗阇主持坦贾武尔大神庙建设，拉金德拉一世曾对三佛齐用兵，馆方以其在位年代界定远征。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block/india-classical-modern/gupta-chola-delhi/aside-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "坦贾武尔及南印度寺庙空间的发展",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "坦贾武尔及南印度寺庙空间的发展",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/met-chola",
+              "locator": "约 1000 年及约 1014—1044 年条目",
+              "supports": "罗阇罗阇主持坦贾武尔大神庙建设，拉金德拉一世曾对三佛齐用兵，馆方以其在位年代界定远征。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/india-classical-modern/mughal-company-raj/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "把政治和财政授权分成可查的事件。",
+      "limit": "把政治和财政授权分成可查的事件。"
+    },
+    {
+      "id": "book-chapter/india-classical-modern/mughal-company-raj",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "孟加拉权力转换的两个关键时点",
+      "limit": "莫卧儿诸段、殖民贸易及铁路的因果尚需核对。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/mughal-company-raj/p-04",
+      "status": "checked",
+      "action": "revise",
+      "scope": "普拉西 1757 年与 Diwani 1765 年的顺序及范围",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "普拉西 1757 年与 Diwani 1765 年的顺序及范围",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/plassey-record",
+              "locator": "Scope & Content 及第 17 项",
+              "supports": "1757 年 6 月普拉西战役，存档往来涉及米尔·贾法尔成为纳瓦卜。"
+            },
+            {
+              "source": "source/book/india-classical-modern/diwani-1765",
+              "locator": "Public Records 第 1 项",
+              "supports": "1765 年 8 月 12 日敕令授予东印度公司孟加拉、比哈尔及奥里萨的 Diwani。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true,
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读两份档案目录的战役条目与敕令日期，区分产生的权限。"
+      }
+    },
+    {
+      "id": "block/india-classical-modern/mughal-company-raj/aside-04",
+      "status": "checked",
+      "action": "revise",
+      "scope": "敕令的时间、馆藏形式和管辖范围",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "敕令的时间、馆藏形式和管辖范围",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/diwani-1765",
+              "locator": "Public Records 第 1 项",
+              "supports": "1765 年 8 月 12 日敕令授予东印度公司孟加拉、比哈尔及奥里萨的 Diwani。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/india-classical-modern/independence-partition-republic/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "区分独立与裁决公开，避免将现代国界投回分治前。",
+      "limit": "区分独立与裁决公开，避免将现代国界投回分治前。"
+    },
+    {
+      "id": "text/chapter/india-classical-modern/independence-partition-republic/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "区分独立与裁决公开，避免将现代国界投回分治前。",
+      "limit": "区分独立与裁决公开，避免将现代国界投回分治前。"
+    },
+    {
+      "id": "text/chapter/india-classical-modern/independence-partition-republic/spatialThesis",
+      "status": "issues",
+      "action": "revise",
+      "scope": "区分独立与裁决公开，避免将现代国界投回分治前。",
+      "limit": "区分独立与裁决公开，避免将现代国界投回分治前。"
+    },
+    {
+      "id": "book-chapter/india-classical-modern/independence-partition-republic",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "独立、分治、宪法与当代人口资料关键点",
+      "limit": "甘地动员、不结盟历史及其他政策案例仍需逐段复核。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-02",
+      "status": "checked",
+      "action": "revise",
+      "scope": "独立法、边界公布及人口被迫迁移",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "独立法、边界公布及人口被迫迁移",
+          "result": "supported",
+          "limit": "撤下未经核对的死亡人数、迁移人数及具体场面。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/partition-act",
+              "locator": "HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "supports": "法案设立印度和巴基斯坦两个自治领，分割旁遮普和孟加拉，并引发被迫迁移。"
+            },
+            {
+              "source": "source/book/india-classical-modern/partition-awards",
+              "locator": "导言关于边界委员会",
+              "supports": "8 月 16 日讨论边界报告，随后安排 8 月 17 日刊布。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/india-classical-modern/independence-partition-republic/aside-02",
+      "status": "checked",
+      "action": "revise",
+      "scope": "孟加拉马尔达在裁决发布前后的行政归属",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "孟加拉马尔达在裁决发布前后的行政归属",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/malda-boundary",
+              "locator": "1947 年条目",
+              "supports": "裁决细节在 8 月 17 日公开，当地归入西孟加拉。"
+            },
+            {
+              "source": "source/book/india-classical-modern/partition-awards",
+              "locator": "导言关于边界委员会",
+              "supports": "8 月 16 日讨论边界报告，随后安排 8 月 17 日刊布。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "宪法主要条款的生效日及第 17 条",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "宪法主要条款的生效日及第 17 条",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/constitution",
+              "locator": "第 17 条及第 394 条",
+              "supports": "禁止不可接触制，分批生效的日期为 1950 年 1 月 26 日。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "国际收支危机、改革与后续服务业变化",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "国际收支危机、改革与后续服务业变化",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/ec-1991",
+              "locator": "Structural features and challenges",
+              "supports": "对 1991 年改革和后续部门发展的历史数据与解释。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-06",
+      "status": "checked",
+      "action": "revise",
+      "scope": "2023 年 4 月的历史估算及范围",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "2023 年 4 月的历史估算及范围",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/un-pop-2023",
+              "locator": "简报正文首段及图 1",
+              "supports": "估计人口交叉点在 2023 年 4 月，口径为印度与中国大陆。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

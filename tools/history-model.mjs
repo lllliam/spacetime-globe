@@ -179,6 +179,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     requireRange(book,file,{unknown:true});
     if (book.from === null) check(string(book.dateLabel),file + ' 未知年代需有说明');
     requireAudit(book.audit,file);
+    check(book.editorialNotice===undefined || string(book.editorialNotice),file + ' 资料说明无效');
     check(!book.subjectIds || list(book.subjectIds,key=>subjects.has(key)),file + ' 无法查找所述历史对象');
     const sources = sourceList(book.sources,file);
     if (!sources.size) warnings.push(file + ' 来源待补充');
@@ -186,6 +187,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     for (const ch of book.chapters) {
       const label = file + '/' + ch.id;
       check(string(ch.title) && string(ch.summary) && chapterKinds.has(ch.kind),label + ' 章节名称或叙事类型无效');
+      check(ch.editorialNotice===undefined || string(ch.editorialNotice),label + ' 资料说明无效');
       requireRange(ch,label,{unknown:true});
       if (ch.from === null) check(string(ch.dateLabel),label + ' 未知年代需有说明');
       if (!contained(book,ch) && book.from !== null)

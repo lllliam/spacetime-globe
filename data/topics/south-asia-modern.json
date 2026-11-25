@@ -431,10 +431,15 @@
       },
       "sources": [
         {
+          "id": "source-01",
           "title": "英国国家档案馆：英属印度的分治",
           "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
           "checkedAt": "2026-11-17",
-          "id": "source-01"
+          "note": "旧资料入口，本轮访问受限",
+          "audit": {
+            "status": "insufficient",
+            "note": "2026-11-25 返回 HTTP 403。现有正文改按英国议会档案和印度外交部公开汇编引用。"
+          }
         },
         {
           "title": "英国国家档案馆：1971年孟加拉国独立资料",
@@ -447,36 +452,62 @@
           "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/indian-independence-part-two/",
           "checkedAt": "2026-11-17",
           "id": "source-03"
+        },
+        {
+          "id": "boundary-awards",
+          "title": "印度外交部｜印巴关系档案汇编",
+          "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf"
+        },
+        {
+          "id": "partition-act",
+          "title": "英国议会档案｜1947 年印度独立法",
+          "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/collections1/collections2/1947-indian-independence-act/"
         }
       ],
       "sections": [
         {
           "title": "转折：权力转移被加速推进",
-          "text": "1947年英国决定向印度与巴基斯坦两个新国家移交权力，实际日程比早先设想更急迫。边界安排涉及人口混居、经济联系和地方权力，难以通过一条简单的宗教分界线解决。印度与巴基斯坦宣布独立时，部分最终边界还没有公布，许多居民因此在极度不确定的环境中面对国家归属的变化。",
+          "text": "英国议会在 1947 年通过《印度独立法》，设立印度和巴基斯坦两个自治领。旁遮普和孟加拉两省被分割，具体边界随后由委员会裁定。8 月 17 日，边界裁决公开。宣布独立与公布居民家乡的具体归属发生在不同日期。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "partition-act",
+              "locator": "HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "note": "1947 年法案设立两个自治领，旁遮普和孟加拉分割。"
+            },
+            {
+              "sourceId": "boundary-awards",
+              "locator": "导言，边界委员会一节",
+              "note": "边界裁决于 8 月 17 日公布。"
+            }
           ],
           "id": "section-01"
         },
         {
           "title": "边界：旁遮普与孟加拉为何被切开",
-          "text": "旁遮普和孟加拉的分割穿过长期联系的地区，家庭、耕地、交通和市场被放入不同国家。宗教人口比例只是划界考虑的一部分，实际居民并不是均匀分布。国家地图把复杂关系转成一条线，行政上便于表达，却无法消除地方联系及对安全的恐惧。边界影响必须通过居民经历才能真正理解。",
+          "text": "划界使旁遮普和孟加拉原来相连的地区被划入两个新的国家。边界委员会分别处理两省。国家地图上的一条界线改变了地方的行政归属，也给居民的家庭、道路和财产带来新的问题。各地实际经历怎样，还需结合档案和当事人记述。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "partition-act",
+              "locator": "藏件说明，旁遮普和孟加拉段落",
+              "note": "两省划分与由此产生的人口迁移。"
+            },
+            {
+              "sourceId": "boundary-awards",
+              "locator": "导言，边界委员会一节",
+              "note": "边界裁决磋商与公布日期。"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "社会：迁徙与暴力怎样相互放大",
-          "text": "分治伴随大规模迁移与群体暴力，不同宗教社群都遭受严重伤害。居民可能因直接威胁、传闻、地方冲突或对未来的不安而离开家园。难民的安置与财产问题继续影响新国家，独立并不是社会秩序自动恢复的时刻。把暴力仅说成古老仇恨，会忽略具体政治决定、行政失序与保护机制的失败。",
+          "text": "分治伴随人口被迫迁移和群体暴力，印度教徒、穆斯林和锡克教徒都受到波及。英国议会档案说明了这次迁移的缘由与涉及的社群。具体地区的伤亡和人口移动需要结合其他统计或当事人证言。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "partition-act",
+              "locator": "藏件说明，旁遮普和孟加拉段落",
+              "note": "两省划分与由此产生的人口迁移。"
+            }
           ],
           "id": "section-03"
         },
@@ -484,7 +515,6 @@
           "title": "后续：同一宗教也不能保证国家统一",
           "text": "巴基斯坦最初包括地理上分离的东西两部分，语言、经济资源和政治代表的不平等逐渐成为冲突。1971年东巴基斯坦经历战争，孟加拉国独立。这一转折说明，宗教认同并不能替代公平的权力和资源安排。新的国家仍需要处理谁参与决定、谁得到发展机会，以及地方文化如何被尊重的问题。",
           "refs": [
-            "source-01",
             "source-02",
             "source-03"
           ],
@@ -494,7 +524,6 @@
           "title": "理解线索：把主权与居民安全放在一起",
           "text": "分治既是殖民帝国结束的重要事件，也是持续塑造国家关系和个人记忆的社会灾难。比较其他地区的独立，应同时问外来统治如何退出、边界怎样制定以及居民能否得到保护。这样才能理解民族自决为何是一项重要追求，却仍需要具体制度和政治协商来保障不同群体，而不是仅以国旗和国家名单衡量完成。",
           "refs": [
-            "source-01",
             "source-02",
             "source-03"
           ],

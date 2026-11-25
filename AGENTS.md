@@ -15,6 +15,7 @@
 - 涉及阅读时，运行 `node tools/verify-reading.js`，验证正文位置、旧会话、字号、引用、主动观察及全屏隔离，并保留全量断网正文回归。
 - 历史内容按 [历史内容模型](docs/HISTORY-MODEL.md) 维护。正文块、来源和场景关系使用显式稳定 ID，地图入口在 `data/history/map-bindings.json` 编目，史料核查独立记录。内容结构变更运行 `node tools/verify-history-model.mjs`，触及兼容层时再用 Phase 04 构建运行 `node tools/verify-history-browser.js`。
 - 维护历史现场、地名和全球关系时遵循 [历史现场规范](docs/HISTORICAL-SCENES.md) 与 [阅读组织](docs/READING.md)。场景的线、方向和具体位置按证据开放。运行 `node tools/verify-observation-model.mjs` 与 `node tools/verify-observation.js`，并在阶段报告记录实际核查范围。
+- 实质审校遵循 [历史编辑规范](docs/EDITORIAL-STANDARD.md)。按稳定 ID 记录来源访问、实际读到的段落、支持的论断、限制与处置。每批用 Phase 06 归档重算清单，保留未审对象和历史证据。[审校进度](docs/progress/PHASE-07.md)
 - 功能、交互、修复、图标与内容覆盖变化须核对并更新 README 和受影响的现行文档。按 [版本规范](docs/VERSIONING.md) 记录阶段变化和正式更新，自动生成产物的单独提交无需重复记录。
 
 ## 开发分支与网站发布

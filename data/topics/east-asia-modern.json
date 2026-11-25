@@ -252,6 +252,21 @@
           "url": "https://openstax.org/books/world-history-volume-2/pages/14-2-the-spread-of-communism",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "world-bank-reform",
+          "title": "世界银行｜回顾中国改革四十年",
+          "url": "https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms"
+        },
+        {
+          "id": "resolution-1981",
+          "title": "1981 年《关于建国以来党的若干历史问题的决议》",
+          "url": "https://yndx.gov.cn/html/210507/14467.html"
+        },
+        {
+          "id": "state-archives-1949",
+          "title": "国家档案局｜开国大典档案目录",
+          "url": "https://www.saac.gov.cn/daj/gqzt/06.html"
         }
       ],
       "sections": [
@@ -293,10 +308,18 @@
         },
         {
           "title": "承接：转向改革不等于过去突然消失",
-          "text": "1978年前后开始的经济改革，改变国家、市场和个人的关系，也在既有行政与社会条件上展开。此后的增长、流动和差异需要放在更长的制度变化中考察。本篇止于改革转折，不把后来几十年的结果当作当时已经确定的未来；跨区域比较还应考虑台湾、朝鲜半岛与日本在战后形成的不同政治和经济道路。",
+          "text": "1978 年，中共十一届三中全会把工作重心转向经济建设。此后，农村生产经营与沿海开放等政策逐步改变。不同地区和部门的试验发生在先后各异的时间，改革的成果和分配影响也需要观察更长时段。本篇以改革转折作结。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "resolution-1981",
+              "locator": "第 27 节",
+              "note": "1978 年会议把工作重心转向社会主义现代化建设。"
+            },
+            {
+              "sourceId": "world-bank-reform",
+              "locator": "改革初期段落",
+              "note": "农村和经济特区先后开展渐进式试验。"
+            }
           ],
           "id": "section-05"
         }

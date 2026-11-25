@@ -1,0 +1,393 @@
+{
+  "id": "topic-cross-checks",
+  "access": [],
+  "reviews": [
+    {
+      "id": "block/topic/nile-civilizations/thebes/section-03",
+      "action": "revise",
+      "status": "checked",
+      "scope": "新王国工匠与官府冲突，以及村落材料的地理边界",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "新王国工匠与官府冲突，以及村落材料的地理边界",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/nile-civilizations/thebes/turin-papyrus",
+              "locator": "Papyrus Cat. 1880 藏品说明",
+              "supports": "代尔麦地那工匠口粮停发后与官府产生持续冲突。"
+            }
+          ],
+          "limit": "材料支持代尔麦地那个案。"
+        }
+      ]
+    },
+    {
+      "id": "article/nile-civilizations/thebes",
+      "action": "retain",
+      "status": "checked",
+      "scope": "底比斯地区工匠文章的选题和新王国大致范围",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "底比斯地区工匠文章的选题和新王国大致范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/nile-civilizations/thebes/turin-papyrus",
+              "locator": "Papyrus Cat. 1880 藏品说明",
+              "supports": "代尔麦地那工匠口粮停发后与官府产生持续冲突。"
+            }
+          ],
+          "limit": "代理坐标用于底比斯地区，专题年份是定位，不是一次罢工的精确年份。"
+        }
+      ]
+    },
+    {
+      "id": "topic/nile-civilizations",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/south-asia-early/ashoka/section-03",
+      "action": "revise",
+      "status": "checked",
+      "scope": "石刻的形制及放置位置",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "石刻的形制及放置位置",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-early/ashoka/ashokan-sites",
+              "locator": "Description，行政文告、岩敕和柱敕",
+              "supports": "部分敕令设在城镇边缘与商路上，材料载体及篇幅各有不同。"
+            }
+          ],
+          "limit": "遗产预备清单为申报材料。未逐一核对各地译文、受众和落实情况。"
+        }
+      ]
+    },
+    {
+      "id": "article/south-asia-early/ashoka",
+      "action": "retain",
+      "status": "checked",
+      "scope": "公元前约 250 年为阿育王在位阶段，巴特那是都城区域参照",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "公元前约 250 年为阿育王在位阶段，巴特那是都城区域参照",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-early/ashoka/ashokan-sites",
+              "locator": "Description，行政文告、岩敕和柱敕",
+              "supports": "部分敕令设在城镇边缘与商路上，材料载体及篇幅各有不同。"
+            }
+          ],
+          "limit": "定位点不能指认该处有某块指定敕令，地点精度仍按区域理解。"
+        }
+      ]
+    },
+    {
+      "id": "topic/south-asia-early",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/south-asia-modern/partition/section-01",
+      "action": "revise",
+      "status": "checked",
+      "scope": "独立法与边界裁决先后",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "独立法与边界裁决先后",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-modern/partition/partition-act",
+              "locator": "HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "supports": "1947 年法案设立两个自治领，旁遮普和孟加拉分割。"
+            },
+            {
+              "source": "source/topic/south-asia-modern/partition/boundary-awards",
+              "locator": "导言，边界委员会一节",
+              "supports": "边界裁决于 8 月 17 日公布。"
+            }
+          ],
+          "limit": "本段只核对 1947 年，精确伤亡估算及 1971 年部分另查。"
+        }
+      ]
+    },
+    {
+      "id": "article/south-asia-modern/partition",
+      "action": "retain",
+      "status": "checked",
+      "scope": "1947 年主题年份与旁遮普影响地区相符",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1947 年主题年份与旁遮普影响地区相符",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-modern/partition/partition-act",
+              "locator": "HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "supports": "1947 年法案设立两个自治领，旁遮普和孟加拉分割。"
+            },
+            {
+              "source": "source/topic/south-asia-modern/partition/boundary-awards",
+              "locator": "导言，边界委员会一节",
+              "supports": "边界裁决于 8 月 17 日公布。"
+            }
+          ],
+          "limit": "拉合尔为区域实例，不表示整条边界或全部迁移路线。"
+        }
+      ]
+    },
+    {
+      "id": "topic/south-asia-modern",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/europe-classical/late-antiquity/section-01",
+      "action": "revise",
+      "status": "checked",
+      "scope": "330 年和 476 年的不同政治事件",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "330 年和 476 年的不同政治事件",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-classical/late-antiquity/met-byzantium",
+              "locator": "开篇及 The Beginning of Byzantium",
+              "supports": "330 年建都，东部罗马制度延续，当时人自称罗马人。"
+            },
+            {
+              "source": "source/topic/europe-classical/late-antiquity/met-italy-476",
+              "locator": "476 年条目",
+              "supports": "奥多亚克废黜罗慕路斯·奥古斯都卢斯。"
+            }
+          ],
+          "limit": "476 年不概括各地城镇、经济及行政的全部转型。"
+        }
+      ]
+    },
+    {
+      "id": "article/europe-classical/late-antiquity",
+      "action": "retain",
+      "status": "checked",
+      "scope": "以 330 年为专题入口，且新都位置与正文对应",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以 330 年为专题入口，且新都位置与正文对应",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-classical/late-antiquity/met-byzantium",
+              "locator": "开篇及 The Beginning of Byzantium",
+              "supports": "330 年建都，东部罗马制度延续，当时人自称罗马人。"
+            }
+          ],
+          "limit": "这是数世纪转型的开篇地标。"
+        }
+      ]
+    },
+    {
+      "id": "topic/europe-classical",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/ottoman-persia/istanbul/section-01",
+      "action": "revise",
+      "status": "checked",
+      "scope": "君士坦丁堡陷落时间及城市设施的延续",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "君士坦丁堡陷落时间及城市设施的延续",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/ottoman-persia/istanbul/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，随后修城墙、恢复供水及改变宗教建筑用途。"
+            }
+          ],
+          "limit": "城墙与供水的使用变化支持这一空间例子，不能确定全城的人口数量。"
+        }
+      ]
+    },
+    {
+      "id": "article/ottoman-persia/istanbul",
+      "action": "retain",
+      "status": "checked",
+      "scope": "定位 1453 年君士坦丁堡政权转换",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "定位 1453 年君士坦丁堡政权转换",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/ottoman-persia/istanbul/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，随后修城墙、恢复供水及改变宗教建筑用途。"
+            }
+          ],
+          "limit": "城市点不表达战争路线或城市扩张界线。"
+        }
+      ]
+    },
+    {
+      "id": "topic/ottoman-persia",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/east-asia-modern/china-revolutions/section-05",
+      "action": "revise",
+      "status": "checked",
+      "scope": "1978 年会议及改革逐步展开",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1978 年会议及改革逐步展开",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/resolution-1981",
+              "locator": "第 27 节",
+              "supports": "1978 年会议把工作重心转向社会主义现代化建设。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/world-bank-reform",
+              "locator": "改革初期段落",
+              "supports": "农村和经济特区先后开展渐进式试验。"
+            }
+          ],
+          "limit": "本段与年表的改革起步标记和书卷相互对应。"
+        }
+      ]
+    },
+    {
+      "id": "article/east-asia-modern/china-revolutions",
+      "action": "retain",
+      "status": "checked",
+      "scope": "以 1949 年的北京作为专题入口并在文末过渡到 1978 年",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "以 1949 年的北京作为专题入口并在文末过渡到 1978 年",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/state-archives-1949",
+              "locator": "开国大典档案目录",
+              "supports": "中央人民政府公告与典礼程序的日期为 1949 年 10 月 1 日。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/resolution-1981",
+              "locator": "第 27 节",
+              "supports": "1978 年会议把工作重心转向社会主义现代化建设。"
+            }
+          ],
+          "limit": "全文战争、土地政策等段落仍逐项列为待查。"
+        }
+      ]
+    },
+    {
+      "id": "topic/east-asia-modern",
+      "action": "retain",
+      "status": "insufficient",
+      "scope": "核对该组直接连接首批书卷的专题文章",
+      "limit": "此记录仅说明已开展专题交叉审校。组内其他文章与本篇其他段落逐项保留待查。"
+    },
+    {
+      "id": "block/topic/south-asia-modern/partition/section-02",
+      "action": "revise",
+      "status": "checked",
+      "scope": "两省的分割及边界与居民关系",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两省的分割及边界与居民关系",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-modern/partition/partition-act",
+              "locator": "藏件说明，旁遮普和孟加拉段落",
+              "supports": "两省划分与由此产生的人口迁移。"
+            },
+            {
+              "source": "source/topic/south-asia-modern/partition/boundary-awards",
+              "locator": "导言，边界委员会一节",
+              "supports": "边界裁决磋商与公布日期。"
+            }
+          ],
+          "limit": "材料支持两省的裁决背景，各地所受冲击需要地方研究。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/south-asia-modern/partition/section-03",
+      "action": "revise",
+      "status": "checked",
+      "scope": "分治中的大规模被迫迁移及受影响群体",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "分治中的大规模被迫迁移及受影响群体",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-modern/partition/partition-act",
+              "locator": "藏件说明，旁遮普和孟加拉段落",
+              "supports": "两省划分与由此产生的人口迁移。"
+            }
+          ],
+          "limit": "具体伤亡、区域规模及家庭经历未以粗略估算替代。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/south-asia-modern/partition/section-04",
+      "action": "revise",
+      "status": "insufficient",
+      "scope": "撤下指向无法访问旧资料的泛用注释",
+      "limit": "剩余既有参考资料及正文论断需进一步查证。尚未确认整段。"
+    },
+    {
+      "id": "block/topic/south-asia-modern/partition/section-05",
+      "action": "revise",
+      "status": "insufficient",
+      "scope": "撤下指向无法访问旧资料的泛用注释",
+      "limit": "剩余既有参考资料及正文论断需进一步查证。尚未确认整段。"
+    },
+    {
+      "id": "source/topic/south-asia-modern/partition/source-01",
+      "action": "revise",
+      "status": "insufficient",
+      "scope": "保留旧来源身份和历史核查日期并标记当前访问限制",
+      "limit": "原网址返回 HTTP 403。对分治手续和公开边界这部分，采用两份不同的已读替代材料。"
+    }
+  ]
+}

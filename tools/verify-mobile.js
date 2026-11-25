@@ -325,7 +325,8 @@ async function main() {
     const yearLink = '[data-world-read="i-tr-constantinople-1453"]';
     await js(`document.querySelector('${yearLink}').scrollIntoView({block:'center'})`);
     await tap(yearLink);
-    assert.match(await js(`document.querySelector('#reading-title').textContent`), /最后一道城墙/);
+    assert.equal(await js('__t.reading.detail'), 'crusades-commercial-bleed-1453');
+    assert.match(await js(`document.querySelector('#reading-title').textContent`), /1453 年/);
     console.log('Updated library: 57 volumes, Central Asia map entry, and 1453 event links to the rewritten Roman chapter');
 
     await tap('#reading-exit');

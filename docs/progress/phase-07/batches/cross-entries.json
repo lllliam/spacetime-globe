@@ -1,0 +1,568 @@
+{
+  "id": "cross-entries",
+  "access": [
+    {
+      "url": "https://whc.unesco.org/document/197467",
+      "material": "世界遗产中心和 ICOMOS｜孟斐斯及其墓地",
+      "locator": "第 33 页 Annex 5，托勒密时期首都、内陆行政中心及墓地。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "url": "https://whc.unesco.org/archive/2021/whc21-44com-8E-en.pdf",
+      "material": "世界遗产中心｜桑奇佛教遗迹",
+      "locator": "WHC/21/44.COM/8E，桑奇部分 Brief synthesis 与 Criterion (ii)。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb",
+      "material": "大都会艺术博物馆｜巴尔干半岛 1400—1600 年",
+      "locator": "埃迪尔内建筑和都城，1453 年君士坦丁堡政权转换和奥斯曼建设。",
+      "status": "read",
+      "date": "2026-11-25"
+    },
+    {
+      "url": "https://www.saac.gov.cn/daj/gqzt/06.html",
+      "material": "国家档案局｜开国大典档案目录",
+      "locator": "1949 年 10 月 1 日中央人民政府公告、委员会会议记录和典礼程序。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "map/country/IN/india-classical-modern/1947",
+      "action": "qualify",
+      "scope": "现代印度读者入口与书卷涵盖地域的区别",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "现代印度读者入口与书卷涵盖地域的区别",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/partition-act",
+              "locator": "1947 年法案 HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "supports": "自 1947 年独立与区域分治，区分印度与巴基斯坦两个自治领。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对入口对象、年代与叙事范围。现代底图用于参照，当前资料未验证界线几何。"
+        }
+      ]
+    },
+    {
+      "id": "map/country/PK/india-classical-modern/1947",
+      "action": "qualify",
+      "scope": "现代巴基斯坦相关入口与印巴分治的关系",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "现代巴基斯坦相关入口与印巴分治的关系",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/partition-act",
+              "locator": "1947 年法案 HL/PO/PU/1/1947/10&11G6c30 藏件说明",
+              "supports": "自 1947 年独立与区域分治，区分印度与巴基斯坦两个自治领。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对入口对象、年代与叙事范围。现代底图用于参照，当前资料未验证界线几何。"
+        }
+      ]
+    },
+    {
+      "id": "scene/egypt-nile-corridor",
+      "action": "qualify",
+      "scope": "古王国河谷行政中心和托勒密时期港口同内陆的区位差别",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "古王国河谷行政中心和托勒密时期港口同内陆的区位差别",
+          "evidence": [
+            {
+              "source": "source/scene/egypt-nile-corridor/unesco-memphis",
+              "locator": "Annex 5，Brief Synthesis，第 33 页",
+              "supports": "孟斐斯行政中心及托勒密时期与亚历山大城的并存。"
+            },
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "Alexandria, Hellenistic Monarchy, and External Relations",
+              "supports": "海港在三角洲西北岸，法罗斯灯塔位于港口入口。"
+            }
+          ],
+          "result": "supported",
+          "limit": "两阶段保留，不通过开罗坐标确认孟斐斯城址或推测路线。"
+        }
+      ]
+    },
+    {
+      "id": "scene/india-ganges-deccan",
+      "action": "qualify",
+      "scope": "原来的长时段标题超出两处现代参照点所支持的范围",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "原来的长时段标题超出两处现代参照点所支持的范围",
+          "evidence": [
+            {
+              "source": "source/scene/india-ganges-deccan/asi-sanchi",
+              "locator": "Buddhist Monuments at Sanchi，Brief synthesis，第 12—13 页",
+              "supports": "说明桑奇区域和早期佛教遗存。"
+            }
+          ],
+          "result": "supported",
+          "limit": "证据只给出桑奇区域背景，保留为地理参照，不能以场景替代阿育王敕令位置或分治地图。"
+        }
+      ]
+    },
+    {
+      "id": "scene/ottoman-constantinople",
+      "action": "qualify",
+      "scope": "两城作为奥斯曼先后政治中心的空间参照",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两城作为奥斯曼先后政治中心的空间参照",
+          "evidence": [
+            {
+              "source": "source/scene/ottoman-constantinople/source-01",
+              "locator": "1437–47、1453 和 1453–1481 年条目",
+              "supports": "埃迪尔内作为此前首都，随后穆罕默德二世以君士坦丁堡为都。"
+            }
+          ],
+          "result": "supported",
+          "limit": "只确认城市与政治时序，保留近似点和比较关系。"
+        }
+      ]
+    },
+    {
+      "id": "scene-ref/roman/crusades-commercial-bleed-1453/ottoman-constantinople",
+      "action": "revise",
+      "scope": "章内场景入口移到 1453 年的段落后",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "章内场景入口移到 1453 年的段落后",
+          "evidence": [
+            {
+              "source": "source/scene/ottoman-constantinople/source-01",
+              "locator": "1437–47、1453 和 1453–1481 年条目",
+              "supports": "埃迪尔内作为此前首都，随后穆罕默德二世以君士坦丁堡为都。"
+            }
+          ],
+          "result": "supported",
+          "limit": "比较两座城市的位置和政治背景，两个古城采用近似点。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/roman/crusades-commercial-bleed-1453/reading-01",
+      "action": "qualify",
+      "scope": "罗马章至奥斯曼章的延伸阅读目标",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "罗马章至奥斯曼章的延伸阅读目标",
+          "evidence": [
+            {
+              "source": "source/book/roman/va-1453",
+              "locator": "A capital reborn 展签",
+              "supports": "奥斯曼统治时期修复城市设施并调整圣索菲亚的用途。"
+            }
+          ],
+          "result": "supported",
+          "limit": "保持延伸阅读的关系类型。不从同一日期推出另一个政治或贸易关系。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ottoman/ghazi-beylik-to-istanbul/p-05",
+      "action": "revise",
+      "scope": "两条事件阅读入口对 1453 年政权转换的纪年一致",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两条事件阅读入口对 1453 年政权转换的纪年一致",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，修复城墙和供水并改造教堂。"
+            }
+          ],
+          "result": "supported",
+          "limit": "撤下未定位史料的战舰数、具体行动路线和情节。"
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/ottoman/ghazi-beylik-to-istanbul/aside-05",
+      "action": "revise",
+      "scope": "改用可核对的 1453 年后城墙和供水设施证据",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "改用可核对的 1453 年后城墙和供水设施证据",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，修复城墙和供水并改造教堂。"
+            }
+          ],
+          "result": "supported",
+          "limit": "撤下合成的目击与行动旁白。"
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/ottoman/ghazi-beylik-to-istanbul/p-06",
+      "action": "revise",
+      "scope": "城市成为奥斯曼首都、圣索菲亚用途及宫廷建设的变化",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "城市成为奥斯曼首都、圣索菲亚用途及宫廷建设的变化",
+          "evidence": [
+            {
+              "source": "source/scene/ottoman-constantinople/source-01",
+              "locator": "1437–47、1453 和 1453–1481 年条目",
+              "supports": "埃迪尔内作为此前首都，随后穆罕默德二世以君士坦丁堡为都。"
+            },
+            {
+              "source": "source/book/ottoman/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，修复城墙和供水并改造教堂。"
+            }
+          ],
+          "result": "supported",
+          "limit": "撤下未定位的引语、具体骑马场面和人口迁入的泛论。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-033/p-01",
+      "action": "retain",
+      "scope": "成立日期与列举的档案件名",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "成立日期与列举的档案件名",
+          "evidence": [
+            {
+              "source": "source/timeline/i-033/source-01",
+              "locator": "开国大典档案目录的公告、会议记录及典礼程序",
+              "supports": "三项藏件日期均为 1949 年 10 月 1 日。"
+            }
+          ],
+          "result": "supported",
+          "limit": "实际查看档案目录条目，未将目录等同于阅读全部手稿。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-084/p-01",
+      "action": "retain",
+      "scope": "文革发起及早期社会冲击",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "文革发起及早期社会冲击",
+          "evidence": [
+            {
+              "source": "source/timeline/i-084/source-01",
+              "locator": "第 19—23 节",
+              "supports": "运动发起、社会迫害、结束及决议的回顾。"
+            }
+          ],
+          "result": "supported",
+          "limit": "注明该来源为 1981 年形成的政党历史决议。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-084/p-02",
+      "action": "retain",
+      "scope": "1976 年结束与 1981 年历史决议的回顾",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1976 年结束与 1981 年历史决议的回顾",
+          "evidence": [
+            {
+              "source": "source/timeline/i-084/source-01",
+              "locator": "第 19—23 节",
+              "supports": "运动发起、社会迫害、结束及决议的回顾。"
+            }
+          ],
+          "result": "supported",
+          "limit": "以来源确认结束与评价叙事。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-085/p-01",
+      "action": "retain",
+      "scope": "1978 年会议和随后改革试点的先后关系",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1978 年会议和随后改革试点的先后关系",
+          "evidence": [
+            {
+              "source": "source/timeline/i-085/source-01",
+              "locator": "最初的经济改革段落",
+              "supports": "农村试验与对外开放的渐进过程。"
+            },
+            {
+              "source": "source/timeline/i-085/source-02",
+              "locator": "第 27 节",
+              "supports": "1978 年会议决定把工作重点转向现代化建设。"
+            }
+          ],
+          "result": "supported",
+          "limit": "这是早期政策与会议表述，未把某年作为全部改革结束。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-085/p-02",
+      "action": "retain",
+      "scope": "改革分期和逐步推进",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "改革分期和逐步推进",
+          "evidence": [
+            {
+              "source": "source/timeline/i-085/source-01",
+              "locator": "最初的经济改革段落",
+              "supports": "农村试验与对外开放的渐进过程。"
+            },
+            {
+              "source": "source/timeline/i-085/source-02",
+              "locator": "第 27 节",
+              "supports": "1978 年会议决定把工作重点转向现代化建设。"
+            }
+          ],
+          "result": "supported",
+          "limit": "范围仅及时间轴的改革起步条目。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-it-edict-milan",
+      "action": "retain",
+      "scope": "313 年条目连接解释两位皇帝与文书的章节",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "313 年条目连接解释两位皇帝与文书的章节",
+          "evidence": [
+            {
+              "source": "source/book/roman/milan-document",
+              "locator": "文书首段",
+              "supports": "列出君士坦丁及李锡尼与宗教选择条款。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-tr-byzantine",
+      "action": "retain",
+      "scope": "330 年和 1453 年间的君士坦丁堡政权，以全书进入",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "330 年和 1453 年间的君士坦丁堡政权，以全书进入",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "开篇及 Late Byzantium",
+              "supports": "以 330 年建都及 1453 年首都转手为时间标记。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-it-sack-410",
+      "action": "retain",
+      "scope": "410 年罗马被劫掠和西帝国章的对应",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "410 年罗马被劫掠和西帝国章的对应",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-02",
+              "locator": "410 年条目",
+              "supports": "阿拉里克的西哥特人洗劫罗马。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-it-fall-west",
+      "action": "retain",
+      "scope": "476 年作为西部皇权变化的时间标记",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "476 年作为西部皇权变化的时间标记",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-02",
+              "locator": "476 年条目",
+              "supports": "罗慕路斯·奥古斯都卢斯被废黜。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-tr-constantinople-1453",
+      "action": "retain",
+      "scope": "1453 年 5 月 29 日条目与罗马书卷章匹配",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1453 年 5 月 29 日条目与罗马书卷章匹配",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，修复城墙和供水并改造教堂。"
+            },
+            {
+              "source": "source/book/roman/va-1453",
+              "locator": "A capital reborn 展签",
+              "supports": "奥斯曼统治时期修复城市设施并调整圣索菲亚的用途。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-islam-constantinople",
+      "action": "retain",
+      "scope": "1453 年 5 月 29 日条目与奥斯曼书卷章匹配",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1453 年 5 月 29 日条目与奥斯曼书卷章匹配",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "supports": "1453 年 5 月 29 日城陷，修复城墙和供水并改造教堂。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-033",
+      "action": "retain",
+      "scope": "1949 年 10 月 1 日成立入口与中华人民共和国书卷匹配",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1949 年 10 月 1 日成立入口与中华人民共和国书卷匹配",
+          "evidence": [
+            {
+              "source": "source/timeline/i-033/source-01",
+              "locator": "开国大典档案目录的公告、会议记录及典礼程序",
+              "supports": "三项藏件日期均为 1949 年 10 月 1 日。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-084",
+      "action": "retain",
+      "scope": "1966—1976 年文革入口进入相关章节",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1966—1976 年文革入口进入相关章节",
+          "evidence": [
+            {
+              "source": "source/timeline/i-084/source-01",
+              "locator": "第 19—23 节",
+              "supports": "运动发起、社会迫害、结束及决议的回顾。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-085",
+      "action": "retain",
+      "scope": "1978 年改革起步入口进入含该章的书卷",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "1978 年改革起步入口进入含该章的书卷",
+          "evidence": [
+            {
+              "source": "source/timeline/i-085/source-02",
+              "locator": "第 27 节",
+              "supports": "1978 年会议决定把工作重点转向现代化建设。"
+            }
+          ],
+          "result": "supported",
+          "limit": "核对界面时间、章节和主题对应。外部年表其余记录与大区示意点仍待逐项审核。"
+        }
+      ]
+    }
+  ]
+}

@@ -148,6 +148,11 @@
           "url": "https://www.metmuseum.org/es/essays/egypt-in-the-new-kingdom-ca-1550-1070-b-c",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "turin-papyrus",
+          "title": "都灵埃及博物馆｜罢工纸草 Cat. 1880",
+          "url": "https://collezionepapiri.museoegizio.it/en-GB/section/Papyrus-Collection/History-and-content/Highlights-Turin-Strike-Papyrus/"
         }
       ],
       "sections": [
@@ -171,10 +176,13 @@
         },
         {
           "title": "工匠的生活",
-          "text": "在代尔麦地那，参与王室墓葬工程的工匠社群留下丰富材料，让研究者能够观察工作、家庭和物资供给。与巨型神庙相比，这些尺度更小的记录更接近日常，但它仍是一个具有特殊职业和国家联系的群体。不能把一个保存较好的村落，直接当作整个埃及社会的平均样本。",
+          "text": "代尔麦地那的工匠参与王室墓葬工程。都灵埃及博物馆所藏纸草 Cat. 1880 记录，停发口粮后，工匠与官府发生持续冲突。供给记录与神庙纪功图像提供了不同的线索，能让人看到工程如何进入工匠家庭的生活。这个村落与王室工程有特别密切的联系，其他地区的劳动条件还需另外的文书与遗址。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "turin-papyrus",
+              "locator": "Papyrus Cat. 1880 藏品说明",
+              "note": "代尔麦地那工匠口粮停发后与官府产生持续冲突。"
+            }
           ],
           "id": "section-03"
         },

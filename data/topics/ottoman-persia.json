@@ -55,15 +55,23 @@
           "url": "https://whc.unesco.org/en/list/356/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "vam-city-guide",
+          "title": "维多利亚与阿尔伯特博物馆｜君士坦丁堡到伊斯坦布尔",
+          "url": "https://www.vam.ac.uk/info/constantinople-to-istanbul-one-city-two-empires-large-print-guide"
         }
       ],
       "sections": [
         {
           "title": "城墙之后",
-          "text": "一四五三年，穆罕默德二世攻占君士坦丁堡，拜占庭帝国在这座都城的统治结束。奥斯曼此后把城市建设为帝国首都，连接巴尔干、安纳托利亚与黑海、地中海航路。理解这次转折，需要同时观察军事征服和持续数代的城市重组，不能把城门打开的那一天当成新社会已经建成的时刻。",
+          "text": "1453 年 5 月 29 日，穆罕默德二世的军队占领君士坦丁堡。城市位于奥斯曼已控制的巴尔干与安纳托利亚之间。奥斯曼统治者随后修缮城防、恢复供水，并调整部分建筑的用途。围城的结束提供了明确的日期，城市逐步如何形成新的行政与社会生活，则可沿公共工程继续观察。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "vam-city-guide",
+              "locator": "The end of Constantinople 与 A capital reborn",
+              "note": "1453 年 5 月 29 日城陷，随后修城墙、恢复供水及改变宗教建筑用途。"
+            }
           ],
           "id": "section-01"
         },

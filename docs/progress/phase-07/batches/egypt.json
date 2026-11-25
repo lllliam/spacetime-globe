@@ -1,0 +1,466 @@
+{
+  "id": "egypt",
+  "access": [
+    {
+      "url": "https://www.metmuseum.org/es/essays/egypt-in-the-old-kingdom-ca-2649-2150-b-c",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜古王国的埃及",
+      "locator": "第三、第四王朝及萨卡拉、吉萨的王室葬祭建筑。"
+    },
+    {
+      "url": "https://escholarship.org/content/qt2ns3652b/qt2ns3652b_noSplash_9600439a4c4caa5b6e16172f8bb999d5.pdf?t=rzueer",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "Renate Müller-Wollermann｜古王国的终结",
+      "locator": "摘要及末章诸解释，讨论晚期政治变化、气候假说及史料含混。"
+    },
+    {
+      "url": "https://egymonuments.gov.eg/en/historical-periods/second-intermediate-period/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "埃及旅游和文物部｜第二中间期",
+      "locator": "第 12 至 18 王朝之间的迁移、阿瓦里斯、底比斯、克尔马与复合弓和马车。"
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/the-amarna-letters",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜阿马尔奈书信",
+      "locator": "展品目录及馆方正文，亚述王和推罗统治者的泥板书信。"
+    },
+    {
+      "url": "https://collezionepapiri.museoegizio.it/en-GB/section/Papyrus-Collection/History-and-content/Highlights-Turin-Strike-Papyrus/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "都灵埃及博物馆｜罢工纸草 Cat. 1880",
+      "locator": "馆藏说明确认载体及暂停口粮引发冲突。"
+    },
+    {
+      "url": "https://corum.ktb.gov.tr/EN-61494/kadesh-war-and-peace-treaty.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "土耳其文化和旅游部乔鲁姆省机构｜卡叠什和约译文",
+      "locator": "缔约王名及条约中互不进攻、在外敌进攻时互助的条款。"
+    },
+    {
+      "url": "https://www.metmuseum.org/pt/essays/egypt-in-the-ptolemaic-period",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜托勒密时代的埃及",
+      "locator": "前 7 世纪港口、前 332/305/30 年的叙述、港城的法老形象和希腊神祇、上埃及反抗。"
+    },
+    {
+      "url": "https://www.un.org/ungifts/replica-peace-treaty-between-hattusilis-and-ramses-ii",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "联合国｜卡叠什和约复制品",
+      "locator": "返回 HTTP 403。条款改读乔鲁姆省机构公开的译文。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/book/egypt/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "删去洪水按年恒定、埃及长期保持统一国家以及外族铁骑的跨时代概括。",
+      "limit": "删去洪水按年恒定、埃及长期保持统一国家以及外族铁骑的跨时代概括。"
+    },
+    {
+      "id": "text/book/egypt/editorialNotice",
+      "status": "issues",
+      "action": "revise",
+      "scope": "在书卷入口交代年代和王室材料的解释范围。",
+      "limit": "在书卷入口交代年代和王室材料的解释范围。"
+    },
+    {
+      "id": "book/egypt",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "核对跨王国叙事范围和晚期政权转折",
+      "limit": "下列高风险论断已分段查证，其余 24 段中的存量段落逐项列在未复核清单。"
+    },
+    {
+      "id": "text/chapter/egypt/old-kingdom-pyramids/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "去掉古王国解体的确定单因和未定位的中央粮仓概括。",
+      "limit": "去掉古王国解体的确定单因和未定位的中央粮仓概括。"
+    },
+    {
+      "id": "book-chapter/egypt/old-kingdom-pyramids",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "古王国主要纪年和三段重点复核",
+      "limit": "河谷水利、劳工口粮和地方制度仍有段落待逐项查读。"
+    },
+    {
+      "id": "book-paragraph/egypt/old-kingdom-pyramids/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "萨卡拉和吉萨的王室建筑序列",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "萨卡拉和吉萨的王室建筑序列",
+          "result": "supported",
+          "limit": "大型建筑只能证明动员规模。工人身份、施工季节和日常配给需分别查读考古档案。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-old",
+              "locator": "第三王朝与第四王朝",
+              "supports": "左塞尔萨卡拉建筑群及第四王朝斯尼夫鲁、吉萨王室墓葬。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block/egypt/old-kingdom-pyramids/aside-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "王室建筑群的组合及证据边界",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "王室建筑群的组合及证据边界",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-old",
+              "locator": "第三王朝与第四王朝",
+              "supports": "左塞尔萨卡拉建筑群及第四王朝斯尼夫鲁、吉萨王室墓葬。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/old-kingdom-pyramids/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "地方精英与政治权力变化的解释",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "地方精英与政治权力变化的解释",
+          "result": "supported",
+          "limit": "去掉此前没有定位来源的全国免税及地方截留赋粮细节。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/old-kingdom-end",
+              "locator": "Abstract 与 Causes of Decline",
+              "supports": "古王国的终点有年代分歧，内部变迁与环境变化等解释可能并存。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/old-kingdom-pyramids/p-06",
+      "status": "checked",
+      "action": "revise",
+      "scope": "古王国终结的时间范围和可能成因",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "古王国终结的时间范围和可能成因",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/old-kingdom-end",
+              "locator": "Abstract 与 Causes of Decline",
+              "supports": "古王国的终点有年代分歧，内部变迁与环境变化等解释可能并存。"
+            }
+          ]
+        },
+        {
+          "statement": "低水位是全国性解体的唯一充分原因",
+          "result": "disputed",
+          "limit": "具体气候证据、地理范围和因果顺序仍有争论。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/old-kingdom-end",
+              "locator": "Abstract 与 Causes of Decline",
+              "supports": "古王国的终点有年代分歧，内部变迁与环境变化等解释可能并存。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "text/chapter/egypt/middle-kingdom-hyksos/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "去掉由战车技术和边防松弛直接导致北部失守的概括。",
+      "limit": "去掉由战车技术和边防松弛直接导致北部失守的概括。"
+    },
+    {
+      "id": "text/chapter/egypt/middle-kingdom-hyksos/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "去掉由战车技术和边防松弛直接导致北部失守的概括。",
+      "limit": "去掉由战车技术和边防松弛直接导致北部失守的概括。"
+    },
+    {
+      "id": "book-chapter/egypt/middle-kingdom-hyksos",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "第二中间期的三角洲政权与区域共存",
+      "limit": "第一中间期和中王国水利、矿产诸段待专门材料。"
+    },
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "北部政权的形成背景、据点和并存政权",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "北部政权的形成背景、据点和并存政权",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/egypt-mota-intermediate",
+              "locator": "第 12 王朝移民及阿瓦里斯、底比斯和克尔马三段",
+              "supports": "早期黎凡特移民、喜克索斯首都和多个区域政治中心。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-06",
+      "status": "checked",
+      "action": "revise",
+      "scope": "军事技术出现时间、夺权限制和阿赫摩斯攻城",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "军事技术出现时间、夺权限制和阿赫摩斯攻城",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/egypt-mota-intermediate",
+              "locator": "末两段",
+              "supports": "该时期出现复合弓、马拉战车等新技术，资料对喜克索斯如何掌权持保留态度。"
+            },
+            {
+              "source": "source/book/egypt/egypt-mota-intermediate",
+              "locator": "第 12 王朝移民及阿瓦里斯、底比斯和克尔马三段",
+              "supports": "早期黎凡特移民、喜克索斯首都和多个区域政治中心。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "text/chapter/egypt/new-kingdom-empire/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "把武功和亡国成因叙事转为能够辨认的文书与问题。",
+      "limit": "把武功和亡国成因叙事转为能够辨认的文书与问题。"
+    },
+    {
+      "id": "text/chapter/egypt/new-kingdom-empire/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "把武功和亡国成因叙事转为能够辨认的文书与问题。",
+      "limit": "把武功和亡国成因叙事转为能够辨认的文书与问题。"
+    },
+    {
+      "id": "book-chapter/egypt/new-kingdom-empire",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "核对阿马尔奈书信、和约与纸草的实际证据",
+      "limit": "早期远征与新王国末期财政、价格和政治转型另行查证。"
+    },
+    {
+      "id": "book-paragraph/egypt/new-kingdom-empire/p-04",
+      "status": "checked",
+      "action": "revise",
+      "scope": "阿马尔奈通信对象、材料和推论界限",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "阿马尔奈通信对象、材料和推论界限",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-amarna",
+              "locator": "两件王室书信和馆方总述",
+              "supports": "亚述王和推罗统治者分别与埃及王室通信，泥板体现阿卡德语外交惯例。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/new-kingdom-empire/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "缔约双方与条款，区分交战和签约",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "缔约双方与条款，区分交战和签约",
+          "result": "supported",
+          "limit": "本段不统一各机构所用绝对年份，不从条款推断交战胜负。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/kadesh-text",
+              "locator": "缔约人及互不进攻、援助段落",
+              "supports": "拉美西斯二世与哈图西里三世缔约，载明相互不侵犯与援助。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/egypt/new-kingdom-empire/aside-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "罢工材料的载体、地点和事件",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "罢工材料的载体、地点和事件",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/turin-papyrus",
+              "locator": "Papyrus Cat. 1880 馆藏说明",
+              "supports": "代尔麦地那工匠停发口粮后与官府发生持续冲突。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "text/chapter/egypt/late-period-ptolemy/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "纠正希腊化港口开端和罗马接管的瞬时性叙事。",
+      "limit": "纠正希腊化港口开端和罗马接管的瞬时性叙事。"
+    },
+    {
+      "id": "text/chapter/egypt/late-period-ptolemy/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "纠正希腊化港口开端和罗马接管的瞬时性叙事。",
+      "limit": "纠正希腊化港口开端和罗马接管的瞬时性叙事。"
+    },
+    {
+      "id": "book-chapter/egypt/late-period-ptolemy",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "亚历山大入埃及、王朝起讫与跨文化港口",
+      "limit": "晚期早段与克娄巴特拉生平的多个段落需另读原文。"
+    },
+    {
+      "id": "book-paragraph/egypt/late-period-ptolemy/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "王朝年代及此前的地中海贸易",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "王朝年代及此前的地中海贸易",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "第七世纪贸易和前 332、305、30 年",
+              "supports": "亚历山大进入埃及、托勒密称王、罗马吞并分属三时点，三角洲在亚历山大之前已有港口。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/egypt/late-period-ptolemy/p-04",
+      "status": "checked",
+      "action": "revise",
+      "scope": "港口空间与两种王权表达",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "港口空间与两种王权表达",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "Alexandria, Hellenistic Monarchy, and External Relations",
+              "supports": "灯塔、希腊化城市、埃及神祇及港边法老造像。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block/egypt/late-period-ptolemy/aside-04",
+      "status": "checked",
+      "action": "revise",
+      "scope": "灯塔和港边造像的馆方资料",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "灯塔和港边造像的馆方资料",
+          "result": "supported",
+          "limit": "撤下抄书故事、灯塔精确高度和藏书卷数。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "Alexandria, Hellenistic Monarchy, and External Relations",
+              "supports": "灯塔、希腊化城市、埃及神祇及港边法老造像。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/late-period-ptolemy/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "上埃及反抗与公元前 30 年罗马接管",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "上埃及反抗与公元前 30 年罗马接管",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "第七世纪贸易和前 332、305、30 年",
+              "supports": "亚历山大进入埃及、托勒密称王、罗马吞并分属三时点，三角洲在亚历山大之前已有港口。"
+            },
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "Raphia 及紧随的上埃及反抗段落",
+              "supports": "拉菲亚之后出现持续的反抗，与罗马影响扩展处在同一长时段。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

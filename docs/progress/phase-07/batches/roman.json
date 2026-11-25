@@ -1,0 +1,585 @@
+{
+  "id": "roman",
+  "access": [
+    {
+      "url": "https://www.metmuseum.org/ko/essays/the-roman-empire-27-b-c-393-a-d",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜罗马帝国",
+      "locator": "朱里亚—克劳狄王朝及戴克里先段落。"
+    },
+    {
+      "url": "https://www.metmuseum.org/it/toah/ht/05/eust",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜意大利半岛公元 1—500 年",
+      "locator": "大事年表 410、476 及 493 年。"
+    },
+    {
+      "url": "https://www.metmuseum.org/de/essays/byzantium-ca-330-1453",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜拜占庭",
+      "locator": "330 年新都命名、早期的罗马制度、晚期版图与艺术。"
+    },
+    {
+      "url": "https://www.metmuseum.org/met-publications/byzantium-faith-and-power-1261-1557",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜拜占庭的信仰与权力",
+      "locator": "展览图录简介与目录，东西方艺术和学术的交流。"
+    },
+    {
+      "url": "https://www.metmuseum.org/es/toah/ht/07/eusb.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜巴尔干半岛 1000—1400 年",
+      "locator": "1204、1261、1354 年大事条目。"
+    },
+    {
+      "url": "https://sourcebooks.fordham.edu/source/edict-milan.asp",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "福特汉姆大学历史文献集｜313 年米兰协议英译",
+      "locator": "文本共有两位皇帝，确认宗教选择并下令返还基督徒聚会场所。"
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/hagia-sophia-532-37",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜圣索菲亚大教堂",
+      "locator": "建筑条目对照 532、537、558 和 562 年及穹顶重建。"
+    },
+    {
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1903797116",
+      "status": "replacement",
+      "date": "2026-11-25",
+      "material": "Lee Mordechai 等｜查士丁尼瘟疫及其影响",
+      "locator": "研究正文的文献、法令、纸草与花粉分析，界定公元约 541—544 年第一波，并质疑极高死亡率。"
+    },
+    {
+      "url": "https://etheses.whiterose.ac.uk/id/eprint/23526/1/Tesi.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "White Rose 学位论文库｜拜占庭同威尼斯的政治与贸易关系",
+      "locator": "第二节 The Dating of Alexios I’s Chrysobull，列举 1082 及 1092 之争并回到诏书条款。"
+    },
+    {
+      "url": "https://www.vam.ac.uk/info/constantinople-to-istanbul-one-city-two-empires-large-print-guide",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "维多利亚与阿尔伯特博物馆｜君士坦丁堡到伊斯坦布尔",
+      "locator": "The end of Constantinople 与 A capital reborn 两节，以及贝利尼苏丹肖像条目。"
+    },
+    {
+      "url": "https://etheses.bham.ac.uk/id/eprint/5738/1/Virgilio15PhD.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "伯明翰大学学位论文库｜佛罗伦萨、拜占庭与奥斯曼",
+      "locator": "第 17—18 页，引萨卢塔蒂信件说明 1397 年克里索洛拉斯在佛罗伦萨任教。"
+    },
+    {
+      "url": "https://edizionicafoscari.it/media/pdf/books/978-88-6969-622-0/978-88-6969-622-0_bP4FCq2.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "威尼斯大学出版社｜马尔恰纳图书馆希腊手稿目录",
+      "locator": "目录第 23 项 Gr. Z. 83 的 Provenienza 载赠予及手稿登记。"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6926030/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "PubMed Central｜查士丁尼瘟疫论文",
+      "locator": "返回验证页，改读期刊开放正文。"
+    },
+    {
+      "url": "https://bibliotecanazionalemarciana.cultura.gov.it/en/bequests-and-collections/bessarion-bequest/",
+      "status": "temporary-failure",
+      "date": "2026-11-25",
+      "material": "马尔恰纳国家图书馆｜贝萨里翁捐赠",
+      "locator": "访问超时，改读开放手稿目录的藏品来源说明。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/book/roman/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "去掉把历史归结为制度连续增长、技术单因与城墙崩塌的线索。",
+      "limit": "去掉把历史归结为制度连续增长、技术单因与城墙崩塌的线索。"
+    },
+    {
+      "id": "text/book/roman/editorialNotice",
+      "status": "issues",
+      "action": "revise",
+      "scope": "书卷入口解释命名和几类不同证据。",
+      "limit": "书卷入口解释命名和几类不同证据。"
+    },
+    {
+      "id": "book/roman",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "重点核对古罗马、东罗马的术语及长时段转换",
+      "limit": "军制、贸易、宗教史已有承接材料，仍待核对全文未改动段落。"
+    },
+    {
+      "id": "text/chapter/roman/principate-mare-nostrum/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "去掉帝都未经说明的人口数字和无例外的两百年和平。",
+      "limit": "去掉帝都未经说明的人口数字和无例外的两百年和平。"
+    },
+    {
+      "id": "book-chapter/roman/principate-mare-nostrum",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "元首制开端",
+      "limit": "行省税赋、人口和军事基础设施待另核对。"
+    },
+    {
+      "id": "book-paragraph/roman/principate-mare-nostrum/p-01",
+      "status": "checked",
+      "action": "revise",
+      "scope": "奥古斯都称号及元首制的惯用起点",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "奥古斯都称号及元首制的惯用起点",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-01",
+              "locator": "The Julio-Claudians 首段",
+              "supports": "前 27 年称号及保留共和形式之下的权力变化。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/roman/crisis-tetrarchy-west-fall/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "把经济、宗教与地理因素作为可分别核对的问题。",
+      "limit": "把经济、宗教与地理因素作为可分别核对的问题。"
+    },
+    {
+      "id": "book-chapter/roman/crisis-tetrarchy-west-fall",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "313、330、410 与 476 年重点复核",
+      "limit": "西部财政变化和各地行政沿革尚未逐段核对。"
+    },
+    {
+      "id": "book-paragraph/roman/crisis-tetrarchy-west-fall/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "米兰文件的当事人与范围，330 年新都及地理位置",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "米兰文件的当事人与范围，330 年新都及地理位置",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/milan-document",
+              "locator": "313 年米兰文书开头及返还条款",
+              "supports": "君士坦丁和李锡尼两人，适用范围及返还教产。"
+            },
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "开篇与 The Beginning of Byzantium",
+              "supports": "330 年定都于拜占庭旧址，居民继续自称罗马人。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/roman/crisis-tetrarchy-west-fall/aside-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "新都的位置与政治地理界限",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "新都的位置与政治地理界限",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "开篇与 The Beginning of Byzantium",
+              "supports": "330 年定都于拜占庭旧址，居民继续自称罗马人。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roman/crisis-tetrarchy-west-fall/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "区分 410、455 年的两次事件与东西部皇权",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "区分 410、455 年的两次事件与东西部皇权",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-02",
+              "locator": "410、476、493 年",
+              "supports": "西哥特人洗劫及奥多亚克废黜，奥多亚克后来才被狄奥多里克推翻。"
+            },
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "The Beginning of Byzantium",
+              "supports": "两次劫掠的年份和东部帝国的继续存在。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roman/crisis-tetrarchy-west-fall/p-06",
+      "status": "checked",
+      "action": "revise",
+      "scope": "476 年的废黜事件及东部延续",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "476 年的废黜事件及东部延续",
+          "result": "supported",
+          "limit": "不将罗慕路斯称作唯一末代正统皇帝。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-02",
+              "locator": "410、476、493 年",
+              "supports": "西哥特人洗劫及奥多亚克废黜，奥多亚克后来才被狄奥多里克推翻。"
+            },
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "开篇与 The Beginning of Byzantium",
+              "supports": "330 年定都于拜占庭旧址，居民继续自称罗马人。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/roman/byzantine-themes-macedonian/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "撤下瘟疫单因、族群标签和无法核实的财政比率。",
+      "limit": "撤下瘟疫单因、族群标签和无法核实的财政比率。"
+    },
+    {
+      "id": "text/chapter/roman/byzantine-themes-macedonian/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "撤下瘟疫单因、族群标签和无法核实的财政比率。",
+      "limit": "撤下瘟疫单因、族群标签和无法核实的财政比率。"
+    },
+    {
+      "id": "book-chapter/roman/byzantine-themes-macedonian",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "六世纪教堂、法律与瘟疫，七世纪的战争和区域变化",
+      "limit": "军区形成、海防和马其顿王朝的乡村制度仍待专题研究。"
+    },
+    {
+      "id": "book-paragraph/roman/byzantine-themes-macedonian/p-01",
+      "status": "checked",
+      "action": "revise",
+      "scope": "法律编纂、区域扩张和教堂重建",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "法律编纂、区域扩张和教堂重建",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/plague-study",
+              "locator": "Legislative Evidence 段落",
+              "supports": "研究按逐年颁布法令考察编纂工作和瘟疫时点。"
+            },
+            {
+              "source": "source/book/roman/met-hagia",
+              "locator": "532—537 年重建和新堂启用段落",
+              "supports": "查士丁尼下令重建，537 年启用。"
+            },
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "The Beginning of Byzantium",
+              "supports": "查士丁尼西部领土扩张的时段。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block/roman/byzantine-themes-macedonian/aside-01",
+      "status": "checked",
+      "action": "revise",
+      "scope": "穹顶结构、坍塌和修复时间",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "穹顶结构、坍塌和修复时间",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/met-hagia",
+              "locator": "穹顶结构及 558、562 年段落",
+              "supports": "馆方区分初建与后续重建。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/roman/byzantine-themes-macedonian/p-02",
+      "status": "checked",
+      "action": "revise",
+      "scope": "早期瘟疫年代与对人口和制度影响的争议",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "早期瘟疫年代与对人口和制度影响的争议",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/plague-study",
+              "locator": "正文第一波、文献和纸草分析",
+              "supports": "最早一波约始于 541 年，多类材料对高死亡率模型的支持有限。"
+            }
+          ]
+        },
+        {
+          "statement": "可由精确日死亡人数推定全帝国的税收骤减",
+          "result": "disputed",
+          "limit": "原文精确日死亡和帝国税收结论缺可比较区域材料。",
+          "evidence": [
+            {
+              "source": "source/book/roman/plague-study",
+              "locator": "正文第一波、文献和纸草分析",
+              "supports": "最早一波约始于 541 年，多类材料对高死亡率模型的支持有限。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/roman/byzantine-themes-macedonian/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "七世纪两轮冲突与东地中海领土变化",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "七世纪两轮冲突与东地中海领土变化",
+          "result": "supported",
+          "limit": "资料不支持将所有地区纳入同一年份或原文的税收比例。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "The Beginning of Byzantium",
+              "supports": "分别提及波斯和阿拉伯政权进攻及埃及等区域转变。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/roman/crusades-commercial-bleed-1453/title",
+      "status": "issues",
+      "action": "revise",
+      "scope": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。",
+      "limit": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。"
+    },
+    {
+      "id": "text/chapter/roman/crusades-commercial-bleed-1453/summary",
+      "status": "issues",
+      "action": "revise",
+      "scope": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。",
+      "limit": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。"
+    },
+    {
+      "id": "text/chapter/roman/crusades-commercial-bleed-1453/spatialThesis",
+      "status": "issues",
+      "action": "revise",
+      "scope": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。",
+      "limit": "移除贸易失血到灭亡的单线机制，以及无证的人口和围城细节。"
+    },
+    {
+      "id": "book-chapter/roman/crusades-commercial-bleed-1453",
+      "status": "insufficient",
+      "action": "retain",
+      "scope": "商业特权、1204、1261、1453 与古典学术往来的重点核查",
+      "limit": "围城各叙事的史料关系及十四世纪财政须另读研究。"
+    },
+    {
+      "id": "book-paragraph/roman/crusades-commercial-bleed-1453/p-01",
+      "status": "checked",
+      "action": "revise",
+      "scope": "特权、地区背景和纪年分歧",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "特权、地区背景和纪年分歧",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/venice-privileges",
+              "locator": "II. The Dating of Alexios I’s Chrysobull",
+              "supports": "中世纪文书授予威尼斯商业待遇，传统纪年 1082 年与另一种 1092 年说并存。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/roman/crusades-commercial-bleed-1453/p-02",
+      "status": "checked",
+      "action": "revise",
+      "scope": "首都失守、文物流散及不同城市政治中心",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "首都失守、文物流散及不同城市政治中心",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-06",
+              "locator": "1204 与 1261 年",
+              "supports": "第四次十字军在 1204 年攻占城市，尼西亚方面在 1261 年恢复对首都的统治。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/roman/crusades-commercial-bleed-1453/p-03",
+      "status": "checked",
+      "action": "revise",
+      "scope": "收复首都、保留的政治空间及艺术活动",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "收复首都、保留的政治空间及艺术活动",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/source-06",
+              "locator": "1204 与 1261 年",
+              "supports": "第四次十字军在 1204 年攻占城市，尼西亚方面在 1261 年恢复对首都的统治。"
+            },
+            {
+              "source": "source/book/roman/source-04",
+              "locator": "Late Byzantium",
+              "supports": "版图缩小，文物与建筑所见的艺术活动仍在。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roman/crusades-commercial-bleed-1453/p-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "地理格局、围城和政权转换日期",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "地理格局、围城和政权转换日期",
+          "result": "supported",
+          "limit": "不同记述的参战人数、火炮参数与末帝动向待另行核对。",
+          "evidence": [
+            {
+              "source": "source/book/roman/va-1453",
+              "locator": "The end of Constantinople",
+              "supports": "奥斯曼苏丹穆罕默德二世围攻，城市在 1453 年 5 月 29 日陷落。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "block/roman/crusades-commercial-bleed-1453/aside-05",
+      "status": "checked",
+      "action": "revise",
+      "scope": "城防与公共设施的沿用、宗教建筑用途变化",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "城防与公共设施的沿用、宗教建筑用途变化",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/va-1453",
+              "locator": "A capital reborn",
+              "supports": "奥斯曼时期修复陆墙和供水、将圣索菲亚改为清真寺。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true
+    },
+    {
+      "id": "book-paragraph/roman/crusades-commercial-bleed-1453/p-06",
+      "status": "checked",
+      "action": "revise",
+      "scope": "分别证实城陷前的教学和城陷后向威尼斯的捐赠",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "分别证实城陷前的教学和城陷后向威尼斯的捐赠",
+          "result": "supported",
+          "limit": "仅覆盖该条范围。",
+          "evidence": [
+            {
+              "source": "source/book/roman/florence-1397",
+              "locator": "第 17—18 页，萨卢塔蒂往来信件",
+              "supports": "克里索洛拉斯在 1397 年赴佛罗伦萨教授希腊语。"
+            },
+            {
+              "source": "source/book/roman/marciana-1468",
+              "locator": "第 23 项 Gr. Z. 83，Provenienza",
+              "supports": "贝萨里翁赠送的部分希腊手稿可定位到 1468 年的捐赠及藏品登记。"
+            }
+          ]
+        }
+      ],
+      "level": 1,
+      "confirmed": true,
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读任教年份与捐赠目录，核验两事分列于 1453 年前后。"
+      }
+    }
+  ]
+}

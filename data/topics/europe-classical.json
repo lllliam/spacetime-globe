@@ -374,15 +374,33 @@
           "url": "https://openstax.org/books/world-history-volume-1/pages/10-1-the-eastward-shift",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "met-byzantium",
+          "title": "大都会艺术博物馆｜拜占庭",
+          "url": "https://www.metmuseum.org/de/essays/byzantium-ca-330-1453"
+        },
+        {
+          "id": "met-italy-476",
+          "title": "大都会艺术博物馆｜意大利半岛公元 1—500 年",
+          "url": "https://www.metmuseum.org/it/toah/ht/05/eust"
         }
       ],
       "sections": [
         {
           "title": "中心的移动",
-          "text": "君士坦丁在四世纪建设君士坦丁堡作为新都，帝国政治重心向东地中海转移。此后东西两部分经历不同变化，西方皇帝统治在五世纪终结，东方罗马国家则继续存在很久。四七六年可以标记一项政治转折，却不能表示道路、语言、城市和所有居民生活在那一年同时停止。",
+          "text": "330 年，君士坦丁在拜占庭旧址建立新都君士坦丁堡。476 年，奥多亚克废黜在意大利即位的罗慕路斯·奥古斯都卢斯。两年分别标记帝国首都与西部皇权的变化。东部帝国继续在君士坦丁堡统治，西部各城市和地区的政治变化有各自的时间。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "met-byzantium",
+              "locator": "开篇及 The Beginning of Byzantium",
+              "note": "330 年建都，东部罗马制度延续，当时人自称罗马人。"
+            },
+            {
+              "sourceId": "met-italy-476",
+              "locator": "476 年条目",
+              "note": "奥多亚克废黜罗慕路斯·奥古斯都卢斯。"
+            }
           ],
           "id": "section-01"
         },

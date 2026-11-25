@@ -2733,9 +2733,11 @@
         "to": null
       },
       "relation": "primary",
-      "scope": "本卷聚焦南亚次大陆部分古代历史、殖民与分治，以及现代印度共和国。",
+      "scope": "以现代印度地图定位。书卷选取今日多个国家所在的古代南亚部分地区，并讲述殖民、分治与现代印度共和国。",
       "audit": {
-        "status": "unreviewed"
+        "status": "checked",
+        "scope": "现代印度读者入口与书卷涵盖地域的区别",
+        "checkedAt": "2026-11-25"
       }
     },
     {
@@ -2752,9 +2754,11 @@
         "to": null
       },
       "relation": "related",
-      "scope": "本卷涉及英属印度分治与克什米尔背景。",
+      "scope": "相关章节介绍 1947 年印巴分治与旁遮普、孟加拉的边界裁决。地图显示现代巴基斯坦作为定位参照。",
       "audit": {
-        "status": "unreviewed"
+        "status": "checked",
+        "scope": "现代巴基斯坦相关入口与印巴分治的关系",
+        "checkedAt": "2026-11-25"
       }
     },
     {

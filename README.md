@@ -24,6 +24,8 @@
 
 `develop/1.0` 已完成 Phase 06。读者可从正文主动进入历史现场，按阶段观察地点与有依据的空间联系，再返回原文。书卷按共时、比较、历史联系及背景组织延伸阅读。[历史现场](docs/HISTORICAL-SCENES.md) · [阶段报告与实拍](docs/progress/PHASE-06.md) · [开发路线](docs/ROADMAP.md) · [历史内容模型](docs/HISTORY-MODEL.md) · [状态模型](docs/STATE-MODEL.md)
 
+Phase 07 正在审校存量内容。首批优先查证《中华人民共和国》《古埃及》《印度》和《罗马帝国》的高风险段落，并核对相关地图与年表入口。已查证的范围和待处理对象逐项登记。[Phase 07 进度](docs/progress/PHASE-07.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
+
 正式版 `1.0.0` 在最终验收通过后发布。
 
 <a id="版本记录"></a>
@@ -45,6 +47,8 @@ node tools/serve.mjs
 历史模型专项使用 `node tools/verify-history-model.mjs`。同源旧会话迁移使用 `node tools/verify-history-browser.js <Phase-04 生成的 index.html> [实拍输出目录]`，基线和复核命令见 [Phase 05 报告](docs/progress/PHASE-05.md)。
 
 场景及关联验证使用 `node tools/verify-observation-model.mjs` 和 `node tools/verify-observation.js [实拍输出目录]`。源数据比对使用 `node tools/audit-observation.mjs <Phase 05 目录> [报告文件]`。[阶段报告](docs/progress/PHASE-06.md)
+
+审校专项运行 `node tools/verify-editorial-audit.mjs <Phase 06 归档目录>` 与 `node tools/verify-editorial-browser.js [实拍输出目录]`。[语料基线与复现方式](docs/progress/PHASE-07.md)
 
 [产品规范](docs/PRODUCT-SPEC.md) · [工程架构](docs/ARCHITECTURE.md) · [设计实现](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [最终验收](docs/ACCEPTANCE.md) · [版本规则](docs/VERSIONING.md) · [维护约定](AGENTS.md) · [原型历史档案](docs/archive/README.md)
 

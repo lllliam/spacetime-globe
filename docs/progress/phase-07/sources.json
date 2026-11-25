@@ -1,0 +1,4543 @@
+[
+  {
+    "url": "https://www.metmuseum.org/de/essays/the-achaemenid-persian-empire-550-330-b-c",
+    "uses": [
+      "source/book/achaemenid/source-01",
+      "source/scene/achaemenid-darius/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://isac.uchicago.edu/publications/persepolis-fortification-tablets",
+    "uses": [
+      "source/book/achaemenid/source-02",
+      "source/scene/achaemenid-darius/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://isac.uchicago.edu/publications/seals-persepolis-fortification-tablets-volume-i",
+    "uses": [
+      "source/book/achaemenid/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/pt/essays/egypt-in-the-late-period-ca-712-332-b-c",
+    "uses": [
+      "source/book/achaemenid/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.difusion.inah.gob.mx/images/guias/115_zona-arqueologica-templo-mayor.pdf",
+    "uses": [
+      "source/book/aztec/source-01",
+      "source/scene/aztec-league/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/tenochtitlan",
+    "uses": [
+      "source/book/aztec/source-02",
+      "source/topic/mesoamerica-andes/mexica/source-01",
+      "source/scene/aztec-league/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/toah/ht/08/canm.html",
+    "uses": [
+      "source/book/aztec/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A843/datastream/OBJ/view",
+    "uses": [
+      "source/book/aztec/source-04",
+      "source/scene/aztec-league/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
+    "uses": [
+      "source/book/british-empire/source-01",
+      "source/book/caliphate/source-02",
+      "source/book/france/source-01",
+      "source/book/greece-macedon/source-02",
+      "source/book/russia-ussr/source-01",
+      "source/book/spain-portugal/source-01",
+      "source/scene/alexander-eastward/source-02",
+      "source/scene/british-global-sea-lanes/source-01",
+      "source/scene/france-europe-hub/source-01",
+      "source/scene/iberian-atlantic-pacific/source-01",
+      "source/scene/russia-eurasia-expansion/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
+    "uses": [
+      "source/book/british-empire/source-02",
+      "source/book/india-classical-modern/source-02",
+      "source/scene/india-ganges-deccan/source-02",
+      "source/scene/british-global-sea-lanes/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Abbasid-caliphate",
+    "uses": [
+      "source/book/caliphate/source-01",
+      "source/scene/caliphate-baghdad-trade/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Canada/History",
+    "uses": [
+      "source/book/canada-north-america/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://thecanadianencyclopedia.ca/en/article/iroquois",
+    "uses": [
+      "source/book/canada-north-america/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Kushan-dynasty",
+    "uses": [
+      "source/book/central-asia-silk-road/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Timurid-dynasty",
+    "uses": [
+      "source/book/central-asia-silk-road/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Polish-Lithuanian-Commonwealth",
+    "uses": [
+      "source/book/central-eastern-europe/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Austria-Hungary",
+    "uses": [
+      "source/book/central-eastern-europe/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/ancient-Egypt/Egypt-from-1076-bce-to-the-Macedonian-invasion",
+    "uses": [
+      "source/book/egypt/source-01",
+      "source/scene/egypt-nile-corridor/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/essays/egypt-in-the-old-kingdom-ca-2649-2150-b-c",
+    "uses": [
+      "source/book/egypt/met-old"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/es/essays/egypt-in-the-old-kingdom-ca-2649-2150-b-c",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜古王国的埃及",
+      "locator": "第三、第四王朝及萨卡拉、吉萨的王室葬祭建筑。"
+    }
+  },
+  {
+    "url": "https://escholarship.org/content/qt2ns3652b/qt2ns3652b_noSplash_9600439a4c4caa5b6e16172f8bb999d5.pdf?t=rzueer",
+    "uses": [
+      "source/book/egypt/old-kingdom-end"
+    ],
+    "access": {
+      "url": "https://escholarship.org/content/qt2ns3652b/qt2ns3652b_noSplash_9600439a4c4caa5b6e16172f8bb999d5.pdf?t=rzueer",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "Renate Müller-Wollermann｜古王国的终结",
+      "locator": "摘要及末章诸解释，讨论晚期政治变化、气候假说及史料含混。"
+    }
+  },
+  {
+    "url": "https://egymonuments.gov.eg/en/historical-periods/second-intermediate-period/",
+    "uses": [
+      "source/book/egypt/egypt-mota-intermediate"
+    ],
+    "access": {
+      "url": "https://egymonuments.gov.eg/en/historical-periods/second-intermediate-period/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "埃及旅游和文物部｜第二中间期",
+      "locator": "第 12 至 18 王朝之间的迁移、阿瓦里斯、底比斯、克尔马与复合弓和马车。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-amarna-letters",
+    "uses": [
+      "source/book/egypt/met-amarna"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/essays/the-amarna-letters",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜阿马尔奈书信",
+      "locator": "展品目录及馆方正文，亚述王和推罗统治者的泥板书信。"
+    }
+  },
+  {
+    "url": "https://collezionepapiri.museoegizio.it/en-GB/section/Papyrus-Collection/History-and-content/Highlights-Turin-Strike-Papyrus/",
+    "uses": [
+      "source/book/egypt/turin-papyrus",
+      "source/topic/nile-civilizations/thebes/turin-papyrus"
+    ],
+    "access": {
+      "url": "https://collezionepapiri.museoegizio.it/en-GB/section/Papyrus-Collection/History-and-content/Highlights-Turin-Strike-Papyrus/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "都灵埃及博物馆｜罢工纸草 Cat. 1880",
+      "locator": "馆藏说明确认载体及暂停口粮引发冲突。"
+    }
+  },
+  {
+    "url": "https://corum.ktb.gov.tr/EN-61494/kadesh-war-and-peace-treaty.html",
+    "uses": [
+      "source/book/egypt/kadesh-text"
+    ],
+    "access": {
+      "url": "https://corum.ktb.gov.tr/EN-61494/kadesh-war-and-peace-treaty.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "土耳其文化和旅游部乔鲁姆省机构｜卡叠什和约译文",
+      "locator": "缔约王名及条约中互不进攻、在外敌进攻时互助的条款。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/pt/essays/egypt-in-the-ptolemaic-period",
+    "uses": [
+      "source/book/egypt/met-ptolemy"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/pt/essays/egypt-in-the-ptolemaic-period",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜托勒密时代的埃及",
+      "locator": "前 7 世纪港口、前 332/305/30 年的叙述、港城的法老形象和希腊神祇、上埃及反抗。"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Aksum-ancient-kingdom-Africa",
+    "uses": [
+      "source/book/ethiopia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/event/Five-Dynasties",
+    "uses": [
+      "source/book/five-dynasties/source-01",
+      "source/book/song/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
+    "uses": [
+      "source/book/five-dynasties/source-02",
+      "source/book/han/source-08",
+      "source/book/qin/source-02",
+      "source/book/qing/source-08",
+      "source/book/roc/source-02",
+      "source/book/shang-zhou/source-01",
+      "source/book/song/source-05",
+      "source/book/sui/source-02",
+      "source/book/tang/source-07",
+      "source/book/warring-states/source-01",
+      "source/book/wei-jin/source-02",
+      "source/book/yuan/source-03",
+      "source/scene/han-two-capitals/source-02",
+      "source/scene/tang-anlushan-jianghuai/source-02",
+      "source/scene/qing-multiethnic-empire/source-02",
+      "source/scene/qing-treaty-ports/source-02",
+      "source/scene/shang-zhou-heartland/source-01",
+      "source/scene/qin-empire-roads/source-02",
+      "source/scene/wei-jin-north-south/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Holy-Roman-Empire",
+    "uses": [
+      "source/book/germany-hre/source-01",
+      "source/scene/germany-central-europe/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/event/Cold-War",
+    "uses": [
+      "source/book/germany-hre/source-02",
+      "source/book/russia-ussr/source-02",
+      "source/book/usa/source-02",
+      "source/scene/russia-eurasia-expansion/source-02",
+      "source/scene/germany-central-europe/source-02",
+      "source/scene/usa-continental-pacific/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Parthenon",
+    "uses": [
+      "source/book/greece-macedon/source-01",
+      "source/scene/alexander-eastward/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/han-dynasty-206-b-c-220-a-d",
+    "uses": [
+      "source/book/han/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/toah/ht/04/eac",
+    "uses": [
+      "source/book/han/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
+    "uses": [
+      "source/book/han/source-03",
+      "source/book/ming/source-04",
+      "source/book/prc/source-02",
+      "source/book/qing/source-03",
+      "source/book/tang/source-02",
+      "source/topic/east-asia-modern/china-revolutions/source-01",
+      "source/scene/ming-founding-1368/source-01",
+      "source/scene/tang-frontier/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asia.si.edu/education/educator-resources/teaching-china-with-the-smithsonian/explore-by-dynasty/han-dynasty/",
+    "uses": [
+      "source/book/han/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://artistproject.metmuseum.org/toah/ht/05/eac.html",
+    "uses": [
+      "source/book/han/source-05",
+      "source/topic/china-early/buddhism/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
+    "uses": [
+      "source/book/han/source-06",
+      "source/book/tang/source-05",
+      "source/book/wei-jin/source-01",
+      "source/scene/han-silk-road-west/source-02",
+      "source/scene/han-two-capitals/source-01",
+      "source/scene/tang-changan-west/source-01",
+      "source/scene/tang-anlushan-jianghuai/source-01",
+      "source/scene/wei-jin-north-south/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://depts.washington.edu/silkroad/geography/china/china.html",
+    "uses": [
+      "source/book/han/source-07",
+      "source/book/tang/source-06",
+      "source/book/yuan/source-04",
+      "source/scene/han-silk-road-west/source-01",
+      "source/scene/tang-changan-west/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/inkaroad/",
+    "uses": [
+      "source/book/inca/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/inkaroad/engineering/activity/great-inka-road.html",
+    "uses": [
+      "source/book/inca/source-02",
+      "source/scene/inca-cajamarca/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html",
+    "uses": [
+      "source/book/inca/source-03",
+      "source/scene/inca-cajamarca/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://revistas.cultura.gob.pe/index.php/historiaycultura/article/download/291/331/1119",
+    "uses": [
+      "source/book/inca/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.machupicchu.gob.pe/wp-content/uploads/2024/05/1-7-MACHUPICCHU-INVESTIGACIONES-INTERDISCIPLINARIAS-TOMO-II.pdf",
+    "uses": [
+      "source/book/inca/source-05"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/inkaroad/inkauniverse/cusco/empire-builders.html",
+    "uses": [
+      "source/book/inca/source-06"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Mauryan-Empire",
+    "uses": [
+      "source/book/india-classical-modern/source-01",
+      "source/scene/india-ganges-deccan/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/tentativelists/6803/",
+    "uses": [
+      "source/book/india-classical-modern/ashokan-sites",
+      "source/topic/south-asia-early/ashoka/ashokan-sites"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/en/tentativelists/6803/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度提交联合国教科文组织｜阿育王敕令遗址预备清单",
+      "locator": "国家申报档案原文，公元前 3 世纪石刻、岩敕和柱敕的形制及交通线。"
+    }
+  },
+  {
+    "url": "https://nri.up.gov.in/article/en/sarnath",
+    "uses": [
+      "source/book/india-classical-modern/sarnath-emblem"
+    ],
+    "access": {
+      "url": "https://nri.up.gov.in/article/en/sarnath",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "北方邦政府｜鹿野苑与狮柱柱头",
+      "locator": "鹿野苑遗址及现代印度国徽所据的狮柱柱头。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/toah/ht/07/sss.html",
+    "uses": [
+      "source/book/india-classical-modern/met-chola"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/toah/ht/07/sss.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜南亚南部 1000—1400 年",
+      "locator": "公元约 1000 年坦贾武尔神庙、拉金德拉一世时对三佛齐的海上军事行动和朱罗在斯里兰卡的扩张。"
+    }
+  },
+  {
+    "url": "https://searcharchives.bl.uk/catalog/040-003394110",
+    "uses": [
+      "source/book/india-classical-modern/plassey-record"
+    ],
+    "access": {
+      "url": "https://searcharchives.bl.uk/catalog/040-003394110",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "英国图书馆｜奥姆档案 Mss Eur Orme India XI",
+      "locator": "英印档案馆藏目录第 17 项记录 1757 年 6 月普拉西战斗，Scope & Content 说明米尔·贾法尔成为纳瓦卜。"
+    }
+  },
+  {
+    "url": "https://nationalarchives.nic.in/sites/default/files/2026-01/34.%20Our%20Heritage.pdf",
+    "uses": [
+      "source/book/india-classical-modern/diwani-1765"
+    ],
+    "access": {
+      "url": "https://nationalarchives.nic.in/sites/default/files/2026-01/34.%20Our%20Heritage.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度国家档案馆｜沙阿拉姆敕令馆藏说明",
+      "locator": "Public Records 第 1 项，Home Public Cons., 9 September 1765, No. 2。"
+    }
+  },
+  {
+    "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/collections1/collections2/1947-indian-independence-act/",
+    "uses": [
+      "source/book/india-classical-modern/partition-act",
+      "source/topic/south-asia-modern/partition/partition-act"
+    ],
+    "access": {
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/collections1/collections2/1947-indian-independence-act/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "英国议会档案｜1947 年印度独立法",
+      "locator": "HL/PO/PU/1/1947/10&11G6c30 馆方说明，两自治领、旁遮普和孟加拉分割及人口被迫迁移。"
+    }
+  },
+  {
+    "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf",
+    "uses": [
+      "source/book/india-classical-modern/partition-awards",
+      "source/topic/south-asia-modern/partition/boundary-awards"
+    ],
+    "access": {
+      "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度外交部｜印巴关系档案汇编",
+      "locator": "导言关于边界委员会报告，8 月 16 日讨论与 17 日刊布。"
+    }
+  },
+  {
+    "url": "https://malda.gov.in/history/",
+    "uses": [
+      "source/book/india-classical-modern/malda-boundary"
+    ],
+    "access": {
+      "url": "https://malda.gov.in/history/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度马尔达行政区｜分治时期的马尔达",
+      "locator": "1947 年条目记述裁决发布前当地数日的不确定状态及其后归属。"
+    }
+  },
+  {
+    "url": "https://www.legislative.gov.in/static/uploads/2025/07/359f70a69695affb9d72f8393102bd2e.pdf",
+    "uses": [
+      "source/book/india-classical-modern/constitution"
+    ],
+    "access": {
+      "url": "https://www.legislative.gov.in/static/uploads/2025/07/359f70a69695affb9d72f8393102bd2e.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "印度立法部｜印度宪法汇编",
+      "locator": "英语正文第 17 条和第 394 条。"
+    }
+  },
+  {
+    "url": "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2024-economic-forecast-gradual-rebound-adverse-environment/indias-economic-surge-regional-global-economic-player_en",
+    "uses": [
+      "source/book/india-classical-modern/ec-1991"
+    ],
+    "access": {
+      "url": "https://economy-finance.ec.europa.eu/economic-forecast-and-surveys/economic-forecasts/autumn-2024-economic-forecast-gradual-rebound-adverse-environment/indias-economic-surge-regional-global-economic-player_en",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "欧盟委员会｜2024 年印度经济专题",
+      "locator": "Structural features and challenges 对国际收支危机、1991 年改革与此后服务业的分析。"
+    }
+  },
+  {
+    "url": "https://desapublications.un.org/policy-briefs/un-desa-policy-brief-no-153-india-overtakes-china-worlds-most-populous-country",
+    "uses": [
+      "source/book/india-classical-modern/un-pop-2023"
+    ],
+    "access": {
+      "url": "https://desapublications.un.org/policy-briefs/un-desa-policy-brief-no-153-india-overtakes-china-worlds-most-populous-country",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "联合国经社部｜2023 年人口政策简报第 153 号",
+      "locator": "2023 年 4 月简报、图 1 的历史估算和预测。"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Italy/The-Republic-of-Venice",
+    "uses": [
+      "source/book/italy-renaissance/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/toah/ht/08/eustn.html",
+    "uses": [
+      "source/book/italy-renaissance/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Japan/Development-of-the-modern-system",
+    "uses": [
+      "source/book/japan/source-01",
+      "source/scene/east-asia-modern-korea-japan/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/668/",
+    "uses": [
+      "source/book/khmer/source-01",
+      "source/topic/southeast-asia-networks/angkor/source-01",
+      "source/scene/khmer-capitals/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/document/186494",
+    "uses": [
+      "source/book/khmer/source-02",
+      "source/scene/khmer-capitals/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.1821460116",
+    "uses": [
+      "source/book/khmer/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Joseon-dynasty",
+    "uses": [
+      "source/book/korea/source-01",
+      "source/scene/east-asia-modern-korea-japan/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://smarthistory.org/independence-from-spanish-rule-in-the-americas/",
+    "uses": [
+      "source/book/latin-america/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://home.nps.gov/articles/000/sister-revolutions-american-revolutions-on-two-continents-teaching-with-historic-places.htm",
+    "uses": [
+      "source/book/latin-america/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://academic.oup.com/reference/62333/reference-article-abstract/554086224",
+    "uses": [
+      "source/book/latin-america/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.worldbank.org/en/region/lac/overview",
+    "uses": [
+      "source/book/latin-america/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/liao/40E26AA348C389272574241A2092D79C",
+    "uses": [
+      "source/book/liao-jin-xia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.yale.edu/sites/default/files/files/V%20Hansen%2C%20Kitan-Liao%20and%20Jurchen-Jin%20%202019.pdf",
+    "uses": [
+      "source/book/liao-jin-xia/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.jstor.org/stable/10.1163/j.ctv1v7zc2v",
+    "uses": [
+      "source/book/liao-jin-xia/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/toah/ht/07/eac",
+    "uses": [
+      "source/book/liao-jin-xia/source-04",
+      "source/book/ming/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Pagan-kingdom",
+    "uses": [
+      "source/book/mainland-southeast-asia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/576/",
+    "uses": [
+      "source/book/mainland-southeast-asia/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ru/toah/ht/07/afu.html",
+    "uses": [
+      "source/book/mali/source-01",
+      "source/scene/mali-pilgrimage/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/medieval-africa-12501800/western-sudan-and-upper-guinea/B121185808E3BCA12B80B2E678E99B93",
+    "uses": [
+      "source/book/mali/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/perspectives/visualizing-a-sahelian-past",
+    "uses": [
+      "source/book/mali/source-03",
+      "source/scene/mali-pilgrimage/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://unesdoc.unesco.org/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_393a67e4-60c1-4324-9a70-b2682fe54680?_=184287engo.pdf",
+    "uses": [
+      "source/book/mali/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1139",
+    "uses": [
+      "source/book/mali/source-05",
+      "source/book/songhai/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/fr/exhibitions/sahel-art-empire-sahara/inside-the-exhibition",
+    "uses": [
+      "source/book/mali/source-06",
+      "source/book/songhai/source-02",
+      "source/topic/west-africa/sahel/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Mesoamerican-civilization",
+    "uses": [
+      "source/book/mesoamerica-maya/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/teotihuacan",
+    "uses": [
+      "source/book/mesoamerica-maya/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/olmec-art",
+    "uses": [
+      "source/book/mesoamerica-maya/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Mesopotamia-historical-region-Asia",
+    "uses": [
+      "source/book/mesopotamia-near-east/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/babylon",
+    "uses": [
+      "source/book/mesopotamia-near-east/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/toah/ht/08/eac",
+    "uses": [
+      "source/book/ming/source-02",
+      "source/scene/jingnan-campaign/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Defining_Yongle_Imperial_Art_in_Early_Fifteenth_Century_China.pdf",
+    "uses": [
+      "source/book/ming/source-03",
+      "source/scene/zhenghe-voyages/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/toah/ht/09/eac.html",
+    "uses": [
+      "source/book/ming/source-05"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asia.si.edu/education/educator-resources/teaching-china-with-the-smithsonian/explore-by-dynasty/ming-dynasty/",
+    "uses": [
+      "source/book/ming/source-06"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf",
+    "uses": [
+      "source/book/ming/source-07",
+      "source/scene/ming-global-silver/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/military-origins-of-ming-china/9FBC4D529871CF62DD44D8EEE74ED974",
+    "uses": [
+      "source/book/ming/source-08",
+      "source/scene/ming-founding-1368/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/why-military-institutions-matter-for-ming-history/B3C345236C8588E708C661758D2DED51",
+    "uses": [
+      "source/book/ming/source-09"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/explode/others/208160.html",
+    "uses": [
+      "source/book/ming/source-10",
+      "source/scene/jingnan-campaign/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/lineage/226257.html",
+    "uses": [
+      "source/book/ming/source-11",
+      "source/scene/jingnan-campaign/source-02",
+      "source/scene/yongle-capitals/source-01",
+      "source/scene/zhenghe-voyages/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/building/talk/224150.html",
+    "uses": [
+      "source/book/ming/source-12"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.haqjp.gov.cn/col/1063_236571/art/20190321143218_mg0DwgrU.html",
+    "uses": [
+      "source/book/ming/source-13",
+      "source/scene/yongle-capitals/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/lemmas/241433.html",
+    "uses": [
+      "source/book/ming/source-14"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://doi.org/10.1093/acrefore/9780190277727.013.620",
+    "uses": [
+      "source/book/ming/source-15",
+      "source/scene/ming-nine-garrisons/source-02",
+      "source/scene/ming-global-silver/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://bacsuk.org.uk/wp-content/uploads/2014/10/Lim_sep_fv.pdf",
+    "uses": [
+      "source/book/ming/source-16",
+      "source/scene/ming-global-silver/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://doi.org/10.1111/arcm.12617",
+    "uses": [
+      "source/book/ming/source-17",
+      "source/scene/ming-global-silver/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-chinese-literature/literary-culture-of-the-late-ming-15731644/B1057790FC13B3713823AD7E528903DB",
+    "uses": [
+      "source/book/ming/source-18"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/east-asia-in-the-world/ming-grand-strategy-during-the-great-east-asian-war-15921598/AB038744ED15D6ADB4940F932E762743",
+    "uses": [
+      "source/book/ming/source-19",
+      "source/scene/imjin-frontier/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/legacies-of-the-imjin-war-15921598-in-and-beyond-east-asia/7AE8D0DDCD54827E221A7E37F5AC5C3B",
+    "uses": [
+      "source/book/ming/source-20",
+      "source/scene/imjin-frontier/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-china/state-building-before-1644/5F23EC8D6A95854D5D5BA8CD60ABFFA2",
+    "uses": [
+      "source/book/ming/source-21"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/nine-sloughs-profiling-the-climate-history-of-the-yuan-and-ming-dynasties-12601644/DA1645CAA478E868C91AB3BBEB8BC58F",
+    "uses": [
+      "source/book/ming/source-22"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/journal-of-economic-history/article/myth-and-reality-of-chinas-seventeenth-century-monetary-crisis/051515B7767AB41D91ED213342A6E348",
+    "uses": [
+      "source/book/ming/source-23"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/event/159873.html",
+    "uses": [
+      "source/book/ming/source-24",
+      "source/scene/ming-beijing-1644/source-01",
+      "source/timeline/i-041/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/lemmas/243081.html",
+    "uses": [
+      "source/book/ming/source-25",
+      "source/scene/ming-beijing-1644/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/modern-asian-studies/article/transnational-historiography-of-a-dynastic-transition-writing-the-mingqing-transition-in-seventeenthcentury-china-korea-and-japan/9D660C38138C725154EA64427E018413",
+    "uses": [
+      "source/book/ming/source-26",
+      "source/scene/ming-beijing-1644/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://taiwanoverseas.nmth.gov.tw/archives/5bc602d9-4950-4403-b89f-e7588001585e",
+    "uses": [
+      "source/book/ming/source-27"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2C5745C9E62DB3BDF49D250DC026D4FC/S2059163224000379a.pdf/ability_and_authority_in_the_context_of_crisis_and_conflict_the_midfifteenth_century.pdf",
+    "uses": [
+      "source/book/ming/source-28",
+      "source/scene/ming-nine-garrisons/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/lineage/226245.html",
+    "uses": [
+      "source/book/ming/source-29"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://doi.org/10.1017/S2059163222000457",
+    "uses": [
+      "source/book/ming/source-30",
+      "source/scene/zhenghe-voyages/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/ming-china-and-its-allies/march-to-power-in-a-chinggisid-world/66519489DE8F7EE6B3D798C3D5D48F0A",
+    "uses": [
+      "source/book/ming/source-31",
+      "source/scene/ming-founding-1368/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/highereducation/books/the-cambridge-illustrated-history-of-china/B8415BCABB0218ABC80F4EFEEA9F5B2B/the-limits-of-autocracy-the-ming-dynasty/6221A934DE1F6A59476F018EFB7FAD48",
+    "uses": [
+      "source/book/ming/source-32"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/journal/246893.html",
+    "uses": [
+      "source/book/ming/source-33"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/lineage/226266.html",
+    "uses": [
+      "source/book/ming/source-34"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/journal-of-chinese-history/article/science-religion-and-sinowestern-exchanges-literatijesuit-translation-of-euclidean-geometry-and-its-reception-from-late-ming-to-midqing/710CD29EDADCD7FF7F362721A5A37920",
+    "uses": [
+      "source/book/ming/source-35"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/lineage/226243.html",
+    "uses": [
+      "source/book/ming/source-36"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://doi.org/10.1017/9781108807401.006",
+    "uses": [
+      "source/book/ming/source-37"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/lemmas/243967.html",
+    "uses": [
+      "source/book/ming/source-38",
+      "source/scene/ming-nine-garrisons/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://encykorea.aks.ac.kr/Article/E0047674",
+    "uses": [
+      "source/book/ming/source-39",
+      "source/scene/imjin-frontier/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://ggzl.dpm.org.cn/app/api/app/exhibitionListPc/140",
+    "uses": [
+      "source/book/ming/source-40"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://doi.org/10.1017/jch.2017.27",
+    "uses": [
+      "source/book/ming/source-41"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://e1.portalacademico.cch.unam.mx/alumno/historiademexico1/unidad2/culturamexica/imperio",
+    "uses": [
+      "source/book/ming/unam-triple"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Middle-East",
+    "uses": [
+      "source/book/modern-middle-east/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/event/Sykes-Picot-Agreement",
+    "uses": [
+      "source/book/modern-middle-east/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Mongol-empire",
+    "uses": [
+      "source/book/mongol-empire/source-01",
+      "source/scene/mongol-eurasia-conquest/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-art-of-the-mughals-before-1600",
+    "uses": [
+      "source/book/mughal/source-01",
+      "source/topic/south-asia-modern/mughal/source-01",
+      "source/scene/mughal-akbar/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/toah/ht/09/ssa.html",
+    "uses": [
+      "source/book/mughal/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/the-art-of-the-mughals-after-1600",
+    "uses": [
+      "source/book/mughal/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Divine_Pleasures.pdf",
+    "uses": [
+      "source/book/mughal/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/255/",
+    "uses": [
+      "source/book/mughal/source-05",
+      "source/scene/mughal-akbar/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/decisive-events-indian-mutiny",
+    "uses": [
+      "source/book/mughal/source-06"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Dutch-Republic",
+    "uses": [
+      "source/book/netherlands-low-countries/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.rijksmuseum.nl/en/visit/inside-the-museum/17th-century",
+    "uses": [
+      "source/book/netherlands-low-countries/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Kalmar-Union",
+    "uses": [
+      "source/book/nordic-vikings/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/",
+    "uses": [
+      "source/book/nordic-vikings/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/North-Africa",
+    "uses": [
+      "source/book/north-africa-maghreb/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-magic-of-signs-and-patterns-in-north-african-art",
+    "uses": [
+      "source/book/north-africa-maghreb/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Oceania-region-Pacific-Ocean",
+    "uses": [
+      "source/book/oceania-australia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.tepapa.govt.nz/digital-museum/explore-digital-museum/voyage-and-discovery-pacific",
+    "uses": [
+      "source/book/oceania-australia/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/-/media/files/learn/for%20educators/publications%20for%20educators/islamic%20teacher%20resource/unit5.pdf",
+    "uses": [
+      "source/book/ottoman/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb",
+    "uses": [
+      "source/book/ottoman/source-02",
+      "source/book/ottoman/met-balkans-1453",
+      "source/scene/ottoman-constantinople/source-01"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/zh/toah/ht/08/eusb",
+      "material": "大都会艺术博物馆｜巴尔干半岛 1400—1600 年",
+      "locator": "埃迪尔内建筑和都城，1453 年君士坦丁堡政权转换和奥斯曼建设。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  },
+  {
+    "url": "https://82nd-and-fifth.metmuseum.org/toah/ht/08/wae.html",
+    "uses": [
+      "source/book/ottoman/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://guides.loc.gov/ottoman-turkish/reference",
+    "uses": [
+      "source/book/ottoman/source-04",
+      "source/scene/ottoman-constantinople/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Islamic_art_in_the_Metropolitan_Museum_the_historical_context.pdf",
+    "uses": [
+      "source/book/ottoman/source-05"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.loc.gov/item/95049612/",
+    "uses": [
+      "source/book/ottoman/source-06"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth",
+    "uses": [
+      "source/book/ottoman/source-07"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.vam.ac.uk/info/constantinople-to-istanbul-one-city-two-empires-large-print-guide",
+    "uses": [
+      "source/book/ottoman/vam-city-guide",
+      "source/book/roman/va-1453",
+      "source/topic/ottoman-persia/istanbul/vam-city-guide"
+    ],
+    "access": {
+      "url": "https://www.vam.ac.uk/info/constantinople-to-istanbul-one-city-two-empires-large-print-guide",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "维多利亚与阿尔伯特博物馆｜君士坦丁堡到伊斯坦布尔",
+      "locator": "The end of Constantinople 与 A capital reborn 两节，以及贝利尼苏丹肖像条目。"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Sasanian-dynasty",
+    "uses": [
+      "source/book/persia-sasanian-safavid/source-01",
+      "source/scene/persia-crossroads/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Safavid-dynasty",
+    "uses": [
+      "source/book/persia-sasanian-safavid/source-02",
+      "source/scene/persia-crossroads/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/special/china_1950_prc_timeline.htm",
+    "uses": [
+      "source/book/prc/source-01"
+    ],
+    "access": {
+      "url": "https://afe.easia.columbia.edu/special/china_1950_prc_timeline.htm",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "哥伦比亚大学亚洲教育项目｜中华人民共和国 1949—1976 年大事记",
+      "locator": "1950 年代年表、土地改革与宪法条目；正文覆盖截止 1976"
+    }
+  },
+  {
+    "url": "https://history.state.gov/countries/china",
+    "uses": [
+      "source/book/prc/source-03"
+    ],
+    "access": {
+      "url": "https://history.state.gov/countries/china",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "美国国务院历史办公室｜中国外交关系",
+      "locator": "外交关系条目：与中华人民共和国建立外交关系"
+    }
+  },
+  {
+    "url": "https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms",
+    "uses": [
+      "source/book/prc/source-04",
+      "source/topic/east-asia-modern/china-revolutions/world-bank-reform",
+      "source/timeline/i-085/source-01"
+    ],
+    "access": {
+      "url": "https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "世界银行｜中国改革四十年回顾",
+      "locator": "正文初期农业、市场改革与沿海开放段"
+    }
+  },
+  {
+    "url": "https://www.worldbank.org/ext/en/country/china",
+    "uses": [
+      "source/book/prc/source-05"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://yndx.gov.cn/html/210507/14467.html",
+    "uses": [
+      "source/book/prc/party-resolution-1981",
+      "source/topic/east-asia-modern/china-revolutions/resolution-1981",
+      "source/timeline/i-084/source-01",
+      "source/timeline/i-085/source-02"
+    ],
+    "access": {
+      "url": "https://yndx.gov.cn/html/210507/14467.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "1981 年《关于建国以来党的若干历史问题的决议》",
+      "locator": "第 9—12、17—22、26—27 节"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F80803811C27327223349480C97AD577/S2059163222000032a.pdf/land_reform_in_the_southern_yunnan_muslim_community_growing_divergence_beneath_the_socialist_rhetoric_of_unity_19491958.pdf",
+    "uses": [
+      "source/book/prc/yunnan-land-reform"
+    ],
+    "access": {
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F80803811C27327223349480C97AD577/S2059163222000032a.pdf/land_reform_in_the_southern_yunnan_muslim_community_growing_divergence_beneath_the_socialist_rhetoric_of_unity_19491958.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "Xian Wang｜滇南穆斯林社区的土地改革",
+      "locator": "开篇研究范围及地方执行的案例叙述"
+    }
+  },
+  {
+    "url": "https://www.kellogg.northwestern.edu/faculty/qian/resources/MPQY_FINAL.pdf",
+    "uses": [
+      "source/book/prc/famine-procurement"
+    ],
+    "access": {
+      "url": "https://www.kellogg.northwestern.edu/faculty/qian/resources/MPQY_FINAL.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "孟昕、钱楠、Pierre Yared｜中国大饥荒的制度成因",
+      "locator": "引言与粮食征购制度论证"
+    }
+  },
+  {
+    "url": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjdq/index.shtml",
+    "uses": [
+      "source/book/prc/wuhan-bridge"
+    ],
+    "access": {
+      "url": "https://www.wuhan.gov.cn/ztzl/25zt/qiao/whzjdq/index.shtml",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "武汉市政府｜武汉长江大桥",
+      "locator": "通车时间与大桥用途"
+    }
+  },
+  {
+    "url": "https://www.cnsa.gov.cn/n6758968/n6758972/c6798659/content.html",
+    "uses": [
+      "source/book/prc/first-satellite"
+    ],
+    "access": {
+      "url": "https://www.cnsa.gov.cn/n6758968/n6758972/c6798659/content.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国家航天局｜东方红一号发射",
+      "locator": "发射日期及酒泉任务说明"
+    }
+  },
+  {
+    "url": "https://legal.un.org/repertory/art23/english/rep_supp5_vol2_art23.pdf",
+    "uses": [
+      "source/book/prc/un-china-representation"
+    ],
+    "access": {
+      "url": "https://legal.un.org/repertory/art23/english/rep_supp5_vol2_art23.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "联合国｜《宪章》第 23 条实施惯例补编",
+      "locator": "A. Representation of a permanent member"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1969-76v17/d203",
+    "uses": [
+      "source/book/prc/shanghai-communique"
+    ],
+    "access": {
+      "url": "https://history.state.gov/historicaldocuments/frus1969-76v17/d203",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "美国国务院历史办公室｜1972 年上海公报",
+      "locator": "1972 年 2 月 27 日联合声明"
+    }
+  },
+  {
+    "url": "https://www.edu.cn/jg60nxgbd_8385/20090913/t20090913_406757.shtml",
+    "uses": [
+      "source/book/prc/national-exam-1977"
+    ],
+    "access": {
+      "url": "https://www.edu.cn/jg60nxgbd_8385/20090913/t20090913_406757.shtml",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "中国教育和科研计算机网｜1977 恢复高考",
+      "locator": "首段与 1977 年 10 月 12 日批转招生意见"
+    }
+  },
+  {
+    "url": "https://www.elibrary.imf.org/view/journals/001/1992/089/article-A001-en.xml",
+    "uses": [
+      "source/book/prc/imf-china-reform"
+    ],
+    "access": {
+      "url": "https://www.elibrary.imf.org/view/journals/001/1992/089/article-A001-en.xml",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国际货币基金组织｜中国市场化改革经验",
+      "locator": "改革历程与对外开放各段"
+    }
+  },
+  {
+    "url": "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB16/",
+    "uses": [
+      "source/book/prc/beijing-1989-archive"
+    ],
+    "access": {
+      "url": "https://nsarchive2.gwu.edu/NSAEBB/NSAEBB16/",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "乔治华盛顿大学国家安全档案馆｜1989 年北京解密档案",
+      "locator": "解密电报编目导读、Document 15 与 6 月 3—4 日记载"
+    }
+  },
+  {
+    "url": "https://www.gov.hk/en/about/abouthk/factsheets/docs/basic_law.pdf",
+    "uses": [
+      "source/book/prc/hk-basic-law"
+    ],
+    "access": {
+      "url": "https://www.gov.hk/en/about/abouthk/factsheets/docs/basic_law.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "香港政府｜基本法资料",
+      "locator": "基本法通过与生效日期"
+    }
+  },
+  {
+    "url": "https://www.gcs.gov.mo/news/detail/en/M23GFVdRmC",
+    "uses": [
+      "source/book/prc/macao-basic-law"
+    ],
+    "access": {
+      "url": "https://www.gcs.gov.mo/news/detail/en/M23GFVdRmC",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "澳门政府新闻局｜澳门基本法三十年",
+      "locator": "澳门基本法生效与特别行政区成立的回顾"
+    }
+  },
+  {
+    "url": "https://www.wto.org/english/thewto_e/countries_e/china_e.htm",
+    "uses": [
+      "source/book/prc/wto-china"
+    ],
+    "access": {
+      "url": "https://www.wto.org/english/thewto_e/countries_e/china_e.htm",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "世界贸易组织｜中国成员资料",
+      "locator": "Membership 日期与贸易资料入口"
+    }
+  },
+  {
+    "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/Factsheets/The-Games-of-the-Olympiad.pdf",
+    "uses": [
+      "source/book/prc/ioc-olympiads"
+    ],
+    "access": {
+      "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/Factsheets/The-Games-of-the-Olympiad.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国际奥委会｜历届夏季奥运会简表",
+      "locator": "BEIJING 2008 条目"
+    }
+  },
+  {
+    "url": "https://www.bie-paris.org/site/en/2010-shanghai",
+    "uses": [
+      "source/book/prc/bie-shanghai"
+    ],
+    "access": {
+      "url": "https://www.bie-paris.org/site/en/2010-shanghai",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国际展览局｜2010 上海世博会",
+      "locator": "举办地与日期"
+    }
+  },
+  {
+    "url": "https://www.stats.gov.cn/english/PressRelease/202502/t20250228_1958822.html",
+    "uses": [
+      "source/book/prc/stats-2024"
+    ],
+    "access": {
+      "url": "https://www.stats.gov.cn/english/PressRelease/202502/t20250228_1958822.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国家统计局｜2024 年国民经济和社会发展统计公报",
+      "locator": "综合、人口、交通运输及新建铁路"
+    }
+  },
+  {
+    "url": "https://thedocs.worldbank.org/en/doc/bdadc16a4f5c1c88a839c0f905cde802-0070012022/original/Poverty-Synthesis-Report-final.pdf",
+    "uses": [
+      "source/book/prc/poverty-four-decades"
+    ],
+    "access": {
+      "url": "https://thedocs.worldbank.org/en/doc/bdadc16a4f5c1c88a839c0f905cde802-0070012022/original/Poverty-Synthesis-Report-final.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "世界银行、国务院发展研究中心｜中国减贫四十年",
+      "locator": "执行摘要及国家贫困标准与国际贫困线"
+    }
+  },
+  {
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10518102/n10518147/c10565180/content.html",
+    "uses": [
+      "source/book/prc/change-return"
+    ],
+    "access": {
+      "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10518102/n10518147/c10565180/content.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "国家航天局｜嫦娥六号月背采样返回通报",
+      "locator": "2024 年 6 月 25 日任务通报"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
+    "uses": [
+      "source/book/prc/armistice-1953"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/armistice-agreement-restoration-south-korean-state",
+      "status": "replacement",
+      "date": "2026-11-25",
+      "material": "美国国家档案馆｜1953 年朝鲜停战协定",
+      "locator": "停战协定转录，第 1 条；链接替代返回 404 的战事综述。"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Qin-dynasty",
+    "uses": [
+      "source/book/qin/source-01",
+      "source/book/warring-states/source-02",
+      "source/scene/qin-empire-roads/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asia.si.edu/education/educator-resources/teaching-china-with-the-smithsonian/explore-by-dynasty/qing-dynasty/",
+    "uses": [
+      "source/book/qing/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/toah/ht/09/eac.html",
+    "uses": [
+      "source/book/qing/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1830-1860/china-1",
+    "uses": [
+      "source/book/qing/source-04",
+      "source/topic/china-late-qing/ports/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1899-1913/chinese-rev",
+    "uses": [
+      "source/book/qing/source-05",
+      "source/topic/china-late-qing/defeat/source-02",
+      "source/topic/china-late-qing/revolution/source-01",
+      "source/timeline/i-041/source-02",
+      "source/timeline/i-042/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/boxer-rebellion",
+    "uses": [
+      "source/book/qing/source-06",
+      "source/topic/china-late-qing/boxers/source-02",
+      "source/scene/boxer-crisis-1900/source-02",
+      "source/timeline/i-140/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Qing-dynasty",
+    "uses": [
+      "source/book/qing/source-07",
+      "source/scene/qing-multiethnic-empire/source-01",
+      "source/scene/qing-treaty-ports/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Beijing/Cultural-life",
+    "uses": [
+      "source/book/roc/source-01",
+      "source/scene/roc-nanjing-chongqing/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/essays/the-roman-empire-27-b-c-393-a-d",
+    "uses": [
+      "source/book/roman/source-01"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/ko/essays/the-roman-empire-27-b-c-393-a-d",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜罗马帝国",
+      "locator": "朱里亚—克劳狄王朝及戴克里先段落。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/toah/ht/05/eust",
+    "uses": [
+      "source/book/roman/source-02",
+      "source/topic/europe-classical/late-antiquity/met-italy-476"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/it/toah/ht/05/eust",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜意大利半岛公元 1—500 年",
+      "locator": "大事年表 410、476 及 493 年。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/toah/ht/05/wae.html",
+    "uses": [
+      "source/book/roman/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/byzantium-ca-330-1453",
+    "uses": [
+      "source/book/roman/source-04",
+      "source/topic/europe-classical/late-antiquity/met-byzantium"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/de/essays/byzantium-ca-330-1453",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜拜占庭",
+      "locator": "330 年新都命名、早期的罗马制度、晚期版图与艺术。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/met-publications/byzantium-faith-and-power-1261-1557",
+    "uses": [
+      "source/book/roman/source-05"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/met-publications/byzantium-faith-and-power-1261-1557",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜拜占庭的信仰与权力",
+      "locator": "展览图录简介与目录，东西方艺术和学术的交流。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/toah/ht/07/eusb.html",
+    "uses": [
+      "source/book/roman/source-06"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/es/toah/ht/07/eusb.html",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜巴尔干半岛 1000—1400 年",
+      "locator": "1204、1261、1354 年大事条目。"
+    }
+  },
+  {
+    "url": "https://sourcebooks.fordham.edu/source/edict-milan.asp",
+    "uses": [
+      "source/book/roman/milan-document"
+    ],
+    "access": {
+      "url": "https://sourcebooks.fordham.edu/source/edict-milan.asp",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "福特汉姆大学历史文献集｜313 年米兰协议英译",
+      "locator": "文本共有两位皇帝，确认宗教选择并下令返还基督徒聚会场所。"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/hagia-sophia-532-37",
+    "uses": [
+      "source/book/roman/met-hagia"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/essays/hagia-sophia-532-37",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "大都会艺术博物馆｜圣索菲亚大教堂",
+      "locator": "建筑条目对照 532、537、558 和 562 年及穹顶重建。"
+    }
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.1903797116",
+    "uses": [
+      "source/book/roman/plague-study"
+    ],
+    "access": {
+      "url": "https://www.pnas.org/doi/10.1073/pnas.1903797116",
+      "status": "replacement",
+      "date": "2026-11-25",
+      "material": "Lee Mordechai 等｜查士丁尼瘟疫及其影响",
+      "locator": "研究正文的文献、法令、纸草与花粉分析，界定公元约 541—544 年第一波，并质疑极高死亡率。"
+    }
+  },
+  {
+    "url": "https://etheses.whiterose.ac.uk/id/eprint/23526/1/Tesi.pdf",
+    "uses": [
+      "source/book/roman/venice-privileges"
+    ],
+    "access": {
+      "url": "https://etheses.whiterose.ac.uk/id/eprint/23526/1/Tesi.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "White Rose 学位论文库｜拜占庭同威尼斯的政治与贸易关系",
+      "locator": "第二节 The Dating of Alexios I’s Chrysobull，列举 1082 及 1092 之争并回到诏书条款。"
+    }
+  },
+  {
+    "url": "https://etheses.bham.ac.uk/id/eprint/5738/1/Virgilio15PhD.pdf",
+    "uses": [
+      "source/book/roman/florence-1397"
+    ],
+    "access": {
+      "url": "https://etheses.bham.ac.uk/id/eprint/5738/1/Virgilio15PhD.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "伯明翰大学学位论文库｜佛罗伦萨、拜占庭与奥斯曼",
+      "locator": "第 17—18 页，引萨卢塔蒂信件说明 1397 年克里索洛拉斯在佛罗伦萨任教。"
+    }
+  },
+  {
+    "url": "https://edizionicafoscari.it/media/pdf/books/978-88-6969-622-0/978-88-6969-622-0_bP4FCq2.pdf",
+    "uses": [
+      "source/book/roman/marciana-1468"
+    ],
+    "access": {
+      "url": "https://edizionicafoscari.it/media/pdf/books/978-88-6969-622-0/978-88-6969-622-0_bP4FCq2.pdf",
+      "status": "read",
+      "date": "2026-11-25",
+      "material": "威尼斯大学出版社｜马尔恰纳图书馆希腊手稿目录",
+      "locator": "目录第 23 项 Gr. Z. 83 的 Provenienza 载赠予及手稿登记。"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Song-dynasty",
+    "uses": [
+      "source/book/song/source-01",
+      "source/scene/song-kaifeng-canal/source-01",
+      "source/scene/song-jingkang-linan/source-01",
+      "source/scene/song-maritime-xiangyang/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
+    "uses": [
+      "source/book/song/source-02",
+      "source/book/yuan/source-02",
+      "source/scene/song-kaifeng-canal/source-02",
+      "source/scene/song-jingkang-linan/source-02",
+      "source/scene/yuan-two-capitals-canal/source-02",
+      "source/scene/yuan-eurasia-network/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/songdynasty-module/confucian-neo.html",
+    "uses": [
+      "source/book/song/source-03",
+      "source/scene/song-maritime-xiangyang/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/toah/ht/08/afu",
+    "uses": [
+      "source/book/songhai/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://unesdoc.unesco.org/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_f751f656-39b6-4613-a403-0e71c4509ecd?_=134396engo.pdf",
+    "uses": [
+      "source/book/songhai/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://assets.cambridge.org/97811074/14297/excerpt/9781107414297_excerpt.pdf",
+    "uses": [
+      "source/book/southeast-asia-maritime/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.govinfo.gov/content/pkg/GOVPUB-D5-PURL-gpo10165/pdf/GOVPUB-D5-PURL-gpo10165.pdf",
+    "uses": [
+      "source/book/southeast-asia-maritime/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Srivijaya-empire",
+    "uses": [
+      "source/book/southeast-asia-maritime/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/592/",
+    "uses": [
+      "source/book/southeast-asia-maritime/source-04",
+      "source/topic/southeast-asia-networks/borobudur/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/144/",
+    "uses": [
+      "source/book/southern-eastern-africa/source-01",
+      "source/topic/east-southern-africa/kilwa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/great-zimbabwe",
+    "uses": [
+      "source/book/southern-eastern-africa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Great-Zimbabwe",
+    "uses": [
+      "source/book/southern-eastern-africa/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815",
+    "uses": [
+      "source/book/spain-portugal/met-manila-commerce",
+      "source/scene/ming-global-silver/met-manila",
+      "source/scene/iberian-atlantic-pacific/met-manila"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/art/collection/search/227351",
+    "uses": [
+      "source/book/spain-portugal/met-manila-export",
+      "source/scene/ming-global-silver/met-manila-object"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Sui-dynasty",
+    "uses": [
+      "source/book/sui/source-01",
+      "source/scene/sui-grand-canal/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/toah/ht/06/eac.html",
+    "uses": [
+      "source/book/tang/source-01",
+      "source/scene/tang-frontier/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://artistproject.metmuseum.org/toah/ht/06/nc.html",
+    "uses": [
+      "source/book/tang/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://82nd-and-fifth.metmuseum.org/toah/ht/07/eac.html",
+    "uses": [
+      "source/book/tang/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Tibet/History",
+    "uses": [
+      "source/book/tibet-himalaya/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/essays/arts-of-the-greater-himalayas",
+    "uses": [
+      "source/book/tibet-himalaya/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.ndl.go.jp/france/jp/chronology/index.html",
+    "uses": [
+      "source/book/tokugawa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/toah/ht/09/eaj.html",
+    "uses": [
+      "source/book/tokugawa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.ndl.go.jp/nichiran/e/s1/s1_4.html",
+    "uses": [
+      "source/book/tokugawa/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.ndl.go.jp/modern/cha1/description01.html",
+    "uses": [
+      "source/book/tokugawa/source-04",
+      "source/scene/tokugawa-opening/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html",
+    "uses": [
+      "source/book/tokugawa/source-05",
+      "source/scene/tokugawa-opening/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.go.jp/ayumi/kobetsu/m01_1868_01.html",
+    "uses": [
+      "source/book/tokugawa/source-06"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/United-States",
+    "uses": [
+      "source/book/usa/source-01",
+      "source/scene/usa-continental-pacific/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Ghana-historical-West-African-empire",
+    "uses": [
+      "source/book/west-central-africa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/perspectives/benin-court-art-legacy",
+    "uses": [
+      "source/book/west-central-africa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/place/Kongo-historical-kingdom-Africa",
+    "uses": [
+      "source/book/west-central-africa/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Yuan-dynasty",
+    "uses": [
+      "source/book/yuan/source-01",
+      "source/scene/yuan-two-capitals-canal/source-01",
+      "source/scene/yuan-eurasia-network/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414",
+    "uses": [
+      "source/topic/africa-modern/partition/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://sahistory.org.za/classroom/grade-8/scramble-africa-late-19th-century",
+    "uses": [
+      "source/topic/africa-modern/partition/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://africa.si.edu/collection/object/nmafa_2004-7-60",
+    "uses": [
+      "source/topic/africa-modern/adwa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=142149&section=2",
+    "uses": [
+      "source/topic/africa-modern/adwa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/dppa/decolonization/history/former-trust-and-nsgts",
+    "uses": [
+      "source/topic/africa-modern/independence/source-01",
+      "source/topic/oceania/pacific-sovereignty/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1945-1952/asia-and-africa",
+    "uses": [
+      "source/topic/africa-modern/independence/source-02",
+      "source/topic/southeast-asia-modern/indochina/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://southafrica.un.org/en/about/about-the-un",
+    "uses": [
+      "source/topic/africa-modern/south-africa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://omalley.nelsonmandela.org/index.php/site/q/03lv02039/04lv02128/05lv02130.htm",
+    "uses": [
+      "source/topic/africa-modern/south-africa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://sogdians.si.edu/introduction/",
+    "uses": [
+      "source/topic/central-asia/sogdians/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://depts.washington.edu/silkroad/exhibit/sogdians/essay.html",
+    "uses": [
+      "source/topic/central-asia/sogdians/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/mongols/conquests/conquests.htm",
+    "uses": [
+      "source/topic/central-asia/mongols/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://content.ucpress.edu/title/9780520298743/9780520298743_intro.pdf",
+    "uses": [
+      "source/topic/central-asia/mongols/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/essays/the-art-of-the-timurid-period-ca-1370-1507",
+    "uses": [
+      "source/topic/central-asia/timurids/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/603/",
+    "uses": [
+      "source/topic/central-asia/timurids/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://tile.loc.gov/storage-services/master/frd/frdcstdy/ka/kazakstankyrgyzs00curt_0/kazakstankyrgyzs00curt_0.pdf",
+    "uses": [
+      "source/topic/central-asia/republics/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/677309/files/A_HRC_13_23_Add.1-ZH.pdf",
+    "uses": [
+      "source/topic/central-asia/republics/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/shang-and-zhou-dynasties-the-bronze-age-of-china",
+    "uses": [
+      "source/topic/china-early/bronze/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/exhibitions/listings/2017/age-of-empires/exhibition-galleries",
+    "uses": [
+      "source/topic/china-early/bronze/source-02",
+      "source/topic/china-early/qin/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/441",
+    "uses": [
+      "source/topic/china-early/qin/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/essays/han-dynasty-206-b-c-220-a-d",
+    "uses": [
+      "source/topic/china-early/han/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1442",
+    "uses": [
+      "source/topic/china-early/han/source-02",
+      "source/topic/east-asia-networks/tang/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/pt/met-publications/china-dawn-of-a-golden-age-200-750-ad",
+    "uses": [
+      "source/topic/china-early/buddhism/source-01",
+      "source/topic/east-asia-networks/tang/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.library.gov.au/learn/digital-classroom/celestial-empire/contact-and-conflict",
+    "uses": [
+      "source/topic/china-late-qing/ports/source-02",
+      "source/topic/china-late-qing/civil-war/source-01",
+      "source/topic/china-late-qing/boxers/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/cosmos/bgov/19th.htm",
+    "uses": [
+      "source/topic/china-late-qing/ports/source-03",
+      "source/topic/china-late-qing/industry/source-03",
+      "source/topic/china-late-qing/reform-1898/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-nanjing.htm",
+    "uses": [
+      "source/topic/china-late-qing/ports/source-04",
+      "source/scene/nanjing-treaty-ports/source-04"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asia-archive.si.edu/learn/for-educators/teaching-china-with-the-smithsonian/interactives/timelines/timeline-of-chinese-history-art-and-culture/",
+    "uses": [
+      "source/topic/china-late-qing/civil-war/source-02",
+      "source/topic/china-late-qing/defeat/source-01",
+      "source/topic/china-late-qing/revolution/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/special/china_1750_reform.htm",
+    "uses": [
+      "source/topic/china-late-qing/civil-war/source-03",
+      "source/topic/china-late-qing/industry/source-02",
+      "source/topic/china-late-qing/defeat/source-03",
+      "source/topic/china-late-qing/new-policies/source-03",
+      "source/topic/china-late-qing/revolution/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/books/abs/cambridge-economic-history-of-china/state-and-enterprises-in-late-qing-china/905877745C74FA03578B4C4A80CC45AE",
+    "uses": [
+      "source/topic/china-late-qing/industry/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-kang-youwei-comprehensive.htm",
+    "uses": [
+      "source/topic/china-late-qing/reform-1898/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-qing-reform-edict-1901.htm",
+    "uses": [
+      "source/topic/china-late-qing/reform-1898/source-03",
+      "source/topic/china-late-qing/new-policies/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1899-1913/hay-and-china",
+    "uses": [
+      "source/topic/china-late-qing/boxers/source-01",
+      "source/timeline/i-140/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1905/d212",
+    "uses": [
+      "source/topic/china-late-qing/new-policies/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_japan-charter-oath-1868.htm",
+    "uses": [
+      "source/topic/east-asia-modern/meiji/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/9-1-the-second-industrial-revolution",
+    "uses": [
+      "source/topic/east-asia-modern/meiji/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/kpct/ct_korea.htm",
+    "uses": [
+      "source/topic/east-asia-modern/korean-independence/source-01",
+      "source/topic/east-asia-modern/postwar/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_korea-march-first-declaration.htm",
+    "uses": [
+      "source/topic/east-asia-modern/korean-independence/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/14-2-the-spread-of-communism",
+    "uses": [
+      "source/topic/east-asia-modern/china-revolutions/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.saac.gov.cn/daj/gqzt/06.html",
+    "uses": [
+      "source/topic/east-asia-modern/china-revolutions/state-archives-1949",
+      "source/timeline/i-033/source-01"
+    ],
+    "access": {
+      "url": "https://www.saac.gov.cn/daj/gqzt/06.html",
+      "material": "国家档案局｜开国大典档案目录",
+      "locator": "1949 年 10 月 1 日中央人民政府公告、委员会会议记录和典礼程序。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  },
+  {
+    "url": "https://www.ndl.go.jp/constitution/e/etc/c01.html",
+    "uses": [
+      "source/topic/east-asia-modern/postwar/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1947v06/d471",
+    "uses": [
+      "source/topic/east-asia-modern/postwar/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/songdynasty-module/econ-rev-intro-pop.html",
+    "uses": [
+      "source/topic/east-asia-networks/song/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/songdynasty-module/econ-rev-commercial.html",
+    "uses": [
+      "source/topic/east-asia-networks/song/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-attractions-song-capital.htm",
+    "uses": [
+      "source/topic/east-asia-networks/song/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/The_Arts_of_Korea_A_Resource_for_Educators.pdf",
+    "uses": [
+      "source/topic/east-asia-networks/korea/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/kpct/kp_1000-1450ce.htm",
+    "uses": [
+      "source/topic/east-asia-networks/korea/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/kpct/kp_1450-1750.htm",
+    "uses": [
+      "source/topic/east-asia-networks/tokugawa/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://afe.easia.columbia.edu/main_pop/kpct/ct_japan.htm",
+    "uses": [
+      "source/topic/east-asia-networks/tokugawa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/18/",
+    "uses": [
+      "source/topic/east-southern-africa/lalibela/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/art/collection/search/318333",
+    "uses": [
+      "source/topic/east-southern-africa/lalibela/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/toah/ht/07/afa",
+    "uses": [
+      "source/topic/east-southern-africa/kilwa/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/364/",
+    "uses": [
+      "source/topic/east-southern-africa/zimbabwe/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/perspectives/great-zimbabwe",
+    "uses": [
+      "source/topic/east-southern-africa/zimbabwe/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/599/",
+    "uses": [
+      "source/topic/east-southern-africa/mozambique/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/exhibitions/arts-of-africa/inside-the-exhibition",
+    "uses": [
+      "source/topic/east-southern-africa/mozambique/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/essays/the-art-of-classical-greece-ca-480-323-b-c",
+    "uses": [
+      "source/topic/europe-classical/polis/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/6-2-ancient-greece",
+    "uses": [
+      "source/topic/europe-classical/polis/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/egypt-in-the-ptolemaic-period",
+    "uses": [
+      "source/topic/europe-classical/hellenistic/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/6-3-the-hellenistic-era",
+    "uses": [
+      "source/topic/europe-classical/hellenistic/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Roman_Art_A_Resource_for_Educators.pdf",
+    "uses": [
+      "source/topic/europe-classical/rome/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/7-3-the-roman-economy-trade-taxes-and-conquest",
+    "uses": [
+      "source/topic/europe-classical/rome/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/-/media/files/learn/for-educators/publications-for-educators/byzantine.pdf",
+    "uses": [
+      "source/topic/europe-classical/late-antiquity/source-01",
+      "source/topic/europe-medieval/eastern-europe/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/10-1-the-eastward-shift",
+    "uses": [
+      "source/topic/europe-classical/late-antiquity/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/the-reformation",
+    "uses": [
+      "source/topic/europe-early-modern/print-reformation/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/albrecht-durer-1471-1528",
+    "uses": [
+      "source/topic/europe-early-modern/print-reformation/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/exhibitions/listings/2013/interwoven-globe",
+    "uses": [
+      "source/topic/europe-early-modern/atlantic-empires/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/explore-the-collection/explore-by-time-period/georgians/transatlantic-slave-trade/",
+    "uses": [
+      "source/topic/europe-early-modern/atlantic-empires/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.elysee.fr/en/french-presidency/the-declaration-of-the-rights-of-man-and-of-the-citizen",
+    "uses": [
+      "source/topic/europe-early-modern/revolution/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/french-revolution/",
+    "uses": [
+      "source/topic/europe-early-modern/revolution/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/19thcentury/overview/factoryact/",
+    "uses": [
+      "source/topic/europe-early-modern/industry/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://cdn.nationalarchives.gov.uk/documents/education/factory-actdoc.pdf",
+    "uses": [
+      "source/topic/europe-early-modern/industry/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/604/",
+    "uses": [
+      "source/topic/europe-medieval/eastern-europe/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.english-heritage.org.uk/learn/story-of-england/medieval/introduction/",
+    "uses": [
+      "source/topic/europe-medieval/land-and-lordship/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/13-1-the-post-roman-west-in-the-early-middle-ages",
+    "uses": [
+      "source/topic/europe-medieval/land-and-lordship/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Medieval_Art_A_Resource_for_Educators.pdf",
+    "uses": [
+      "source/topic/europe-medieval/towns/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://historiska.se/en/explore-history/history-hub/intro-middle-ages/",
+    "uses": [
+      "source/topic/europe-medieval/towns/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/16-3-the-black-death-from-east-to-west",
+    "uses": [
+      "source/topic/europe-medieval/plague/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.history.ox.ac.uk/society-economy-and-law-fourteenth-century-england",
+    "uses": [
+      "source/topic/europe-medieval/plague/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.warmuseum.ca/firstworldwar/history/going-to-war/origins-and-early-phases/war-begins-in-europe/",
+    "uses": [
+      "source/topic/europe-modern/world-war-one/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/first-world-war",
+    "uses": [
+      "source/topic/europe-modern/world-war-one/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-russian-revolution-1917",
+    "uses": [
+      "source/topic/europe-modern/russian-revolution/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dhr.history.vt.edu/modules/eu/mod03_1917/pdfs/introduction.pdf",
+    "uses": [
+      "source/topic/europe-modern/russian-revolution/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
+    "uses": [
+      "source/topic/europe-modern/world-war-two/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/second-world-war",
+    "uses": [
+      "source/topic/europe-modern/world-war-two/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/marshall-plan",
+    "uses": [
+      "source/topic/europe-modern/reconstruction/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://european-union.europa.eu/principles-countries-history/history-eu_en",
+    "uses": [
+      "source/topic/europe-modern/reconstruction/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+    "uses": [
+      "source/topic/europe-modern/reconstruction/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/en/about-us/un-charter",
+    "uses": [
+      "source/topic/global-connections/united-nations/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/en/about-us/udhr/history-of-the-declaration",
+    "uses": [
+      "source/topic/global-connections/united-nations/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.unesco.org/en/memory-world/asian-african-conference-archives",
+    "uses": [
+      "source/topic/global-connections/bandung/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1953-1960/bandung-conf",
+    "uses": [
+      "source/topic/global-connections/bandung/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.wto.org/english/thewto_e/history_e/history_e.htm",
+    "uses": [
+      "source/topic/global-connections/production-networks/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.worldbank.org/en/publication/wdr2020",
+    "uses": [
+      "source/topic/global-connections/production-networks/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://unfccc.int/files/meetings/paris_nov_2015/application/pdf/paris_agreement_english_.pdf",
+    "uses": [
+      "source/topic/global-connections/shared-challenges/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.itu.int/itu-d/reports/statistics/facts-figures-2024/",
+    "uses": [
+      "source/topic/global-connections/shared-challenges/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/11-1-the-rise-and-message-of-islam",
+    "uses": [
+      "source/topic/islamic-networks/caliphates/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-art-of-the-umayyad-period-661-750",
+    "uses": [
+      "source/topic/islamic-networks/caliphates/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/the-art-of-the-abbasid-period-750-1258",
+    "uses": [
+      "source/topic/islamic-networks/baghdad/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK519309/",
+    "uses": [
+      "source/topic/islamic-networks/baghdad/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/essays/the-art-of-the-umayyad-period-in-spain-711-1031",
+    "uses": [
+      "source/topic/islamic-networks/al-andalus/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/313/",
+    "uses": [
+      "source/topic/islamic-networks/al-andalus/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/12-1-the-indian-ocean-world-in-the-early-middle-ages",
+    "uses": [
+      "source/topic/islamic-networks/ocean-trade/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-seven",
+    "uses": [
+      "source/topic/islamic-networks/ocean-trade/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/420/",
+    "uses": [
+      "source/topic/latin-america/conquest-silver/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.loc.gov/exhibits/exploring-the-early-americas/conflict-and-accommodation.html",
+    "uses": [
+      "source/topic/latin-america/conquest-silver/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/7-3-revolutions-america-france-and-haiti",
+    "uses": [
+      "source/topic/latin-america/independences/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/8-3-spanish-south-america",
+    "uses": [
+      "source/topic/latin-america/independences/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1548/",
+    "uses": [
+      "source/topic/latin-america/brazil/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://guides.loc.gov/brazil-us-relations/slavery-and-abolition",
+    "uses": [
+      "source/topic/latin-america/brazil/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.memoriachilena.gob.cl/602/w3-article-3622.html",
+    "uses": [
+      "source/topic/latin-america/resources-democracy/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.bcn.cl/historiapolitica/hitos_periodo/detalle_periodo.html?per=1973-1990",
+    "uses": [
+      "source/topic/latin-america/resources-democracy/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archivonacional.gob.cl/11-de-septiembre-1973-golpe-civil-militar",
+    "uses": [
+      "source/topic/latin-america/resources-democracy/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1269/",
+    "uses": [
+      "source/topic/mesoamerica-andes/early-andes/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/8-2-early-cultures-and-civilizations-in-the-americas",
+    "uses": [
+      "source/topic/mesoamerica-andes/early-andes/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/64/",
+    "uses": [
+      "source/topic/mesoamerica-andes/maya/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/exhibitions/arts-of-the-ancient-americas/inside-the-exhibition",
+    "uses": [
+      "source/topic/mesoamerica-andes/maya/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/tenochtitlan-templo-mayor",
+    "uses": [
+      "source/topic/mesoamerica-andes/mexica/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1459/",
+    "uses": [
+      "source/topic/mesoamerica-andes/inca/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/8-3-the-age-of-empires-in-the-americas",
+    "uses": [
+      "source/topic/mesoamerica-andes/inca/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/86/",
+    "uses": [
+      "source/topic/nile-civilizations/pyramids/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/zh/essays/egypt-in-the-old-kingdom-ca-2649-2150-b-c",
+    "uses": [
+      "source/topic/nile-civilizations/pyramids/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/87/",
+    "uses": [
+      "source/topic/nile-civilizations/thebes/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/essays/egypt-in-the-new-kingdom-ca-1550-1070-b-c",
+    "uses": [
+      "source/topic/nile-civilizations/thebes/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1336/",
+    "uses": [
+      "source/topic/nile-civilizations/kush/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/fr/essays/nubia",
+    "uses": [
+      "source/topic/nile-civilizations/kush/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/15/",
+    "uses": [
+      "source/topic/nile-civilizations/aksum/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/12-2-east-west-interactions-in-the-early-middle-ages",
+    "uses": [
+      "source/topic/nile-civilizations/aksum/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/37/",
+    "uses": [
+      "source/topic/north-africa/carthage/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/essays/the-phoenicians-1500-300-b-c",
+    "uses": [
+      "source/topic/north-africa/carthage/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/499/",
+    "uses": [
+      "source/topic/north-africa/kairouan/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/170/",
+    "uses": [
+      "source/topic/north-africa/kairouan/source-02",
+      "source/topic/north-africa/fez/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/pt/toah/ht/07/afw",
+    "uses": [
+      "source/topic/north-africa/fez/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/565/",
+    "uses": [
+      "source/topic/north-africa/algiers/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/the-greater-ottoman-empire-1600-1800",
+    "uses": [
+      "source/topic/north-africa/algiers/source-02",
+      "source/topic/ottoman-persia/changing-empires/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://home.nps.gov/chcu/learn/historyculture/pueblo-period.htm",
+    "uses": [
+      "source/topic/north-america-indigenous/pueblo/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/27/",
+    "uses": [
+      "source/topic/north-america-indigenous/pueblo/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/198/",
+    "uses": [
+      "source/topic/north-america-indigenous/cahokia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://parkplanning.nps.gov/showFile.cfm?projectID=66149&sfid=381753",
+    "uses": [
+      "source/topic/north-america-indigenous/cahokia/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/nk360/resources/Haudenosaunee-Guide-for-Educators.cshtml",
+    "uses": [
+      "source/topic/north-america-indigenous/haudenosaunee/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/nk360/haudenosaunee-lands/the-american-revolution/pdf/Haudenosaunee-Classroom-Connections.pdf",
+    "uses": [
+      "source/topic/north-america-indigenous/haudenosaunee/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://sites.uw.edu/cspn/indians-and-europeans/",
+    "uses": [
+      "source/topic/north-america-indigenous/northwest-coast/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://americanindian.si.edu/exhibitions/infinityofnations/northwest-coast.html",
+    "uses": [
+      "source/topic/north-america-indigenous/northwest-coast/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://home.nps.gov/articles/000/contact-to-present.htm",
+    "uses": [
+      "source/topic/north-america-modern/colonial-contact/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://home.nps.gov/people/powhatan.htm",
+    "uses": [
+      "source/topic/north-america-modern/colonial-contact/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/founding-docs/declaration/what-does-it-say",
+    "uses": [
+      "source/topic/north-america-modern/republic/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/founding-docs/amendments-11-27",
+    "uses": [
+      "source/topic/north-america-modern/republic/source-02",
+      "source/topic/north-america-modern/expansion-emancipation/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nps.gov/articles/000/preludes-trail-of-tears.htm",
+    "uses": [
+      "source/topic/north-america-modern/expansion-emancipation/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+    "uses": [
+      "source/topic/north-america-modern/expansion-emancipation/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
+    "uses": [
+      "source/topic/north-america-modern/rights-and-memory/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://nctr.ca/education/residential-school-history/",
+    "uses": [
+      "source/topic/north-america-modern/rights-and-memory/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://parks.canada.ca/culture/designation/pensionnat-residential",
+    "uses": [
+      "source/topic/north-america-modern/rights-and-memory/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://teara.govt.nz/en/pacific-migrations/print",
+    "uses": [
+      "source/topic/oceania/voyaging/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.tepapa.govt.nz/visit/exhibitions/manu-rere-moana",
+    "uses": [
+      "source/topic/oceania/voyaging/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1577/",
+    "uses": [
+      "source/topic/oceania/australia/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nma.gov.au/__data/assets/pdf_file/0013/540121/NMA-100-defining-moments-print-version.pdf",
+    "uses": [
+      "source/topic/oceania/australia/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/page/differences-between-texts",
+    "uses": [
+      "source/topic/oceania/waitangi/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.tepapa.govt.nz/visit/exhibitions/treaty-waitangi-signs-nation",
+    "uses": [
+      "source/topic/oceania/waitangi/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1339/",
+    "uses": [
+      "source/topic/oceania/pacific-sovereignty/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-five/chapter-two/the-ottoman-empire",
+    "uses": [
+      "source/topic/ottoman-persia/istanbul/source-01",
+      "source/topic/ottoman-persia/governing/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/356/",
+    "uses": [
+      "source/topic/ottoman-persia/istanbul/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/4-2-the-ottoman-empire",
+    "uses": [
+      "source/topic/ottoman-persia/governing/source-02",
+      "source/topic/west-asia-modern/reform/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/115/",
+    "uses": [
+      "source/topic/ottoman-persia/isfahan/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ko/essays/silk-textiles-from-safavid-iran-1501-1722",
+    "uses": [
+      "source/topic/ottoman-persia/isfahan/source-02",
+      "source/topic/ottoman-persia/changing-empires/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/138",
+    "uses": [
+      "source/topic/south-asia-early/indus/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/toah/ht/02/ssa.html",
+    "uses": [
+      "source/topic/south-asia-early/indus/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-1/pages/5-4-vedic-india-to-the-fall-of-the-maurya-empire",
+    "uses": [
+      "source/topic/south-asia-early/ashoka/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/524",
+    "uses": [
+      "source/topic/south-asia-early/ashoka/source-02",
+      "source/topic/south-asia-early/buddhist-networks/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/essays/buddhism-and-buddhist-art",
+    "uses": [
+      "source/topic/south-asia-early/buddhist-networks/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/The_Art_of_South_and_Southeast_Asia_A_Resource_for_Educators.pdf",
+    "uses": [
+      "source/topic/south-asia-early/buddhist-networks/source-03",
+      "source/topic/south-asia-early/chola/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/250/",
+    "uses": [
+      "source/topic/south-asia-early/chola/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.ncert.nic.in/textbook/pdf/lehs203.pdf",
+    "uses": [
+      "source/topic/south-asia-modern/sultanates-and-hampi/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/241/",
+    "uses": [
+      "source/topic/south-asia-modern/sultanates-and-hampi/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-five/chapter-four/introduction",
+    "uses": [
+      "source/topic/south-asia-modern/mughal/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/armies-east-india-company",
+    "uses": [
+      "source/topic/south-asia-modern/company-rule/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen",
+    "uses": [
+      "source/topic/south-asia-modern/company-rule/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/indian-independence-part-one/",
+    "uses": [
+      "source/topic/south-asia-modern/nationalism/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/indian-independence-part-two/",
+    "uses": [
+      "source/topic/south-asia-modern/nationalism/source-02",
+      "source/topic/south-asia-modern/partition/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+    "uses": [
+      "source/topic/south-asia-modern/partition/source-01"
+    ],
+    "access": {
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "英国国家档案馆｜英属印度分治资料",
+      "locator": "HTTP 403。颁布时点改用印度外交部档案汇编，地方实例改用马尔达公开资料。"
+    }
+  },
+  {
+    "url": "https://cdn.nationalarchives.gov.uk/documents/education/independence-of-bangladesh-1971.pdf",
+    "uses": [
+      "source/topic/south-asia-modern/partition/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://curiocity.nlb.gov.sg/digital-stories/singapore-maritime-odyssey/singapore-maritime-odyssey-before-independence/",
+    "uses": [
+      "source/topic/southeast-asia-modern/colonial-port/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://biblioasia.nlb.gov.sg/all-sections/vol-14-issue-4-jan-mar-2019-looking-back-at-700-years-singapore/",
+    "uses": [
+      "source/topic/southeast-asia-modern/colonial-port/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.rijksmuseum.nl/en/press/press-releases/revolusi-indonesia-independent",
+    "uses": [
+      "source/topic/southeast-asia-modern/indonesian-revolution/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.rijksmuseum.nl/nl/story/story-sukarno",
+    "uses": [
+      "source/topic/southeast-asia-modern/indonesian-revolution/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1952-54v16/d1038",
+    "uses": [
+      "source/topic/southeast-asia-modern/indochina/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://arc-agreement.asean.org/file/doc/2013/04/the-asean-declaration-%28bangkok-declaration%29.pdf",
+    "uses": [
+      "source/topic/southeast-asia-modern/asean/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asean.org/joint-communique-of-the-33rd-asean-ministerial-meeting-bangkok-thailand-24-25-july-2000/",
+    "uses": [
+      "source/topic/southeast-asia-modern/asean/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://resources.metmuseum.org/resources/metpublications/pdf/Lost_Kingdoms_Hindu_Buddhist_Sculpture_of_Early_Southeast_Asia.pdf",
+    "uses": [
+      "source/topic/southeast-asia-networks/srivijaya/source-01",
+      "source/topic/southeast-asia-networks/angkor/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/pre-angkor-traditions-the-mekong-delta-and-peninsular-thailand",
+    "uses": [
+      "source/topic/southeast-asia-networks/srivijaya/source-02",
+      "source/topic/southeast-asia-networks/borobudur/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1223/",
+    "uses": [
+      "source/topic/southeast-asia-networks/malacca/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://openstax.org/books/world-history-volume-2/pages/2-2-the-malacca-sultanate",
+    "uses": [
+      "source/topic/southeast-asia-networks/malacca/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/fr/essays/the-empires-of-the-western-sudan",
+    "uses": [
+      "source/topic/west-africa/sahel/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/119/",
+    "uses": [
+      "source/topic/west-africa/manuscripts/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.loc.gov/collections/islamic-manuscripts-from-mali/about-this-collection/",
+    "uses": [
+      "source/topic/west-africa/manuscripts/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/origins-and-empire-the-benin-owo-and-ijebu-kingdoms",
+    "uses": [
+      "source/topic/west-africa/courts/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/christianity-kongo-visual-culture",
+    "uses": [
+      "source/topic/west-africa/courts/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://nmaahc.si.edu/explore/exhibitions/in-slaverys-wake",
+    "uses": [
+      "source/topic/west-africa/atlantic/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://nmaahc.si.edu/explore/stories/african-muslims-early-america",
+    "uses": [
+      "source/topic/west-africa/atlantic/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/uruk-the-first-city",
+    "uses": [
+      "source/topic/west-asia-ancient/uruk/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/de/essays/the-origins-of-writing",
+    "uses": [
+      "source/topic/west-asia-ancient/uruk/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.louvre.fr/en/the-code-of-hammurabi",
+    "uses": [
+      "source/topic/west-asia-ancient/babylon-law/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/ja/essays/the-isin-larsa-and-old-babylonian-periods-2004-1595-b-c",
+    "uses": [
+      "source/topic/west-asia-ancient/babylon-law/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/114",
+    "uses": [
+      "source/topic/west-asia-ancient/achaemenids/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/documents/6444",
+    "uses": [
+      "source/topic/west-asia-ancient/achaemenids/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/it/essays/the-sasanian-empire-224-651-a-d",
+    "uses": [
+      "source/topic/west-asia-ancient/sasanians/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://asia-archive.si.edu/exhibition/the-shapur-plate-the-sasanians-the-sasanian-empire/",
+    "uses": [
+      "source/topic/west-asia-ancient/sasanians/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://tile.loc.gov/storage-services/service/ll/llglrd/2018299338/2018299338.pdf",
+    "uses": [
+      "source/topic/west-asia-modern/reform/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.theworldwar.org/learn/about-wwi/we-come-liberators-britains-middle-east-campaigns-1917-john-calvert",
+    "uses": [
+      "source/topic/west-asia-modern/mandates/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/unispal/history/",
+    "uses": [
+      "source/topic/west-asia-modern/mandates/source-02",
+      "source/topic/west-asia-modern/palestine-israel/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/unispal/document/auto-insert-184992/",
+    "uses": [
+      "source/topic/west-asia-modern/palestine-israel/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1952-54v10/d34",
+    "uses": [
+      "source/topic/west-asia-modern/oil-sovereignty/source-01"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1951-54Iran/d355",
+    "uses": [
+      "source/topic/west-asia-modern/oil-sovereignty/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/document/152720",
+    "uses": [
+      "source/scene/achaemenid-darius/icomos-susa"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/lemmas/243017.html",
+    "uses": [
+      "source/scene/jingnan-campaign/source-03"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.dpm.org.cn/court/talk/203529.html",
+    "uses": [
+      "source/scene/yongle-capitals/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/en/list/1443/",
+    "uses": [
+      "source/scene/yongle-capitals/unesco-canal"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/document/128794",
+    "uses": [
+      "source/scene/yongle-capitals/icomos-canal"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://exploration.marinersmuseum.org/subject/zheng-he/",
+    "uses": [
+      "source/scene/zhenghe-voyages/mariners-zheng"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D3045EA55D654DCDCDCB3874E481A0B4/S0212610919000193a.pdf/changing_significance_of_latin_american_silver_in_the_chinese_economy_16th19th_centuries.pdf",
+    "uses": [
+      "source/scene/ming-global-silver/silver-study"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://china.usc.edu/node/20462",
+    "uses": [
+      "source/scene/nanjing-treaty-ports/nanking-treaty"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1900/d116",
+    "uses": [
+      "source/scene/boxer-crisis-1900/frus-pekin"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/early-20th-century-conflicts/boxer-rebellion.html",
+    "uses": [
+      "source/scene/boxer-crisis-1900/navy-boxers"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/document/197467",
+    "uses": [
+      "source/scene/egypt-nile-corridor/unesco-memphis"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/document/197467",
+      "material": "世界遗产中心和 ICOMOS｜孟斐斯及其墓地",
+      "locator": "第 33 页 Annex 5，托勒密时期首都、内陆行政中心及墓地。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  },
+  {
+    "url": "https://whc.unesco.org/archive/2021/whc21-44com-8E-en.pdf",
+    "uses": [
+      "source/scene/india-ganges-deccan/asi-sanchi"
+    ],
+    "access": {
+      "url": "https://whc.unesco.org/archive/2021/whc21-44com-8E-en.pdf",
+      "material": "世界遗产中心｜桑奇佛教遗迹",
+      "locator": "WHC/21/44.COM/8E，桑奇部分 Brief synthesis 与 Criterion (ii)。",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1945-1952/chinese-rev",
+    "uses": [
+      "source/timeline/i-042/source-02"
+    ],
+    "access": {
+      "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.un.org/ungifts/replica-peace-treaty-between-hattusilis-and-ramses-ii",
+    "uses": [],
+    "access": {
+      "url": "https://www.un.org/ungifts/replica-peace-treaty-between-hattusilis-and-ramses-ii",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "联合国｜卡叠什和约复制品",
+      "locator": "返回 HTTP 403。条款改读乔鲁姆省机构公开的译文。"
+    }
+  },
+  {
+    "url": "https://www.loc.gov/item/94840377/",
+    "uses": [],
+    "access": {
+      "url": "https://www.loc.gov/item/94840377/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "美国国会图书馆｜William Watts 普拉西战役记述",
+      "locator": "HTTP 403。战役年代改用英国图书馆公开馆藏目录。"
+    }
+  },
+  {
+    "url": "https://projects.iq.harvard.edu/files/epod/files/khwaja_a_-_partition_of_india_june_2009.pdf",
+    "uses": [],
+    "access": {
+      "url": "https://projects.iq.harvard.edu/files/epod/files/khwaja_a_-_partition_of_india_june_2009.pdf",
+      "status": "temporary-failure",
+      "date": "2026-11-25",
+      "material": "哈佛 EPoD｜印巴分治研究",
+      "locator": "PDF 未能打开。暂不采用具体伤亡与人口迁移估算。"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/192054",
+    "uses": [],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/192054",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "联合国数字图书馆｜第 2758 号决议",
+      "locator": "HTTP 403，改读联合国法律事务厅公开汇编。"
+    }
+  },
+  {
+    "url": "https://history.state.gov/milestones/1945-1952/korean-war-2",
+    "uses": [],
+    "access": {
+      "url": "https://history.state.gov/milestones/1945-1952/korean-war-2",
+      "status": "dead",
+      "date": "2026-11-25",
+      "material": "美国国务院历史办公室｜朝鲜战争综述旧路径",
+      "locator": "返回 HTTP 404，改读美国国家档案馆停战协定。"
+    }
+  },
+  {
+    "url": "https://wap.sasac.gov.cn/n2588025/n2649281/n10784966/c12356139/content.html",
+    "uses": [],
+    "access": {
+      "url": "https://wap.sasac.gov.cn/n2588025/n2649281/n10784966/c12356139/content.html",
+      "status": "temporary-failure",
+      "date": "2026-11-25",
+      "material": "国资委｜武汉长江大桥材料候选",
+      "locator": "访问超时，桥梁时间转查武汉市公开资料。"
+    }
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6926030/",
+    "uses": [],
+    "access": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6926030/",
+      "status": "restricted",
+      "date": "2026-11-25",
+      "material": "PubMed Central｜查士丁尼瘟疫论文",
+      "locator": "返回验证页，改读期刊开放正文。"
+    }
+  },
+  {
+    "url": "https://bibliotecanazionalemarciana.cultura.gov.it/en/bequests-and-collections/bessarion-bequest/",
+    "uses": [],
+    "access": {
+      "url": "https://bibliotecanazionalemarciana.cultura.gov.it/en/bequests-and-collections/bessarion-bequest/",
+      "status": "temporary-failure",
+      "date": "2026-11-25",
+      "material": "马尔恰纳国家图书馆｜贝萨里翁捐赠",
+      "locator": "访问超时，改读开放手稿目录的藏品来源说明。"
+    }
+  }
+]

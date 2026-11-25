@@ -103,6 +103,11 @@ function relatedMapReading(currentBook) {
     '" data-subject-chapter="' + esc(chapter || '') + '"><strong>' + esc(subjectsById.get(bookId).title) +
     '</strong><span>' + esc(scope) + '</span>' + readingArrow + '</button>').join('') + '</section>';
 }
+function editorialNoticeMarkup(item) {
+  return item.editorialNotice ? '<details class="subject-secondary"><summary>叙事范围与资料</summary><p>' +
+    esc(item.editorialNotice) + '</p></details>' : '';
+}
+
 function renderSubjectOutline(book) {
   const recommended = recommendChapters(book,reading.year);
   const anchor = recommended.length === 1 ? recommended[0] : null;
@@ -111,6 +116,7 @@ function renderSubjectOutline(book) {
   const current = reading.directory ? reading.trail.at(-1)?.detail : null;
   return '<div class="reading-cover">' + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     (scope ? '<p class="reading-note">' + esc(scope) + '</p>' : '') +
+    editorialNoticeMarkup(book) +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
     (progress ? '<button type="button" class="reading-primary" data-subject-resume>继续阅读</button>' : '') +
     subjectChapterButton(book.chapters[0].id, '从头读', progress ? ' data-reading-restart' : ' class="reading-primary" data-reading-restart') +
@@ -196,6 +202,7 @@ function renderSubjectChapter(book, chapter) {
     (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p data-block-id="' +
       esc(chapter.spatialThesisId) + '">' + esc(chapter.spatialThesis) + '</p></details>' : '') +
     relations +
+    editorialNoticeMarkup(chapter) +
     sourcesMarkup(sources);
 }
 

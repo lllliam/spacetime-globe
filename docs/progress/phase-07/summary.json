@@ -1,0 +1,126 @@
+{
+  "baseline": "5bae983a9510987b63f4bb4b2af07ab8d9e5ecdd",
+  "inventory": {
+    "article": 117,
+    "block": 831,
+    "book": 57,
+    "book-chapter": 228,
+    "book-paragraph": 1369,
+    "event": 48,
+    "event-map": 2,
+    "map": 471,
+    "map-source": 2,
+    "place-link": 1,
+    "relation": 583,
+    "scene": 48,
+    "scene-ref": 49,
+    "source": 585,
+    "text": 1157,
+    "topic": 28
+  },
+  "riskCandidates": 956,
+  "recorded": 174,
+  "reviewed": {
+    "article": 6,
+    "block": 30,
+    "book": 4,
+    "book-chapter": 16,
+    "book-paragraph": 55,
+    "event": 9,
+    "map": 2,
+    "relation": 1,
+    "scene": 3,
+    "scene-ref": 1,
+    "source": 1,
+    "text": 36,
+    "topic": 6
+  },
+  "checked": {
+    "article": 6,
+    "block": 28,
+    "book-paragraph": 55,
+    "event": 9,
+    "map": 2,
+    "relation": 1,
+    "scene": 3,
+    "scene-ref": 1
+  },
+  "unreviewed": {
+    "article": 111,
+    "block": 801,
+    "book": 53,
+    "book-chapter": 212,
+    "book-paragraph": 1314,
+    "event": 39,
+    "event-map": 2,
+    "map": 469,
+    "map-source": 2,
+    "place-link": 1,
+    "relation": 582,
+    "scene": 45,
+    "scene-ref": 48,
+    "source": 584,
+    "text": 1121,
+    "topic": 22
+  },
+  "pendingDisposition": {
+    "article": 111,
+    "block": 803,
+    "book": 57,
+    "book-chapter": 228,
+    "book-paragraph": 1314,
+    "event": 39,
+    "event-map": 2,
+    "map": 469,
+    "map-source": 2,
+    "place-link": 1,
+    "relation": 582,
+    "scene": 45,
+    "scene-ref": 48,
+    "source": 585,
+    "text": 1121,
+    "topic": 28
+  },
+  "coverage": {
+    "disposed": 141,
+    "total": 5576
+  },
+  "claimVerification": {
+    "supported": 105,
+    "total": 108
+  },
+  "addedSources": 56,
+  "secondPass": 4,
+  "confirmedSevere": 27,
+  "knownUrls": 448,
+  "accessed": 65,
+  "sourceAccess": {
+    "read": 54,
+    "irrelevant": 0,
+    "abstract": 0,
+    "restricted": 5,
+    "temporary-failure": 3,
+    "rate-limited": 0,
+    "dead": 1,
+    "replacement": 2
+  },
+  "claims": {
+    "supported": 105,
+    "disputed": 3
+  },
+  "changed": 128,
+  "existingChanges": 124,
+  "sceneAvailability": {
+    "available": 44,
+    "paused": 4
+  },
+  "relationTypes": {
+    "compare": 76,
+    "contemporary": 2,
+    "context": 166,
+    "documented": 1,
+    "further": 85,
+    "legacy": 253
+  },
+  "severityOnePending": 298
+}
