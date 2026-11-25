@@ -91,4 +91,4 @@ Phase 07 核对 471 条地图绑定、史料及关系原论断，补查 4 个暂
 
 ## 阶段结论与 Git
 
-本轮验收通过，未发现阻断项。Phase 01–06 已完成，Phase 07 等待产品负责人的完整指令。实施提交使用 `feat(1.0): phase 06 - historical observation and world connections`。[开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
+本轮验收通过，未发现阻断项。Phase 01–06 已完成，Phase 07 等待产品负责人的完整指令。实现提交 `bf3f017e9f0f800c1bcd77162fc93a4b33edc1eb` 已推送至 `origin/develop/1.0` 并经远端查询核对。稳定分支 `origin/main` 指向 `cfac7462bcd232d50baecd795962c8cd74af2597`。[实现提交](https://github.com/lllliam/spacetime-globe/commit/bf3f017e9f0f800c1bcd77162fc93a4b33edc1eb) · [开发分支](https://github.com/lllliam/spacetime-globe/tree/develop/1.0)
