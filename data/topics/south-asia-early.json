@@ -103,14 +103,22 @@
           "chapterId": "buddhism",
           "label": "信仰怎样进入新社会？",
           "reason": "观察佛教传播过程中，文本、赞助与地方解释的作用。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "borobudur",
           "label": "跨海之后的宗教建筑",
           "reason": "把南亚知识网络与东南亚的本地创造接着读。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -193,14 +201,22 @@
           "chapterId": "buddhism",
           "label": "信仰怎样进入新社会？",
           "reason": "观察佛教传播过程中，文本、赞助与地方解释的作用。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "borobudur",
           "label": "跨海之后的宗教建筑",
           "reason": "把南亚知识网络与东南亚的本地创造接着读。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -294,14 +310,22 @@
           "chapterId": "buddhism",
           "label": "信仰怎样进入新社会？",
           "reason": "观察佛教传播过程中，文本、赞助与地方解释的作用。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "borobudur",
           "label": "跨海之后的宗教建筑",
           "reason": "把南亚知识网络与东南亚的本地创造接着读。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -384,14 +408,22 @@
           "chapterId": "buddhism",
           "label": "信仰怎样进入新社会？",
           "reason": "观察佛教传播过程中，文本、赞助与地方解释的作用。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "borobudur",
           "label": "跨海之后的宗教建筑",
           "reason": "把南亚知识网络与东南亚的本地创造接着读。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -403,14 +435,22 @@
       "chapterId": "buddhism",
       "label": "信仰怎样进入新社会？",
       "reason": "观察佛教传播过程中，文本、赞助与地方解释的作用。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "southeast-asia-networks",
       "chapterId": "borobudur",
       "label": "跨海之后的宗教建筑",
       "reason": "把南亚知识网络与东南亚的本地创造接着读。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -2600

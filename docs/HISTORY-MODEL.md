@@ -42,9 +42,9 @@
 ## 正文块、场景与来源
 
 - 书卷段落、补充说明、专题开篇及节正文均有章内稳定 ID。没有独立开篇的专题用 `openingBlockId` 标识摘要开篇。书卷空间线索用 `spatialThesisId`。改写同一内容或调换次序时沿用 ID。插入新块分配未使用的 ID。拆分时将原 ID 留给承接原论点的块，合并时保留最合适的原 ID，并逐一调整场景等链接。彻底删除时阅读位置回退到同章可见位置。
-- `sceneRefs` 采用 `{ "id": "yongle-capitals", "afterBlockId": "p-04" }` 的形式。目标必须是本章存在的段落，跨章年代的引用需写明 `scope`。同一 `scene.id` 可跨卷跨章复用。移动段落时场景仍跟随该块。
+- `sceneRefs` 采用 `{ "id": "yongle-capitals", "afterBlockId": "p-04" }` 的形式。目标必须是本章存在的段落，跨章年代的引用需写明 `scope`。同一 `scene.id` 可跨卷跨章复用。移动段落时场景仍跟随该块。Phase 06 可通过 `stageId` 指定首阶段，通过 `placeLinks` 声明正文地名的位置和阶段。`data/scenes.json` 的 `observation` 提供分阶段地点、证据、路线、精度和可用状态。[历史现场规范](HISTORICAL-SCENES.md)
 - 来源 ID 分别在书卷、专题篇章、独立场景或年表条目的来源列表内唯一。正文 `refs` 可写 `"source-01"` 或 `{"sourceId":"source-01","locator":"第 17 页","note":"附表 2"}`。数字数组下标和未知来源 ID 会报错。用户界面生成连续编号。来源重排保留引用目标。URL 相同的记录可有不同引用位置和证据作用。
-- 书卷的 `related`、`contemporaries`、专题的 `connections` 与年表关联继续保存在原内容记录中。关系可以附 `relation` 与 `evidence`（使用当前作用域的来源 ID 和可选定位），类型支持 `legacy`、`further`、`context`、`contemporary`、`compare` 和 `documented`，其中 `documented` 需提供证据。现有关系继续按原语义保留，统一治理归 Phase 06。
+- 书卷的 `related`、`contemporaries`、专题的 `connections` 与年表关联继续在原内容记录内维护。关系可有作用域内唯一的 `id`、`time`、`display`、`dimension`、`evidence` 与 `audit`。`contemporary` 要求明确源和目标章节覆盖所述时间。`compare` 要求比较维度。`documented` 同时需要适用时间、对联系本身的定位证据及限定范围的核查记录。`context`、`further`、`legacy` 提供背景和阅读导航。旧说明供追溯，读者看到经编辑选用的 `display`。[关系呈现](READING.md#全球历史关联)
 
 ## 审校与地图来源
 

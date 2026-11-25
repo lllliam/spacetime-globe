@@ -33,7 +33,7 @@ function createSession({ minYear, maxYear }) {
   const source = value => {
     if (value?.kind === 'events' && validYear(value.year)) return {
       kind: 'events', year: value.year, eventId: id(value.eventId),
-      action: value.action === 'read' ? 'read' : 'map', scroll: number(value.scroll, 0, 1e7, 0),
+      action: ['read','topic'].includes(value.action) ? value.action : 'map', scroll: number(value.scroll, 0, 1e7, 0),
       disclosures: Array.isArray(value.disclosures) ? value.disclosures.slice(0, 8).map(open => open === true) : [],
     };
     return { kind: value?.kind === 'summary' ? 'summary' : 'map' };
@@ -44,6 +44,7 @@ function createSession({ minYear, maxYear }) {
     scroll: number(value?.scroll, 0, 1e7, 0),
     position: position(value?.position), disclosures: disclosures(value?.disclosures),
     linkEntry: value?.linkEntry === true, directory: value?.directory === true,
+    ...(id(value?.returnFocus) && {returnFocus:id(value.returnFocus)}),
     catalog: value?.catalog === true, library: value?.library === true,
     catalogContinent: id(value?.catalogContinent) || '全部', catalogScroll: number(value?.catalogScroll, 0, 1e7, 0),
   });
@@ -77,23 +78,26 @@ function createSession({ minYear, maxYear }) {
     updateExplore(value) { if (mode === 'Explore') explore = exploreState(value); },
     enterRead(value) {
       if (mode === 'Read' || mode === 'Observe' && observe.origin !== 'Explore') return false;
+      delete read.returnFocus;
       Object.assign(read, readState(value));
       mode = 'Read';
       return true;
     },
-    navigateReading(value) {
+    navigateReading(value, returnFocus) {
       if (mode !== 'Read') return false;
-      const next = frame({ ...read, ...value });
+      const next = frame({ ...read, ...value, returnFocus:null });
       if (next.bookId === read.bookId && next.topicId === read.topicId && next.detail === read.detail &&
           next.catalog === read.catalog && next.library === read.library && next.directory === read.directory &&
           next.entity?.layerId === read.entity?.layerId && next.entity?.key === read.entity?.key) return false;
-      read.trail.push(frame(read));
+      read.trail.push(frame({...read,returnFocus}));
       if (read.trail.length > MAX_READING_TRAIL) read.trail.shift();
+      delete read.returnFocus;
       Object.assign(read, next);
       return true;
     },
     backReading() {
       if (mode !== 'Read' || !read.trail.length) return false;
+      delete read.returnFocus;
       Object.assign(read, read.trail.pop());
       return true;
     },
@@ -127,8 +131,9 @@ function createSession({ minYear, maxYear }) {
     },
     serialize() {
       const resumeRead = mode === 'Read' || mode === 'Observe' && observe.origin === 'Read';
+      const eventList = mode==='Observe' && observe.origin==='Explore' && observe.source?.kind==='events' ? source(observe.source) : null;
       return { schemaVersion: SESSION_SCHEMA, mode: resumeRead ? 'Read' : 'Explore', explore,
-        read: resumeRead ? readState(read) : lastRead, progress: [...progress] };
+        read: resumeRead ? readState(read) : lastRead, progress: [...progress], ...(eventList && {eventList}) };
     },
     restore(value) {
       if (value?.schemaVersion !== SESSION_SCHEMA) return null;
@@ -140,7 +145,9 @@ function createSession({ minYear, maxYear }) {
         progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
           disclosures: disclosures(item.disclosures) });
       }
-      return { explore, read: value.mode === 'Read' ? lastRead : null };
+      const eventList = source(value.eventList);
+      return { explore, read: value.mode === 'Read' ? lastRead : null,
+        ...(value.mode==='Explore' && eventList.kind==='events' && eventList.year===explore.year && {eventList}) };
     },
   };
 }
@@ -263,7 +270,7 @@ function restoreSession() {
         return true;
       }
       resumeStoredReading(restored.read);
-    }
+    } else if (restored.eventList) restoreWorldSource(restored.eventList);
   }
   sessionReady = true;
   if (restored?.read && session.mode === 'Read') saveSession();

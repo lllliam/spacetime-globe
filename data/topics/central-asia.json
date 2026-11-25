@@ -106,14 +106,22 @@
           "chapterId": "baghdad",
           "label": "绿洲与知识中心",
           "reason": "从陆上交换进入翻译、学习与宫廷赞助的世界。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "east-asia-networks",
           "chapterId": "song",
           "label": "草原之外的城市社会",
           "reason": "把欧亚政治和交换放到不同社会结构中观察。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -196,14 +204,22 @@
           "chapterId": "baghdad",
           "label": "绿洲与知识中心",
           "reason": "从陆上交换进入翻译、学习与宫廷赞助的世界。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "east-asia-networks",
           "chapterId": "song",
           "label": "草原之外的城市社会",
           "reason": "把欧亚政治和交换放到不同社会结构中观察。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -286,14 +302,22 @@
           "chapterId": "baghdad",
           "label": "绿洲与知识中心",
           "reason": "从陆上交换进入翻译、学习与宫廷赞助的世界。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "east-asia-networks",
           "chapterId": "song",
           "label": "草原之外的城市社会",
           "reason": "把欧亚政治和交换放到不同社会结构中观察。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -376,14 +400,22 @@
           "chapterId": "baghdad",
           "label": "绿洲与知识中心",
           "reason": "从陆上交换进入翻译、学习与宫廷赞助的世界。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "east-asia-networks",
           "chapterId": "song",
           "label": "草原之外的城市社会",
           "reason": "把欧亚政治和交换放到不同社会结构中观察。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -395,14 +427,22 @@
       "chapterId": "baghdad",
       "label": "绿洲与知识中心",
       "reason": "从陆上交换进入翻译、学习与宫廷赞助的世界。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "east-asia-networks",
       "chapterId": "song",
       "label": "草原之外的城市社会",
       "reason": "把欧亚政治和交换放到不同社会结构中观察。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -200

@@ -83,7 +83,12 @@
           "book": "greece-macedon",
           "year": -218,
           "label": "地中海的希腊化王国",
-          "note": "秦完成中国统一时，托勒密埃及与塞琉古等希腊化王国仍活跃于东地中海和西亚，各自面对大片领土的治理问题。"
+          "note": "秦完成中国统一时，托勒密埃及与塞琉古等希腊化王国仍活跃于东地中海和西亚，各自面对大片领土的治理问题。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -162,7 +167,12 @@
           "book": "greece-macedon",
           "year": -210,
           "label": "希腊化诸国的王权与城市",
-          "note": "秦始皇晚年大兴工程之际，希腊化世界的诸王国持续维系城市、驻军与跨区域财政网络。"
+          "note": "秦始皇晚年大兴工程之际，希腊化世界的诸王国持续维系城市、驻军与跨区域财政网络。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -232,7 +242,12 @@
       "related": [
         {
           "book": "han",
-          "label": "汉朝如何在秦制基础上“霸王道杂之”，把帝国推向四百年长治久安"
+          "label": "汉朝如何在秦制基础上“霸王道杂之”，把帝国推向四百年长治久安",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -240,7 +255,12 @@
           "book": "han",
           "year": -206,
           "label": "楚汉争霸拉开序幕",
-          "note": "子婴降汉后，刘邦与项羽在关中与中原展开长达四年的决战，最终开启大汉四百年基业。"
+          "note": "子婴降汉后，刘邦与项羽在关中与中原展开长达四年的决战，最终开启大汉四百年基业。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

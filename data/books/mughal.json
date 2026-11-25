@@ -108,7 +108,12 @@
           "book": "ming",
           "year": 1526,
           "label": "嘉靖初年与南亚火药新朝",
-          "note": "巴布尔入主德里之际，明朝正值嘉靖初年，欧亚白银贸易网络即将把东亚丝瓷与南亚棉布紧密串联。"
+          "note": "巴布尔入主德里之际，明朝正值嘉靖初年，欧亚白银贸易网络即将把东亚丝瓷与南亚棉布紧密串联。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -185,7 +190,12 @@
           "book": "ming",
           "year": 1581,
           "label": "欧亚同步推进的白银税改",
-          "note": "托达尔·马尔在莫卧儿推行土地白银定额税之际，明朝张居正亦在 1581 年推行“一条鞭法”，两大农耕帝国同步迈入货币财政时代。"
+          "note": "托达尔·马尔在莫卧儿推行土地白银定额税之际，明朝张居正亦在 1581 年推行“一条鞭法”，两大农耕帝国同步迈入货币财政时代。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -268,7 +278,12 @@
           "book": "qing",
           "year": 1644,
           "label": "明清鼎革与莫卧儿的黄金正午",
-          "note": "沙贾汗营建德里红堡与泰姬陵之际，东亚正历经 1644 年明清鼎革，而莫卧儿经济与建筑艺术正达历史顶峰。"
+          "note": "沙贾汗营建德里红堡与泰姬陵之际，东亚正历经 1644 年明清鼎革，而莫卧儿经济与建筑艺术正达历史顶峰。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -345,14 +360,24 @@
           "book": "british-empire",
           "year": 1757,
           "label": "普拉西战役与英属印度起点",
-          "note": "东印度公司在普拉西击败孟加拉纳瓦卜并随后夺得三省征税权，完成从商业特许公司到南亚统治者的惊人跃迁。"
+          "note": "东印度公司在普拉西击败孟加拉纳瓦卜并随后夺得三省征税权，完成从商业特许公司到南亚统治者的惊人跃迁。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "south-asia-modern",
           "chapter": "company-rule",
-          "label": "东印度公司怎样从商人变为殖民统治者"
+          "label": "东印度公司怎样从商人变为殖民统治者",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

@@ -109,14 +109,24 @@
           "chapterId": "conquest-silver",
           "label": "征服之后哪些制度改变了？",
           "reason": "追踪殖民统治、安第斯劳动与全球白银。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-indigenous",
           "chapterId": "cahokia",
           "label": "比较美洲的大型中心",
           "reason": "从不同环境理解农业、公共工程与交流。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从不同环境理解农业、公共工程与交流。",
+          "display": "从不同环境理解农业、公共工程与交流。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -199,14 +209,24 @@
           "chapterId": "conquest-silver",
           "label": "征服之后哪些制度改变了？",
           "reason": "追踪殖民统治、安第斯劳动与全球白银。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-indigenous",
           "chapterId": "cahokia",
           "label": "比较美洲的大型中心",
           "reason": "从不同环境理解农业、公共工程与交流。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从不同环境理解农业、公共工程与交流。",
+          "display": "从不同环境理解农业、公共工程与交流。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -289,14 +309,24 @@
           "chapterId": "conquest-silver",
           "label": "征服之后哪些制度改变了？",
           "reason": "追踪殖民统治、安第斯劳动与全球白银。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-indigenous",
           "chapterId": "cahokia",
           "label": "比较美洲的大型中心",
           "reason": "从不同环境理解农业、公共工程与交流。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从不同环境理解农业、公共工程与交流。",
+          "display": "从不同环境理解农业、公共工程与交流。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -379,14 +409,24 @@
           "chapterId": "conquest-silver",
           "label": "征服之后哪些制度改变了？",
           "reason": "追踪殖民统治、安第斯劳动与全球白银。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-indigenous",
           "chapterId": "cahokia",
           "label": "比较美洲的大型中心",
           "reason": "从不同环境理解农业、公共工程与交流。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从不同环境理解农业、公共工程与交流。",
+          "display": "从不同环境理解农业、公共工程与交流。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -398,14 +438,24 @@
       "chapterId": "conquest-silver",
       "label": "征服之后哪些制度改变了？",
       "reason": "追踪殖民统治、安第斯劳动与全球白银。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "north-america-indigenous",
       "chapterId": "cahokia",
       "label": "比较美洲的大型中心",
       "reason": "从不同环境理解农业、公共工程与交流。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "从不同环境理解农业、公共工程与交流。",
+      "display": "从不同环境理解农业、公共工程与交流。"
     }
   ],
   "from": -3000

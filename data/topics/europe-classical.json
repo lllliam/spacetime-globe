@@ -129,14 +129,24 @@
           "chapterId": "han",
           "label": "地中海之外的帝国",
           "reason": "对照汉与罗马的资源、治理与跨地区联系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的资源、治理与跨地区联系。",
+          "display": "对照汉与罗马的资源、治理与跨地区联系。"
         },
         {
           "topicId": "europe-medieval",
           "chapterId": "eastern-europe",
           "label": "罗马传统如何继续变化？",
           "reason": "从东方帝国进入中世纪的道路、信仰与政治中心。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -219,14 +229,24 @@
           "chapterId": "han",
           "label": "地中海之外的帝国",
           "reason": "对照汉与罗马的资源、治理与跨地区联系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的资源、治理与跨地区联系。",
+          "display": "对照汉与罗马的资源、治理与跨地区联系。"
         },
         {
           "topicId": "europe-medieval",
           "chapterId": "eastern-europe",
           "label": "罗马传统如何继续变化？",
           "reason": "从东方帝国进入中世纪的道路、信仰与政治中心。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -309,14 +329,24 @@
           "chapterId": "han",
           "label": "地中海之外的帝国",
           "reason": "对照汉与罗马的资源、治理与跨地区联系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的资源、治理与跨地区联系。",
+          "display": "对照汉与罗马的资源、治理与跨地区联系。"
         },
         {
           "topicId": "europe-medieval",
           "chapterId": "eastern-europe",
           "label": "罗马传统如何继续变化？",
           "reason": "从东方帝国进入中世纪的道路、信仰与政治中心。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -399,14 +429,24 @@
           "chapterId": "han",
           "label": "地中海之外的帝国",
           "reason": "对照汉与罗马的资源、治理与跨地区联系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的资源、治理与跨地区联系。",
+          "display": "对照汉与罗马的资源、治理与跨地区联系。"
         },
         {
           "topicId": "europe-medieval",
           "chapterId": "eastern-europe",
           "label": "罗马传统如何继续变化？",
           "reason": "从东方帝国进入中世纪的道路、信仰与政治中心。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -418,14 +458,24 @@
       "chapterId": "han",
       "label": "地中海之外的帝国",
       "reason": "对照汉与罗马的资源、治理与跨地区联系。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "对照汉与罗马的资源、治理与跨地区联系。",
+      "display": "对照汉与罗马的资源、治理与跨地区联系。"
     },
     {
       "topicId": "europe-medieval",
       "chapterId": "eastern-europe",
       "label": "罗马传统如何继续变化？",
       "reason": "从东方帝国进入中世纪的道路、信仰与政治中心。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -800

@@ -171,14 +171,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -273,14 +283,23 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -376,14 +395,23 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -479,14 +507,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -582,14 +620,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -726,14 +774,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -827,14 +885,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     },
@@ -929,14 +997,24 @@
           "chapterId": "meiji",
           "label": "近邻怎样面对转型？",
           "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照晚清改革与明治时期的制度、社会和资源选择。",
+          "display": "对照晚清改革与明治时期的制度、社会和资源选择。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "另一场帝国改革",
           "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ]
     }
@@ -951,14 +1029,23 @@
       "chapterId": "meiji",
       "label": "近邻怎样面对转型？",
       "reason": "对照晚清改革与明治时期的制度、社会和资源选择。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "west-asia-modern",
       "chapterId": "reform",
       "label": "另一场帝国改革",
       "reason": "比较财政、军队、学校和政治参与怎样进入改革。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ]
 }

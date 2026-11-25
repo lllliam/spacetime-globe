@@ -138,12 +138,16 @@ const backup = process.argv[2];
 if (backup) {
   const original = readHistorySources(backup);
   const migrated = migrateHistory(original).result;
-  assert.deepEqual(migrated,files);
+  const acceptedMigration = process.argv[3] ? readHistorySources(process.argv[3]) : files;
+  assert.deepEqual(migrated,acceptedMigration);
   assert.deepEqual(migrateHistory(migrated).result,migrated);
-  const evidence = migrationEvidence(original,files);
+  const evidence = migrationEvidence(original,acceptedMigration);
   assert.equal(evidence.legacyContentSha256,evidence.migratedContentSha256);
   assert.equal(evidence.bindings.intentionalChanges.length,6);
-  const lost = fixture(mingPath,book=>{book.chapters[0].paragraphs[0].text += '意外改写';});
+  const lost = new Map(acceptedMigration);
+  const edited = structuredClone(lost.get(mingPath));
+  edited.chapters[0].paragraphs[0].text += '意外改写';
+  lost.set(mingPath,edited);
   assert.throws(()=>migrationEvidence(original,lost),/改变了正文/);
 }
 console.log('History model: flexible chapter structure and recommendation, map identity/conflicts, scoped sources, scene references, audit checks and idempotence passed' +

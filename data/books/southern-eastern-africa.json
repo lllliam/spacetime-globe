@@ -91,7 +91,18 @@
           "chapter": "srivijaya-monsoon-straits",
           "year": 1250,
           "label": "季风两端的商港",
-          "note": "基尔瓦与马六甲海峡港市可放在同一印度洋航运背景下阅读，观察商人如何围绕季风组织跨海贸易。"
+          "note": "基尔瓦与马六甲海峡港市可放在同一印度洋航运背景下阅读，观察商人如何围绕季风组织跨海贸易。",
+          "id": "world-01",
+          "relation": "compare",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "港口与季风航运",
+          "display": "比较印度洋两侧港市如何在各自海域组织航运。",
+          "time": {
+            "from": 1250,
+            "to": 1250
+          }
         }
       ],
       "kind": "narrative",
@@ -165,7 +176,12 @@
           "book": "ethiopia",
           "year": 1543,
           "label": "埃塞俄比亚与阿达尔苏丹国战争",
-          "note": "非洲之角内陆基督教帝国与穆斯林阿达尔苏丹国展开激烈拉锯，葡萄牙与奥斯曼势力相继卷入红海与印度洋博弈。"
+          "note": "非洲之角内陆基督教帝国与穆斯林阿达尔苏丹国展开激烈拉锯，葡萄牙与奥斯曼势力相继卷入红海与印度洋博弈。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -237,7 +253,12 @@
           "book": "british-empire",
           "year": 1899,
           "label": "英布战争与维多利亚帝国转折",
-          "note": "大英帝国为争夺南非金矿投入近五十万兵力，虽最终获胜却暴露出帝国过度扩张的疲态，加速了自治领体制演变。"
+          "note": "大英帝国为争夺南非金矿投入近五十万兵力，虽最终获胜却暴露出帝国过度扩张的疲态，加速了自治领体制演变。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -313,7 +334,12 @@
           "book": "west-central-africa",
           "year": 1994,
           "label": "全非反殖民与民主化浪潮汇流",
-          "note": "南非结束种族隔离标志着非洲大陆政治去殖民化最后一座堡垒倒塌，与西中非九十年代多党民主转型遥相呼应。"
+          "note": "南非结束种族隔离标志着非洲大陆政治去殖民化最后一座堡垒倒塌，与西中非九十年代多党民主转型遥相呼应。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

@@ -100,14 +100,22 @@
           "chapterId": "sahel",
           "label": "跨越撒哈拉的联系",
           "reason": "将北非城市与萨赫勒的商路、王权和知识连起来。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "al-andalus",
           "label": "地中海两岸的共享与竞争",
           "reason": "比较马格里布和伊比利亚的政治与文化交流。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -190,14 +198,22 @@
           "chapterId": "sahel",
           "label": "跨越撒哈拉的联系",
           "reason": "将北非城市与萨赫勒的商路、王权和知识连起来。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "al-andalus",
           "label": "地中海两岸的共享与竞争",
           "reason": "比较马格里布和伊比利亚的政治与文化交流。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -280,14 +296,22 @@
           "chapterId": "sahel",
           "label": "跨越撒哈拉的联系",
           "reason": "将北非城市与萨赫勒的商路、王权和知识连起来。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "al-andalus",
           "label": "地中海两岸的共享与竞争",
           "reason": "比较马格里布和伊比利亚的政治与文化交流。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -370,14 +394,22 @@
           "chapterId": "sahel",
           "label": "跨越撒哈拉的联系",
           "reason": "将北非城市与萨赫勒的商路、王权和知识连起来。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "al-andalus",
           "label": "地中海两岸的共享与竞争",
           "reason": "比较马格里布和伊比利亚的政治与文化交流。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -389,14 +421,22 @@
       "chapterId": "sahel",
       "label": "跨越撒哈拉的联系",
       "reason": "将北非城市与萨赫勒的商路、王权和知识连起来。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "islamic-networks",
       "chapterId": "al-andalus",
       "label": "地中海两岸的共享与竞争",
       "reason": "比较马格里布和伊比利亚的政治与文化交流。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -800

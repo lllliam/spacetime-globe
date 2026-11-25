@@ -122,14 +122,24 @@
           "chapterId": "atlantic",
           "label": "把大西洋两岸连起来",
           "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "republic",
           "label": "权利宣言为何仍留下排斥？",
           "reason": "对照美国、法国与海地的自由及成员资格。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照美国、法国与海地的自由及成员资格。",
+          "display": "对照美国、法国与海地的自由及成员资格。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -212,14 +222,24 @@
           "chapterId": "atlantic",
           "label": "把大西洋两岸连起来",
           "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "republic",
           "label": "权利宣言为何仍留下排斥？",
           "reason": "对照美国、法国与海地的自由及成员资格。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照美国、法国与海地的自由及成员资格。",
+          "display": "对照美国、法国与海地的自由及成员资格。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -302,14 +322,24 @@
           "chapterId": "atlantic",
           "label": "把大西洋两岸连起来",
           "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "republic",
           "label": "权利宣言为何仍留下排斥？",
           "reason": "对照美国、法国与海地的自由及成员资格。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照美国、法国与海地的自由及成员资格。",
+          "display": "对照美国、法国与海地的自由及成员资格。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -403,14 +433,24 @@
           "chapterId": "atlantic",
           "label": "把大西洋两岸连起来",
           "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "republic",
           "label": "权利宣言为何仍留下排斥？",
           "reason": "对照美国、法国与海地的自由及成员资格。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照美国、法国与海地的自由及成员资格。",
+          "display": "对照美国、法国与海地的自由及成员资格。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -422,14 +462,23 @@
       "chapterId": "atlantic",
       "label": "把大西洋两岸连起来",
       "reason": "奴役贸易不仅改变美洲，也重创非洲社会与家庭。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "north-america-modern",
       "chapterId": "republic",
       "label": "权利宣言为何仍留下排斥？",
       "reason": "对照美国、法国与海地的自由及成员资格。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     }
   ],
   "from": 1492

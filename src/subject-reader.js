@@ -130,74 +130,47 @@ function renderSubjectOutline(book) {
     }).join('') + '</ol></section>' + relatedMapReading(book.id) + subjectNeighbors();
 }
 
-function sceneButton(scene) {
+function sceneButton(scene, stageId) {
+  const stage = scene.steps.find(item=>item.id===stageId);
+  const date = stage ? stage.dateLabel || yearLabel(stage.year) : scene.dateLabel ||
+    (scene.from!==undefined && scene.from!==scene.to ? subjectYears(scene) : yearLabel(scene.year));
   return '<figure class="scene-plate"><figcaption><strong>' + esc(scene.title) + '</strong><small>' +
-    esc(yearLabel(scene.year)) + '</small><p>' + esc(scene.summary) + '</p></figcaption>' +
+    esc(date) + '</small><p>' + esc(scene.question) + '</p></figcaption>' +
     '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) +
-    '" aria-label="' + esc('在地球上观察 · ' + scene.title) + '">在地球上观察' + readingArrow + '</button></figure>';
+    '"' + (stageId ? ' data-scene-stage="' + esc(stageId) + '"' : '') +
+    ' aria-label="' + esc('在地球上观察 · ' + scene.title) + '">在地球上观察' + readingArrow + '</button></figure>';
 }
 
-function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
-  if (!placeMatchers.length) return esc(text);
-  let html = esc(text);
-  for (const item of placeMatchers) {
-    if (linkedPlaces.has(item.key)) continue;
-    const escapedName = esc(item.name);
-    const idx = html.indexOf(escapedName);
-    if (idx < 0) continue;
-    // Avoid replacing inside an already-inserted HTML tag
-    const before = html.slice(0, idx);
-    if ((before.match(/<button/g) || []).length > (before.match(/<\/button>/g) || []).length) continue;
-    linkedPlaces.add(item.key);
-    const btn = '<button type="button" class="inline-place" data-pin-scene="' + esc(item.sceneId) +
-      '" data-pin-place="' + esc(item.placeId) + '" title="在地球上定位：' + escapedName + '">' + escapedName + '</button>';
-    html = before + btn + html.slice(idx + escapedName.length);
+function decorateParagraphPlaces(text, links) {
+  const positions = links.map(link => ({...link,index:text.indexOf(link.text)})).sort((a,b)=>a.index-b.index);
+  let output = '', cursor = 0;
+  for (const link of positions) {
+    if (link.index < cursor) continue;
+    output += esc(text.slice(cursor,link.index)) + '<button type="button" class="inline-place" data-pin-scene="' + esc(link.sceneId) +
+      '" data-pin-place="' + esc(link.placeId) + '"' +
+      (link.stageId ? ' data-scene-stage="' + esc(link.stageId) + '"' : '') +
+      ' aria-label="' + esc('在地球上定位 · ' + link.text) + '">' + esc(link.text) + '</button>';
+    cursor = link.index + link.text.length;
   }
-  return html;
+  return output + esc(text.slice(cursor));
 }
 
 function renderSubjectChapter(book, chapter) {
   const index = book.chapters.indexOf(chapter);
   const next = book.chapters[index + 1];
   const previous = book.chapters[index - 1];
-  const scenes = (chapter.sceneRefs || []).map(ref => ({afterBlockId:ref.afterBlockId, scene:historicalScenes.get(ref.id)}));
+  const scenes = (chapter.sceneRefs || []).flatMap(ref => {
+    const scene = historicalScenes.get(ref.id);
+    return scene?.status==='available' ? [{...ref,scene}] : [];
+  });
   const refs = [...new Set(chapter.paragraphs.flatMap(p=>[...p.refs,...(p.callout?.refs || [])]).map(referenceId))];
-  const references = new Map(refs.map((id, i) => [id, i]));
+  const references = new Map(refs.map((id, i) => [id,i]));
   const bookSources = new Map(book.sources.map(source=>[source.id,source]));
-  const sources = refs.map(id => bookSources.get(id));
-  for (const {scene} of scenes) {
-    sources.push(...scene.sources);
-  }
-  // Build inline place matchers from chapter scenes (longer names first)
-  const placeMatchers = [];
-  const seenNames = new Set();
-  for (const { scene } of scenes) {
-    for (const p of scene.places) {
-      if (p.name.length < 2 || seenNames.has(p.name)) continue;
-      seenNames.add(p.name);
-      placeMatchers.push({ key: scene.id + ':' + p.id, name: p.name, sceneId: scene.id, placeId: p.id });
-    }
-  }
-  placeMatchers.sort((a, b) => b.name.length - a.name.length);
-  const linkedPlaces = new Set();
-
-  const related = (chapter.related || []).map((link) => {
-    const attrs = link.book ? ' data-subject-book="' + esc(link.book) + '" data-subject-chapter="' + esc(link.chapter || '') + '"'
-      : ' data-reading-topic="' + esc(link.topic) + '" data-reading-chapter="' + esc(link.chapter || '') + '"';
-    return '<button type="button"' + attrs + '>' + esc(link.label) + readingArrow + '</button>';
-  }).join('');
-
-  const contemporaries = (chapter.contemporaries || []).length
-    ? '<section class="subject-contemporaries"><h2>同一时期的地球</h2><div class="contemporary-grid">' +
-      chapter.contemporaries.map((item) => {
-        const target = subjectsById.get(item.book);
-        return '<button type="button" class="reading-card contemporary-card" data-subject-book="' + esc(item.book) +
-          '" data-subject-chapter="' + esc(item.chapter || '') + '">' +
-          '<small>' + esc(item.year ? fmtYear(item.year) + ' 年 · ' : '') + esc(target?.title || '') + '</small>' +
-          '<strong>' + esc(item.label) + '</strong><span>' + esc(item.note) + '</span>' + readingArrow + '</button>';
-      }).join('') + '</div></section>'
-    : '';
-
+  const sources = refs.map(id=>bookSources.get(id));
+  for (const {scene} of scenes) sources.push(...scene.sources);
+  const placeLinks = scenes.flatMap(ref=>(ref.placeLinks || []).map(link=>({...link,sceneId:ref.id,
+    stageId:link.stageId || ref.stageId || ref.scene.steps.find(step=>observationFrame(ref.scene,step).places.some(place=>place.id===link.placeId))?.id})));
+  const relations = historyRelationsMarkup([...(chapter.contemporaries || []),...(chapter.related || [])],book.sources);
   return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章 / 共 ' + book.chapters.length + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
     '<p id="reading-progress" class="reading-progress"></p>' +
@@ -210,11 +183,11 @@ function renderSubjectChapter(book, chapter) {
           (paragraph.callout.title ? '<strong>' + esc(paragraph.callout.title) + '</strong>' : '') +
           '<p>' + esc(paragraph.callout.text) + referencesMarkup(paragraph.callout.refs,references) + '</p></aside>'
         : '';
-      const bodyHtml = decorateParagraphPlaces(paragraph.text, placeMatchers, linkedPlaces);
+      const bodyHtml = decorateParagraphPlaces(paragraph.text, placeLinks.filter(link=>link.blockId===paragraph.id));
       return headingHtml +
         '<p data-block-id="' + esc(paragraph.id) + '">' + bodyHtml + referencesMarkup(paragraph.refs,references) + '</p>' +
         calloutHtml +
-        scenes.filter(ref => ref.afterBlockId === paragraph.id).map(ref => sceneButton(ref.scene)).join('');
+        scenes.filter(ref => ref.afterBlockId === paragraph.id).map(ref => sceneButton(ref.scene,ref.stageId)).join('');
     }).join('') + '</article>' +
     '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
     (next ? subjectChapterButton(next.id, '下一章 · ' + next.title, ' class="reading-primary" data-reading-sequence')
@@ -222,9 +195,7 @@ function renderSubjectChapter(book, chapter) {
     (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' +
     (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p data-block-id="' +
       esc(chapter.spatialThesisId) + '">' + esc(chapter.spatialThesis) + '</p></details>' : '') +
-    contemporaries +
-    (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
-      related + '</nav></details>' : '') +
+    relations +
     sourcesMarkup(sources);
 }
 
@@ -235,10 +206,10 @@ function renderSubjectLibrary() {
   bookBody.scrollTop = reading.scroll;
 }
 
-function followSubject({ book = null, chapter = null, entity = null, library = false } = {}) {
+function followSubject({ book = null, chapter = null, entity = null, library = false } = {}, trigger) {
   const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
   navigateReading({ entity: ref, bookId: book?.id, topicId: null, detail: chapter?.id,
-    library, catalog: false, scroll: 0, position: null, linkEntry: true });
+    library, catalog: false, scroll: 0, position: null, linkEntry: true },trigger);
 }
 
 function handleSubjectButton(button) {
@@ -247,16 +218,19 @@ function handleSubjectButton(button) {
     if (saved) openReadingDetail(saved.chapter, saved.position, { disclosures: saved.disclosures });
   } else if (button.hasAttribute('data-subject-book')) {
     const book = subjectsById.get(button.dataset.subjectBook);
-    if (book) followSubject({ book, chapter: book.chapters.find((c) => c.id === button.dataset.subjectChapter) });
+    if (book) followSubject({ book, chapter: book.chapters.find((c) => c.id === button.dataset.subjectChapter) },button);
   } else if (button.hasAttribute('data-atlas-entity')) {
     const entity = entityByKey('polity', Number(button.dataset.atlasEntity));
     if (entity) followSubject({ entity, book: subjectBookForEntity(entity, reading.year) });
   } else if (button.hasAttribute('data-subject-scene')) {
     const chapter = reading.subject?.chapters.find((c) => c.id === reading.detail);
     const id = button.dataset.subjectScene;
-    if (chapter?.sceneRefs?.some(ref => ref.id === id)) openReadingScene(historicalScenes.get(id), button);
+    const article = reading.topic?.chapters.find(item=>item.id===reading.detail);
+    const topical = article?.mapStory && scenesByEvent.get(article.mapStory.worldEntryId);
+    if (chapter?.sceneRefs?.some(ref => ref.id === id) || topical?.id===id)
+      openReadingScene(historicalScenes.get(id),button,{initialStageId:button.dataset.sceneStage});
   } else if (button.hasAttribute('data-pin-scene')) {
     const sc = historicalScenes.get(button.dataset.pinScene);
-    if (sc) openReadingScene(sc, button, { initialPlaceId: button.dataset.pinPlace });
+    if (sc) openReadingScene(sc,button,{initialPlaceId:button.dataset.pinPlace,initialStageId:button.dataset.sceneStage});
   }
 }

@@ -98,7 +98,12 @@
           "book": "ming",
           "year": 1473,
           "label": "明成化年间修筑延绥边墙",
-          "note": "当桑尼·阿里以水师封锁杰内之际，大明正围绕河套草原构筑长城防线，东西方两大农耕与商路帝国都在应对沙漠游牧力量的冲击。"
+          "note": "当桑尼·阿里以水师封锁杰内之际，大明正围绕河套草原构筑长城防线，东西方两大农耕与商路帝国都在应对沙漠游牧力量的冲击。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -175,7 +180,12 @@
           "book": "aztec",
           "year": 1502,
           "label": "蒙特苏马二世登基与湖心岛都极盛",
-          "note": "阿斯基亚·穆罕默德从麦加朝觐归来重构西非行省之际，大洋彼岸的特诺奇蒂特兰也在蒙特苏马二世治下迎来了贡赋帝国的巅峰。"
+          "note": "阿斯基亚·穆罕默德从麦加朝觐归来重构西非行省之际，大洋彼岸的特诺奇蒂特兰也在蒙特苏马二世治下迎来了贡赋帝国的巅峰。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -252,19 +262,34 @@
           "book": "ottoman",
           "year": 1550,
           "label": "苏莱曼大帝与地中海伊斯兰枢纽",
-          "note": "阿斯基亚·达乌德在廷巴克图兴修清真寺与抄书坊之时，奥斯曼帝国正值苏莱曼大帝盛世，北非商队将两地的学者、纸张与法学思潮紧密相连。"
+          "note": "阿斯基亚·达乌德在廷巴克图兴修清真寺与抄书坊之时，奥斯曼帝国正值苏莱曼大帝盛世，北非商队将两地的学者、纸张与法学思潮紧密相连。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "book": "mali",
           "chapter": "timbuktu-ibn-battuta",
-          "label": "从马里卷了解桑海接过的河流城市"
+          "label": "从马里卷了解桑海接过的河流城市",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topic": "west-africa",
           "chapter": "manuscripts",
-          "label": "廷巴克图的书籍与学术网络"
+          "label": "廷巴克图的书籍与学术网络",
+          "id": "reading-02",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -342,7 +367,18 @@
           "chapter": "silver",
           "year": 1591,
           "label": "十六世纪末的边防与军费",
-          "note": "通迪比之战适合与万历时期的边防对读，比较战场上的军队如何依赖远处的财政与运输。"
+          "note": "通迪比之战适合与万历时期的边防对读，比较战场上的军队如何依赖远处的财政与运输。",
+          "id": "world-01",
+          "relation": "compare",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "边防、军费与运输",
+          "display": "并读通迪比之战与万历时期的边防，比较不同战场中的军费和运输问题。",
+          "time": {
+            "from": 1591,
+            "to": 1591
+          }
         }
       ],
       "kind": "narrative",

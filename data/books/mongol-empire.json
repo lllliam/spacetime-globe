@@ -77,7 +77,12 @@
           "book": "song",
           "year": 1214,
           "label": "南宋偏安与金朝南迁",
-          "note": "蒙古铁骑横扫华北与中亚之际，南宋正隔淮河观望金朝衰落，尚未预见半世纪后的灭顶之灾。"
+          "note": "蒙古铁骑横扫华北与中亚之际，南宋正隔淮河观望金朝衰落，尚未预见半世纪后的灭顶之灾。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -148,7 +153,12 @@
           "book": "russia-ussr",
           "year": 1240,
           "label": "基辅沦陷与罗斯受制金帐",
-          "note": "拔都西征终结了基辅罗斯时代，也间接为后来莫斯科公国借收税代理权崛起埋下伏笔。"
+          "note": "拔都西征终结了基辅罗斯时代，也间接为后来莫斯科公国借收税代理权崛起埋下伏笔。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -225,7 +235,12 @@
           "book": "yuan",
           "year": 1279,
           "label": "大元一统江南与海陆兴盛",
-          "note": "大元作为名义宗主国，凭借江南财赋与泉州海港构成了蒙古世界体系最富庶的东翼引擎。"
+          "note": "大元作为名义宗主国，凭借江南财赋与泉州海港构成了蒙古世界体系最富庶的东翼引擎。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -297,7 +312,12 @@
           "book": "ming",
           "year": 1368,
           "label": "朱元璋建明与欧亚陆路收缩",
-          "note": "明军攻克大都终结元朝在中原的统治，欧亚内陆统一商贸秩序随即转向各自防御。"
+          "note": "明军攻克大都终结元朝在中原的统治，欧亚内陆统一商贸秩序随即转向各自防御。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

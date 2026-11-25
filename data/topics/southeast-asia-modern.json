@@ -111,14 +111,23 @@
           "chapterId": "bandung",
           "label": "从独立走向亚非合作",
           "reason": "万隆会议把地区经验带进世界政治。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "south-asia-modern",
           "chapterId": "partition",
           "label": "国家边界怎样进入生活？",
           "reason": "比较独立、战争、人口迁徙与新成员资格之间的关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -201,14 +210,23 @@
           "chapterId": "bandung",
           "label": "从独立走向亚非合作",
           "reason": "万隆会议把地区经验带进世界政治。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "south-asia-modern",
           "chapterId": "partition",
           "label": "国家边界怎样进入生活？",
           "reason": "比较独立、战争、人口迁徙与新成员资格之间的关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -291,14 +309,23 @@
           "chapterId": "bandung",
           "label": "从独立走向亚非合作",
           "reason": "万隆会议把地区经验带进世界政治。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "south-asia-modern",
           "chapterId": "partition",
           "label": "国家边界怎样进入生活？",
           "reason": "比较独立、战争、人口迁徙与新成员资格之间的关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -381,14 +408,23 @@
           "chapterId": "bandung",
           "label": "从独立走向亚非合作",
           "reason": "万隆会议把地区经验带进世界政治。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "south-asia-modern",
           "chapterId": "partition",
           "label": "国家边界怎样进入生活？",
           "reason": "比较独立、战争、人口迁徙与新成员资格之间的关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -400,14 +436,23 @@
       "chapterId": "bandung",
       "label": "从独立走向亚非合作",
       "reason": "万隆会议把地区经验带进世界政治。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "south-asia-modern",
       "chapterId": "partition",
       "label": "国家边界怎样进入生活？",
       "reason": "比较独立、战争、人口迁徙与新成员资格之间的关系。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 1700

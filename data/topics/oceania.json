@@ -113,14 +113,24 @@
           "chapterId": "rights-and-memory",
           "label": "殖民与文化权利的另一种经验",
           "reason": "比较国家制度、原住民家庭与历史记忆。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较国家制度、原住民家庭与历史记忆。",
+          "display": "比较国家制度、原住民家庭与历史记忆。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "shared-challenges",
           "label": "海洋社会与共同挑战",
           "reason": "连接土地、环境风险、全球规则和地方能力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -203,14 +213,24 @@
           "chapterId": "rights-and-memory",
           "label": "殖民与文化权利的另一种经验",
           "reason": "比较国家制度、原住民家庭与历史记忆。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较国家制度、原住民家庭与历史记忆。",
+          "display": "比较国家制度、原住民家庭与历史记忆。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "shared-challenges",
           "label": "海洋社会与共同挑战",
           "reason": "连接土地、环境风险、全球规则和地方能力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -293,14 +313,24 @@
           "chapterId": "rights-and-memory",
           "label": "殖民与文化权利的另一种经验",
           "reason": "比较国家制度、原住民家庭与历史记忆。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较国家制度、原住民家庭与历史记忆。",
+          "display": "比较国家制度、原住民家庭与历史记忆。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "shared-challenges",
           "label": "海洋社会与共同挑战",
           "reason": "连接土地、环境风险、全球规则和地方能力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -383,14 +413,24 @@
           "chapterId": "rights-and-memory",
           "label": "殖民与文化权利的另一种经验",
           "reason": "比较国家制度、原住民家庭与历史记忆。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较国家制度、原住民家庭与历史记忆。",
+          "display": "比较国家制度、原住民家庭与历史记忆。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "shared-challenges",
           "label": "海洋社会与共同挑战",
           "reason": "连接土地、环境风险、全球规则和地方能力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -402,14 +442,24 @@
       "chapterId": "rights-and-memory",
       "label": "殖民与文化权利的另一种经验",
       "reason": "比较国家制度、原住民家庭与历史记忆。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较国家制度、原住民家庭与历史记忆。",
+      "display": "比较国家制度、原住民家庭与历史记忆。"
     },
     {
       "topicId": "global-connections",
       "chapterId": "shared-challenges",
       "label": "海洋社会与共同挑战",
       "reason": "连接土地、环境风险、全球规则和地方能力。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -1500

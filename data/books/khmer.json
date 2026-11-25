@@ -93,7 +93,12 @@
           "book": "tang",
           "year": 802,
           "label": "唐德宗贞元末年的东亚世界",
-          "note": "阇耶跋摩二世在荔枝山建立吴哥王朝之际，大唐正处于安史之乱后的藩镇调整期，南海瓷器与香料贸易方兴未艾。"
+          "note": "阇耶跋摩二世在荔枝山建立吴哥王朝之际，大唐正处于安史之乱后的藩镇调整期，南海瓷器与香料贸易方兴未艾。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -176,14 +181,24 @@
           "book": "song",
           "year": 1127,
           "label": "北宋南渡与海上丝路南移",
-          "note": "苏利耶跋摩二世修筑吴哥窟期间，宋廷南迁临安，泉州与广州港对东南亚香料、象牙与药材的需求空前高涨。"
+          "note": "苏利耶跋摩二世修筑吴哥窟期间，宋廷南迁临安，泉州与广州港对东南亚香料、象牙与药材的需求空前高涨。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "southeast-asia-networks",
           "chapter": "angkor",
-          "label": "从水网和考古遗迹看吴哥的城市生活"
+          "label": "从水网和考古遗迹看吴哥的城市生活",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -260,7 +275,12 @@
           "book": "song",
           "year": 1181,
           "label": "南宋淳熙年间与东亚海贸",
-          "note": "阇耶跋摩七世复国并大兴佛寺之际，南宋正处于孝宗乾淳之治，福建海商与高棉港口的陶瓷贸易往来频密。"
+          "note": "阇耶跋摩七世复国并大兴佛寺之际，南宋正处于孝宗乾淳之治，福建海商与高棉港口的陶瓷贸易往来频密。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -337,7 +357,12 @@
           "book": "yuan",
           "year": 1296,
           "label": "元成宗遣使真腊与南海朝贡",
-          "note": "大元完成海运与南海经略之际，温州人周达观奉使抵达吴哥，为盛期将尽的高棉留下唯一传世目击记。"
+          "note": "大元完成海运与南海经略之际，温州人周达观奉使抵达吴哥，为盛期将尽的高棉留下唯一传世目击记。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

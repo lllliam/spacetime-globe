@@ -82,7 +82,12 @@
           "book": "japan",
           "year": 593,
           "label": "日本圣德太子摄政并派遣隋使",
-          "note": "大隋统一强盛震撼东亚，日本随即派出小野妹子等遣隋使渡海学习律令与佛法。"
+          "note": "大隋统一强盛震撼东亚，日本随即派出小野妹子等遣隋使渡海学习律令与佛法。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -153,7 +158,12 @@
           "book": "japan",
           "year": 607,
           "label": "日本遣隋使往来",
-          "note": "推古朝于 607 年派遣小野妹子赴隋，东亚海路上的使节往来与隋朝的制度整合形成呼应。"
+          "note": "推古朝于 607 年派遣小野妹子赴隋，东亚海路上的使节往来与隋朝的制度整合形成呼应。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -228,7 +238,14 @@
       "related": [
         {
           "book": "tang",
-          "label": "盛唐如何继承隋朝制度与运河，避免重蹈覆辙并开创贞观开元盛世"
+          "label": "盛唐如何继承隋朝制度与运河，避免重蹈覆辙并开创贞观开元盛世",
+          "id": "reading-01",
+          "relation": "context",
+          "audit": {
+            "status": "legacy"
+          },
+          "chapter": "founding",
+          "display": "从唐朝开国章节继续了解隋亡之后的政治重组。"
         }
       ],
       "contemporaries": [
@@ -236,7 +253,14 @@
           "book": "tang",
           "year": 618,
           "label": "李渊在长安建立大唐",
-          "note": "618 年五月李渊受禅称帝，在隋朝废墟上开启了中国历史上最开放自信的盛唐时代。"
+          "note": "618 年五月李渊受禅称帝，在隋朝废墟上开启了中国历史上最开放自信的盛唐时代。",
+          "id": "world-01",
+          "relation": "context",
+          "audit": {
+            "status": "legacy"
+          },
+          "chapter": "founding",
+          "display": "从唐朝开国章节继续了解隋亡之后的政治重组。"
         }
       ],
       "kind": "narrative",

@@ -25,7 +25,12 @@
     ],
     "related": {
       "topicId": "china-late-qing",
-      "chapterId": "boxers"
+      "chapterId": "boxers",
+      "id": "from-timeline",
+      "relation": "further",
+      "audit": {
+        "status": "legacy"
+      }
     }
   },
   "i-084": {
@@ -97,7 +102,12 @@
       }
     ],
     "related": {
-      "topicId": "china-late-qing"
+      "topicId": "china-late-qing",
+      "id": "from-timeline",
+      "relation": "further",
+      "audit": {
+        "status": "legacy"
+      }
     }
   },
   "i-042": {

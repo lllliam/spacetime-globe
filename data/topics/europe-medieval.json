@@ -134,14 +134,24 @@
           "chapterId": "song",
           "label": "城市增长的另一条道路",
           "reason": "比较市场、供粮、学习与政治制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较市场、供粮、学习与政治制度。",
+          "display": "比较市场、供粮、学习与政治制度。"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "baghdad",
           "label": "欧洲之外的知识与城市",
           "reason": "理解不同知识中心之间的传播及其地方条件。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -224,14 +234,24 @@
           "chapterId": "song",
           "label": "城市增长的另一条道路",
           "reason": "比较市场、供粮、学习与政治制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较市场、供粮、学习与政治制度。",
+          "display": "比较市场、供粮、学习与政治制度。"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "baghdad",
           "label": "欧洲之外的知识与城市",
           "reason": "理解不同知识中心之间的传播及其地方条件。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -314,14 +334,24 @@
           "chapterId": "song",
           "label": "城市增长的另一条道路",
           "reason": "比较市场、供粮、学习与政治制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较市场、供粮、学习与政治制度。",
+          "display": "比较市场、供粮、学习与政治制度。"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "baghdad",
           "label": "欧洲之外的知识与城市",
           "reason": "理解不同知识中心之间的传播及其地方条件。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -404,14 +434,24 @@
           "chapterId": "song",
           "label": "城市增长的另一条道路",
           "reason": "比较市场、供粮、学习与政治制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较市场、供粮、学习与政治制度。",
+          "display": "比较市场、供粮、学习与政治制度。"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "baghdad",
           "label": "欧洲之外的知识与城市",
           "reason": "理解不同知识中心之间的传播及其地方条件。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -423,14 +463,23 @@
       "chapterId": "song",
       "label": "城市增长的另一条道路",
       "reason": "比较市场、供粮、学习与政治制度。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "islamic-networks",
       "chapterId": "baghdad",
       "label": "欧洲之外的知识与城市",
       "reason": "理解不同知识中心之间的传播及其地方条件。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 600

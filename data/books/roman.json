@@ -108,7 +108,12 @@
           "book": "han",
           "year": 97,
           "label": "丝路东西两端的大汉与罗马",
-          "note": "班超派甘英西使大秦抵达波斯湾之际，罗马正步入五贤帝治下的全盛期，丝绸与玻璃器沿陆海商道双向流通。"
+          "note": "班超派甘英西使大秦抵达波斯湾之际，罗马正步入五贤帝治下的全盛期，丝绸与玻璃器沿陆海商道双向流通。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -185,7 +190,12 @@
           "book": "han",
           "year": 220,
           "label": "欧亚两端的帝国裂变",
-          "note": "罗马滑向三世纪军阀混战前夜，东汉亦于公元 220 年终结，中华步入魏晋南北朝的长期分裂与民族融合。"
+          "note": "罗马滑向三世纪军阀混战前夜，东汉亦于公元 220 年终结，中华步入魏晋南北朝的长期分裂与民族融合。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -262,7 +272,12 @@
           "book": "tang",
           "year": 717,
           "label": "盛唐开元与博斯普鲁斯围城",
-          "note": "利奥三世凭希腊火击退倭马亚大军围城之际，东方的唐玄宗正开启开元盛世，两座大都会遥相辉映。"
+          "note": "利奥三世凭希腊火击退倭马亚大军围城之际，东方的唐玄宗正开启开元盛世，两座大都会遥相辉映。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -339,7 +354,12 @@
           "book": "ottoman",
           "year": 1453,
           "label": "新月升起于博斯普鲁斯",
-          "note": "奥斯曼苏丹穆罕默德二世攻克君士坦丁堡并改名伊斯坦布尔，接过地中海东岸的帝国权杖。"
+          "note": "奥斯曼苏丹穆罕默德二世攻克君士坦丁堡并改名伊斯坦布尔，接过地中海东岸的帝国权杖。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -352,7 +372,12 @@
         {
           "book": "ottoman",
           "chapter": "ghazi-beylik-to-istanbul",
-          "label": "奥斯曼人如何重建君士坦丁堡"
+          "label": "奥斯曼人如何重建君士坦丁堡",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

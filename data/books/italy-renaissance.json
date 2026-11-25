@@ -83,7 +83,12 @@
           "book": "france",
           "year": 1204,
           "label": "第四次十字军东征改道",
-          "note": "威尼斯总督丹多洛借船费杠杆引导法兰克骑士攻陷君士坦丁堡，顺势攫取爱琴海岛链。"
+          "note": "威尼斯总督丹多洛借船费杠杆引导法兰克骑士攻陷君士坦丁堡，顺势攫取爱琴海岛链。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -159,13 +164,23 @@
           "book": "ottoman",
           "year": 1453,
           "label": "君士坦丁堡陷落与学者西迁",
-          "note": "奥斯曼帝国崛起既迫使威尼斯在爱琴海节节退守，也把大批希腊典籍与学者推入意大利。"
+          "note": "奥斯曼帝国崛起既迫使威尼斯在爱琴海节节退守，也把大批希腊典籍与学者推入意大利。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "ming",
           "year": 1500,
           "label": "大明江南市镇与文艺复兴共时繁荣",
-          "note": "当苏州与松江的丝棉市镇高度商业化时，佛罗伦萨与威尼斯同样以工商业支撑起市民文化高峰。"
+          "note": "当苏州与松江的丝棉市镇高度商业化时，佛罗伦萨与威尼斯同样以工商业支撑起市民文化高峰。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -237,7 +252,12 @@
           "book": "france",
           "year": 1797,
           "label": "拿破仑终结威尼斯千年共和",
-          "note": "法军占领威尼斯并与奥地利签署《坎波福尔米奥和约》，彻底抹去了欧洲最古老的海洋共和国。"
+          "note": "法军占领威尼斯并与奥地利签署《坎波福尔米奥和约》，彻底抹去了欧洲最古老的海洋共和国。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -308,13 +328,23 @@
           "book": "france",
           "year": 1957,
           "label": "法意共签《罗马条约》",
-          "note": "曾数度在亚平宁兵戎相见的法兰西与意大利携手奠基欧共体，重塑战后西欧和平框架。"
+          "note": "曾数度在亚平宁兵戎相见的法兰西与意大利携手奠基欧共体，重塑战后西欧和平框架。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "netherlands-low-countries",
           "year": 1957,
           "label": "六国共同市场启航",
-          "note": "阿尔卑斯南麓的意大利制造与莱茵河口的比荷卢港口在统一关税区内深度咬合。"
+          "note": "阿尔卑斯南麓的意大利制造与莱茵河口的比荷卢港口在统一关税区内深度咬合。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

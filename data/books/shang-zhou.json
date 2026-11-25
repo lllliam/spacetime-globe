@@ -77,7 +77,12 @@
           "book": "egypt",
           "year": -1450,
           "label": "古埃及新王国鼎盛期",
-          "note": "当商人在黄河流域铸造青铜大鼎之际，尼罗河畔的图特摩斯三世正将埃及新王国推向疆域巅峰。"
+          "note": "当商人在黄河流域铸造青铜大鼎之际，尼罗河畔的图特摩斯三世正将埃及新王国推向疆域巅峰。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -149,7 +154,12 @@
           "book": "egypt",
           "year": -1274,
           "label": "埃及与赫梯卡迭石战车大会战",
-          "note": "就在武丁时期的商军驾驭战车纵横中原时，西亚的埃及拉美西斯二世与赫梯帝国也正以数千辆战车展开决战。"
+          "note": "就在武丁时期的商军驾驭战车纵横中原时，西亚的埃及拉美西斯二世与赫梯帝国也正以数千辆战车展开决战。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -221,7 +231,12 @@
           "book": "egypt",
           "year": -1046,
           "label": "古埃及第三中间期",
-          "note": "周人在黄河流域推翻商王之际，尼罗河流域正逐渐形成地方王权与神庙势力并存的政治格局。"
+          "note": "周人在黄河流域推翻商王之际，尼罗河流域正逐渐形成地方王权与神庙势力并存的政治格局。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -297,7 +312,12 @@
       "related": [
         {
           "book": "warring-states",
-          "label": "东迁洛邑后，列国如何在礼崩乐坏中走向变法与一统"
+          "label": "东迁洛邑后，列国如何在礼崩乐坏中走向变法与一统",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -305,7 +325,12 @@
           "book": "greece-macedon",
           "year": -776,
           "label": "首届古代奥林匹克运动会举行",
-          "note": "就在西周灭亡前五年，古希腊在奥林匹亚举办了首届奥运会，东西方双双迈入轴心时代前夜。"
+          "note": "就在西周灭亡前五年，古希腊在奥林匹亚举办了首届奥运会，东西方双双迈入轴心时代前夜。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

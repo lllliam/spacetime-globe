@@ -153,14 +153,25 @@
           "chapterId": "bandung",
           "label": "亚非合作怎样进入世界政治？",
           "reason": "将独立运动与冷战中的自主空间联系起来。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "rights-and-memory",
           "label": "法律平等之后的长期问题",
           "reason": "比较制度转型、社会机会与历史责任的不同关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较制度转型、社会机会与历史责任的不同关系。",
+          "display": "比较制度转型、社会机会与历史责任的不同关系。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -243,14 +254,25 @@
           "chapterId": "bandung",
           "label": "亚非合作怎样进入世界政治？",
           "reason": "将独立运动与冷战中的自主空间联系起来。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "rights-and-memory",
           "label": "法律平等之后的长期问题",
           "reason": "比较制度转型、社会机会与历史责任的不同关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较制度转型、社会机会与历史责任的不同关系。",
+          "display": "比较制度转型、社会机会与历史责任的不同关系。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -333,14 +355,25 @@
           "chapterId": "bandung",
           "label": "亚非合作怎样进入世界政治？",
           "reason": "将独立运动与冷战中的自主空间联系起来。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "rights-and-memory",
           "label": "法律平等之后的长期问题",
           "reason": "比较制度转型、社会机会与历史责任的不同关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较制度转型、社会机会与历史责任的不同关系。",
+          "display": "比较制度转型、社会机会与历史责任的不同关系。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -423,14 +456,25 @@
           "chapterId": "bandung",
           "label": "亚非合作怎样进入世界政治？",
           "reason": "将独立运动与冷战中的自主空间联系起来。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "rights-and-memory",
           "label": "法律平等之后的长期问题",
           "reason": "比较制度转型、社会机会与历史责任的不同关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较制度转型、社会机会与历史责任的不同关系。",
+          "display": "比较制度转型、社会机会与历史责任的不同关系。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -442,14 +486,25 @@
       "chapterId": "bandung",
       "label": "亚非合作怎样进入世界政治？",
       "reason": "将独立运动与冷战中的自主空间联系起来。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "north-america-modern",
       "chapterId": "rights-and-memory",
       "label": "法律平等之后的长期问题",
       "reason": "比较制度转型、社会机会与历史责任的不同关系。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较制度转型、社会机会与历史责任的不同关系。",
+      "display": "比较制度转型、社会机会与历史责任的不同关系。"
     }
   ],
   "from": 1830

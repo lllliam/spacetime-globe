@@ -13,12 +13,13 @@ const lengthOf = c => (c.sections.map(s=>s.text).join('').match(/[\u3400-\u9fff]
 const chars = chapters.reduce((sum,chapter)=>sum+lengthOf(chapter),0);
 const sources = new Set(chapters.flatMap(chapter=>chapter.sources.map(source=>new URL(source.url).href)));
 const coverageRows = [...plan.map(item=>item.id),...topics.filter(topic=>!plans.has(topic.id)).map(topic=>topic.id)];
+const activeScenes = historicalScenes.filter(scene=>scene.status==='available').length;
 
 const lines=['# 世界历史书的内容覆盖','',
   '## 主体书卷','',
   '| 书卷 | 年代 | 章节数 |','| --- | --- | ---: |',
   ...subjectBooks.map((book)=>`| ${book.title} | ${book.dateLabel || bookYears(book)} | ${book.chapters.length} |`),'',
-  `共 ${subjectBooks.length} 卷、${bookChapters} 章，正文关联 ${historicalScenes.length} 个可进入地球观察的历史场景。正文按段落标注出处。`,'',
+  `共 ${subjectBooks.length} 卷、${bookChapters} 章，历史现场编目 ${historicalScenes.length} 个，其中 ${activeScenes} 个可进入观察，${historicalScenes.length-activeScenes} 个保留记录并暂停入口。正文按段落标注出处。`,'',
   '有地理轮廓的主体可在地球上定位。主体书卷由编辑选材。未收录正文的主体可查看地图资料，相关书卷依独立关联呈现。','',
   '## 补充专题资料','',
   '专题覆盖全球主要文明、地区及历史阶段，兼顾六大有人居住的大洲。','',
@@ -29,9 +30,10 @@ const lines=['# 世界历史书的内容覆盖','',
   '## 地理与时间边界','', '历史疆域覆盖取决于地图资料，书卷年代取决于所采用的叙事范围。现代区域以现代国界绘制。补充专题在历史书目中按需查阅。','',
   `历史地图 ${polityNames.total} 条名称中，${polityNames.direct} 条有独立中文对照，${polityNames.names.size - polityNames.direct} 条使用已核对主体名组成关系名称。余下 ${polityNames.total - polityNames.names.size} 条可在地图资料中展开底图原名。`,'',
   '## 校验结果','','历史内容模型 v' + version + ' 的稳定身份、年代、地点、来源和内部关联结构通过。正文长度与篇数描述编辑覆盖。逐条论断与证据的核对留待审校。','',
+  '场景处置、全球关系的分类和必要的证据复核见 [Phase 06 报告](progress/PHASE-06.md)。','',
   ...warnings.map(p=>'- 待处理 · '+p),''];
 writeFileSync(join(root,'docs/CONTENT-COVERAGE.md'),lines.join('\n').trimEnd()+'\n');
-console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters:chapters.length,hanCharacters:chars,sourceUrls:sources.size,subjects:subjects.size,bindings:bindings.length,problems:0,warnings:warnings.length},null,2));
+console.log(JSON.stringify({books:subjectBooks.length,bookChapters,historicalScenes:historicalScenes.length,activeScenes,polityNames:polityNames.names.size,polityTotal:polityNames.total,topics:topics.length,planned:plan.length,chapters:chapters.length,hanCharacters:chars,sourceUrls:sources.size,subjects:subjects.size,bindings:bindings.length,problems:0,warnings:warnings.length},null,2));
 for (const warning of warnings) console.warn(warning);
 
 function bookYears({from, to}) {

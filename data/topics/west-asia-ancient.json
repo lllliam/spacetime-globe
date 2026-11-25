@@ -110,14 +110,24 @@
           "chapterId": "pyramids",
           "label": "早期国家怎样组织劳动？",
           "reason": "比较不同环境中的公共工程、王权与供给。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较不同环境中的公共工程、王权与供给。",
+          "display": "比较不同环境中的公共工程、王权与供给。"
         },
         {
           "topicId": "europe-classical",
           "chapterId": "hellenistic",
           "label": "征服之后的文化与城市",
           "reason": "从波斯与希腊化世界的交会继续理解区域重组。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -200,14 +210,24 @@
           "chapterId": "pyramids",
           "label": "早期国家怎样组织劳动？",
           "reason": "比较不同环境中的公共工程、王权与供给。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较不同环境中的公共工程、王权与供给。",
+          "display": "比较不同环境中的公共工程、王权与供给。"
         },
         {
           "topicId": "europe-classical",
           "chapterId": "hellenistic",
           "label": "征服之后的文化与城市",
           "reason": "从波斯与希腊化世界的交会继续理解区域重组。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -290,14 +310,24 @@
           "chapterId": "pyramids",
           "label": "早期国家怎样组织劳动？",
           "reason": "比较不同环境中的公共工程、王权与供给。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较不同环境中的公共工程、王权与供给。",
+          "display": "比较不同环境中的公共工程、王权与供给。"
         },
         {
           "topicId": "europe-classical",
           "chapterId": "hellenistic",
           "label": "征服之后的文化与城市",
           "reason": "从波斯与希腊化世界的交会继续理解区域重组。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -380,14 +410,24 @@
           "chapterId": "pyramids",
           "label": "早期国家怎样组织劳动？",
           "reason": "比较不同环境中的公共工程、王权与供给。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较不同环境中的公共工程、王权与供给。",
+          "display": "比较不同环境中的公共工程、王权与供给。"
         },
         {
           "topicId": "europe-classical",
           "chapterId": "hellenistic",
           "label": "征服之后的文化与城市",
           "reason": "从波斯与希腊化世界的交会继续理解区域重组。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -399,14 +439,24 @@
       "chapterId": "pyramids",
       "label": "早期国家怎样组织劳动？",
       "reason": "比较不同环境中的公共工程、王权与供给。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较不同环境中的公共工程、王权与供给。",
+      "display": "比较不同环境中的公共工程、王权与供给。"
     },
     {
       "topicId": "europe-classical",
       "chapterId": "hellenistic",
       "label": "征服之后的文化与城市",
       "reason": "从波斯与希腊化世界的交会继续理解区域重组。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -3500

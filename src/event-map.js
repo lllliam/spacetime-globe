@@ -2,21 +2,24 @@ const eventMapTargets = new Map(TOPICS.flatMap((topic) => topic.chapters
   .filter((chapter) => chapter.mapStory?.worldEntryId)
   .map((chapter) => [chapter.mapStory.worldEntryId, { topic, chapter }])));
 const eventMapPanel = el('event-map-panel'), eventMapPoints = el('event-map-points'), eventMapNote = el('event-map-note');
+const eventMapScroll = el('event-map-scroll');
 const eventMapReturn = el('event-map-return'), eventMapTitle = el('event-map-title'), eventMapRead = el('event-map-read');
 const eventMapParticipants = el('event-map-participants');
 const eventMapDistance = el('event-map-distance');
 const eventMapSteps = el('event-map-steps');
 const eventMapTop = el('event-map-top'), eventMapYear = el('event-map-year');
-const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent).map(scene => [scene.topicEvent, scene]));
+const eventMapPlaces = el('event-map-places'), eventMapSources = el('event-map-sources');
+const eventMapPlaceNote = el('event-map-place-note');
+const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent && scene.status==='available').map(scene => [scene.topicEvent, scene]));
 let worldEvent = null;
 let globeFlyRaf = 0;
 
 const ROUTE_STYLES = {
-  military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
-  trade:    { color: '#e5dac7', glow: 'rgba(229,218,199,.28)', dash: [], width: 2.3 },
-  canal:    { color: '#5893c4', glow: 'rgba(88,147,196,.32)', dash: [], width: 2.5 },
-  frontier: { color: '#cfa05e', glow: 'rgba(207,160,94,.28)', dash: [3, 4], width: 2.2 },
+  attested: { label:'有资料支持的路线', color:'#a3d2b3', dash:[], width:2.5 },
+  approximate: { label:'近似路线', color:'#95c6ec', dash:[7,4], width:2.5 },
+  schematic: { label:'示意联系', color:'#ebce98', dash:[2,5], width:2.7 },
 };
+const placePrecisionLabels = {site:'有定位依据', approximate:'近似地点', reference:'现代定位参照', region:'区域定位', unknown:'地点未详'};
 
 function worldEventTarget(event, year) {
   const target = eventMapTargets.get(event.id);
@@ -66,22 +69,21 @@ function projectGlobeView({ natural, ...globe }) {
 }
 
 function resumeEventMap() {
-  const { readingView, readingMap, phase, place } = session.observe;
+  const { readingView, readingMap, phaseId, place } = session.observe;
   if (!worldEvent && readingMap) {
-    showEventMap(readingMap);
-    if (phase >= 0) applySceneStep(worldEvent, phase, { animate: false });
-    if (place) selectEventPlace(place, true);
-    cancelGlobeFly();
+    showEventMap({...readingMap, initialStageId:phaseId, initialPlaceId:place}, {animate:false});
   }
   const markers = [...(worldEvent.points?.values() || [])].map(place => place.mark);
   eventMapPoints.replaceChildren(...markers);
   eventMapPoints.hidden = !markers.length;
   projectGlobeView(readingView);
+  syncObservationMap(worldEvent, session.observe.year);
   session.updateObserve({ camera: session.camera(state) });
   eventMapRead.focus({ preventScroll: true });
 }
 
 function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
+  pauseGlobe();
   cancelGlobeFly();
   if (reducedGlobeMotion.matches || duration <= 0) {
     state.yaw = yaw;
@@ -138,6 +140,7 @@ function slerpSegment(a, b, samples = 24) {
   const pts = [];
   if (omega < 0.001) return [a, b];
   const sinO = Math.sin(omega);
+  if (sinO < 1e-6) return [];
   for (let i = 0; i <= samples; i++) {
     const t = i / samples;
     const w1 = Math.sin((1 - t) * omega) / sinO;
@@ -150,7 +153,7 @@ function slerpSegment(a, b, samples = 24) {
 function resolveRouteVectors(route, pointsMap) {
   const toVec = (end) => {
     if (typeof end === 'string') {
-      const p = pointsMap.get(end);
+      const p = pointsMap?.get(end);
       return p ? p.vector : null;
     }
     return Array.isArray(end) ? readingPlaceVector({ lon: end[0], lat: end[1] }) : null;
@@ -168,9 +171,8 @@ function resolveRouteVectors(route, pointsMap) {
 
 function drawSceneRoutes(ctxObj, matrix) {
   const routes = ctxObj?.routes;
-  if (!routes?.length || !ctxObj.points) return;
+  if (!routes?.length) return;
   const cx = view.cx + state.panX, cy = view.cy + state.panY, Rz = view.Rz;
-  const activeRouteIndices = ctxObj.activeRouteIndices;
 
   vctx.save();
   vctx.beginPath();
@@ -179,11 +181,11 @@ function drawSceneRoutes(ctxObj, matrix) {
   vctx.lineJoin = 'round';
   vctx.lineCap = 'round';
 
-  routes.forEach((route, idx) => {
-    const dimmed = activeRouteIndices && !activeRouteIndices.has(idx);
+  routes.forEach((route) => {
     const vecs = route._vecs || (route._vecs = resolveRouteVectors(route, ctxObj.points));
     if (vecs.length < 2) return;
-    const style = ROUTE_STYLES[route.kind] || ROUTE_STYLES.trade;
+    const style = ROUTE_STYLES[route.precision];
+    if (!style) return;
     const screenPts = [];
     let currentRun = [];
     for (const v of vecs) {
@@ -199,7 +201,6 @@ function drawSceneRoutes(ctxObj, matrix) {
     if (!screenPts.length) return;
 
     vctx.save();
-    vctx.globalAlpha = dimmed ? 0.24 : 0.96;
 
     // Dark casing for readability
     vctx.setLineDash([]);
@@ -213,13 +214,6 @@ function drawSceneRoutes(ctxObj, matrix) {
     }
     vctx.stroke();
 
-    // Soft glow
-    if (!dimmed) {
-      vctx.strokeStyle = style.glow;
-      vctx.lineWidth = style.width + 4.5;
-      vctx.stroke();
-    }
-
     // Styled route stroke
     vctx.setLineDash(style.dash);
     vctx.strokeStyle = style.color;
@@ -228,7 +222,7 @@ function drawSceneRoutes(ctxObj, matrix) {
     vctx.setLineDash([]);
 
     // Directional arrowheads along visible runs
-    if (route.directed !== false && !dimmed) {
+    if (route.directed === true && route.directionEvidence?.length) {
       for (const run of screenPts) {
         if (run.length < 6) continue;
         const marks = run.length > 22 ? [Math.floor(run.length * 0.45), Math.floor(run.length * 0.82)] : [Math.floor(run.length * 0.65)];
@@ -253,8 +247,8 @@ function drawSceneRoutes(ctxObj, matrix) {
 
 function activeSceneFocusPolities() {
   const ctxObj = session.mode === 'Observe' ? worldEvent : null;
-  if (!ctxObj) return null;
-  const list = ctxObj.activeFocusPolities || ctxObj.focusPolities;
+  if (!ctxObj || chrome.natural || partition?.layerId!=='polity' || partition.year!==session.observe.year) return null;
+  const list = ctxObj.activeFocusPolities;
   return list?.length ? new Set(list) : null;
 }
 
@@ -264,6 +258,7 @@ function buildPlaceMarkers(places, targetObj) {
     const mark = document.createElement('div');
     mark.className = 'event-map-point';
     mark.dataset.place = place.id;
+    mark.dataset.precision = place.precision || 'approximate';
     const leader = document.createElement('i');
     leader.setAttribute('aria-hidden', 'true');
     const button = document.createElement('button');
@@ -280,13 +275,7 @@ function buildPlaceMarkers(places, targetObj) {
   return points;
 }
 
-function prepareWorldEventPlaces(places) {
-  const points = buildPlaceMarkers(places, worldEvent);
-  const vectors = [...points.values()].map((p) => p.vector);
-  return cameraForVectors(vectors, Boolean(worldEvent.sceneId));
-}
-
-function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
+function drawWorldEventPlaces(points, rotationMatrix, hudBounds) {
   const occupied = [];
   const leftEdge = 14;
   const bottom = eventMapPanel.getBoundingClientRect().top - 8;
@@ -295,8 +284,6 @@ function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds 
   }));
   for (const { entry, p } of visible) {
     const { mark, leader, button } = entry;
-    const dimmed = activePlaceIds && !activePlaceIds.has(entry.id);
-    mark.classList.toggle('dimmed', Boolean(dimmed));
     mark.hidden = !p.front || p.x < leftEdge || p.x > view.w - 14 || p.y < view.safeTop + 12 || p.y > bottom ||
       overlapsGlobeHud(hudBounds, p.x - 6, p.y - 6, 12, 12);
     if (mark.hidden) continue;
@@ -333,11 +320,11 @@ function drawEventMap(hudBounds) {
   const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj) return;
   const matrix = rotation();
-  if (ctxObj.routes?.length && ctxObj.points) {
+  if (ctxObj.routes?.length) {
     drawSceneRoutes(ctxObj, matrix);
   }
   if (ctxObj.points) {
-    drawWorldEventPlaces(ctxObj.points, matrix, hudBounds, ctxObj.activePlaceIds);
+    drawWorldEventPlaces(ctxObj.points, matrix, hudBounds);
     return;
   }
   if (!ctxObj.regionVector) return;
@@ -366,163 +353,177 @@ function renderEventParticipants(participants) {
       (p.members?.length ? '<span>' + esc(p.members.join('、')) + '</span>' : '') + '</dd>').join('');
 }
 
-function renderStepsBar(container, steps, activeIdx) {
-  if (!steps?.length) {
-    container.hidden = true;
-    container.replaceChildren();
-    return;
+function renderStepsBar(steps, activeIdx) {
+  eventMapSteps.hidden = !steps.length;
+  if (eventMapSteps.children.length !== steps.length) {
+    eventMapSteps.innerHTML = steps.map((step,i) =>
+      '<button type="button" class="step-chip" data-scene-step="' + i + '"><span>' +
+      esc(step.dateLabel || fmtYear(step.year)) + '</span> ' + esc(step.title) + '</button>').join('');
   }
-  container.hidden = false;
-  const chips = [
-    '<button type="button" class="step-chip" data-scene-step="-1" aria-pressed="' + (activeIdx === -1) + '">全景</button>',
-    ...steps.map((s, i) => '<button type="button" class="step-chip" data-scene-step="' + i + '" aria-pressed="' + (activeIdx === i) + '"><span>' +
-      esc(fmtYear(s.year)) + '</span> ' + esc(s.title) + '</button>'),
-  ];
-  container.innerHTML = chips.join('');
+  for (const button of eventMapSteps.children)
+    button.setAttribute('aria-pressed',String(Number(button.dataset.sceneStep)===activeIdx));
+  const active = eventMapSteps.children[activeIdx];
+  if (active && (active.offsetLeft < eventMapSteps.scrollLeft ||
+      active.offsetLeft + active.offsetWidth > eventMapSteps.scrollLeft + eventMapSteps.clientWidth))
+    eventMapSteps.scrollLeft = active.offsetLeft - eventMapSteps.offsetLeft;
+}
+
+function renderObservationLegend(ctxObj) {
+  const styles = [...new Set(ctxObj.routes.map(route=>route.precision))];
+  const points = [...new Set([...ctxObj.points?.values() || []].map(place=>place.precision))];
+  const legend = el('event-map-legend');
+  const map = chrome.natural ? '自然地理底图' : '历史疆域参考 · ' + yearLabel(session.observe.year);
+  legend.innerHTML = '<span>' + map + '</span>' +
+    styles.map(style=>'<span><i data-route-precision="' + style + '"></i>' + ROUTE_STYLES[style].label + '</span>').join('') +
+    points.filter(point=>placePrecisionLabels[point]).map(point=>'<span><i data-place-precision="' + point + '"></i>' +
+      placePrecisionLabels[point] + '</span>').join('') + (ctxObj.regionVector || ctxObj.spec.kind==='location' ? '<span>区域定位</span>' : '');
+}
+
+function syncObservationMap(ctxObj, year) {
+  const request = ctxObj.mapRequest = (ctxObj.mapRequest || 0) + 1;
+  const supported = !ctxObj.naturalOnly && hasHistoricalCoverage(year);
+  state.year = year;
+  state.layerId = supported ? 'polity' : 'country';
+  chrome.natural = !supported || !polityState.loaded;
+  onYearChanged();
+  renderObservationLegend(ctxObj);
+  if (supported && !polityState.loaded) ensurePolity().then(() => {
+    if (session.mode !== 'Observe' || worldEvent !== ctxObj || request !== ctxObj.mapRequest || session.observe.year !== year) return;
+    chrome.natural = !polityState.loaded;
+    onYearChanged();
+    renderObservationLegend(ctxObj);
+  });
+}
+
+function renderObservationSources(ctxObj, step) {
+  const sources = new Map((ctxObj.spec.sources || []).map(source=>[source.id,source]));
+  const list = [...sources.values()].map(source=>'<li><a href="' + esc(source.url) +
+    '" target="_blank" rel="noopener noreferrer">' + esc(source.title) + '</a></li>').join('');
+  const detail = (label,evidence) => evidence?.length ? '<li><strong>' + esc(label) + '：</strong>' +
+    evidence.map(ref => {
+      const source = sources.get(referenceId(ref));
+      return '<a href="' + esc(source.url) + '" target="_blank" rel="noopener noreferrer">' + esc(source.title) +
+        '</a>' + (ref.locator ? ' · ' + esc(ref.locator) : '') + (ref.note ? ' · ' + esc(ref.note) : '');
+    }).join('；') + '</li>' : '';
+  const evidence = detail('空间解释',ctxObj.spec.evidence) + detail(step?.title || '',step?.evidence) +
+    [...ctxObj.points?.values() || []].map(place=>detail(place.name,place.evidence)).join('') +
+    ctxObj.routes.map(route=>detail(route.label,route.evidence) + detail(route.label + '方向',route.directionEvidence)).join('');
+  const status = ctxObj.spec.audit;
+  const statusText = status?.status==='checked' ? '已核查范围：' + status.scope : '地理证据待逐项核查。';
+  const mapNote = hasHistoricalCoverage(session.observe.year) && !ctxObj.naturalOnly
+    ? '历史疆域来自 Cliopatria，用于该观察年的范围参考。加载失败时使用自然地理底图。'
+    : '此观察仅使用自然地理底图。';
+  el('event-map-source-content').innerHTML = '<p>' + esc(ctxObj.spec.limit || '代表点用于大致地理定位。') +
+    '</p><p>' + esc(mapNote) + '</p>' + (ctxObj.sceneId ? '<p>' + esc(statusText) + '</p>' : '') +
+    ctxObj.routes.map(route=>'<p><strong>' + esc(route.label) + '</strong> · ' + esc(route.note) + '</p>').join('') +
+    (list ? '<ul class="observation-sources-list">' + list + '</ul>' : '') +
+    (evidence ? '<ul class="observation-evidence">' + evidence + '</ul>' : '');
 }
 
 function applySceneStep(ctxObj, stepIdx, { animate = true } = {}) {
-  const steps = ctxObj.steps || [];
-  const step = stepIdx >= 0 && stepIdx < steps.length ? steps[stepIdx] : null;
-  ctxObj.stepIdx = step ? stepIdx : -1;
-  ctxObj.selected = null;
-
-  const year = step ? step.year : ctxObj.baseYear;
-  session.updateObserve({ year });
-  ctxObj.activePlaceIds = step?.places?.length ? new Set(step.places) : null;
-  ctxObj.activeRouteIndices = step?.routes?.length ? new Set(step.routes) : null;
-  ctxObj.activeFocusPolities = step?.focusPolities?.length ? step.focusPolities : (ctxObj.focusPolities || null);
-
-  if (state.year !== year) {
-    state.year = year;
-    onYearChanged();
-  }
-  if (ctxObj.points) {
-    for (const [, place] of ctxObj.points) {
-      place.mark.classList.remove('selected');
-      place.button.setAttribute('aria-pressed', 'false');
-    }
-    const targetVectors = [...ctxObj.points.values()]
-      .filter((p) => !ctxObj.activePlaceIds || ctxObj.activePlaceIds.has(p.id))
-      .map((p) => p.vector);
-    const cam = cameraForVectors(targetVectors.length ? targetVectors : [...ctxObj.points.values()].map((p) => p.vector), true);
-    flyGlobeTo({ ...cam, duration: animate ? 560 : 0 });
-  }
-
-  eventMapYear.textContent = fmtYear(year);
-  eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.summary;
-  renderStepsBar(eventMapSteps, steps, ctxObj.stepIdx);
-  invalidate();
+  const steps = ctxObj.spec.steps || [];
+  const step = steps[stepIdx];
+  const frame = observationFrame(ctxObj.spec, step);
+  session.updateObserve({ year:frame.year, phase:step ? stepIdx : -1, phaseId:step?.id ?? null, place:null });
+  ctxObj.routes = frame.routes;
+  ctxObj.activeFocusPolities = frame.focusPolities;
+  ctxObj.points = null;
+  eventMapPoints.replaceChildren();
+  if (frame.places.length) buildPlaceMarkers(frame.places,ctxObj);
+  else eventMapPoints.hidden = true;
+  const placeList = el('event-map-place-chips');
+  const unknownPlaces = (ctxObj.spec.unknownPlaces || []).filter(place=>step?.places===undefined || step.places.includes(place.id));
+  eventMapPlaces.hidden = !frame.places.length && !unknownPlaces.length;
+  placeList.innerHTML = frame.places.map(place=>'<button type="button" data-scene-place="' + esc(place.id) +
+    '" aria-pressed="false"><strong>' + esc(place.name) + '</strong><small>' +
+    esc(placePrecisionLabels[place.precision] || placePrecisionLabels.approximate) + '</small></button>').join('') +
+    unknownPlaces.map(place=>'<p>' + esc(place.name) + ' · 地点未详</p>').join('');
+  eventMapYear.textContent = step?.dateLabel || ctxObj.spec.dateLabel || yearLabel(frame.year);
+  eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.spec.note;
+  eventMapPlaceNote.hidden = true;
+  eventMapPlaceNote.textContent = '';
+  const distance = ctxObj.spec.distance;
+  eventMapDistance.hidden = !distance || !distance.ids.every(id=>ctxObj.points?.has(id));
+  eventMapDistance.textContent = eventMapDistance.hidden ? '' : distance.label;
+  renderStepsBar(steps,step ? stepIdx : -1);
+  syncObservationMap(ctxObj,frame.year);
+  renderObservationSources(ctxObj,step);
+  resetObservationCamera(ctxObj,animate);
 }
 
-function showEventMap(spec) {
-  const {year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route} = spec;
-  session.updateObserve({ id: route.sceneId || String(route.event.id), year, phase: -1, place: null });
-  worldEvent = {
-    ...route, spec, baseYear: year, summary, points: null, regionVector: null,
-    routes: routes ? routes.map((r) => ({ ...r })) : [],
-    steps: steps || [],
-    focusPolities: focusPolities || null,
-    activeFocusPolities: focusPolities || null,
-    activePlaceIds: null,
-    activeRouteIndices: null,
-    get stepIdx() { return session.observe?.phase ?? -1; },
-    set stepIdx(phase) { session.updateObserve({ phase }); },
-    get selected() { return session.observe?.place ?? null; },
-    set selected(place) { session.updateObserve({ place }); },
-  };
+function resetObservationCamera(ctxObj, animate = true) {
+  const vectors = [...ctxObj.points?.values() || []].map(place=>place.vector);
+  const camera = cameraForVectors(vectors.length ? vectors : ctxObj.regionVector ? [ctxObj.regionVector] : [], Boolean(ctxObj.sceneId));
+  if (ctxObj.regionVector && !vectors.length) camera.zoom = 1.4;
+  flyGlobeTo({...camera,duration:animate ? 560 : 0});
+}
+
+function showEventMap(spec, {animate = true} = {}) {
+  const {year,title,back,event,sceneId,initialPlaceId,initialStageId} = spec;
   pauseGlobe();
   cancelGlobeFly();
   closeYearControl();
   closeWorld();
   document.body.classList.add('event-map-open');
-  document.body.classList.toggle('scene-observation', Boolean(route.sceneId));
+  document.body.classList.toggle('scene-observation', Boolean(sceneId));
   state.focus = null;
-  sheetState.detent = 'hidden';
-  applySheetOffset(sheetDetents().hidden, false);
-  state.year = year;
-  chrome.natural = !historical;
-  if (historical) {
-    state.layerId = 'polity';
-    if (!polityState.loaded) ensurePolity();
-  }
   state.lift = 0;
+  sheetState.detent = 'hidden';
+  applySheetOffset(sheetDetents().hidden,false);
+  worldEvent = { spec, event, target:spec.target, sceneId, readingTarget:spec.readingTarget, naturalOnly:spec.naturalOnly, routes:[], points:null };
+  session.updateObserve({ id:sceneId || String(event.id), year, phase:-1, phaseId:null, place:null });
+  if (!spec.places?.length && Number.isFinite(event?.px) && Number.isFinite(event?.py)) {
+    const lon = (event.px / MAPW - .5) * 360, lat = (.5 - event.py / MAPH) * 180;
+    worldEvent.regionVector = readingPlaceVector({lon,lat});
+  }
   eventMapTitle.textContent = title;
-  const kind = routes?.[0]?.type || routes?.[0]?.kind || 'trade';
-  const types = {canal:'漕运',military:'军事',frontier:'边防',trade:'贸易'};
-  el('event-map-type').textContent = types[kind] || '历史现场';
-  el('event-map-type').dataset.routeType = kind;
-  el('event-map-navigation').hidden = !route.sceneId;
-  el('event-map-place-chips').replaceChildren();
-  eventMapRead.hidden = !route.readingTarget;
+  el('event-map-question').textContent = spec.question || '';
+  el('event-map-question').hidden = !spec.question;
+  eventMapRead.hidden = !spec.readingTarget;
   eventMapReturn.querySelector('span').textContent = back;
-  eventMapYear.textContent = fmtYear(year);
-  eventMapTop.hidden = false;
-  eventMapNote.textContent = summary;
-  eventMapDistance.textContent = distanceLabel || '';
-  eventMapDistance.hidden = !distanceLabel;
-  renderStepsBar(eventMapSteps, worldEvent.steps, -1);
-  renderEventParticipants(participants || []);
-  let targetCamera;
-  if (places?.length) {
-    targetCamera = prepareWorldEventPlaces(places);
-    if (route.sceneId) {
-      el('event-map-place-chips').innerHTML = places.map(p => '<button type="button" data-scene-place="' + esc(p.id) +
-        '"><strong>' + esc(p.name) + '</strong><small>' + esc(p.role) + '</small></button>').join('');
-    }
-  } else if (Number.isFinite(route.event?.px) && Number.isFinite(route.event?.py)) {
-    const lon = (route.event.px / MAPW - .5) * 360, lat = (.5 - route.event.py / MAPH) * 180;
-    worldEvent.regionVector = readingPlaceVector({ lon, lat });
-    targetCamera = { yaw:-lon * Math.PI / 180, tilt:lat * Math.PI / 180, zoom:1.45 };
-  }
-  eventMapPanel.style.transform = '';
-  eventMapPanel.hidden = false;
-  if (route.sceneId) {
-    const list = route.sceneOrder || [];
-    const index = list.indexOf(route.sceneId);
-    el('event-map-prev').disabled = index <= 0;
-    el('event-map-next').disabled = index < 0 || index >= list.length - 1;
-    el('event-map-counter').textContent = index < 0 ? '' : (index + 1) + ' / ' + list.length;
-  }
-  onYearChanged();
+  eventMapTop.hidden = eventMapPanel.hidden = false;
+  eventMapScroll.scrollTop = 0;
+  eventMapSteps.replaceChildren();
+  eventMapPlaces.open = eventMapSources.open = false;
+  renderEventParticipants(spec.participants || []);
+  applySceneStep(worldEvent,Math.max(0,(spec.steps || []).findIndex(step=>step.id===initialStageId)),{animate});
+  if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) selectEventPlace(initialPlaceId,true,animate);
   layout();
-  if (targetCamera) flyGlobeTo(targetCamera);
-  if (initialPlaceId && worldEvent.points?.has(initialPlaceId)) {
-    selectEventPlace(initialPlaceId);
-  }
-  session.updateObserve({ camera: session.camera(state) });
-  eventMapReturn.focus({ preventScroll: true });
+  session.updateObserve({ camera:session.camera(state) });
+  eventMapReturn.focus({preventScroll:true});
   saveSession(true);
 }
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
   const year = worldEventYear(event);
-  const target = worldEventTarget(event, year);
+  const target = worldEventTarget(event,year);
   const story = target?.chapter.mapStory;
   const scene = target && scenesByEvent.get(event.id);
   const region = event.regionRef || regionById.get(event.region);
+  const fromList = !overlay.hidden;
+  const source = fromList ? worldSource(String(event.id),'map') : session.source({kind:'map'});
   rememberExplore();
-  if (!session.enterObserve({ kind: 'event', source: worldSource(String(event.id), 'map') })) return;
-  showEventMap({ event, target, year,
-    readingTarget: worldReadingTarget(event, year),
-    title: timelineItem(event).title || event.zh,
-    summary: scene?.summary || story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
-    participants: story?.participants, places: scene?.places || (target && chapterPlaces(target.chapter)),
-    routes: scene?.routes, steps: scene?.steps, focusPolities: scene?.focusPolities,
-    back: '返回 ' + yearLabel(state.year) });
+  if (!session.enterObserve({kind:'event',source})) return;
+  const topicPlaces = target && ![...historicalScenes.values()].some(scene=>scene.topicEvent===event.id) ? chapterPlaces(target.chapter) : [];
+  const places = topicPlaces.map(p=>({...p,precision:'approximate'}));
+  const articleSources = story && story.refs.map(ref=>target.chapter.sources.find(s=>s.id===referenceId(ref)));
+  showEventMap({ note:story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
+    ...scene, event, target, year,
+    readingTarget:worldReadingTarget(event,year),
+    title:timelineItem(event).title || event.zh, participants:story?.participants,
+    places:scene?.places || places, sources:scene?.sources || articleSources,
+    back:fromList ? '返回史事' : '返回探索' });
 }
 
-function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
-  if (!scene || !reading.active) return;
+function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId = null} = {}) {
+  if (scene?.status!=='available' || !reading.active) return;
   rememberReading();
   const returnView = captureGlobeView();
-  if (!session.enterObserve({ kind: 'scene', returnView,
-    source: { sceneId: scene.id, triggerPlace: trigger?.dataset.pinPlace || null } })) return;
+  if (!session.enterObserve({ kind:'scene', returnView,
+    source:{sceneId:scene.id, triggerPlace:trigger?.dataset.pinPlace || null, triggerBlock:trigger?.closest('[data-block-id]')?.dataset.blockId} })) return;
   hideReader();
-  const sceneOrder = [...new Set(reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [])];
-  showEventMap({ ...scene, sceneId: scene.id, sceneOrder, initialPlaceId,
-    historical: hasHistoricalCoverage(scene.year), back: '返回正文' });
+  showEventMap({...scene, sceneId:scene.id, initialStageId, initialPlaceId, back:'返回正文'});
 }
 
 function returnToWorld() {
@@ -531,119 +532,69 @@ function returnToWorld() {
   worldEvent = null;
   pauseGlobe();
   cancelGlobeFly();
-  document.body.classList.remove('event-map-open', 'scene-observation');
-  eventMapPanel.style.transform = '';
+  document.body.classList.remove('event-map-open','scene-observation');
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
   el('event-map-place-chips').replaceChildren();
-  el('event-map-navigation').hidden = true;
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
-  if (previous.origin === 'Read') {
+  if (previous.origin==='Read') {
     projectGlobeView(previous.returnView);
     showReader();
-    const { sceneId, triggerPlace } = previous.source;
+    const {sceneId,triggerPlace,triggerBlock} = previous.source;
     const buttons = [...bookBody.querySelectorAll(triggerPlace ? '[data-pin-scene]' : '[data-subject-scene]')];
-    const button = buttons.find(node => triggerPlace
-      ? node.dataset.pinScene === sceneId && node.dataset.pinPlace === triggerPlace
-      : node.dataset.subjectScene === sceneId);
-    (button || el('reading-title')).focus({ preventScroll: true });
+    const button = buttons.find(node=>triggerPlace ? node.dataset.pinScene===sceneId && node.dataset.pinPlace===triggerPlace &&
+      (!triggerBlock || node.closest('[data-block-id]')?.dataset.blockId===triggerBlock) : node.dataset.subjectScene===sceneId);
+    (button || el('reading-title')).focus({preventScroll:true});
   } else {
     restoreExploreView();
-    restoreWorldSource(previous.source);
+    if (previous.source.kind==='events') restoreWorldSource(previous.source);
+    else canvas.focus({preventScroll:true});
   }
   saveSession(true);
 }
 
-eventMapReturn.addEventListener('click', returnToWorld);
-eventMapRead.addEventListener('click', () => {
+eventMapReturn.addEventListener('click',returnToWorld);
+eventMapRead.addEventListener('click',() => {
   const target = worldEvent?.readingTarget;
-  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter?.id, target.book,
-    { entryYear:target.year, source:session.observe.source });
+  if (session.mode==='Observe' && target) beginReading(null,null,target.chapter?.id,target.book,
+    {entryYear:target.year,source:session.observe.source});
+});
+el('event-map-reset').addEventListener('click',() => {
+  if (session.mode==='Observe' && worldEvent) resetObservationCamera(worldEvent);
 });
 
-function selectEventPlace(id, forceSelect = false) {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
-  if (!ctxObj?.points) return;
-  ctxObj.selected = (!forceSelect && ctxObj.selected === id) ? null : id;
-  const selected = ctxObj.points.get(ctxObj.selected);
-  eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
+function selectEventPlace(id, forceSelect = false, animate = true) {
+  const ctxObj = session.mode==='Observe' ? worldEvent : null;
+  if (!ctxObj?.points || id!==null && !ctxObj.points.has(id)) return;
+  const selected = id===null || !forceSelect && session.observe.place===id ? null : ctxObj.points.get(id);
+  session.updateObserve({place:selected?.id ?? null});
+  eventMapPlaceNote.hidden = !selected;
+  eventMapPlaceNote.textContent = selected ? selected.name + ' · ' + selected.role +
+    '（' + (placePrecisionLabels[selected.precision] || placePrecisionLabels.approximate) + '）' : '';
   for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
-    chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
+    chip.setAttribute('aria-pressed',String(chip.dataset.scenePlace===selected?.id));
   if (selected) {
-    const cam = cameraForVectors([selected.vector], true);
-    flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
+    const cam = cameraForVectors([selected.vector],true);
+    flyGlobeTo({...cam,zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:animate ? 460 : 0});
   }
-  for (const [key, place] of ctxObj.points) {
-    place.mark.classList.toggle('selected', key === ctxObj.selected);
-    place.button.setAttribute('aria-pressed', String(key === ctxObj.selected));
+  for (const [key,place] of ctxObj.points) {
+    place.mark.classList.toggle('selected',key===selected?.id);
+    place.button.setAttribute('aria-pressed',String(key===selected?.id));
   }
   invalidate();
 }
 
-eventMapPoints.addEventListener('click', (event) => {
+eventMapPoints.addEventListener('click',event => {
   const mark = event.target.closest('[data-place]');
   if (mark) selectEventPlace(mark.dataset.place);
 });
-eventMapSteps.addEventListener('click', (event) => {
-  const btn = event.target.closest('[data-scene-step]');
-  if (btn && session.mode === 'Observe') applySceneStep(worldEvent, Number(btn.dataset.sceneStep));
+eventMapSteps.addEventListener('click',event => {
+  const button = event.target.closest('[data-scene-step]');
+  if (button && session.mode==='Observe') applySceneStep(worldEvent,Number(button.dataset.sceneStep));
 });
-eventMapParticipants.addEventListener('toggle', invalidate);
-
-/* v7 · Archival place legends and adjacent book scenes. */
-el('event-map-place-chips').addEventListener('click', event => {
+el('event-map-place-chips').addEventListener('click',event => {
   const chip = event.target.closest('[data-scene-place]');
-  if (chip && worldEvent) selectEventPlace(chip.dataset.scenePlace, true);
+  if (chip) selectEventPlace(chip.dataset.scenePlace);
 });
-function navigateReadingScene(delta) {
-  if (session.mode !== 'Observe' || !worldEvent?.sceneId || !worldEvent.sceneOrder) return;
-  const order = worldEvent.sceneOrder;
-  const id = order[order.indexOf(worldEvent.sceneId) + delta];
-  const scene = historicalScenes.get(id);
-  if (!scene) return;
-  showEventMap({...scene, sceneId:scene.id, sceneOrder:order,
-    historical:hasHistoricalCoverage(scene.year), back:'返回正文'});
-}
-el('event-map-prev').addEventListener('click', () => navigateReadingScene(-1));
-el('event-map-next').addEventListener('click', () => navigateReadingScene(1));
-
-
-/* v8 · Dedicated scene caption card swipe (buttons and long text remain selectable). */
-let captionSwipe = null;
-eventMapPanel.addEventListener('touchstart', event => {
-  if (session.mode !== 'Observe' || !worldEvent?.sceneId || event.touches.length !== 1 ||
-      event.target.closest('button, a, summary, details, #event-map-steps, #event-map-place-chips') ||
-      (event.target.closest('#event-map-note') &&
-        ['auto', 'scroll'].includes(getComputedStyle(eventMapNote).overflowY) &&
-        eventMapNote.scrollHeight > eventMapNote.clientHeight + 2)) { captionSwipe = null; return; }
-  const t = event.touches[0];
-  captionSwipe = {id:t.identifier,y:t.clientY,x:t.clientX,lastY:t.clientY,lastT:event.timeStamp,vy:0,active:false};
-}, {passive:true});
-eventMapPanel.addEventListener('touchmove', event => {
-  const g = captionSwipe;
-  if (!g || event.touches.length !== 1 || event.touches[0].identifier !== g.id) return;
-  const t = event.touches[0];
-  const dy = t.clientY-g.y, dx=t.clientX-g.x;
-  if (!g.active) {
-    if (Math.abs(dy)<13) return;
-    if (Math.abs(dx)>Math.abs(dy)*.8) {captionSwipe=null;return;}
-    g.active=true;
-  }
-  if (event.cancelable) event.preventDefault();
-  const dt = Math.max(1,event.timeStamp-g.lastT);
-  g.vy=.6*((t.clientY-g.lastY)/dt)+.4*g.vy;
-  g.lastY=t.clientY;g.lastT=event.timeStamp;
-  eventMapPanel.style.transform='translate3d(0,'+Math.min(55,Math.max(-24,dy*.32))+'px,0)';
-}, {passive:false});
-for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(kind,event=>{
-  const g=captionSwipe;
-  if (!g || !Array.from(event.changedTouches).some(t=>t.identifier===g.id)) return;
-  captionSwipe=null;
-  eventMapPanel.style.transform='';
-  if (!g.active || kind!=='touchend') return;
-  const dy=g.lastY-g.y;
-  const up=dy < -55 || g.vy < -.42;
-  const down=dy > 70 || g.vy > .42;
-  if (!up && !down) return;
-  returnToWorld();
-});
+for (const details of [eventMapParticipants,eventMapPlaces,eventMapSources]) details.addEventListener('toggle',invalidate);
+eventMapScroll.addEventListener('scroll',invalidate,{passive:true});

@@ -96,14 +96,24 @@
           "chapterId": "maya",
           "label": "美洲内部的另一种城市世界",
           "reason": "比较公共空间、资源与社会组织，保留各自差异。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共空间、资源与社会组织，保留各自差异。",
+          "display": "比较公共空间、资源与社会组织，保留各自差异。"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "colonial-contact",
           "label": "接触怎样变成殖民统治？",
           "reason": "继续看原有政治社会如何面对定居与土地扩张。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -186,14 +196,24 @@
           "chapterId": "maya",
           "label": "美洲内部的另一种城市世界",
           "reason": "比较公共空间、资源与社会组织，保留各自差异。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共空间、资源与社会组织，保留各自差异。",
+          "display": "比较公共空间、资源与社会组织，保留各自差异。"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "colonial-contact",
           "label": "接触怎样变成殖民统治？",
           "reason": "继续看原有政治社会如何面对定居与土地扩张。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -276,14 +296,24 @@
           "chapterId": "maya",
           "label": "美洲内部的另一种城市世界",
           "reason": "比较公共空间、资源与社会组织，保留各自差异。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共空间、资源与社会组织，保留各自差异。",
+          "display": "比较公共空间、资源与社会组织，保留各自差异。"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "colonial-contact",
           "label": "接触怎样变成殖民统治？",
           "reason": "继续看原有政治社会如何面对定居与土地扩张。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -366,14 +396,24 @@
           "chapterId": "maya",
           "label": "美洲内部的另一种城市世界",
           "reason": "比较公共空间、资源与社会组织，保留各自差异。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共空间、资源与社会组织，保留各自差异。",
+          "display": "比较公共空间、资源与社会组织，保留各自差异。"
         },
         {
           "topicId": "north-america-modern",
           "chapterId": "colonial-contact",
           "label": "接触怎样变成殖民统治？",
           "reason": "继续看原有政治社会如何面对定居与土地扩张。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -385,14 +425,24 @@
       "chapterId": "maya",
       "label": "美洲内部的另一种城市世界",
       "reason": "比较公共空间、资源与社会组织，保留各自差异。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较公共空间、资源与社会组织，保留各自差异。",
+      "display": "比较公共空间、资源与社会组织，保留各自差异。"
     },
     {
       "topicId": "north-america-modern",
       "chapterId": "colonial-contact",
       "label": "接触怎样变成殖民统治？",
       "reason": "继续看原有政治社会如何面对定居与土地扩张。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 900

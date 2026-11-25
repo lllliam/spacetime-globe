@@ -117,14 +117,22 @@
           "chapterId": "fez",
           "label": "沙漠北侧的城市",
           "reason": "从萨赫勒回看商路、宗教与工艺的另一端。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
           "label": "强制迁徙之后的生活",
           "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -207,14 +215,22 @@
           "chapterId": "fez",
           "label": "沙漠北侧的城市",
           "reason": "从萨赫勒回看商路、宗教与工艺的另一端。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
           "label": "强制迁徙之后的生活",
           "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -297,14 +313,22 @@
           "chapterId": "fez",
           "label": "沙漠北侧的城市",
           "reason": "从萨赫勒回看商路、宗教与工艺的另一端。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
           "label": "强制迁徙之后的生活",
           "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -387,14 +411,22 @@
           "chapterId": "fez",
           "label": "沙漠北侧的城市",
           "reason": "从萨赫勒回看商路、宗教与工艺的另一端。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "brazil",
           "label": "强制迁徙之后的生活",
           "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -406,14 +438,22 @@
       "chapterId": "fez",
       "label": "沙漠北侧的城市",
       "reason": "从萨赫勒回看商路、宗教与工艺的另一端。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "latin-america",
       "chapterId": "brazil",
       "label": "强制迁徙之后的生活",
       "reason": "跨大西洋奴役连接非洲家庭与巴西社会的形成。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 800

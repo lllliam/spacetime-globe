@@ -53,14 +53,17 @@ function worldReadingTarget(event, year) {
 
 function worldEntryMarkup(item) {
   const {event, target} = item;
-  const title = timelineItem(event).title || event.zh;
+  const note = timelineItem(event);
+  const title = note.title || event.zh;
   const region = event.regionRef || regionById.get(event.region);
   const dates = fmtYear(event.start) + (!event.point && event.start !== event.end ? '—' + fmtYear(event.end) : '') + ' 年';
   return '<li class="witem"><button type="button" class="wrow" data-event="' + esc(event.id) + '" aria-label="' +
     esc(title + '，在地球上看') + '"><span><strong>' + esc(title) + '</strong><small>' +
     esc(dates + (region?.zh ? ' · ' + region.zh : '')) + '</small></span>' + worldPin + '</button>' +
     (target ? '<button type="button" class="world-read" data-world-read="' + esc(event.id) + '">' +
-      worldBook + '读《' + esc(target.book.title) + '》</button>' : '') + '</li>';
+      worldBook + '读《' + esc(target.book.title) + '》</button>' : '') +
+    (note.related ? '<button type="button" class="world-read" data-world-topic="' + esc(event.id) + '">' +
+      worldBook + '阅读相关专题</button>' : '') + '</li>';
 }
 
 function worldList(items) {
@@ -110,8 +113,9 @@ function worldSource(eventId, action) {
 function restoreWorldSource(source) {
   if (source.year !== state.year) return;
   if (worldListYear !== source.year) openWorld();
-  const rows = overlayBody.querySelectorAll(source.action === 'read' ? '[data-world-read]' : '[data-event]');
-  const row = [...rows].find(node => (node.dataset.worldRead || node.dataset.event) === source.eventId);
+  const rows = overlayBody.querySelectorAll(source.action==='read' ? '[data-world-read]' :
+    source.action==='topic' ? '[data-world-topic]' : '[data-event]');
+  const row = [...rows].find(node => (node.dataset.worldRead || node.dataset.worldTopic || node.dataset.event) === source.eventId);
   overlayBody.querySelectorAll('details').forEach((node, index) => {
     if (index < source.disclosures.length) node.open = source.disclosures[index];
   });
@@ -129,12 +133,18 @@ function closeWorld(focus = false) {
 }
 
 overlayBody.addEventListener('click', event => {
-  const button = event.target.closest('button[data-event],button[data-world-read]');
+  const button = event.target.closest('button[data-event],button[data-world-read],button[data-world-topic]');
   if (!button) return;
-  const id = button.dataset.event || button.dataset.worldRead;
+  const id = button.dataset.event || button.dataset.worldRead || button.dataset.worldTopic;
   const entry = entries.find(item => String(item.id) === id);
   if (!entry) return;
   if (button.dataset.event) { openWorldEvent(entry); return; }
+  if (button.dataset.worldTopic) {
+    const related = timelineItem(entry).related;
+    const topic = TOPICS.find(item=>item.id===related?.topicId);
+    if (topic) beginReading(null,topic,related.chapterId,null,{entryYear:worldEventYear(entry),source:worldSource(id,'topic')});
+    return;
+  }
   const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
   beginReading(null, null, target.chapter?.id, target.book, {

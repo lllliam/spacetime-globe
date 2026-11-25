@@ -121,14 +121,22 @@
           "chapterId": "sogdians",
           "label": "陆路上的商人与中介",
           "reason": "把伊斯兰世界放回更广的欧亚交换网络。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "west-africa",
           "chapterId": "manuscripts",
           "label": "知识怎样在西非发展？",
           "reason": "廷巴克图展示跨撒哈拉联系与本地写作传统。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -211,14 +219,22 @@
           "chapterId": "sogdians",
           "label": "陆路上的商人与中介",
           "reason": "把伊斯兰世界放回更广的欧亚交换网络。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "west-africa",
           "chapterId": "manuscripts",
           "label": "知识怎样在西非发展？",
           "reason": "廷巴克图展示跨撒哈拉联系与本地写作传统。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -301,14 +317,22 @@
           "chapterId": "sogdians",
           "label": "陆路上的商人与中介",
           "reason": "把伊斯兰世界放回更广的欧亚交换网络。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "west-africa",
           "chapterId": "manuscripts",
           "label": "知识怎样在西非发展？",
           "reason": "廷巴克图展示跨撒哈拉联系与本地写作传统。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -391,14 +415,22 @@
           "chapterId": "sogdians",
           "label": "陆路上的商人与中介",
           "reason": "把伊斯兰世界放回更广的欧亚交换网络。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "west-africa",
           "chapterId": "manuscripts",
           "label": "知识怎样在西非发展？",
           "reason": "廷巴克图展示跨撒哈拉联系与本地写作传统。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -410,14 +442,22 @@
       "chapterId": "sogdians",
       "label": "陆路上的商人与中介",
       "reason": "把伊斯兰世界放回更广的欧亚交换网络。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "west-africa",
       "chapterId": "manuscripts",
       "label": "知识怎样在西非发展？",
       "reason": "廷巴克图展示跨撒哈拉联系与本地写作传统。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 610

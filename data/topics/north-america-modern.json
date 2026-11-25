@@ -98,14 +98,23 @@
           "chapterId": "haudenosaunee",
           "label": "从原住民的位置看革命",
           "reason": "同一场独立战争，可能意味着不同的土地与主权后果。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "independences",
           "label": "美洲革命为何具有不同目标？",
           "reason": "区分国家独立、废奴与政治参与的范围。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -188,14 +197,23 @@
           "chapterId": "haudenosaunee",
           "label": "从原住民的位置看革命",
           "reason": "同一场独立战争，可能意味着不同的土地与主权后果。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "independences",
           "label": "美洲革命为何具有不同目标？",
           "reason": "区分国家独立、废奴与政治参与的范围。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -289,14 +307,23 @@
           "chapterId": "haudenosaunee",
           "label": "从原住民的位置看革命",
           "reason": "同一场独立战争，可能意味着不同的土地与主权后果。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "independences",
           "label": "美洲革命为何具有不同目标？",
           "reason": "区分国家独立、废奴与政治参与的范围。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -390,14 +417,23 @@
           "chapterId": "haudenosaunee",
           "label": "从原住民的位置看革命",
           "reason": "同一场独立战争，可能意味着不同的土地与主权后果。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "latin-america",
           "chapterId": "independences",
           "label": "美洲革命为何具有不同目标？",
           "reason": "区分国家独立、废奴与政治参与的范围。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -409,14 +445,23 @@
       "chapterId": "haudenosaunee",
       "label": "从原住民的位置看革命",
       "reason": "同一场独立战争，可能意味着不同的土地与主权后果。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "latin-america",
       "chapterId": "independences",
       "label": "美洲革命为何具有不同目标？",
       "reason": "区分国家独立、废奴与政治参与的范围。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     }
   ],
   "from": 1600

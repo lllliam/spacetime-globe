@@ -65,8 +65,7 @@ async function main() {
     await esc();
     assert.equal((await session()).detail, null);
     await chapter('fall');
-    await js("document.querySelector('.subject-secondary [data-subject-book=qing]').closest('details').open=true");
-    await click('.subject-secondary [data-subject-book=qing]');
+    await click('.reading-connections [data-subject-book=qing]');
     assert.equal((await session()).book, 'qing');
     const qingFirst = await js('document.querySelector("[data-reading-detail]").dataset.readingDetail');
     await chapter(qingFirst);
@@ -89,12 +88,12 @@ async function main() {
       assert.equal(initial.mode, 'Observe');
       assert.equal(initial.ex.year, 1500);
       assert.equal(initial.readYear, 1500);
-      assert.equal(initial.ob.year, 1421);
-      await click('#event-map-steps [data-scene-step="0"]');
+      assert.equal(initial.ob.year, 1411);
+      await click('#event-map-steps [data-scene-step="2"]');
       await click('[data-scene-place=qingjiangpu]');
-      assert.deepEqual((await session()).ob, { id:'yongle-capitals', year:1411, phase:0, place:'qingjiangpu' });
-      await click('#event-map-next');
-      assert.notEqual((await session()).ob.id, 'yongle-capitals');
+      assert.deepEqual((await session()).ob, { id:'yongle-capitals', year:1421, phase:2, place:'qingjiangpu' });
+      await click('#event-map-reset');
+      assert.equal((await session()).ob.year,1421);
       await js("document.querySelector('#event-map-return').click();document.querySelector('#event-map-return').click()");
       assert.equal((await session()).mode, 'Read');
       assert.equal((await session()).detail, 'two-capitals');
@@ -156,12 +155,12 @@ async function main() {
     await click('[data-event=i-140]');
     await page.open(url);
     assert.equal((await session()).mode, 'Explore');
-    assert.equal(await js("document.querySelector('#overlay').hidden && document.querySelector('#event-map-panel').hidden"), true);
+    assert.equal(await js("!document.querySelector('#overlay').hidden && document.querySelector('#event-map-panel').hidden && document.activeElement.dataset.event==='i-140'"), true);
     assert.deepEqual(await camera(), eventCamera);
 
     await page.size(1320, 840, false);
     await wait(300);
-    await click('#vernier-events');
+    if (await js("document.querySelector('#overlay').hidden")) await click('#vernier-events');
     await click('[data-event=i-140]');
     await click('#event-map-points button[data-place=tianjin]');
     const eventPlaceCamera = await camera();

@@ -84,10 +84,22 @@ function requireBlock(block, seen, sources, label, requiredRefs = true) {
   references(block.refs,sources,label + '/' + block.id,requiredRefs);
   requireAudit(block.audit,label + '/' + block.id);
 }
-function relationMeta(link,sources,label) {
+function relationMeta(link,sources,label,origin,destination) {
   check(relationKinds.has(link.relation ?? 'legacy'),label + ' 关系类型无效');
+  if (link.id!==undefined) check(id(link.id),label + ' 关系身份无效');
+  if (link.display!==undefined) check(string(link.display),label + ' 关系解释无效');
+  if (link.time!==undefined) requireRange(link.time,label + ' 关系时间');
   references(link.evidence,sources,label,false);
-  if (link.relation === 'documented') check(link.evidence?.length,label + ' 实际历史联系需有证据');
+  if (link.relation==='contemporary') {
+    const time = link.time ?? (isHistoryYear(link.year) && {from:link.year,to:link.year});
+    check(time && time.to!==null && origin && destination && contained(origin,time) && contained(destination,time) && string(link.display),
+      label + ' 同期时间超出源或目标内容范围');
+  }
+  if (link.relation==='compare') check(string(link.dimension) && string(link.display),label + ' 历史比较缺少维度或解释');
+  if (link.relation==='documented') check(link.time && link.time.to!==null && origin && destination &&
+    contained(origin,link.time) && contained(destination,link.time) && string(link.display) &&
+    link.evidence?.some(ref=>string(ref?.locator) && string(ref?.note)) && link.audit?.status==='checked',
+    label + ' 实际历史联系需有联系本身的定位证据、核查范围和时间');
   requireAudit(link.audit,label);
 }
 
@@ -151,6 +163,8 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
   const texts = new Map(), mapStories = new Map(), eventLinks = new Map();
   const bookChapter = (bookId,chapterId) => byBook.get(bookId)?.chapters?.find(c=>c.id===chapterId);
   const topicChapter = (topicId,chapterId) => byTopic.get(topicId)?.chapters?.find(c=>c.id===chapterId);
+  const narratedRange = item => !item ? undefined : item.from === undefined ? {from:item.year,to:item.year} : item;
+  const topicRange = (id,chapterId) => chapterId ? narratedRange(topicChapter(id,chapterId)) : byTopic.get(id);
   const target = (owner,chapterId,lookup,find,label) => {
     check(lookup.has(owner) && (chapterId===undefined || id(chapterId) && find(owner,chapterId)),label + ' 不存在的目标 ' + owner + '/' + (chapterId ?? ''));
   };
@@ -210,17 +224,21 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
             label + ' 关联结构无效');
           if (link.book) target(link.book,link.chapter,byBook,bookChapter,label);
           else target(link.topic,link.chapter,byTopic,topicChapter,label);
-          relationMeta(link,sources,label);
+          const specific = link.book ? bookChapter(link.book,link.chapter) : topicChapter(link.topic,link.chapter);
+          relationMeta(link,sources,label + '/' + (link.id || link.label),ch,narratedRange(specific));
         }
       }
+      const relationIds = [...(ch.related || []),...(ch.contemporaries || [])].filter(link=>link.id!==undefined);
+      identities(relationIds,label + ' 关系');
       if (ch.eventIds !== undefined) check(list(ch.eventIds,string) &&
         new Set(ch.eventIds).size===ch.eventIds.length,label + ' 事件身份无效');
     }
   }
-  const topicLink = (link,sources,label) => {
+  const topicLink = (link,sources,label,origin) => {
     check(string(link?.label) && string(link.reason),label + ' 延伸阅读缺少解释');
     target(link.topicId,link.chapterId,byTopic,topicChapter,label);
-    relationMeta(link,sources,label);
+    relationMeta(link,sources,label + '/' + (link.id || link.label),origin,
+      link.chapterId ? topicRange(link.topicId,link.chapterId) : undefined);
   };
   for (const topic of topics) {
     const file = 'data/topics/' + topic.id + '.json';
@@ -232,7 +250,8 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     const topicSources = topic.sources===undefined ? new Map() : sourceList(topic.sources,file);
     if (topic.connections !== undefined) {
       check(Array.isArray(topic.connections),file + ' 专题关系应为数组');
-      for (const link of topic.connections) topicLink(link,topicSources,file);
+      identities(topic.connections.filter(link=>link.id!==undefined),file + ' 关系');
+      for (const link of topic.connections) topicLink(link,topicSources,file,undefined);
     }
     for (const ch of topic.chapters) {
       const label = file + '/' + ch.id;
@@ -254,7 +273,8 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
       if (!sources.size || ch.sections.some(section=>!section.refs.length)) warnings.push(label + ' 引用待补充');
       if (ch.connections !== undefined) {
         check(Array.isArray(ch.connections),label + ' 篇章关系应为数组');
-        for (const link of ch.connections) topicLink(link,sources,label);
+        identities(ch.connections.filter(link=>link.id!==undefined),label + ' 关系');
+        for (const link of ch.connections) topicLink(link,sources,label,narratedRange(ch));
       }
       if (ch.mapStory) {
         const {worldEntryId, title, summary, places, participants, refs} = ch.mapStory;
@@ -286,7 +306,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     for (const p of note.paragraphs) requireBlock(p,blocks,sources,label,false);
     if (note.related) {
       target(note.related.topicId,note.related.chapterId,byTopic,topicChapter,label);
-      relationMeta(note.related,sources,label);
+      relationMeta(note.related,sources,label,eventRange(event),note.related.chapterId && topicRange(note.related.topicId,note.related.chapterId));
     }
   }
   const linkEvent = (key,bookId,chapterId,label) => {
@@ -353,7 +373,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     if (scene.topicEvent) check(!scene.sources && mapStories.has(scene.topicEvent),label + ' 专题复用入口无效');
     else check(sourceList(scene.sources,label).size,label + ' 场景来源为空');
   }
-  const scenes = compileHistoricalScenes(rawScenes,books,topics);
+  const scenes = compileHistoricalScenes(rawScenes,books,topics,polityIds,{checkAudit:requireAudit,sourceList,references});
   const planned = identities(plan,'data/content-plan.json');
   for (const item of plan) {
     check(string(item.title) && Number.isSafeInteger(item.chapters) && item.chapters>=0,'data/content-plan.json/' + item.id + ' 计划格式无效');

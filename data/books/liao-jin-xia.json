@@ -93,7 +93,12 @@
           "book": "song",
           "year": 1004,
           "label": "北宋与辽缔结澶渊之盟",
-          "note": "澶渊之盟让宋辽两朝共同步入十一世纪的黄金和平期，南北商贸与文化交流空前频繁。"
+          "note": "澶渊之盟让宋辽两朝共同步入十一世纪的黄金和平期，南北商贸与文化交流空前频繁。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -172,7 +177,12 @@
           "book": "song",
           "year": 1044,
           "label": "宋夏庆历和议与庆历新政",
-          "note": "宋夏边境的惨重军费直接逼出了范仲淹的庆历新政与后来王安石的熙宁变法。"
+          "note": "宋夏边境的惨重军费直接逼出了范仲淹的庆历新政与后来王安石的熙宁变法。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -244,7 +254,12 @@
           "book": "song",
           "year": 1141,
           "label": "宋金《绍兴和议》划淮为界",
-          "note": "南北对峙定型后，淮河两岸重开榷场贸易，南北经济与文学戏曲进入深层互动期。"
+          "note": "南北对峙定型后，淮河两岸重开榷场贸易，南北经济与文学戏曲进入深层互动期。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -315,11 +330,21 @@
       "related": [
         {
           "book": "mongol-empire",
-          "label": "蒙古铁骑如何横扫西夏与金朝，并建立横跨欧亚的超级帝国"
+          "label": "蒙古铁骑如何横扫西夏与金朝，并建立横跨欧亚的超级帝国",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "yuan",
-          "label": "元朝如何继承金中都与二元治理，完成全中国大一统"
+          "label": "元朝如何继承金中都与二元治理，完成全中国大一统",
+          "id": "reading-02",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -327,7 +352,12 @@
           "book": "mongol-empire",
           "year": 1211,
           "label": "成吉思汗野狐岭南下",
-          "note": "1211 年野狐岭之战不仅打断了金朝脊梁，更拉开了蒙古横扫欧亚大陆的历史大幕。"
+          "note": "1211 年野狐岭之战不仅打断了金朝脊梁，更拉开了蒙古横扫欧亚大陆的历史大幕。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

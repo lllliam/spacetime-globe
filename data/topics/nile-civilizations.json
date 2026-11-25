@@ -103,14 +103,24 @@
           "chapterId": "uruk",
           "label": "河流与早期国家",
           "reason": "比较公共工程与文字、行政和地方资源的关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共工程与文字、行政和地方资源的关系。",
+          "display": "比较公共工程与文字、行政和地方资源的关系。"
         },
         {
           "topicId": "east-southern-africa",
           "chapterId": "lalibela",
           "label": "高地信仰的后续历史",
           "reason": "从阿克苏姆的背景继续看埃塞俄比亚的宗教与建筑。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -193,14 +203,24 @@
           "chapterId": "uruk",
           "label": "河流与早期国家",
           "reason": "比较公共工程与文字、行政和地方资源的关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共工程与文字、行政和地方资源的关系。",
+          "display": "比较公共工程与文字、行政和地方资源的关系。"
         },
         {
           "topicId": "east-southern-africa",
           "chapterId": "lalibela",
           "label": "高地信仰的后续历史",
           "reason": "从阿克苏姆的背景继续看埃塞俄比亚的宗教与建筑。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -283,14 +303,24 @@
           "chapterId": "uruk",
           "label": "河流与早期国家",
           "reason": "比较公共工程与文字、行政和地方资源的关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共工程与文字、行政和地方资源的关系。",
+          "display": "比较公共工程与文字、行政和地方资源的关系。"
         },
         {
           "topicId": "east-southern-africa",
           "chapterId": "lalibela",
           "label": "高地信仰的后续历史",
           "reason": "从阿克苏姆的背景继续看埃塞俄比亚的宗教与建筑。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -373,14 +403,24 @@
           "chapterId": "uruk",
           "label": "河流与早期国家",
           "reason": "比较公共工程与文字、行政和地方资源的关系。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较公共工程与文字、行政和地方资源的关系。",
+          "display": "比较公共工程与文字、行政和地方资源的关系。"
         },
         {
           "topicId": "east-southern-africa",
           "chapterId": "lalibela",
           "label": "高地信仰的后续历史",
           "reason": "从阿克苏姆的背景继续看埃塞俄比亚的宗教与建筑。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -392,14 +432,24 @@
       "chapterId": "uruk",
       "label": "河流与早期国家",
       "reason": "比较公共工程与文字、行政和地方资源的关系。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较公共工程与文字、行政和地方资源的关系。",
+      "display": "比较公共工程与文字、行政和地方资源的关系。"
     },
     {
       "topicId": "east-southern-africa",
       "chapterId": "lalibela",
       "label": "高地信仰的后续历史",
       "reason": "从阿克苏姆的背景继续看埃塞俄比亚的宗教与建筑。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -2600

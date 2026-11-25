@@ -78,7 +78,12 @@
           "chapter": "sumer-akkad-ur",
           "year": -2500,
           "label": "河谷与城邦",
-          "note": "将尼罗河谷的早期国家与两河下游的苏美尔城邦并读，可以比较水道、粮食与人员如何支撑早期政治中心。"
+          "note": "将尼罗河谷的早期国家与两河下游的苏美尔城邦并读，可以比较水道、粮食与人员如何支撑早期政治中心。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -149,7 +154,12 @@
           "book": "shang-zhou",
           "year": -1600,
           "label": "商汤灭夏与青铜都邑",
-          "note": "当喜克索斯人以复合弓与马战车改写尼罗河三角洲格局时，黄河流域正步入商朝青铜礼器与早期都邑时代。"
+          "note": "当喜克索斯人以复合弓与马战车改写尼罗河三角洲格局时，黄河流域正步入商朝青铜礼器与早期都邑时代。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -220,7 +230,12 @@
           "book": "shang-zhou",
           "year": -1250,
           "label": "殷墟武丁中兴",
-          "note": "拉美西斯二世在卡叠什缔结国际和约之际，东方的商王武丁正以妇好为将开疆拓土，安阳殷墟甲骨文进入鼎盛期。"
+          "note": "拉美西斯二世在卡叠什缔结国际和约之际，东方的商王武丁正以妇好为将开疆拓土，安阳殷墟甲骨文进入鼎盛期。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -297,7 +312,12 @@
           "book": "greece-macedon",
           "year": -332,
           "label": "亚历山大受封法老",
-          "note": "马其顿军队兵不血刃接管埃及，奠基亚历山大城，把尼罗河文明全面接入希腊化地中海世界。"
+          "note": "马其顿军队兵不血刃接管埃及，奠基亚历山大城，把尼罗河文明全面接入希腊化地中海世界。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

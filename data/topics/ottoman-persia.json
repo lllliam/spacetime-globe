@@ -110,14 +110,24 @@
           "chapterId": "mughal",
           "label": "莫卧儿的另一种帝国经验",
           "reason": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
+          "display": "比较宫廷、地方治理与跨区域技艺的不同组织方式。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "从治理变化走向改革",
           "reason": "继续追踪财政、法律与成员资格如何被重新安排。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -200,14 +210,24 @@
           "chapterId": "mughal",
           "label": "莫卧儿的另一种帝国经验",
           "reason": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
+          "display": "比较宫廷、地方治理与跨区域技艺的不同组织方式。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "从治理变化走向改革",
           "reason": "继续追踪财政、法律与成员资格如何被重新安排。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -290,14 +310,23 @@
           "chapterId": "mughal",
           "label": "莫卧儿的另一种帝国经验",
           "reason": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "从治理变化走向改革",
           "reason": "继续追踪财政、法律与成员资格如何被重新安排。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -380,14 +409,24 @@
           "chapterId": "mughal",
           "label": "莫卧儿的另一种帝国经验",
           "reason": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
+          "display": "比较宫廷、地方治理与跨区域技艺的不同组织方式。"
         },
         {
           "topicId": "west-asia-modern",
           "chapterId": "reform",
           "label": "从治理变化走向改革",
           "reason": "继续追踪财政、法律与成员资格如何被重新安排。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -399,14 +438,23 @@
       "chapterId": "mughal",
       "label": "莫卧儿的另一种帝国经验",
       "reason": "比较宫廷、地方治理与跨区域技艺的不同组织方式。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "west-asia-modern",
       "chapterId": "reform",
       "label": "从治理变化走向改革",
       "reason": "继续追踪财政、法律与成员资格如何被重新安排。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 1453

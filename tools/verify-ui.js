@@ -16,7 +16,7 @@ async function main() {
   buildHarness();
   const { server, port } = await startServer(0);
   const url = `http://127.0.0.1:${port}/_harness.html`;
-  const profile = require('path').join(require('os').tmpdir(), 'globe-verify-' + process.pid);
+  const profile = require('fs').mkdtempSync(require('path').join(require('os').tmpdir(), 'globe-verify-'));
   const args = [
     '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
     '--no-first-run', '--no-default-browser-check', '--disable-gpu', '--hide-scrollbars',
@@ -281,8 +281,10 @@ async function main() {
   await readingShot('world-event-participants');
   await tap(...Object.values(await pointOf('#event-map-participants summary')));
   const pinBefore = await js('document.querySelector(".event-map-point").style.transform');
+  const eventExplanation = await js('document.getElementById("event-map-note").textContent');
   await tap(...Object.values(await pointOf('.event-map-point button[data-place="tianjin"]')));
-  check('点天津显示它在事件中的作用',await js(`document.getElementById('event-map-note').textContent.includes('联军攻占天津') &&
+  check('点天津补充其作用并保留事件说明',await js(`document.getElementById('event-map-place-note').textContent.includes('天津') &&
+    document.getElementById('event-map-note').textContent===${JSON.stringify(eventExplanation)} &&
     document.querySelector('button[data-place="tianjin"]').getAttribute('aria-pressed')==='true'`));
   await drag(110, 380, 185, 385, 6);
   check('旋转地球时地点跟随经纬度',await js(`document.querySelector('.event-map-point').style.transform!==${JSON.stringify(pinBefore)} &&
@@ -292,7 +294,7 @@ async function main() {
   check('从事件进入正文',await js(`__t.reading.subject.id==='qing' && __t.reading.detail==='reforms' && document.getElementById('event-map-panel').inert`));
   await js('__t.closeReader()');
   await waitReader();
-  check('收起正文回到同一事件与地点',await js(`!document.getElementById('event-map-panel').inert && __t.worldEvent.selected==='tianjin'`));
+  check('收起正文回到同一事件与地点',await js(`!document.getElementById('event-map-panel').inert && __t.session.observe.place==='tianjin'`));
   await js(`document.getElementById('event-map-return').click()`);
   check('返回世界表恢复原年份、镜头、列表位置与焦点',originalWorldView===await worldView() && await js(`
     !document.getElementById('overlay').hidden && document.getElementById('overlay-body').scrollTop===${worldScroll} &&
@@ -718,17 +720,20 @@ async function main() {
   const chapterScroll = await js('document.getElementById("book-body").scrollTop');
   await js(`document.querySelector('${jingnan}').click()`);
   await sleep(300);
-  check('进入 1402 年场景，固定年份与返回正文在顶部，北平和南京可点选', await js(`
-    __t.worldEvent.sceneId==='jingnan-campaign' && __t.state.year===1402 && __t.state.layerId==='polity' &&
-    !__t.reading.active && document.getElementById('event-map-year').textContent==='1402' &&
+  check('进入靖难第一阶段，固定年份与返回正文在顶部，只有当前地点', await js(`
+    __t.worldEvent.sceneId==='jingnan-campaign' && __t.state.year===1399 && __t.state.layerId==='polity' &&
+    !__t.reading.active && document.getElementById('event-map-year').textContent.includes('1399') &&
     document.getElementById('event-map-return').textContent.trim()==='返回正文' &&
     getComputedStyle(document.getElementById('hud')).visibility==='hidden' &&
-    ['北平','南京'].every(name=>[...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].some(n=>n.textContent===name))`));
-  check('靖难场景标明两地直线距离',await js(`!document.getElementById('event-map-distance').hidden &&
-    document.getElementById('event-map-distance').textContent==='北平至南京 · 直线约 900 公里'`));
+    [...__t.worldEvent.points.keys()].join(',')==='beiping'`));
+  check('靖难第一阶段没有路线和跨阶段距离',await js(`document.getElementById('event-map-distance').hidden &&
+    __t.worldEvent.routes.length===0`));
+  await js(`document.querySelector('[data-scene-step="2"]').click()`);
+  await sleep(350);
   await readingShot('ming-observation');
   await js(`document.querySelector('.event-map-point button[data-place=nanjing]').click()`);
-  check('点选南京时显示其历史作用并隐藏多余操作',await js(`document.getElementById('event-map-note').textContent.includes('建文朝廷都城') &&
+  check('点选南京时补充历史作用并保留阶段解释',await js(`document.getElementById('event-map-place-note').textContent.includes('建文朝廷都城') &&
+    document.getElementById('event-map-note').textContent.includes('长江下游') &&
     document.getElementById('event-map-participants').hidden && document.getElementById('event-map-read').hidden`));
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'ArrowRight',windowsVirtualKeyCode:39});
   await send('Input.dispatchKeyEvent',{type:'keyDown',key:'F2',windowsVirtualKeyCode:113});
@@ -742,15 +747,16 @@ async function main() {
     await js(`__t.reading.detail==='two-capitals' && Math.abs(document.getElementById('book-body').scrollTop-${chapterScroll})<2 &&
       __t.reading.year===1500 && document.activeElement.matches('${jingnan}')`));
   await js(`document.querySelector('${yongle}').click()`);
+  await js(`document.querySelector('[data-scene-step="2"]').click()`);
   await sleep(300);
   check('同章可进入迁都场景，四处地点可辨并替换上一场景的距离',await js(`
     __t.state.year===1421 && __t.worldEvent.sceneId==='yongle-capitals' &&
     document.getElementById('event-map-title').textContent==='永乐双都与大运河动脉' &&
     !document.getElementById('event-map-distance').hidden &&
-    document.getElementById('event-map-distance').textContent.startsWith('南京至北京 · 直线约') &&
+    document.getElementById('event-map-distance').textContent.startsWith('南京至北京 · 地理直线距离约') &&
     ['苏州','南京','清江浦','北京'].every(name=>[...document.querySelectorAll('#event-map-place-chips button strong')].some(node=>node.textContent===name))`));
   await js(`document.querySelector('.event-map-point button[data-place=qingjiangpu]').click()`);
-  check('打开清江浦可读到它在淮河运道的作用',await js(`document.getElementById('event-map-note').textContent.includes('淮河运道水闸咽喉')`));
+  check('打开清江浦可读到它在淮安运道的作用',await js(`document.getElementById('event-map-place-note').textContent.includes('淮安运道节点')`));
   await js(`document.getElementById('event-map-return').click()`);
   await waitReader();
   await js('__t.closeReader();__t.closeSheet()');
@@ -769,15 +775,15 @@ async function main() {
     __t.reading.detail==='mid-ming' && ['土木堡','景德镇','双屿'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
   await js(`document.querySelector('.subject-chapter-next [data-reading-detail=silver]').click()`);
   for (const [scene, year, places] of [['imjin-frontier',1592,['釜山','平壤','义州']],
-    ['ming-beijing-1644',1644,['北京','山海关','沈阳']]]) {
+    ['ming-beijing-1644',1644,['北京','西安']]]) {
     const selector = '[data-subject-scene=' + scene + ']';
     await js(`document.querySelector('${selector}').scrollIntoView({block:'center'})`);
     const scroll = await js('document.getElementById("book-body").scrollTop');
     await js(`document.querySelector('${selector}').click()`);
     await sleep(300);
-    check(year+' 年场景的地点同时可读',await js(`
+    check(year+' 年场景列表仅包含当前阶段地点',await js(`
       __t.state.year===${year} && ${JSON.stringify(places)}.every(name=>
-        [...document.querySelectorAll('.event-map-point:not([hidden]) button:not([hidden])')].some(n=>n.textContent===name))`));
+        [...document.querySelectorAll('#event-map-place-chips button strong')].some(n=>n.textContent===name))`));
     await js(`document.getElementById('event-map-return').click()`);
     await waitReader();
     check('返回 '+year+' 年场景对应正文的原位置',await js(`
@@ -787,7 +793,7 @@ async function main() {
   }
   check('末章交代北京失守后的延续和影响',await js(`
     ['弘光','永历','郑成功','1683 年'].every(name=>document.querySelector('.subject-prose').textContent.includes(name))`));
-  await js(`document.querySelector('.subject-secondary [data-subject-book=qing]').closest('details').open=true;document.querySelector('.subject-secondary [data-subject-book=qing]').click()`);
+  await js(`document.querySelector('.reading-connections [data-subject-book=qing]').click()`);
   check('由明朝结尾顺着关系打开清朝卷，仍停在 1600 年',await js(`__t.reading.subject.id==='qing' && __t.state.year===1600`));
   await js(`document.getElementById('reading-back').click()`);
   check('跨卷返回保留前一本的章节',await js(`__t.reading.subject.id==='ming' && __t.reading.detail==='fall'`));
@@ -905,10 +911,15 @@ async function main() {
   await send('Network.enable');
   await send('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:0,uploadThroughput:0});
   await send('Page.navigate',{url:require('url').pathToFileURL(offlineFile).href});
+  let offlineReady = false;
   for(let i=0;i<80;i++) {
-    if(await js('!!(window.__t && __t.partition.shapes.length && !document.getElementById("boot"))')) break;
+    if(await js('location.protocol === "file:" && !!(window.__t && __t.partition.shapes.length && !document.getElementById("boot"))')) {
+      offlineReady = true;
+      break;
+    }
     await sleep(200);
   }
+  if (!offlineReady) throw new Error('断网单文件页面未完成启动');
   await js(`__t.setYear(__t.yearBounds.max);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
   check('离线单文件可打开中华人民共和国卷',await js(`__t.reading.subject.id==='prc' && document.querySelectorAll('.reading-row').length===4`));
   check('离线单文件图标已内嵌',await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
@@ -923,7 +934,7 @@ async function main() {
         row.click(); count++;
         const prose=document.querySelectorAll('.subject-prose > p');
         if(prose.length!==chapter.paragraphs.length || !document.querySelector('.reading-sources a') ||
-          (chapter.sceneRefs || []).some(ref=>!document.querySelector('[data-subject-scene="'+ref.id+'"]')))
+          (chapter.sceneRefs || []).some(ref=>Boolean(document.querySelector('[data-subject-scene="'+ref.id+'"]'))!==( __t.historicalScenes.get(ref.id).status==='available')))
           bad.push(book.id+'/'+chapter.id);
         document.getElementById('reading-back').click();
       }

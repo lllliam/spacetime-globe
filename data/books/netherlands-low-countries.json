@@ -85,13 +85,23 @@
           "book": "spain-portugal",
           "year": 1588,
           "label": "无敌舰队覆灭减轻低地压力",
-          "note": "西班牙海军主力在英吉利海峡折戟，为初生的联省共和国赢得了宝贵的战略喘息与反攻窗口。"
+          "note": "西班牙海军主力在英吉利海峡折戟，为初生的联省共和国赢得了宝贵的战略喘息与反攻窗口。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "ming",
           "year": 1602,
           "label": "东印度公司驶向东亚海面",
-          "note": "荷兰商船很快叩响福建月港与台湾大员海面，将明末生丝与青花瓷直接接入阿姆斯特丹拍卖行。"
+          "note": "荷兰商船很快叩响福建月港与台湾大员海面，将明末生丝与青花瓷直接接入阿姆斯特丹拍卖行。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -166,13 +176,23 @@
           "book": "british-empire",
           "year": 1651,
           "label": "英国《航海条例》挑战海上马车夫",
-          "note": "伦敦以重商主义立法切入跨海转运，历经三次海战与 1688 年共主后逐步接棒全球金融与海权。"
+          "note": "伦敦以重商主义立法切入跨海转运，历经三次海战与 1688 年共主后逐步接棒全球金融与海权。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "tokugawa",
           "year": 1641,
           "label": "长崎出岛的唯一欧洲窗口",
-          "note": "德川幕府推行锁国政策后，唯独准许荷兰东印度公司在出岛通商，催生了影响深远的日本“兰学”。"
+          "note": "德川幕府推行锁国政策后，唯独准许荷兰东印度公司在出岛通商，催生了影响深远的日本“兰学”。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -243,13 +263,23 @@
           "book": "france",
           "year": 1795,
           "label": "法军北上终结旧联省共和",
-          "note": "法国大革命的输出既终结了两个世纪的贵族共和体制，也把现代民法典带入低地国家。"
+          "note": "法国大革命的输出既终结了两个世纪的贵族共和体制，也把现代民法典带入低地国家。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "british-empire",
           "year": 1839,
           "label": "《伦敦条约》担保比利时中立",
-          "note": "英国视低地海峡对岸为安全底线，这份中立担保在七十五年后直接成为英国卷入一战的导火索。"
+          "note": "英国视低地海峡对岸为安全底线，这份中立担保在七十五年后直接成为英国卷入一战的导火索。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -320,13 +350,23 @@
           "book": "italy-renaissance",
           "year": 1957,
           "label": "荷比卢携手意大利创立欧共体",
-          "note": "比荷卢关税同盟的成功经验直接注入《罗马条约》，奠定了今日欧盟单一市场的制度雏形。"
+          "note": "比荷卢关税同盟的成功经验直接注入《罗马条约》，奠定了今日欧盟单一市场的制度雏形。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "nordic-vikings",
           "year": 1995,
           "label": "欧盟北扩对接北欧高福利区",
-          "note": "随着瑞典与芬兰加入欧盟，布鲁塞尔的共同市场与北海、波罗的海航运体系全面贯通。"
+          "note": "随着瑞典与芬兰加入欧盟，布鲁塞尔的共同市场与北海、波罗的海航运体系全面贯通。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

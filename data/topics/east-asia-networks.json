@@ -109,14 +109,23 @@
           "chapterId": "towns",
           "label": "不同地区的城市增长",
           "reason": "把宋代城市与中世纪欧洲的市场、学习和供给放在一起。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "malacca",
           "label": "从东亚走向海路",
           "reason": "看看季风航路如何连接不同港口及其腹地。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -210,14 +219,23 @@
           "chapterId": "towns",
           "label": "不同地区的城市增长",
           "reason": "把宋代城市与中世纪欧洲的市场、学习和供给放在一起。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "malacca",
           "label": "从东亚走向海路",
           "reason": "看看季风航路如何连接不同港口及其腹地。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -300,14 +318,23 @@
           "chapterId": "towns",
           "label": "不同地区的城市增长",
           "reason": "把宋代城市与中世纪欧洲的市场、学习和供给放在一起。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "malacca",
           "label": "从东亚走向海路",
           "reason": "看看季风航路如何连接不同港口及其腹地。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -390,14 +417,23 @@
           "chapterId": "towns",
           "label": "不同地区的城市增长",
           "reason": "把宋代城市与中世纪欧洲的市场、学习和供给放在一起。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "southeast-asia-networks",
           "chapterId": "malacca",
           "label": "从东亚走向海路",
           "reason": "看看季风航路如何连接不同港口及其腹地。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -409,14 +445,23 @@
       "chapterId": "towns",
       "label": "同一时期的城市增长",
       "reason": "把宋代城市与中世纪欧洲的市场、学习和供给放在一起。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "southeast-asia-networks",
       "chapterId": "malacca",
       "label": "从东亚走向海路",
       "reason": "看看季风航路如何连接不同港口及其腹地。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 589

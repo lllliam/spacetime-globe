@@ -109,14 +109,23 @@
           "chapterId": "kilwa",
           "label": "印度洋另一岸的港口",
           "reason": "沿海路比较基尔瓦与东南亚的贸易、城市及腹地。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "ocean-trade",
           "label": "海路上的共同网络",
           "reason": "追踪商人、信仰与知识怎样经多个中介跨海移动。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -199,14 +208,23 @@
           "chapterId": "kilwa",
           "label": "印度洋另一岸的港口",
           "reason": "沿海路比较基尔瓦与东南亚的贸易、城市及腹地。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "ocean-trade",
           "label": "海路上的共同网络",
           "reason": "追踪商人、信仰与知识怎样经多个中介跨海移动。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -289,14 +307,23 @@
           "chapterId": "kilwa",
           "label": "印度洋另一岸的港口",
           "reason": "沿海路比较基尔瓦与东南亚的贸易、城市及腹地。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "ocean-trade",
           "label": "海路上的共同网络",
           "reason": "追踪商人、信仰与知识怎样经多个中介跨海移动。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -379,14 +406,23 @@
           "chapterId": "kilwa",
           "label": "印度洋另一岸的港口",
           "reason": "沿海路比较基尔瓦与东南亚的贸易、城市及腹地。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "islamic-networks",
           "chapterId": "ocean-trade",
           "label": "海路上的共同网络",
           "reason": "追踪商人、信仰与知识怎样经多个中介跨海移动。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -398,14 +434,23 @@
       "chapterId": "kilwa",
       "label": "印度洋另一岸的港口",
       "reason": "沿海路比较基尔瓦与东南亚的贸易、城市及腹地。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "islamic-networks",
       "chapterId": "ocean-trade",
       "label": "海路上的共同网络",
       "reason": "追踪商人、信仰与知识怎样经多个中介跨海移动。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -500

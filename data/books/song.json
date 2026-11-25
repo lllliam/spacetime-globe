@@ -110,7 +110,12 @@
           "book": "liao-jin-xia",
           "year": 1004,
           "label": "北邻契丹辽朝",
-          "note": "澶渊之盟让北宋与契丹辽朝在十一世纪维持了罕见的对等外交与和平边界。"
+          "note": "澶渊之盟让北宋与契丹辽朝在十一世纪维持了罕见的对等外交与和平边界。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -189,7 +194,12 @@
           "book": "khmer",
           "year": 1050,
           "label": "十一世纪的东南亚吴哥与海贸",
-          "note": "北宋商税与青白瓷产量井喷之际，东南亚吴哥王朝与南海航路正把宋瓷远销印度洋。"
+          "note": "北宋商税与青白瓷产量井喷之际，东南亚吴哥王朝与南海航路正把宋瓷远销印度洋。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -273,7 +283,12 @@
           "book": "liao-jin-xia",
           "year": 1127,
           "label": "入主中原的女真金朝",
-          "note": "靖康之后金朝占有淮河以北半壁江山，并于 1153 年迁都北京（中都），南北对峙长达百年。"
+          "note": "靖康之后金朝占有淮河以北半壁江山，并于 1153 年迁都北京（中都），南北对峙长达百年。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -352,7 +367,18 @@
           "chapter": "swahili-kilwa-monsoon",
           "year": 1200,
           "label": "海贸另一端的港市",
-          "note": "把南宋港市与斯瓦希里海岸的商港并读，可以比较不同海域的城市如何依靠商路和地方腹地。"
+          "note": "把南宋港市与斯瓦希里海岸的商港并读，可以比较不同海域的城市如何依靠商路和地方腹地。",
+          "id": "world-01",
+          "relation": "compare",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "港市与内陆腹地",
+          "display": "将南宋港市与基尔瓦并读，比较各自如何借海上航路和内陆腹地维持城市经济。",
+          "time": {
+            "from": 1200,
+            "to": 1200
+          }
         }
       ],
       "kind": "narrative",
@@ -428,7 +454,12 @@
       "related": [
         {
           "book": "yuan",
-          "label": "元朝如何接管江南并把大都与欧亚连成一体"
+          "label": "元朝如何接管江南并把大都与欧亚连成一体",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -442,13 +473,23 @@
           "book": "yuan",
           "year": 1271,
           "label": "忽必烈在大都建立大元",
-          "note": "1271 年忽必烈正式定国号大元，宋元在襄阳与长江展开了决定中国走向的最后较量。"
+          "note": "1271 年忽必烈正式定国号大元，宋元在襄阳与长江展开了决定中国走向的最后较量。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "mali",
           "year": 1235,
           "label": "西非马里帝国的兴起",
-          "note": "南宋面临蒙古向南的威胁之际，西非的马里帝国也在曼德地区崛起，发展跨撒哈拉贸易与区域统治。"
+          "note": "南宋面临蒙古向南的威胁之际，西非的马里帝国也在曼德地区崛起，发展跨撒哈拉贸易与区域统治。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

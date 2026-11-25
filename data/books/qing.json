@@ -120,7 +120,12 @@
           "book": "tokugawa",
           "year": 1644,
           "label": "锁国和平中的德川日本",
-          "note": "明清易代战火纷飞之际，一海之隔的德川幕府刚完成宽永锁国，步入长达两百余年的和平期。"
+          "note": "明清易代战火纷飞之际，一海之隔的德川幕府刚完成宽永锁国，步入长达两百余年的和平期。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -198,7 +203,12 @@
           "book": "ottoman",
           "year": 1759,
           "label": "欧亚西端的奥斯曼帝国",
-          "note": "乾隆盛世统合西域之际，奥斯曼帝国正开始面对欧洲军事与财政优势的步步紧逼。"
+          "note": "乾隆盛世统合西域之际，奥斯曼帝国正开始面对欧洲军事与财政优势的步步紧逼。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -282,7 +292,12 @@
           "book": "tokugawa",
           "year": 1853,
           "label": "黑船来航与日本开国",
-          "note": "就在太平天国定都南京的 1853 年，美国佩里舰队驶入江户湾，东亚两大国同步遭遇西方冲击。"
+          "note": "就在太平天国定都南京的 1853 年，美国佩里舰队驶入江户湾，东亚两大国同步遭遇西方冲击。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -299,7 +314,12 @@
         {
           "topic": "china-late-qing",
           "chapter": "ports",
-          "label": "《南京条约》与五处通商口岸"
+          "label": "《南京条约》与五处通商口岸",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "eventIds": [
@@ -380,7 +400,12 @@
           "book": "japan",
           "year": 1895,
           "label": "明治日本跻身列强",
-          "note": "甲午赔款为日本建立了金本位制与重工业，彻底逆转了东亚近代的力量天平。"
+          "note": "甲午赔款为日本建立了金本位制与重工业，彻底逆转了东亚近代的力量天平。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -393,7 +418,12 @@
         {
           "topic": "china-late-qing",
           "chapter": "boxers",
-          "label": "义和团危机中的清廷、教民与八国联军"
+          "label": "义和团危机中的清廷、教民与八国联军",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "eventIds": [
@@ -472,7 +502,12 @@
       "related": [
         {
           "book": "roc",
-          "label": "中华民国如何在帝制废墟上开启现代国家之路"
+          "label": "中华民国如何在帝制废墟上开启现代国家之路",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -480,7 +515,12 @@
           "book": "roc",
           "year": 1912,
           "label": "南京临时政府宣告成立",
-          "note": "1912 年元旦孙中山在南京就任中华民国临时大总统，亚洲最早的共和国之一正式诞生。"
+          "note": "1912 年元旦孙中山在南京就任中华民国临时大总统，亚洲最早的共和国之一正式诞生。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

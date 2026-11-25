@@ -268,8 +268,7 @@ async function main() {
     assert.match(await text('.subject-chapter-next'), /已到书卷末尾.*返回目录.*上一章/s);
     await click('.subject-chapter-next [data-reading-index]');
     await press('Escape');
-    const related = '.subject-secondary [data-subject-book=qing]';
-    await js(`document.querySelector('${related}').closest('details').open=true`);
+    const related = '.reading-connections [data-subject-book=qing]';
     await placeInView(related);
     const beforeCrossBook = await anchor();
     await click(related);

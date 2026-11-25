@@ -6,6 +6,16 @@ const historyOverlaps = (a, b) => a.from != null && b.from != null &&
   a.from <= (b.to ?? Infinity) && b.from <= (a.to ?? Infinity);
 const referenceId = ref => typeof ref === 'string' ? ref : ref?.sourceId;
 
+function observationFrame(scene, step) {
+  const select = (items, ids) => ids === undefined ? items : items.filter(item => ids.includes(item.id));
+  const places = select(scene.places || [],step?.places).map(place=>step?.placeNotes?.[place.id]
+    ? {...place,...step.placeNotes[place.id]} : place);
+  const active = new Set(places.map(place => place.id));
+  const routes = select(scene.routes || [], step?.routes).filter(route => route.precision !== 'legacy' &&
+    [route.from, route.to].every(end => Array.isArray(end) || active.has(end)));
+  return {year:step?.year ?? scene.year, places, routes, focusPolities:step?.focusPolities ?? scene.focusPolities ?? []};
+}
+
 function recommendChapters(book, year) {
   let priority = -Infinity;
   let matches = [];
@@ -21,5 +31,5 @@ function recommendChapters(book, year) {
 }
 
 if (typeof module === 'object' && module.exports) {
-  module.exports = { isHistoryYear, historyIncludes, historyOverlaps, referenceId, recommendChapters };
+  module.exports = { isHistoryYear, historyIncludes, historyOverlaps, referenceId, recommendChapters, observationFrame };
 }

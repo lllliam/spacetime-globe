@@ -88,7 +88,12 @@
           "book": "russia-ussr",
           "year": 1917,
           "label": "俄国十月革命爆发",
-          "note": "当北洋中国苦寻出路之际，十月革命给五四前后的中国知识分子带来了全新的制度想象。"
+          "note": "当北洋中国苦寻出路之际，十月革命给五四前后的中国知识分子带来了全新的制度想象。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -165,7 +170,12 @@
           "book": "usa",
           "year": 1933,
           "label": "美国罗斯福新政启动",
-          "note": "大萧条引发的全球白银波动直接波及上海金融市场，倒逼南京政府在 1935 年果断推行法币改革。"
+          "note": "大萧条引发的全球白银波动直接波及上海金融市场，倒逼南京政府在 1935 年果断推行法币改革。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -243,7 +253,12 @@
           "book": "usa",
           "year": 1941,
           "label": "珍珠港事件与太平洋战争",
-          "note": "1941 年底美国正式参战，中国孤军抗战四年多后终于与世界反法西斯同盟汇合。"
+          "note": "1941 年底美国正式参战，中国孤军抗战四年多后终于与世界反法西斯同盟汇合。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -326,7 +341,12 @@
       "related": [
         {
           "book": "prc",
-          "label": "1949 年后中华人民共和国如何开启工业化与改革开放之路"
+          "label": "1949 年后中华人民共和国如何开启工业化与改革开放之路",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -334,7 +354,12 @@
           "book": "prc",
           "year": 1949,
           "label": "中华人民共和国宣告成立",
-          "note": "1949 年 10 月 1 日开国大典在天安门举行，中国现代史掀开全新篇章。"
+          "note": "1949 年 10 月 1 日开国大典在天安门举行，中国现代史掀开全新篇章。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

@@ -82,7 +82,12 @@
           "book": "liao-jin-xia",
           "year": 936,
           "label": "契丹辽朝据有燕云跃升双元帝国",
-          "note": "获得燕云十六州后，辽朝正式将幽州升为南京（今北京），迈出了草原政权治理汉地的关键一步。"
+          "note": "获得燕云十六州后，辽朝正式将幽州升为南京（今北京），迈出了草原政权治理汉地的关键一步。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -154,7 +159,12 @@
           "book": "korea",
           "year": 950,
           "label": "半岛统一后的高丽王朝",
-          "note": "高丽已于 936 年完成后期三国统一；此时它在半岛经营新秩序，与华北五代和契丹辽朝并存。"
+          "note": "高丽已于 936 年完成后期三国统一；此时它在半岛经营新秩序，与华北五代和契丹辽朝并存。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -225,7 +235,12 @@
       "related": [
         {
           "book": "song",
-          "label": "两宋如何在终结五代武人乱世后，开启士大夫政治与商业革命"
+          "label": "两宋如何在终结五代武人乱世后，开启士大夫政治与商业革命",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -233,7 +248,12 @@
           "book": "song",
           "year": 960,
           "label": "北宋建立开启“重文抑武”时代",
-          "note": "960 年陈桥兵变后，宋太祖“杯酒释兵权”，彻底终结了唐末五代绵延两百年的藩镇武人政治。"
+          "note": "960 年陈桥兵变后，宋太祖“杯酒释兵权”，彻底终结了唐末五代绵延两百年的藩镇武人政治。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

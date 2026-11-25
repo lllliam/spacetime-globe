@@ -83,7 +83,12 @@
           "book": "achaemenid",
           "year": -550,
           "label": "居鲁士大帝建立波斯帝国",
-          "note": "当晋楚在中原轮流主持诸侯会盟时，西亚的居鲁士大帝正崛起并统一伊朗高原。"
+          "note": "当晋楚在中原轮流主持诸侯会盟时，西亚的居鲁士大帝正崛起并统一伊朗高原。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -155,7 +160,12 @@
           "book": "greece-macedon",
           "year": -480,
           "label": "希波战争与雅典古典时代",
-          "note": "当孔子周游列国、吴越在江南争霸时，雅典与斯巴达正并肩在萨拉米斯海战击退波斯大军。"
+          "note": "当孔子周游列国、吴越在江南争霸时，雅典与斯巴达正并肩在萨拉米斯海战击退波斯大军。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -227,7 +237,12 @@
           "book": "greece-macedon",
           "year": -334,
           "label": "亚历山大东征与亚里士多德时代",
-          "note": "当商鞅变法、孟子庄子辩论之际，马其顿的亚历山大大帝正率军横扫波斯，亚里士多德在雅典创办吕克昂学园。"
+          "note": "当商鞅变法、孟子庄子辩论之际，马其顿的亚历山大大帝正率军横扫波斯，亚里士多德在雅典创办吕克昂学园。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -297,7 +312,12 @@
       "related": [
         {
           "book": "qin",
-          "label": "嬴政统一六国后，如何在短短十五年内重塑整个中国"
+          "label": "嬴政统一六国后，如何在短短十五年内重塑整个中国",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -305,7 +325,12 @@
           "book": "india-classical-modern",
           "year": -259,
           "label": "孔雀帝国阿育王在位",
-          "note": "在秦国向东方六国推进之际，南亚孔雀王朝由阿育王治理，两个区域各自探索广域帝国的行政与交通体系。"
+          "note": "在秦国向东方六国推进之际，南亚孔雀王朝由阿育王治理，两个区域各自探索广域帝国的行政与交通体系。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

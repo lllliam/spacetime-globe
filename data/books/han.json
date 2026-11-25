@@ -125,14 +125,24 @@
           "book": "greece-macedon",
           "year": -202,
           "label": "西方的希腊化王国",
-          "note": "西汉在战后重新整合关中与诸侯时，地中海东部仍分布着托勒密、塞琉古等希腊化王国。"
+          "note": "西汉在战后重新整合关中与诸侯时，地中海东部仍分布着托勒密、塞琉古等希腊化王国。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "china-early",
           "chapter": "qin",
-          "label": "汉朝接过了秦建立的哪些制度"
+          "label": "汉朝接过了秦建立的哪些制度",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -217,7 +227,12 @@
           "book": "egypt",
           "year": -100,
           "label": "尼罗河流域的托勒密埃及",
-          "note": "汉武帝经营河西与西域的时代，埃及仍由托勒密王朝统治并参与地中海贸易网络。"
+          "note": "汉武帝经营河西与西域的时代，埃及仍由托勒密王朝统治并参与地中海贸易网络。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -295,7 +310,12 @@
           "book": "roman",
           "year": 14,
           "label": "奥古斯都时代的罗马帝国",
-          "note": "王莽改制同期，罗马刚完成由共和国向帝国的转折，进入“罗马和平”时代。"
+          "note": "王莽改制同期，罗马刚完成由共和国向帝国的转折，进入“罗马和平”时代。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -381,14 +401,24 @@
           "book": "roman",
           "year": 166,
           "label": "安敦尼王朝的罗马使者",
-          "note": "公元 166 年大秦（罗马）使者经海路抵达洛阳，欧亚两大帝国在东汉末年留下了珍贵交会记录。"
+          "note": "公元 166 年大秦（罗马）使者经海路抵达洛阳，欧亚两大帝国在东汉末年留下了珍贵交会记录。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "china-early",
           "chapter": "buddhism",
-          "label": "佛教如何沿交通网络传入中国"
+          "label": "佛教如何沿交通网络传入中国",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

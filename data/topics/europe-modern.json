@@ -137,14 +137,25 @@
           "chapterId": "postwar",
           "label": "世界大战后的东亚",
           "reason": "比较战争、重建、冷战和社会变化的不同路径。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较战争、重建、冷战和社会变化的不同路径。",
+          "display": "比较战争、重建、冷战和社会变化的不同路径。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "united-nations",
           "label": "战争后为何建立世界组织？",
           "reason": "将欧洲重建放进全球主权与人权制度中。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -227,14 +238,25 @@
           "chapterId": "postwar",
           "label": "世界大战后的东亚",
           "reason": "比较战争、重建、冷战和社会变化的不同路径。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较战争、重建、冷战和社会变化的不同路径。",
+          "display": "比较战争、重建、冷战和社会变化的不同路径。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "united-nations",
           "label": "战争后为何建立世界组织？",
           "reason": "将欧洲重建放进全球主权与人权制度中。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -317,14 +339,24 @@
           "chapterId": "postwar",
           "label": "世界大战后的东亚",
           "reason": "比较战争、重建、冷战和社会变化的不同路径。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "global-connections",
           "chapterId": "united-nations",
           "label": "战争后为何建立世界组织？",
           "reason": "将欧洲重建放进全球主权与人权制度中。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -418,14 +450,25 @@
           "chapterId": "postwar",
           "label": "世界大战后的东亚",
           "reason": "比较战争、重建、冷战和社会变化的不同路径。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较战争、重建、冷战和社会变化的不同路径。",
+          "display": "比较战争、重建、冷战和社会变化的不同路径。"
         },
         {
           "topicId": "global-connections",
           "chapterId": "united-nations",
           "label": "战争后为何建立世界组织？",
           "reason": "将欧洲重建放进全球主权与人权制度中。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -437,14 +480,24 @@
       "chapterId": "postwar",
       "label": "世界大战后的东亚",
       "reason": "比较战争、重建、冷战和社会变化的不同路径。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "global-connections",
       "chapterId": "united-nations",
       "label": "战争后为何建立世界组织？",
       "reason": "将欧洲重建放进全球主权与人权制度中。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     }
   ],
   "from": 1900

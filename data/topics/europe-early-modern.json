@@ -121,14 +121,26 @@
           "chapterId": "conquest-silver",
           "label": "白银与殖民劳动的另一端",
           "reason": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
+          "display": "从欧洲消费与帝国扩张回到美洲生产和地方代价。"
         },
         {
           "topicId": "china-late-qing",
           "chapterId": "industry",
           "label": "工业怎样进入不同社会？",
           "reason": "比较机械、资本、国家支持与劳动组织。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较机械、资本、国家支持与劳动组织。",
+          "display": "比较机械、资本、国家支持与劳动组织。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -211,14 +223,26 @@
           "chapterId": "conquest-silver",
           "label": "白银与殖民劳动的另一端",
           "reason": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
+          "display": "从欧洲消费与帝国扩张回到美洲生产和地方代价。"
         },
         {
           "topicId": "china-late-qing",
           "chapterId": "industry",
           "label": "工业怎样进入不同社会？",
           "reason": "比较机械、资本、国家支持与劳动组织。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较机械、资本、国家支持与劳动组织。",
+          "display": "比较机械、资本、国家支持与劳动组织。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -301,14 +325,26 @@
           "chapterId": "conquest-silver",
           "label": "白银与殖民劳动的另一端",
           "reason": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
+          "display": "从欧洲消费与帝国扩张回到美洲生产和地方代价。"
         },
         {
           "topicId": "china-late-qing",
           "chapterId": "industry",
           "label": "工业怎样进入不同社会？",
           "reason": "比较机械、资本、国家支持与劳动组织。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较机械、资本、国家支持与劳动组织。",
+          "display": "比较机械、资本、国家支持与劳动组织。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -391,14 +427,26 @@
           "chapterId": "conquest-silver",
           "label": "白银与殖民劳动的另一端",
           "reason": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
+          "display": "从欧洲消费与帝国扩张回到美洲生产和地方代价。"
         },
         {
           "topicId": "china-late-qing",
           "chapterId": "industry",
           "label": "工业怎样进入不同社会？",
           "reason": "比较机械、资本、国家支持与劳动组织。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较机械、资本、国家支持与劳动组织。",
+          "display": "比较机械、资本、国家支持与劳动组织。"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -410,14 +458,25 @@
       "chapterId": "conquest-silver",
       "label": "白银与殖民劳动的另一端",
       "reason": "从欧洲消费与帝国扩张回到美洲生产和地方代价。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "china-late-qing",
       "chapterId": "industry",
       "label": "工业怎样进入不同社会？",
       "reason": "比较机械、资本、国家支持与劳动组织。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "比较机械、资本、国家支持与劳动组织。",
+      "display": "比较机械、资本、国家支持与劳动组织。"
     }
   ],
   "from": 1450

@@ -75,7 +75,7 @@ ${marker}`));
     const migrated = await position();
     assert.equal(migrated.blockId,'p-03');
     assert.equal(migrated.block,legacyPosition.block);
-    assert.ok(Math.abs(migrated.top-legacyPosition.top)<=2);
+    assert.ok(Math.abs(migrated.offset-legacyPosition.offset)<.025);
     await until(async ()=>(await readSaved()).read.position.blockId==='p-03','Legacy fingerprint not upgraded');
     assert.equal((await readSaved()).progress.find(([key])=>key==='subject:ming')[1].position.blockId,'p-03');
     await capture('03-phase04-session-restored');

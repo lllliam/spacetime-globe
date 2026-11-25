@@ -98,7 +98,12 @@
           "book": "india-classical-modern",
           "year": 1950,
           "label": "印度共和国宪法生效",
-          "note": "二十世纪五十年代初，中印两大亚洲文明古国几乎同时走上独立工业化与现代国家建构之路。"
+          "note": "二十世纪五十年代初，中印两大亚洲文明古国几乎同时走上独立工业化与现代国家建构之路。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -170,7 +175,12 @@
           "book": "usa",
           "year": 1972,
           "label": "尼克松访华重塑冷战大三角",
-          "note": "1972 年中美破冰不仅改变了冷战地缘格局，也为六年后中国的对外开放埋下了关键伏笔。"
+          "note": "1972 年中美破冰不仅改变了冷战地缘格局，也为六年后中国的对外开放埋下了关键伏笔。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -242,7 +252,12 @@
           "book": "russia-ussr",
           "year": 1991,
           "label": "苏联解体与冷战终结",
-          "note": "与苏联“休克疗法”解体截然不同，中国以渐进式双轨改革与特区试错，稳健走出了高速增长通道。"
+          "note": "与苏联“休克疗法”解体截然不同，中国以渐进式双轨改革与特区试错，稳健走出了高速增长通道。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -314,7 +329,12 @@
           "book": "usa",
           "year": 2001,
           "label": "全球化重塑太平洋两岸",
-          "note": "二十一世纪初，中美经贸深度交织推动全球增长，也在二十年后演变为围绕科技与产业链的战略竞合。"
+          "note": "二十一世纪初，中美经贸深度交织推动全球增长，也在二十年后演变为围绕科技与产业链的战略竞合。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

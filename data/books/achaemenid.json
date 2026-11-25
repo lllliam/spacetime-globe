@@ -99,7 +99,12 @@
           "chapter": "spring-autumn-hegemony",
           "year": -550,
           "label": "波斯崛起与春秋诸侯秩序",
-          "note": "居鲁士整合伊朗高原之际，东周诸侯也在重组地区秩序。两卷可对读扩张者怎样处理既有的统治网络。"
+          "note": "居鲁士整合伊朗高原之际，东周诸侯也在重组地区秩序。两卷可对读扩张者怎样处理既有的统治网络。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -176,7 +181,12 @@
           "book": "greece-macedon",
           "year": -490,
           "label": "马拉松平原的首次正面碰撞",
-          "note": "大流士偏师在马拉松不敌雅典重装步兵，揭开欧亚两大政治体长达半世纪的希波战争序幕。"
+          "note": "大流士偏师在马拉松不敌雅典重装步兵，揭开欧亚两大政治体长达半世纪的希波战争序幕。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -259,7 +269,12 @@
           "book": "greece-macedon",
           "year": -480,
           "label": "古典希腊黄金时代与内战",
-          "note": "萨拉米斯海战胜利推高雅典海上霸权，但随后的伯罗奔尼撒战争却让波斯借金元外交重掌爱琴海棋局。"
+          "note": "萨拉米斯海战胜利推高雅典海上霸权，但随后的伯罗奔尼撒战争却让波斯借金元外交重掌爱琴海棋局。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -336,14 +351,24 @@
           "book": "greece-macedon",
           "year": -331,
           "label": "高加米拉决战与马其顿东扩",
-          "note": "亚历山大击溃大流士三世主力后一路东进至印度河，开启横跨地中海与中亚的希腊化时代。"
+          "note": "亚历山大击溃大流士三世主力后一路东进至印度河，开启横跨地中海与中亚的希腊化时代。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "europe-classical",
           "chapter": "hellenistic",
-          "label": "波斯王统结束后，希腊化诸国怎样形成"
+          "label": "波斯王统结束后，希腊化诸国怎样形成",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

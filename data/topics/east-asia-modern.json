@@ -106,14 +106,25 @@
           "chapterId": "new-policies",
           "label": "回到晚清的新制度",
           "reason": "比较东亚不同国家的改革时机与社会反应。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较东亚不同国家的改革时机与社会反应。",
+          "display": "比较东亚不同国家的改革时机与社会反应。"
         },
         {
           "topicId": "southeast-asia-modern",
           "chapterId": "indochina",
           "label": "亚洲战后秩序的另一面",
           "reason": "殖民战争与冷战交织，也改变了东亚邻近地区。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -196,14 +207,24 @@
           "chapterId": "new-policies",
           "label": "回到晚清的新制度",
           "reason": "比较东亚不同国家的改革时机与社会反应。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "southeast-asia-modern",
           "chapterId": "indochina",
           "label": "亚洲战后秩序的另一面",
           "reason": "殖民战争与冷战交织，也改变了东亚邻近地区。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -286,14 +307,25 @@
           "chapterId": "new-policies",
           "label": "回到晚清的新制度",
           "reason": "比较东亚不同国家的改革时机与社会反应。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较东亚不同国家的改革时机与社会反应。",
+          "display": "比较东亚不同国家的改革时机与社会反应。"
         },
         {
           "topicId": "southeast-asia-modern",
           "chapterId": "indochina",
           "label": "亚洲战后秩序的另一面",
           "reason": "殖民战争与冷战交织，也改变了东亚邻近地区。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -387,14 +419,25 @@
           "chapterId": "new-policies",
           "label": "回到晚清的新制度",
           "reason": "比较东亚不同国家的改革时机与社会反应。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "比较东亚不同国家的改革时机与社会反应。",
+          "display": "比较东亚不同国家的改革时机与社会反应。"
         },
         {
           "topicId": "southeast-asia-modern",
           "chapterId": "indochina",
           "label": "亚洲战后秩序的另一面",
           "reason": "殖民战争与冷战交织，也改变了东亚邻近地区。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -406,14 +449,24 @@
       "chapterId": "new-policies",
       "label": "回到晚清的新制度",
       "reason": "比较东亚不同国家的改革时机与社会反应。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "southeast-asia-modern",
       "chapterId": "indochina",
       "label": "亚洲战后秩序的另一面",
       "reason": "殖民战争与冷战交织，也改变了东亚邻近地区。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     }
   ],
   "from": 1853

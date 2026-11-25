@@ -99,14 +99,24 @@
           "chapterId": "rome",
           "label": "帝国怎样获得资源？",
           "reason": "对照汉与罗马的军队供养、交通和身份制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的军队供养、交通和身份制度。",
+          "display": "对照汉与罗马的军队供养、交通和身份制度。"
         },
         {
           "topicId": "south-asia-early",
           "chapterId": "buddhist-networks",
           "label": "佛教如何跨越区域？",
           "reason": "从南亚寺院与商路，继续理解中国佛教的传播背景。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -189,14 +199,24 @@
           "chapterId": "rome",
           "label": "帝国怎样获得资源？",
           "reason": "对照汉与罗马的军队供养、交通和身份制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的军队供养、交通和身份制度。",
+          "display": "对照汉与罗马的军队供养、交通和身份制度。"
         },
         {
           "topicId": "south-asia-early",
           "chapterId": "buddhist-networks",
           "label": "佛教如何跨越区域？",
           "reason": "从南亚寺院与商路，继续理解中国佛教的传播背景。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -279,14 +299,24 @@
           "chapterId": "rome",
           "label": "帝国怎样获得资源？",
           "reason": "对照汉与罗马的军队供养、交通和身份制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的军队供养、交通和身份制度。",
+          "display": "对照汉与罗马的军队供养、交通和身份制度。"
         },
         {
           "topicId": "south-asia-early",
           "chapterId": "buddhist-networks",
           "label": "佛教如何跨越区域？",
           "reason": "从南亚寺院与商路，继续理解中国佛教的传播背景。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -369,14 +399,24 @@
           "chapterId": "rome",
           "label": "帝国怎样获得资源？",
           "reason": "对照汉与罗马的军队供养、交通和身份制度。",
-          "relation": "compare"
+          "relation": "compare",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "dimension": "对照汉与罗马的军队供养、交通和身份制度。",
+          "display": "对照汉与罗马的军队供养、交通和身份制度。"
         },
         {
           "topicId": "south-asia-early",
           "chapterId": "buddhist-networks",
           "label": "佛教如何跨越区域？",
           "reason": "从南亚寺院与商路，继续理解中国佛教的传播背景。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -388,14 +428,24 @@
       "chapterId": "rome",
       "label": "帝国怎样获得资源？",
       "reason": "对照汉与罗马的军队供养、交通和身份制度。",
-      "relation": "compare"
+      "relation": "compare",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "dimension": "对照汉与罗马的军队供养、交通和身份制度。",
+      "display": "对照汉与罗马的军队供养、交通和身份制度。"
     },
     {
       "topicId": "south-asia-early",
       "chapterId": "buddhist-networks",
       "label": "佛教如何跨越区域？",
       "reason": "从南亚寺院与商路，继续理解中国佛教的传播背景。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": -1600

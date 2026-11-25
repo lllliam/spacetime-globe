@@ -52,6 +52,28 @@ window.__t = {
   get topics(){return TOPICS}, subjectBooks, subjectBookForEntity, historyBindingsFor, recommendChapters, worldReadingTarget,
   readingGoBack, closeReader,
   get worldEvent(){ return worldEvent },
+  historicalScenes, beginReading, openReadingScene, applySceneStep, resolveRouteVectors, drawSceneRoutes, readingPlaceVector, layout,
+  holdPolity() {
+    const original = ensurePolity;
+    polityState.loaded = false;
+    let resolve;
+    const pending = new Promise(done => { resolve = done; });
+    ensurePolity = () => pending;
+    return loaded => { ensurePolity = original; polityState.loaded = loaded; resolve(); };
+  },
+  forgetPolity() { polityState.loaded = false; },
+  get polityFailure(){return !polityState.loading && polityState.error},
+  get observationNatural(){ return chrome.natural },
+  traceObservationLines() {
+    const dashes = [];
+    let arrows = 0;
+    const set = vctx.setLineDash, fill = vctx.fill;
+    vctx.setLineDash = function(pattern){ dashes.push(pattern); return set.call(this,pattern); };
+    vctx.fill = function(...args){ arrows++; return fill.apply(this,args); };
+    try { drawSceneRoutes(worldEvent,rotation()); }
+    finally { vctx.setLineDash=set; vctx.fill=fill; }
+    return {dashes,arrows};
+  },
   get timeline(){ return { position: vernierPosition, year: yearAtIndex(vernierPosition), moving: !!vernierGlideFrame }; },
   get homeCamera(){ return HOME_CAMERA; },
   get yearBounds(){ return { min:YMIN, max:YMAX, historicalMin:POLITY_START, historicalMax:POLITY_END }; },

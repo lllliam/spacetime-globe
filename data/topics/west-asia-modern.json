@@ -111,14 +111,22 @@
           "chapterId": "new-policies",
           "label": "帝国改革的跨地区对照",
           "reason": "比较国家自强、教育、军队与公共参与之间的张力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "independence",
           "label": "主权之外还有哪些难题？",
           "reason": "将资源自主、经济依赖与非殖民化放在一起理解。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -201,14 +209,22 @@
           "chapterId": "new-policies",
           "label": "帝国改革的跨地区对照",
           "reason": "比较国家自强、教育、军队与公共参与之间的张力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "independence",
           "label": "主权之外还有哪些难题？",
           "reason": "将资源自主、经济依赖与非殖民化放在一起理解。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -291,14 +307,22 @@
           "chapterId": "new-policies",
           "label": "帝国改革的跨地区对照",
           "reason": "比较国家自强、教育、军队与公共参与之间的张力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "independence",
           "label": "主权之外还有哪些难题？",
           "reason": "将资源自主、经济依赖与非殖民化放在一起理解。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -381,14 +405,22 @@
           "chapterId": "new-policies",
           "label": "帝国改革的跨地区对照",
           "reason": "比较国家自强、教育、军队与公共参与之间的张力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "independence",
           "label": "主权之外还有哪些难题？",
           "reason": "将资源自主、经济依赖与非殖民化放在一起理解。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -400,14 +432,22 @@
       "chapterId": "new-policies",
       "label": "帝国改革的跨地区对照",
       "reason": "比较国家自强、教育、军队与公共参与之间的张力。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "africa-modern",
       "chapterId": "independence",
       "label": "主权之外还有哪些难题？",
       "reason": "将资源自主、经济依赖与非殖民化放在一起理解。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 1800

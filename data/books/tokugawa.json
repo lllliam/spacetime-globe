@@ -108,14 +108,24 @@
           "book": "ming",
           "year": 1603,
           "label": "万历晚期的明朝财政困局",
-          "note": "德川家康在江户奠定两百年和平秩序之际，大明帝国正陷入矿监税使与辽东战事的双重消耗。"
+          "note": "德川家康在江户奠定两百年和平秩序之际，大明帝国正陷入矿监税使与辽东战事的双重消耗。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "related": [
         {
           "topic": "east-asia-networks",
           "chapter": "tokugawa",
-          "label": "江户的道路、城镇和社会秩序"
+          "label": "江户的道路、城镇和社会秩序",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -192,7 +202,12 @@
           "book": "qing",
           "year": 1644,
           "label": "明清易代与康熙海禁",
-          "note": "大清入关并在东南推行迁界禁海之际，德川幕府恰已完成宽永锁国，大量明朝遗民与商船随之东渡长崎。"
+          "note": "大清入关并在东南推行迁界禁海之际，德川幕府恰已完成宽永锁国，大量明朝遗民与商船随之东渡长崎。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -269,7 +284,12 @@
           "book": "qing",
           "year": 1793,
           "label": "马戛尔尼使团访华与乾隆末期",
-          "note": "当松平定信在江户推行宽政紧缩并警惕俄国船只北来之际，乾隆朝也正迎来英国马戛尔尼使团叩关。"
+          "note": "当松平定信在江户推行宽政紧缩并警惕俄国船只北来之际，乾隆朝也正迎来英国马戛尔尼使团叩关。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -346,7 +366,12 @@
           "book": "usa",
           "year": 1853,
           "label": "美国西进太平洋与佩里远航",
-          "note": "完成美墨战争并拿下加利福尼亚后，美国急需横跨太平洋前往中国的加煤港，佩里舰队由此驶入江户湾。"
+          "note": "完成美墨战争并拿下加利福尼亚后，美国急需横跨太平洋前往中国的加煤港，佩里舰队由此驶入江户湾。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -359,7 +384,12 @@
         {
           "topic": "east-asia-modern",
           "chapter": "meiji",
-          "label": "幕府结束后，明治新政府怎样重组日本"
+          "label": "幕府结束后，明治新政府怎样重组日本",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

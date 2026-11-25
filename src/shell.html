@@ -142,22 +142,28 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
     <span></span>
   </button>
-  <div id="event-map-meta"><strong id="event-map-year" aria-label="观察年份"></strong><span id="event-map-type">历史现场</span></div>
+  <div id="event-map-meta"><strong id="event-map-year" aria-label="观察年份"></strong></div>
 </header>
 <div id="event-map-points" hidden></div>
 <section id="event-map-panel" aria-labelledby="event-map-title" hidden>
+ <div id="event-map-scroll">
   <div class="event-map-head"><h2 id="event-map-title"></h2><button id="event-map-read" type="button" hidden>阅读正文</button></div>
+  <p id="event-map-question" hidden></p>
   <div id="event-map-steps" hidden></div>
   <p id="event-map-note" role="status"></p>
+  <p id="event-map-place-note" role="status" hidden></p>
   <p id="event-map-distance" hidden></p>
-  <div id="event-map-place-chips" role="group" aria-label="场景地点"></div>
-  <nav id="event-map-navigation" hidden aria-label="切换历史观察场景">
-    <button id="event-map-prev" type="button">← 上一场景</button><span id="event-map-counter"></span><button id="event-map-next" type="button">下一场景 →</button>
-  </nav>
+  <div id="event-map-legend" aria-label="地图图例"></div>
+  <div class="event-map-tools">
+    <button id="event-map-reset" type="button">复位视角</button>
+    <details id="event-map-places" hidden><summary>地点</summary><div id="event-map-place-chips"></div></details>
+    <details id="event-map-sources"><summary>资料与说明</summary><div id="event-map-source-content"></div></details>
+  </div>
   <details id="event-map-participants" hidden>
     <summary><span id="event-participant-names"></span><span class="event-participant-action">参与方</span></summary>
     <dl id="event-participant-roles"></dl>
   </details>
+ </div>
 </section>
 
 <div id="footnote-shade" hidden></div>

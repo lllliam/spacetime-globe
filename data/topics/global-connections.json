@@ -288,14 +288,24 @@
           "chapterId": "independence",
           "label": "回到独立运动的具体道路",
           "reason": "全球原则需要放回不同社会的组织、战争和生活中。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "oceania",
           "chapterId": "pacific-sovereignty",
           "label": "从太平洋岛屿看世界秩序",
           "reason": "小岛的土地与主权，同样影响全球历史的理解。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -378,14 +388,24 @@
           "chapterId": "independence",
           "label": "回到独立运动的具体道路",
           "reason": "全球原则需要放回不同社会的组织、战争和生活中。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         },
         {
           "topicId": "oceania",
           "chapterId": "pacific-sovereignty",
           "label": "从太平洋岛屿看世界秩序",
           "reason": "小岛的土地与主权，同样影响全球历史的理解。",
-          "relation": "contemporary"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "contemporary"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -468,14 +488,24 @@
           "chapterId": "independence",
           "label": "回到独立运动的具体道路",
           "reason": "全球原则需要放回不同社会的组织、战争和生活中。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "oceania",
           "chapterId": "pacific-sovereignty",
           "label": "从太平洋岛屿看世界秩序",
           "reason": "小岛的土地与主权，同样影响全球历史的理解。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -558,14 +588,24 @@
           "chapterId": "independence",
           "label": "回到独立运动的具体道路",
           "reason": "全球原则需要放回不同社会的组织、战争和生活中。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         },
         {
           "topicId": "oceania",
           "chapterId": "pacific-sovereignty",
           "label": "从太平洋岛屿看世界秩序",
           "reason": "小岛的土地与主权，同样影响全球历史的理解。",
-          "relation": "compare"
+          "relation": "further",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          },
+          "previousRelation": "compare"
         }
       ],
       "openingBlockId": "opening-summary"
@@ -577,14 +617,24 @@
       "chapterId": "independence",
       "label": "回到独立运动的具体道路",
       "reason": "全球原则需要放回不同社会的组织、战争和生活中。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     },
     {
       "topicId": "oceania",
       "chapterId": "pacific-sovereignty",
       "label": "从太平洋岛屿看世界秩序",
       "reason": "小岛的土地与主权，同样影响全球历史的理解。",
-      "relation": "contemporary"
+      "relation": "further",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      },
+      "previousRelation": "contemporary"
     }
   ],
   "from": 1945

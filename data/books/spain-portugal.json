@@ -9,6 +9,16 @@
       "title": "大英百科全书《人类史上八大帝国（英、俄、西等）》",
       "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
       "id": "source-01"
+    },
+    {
+      "id": "met-manila-commerce",
+      "title": "大都会艺术博物馆｜马尼拉大帆船贸易",
+      "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815"
+    },
+    {
+      "id": "met-manila-export",
+      "title": "大都会艺术博物馆｜中国外销织物馆藏说明",
+      "url": "https://www.metmuseum.org/art/collection/search/227351"
     }
   ],
   "chapters": [
@@ -77,7 +87,12 @@
           "book": "ming",
           "year": 1415,
           "label": "郑和下西洋与大航海交错",
-          "note": "葡萄牙攻占休达同年，郑和正奉永乐帝之命率宝船舰队第四次远航印度洋，东西方远洋路线截然不同。"
+          "note": "葡萄牙攻占休达同年，郑和正奉永乐帝之命率宝船舰队第四次远航印度洋，东西方远洋路线截然不同。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -148,7 +163,32 @@
           "book": "ming",
           "year": 1571,
           "label": "明朝隆庆开关与白银内流",
-          "note": "马尼拉建城几乎与明朝月港开关、张居正一条鞭法同步，美洲白银大量流入中国成为主币。"
+          "note": "马尼拉建城几乎与明朝月港开关、张居正一条鞭法同步，美洲白银大量流入中国成为主币。",
+          "id": "world-01",
+          "relation": "documented",
+          "audit": {
+            "status": "checked",
+            "scope": "墨西哥—菲律宾跨洋贸易和中国商品交换，范围限于明朝与伊比利亚两章重合部分",
+            "checkedAt": "2026-11-25"
+          },
+          "chapter": "silver",
+          "time": {
+            "from": 1571,
+            "to": 1580
+          },
+          "display": "马尼拉大帆船连接阿卡普尔科与马尼拉。美洲白银在马尼拉的贸易中换取亚洲商品，包括中国丝织品。",
+          "evidence": [
+            {
+              "sourceId": "met-manila-commerce",
+              "locator": "馆方论述：贸易流向与货物",
+              "note": "支持阿卡普尔科、马尼拉之间的交换以及美洲白银与中国商品的联系"
+            },
+            {
+              "sourceId": "met-manila-export",
+              "locator": "藏品说明：贸易背景",
+              "note": "馆方以一件后期外销织物说明贸易通道；物件年代不是 16 世纪证据"
+            }
+          ]
         }
       ],
       "sceneRefs": [
@@ -225,7 +265,12 @@
           "book": "france",
           "year": 1643,
           "label": "罗克鲁瓦战役与陆权易主",
-          "note": "西班牙步兵方阵神话在罗克鲁瓦破灭，西欧大陆霸权从此由马德里正式移交巴黎。"
+          "note": "西班牙步兵方阵神话在罗克鲁瓦破灭，西欧大陆霸权从此由马德里正式移交巴黎。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -297,7 +342,12 @@
           "book": "usa",
           "year": 1898,
           "label": "美西战争与美国跨洋崛起",
-          "note": "西班牙在马尼拉湾与加勒比的惨败，标志着旧欧洲殖民霸权退场与美国迈入全球海权舞台。"
+          "note": "西班牙在马尼拉湾与加勒比的惨败，标志着旧欧洲殖民霸权退场与美国迈入全球海权舞台。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

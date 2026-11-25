@@ -104,14 +104,22 @@
           "chapterId": "governing",
           "label": "不同帝国怎样治理差异？",
           "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "global-connections",
           "chapterId": "bandung",
           "label": "独立之后如何争取自主？",
           "reason": "从南亚国家建构进入亚非合作与发展议题。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -194,14 +202,22 @@
           "chapterId": "governing",
           "label": "不同帝国怎样治理差异？",
           "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "global-connections",
           "chapterId": "bandung",
           "label": "独立之后如何争取自主？",
           "reason": "从南亚国家建构进入亚非合作与发展议题。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -284,14 +300,22 @@
           "chapterId": "governing",
           "label": "不同帝国怎样治理差异？",
           "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "global-connections",
           "chapterId": "bandung",
           "label": "独立之后如何争取自主？",
           "reason": "从南亚国家建构进入亚非合作与发展议题。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -374,14 +398,22 @@
           "chapterId": "governing",
           "label": "不同帝国怎样治理差异？",
           "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "global-connections",
           "chapterId": "bandung",
           "label": "独立之后如何争取自主？",
           "reason": "从南亚国家建构进入亚非合作与发展议题。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -475,14 +507,22 @@
           "chapterId": "governing",
           "label": "不同帝国怎样治理差异？",
           "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "global-connections",
           "chapterId": "bandung",
           "label": "独立之后如何争取自主？",
           "reason": "从南亚国家建构进入亚非合作与发展议题。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -494,14 +534,22 @@
       "chapterId": "governing",
       "label": "不同帝国怎样治理差异？",
       "reason": "对照莫卧儿与奥斯曼的地方合作、税收和社群关系。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "global-connections",
       "chapterId": "bandung",
       "label": "独立之后如何争取自主？",
       "reason": "从南亚国家建构进入亚非合作与发展议题。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 1200

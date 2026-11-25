@@ -83,7 +83,12 @@
           "book": "persia-sasanian-safavid",
           "year": 224,
           "label": "萨珊波斯帝国在西亚崛起",
-          "note": "就在三国刚刚鼎立之际，阿尔达希尔一世推翻安息建立萨珊波斯，与罗马帝国展开了数百年对峙。"
+          "note": "就在三国刚刚鼎立之际，阿尔达希尔一世推翻安息建立萨珊波斯，与罗马帝国展开了数百年对峙。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -155,7 +160,12 @@
           "book": "roman",
           "year": 378,
           "label": "哥特人在阿德里安堡击溃罗马军团",
-          "note": "四世纪末欧亚大陆几乎同步遭遇北方游牧大迁徙冲击：西方西罗马走向解体，东方却在江南守住了文明火种。"
+          "note": "四世纪末欧亚大陆几乎同步遭遇北方游牧大迁徙冲击：西方西罗马走向解体，东方却在江南守住了文明火种。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -228,7 +238,12 @@
           "book": "france",
           "year": 496,
           "label": "克洛维受洗建立法兰克王国",
-          "note": "几乎就在孝文帝迁都洛阳推动鲜卑汉化的同一年，西欧法兰克国王克洛维受洗皈依基督教，拉开了中世纪欧洲融合大幕。"
+          "note": "几乎就在孝文帝迁都洛阳推动鲜卑汉化的同一年，西欧法兰克国王克洛维受洗皈依基督教，拉开了中世纪欧洲融合大幕。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -304,7 +319,12 @@
       "related": [
         {
           "book": "sui",
-          "label": "大隋如何用短短三十八年为盛唐铺就运河、科举与三省六部基石"
+          "label": "大隋如何用短短三十八年为盛唐铺就运河、科举与三省六部基石",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -312,7 +332,12 @@
           "book": "roman",
           "year": 535,
           "label": "东罗马查士丁尼一世西征复土",
-          "note": "当南北朝迈向统一前夜，君士坦丁堡的查士丁尼大帝正编纂《民法大全》并修筑圣索菲亚大教堂。"
+          "note": "当南北朝迈向统一前夜，君士坦丁堡的查士丁尼大帝正编纂《民法大全》并修筑圣索菲亚大教堂。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

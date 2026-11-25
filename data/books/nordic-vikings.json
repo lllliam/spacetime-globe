@@ -82,7 +82,12 @@
           "book": "british-empire",
           "year": 1066,
           "label": "斯坦福桥与黑斯廷斯双战",
-          "note": "英格兰刚在北方击退最后一次维京大军入侵，旋即被已法语化的维京后裔诺曼底公爵征服。"
+          "note": "英格兰刚在北方击退最后一次维京大军入侵，旋即被已法语化的维京后裔诺曼底公爵征服。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -153,7 +158,12 @@
           "book": "ming",
           "year": 1405,
           "label": "大明船队下西洋与北欧合纵",
-          "note": "正当郑和宝船在印度洋宣扬朝贡秩序时，欧洲最北端的卡尔马联盟试图用共主邦联抗衡汉萨海商。"
+          "note": "正当郑和宝船在印度洋宣扬朝贡秩序时，欧洲最北端的卡尔马联盟试图用共主邦联抗衡汉萨海商。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -224,7 +234,12 @@
           "book": "netherlands-low-countries",
           "year": 1648,
           "label": "《威斯特伐利亚和约》重塑欧陆",
-          "note": "荷兰赢得正式独立的同时，瑞典凭借在德意志战场的战功跃升为波罗的海头号强权。"
+          "note": "荷兰赢得正式独立的同时，瑞典凭借在德意志战场的战功跃升为波罗的海头号强权。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -295,7 +310,12 @@
           "book": "netherlands-low-countries",
           "year": 1952,
           "label": "北欧理事会与比荷卢双轨先行",
-          "note": "北欧五国免护照自由通行与比荷卢关税同盟几乎同期落地，成为战后欧洲区域合作的两大典范。"
+          "note": "北欧五国免护照自由通行与比荷卢关税同盟几乎同期落地，成为战后欧洲区域合作的两大典范。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

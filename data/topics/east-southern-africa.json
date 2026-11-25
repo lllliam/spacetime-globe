@@ -107,14 +107,22 @@
           "chapterId": "malacca",
           "label": "向印度洋东部继续航行",
           "reason": "比较港口如何连接腹地、季风与地方权力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "partition",
           "label": "海洋联系怎样变成殖民控制？",
           "reason": "继续看军事扩张、税收和地方社会的回应。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -197,14 +205,22 @@
           "chapterId": "malacca",
           "label": "向印度洋东部继续航行",
           "reason": "比较港口如何连接腹地、季风与地方权力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "partition",
           "label": "海洋联系怎样变成殖民控制？",
           "reason": "继续看军事扩张、税收和地方社会的回应。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -287,14 +303,22 @@
           "chapterId": "malacca",
           "label": "向印度洋东部继续航行",
           "reason": "比较港口如何连接腹地、季风与地方权力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "partition",
           "label": "海洋联系怎样变成殖民控制？",
           "reason": "继续看军事扩张、税收和地方社会的回应。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -377,14 +401,22 @@
           "chapterId": "malacca",
           "label": "向印度洋东部继续航行",
           "reason": "比较港口如何连接腹地、季风与地方权力。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-01",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "topicId": "africa-modern",
           "chapterId": "partition",
           "label": "海洋联系怎样变成殖民控制？",
           "reason": "继续看军事扩张、税收和地方社会的回应。",
-          "relation": "context"
+          "relation": "context",
+          "id": "topic-link-02",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "openingBlockId": "opening-summary"
@@ -396,14 +428,22 @@
       "chapterId": "malacca",
       "label": "向印度洋东部继续航行",
       "reason": "比较港口如何连接腹地、季风与地方权力。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-01",
+      "audit": {
+        "status": "legacy"
+      }
     },
     {
       "topicId": "africa-modern",
       "chapterId": "partition",
       "label": "海洋联系怎样变成殖民控制？",
       "reason": "继续看军事扩张、税收和地方社会的回应。",
-      "relation": "context"
+      "relation": "context",
+      "id": "topic-link-02",
+      "audit": {
+        "status": "legacy"
+      }
     }
   ],
   "from": 1000

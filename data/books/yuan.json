@@ -98,7 +98,12 @@
           "book": "song",
           "year": 1276,
           "label": "临安降元与南宋尾声",
-          "note": "大元定鼎大都之际，南宋正经历襄阳失守与临安城破的最后十年。"
+          "note": "大元定鼎大都之际，南宋正经历襄阳失守与临安城破的最后十年。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -182,7 +187,12 @@
           "book": "khmer",
           "year": 1293,
           "label": "吴哥王朝与爪哇新政权并存",
-          "note": "元军远征爪哇期间，满者伯夷王国在群岛兴起；与此同时，吴哥王朝仍是大陆东南亚的重要政治主体。本站暂以高棉书卷提供同期区域背景。"
+          "note": "元军远征爪哇期间，满者伯夷王国在群岛兴起；与此同时，吴哥王朝仍是大陆东南亚的重要政治主体。本站暂以高棉书卷提供同期区域背景。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -260,7 +270,12 @@
           "book": "mali",
           "year": 1324,
           "label": "曼萨·穆萨麦加朝圣",
-          "note": "当泉州港连通印度洋时，西非马里国王曼萨·穆萨携巨量黄金穿过撒哈拉，旧大陆东西贸易连成一片。"
+          "note": "当泉州港连通印度洋时，西非马里国王曼萨·穆萨携巨量黄金穿过撒哈拉，旧大陆东西贸易连成一片。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -342,7 +357,12 @@
       "related": [
         {
           "book": "ming",
-          "label": "明朝如何接管大都与大运河，在草原压力下重塑帝国"
+          "label": "明朝如何接管大都与大运河，在草原压力下重塑帝国",
+          "id": "reading-01",
+          "relation": "further",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "contemporaries": [
@@ -350,7 +370,12 @@
           "book": "ming",
           "year": 1368,
           "label": "朱元璋在南京建立明朝",
-          "note": "1368 年正月朱元璋称帝建明，同年秋徐达克大都，元顺帝北撤草原开启北元时期。"
+          "note": "1368 年正月朱元璋称帝建明，同年秋徐达克大都，元顺帝北撤草原开启北元时期。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

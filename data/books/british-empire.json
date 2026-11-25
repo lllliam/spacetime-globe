@@ -88,7 +88,12 @@
           "book": "france",
           "year": 1337,
           "label": "英法百年战争爆发",
-          "note": "海峡两岸在同一场跨世纪拉锯中分别完成民族认同：法兰西走向中央集权，英格兰彻底回归岛国。"
+          "note": "海峡两岸在同一场跨世纪拉锯中分别完成民族认同：法兰西走向中央集权，英格兰彻底回归岛国。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -165,7 +170,12 @@
           "book": "spain-portugal",
           "year": 1588,
           "label": "无敌舰队折戟英吉利海峡",
-          "note": "西班牙海权神话在海峡风暴中破灭，英格兰与荷兰随即加速向美洲与东印度渗透。"
+          "note": "西班牙海权神话在海峡风暴中破灭，英格兰与荷兰随即加速向美洲与东印度渗透。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -242,7 +252,12 @@
           "book": "qing",
           "year": 1840,
           "label": "鸦片战争与晚清海疆危机",
-          "note": "工业蒸汽炮舰与金融信用让远在万里之外的英国得以在东亚海面压制传统农耕帝国。"
+          "note": "工业蒸汽炮舰与金融信用让远在万里之外的英国得以在东亚海面压制传统农耕帝国。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "sceneRefs": [
@@ -326,7 +341,12 @@
           "book": "usa",
           "year": 1945,
           "label": "布雷顿森林与霸权交接",
-          "note": "二战结束前后，美元取代英镑成为全球储备货币，英美关系转为紧密而不对称的“特殊关系”。"
+          "note": "二战结束前后，美元取代英镑成为全球储备货币，英美关系转为紧密而不对称的“特殊关系”。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

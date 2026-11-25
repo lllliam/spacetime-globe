@@ -209,6 +209,11 @@
       "title": "江永林：明代的多族群帝国与西南苗疆",
       "url": "https://doi.org/10.1017/jch.2017.27",
       "id": "source-41"
+    },
+    {
+      "id": "unam-triple",
+      "title": "墨西哥国立自治大学｜墨西加帝国与三方同盟",
+      "url": "https://e1.portalacademico.cch.unam.mx/alumno/historiademexico1/unidad2/culturamexica/imperio"
     }
   ],
   "chapters": [
@@ -291,13 +296,23 @@
           "book": "ottoman",
           "year": 1389,
           "label": "同期欧亚西端的奥斯曼扩张",
-          "note": "朱元璋在南京立国与整顿北边卫所的同时，奥斯曼人正跨过海峡向巴尔干推进。"
+          "note": "朱元璋在南京立国与整顿北边卫所的同时，奥斯曼人正跨过海峡向巴尔干推进。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "mali",
           "year": 1375,
           "label": "撒哈拉南缘的马里帝国",
-          "note": "十四世纪后期，西非马里仍依托黄金贸易与廷巴克图等商镇维系跨撒哈拉网络。"
+          "note": "十四世纪后期，西非马里仍依托黄金贸易与廷巴克图等商镇维系跨撒哈拉网络。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -380,7 +395,15 @@
         },
         {
           "id": "yongle-capitals",
-          "afterBlockId": "p-04"
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "清江浦",
+              "placeId": "qingjiangpu",
+              "stageId": "qingjiangpu"
+            }
+          ]
         },
         {
           "id": "zhenghe-voyages",
@@ -392,7 +415,32 @@
           "book": "aztec",
           "year": 1428,
           "label": "大洋彼岸的阿兹特克三方同盟",
-          "note": "就在明军撤出交趾、郑和准备最后一次远航的 1428 年，墨西哥谷地的特诺奇蒂特兰与两座盟城结成同盟。"
+          "note": "就在明军撤出交趾、郑和准备最后一次远航的 1428 年，墨西哥谷地的特诺奇蒂特兰与两座盟城结成同盟。",
+          "id": "world-01",
+          "relation": "contemporary",
+          "audit": {
+            "status": "checked",
+            "scope": "15 世纪前期的时间并置，成立时间另有异说",
+            "checkedAt": "2026-11-25"
+          },
+          "chapter": "triple-alliance-chinampas",
+          "time": {
+            "from": 1428,
+            "to": 1430
+          },
+          "display": "把明朝永乐以后仍在调整的都城与海路政策，同墨西哥谷地三方同盟早期并读。三方同盟的确切成立年有不同记载。",
+          "evidence": [
+            {
+              "sourceId": "source-11",
+              "locator": "永乐皇帝在位与都城政策",
+              "note": "定位明朝读段"
+            },
+            {
+              "sourceId": "unam-triple",
+              "locator": "墨西加帝国：三方同盟",
+              "note": "支持墨西哥谷地三方同盟在 15 世纪前期建立"
+            }
+          ]
         }
       ],
       "kind": "narrative",
@@ -478,19 +526,40 @@
           "book": "ottoman",
           "year": 1453,
           "label": "1453 年的君士坦丁堡与奥斯曼帝国",
-          "note": "北京保卫战后仅四年，穆罕默德二世攻克君士坦丁堡，奥斯曼步入横跨欧亚非的盛期。"
+          "note": "北京保卫战后仅四年，穆罕默德二世攻克君士坦丁堡，奥斯曼步入横跨欧亚非的盛期。",
+          "id": "world-01",
+          "relation": "contemporary",
+          "audit": {
+            "status": "unreviewed"
+          },
+          "chapter": "ghazi-beylik-to-istanbul",
+          "time": {
+            "from": 1453,
+            "to": 1453
+          },
+          "display": "在明朝十五世纪中期边防叙事的同一时间坐标，阅读奥斯曼卷关于君士坦丁堡的章节。"
         },
         {
           "book": "inca",
           "year": 1533,
           "label": "安第斯山脉的印加帝国易主",
-          "note": "嘉靖年间西班牙人进入库斯科，随后发掘的安第斯银矿将在几十年后深刻改变明朝财政。"
+          "note": "嘉靖年间西班牙人进入库斯科，随后发掘的安第斯银矿将在几十年后深刻改变明朝财政。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "mughal",
           "year": 1556,
           "label": "南亚次大陆的莫卧儿崛起",
-          "note": "十六世纪中叶阿克巴在印度即位，与明朝同样面对庞大农业帝国的赋税与边防重构。"
+          "note": "十六世纪中叶阿克巴在印度即位，与明朝同样面对庞大农业帝国的赋税与边防重构。",
+          "id": "world-03",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",
@@ -596,13 +665,30 @@
           "book": "tokugawa",
           "year": 1603,
           "label": "丰臣撤兵后的德川幕府",
-          "note": "壬辰战争结束后，德川家康于 1603 年在江户建立幕府，日本步入长达两百六十余年的和平期。"
+          "note": "壬辰战争结束后，德川家康于 1603 年在江户建立幕府，日本步入长达两百六十余年的和平期。",
+          "id": "world-01",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         },
         {
           "book": "mughal",
           "year": 1585,
           "label": "阿克巴治下的莫卧儿盛世",
-          "note": "与万历推行一条鞭法几乎同步，阿克巴也在北印度完成土地清丈与货币化税制改革。"
+          "note": "与万历推行一条鞭法几乎同步，阿克巴也在北印度完成土地清丈与货币化税制改革。",
+          "id": "world-02",
+          "relation": "compare",
+          "audit": {
+            "status": "legacy"
+          },
+          "chapter": "akbar-mansabdar-tolerance",
+          "dimension": "土地税与行政",
+          "display": "比较两地如何把地方农业收入纳入帝国财政，留意征收和行政安排分别如何展开。",
+          "time": {
+            "from": 1585,
+            "to": 1585
+          }
         }
       ],
       "kind": "narrative",
@@ -689,7 +775,13 @@
       "related": [
         {
           "book": "qing",
-          "label": "清朝怎样接管北京以外的中国"
+          "label": "清朝怎样接管北京以外的中国",
+          "id": "reading-01",
+          "relation": "context",
+          "audit": {
+            "status": "legacy"
+          },
+          "display": "从清代书卷接着读入关之后的统治变动。"
         }
       ],
       "sceneRefs": [
@@ -703,13 +795,24 @@
           "book": "qing",
           "year": 1644,
           "label": "从关外盛京走向北京的清朝",
-          "note": "看清廷怎样跨过山海关，在接下来的数十年里逐步整合江南、西南与台湾。"
+          "note": "看清廷怎样跨过山海关，在接下来的数十年里逐步整合江南、西南与台湾。",
+          "id": "world-01",
+          "relation": "context",
+          "audit": {
+            "status": "legacy"
+          },
+          "display": "从清代书卷接着读入关之后的统治变动。"
         },
         {
           "book": "tokugawa",
           "year": 1639,
           "label": "同期收紧海禁的德川日本",
-          "note": "就在明朝陷入内外交困的 1639 年，德川幕府完成锁国体制，仅留长崎作为对外窗口。"
+          "note": "就在明朝陷入内外交困的 1639 年，德川幕府完成锁国体制，仅留长崎作为对外窗口。",
+          "id": "world-02",
+          "relation": "legacy",
+          "audit": {
+            "status": "legacy"
+          }
         }
       ],
       "kind": "narrative",

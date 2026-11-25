@@ -219,26 +219,64 @@ function referencesMarkup(refs, indices) {
       (location ? ' data-reference-location="' + esc(location) + '"' : '') + '>[' + (i + 1) + ']</a>';
   }).join(' ') + '</span>';
 }
-function connectionsMarkup(topic, item) {
-  const links = item ? (item.connections || []) : (topic.connections || []);
-  const valid = links.filter((l) => TOPICS.some((t) => t.id === l.topicId));
-  if (!valid.length) return '';
-  return '<section class="reading-connections"><h2>延伸阅读</h2>' + valid.map((l) => '<button type="button" class="reading-card reading-link" data-reading-topic="' + esc(l.topicId) + '" data-reading-chapter="' + esc(l.chapterId || '') + '"><small>' +
-    (l.relation === 'contemporary' ? '同期世界' : l.relation === 'compare' ? '跨时期对照' : '相关专题') + '</small><strong>' + esc(l.label) + '</strong><span>' + esc(l.reason) + '</span>' + readingArrow + '</button>').join('') + '</section>';
+function historyRelationsMarkup(links, sourceList = []) {
+  const groups = [
+    ['同一时期的世界',['contemporary']], ['历史比较',['compare']], ['历史联系',['documented']],
+    ['历史背景与延伸阅读',['context','further','legacy']],
+  ];
+  const types = {contemporary:'共时',compare:'比较',documented:'有资料支持的联系',context:'历史背景',further:'延伸阅读',legacy:'延伸阅读'};
+  const sources = new Map(sourceList.map(item=>[item.id,item]));
+  const seen = new Set();
+  const rows = links.flatMap(link=>{
+    const topic = link.topic || link.topicId;
+    const target = link.book ? subjectsById.get(link.book) : TOPICS.find(item=>item.id===topic);
+    if (!target) return [];
+    const chapterId = link.chapter || link.chapterId;
+    const chapter = target.chapters.find(item=>item.id===chapterId);
+    const relation = link.relation || 'legacy';
+    const group = relation==='legacy' || relation==='further' || relation==='context' ? 'reading' : relation;
+    const dedup = [group,target.id,chapter?.id || '',link.display || ''].join(':');
+    if (seen.has(dedup)) return [];
+    seen.add(dedup);
+    const date = link.time ? (link.time.from===link.time.to ? yearLabel(link.time.from) : subjectYears(link.time))
+      : chapter?.year ? yearLabel(chapter.year) : subjectYears(chapter || target);
+    const attrs = link.book ? ' data-subject-book="' + esc(link.book) + '" data-subject-chapter="' + esc(chapterId || '') + '"'
+      : ' data-reading-topic="' + esc(topic) + '" data-reading-chapter="' + esc(chapterId || '') + '"';
+    const name = target.title + (chapter ? ' · ' + chapter.title : '');
+    const evidence = (link.evidence || []).flatMap(ref=>{
+      const src = sources.get(referenceId(ref));
+      return src ? ['<li><a href="' + esc(src.url) + '" target="_blank" rel="noopener noreferrer">' + esc(src.title) +
+        '</a>' + (ref.locator ? ' · ' + esc(ref.locator) : '') + (ref.note ? ' · ' + esc(ref.note) : '') + '</li>'] : [];
+    }).join('');
+    return [{relation,html:'<li><button type="button" class="reading-card reading-link" data-history-relation="' +
+      esc(link.id || '') + '"' + (link.time ? ' data-relation-year="' + esc(link.time.from) + '"' : '') + attrs + '><small>' +
+      esc(types[relation] + (date ? ' · ' + date : '')) + '</small><strong>' + esc(name) + '</strong>' +
+      (link.display ? '<span>' + esc(link.display) + '</span>' : '') + readingArrow + '</button>' +
+      (evidence ? '<details class="relation-evidence"><summary>关系资料</summary><ul>' + evidence + '</ul></details>' : '') + '</li>'}];
+  });
+  return groups.map(([title,kinds])=>{
+    const items = rows.filter(row=>kinds.includes(row.relation)).map(row=>row.html).join('');
+    return items ? '<section class="reading-connections"><h2>' + title + '</h2><ul class="history-relations">' + items + '</ul></section>' : '';
+  }).join('');
 }
-function followReadingTopic(topicId, chapterId) {
+function connectionsMarkup(topic, item) {
+  return historyRelationsMarkup(item ? (item.connections || []) : (topic.connections || []), (item || topic).sources);
+}
+function followReadingTopic(topicId, chapterId, trigger) {
   const target = TOPICS.find((t) => t.id === topicId);
   if (!target) return;
   const saved = session.readingProgress('topic:' + target.id);
   const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
   const position = detail && saved?.chapter === detail ? saved.position : null;
   navigateReading({ catalog: false, library: false, bookId: null, topicId: target.id, detail,
-    scroll: saved?.scroll || 0, position, disclosures: position ? saved.disclosures : [], linkEntry: true });
+    scroll: saved?.scroll || 0, position, disclosures: position ? saved.disclosures : [], linkEntry: true },trigger);
 }
-function navigateReading(target) {
+function navigateReading(target, trigger) {
   if (!reading.active) return;
   rememberReading();
-  if (!session.navigateReading({ directory: false, disclosures: [], ...target })) return;
+  const linkYear = Number(trigger?.dataset.relationYear);
+  const year = isHistoryYear(linkYear) ? linkYear : reading.year;
+  if (!session.navigateReading({ directory: false, disclosures: [], year, ...target },trigger?.dataset.historyRelation)) return;
   renderReading();
   el('reading-title').focus({preventScroll:true});
   saveSession(true);
@@ -275,7 +313,8 @@ function renderReadingArticle(topic, items, item) {
   const next = items[items.indexOf(item) + 1];
   return '<p class="subject-book-label">' + esc(topic.title) + ' · 第 ' + (items.indexOf(item) + 1) + ' 篇 / 共 ' +
     items.length + ' 篇</p>' + readingHeading(item.opening?.headline || item.title, readingDate(item)) +
-    '<p id="reading-progress" class="reading-progress"></p>' + body + connectionsMarkup(topic, item) +
+    '<p id="reading-progress" class="reading-progress"></p>' + body +
+    (scenesByEvent.has(item.mapStory?.worldEntryId) ? sceneButton(scenesByEvent.get(item.mapStory.worldEntryId)) : '') + connectionsMarkup(topic, item) +
     (next ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
     sourcesMarkup(item.sources) + catalogNavigation();
 }
@@ -356,7 +395,10 @@ function readingGoBack() {
     reading.position = session.position();
   } else { closeReader(); return; }
   renderReading();
-  (reading.detail ? readingDirectory : el('reading-title')).focus({ preventScroll: true });
+  const relation = reading.returnFocus && [...bookBody.querySelectorAll('[data-history-relation]')]
+    .find(button=>button.dataset.historyRelation===reading.returnFocus);
+  (relation || (reading.detail ? readingDirectory : el('reading-title'))).focus({ preventScroll: true });
+  delete reading.returnFocus;
   saveSession(true);
 }
 function closeReader() {
@@ -427,7 +469,7 @@ bookBody.addEventListener('click', (e) => {
   if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail, null, {
     restart: b.hasAttribute('data-reading-restart'), sequence: b.hasAttribute('data-reading-sequence'),
   });
-  else if (b.hasAttribute('data-reading-topic')) followReadingTopic(b.dataset.readingTopic, b.dataset.readingChapter);
+  else if (b.hasAttribute('data-reading-topic')) followReadingTopic(b.dataset.readingTopic, b.dataset.readingChapter,b);
   else if (b.hasAttribute('data-reading-catalog')) openReadingCatalog();
   else if (b.hasAttribute('data-reading-continent')) {
     reading.catalogContinent = b.dataset.readingContinent;

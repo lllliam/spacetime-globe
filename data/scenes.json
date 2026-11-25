@@ -31,7 +31,37 @@
         "url": "https://isac.uchicago.edu/publications/persepolis-fortification-tablets",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "王室为什么需要两个相隔数百公里的中心？",
+      "note": "苏萨与波斯波利斯分别提供行政与王室礼仪的观察点。",
+      "places": [
+        "susa",
+        "persepolis"
+      ],
+      "limit": "城市标点为遗址区的近似位置。观察年用于定位两处王室中心，图上无行程。",
+      "audit": {
+        "status": "checked",
+        "scope": "两处王室中心的功能差异，坐标与年代仍待逐项复核",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "icomos-susa",
+          "title": "ICOMOS 苏萨申报评估",
+          "url": "https://whc.unesco.org/document/152720"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "icomos-susa",
+          "locator": "Susa 评估：Comparison with similar properties",
+          "note": "支持苏萨的行政功能与波斯波利斯的礼仪定位。"
+        }
+      ]
+    }
   },
   {
     "id": "aztec-league",
@@ -77,7 +107,22 @@
         "url": "https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A843/datastream/OBJ/view",
         "id": "source-03"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "湖泊如何塑造三座盟城的相对位置？",
+      "note": "从墨西哥谷地看湖西与湖东的盟城分布。",
+      "places": [
+        "tenochtitlan",
+        "texcoco",
+        "tlacopan"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "inca-cajamarca",
@@ -111,7 +156,21 @@
         "url": "https://americanindian.si.edu/inkaroad/invasion/colonial-road.html",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "卡哈马卡和库斯科在安第斯山脉中各处哪里？",
+      "note": "两座山地城市提供理解政权转折的地理参照。",
+      "places": [
+        "cajamarca",
+        "cusco"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "khmer-capitals",
@@ -145,7 +204,21 @@
         "url": "https://whc.unesco.org/document/186494",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "贡开和吴哥的都城遗址如何分布？",
+      "note": "比较两个遗址的相对位置，帮助理解都城重心的变化。",
+      "places": [
+        "angkor",
+        "koh-ker"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "mali-pilgrimage",
@@ -186,7 +259,22 @@
         "url": "https://www.metmuseum.org/it/perspectives/visualizing-a-sahelian-past",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "朝觐叙事中的开罗、麦加与西非相隔多远？",
+      "note": "以三个城市理解跨区域朝觐的空间尺度。",
+      "places": [
+        "cairo",
+        "mecca",
+        "timbuktu"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "ming-founding-1368",
@@ -306,7 +394,58 @@
         "url": "https://www.cambridge.org/core/books/ming-china-and-its-allies/march-to-power-in-a-chinggisid-world/66519489DE8F7EE6B3D798C3D5D48F0A",
         "id": "source-03"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "朱元璋的扩张如何从长江中下游推进到北方？",
+      "note": "比较南京、鄱阳湖、苏州及大都分别出现在什么阶段。",
+      "places": [
+        "nanjing",
+        "poyang",
+        "suzhou",
+        "dadu"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1356,
+          "title": "南京据点",
+          "note": "观察南京的相对位置。",
+          "places": [
+            "nanjing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1363,
+          "title": "长江中下游",
+          "note": "观察南京、鄱阳湖、苏州的相对位置。",
+          "places": [
+            "nanjing",
+            "poyang",
+            "suzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-03",
+          "year": 1368,
+          "title": "南京与大都",
+          "note": "观察南京、大都的相对位置。",
+          "places": [
+            "nanjing",
+            "dadu"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "jingnan-campaign",
@@ -415,7 +554,56 @@
         "url": "https://www.dpm.org.cn/explode/others/208160.html",
         "id": "source-04"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "北平、徐州与南京相距多远？",
+      "note": "依次定位靖难之役叙事中的城市，观察河北、淮北和长江下游的相对位置。",
+      "places": [
+        "beiping",
+        "xuzhou",
+        "nanjing"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1399,
+          "title": "北平起兵",
+          "note": "观察北平的相对位置。",
+          "places": [
+            "beiping"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1401,
+          "title": "由北向南",
+          "note": "观察北平、徐州的相对位置。",
+          "places": [
+            "beiping",
+            "xuzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-03",
+          "year": 1402,
+          "title": "长江下游",
+          "note": "观察徐州、南京的相对位置。",
+          "places": [
+            "xuzhou",
+            "nanjing"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "yongle-capitals",
@@ -533,7 +721,190 @@
       }
     ],
     "from": 1411,
-    "to": 1421
+    "to": 1421,
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "北京成为首都后，江南粮源如何经内河运道与北方相接？",
+      "note": "沿江南、淮安与北京的相对位置，理解都城与粮源分离带来的运输需求。",
+      "places": [
+        "suzhou",
+        "nanjing",
+        "qingjiangpu",
+        "beijing"
+      ],
+      "limit": "线为漕运节点间的示意联系。旧线的历史河道、可通航时间和方向待核查。",
+      "audit": {
+        "status": "checked",
+        "scope": "南北运道与输粮功能，未核验 1411、1415 年全部河段和精确点位",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "unesco-canal",
+          "title": "UNESCO 世界遗产中心｜中国大运河",
+          "url": "https://whc.unesco.org/en/list/1443/"
+        },
+        {
+          "id": "icomos-canal",
+          "title": "ICOMOS 大运河申报评估｜通惠河与运河遗产点",
+          "url": "https://whc.unesco.org/document/128794"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "unesco-canal",
+          "locator": "遗产概述、标准 (vi)",
+          "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+        }
+      ],
+      "focusPolities": [
+        "Ming Dynasty"
+      ],
+      "routes": [
+        {
+          "id": "south-canal",
+          "from": "suzhou",
+          "to": "qingjiangpu",
+          "label": "江南粮区与淮安节点",
+          "note": "用两点表达相连的运河体系，具体河段待核查。",
+          "precision": "schematic",
+          "evidence": [
+            {
+              "sourceId": "unesco-canal",
+              "locator": "遗产概述、标准 (vi)",
+              "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+            }
+          ]
+        },
+        {
+          "id": "north-canal",
+          "from": "qingjiangpu",
+          "to": "beijing",
+          "label": "淮安节点与北方都城",
+          "note": "用两点提示南北运道尺度。",
+          "precision": "schematic",
+          "evidence": [
+            {
+              "sourceId": "unesco-canal",
+              "locator": "遗产概述、标准 (vi)",
+              "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+            }
+          ]
+        }
+      ],
+      "distanceBetween": [
+        "nanjing",
+        "beijing"
+      ],
+      "placeNotes": {
+        "beijing": {
+          "precision": "approximate",
+          "role": "运河北端的城市参照，永乐朝后期迁都于此。",
+          "evidence": [
+            {
+              "sourceId": "unesco-canal",
+              "locator": "遗产概述、标准 (vi)",
+              "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+            }
+          ]
+        },
+        "qingjiangpu": {
+          "precision": "approximate",
+          "role": "淮安运道节点，标点取城区附近。",
+          "evidence": [
+            {
+              "sourceId": "icomos-canal",
+              "locator": "遗产组件与淮安运道评估",
+              "note": "用于运道位置背景，原始闸口点位未确认。"
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "id": "huitong",
+          "year": 1411,
+          "title": "会通河",
+          "note": "先观察淮安与北方的地理距离，会通河具体河段留待核查。",
+          "places": [
+            "qingjiangpu",
+            "beijing"
+          ],
+          "routes": [],
+          "placeNotes": {
+            "qingjiangpu": {
+              "role": "以今天的城区大致定位淮安。清江浦开凿在下一阶段。",
+              "name": "淮安一带",
+              "precision": "reference"
+            },
+            "beijing": {
+              "role": "北方政治中心的地理参照，正式迁都在后续阶段。"
+            }
+          }
+        },
+        {
+          "id": "qingjiangpu",
+          "year": 1415,
+          "title": "清江浦",
+          "note": "将淮安运道节点与江南粮区放在同一视野，理解漕粮入淮的区位。",
+          "places": [
+            "suzhou",
+            "nanjing",
+            "qingjiangpu"
+          ],
+          "routes": [
+            "south-canal"
+          ],
+          "evidence": [
+            {
+              "sourceId": "unesco-canal",
+              "locator": "遗产概述、标准 (vi)",
+              "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+            }
+          ],
+          "placeNotes": {
+            "qingjiangpu": {
+              "role": "淮安运道节点，标点取城区附近。"
+            },
+            "suzhou": {
+              "role": "江南漕粮产区的城市参照。"
+            },
+            "nanjing": {
+              "role": "这一阶段的都城，位于长江下游。"
+            }
+          }
+        },
+        {
+          "id": "capital",
+          "year": 1421,
+          "title": "北京成为都城",
+          "note": "北方都城与南方粮源相隔数百公里，运道连接两端。",
+          "places": [
+            "suzhou",
+            "nanjing",
+            "qingjiangpu",
+            "beijing"
+          ],
+          "routes": [
+            "south-canal",
+            "north-canal"
+          ],
+          "evidence": [
+            {
+              "sourceId": "unesco-canal",
+              "locator": "遗产概述、标准 (vi)",
+              "note": "支持京杭运河为内河输粮体系及其南北尺度。"
+            },
+            {
+              "sourceId": "source-01",
+              "locator": "永乐十八年北京宫殿建成；次年迁都",
+              "note": "支持 1421 年正式迁都。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "zhenghe-voyages",
@@ -715,7 +1086,101 @@
         "url": "https://doi.org/10.1017/S2059163222000457",
         "id": "source-03"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "郑和船队从南海进入印度洋后，航行涉及哪些海域？",
+      "note": "分别观察南亚港口、波斯湾口和东非海岸，理解不同远航的尺度。",
+      "places": [
+        "nanjing",
+        "champa",
+        "malacca",
+        "calicut",
+        "hormuz",
+        "mogadishu"
+      ],
+      "limit": "各阶段年份为航次观察节点。历史港口采用近似位置，旧航线和精确停靠日期待查。",
+      "audit": {
+        "status": "checked",
+        "scope": "首航抵达印度及远航整体海域。代表年份与分航停靠的精确对应待核对",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "mariners-zheng",
+          "title": "水手博物馆｜郑和远航",
+          "url": "https://exploration.marinersmuseum.org/subject/zheng-he/"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "mariners-zheng",
+          "locator": "Voyages；首航段",
+          "note": "支持首航至印度古里，后续远航触及西亚和东非的宏观范围。"
+        }
+      ],
+      "steps": [
+        {
+          "id": "first-voyage",
+          "year": 1405,
+          "title": "初航印度洋",
+          "note": "从江南沿海出发的远航伸展到印度西岸。",
+          "places": [
+            "nanjing",
+            "malacca",
+            "calicut"
+          ],
+          "routes": [],
+          "dateLabel": "1405—1407 年",
+          "evidence": [
+            {
+              "sourceId": "mariners-zheng",
+              "locator": "Principal Voyage：First voyage",
+              "note": "支持古里为首航抵达的港口之一。"
+            }
+          ]
+        },
+        {
+          "id": "gulf-reach",
+          "year": 1413,
+          "title": "波斯湾口",
+          "note": "对照印度西岸与波斯湾口的两个港区。",
+          "places": [
+            "calicut",
+            "hormuz"
+          ],
+          "routes": [],
+          "dateLabel": "1413—1415 年",
+          "evidence": [
+            {
+              "sourceId": "mariners-zheng",
+              "locator": "Principal Voyage：Fourth voyage",
+              "note": "支持第四次远航进入波斯湾口。"
+            }
+          ]
+        },
+        {
+          "id": "east-africa",
+          "year": 1421,
+          "title": "东非海岸",
+          "note": "用古里与木骨都束比较印度洋两岸的尺度。",
+          "places": [
+            "calicut",
+            "mogadishu"
+          ],
+          "routes": [],
+          "dateLabel": "1421—1422 年",
+          "evidence": [
+            {
+              "sourceId": "mariners-zheng",
+              "locator": "Subsequent Voyages：Sixth voyage",
+              "note": "支持第六次远航涉及摩加迪沙。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "ming-nine-garrisons",
@@ -852,7 +1317,54 @@
     "distanceBetween": [
       "datong",
       "shanhaiguan"
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "北部边防与江南市场相隔多远？",
+      "note": "先看京畿及北方要地，再看沿海与江南节点的位置。",
+      "places": [
+        "datong",
+        "xuanfu",
+        "beijing",
+        "shanhaiguan",
+        "jingdezhen",
+        "suzhou",
+        "shuangyu"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1449,
+          "title": "京师与北方防线",
+          "note": "观察大同、宣府、北京、山海关的相对位置。",
+          "places": [
+            "datong",
+            "xuanfu",
+            "beijing",
+            "shanhaiguan"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1550,
+          "title": "北京与江南",
+          "note": "观察北京、景德镇、苏州、双屿港的相对位置。",
+          "places": [
+            "beijing",
+            "jingdezhen",
+            "suzhou",
+            "shuangyu"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "ming-global-silver",
@@ -1011,7 +1523,113 @@
         "url": "https://knit.ucsd.edu/minghistoryinenglish/wp-content/uploads/sites/84/2021/08/03-Zhang-Juzheng-by-Dardess.pdf",
         "id": "source-04"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "connection",
+      "status": "available",
+      "question": "隔着太平洋的港口如何把美洲白银和亚洲商品接入同一贸易网络？",
+      "note": "分别看月港、太平洋两岸港口及江南市场，区分各层联系。",
+      "places": [
+        "potosi",
+        "acapulco",
+        "manila",
+        "yuegang",
+        "nagasaki",
+        "nanjing"
+      ],
+      "limit": "跨洋线连接两处有证据的贸易港口。图中不推定航迹、方向、矿山来源或入税比例。",
+      "audit": {
+        "status": "checked",
+        "scope": "马尼拉与阿卡普尔科之间的贸易联系及货物类型",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "met-manila",
+          "title": "大都会艺术博物馆｜马尼拉大帆船贸易",
+          "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815"
+        },
+        {
+          "id": "met-manila-object",
+          "title": "大都会艺术博物馆｜外销织物藏品与跨洋流通",
+          "url": "https://www.metmuseum.org/art/collection/search/227351"
+        },
+        {
+          "id": "silver-study",
+          "title": "Irigoin｜拉美白银在中国经济中作用的变化",
+          "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D3045EA55D654DCDCDCB3874E481A0B4/S0212610919000193a.pdf/changing_significance_of_latin_american_silver_in_the_chinese_economy_16th19th_centuries.pdf"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "met-manila",
+          "locator": "贸易概述",
+          "note": "支持马尼拉与阿卡普尔科之间的银与商品交换。"
+        }
+      ],
+      "routes": [
+        {
+          "id": "galleon-ports",
+          "from": "acapulco",
+          "to": "manila",
+          "label": "马尼拉—阿卡普尔科贸易",
+          "note": "资料支持港口间双向贸易。球面连线用来表示联系，具体航迹另待考证。",
+          "precision": "schematic",
+          "evidence": [
+            {
+              "sourceId": "met-manila",
+              "locator": "贸易概述",
+              "note": "支持马尼拉与阿卡普尔科之间的银与商品交换。"
+            }
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "id": "yuegang",
+          "year": 1567,
+          "title": "月港与江南",
+          "note": "定位月港与江南市场，以此理解中国沿海对外贸易的空间背景。",
+          "places": [
+            "yuegang",
+            "nanjing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "pacific",
+          "year": 1573,
+          "title": "跨太平洋港口",
+          "note": "观察马尼拉和阿卡普尔科之间发生的银与亚洲商品交换。",
+          "places": [
+            "acapulco",
+            "manila"
+          ],
+          "routes": [
+            "galleon-ports"
+          ],
+          "dateLabel": "16 世纪后期",
+          "evidence": [
+            {
+              "sourceId": "met-manila",
+              "locator": "贸易概述",
+              "note": "支持马尼拉与阿卡普尔科之间的银与商品交换。"
+            }
+          ]
+        },
+        {
+          "id": "tax",
+          "year": 1581,
+          "title": "白银与江南税赋",
+          "note": "回到江南与沿海的区位。跨洋进口和税赋之间的数量关系需要其他史料。",
+          "places": [
+            "nanjing",
+            "yuegang"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "imjin-frontier",
@@ -1138,7 +1756,62 @@
         "url": "https://encykorea.aks.ac.kr/Article/E0047674",
         "id": "source-03"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "釜山、平壤和鸭绿江之间的地理次序有何意义？",
+      "note": "用半岛南端、内陆城市及河岸辨认各阶段的空间尺度。",
+      "places": [
+        "busan",
+        "seoul",
+        "pyongyang",
+        "uiju"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1592,
+          "title": "半岛南北",
+          "note": "观察釜山、汉城、平壤、义州的相对位置。",
+          "places": [
+            "busan",
+            "seoul",
+            "pyongyang",
+            "uiju"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1593,
+          "title": "平壤及北部",
+          "note": "观察义州、平壤、汉城的相对位置。",
+          "places": [
+            "uiju",
+            "pyongyang",
+            "seoul"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-03",
+          "year": 1598,
+          "title": "战争结束",
+          "note": "观察釜山、汉城、平壤的相对位置。",
+          "places": [
+            "busan",
+            "seoul",
+            "pyongyang"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "ming-beijing-1644",
@@ -1271,7 +1944,60 @@
       }
     ],
     "from": 1644,
-    "to": 1645
+    "to": 1645,
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "山海关如何位于辽西与北京之间？",
+      "note": "按阶段定位北京、关口及随后涉及的江南中心。",
+      "places": [
+        "xian",
+        "beijing",
+        "shanhaiguan",
+        "shenyang",
+        "nanjing"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1644,
+          "title": "西安与北京",
+          "note": "观察西安、北京的相对位置。",
+          "places": [
+            "xian",
+            "beijing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1644,
+          "title": "山海关",
+          "note": "观察沈阳、山海关、北京的相对位置。",
+          "places": [
+            "shenyang",
+            "shanhaiguan",
+            "beijing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-03",
+          "year": 1645,
+          "title": "南北两地",
+          "note": "观察北京、南京的相对位置。",
+          "places": [
+            "beijing",
+            "nanjing"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "mughal-akbar",
@@ -1305,7 +2031,21 @@
         "url": "https://whc.unesco.org/en/list/255/",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "阿克巴的两个宫廷中心如何分布？",
+      "note": "比较法泰赫普尔西格里与拉合尔的位置。",
+      "places": [
+        "sikri",
+        "lahore"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "ottoman-constantinople",
@@ -1339,7 +2079,21 @@
         "url": "https://guides.loc.gov/ottoman-turkish/reference",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "君士坦丁堡的位置为何具有海峡意义？",
+      "note": "与埃迪尔内相比，君士坦丁堡紧靠连接两片海域的水道。",
+      "places": [
+        "edirne",
+        "constantinople"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "tang-frontier",
@@ -1380,7 +2134,22 @@
         "url": "https://afe.easia.columbia.edu/timelines/china_timeline.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "东北军镇与唐朝两京的地理关系是什么？",
+      "note": "对照范阳、洛阳和长安，理解军镇与政治中心之间的距离。",
+      "places": [
+        "fanyang",
+        "luoyang",
+        "changan"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "tokugawa-opening",
@@ -1421,15 +2190,99 @@
         "url": "https://www.archives.go.jp/exhibition/digital/bakumatsu/history.html",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "浦贺与久里滨为何是理解江户湾来航的两个观察点？",
+      "note": "与江户相比，两处地点接近湾口。",
+      "places": [
+        "edo",
+        "uraga",
+        "kurihama"
+      ],
+      "limit": "标记为近似位置。各地的间距用于地理比较。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "nanjing-treaty-ports",
-    "topicEvent": "i-138"
+    "topicEvent": "i-138",
+    "observation": {
+      "kind": "structure",
+      "status": "available",
+      "question": "签约地点与条约规定的五处通商口岸怎样分布？",
+      "note": "南京为签约地。五处口岸沿东南海岸分布，可对照条约第二条。",
+      "places": [
+        "main",
+        "shanghai",
+        "ningbo",
+        "fuzhou",
+        "xiamen",
+        "guangzhou"
+      ],
+      "limit": "各点为城市近似位置，码头和商埠的边界这里未绘制。",
+      "audit": {
+        "status": "checked",
+        "scope": "五口名单与条约地点的范围",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "nanking-treaty",
+          "title": "《南京条约》英文本｜南加州大学馆藏入口",
+          "url": "https://china.usc.edu/node/20462"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "nanking-treaty",
+          "locator": "第二条、第十二条",
+          "note": "第二条明确列出五处口岸；第十二条涉及南京和运河。"
+        }
+      ]
+    }
   },
   {
     "id": "boxer-crisis-1900",
-    "topicEvent": "i-140"
+    "topicEvent": "i-140",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "北京的使馆区事件与沿海门户天津相隔多远？",
+      "note": "对照北京和天津的区域位置，理解外交危机的两个地理节点。",
+      "places": [
+        "main",
+        "tianjin"
+      ],
+      "limit": "城市点为区位参照。驻京材料反映其发报方的观察，战事经过和个别地点待进一步交叉核查。",
+      "audit": {
+        "status": "checked",
+        "scope": "驻京报告支持北京节点；天津精确位置与原海军页面待核对",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "frus-pekin",
+          "title": "美国国务院《美国对外关系文件》1900 年 6 月 4 日北京报告",
+          "url": "https://history.state.gov/historicaldocuments/frus1900/d116"
+        },
+        {
+          "id": "navy-boxers",
+          "title": "美国海军历史机构｜1900 年北京与天津",
+          "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/early-20th-century-conflicts/boxer-rebellion.html"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "frus-pekin",
+          "locator": "6 月 4 日驻京报告",
+          "note": "支持北京为事件节点。"
+        }
+      ]
+    }
   },
   {
     "id": "han-silk-road-west",
@@ -1534,7 +2387,57 @@
         "url": "https://www.britannica.com/place/China/The-Six-Dynasties",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "河西走廊如何位于长安与更西面的绿洲之间？",
+      "note": "通过都城、河西和疏勒的相对位置理解向西交通的空间纵深。",
+      "places": [
+        "changan",
+        "dunhuang",
+        "kashgar"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": -138,
+          "title": "都城长安",
+          "note": "观察长安的相对位置。",
+          "places": [
+            "changan"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": -119,
+          "title": "河西走廊",
+          "note": "观察长安、敦煌的相对位置。",
+          "places": [
+            "changan",
+            "dunhuang"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-03",
+          "year": -60,
+          "title": "由河西向西",
+          "note": "观察长安、敦煌、疏勒的相对位置。",
+          "places": [
+            "changan",
+            "dunhuang",
+            "kashgar"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "han-two-capitals",
@@ -1626,7 +2529,47 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "长安到洛阳的重心变化如何改变区域联系？",
+      "note": "按建都和东汉后期分别观察都城与四川腹地的相对位置。",
+      "places": [
+        "changan",
+        "luoyang",
+        "chengdu"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 25,
+          "title": "两处都城",
+          "note": "观察长安、洛阳的相对位置。",
+          "places": [
+            "changan",
+            "luoyang"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 184,
+          "title": "东汉后期",
+          "note": "观察洛阳、长安、成都的相对位置。",
+          "places": [
+            "luoyang",
+            "changan",
+            "chengdu"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "tang-changan-west",
@@ -1734,7 +2677,48 @@
         "url": "https://depts.washington.edu/silkroad/geography/china/china.html",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "唐代两京与河西以西的地理尺度有多大？",
+      "note": "从两京向西看敦煌及疏勒，辨认内地与绿洲节点。",
+      "places": [
+        "changan",
+        "luoyang",
+        "dunhuang",
+        "kashgar"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 640,
+          "title": "河西及以西",
+          "note": "观察长安、敦煌的相对位置。",
+          "places": [
+            "changan",
+            "dunhuang"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 713,
+          "title": "京师与通道",
+          "note": "观察洛阳、长安、敦煌的相对位置。",
+          "places": [
+            "luoyang",
+            "changan",
+            "dunhuang"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "tang-anlushan-jianghuai",
@@ -1855,7 +2839,50 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "唐朝两京、东北军镇和江淮财赋区各在哪里？",
+      "note": "比较战事叙事中的北方节点与财赋叙事中的扬州位置。",
+      "places": [
+        "fanyang",
+        "luoyang",
+        "changan",
+        "chengdu",
+        "yangzhou"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 755,
+          "title": "军镇与两京",
+          "note": "观察范阳、洛阳、长安的相对位置。",
+          "places": [
+            "fanyang",
+            "luoyang",
+            "changan"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 780,
+          "title": "江淮财赋",
+          "note": "观察扬州、洛阳、长安的相对位置。",
+          "places": [
+            "yangzhou",
+            "luoyang",
+            "changan"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "song-kaifeng-canal",
@@ -1961,7 +2988,48 @@
         "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "开封与江淮粮源、北方边境为何都有关？",
+      "note": "依次定位平原都城和南方水运节点，再定位北方边境参照。",
+      "places": [
+        "kaifeng",
+        "huaian",
+        "suzhou",
+        "beijing"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 960,
+          "title": "江淮至开封",
+          "note": "观察苏州、楚州、开封的相对位置。",
+          "places": [
+            "suzhou",
+            "huaian",
+            "kaifeng"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1004,
+          "title": "宋辽南北",
+          "note": "观察幽州、开封的相对位置。",
+          "places": [
+            "beijing",
+            "kaifeng"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "song-jingkang-linan",
@@ -2068,7 +3136,49 @@
         "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "两宋政治中心如何从黄河平原转到长江以南？",
+      "note": "观察开封、建康、临安和襄阳在叙事各节点中的相对位置。",
+      "places": [
+        "kaifeng",
+        "nanjing",
+        "hangzhou",
+        "xiangyang"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1127,
+          "title": "政治重心南移",
+          "note": "观察开封、建康、临安的相对位置。",
+          "places": [
+            "kaifeng",
+            "nanjing",
+            "hangzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1141,
+          "title": "江淮与长江中游",
+          "note": "观察襄阳、建康、临安的相对位置。",
+          "places": [
+            "xiangyang",
+            "nanjing",
+            "hangzhou"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "song-maritime-xiangyang",
@@ -2175,7 +3285,48 @@
         "url": "https://afe.easia.columbia.edu/songdynasty-module/confucian-neo.html",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "南宋的海上港口与内陆防线分处哪里？",
+      "note": "分开观察港市和襄阳，理解贸易与防守所对应的地域。",
+      "places": [
+        "hangzhou",
+        "quanzhou",
+        "guangzhou",
+        "xiangyang"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1200,
+          "title": "沿海贸易",
+          "note": "观察临安、泉州、广州的相对位置。",
+          "places": [
+            "hangzhou",
+            "quanzhou",
+            "guangzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1273,
+          "title": "内陆防线",
+          "note": "观察襄阳、临安的相对位置。",
+          "places": [
+            "xiangyang",
+            "hangzhou"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "yuan-two-capitals-canal",
@@ -2280,7 +3431,48 @@
         "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "元代两都与江南水运分属哪些区域？",
+      "note": "先比较上都与大都，再从江南港口观察南北距离。",
+      "places": [
+        "shangdu",
+        "dadu",
+        "hangzhou",
+        "shanghai"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1271,
+          "title": "上都与大都",
+          "note": "观察上都、大都的相对位置。",
+          "places": [
+            "shangdu",
+            "dadu"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1293,
+          "title": "江南港口与大都",
+          "note": "观察杭州、刘家港、大都的相对位置。",
+          "places": [
+            "hangzhou",
+            "shanghai",
+            "dadu"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "yuan-eurasia-network",
@@ -2387,7 +3579,49 @@
         "url": "https://afe.easia.columbia.edu/tps/1000ce_cn.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "都城、内陆节点与泉州港在欧亚联系中各处哪里？",
+      "note": "分开定位行政叙事的地点与海陆贸易的节点。",
+      "places": [
+        "dadu",
+        "dunhuang",
+        "lhasa",
+        "quanzhou"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1308,
+          "title": "跨区域节点",
+          "note": "观察大都、拉萨、泉州的相对位置。",
+          "places": [
+            "dadu",
+            "lhasa",
+            "quanzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1324,
+          "title": "陆海节点",
+          "note": "观察大都、敦煌、泉州的相对位置。",
+          "places": [
+            "dadu",
+            "dunhuang",
+            "quanzhou"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "qing-multiethnic-empire",
@@ -2492,7 +3726,48 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "清代政治中心与高原和西域代表点相隔多远？",
+      "note": "按阶段辨认盛京、北京、拉萨和喀什的区位。",
+      "places": [
+        "shenyang",
+        "beijing",
+        "lhasa",
+        "kashgar"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1683,
+          "title": "盛京与北京",
+          "note": "观察盛京、北京的相对位置。",
+          "places": [
+            "shenyang",
+            "beijing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1759,
+          "title": "高原与西域",
+          "note": "观察北京、拉萨、喀什的相对位置。",
+          "places": [
+            "beijing",
+            "lhasa",
+            "kashgar"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "qing-treaty-ports",
@@ -2599,7 +3874,49 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "南方海港、长江下游与北京在开埠和危机叙事中各居何处？",
+      "note": "分开看南北城镇分布，避免把不同年份的节点读成同一航程。",
+      "places": [
+        "guangzhou",
+        "shanghai",
+        "nanjing",
+        "beijing"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1842,
+          "title": "开埠与条约",
+          "note": "观察广州、上海、南京的相对位置。",
+          "places": [
+            "guangzhou",
+            "shanghai",
+            "nanjing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1900,
+          "title": "南北城市",
+          "note": "观察上海、南京、北京的相对位置。",
+          "places": [
+            "shanghai",
+            "nanjing",
+            "beijing"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "shang-zhou-heartland",
@@ -2684,7 +4001,27 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "周代早期的核心地区沿渭河与黄河如何展开？",
+      "note": "以镐京、洛邑的近似点位辨认关中与中原。",
+      "places": [
+        "xian",
+        "luoyang"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "distanceBetween": [
+        "xian",
+        "luoyang"
+      ],
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "qin-empire-roads",
@@ -2776,7 +4113,47 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "关中、北方平原与岭南的相对位置为何重要？",
+      "note": "按阶段辨认秦都、北方重镇及岭南代表点。",
+      "places": [
+        "xian",
+        "beijing",
+        "guangzhou"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": -221,
+          "title": "关中与北方",
+          "note": "观察咸阳、蓟城的相对位置。",
+          "places": [
+            "xian",
+            "beijing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": -214,
+          "title": "岭南参照",
+          "note": "观察咸阳、蓟城、番禺的相对位置。",
+          "places": [
+            "xian",
+            "beijing",
+            "guangzhou"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "wei-jin-north-south",
@@ -2869,7 +4246,46 @@
         "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "平城、洛阳和建康如何分布于南北政权的叙事中？",
+      "note": "以三城对照迁都和渡江叙事的不同方向。",
+      "places": [
+        "datong",
+        "luoyang",
+        "nanjing"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 317,
+          "title": "渡江与建康",
+          "note": "观察洛阳、建康的相对位置。",
+          "places": [
+            "luoyang",
+            "nanjing"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 494,
+          "title": "北魏迁都",
+          "note": "观察平城、洛阳的相对位置。",
+          "places": [
+            "datong",
+            "luoyang"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "sui-grand-canal",
@@ -2956,7 +4372,47 @@
         "url": "https://www.britannica.com/topic/Sui-dynasty",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "隋代运河为何要沟通洛阳与南北地区？",
+      "note": "观察洛阳、涿郡和余杭的相对位置。",
+      "places": [
+        "luoyang",
+        "beijing",
+        "hangzhou"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 589,
+          "title": "南北整合",
+          "note": "观察洛阳、余杭的相对位置。",
+          "places": [
+            "luoyang",
+            "hangzhou"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 608,
+          "title": "水运节点",
+          "note": "观察余杭、洛阳、涿郡的相对位置。",
+          "places": [
+            "hangzhou",
+            "luoyang",
+            "beijing"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "roc-nanjing-chongqing",
@@ -3050,7 +4506,49 @@
         "url": "https://www.britannica.com/place/Beijing/Cultural-life",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "从北方到长江下游和西南，政治与战时重心如何移动？",
+      "note": "用北京、南京、上海和川渝区域参照分辨叙事尺度。",
+      "places": [
+        "beijing",
+        "nanjing",
+        "shanghai",
+        "chengdu"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1928,
+          "title": "南京与沪宁",
+          "note": "观察北京、南京、上海的相对位置。",
+          "places": [
+            "beijing",
+            "nanjing",
+            "shanghai"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1937,
+          "title": "战时西南",
+          "note": "观察上海、南京、川渝后方的相对位置。",
+          "places": [
+            "shanghai",
+            "nanjing",
+            "chengdu"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "egypt-nile-corridor",
@@ -3121,7 +4619,68 @@
         "url": "https://www.britannica.com/place/ancient-Egypt/Egypt-from-1076-bce-to-the-Macedonian-invasion",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "尼罗河谷的内陆政治中心与地中海港口为何具有不同区位？",
+      "note": "分别定位孟斐斯所在河谷地段和亚历山大港所在海岸。",
+      "places": [
+        "cairo",
+        "alexandria"
+      ],
+      "limit": "旧孟斐斯点为开罗参照。未采用旧图中的直线作为尼罗河河道或航程。",
+      "audit": {
+        "status": "checked",
+        "scope": "孟斐斯与亚历山大港的行政角色和区位",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "unesco-memphis",
+          "title": "UNESCO 世界遗产中心｜孟斐斯及其墓地",
+          "url": "https://whc.unesco.org/document/197467"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "unesco-memphis",
+          "locator": "Annex 5，孟斐斯世界遗产价值声明",
+          "note": "支持孟斐斯在多个时期的行政作用，以及托勒密时期两处中心并存。"
+        }
+      ],
+      "placeNotes": {
+        "cairo": {
+          "name": "孟斐斯一带（开罗参照）",
+          "precision": "reference",
+          "role": "以近代开罗附近粗略定位古都河谷地段。"
+        }
+      },
+      "steps": [
+        {
+          "id": "old-kingdom",
+          "year": -2550,
+          "title": "古王国",
+          "note": "用开罗附近定位孟斐斯河谷地段。",
+          "places": [
+            "cairo"
+          ],
+          "routes": [],
+          "dateLabel": "约公元前 2550 年"
+        },
+        {
+          "id": "ptolemaic",
+          "year": -305,
+          "title": "托勒密时期",
+          "note": "比较内陆行政中心一带与地中海港口。",
+          "places": [
+            "cairo",
+            "alexandria"
+          ],
+          "routes": []
+        }
+      ]
+    }
   },
   {
     "id": "alexander-eastward",
@@ -3212,7 +4771,22 @@
         "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "paused",
+      "question": "怎样定位亚历山大东征涉及的海峡、埃及和两河流域？",
+      "note": "旧标记把现代城市点与不同年代的事件混用，暂停该图版。",
+      "places": [
+        "istanbul",
+        "alexandria",
+        "baghdad"
+      ],
+      "limit": "原始图版及数据留档。需补充能对应年代和历史主体的地理依据。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "caliphate-baghdad-trade",
@@ -3298,7 +4872,28 @@
         "url": "https://www.britannica.com/topic/Abbasid-caliphate",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "巴格达在两河流域与中亚之间处于什么位置？",
+      "note": "以巴格达定位核心区域。跨洲商网在正文中阅读。",
+      "places": [
+        "baghdad"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "placeNotes": {
+        "baghdad": {
+          "precision": "reference",
+          "role": "对照书卷叙事的城市地理参照。"
+        }
+      },
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "persia-crossroads",
@@ -3389,7 +4984,22 @@
         "url": "https://www.britannica.com/topic/Safavid-dynasty",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "paused",
+      "question": "萨珊和萨非的政治重心如何辨认？",
+      "note": "现有标记不足以定位两个时期的政治中心，暂停该图版。",
+      "places": [
+        "baghdad",
+        "istanbul",
+        "delhi"
+      ],
+      "limit": "原始图版及数据留档。需补充能对应年代和历史主体的地理依据。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "mongol-eurasia-conquest",
@@ -3475,7 +5085,33 @@
         "url": "https://www.britannica.com/place/Mongol-empire",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "欧亚帝国的各地政治节点如何分布？",
+      "note": "用大都与巴格达理解欧亚尺度，观察年为现存场景的代表年。",
+      "places": [
+        "beijing",
+        "baghdad"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "placeNotes": {
+        "beijing": {
+          "precision": "reference",
+          "role": "对照书卷叙事的城市地理参照。"
+        },
+        "baghdad": {
+          "precision": "reference",
+          "role": "对照书卷叙事的城市地理参照。"
+        }
+      },
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "india-ganges-deccan",
@@ -3554,7 +5190,53 @@
         "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "怎样区分恒河平原与德干高原的地理尺度？",
+      "note": "使用德里与班加罗尔一带作现代地理定位，分别提供北印度与德干的参照。",
+      "places": [
+        "delhi",
+        "bangalore"
+      ],
+      "limit": "此图为区域定位，图点不能定位阿育王某座敕令或 1947 年分治边线。",
+      "audit": {
+        "status": "unreviewed"
+      },
+      "distanceBetween": [
+        "delhi",
+        "bangalore"
+      ],
+      "sources": [
+        {
+          "id": "asi-sanchi",
+          "title": "UNESCO 世界遗产中心｜桑奇佛教遗迹",
+          "url": "https://whc.unesco.org/archive/2021/whc21-44com-8E-en.pdf"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "asi-sanchi",
+          "locator": "Annex / Buddhist Monuments at Sanchi, Criterion (ii)",
+          "note": "支持阿育王及孔雀时代的区域文化背景。"
+        }
+      ],
+      "placeNotes": {
+        "delhi": {
+          "name": "德里（现代参照）",
+          "precision": "reference",
+          "role": "供辨认北印度与印度河—恒河平原西缘的方向。"
+        },
+        "bangalore": {
+          "name": "德干高原（班加罗尔参照）",
+          "precision": "region",
+          "role": "点位提示高原南部。高原范围比图上点位广。"
+        }
+      },
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "british-global-sea-lanes",
@@ -3644,7 +5326,28 @@
         "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "帝国海运叙事的伦敦在哪一侧？",
+      "note": "标出伦敦作为地理参照，海运与殖民网络请结合正文辨认。",
+      "places": [
+        "london"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "placeNotes": {
+        "london": {
+          "precision": "reference",
+          "role": "对照书卷叙事的城市地理参照。"
+        }
+      },
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "france-europe-hub",
@@ -3730,7 +5433,42 @@
         "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "巴黎、伦敦和莫斯科如何提示法国叙事的欧陆尺度？",
+      "note": "对照三座城市的地理位置。",
+      "places": [
+        "paris",
+        "moscow",
+        "london"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "distanceBetween": [
+        "paris",
+        "moscow"
+      ],
+      "naturalOnly": true,
+      "dateLabel": "地理比较 · 1805 年参照",
+      "placeNotes": {
+        "paris": {
+          "precision": "reference",
+          "role": "欧洲地理参照，帮助比较巴黎与其他地区的区位。"
+        },
+        "moscow": {
+          "precision": "reference",
+          "role": "欧洲地理参照，帮助比较巴黎与其他地区的区位。"
+        },
+        "london": {
+          "precision": "reference",
+          "role": "欧洲地理参照，帮助比较巴黎与其他地区的区位。"
+        }
+      }
+    }
   },
   {
     "id": "iberian-atlantic-pacific",
@@ -3800,7 +5538,37 @@
         "url": "https://www.britannica.com/list/8-of-the-largest-empires-in-history",
         "id": "source-01"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "马尼拉为何是理解跨太平洋贸易的观察点？",
+      "note": "从菲律宾群岛定位马尼拉港。伊比利亚、美洲及太平洋联系继续结合书卷正文阅读。",
+      "places": [
+        "manila"
+      ],
+      "limit": "利马点保留在原始资料。现有地理表达只定位马尼拉，早期阶段和两港直连已撤下。",
+      "audit": {
+        "status": "checked",
+        "scope": "马尼拉跨太平洋贸易角色，利马—马尼拉特定航行未核验",
+        "checkedAt": "2026-11-25"
+      },
+      "sources": [
+        {
+          "id": "met-manila",
+          "title": "大都会艺术博物馆｜马尼拉大帆船贸易",
+          "url": "https://www.metmuseum.org/essays/the-manila-galleon-trade-1565-1815"
+        }
+      ],
+      "evidence": [
+        {
+          "sourceId": "met-manila",
+          "locator": "贸易概述",
+          "note": "支持马尼拉与阿卡普尔科之间的银与商品交换。"
+        }
+      ],
+      "naturalOnly": true
+    }
   },
   {
     "id": "russia-eurasia-expansion",
@@ -3875,7 +5643,28 @@
         "url": "https://www.britannica.com/event/Cold-War",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "available",
+      "question": "俄国欧亚叙事中的莫斯科处于何处？",
+      "note": "使用莫斯科定位欧洲一侧的政治中心。",
+      "places": [
+        "moscow"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "placeNotes": {
+        "moscow": {
+          "precision": "reference",
+          "role": "对照书卷叙事的城市地理参照。"
+        }
+      },
+      "dateLabel": "区域定位",
+      "naturalOnly": true
+    }
   },
   {
     "id": "germany-central-europe",
@@ -3950,7 +5739,21 @@
         "url": "https://www.britannica.com/event/Cold-War",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "paused",
+      "question": "如何借代表城市理解德意志的中欧区位？",
+      "note": "现存巴黎和莫斯科标记不足以定位两阶段的德意志空间，暂停该图版。",
+      "places": [
+        "paris",
+        "moscow"
+      ],
+      "limit": "原始图版及数据留档。需补充能对应年代和历史主体的地理依据。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "usa-continental-pacific",
@@ -4024,7 +5827,21 @@
         "url": "https://www.britannica.com/event/Cold-War",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "location",
+      "status": "paused",
+      "question": "美国两洋叙事需要哪些地理参照？",
+      "note": "现有两个海外点无法定位美国大陆的主要观察对象，暂停该图版。",
+      "places": [
+        "london",
+        "tokyo"
+      ],
+      "limit": "原始图版及数据留档。需补充能对应年代和历史主体的地理依据。",
+      "audit": {
+        "status": "legacy"
+      }
+    }
   },
   {
     "id": "east-asia-modern-korea-japan",
@@ -4115,6 +5932,45 @@
         "url": "https://www.britannica.com/topic/Joseon-dynasty",
         "id": "source-02"
       }
-    ]
+    ],
+    "observation": {
+      "kind": "change",
+      "status": "available",
+      "question": "日本列岛与朝鲜半岛隔海相对的位置意味着什么？",
+      "note": "分开定位明治时期的日本城市和二战结束时的朝鲜半岛城市。",
+      "places": [
+        "tokyo",
+        "seoul",
+        "nagasaki"
+      ],
+      "limit": "现存坐标为近似图示，未复核的旧线路与方向已从地球撤下。",
+      "audit": {
+        "status": "legacy"
+      },
+      "steps": [
+        {
+          "id": "stage-01",
+          "year": 1868,
+          "title": "明治时期",
+          "note": "观察长崎、东京的相对位置。",
+          "places": [
+            "nagasaki",
+            "tokyo"
+          ],
+          "routes": []
+        },
+        {
+          "id": "stage-02",
+          "year": 1945,
+          "title": "战争结束",
+          "note": "观察东京、汉城·首尔的相对位置。",
+          "places": [
+            "tokyo",
+            "seoul"
+          ],
+          "routes": []
+        }
+      ]
+    }
   }
 ]
