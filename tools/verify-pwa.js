@@ -208,6 +208,7 @@ async function main() {
     }
     await page.size(393,844,true,2);
     await click('#hud-view');
+    await click('#reset-view');
     if(output) {
       mkdirSync(output,{recursive:true});
       const {data}=await page.send('Page.captureScreenshot',{format:'png'});
