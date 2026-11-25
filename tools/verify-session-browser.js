@@ -127,12 +127,16 @@ async function main() {
     assert.ok(Math.abs(await scroll() - originalScroll) <= 2);
     await page.size(1320, 840, false);
     await wait(350);
-    assert.equal(await js("document.body.classList.contains('reading-split')"), true);
+    assert.equal(await js(`(() => {
+      const book=document.querySelector('#book').getBoundingClientRect(), globe=document.querySelector('#globe');
+      return !document.querySelector('#book').hidden && book.width===innerWidth && book.height===innerHeight &&
+        globe.inert && getComputedStyle(globe).visibility==='hidden' && !__t.globeFramePending;
+    })()`), true);
     assert.equal((await session()).ex.year, 1500);
-    assert.notEqual((await camera()).year, 1500);
+    assert.equal((await camera()).year, 1500);
     await page.size(402, 874);
     await wait(300);
-    await click('#sheet-close');
+    await click('#reading-exit');
     await until(async () => (await session()).mode === 'Explore', 'Reader did not close');
     await until(() => js('Boolean(__t.state.focus)'), 'Original subject did not return');
     assert.deepEqual(await camera(), outer);
@@ -163,7 +167,7 @@ async function main() {
     const eventPlaceCamera = await camera();
     await click('#event-map-read');
     assert.equal((await session()).mode, 'Read');
-    await click('#sheet-close');
+    await click('#reading-exit');
     assert.equal((await session()).ob.place, 'tianjin');
     assert.deepEqual(await camera(), eventPlaceCamera);
     assert.equal(await js("document.querySelector('#event-map-points button[data-place=tianjin]').getAttribute('aria-pressed')"), 'true');
@@ -175,7 +179,6 @@ async function main() {
     await click('[data-world-read=i-140]');
     assert.equal((await session()).readYear, 1900);
     assert.equal((await session()).book, 'qing');
-    await until(() => js('__t.readerSettled'), 'Event reading transition did not settle');
     await js("document.querySelector('#book-body').scrollTop=630");
     await until(async () => Math.abs((await saved()).read?.position.top - 630) <= 3,
       'Latest event reading position was not saved');
@@ -189,9 +192,9 @@ async function main() {
     const persisted = await saved();
     assert.ok(persisted.progress.some(([key]) => key === 'subject:ming'));
     assert.ok(persisted.progress.some(([key]) => key === 'subject:qing'));
-    await click('#sheet-close');
+    await click('#reading-exit');
     assert.equal(await js("!document.querySelector('#overlay').hidden && document.activeElement.dataset.worldRead==='i-140'"), true);
-    console.log('Reload and real browser restart, latest reading position, desktop split isolation and event-list return passed.');
+    console.log('Reload and real browser restart, latest reading position, desktop fullscreen isolation and event-list return passed.');
 
     for (const [record, expectedMode, detail] of [
       ['{bad', 'Explore', null],
@@ -269,7 +272,7 @@ async function main() {
       assert.equal((await session()).mode, 'Read');
       assert.equal((await session()).detail, 'state-making');
       await esc();
-      await click('[data-subject-library]');
+      await click('#reading-library');
       await click('[data-reading-catalog]');
       await click('[data-reading-topic=china-late-qing]');
       await chapter('ports');

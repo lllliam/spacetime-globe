@@ -15,7 +15,7 @@ const rd = (...p) => readFileSync(join(root, ...p), 'utf8').replace(/\r\n/g, '\n
 const terrainPath = join(root, 'data', 'terrain-4k-v1.png');
 
 const shell = rd('src', 'shell.html');
-const css = rd('src', 'app.css') + '\n' + rd('src','chrome.css');
+const css = ['app.css', 'chrome.css', 'reading.css'].map(name => rd('src', name)).join('\n');
 const readingMarker = '/* ───────────── 19. 启动 ───────────── */';
 const appSource = rd('src', 'app.js');
 if (!appSource.includes(readingMarker)) throw new Error('缺少阅读模块插入位置');

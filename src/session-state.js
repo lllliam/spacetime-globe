@@ -18,6 +18,8 @@ function createSession({ minYear, maxYear }) {
     index: Number.isInteger(value?.index) ? number(value.index, 0, 10000, 0) : 0,
     offset: number(value?.offset, -2, 2, 0),
   });
+  const disclosures = value => Array.isArray(value)
+    ? value.filter(index => Number.isInteger(index) && index >= 0 && index < 128).slice(0, 24) : [];
   const entity = value => {
     if (value?.layerId === 'country' && typeof value.key === 'string' && /^[A-Z]{2,3}$/.test(value.key)) {
       return { layerId: 'country', key: value.key };
@@ -39,12 +41,13 @@ function createSession({ minYear, maxYear }) {
     bookId: id(value?.bookId), topicId: id(value?.topicId), entity: entity(value?.entity), detail: id(value?.detail),
     year: validYear(value?.year) ? value.year : maxYear,
     scroll: number(value?.scroll, 0, 1e7, 0),
-    position: position(value?.position), linkEntry: value?.linkEntry === true,
+    position: position(value?.position), disclosures: disclosures(value?.disclosures),
+    linkEntry: value?.linkEntry === true, directory: value?.directory === true,
     catalog: value?.catalog === true, library: value?.library === true,
     catalogContinent: id(value?.catalogContinent) || '全部', catalogScroll: number(value?.catalogScroll, 0, 1e7, 0),
   });
   const readState = value => ({
-    ...frame(value), source: source(value?.source), viewMode: value?.viewMode === 'full' ? 'full' : 'half',
+    ...frame(value), source: source(value?.source),
     trail: Array.isArray(value?.trail) ? value.trail.slice(-MAX_READING_TRAIL).map(frame) : [],
   });
   const exploreState = value => {
@@ -81,7 +84,7 @@ function createSession({ minYear, maxYear }) {
       if (mode !== 'Read') return false;
       const next = frame({ ...read, ...value });
       if (next.bookId === read.bookId && next.topicId === read.topicId && next.detail === read.detail &&
-          next.catalog === read.catalog && next.library === read.library &&
+          next.catalog === read.catalog && next.library === read.library && next.directory === read.directory &&
           next.entity?.layerId === read.entity?.layerId && next.entity?.key === read.entity?.key) return false;
       read.trail.push(frame(read));
       if (read.trail.length > MAX_READING_TRAIL) read.trail.shift();
@@ -100,8 +103,8 @@ function createSession({ minYear, maxYear }) {
       return true;
     },
     enterObserve(value) {
-      if (observe) return false;
-      observe = { ...value, origin: mode, phase: -1, place: null };
+      if (observe && (mode !== 'Read' || observe.origin !== 'Explore')) return false;
+      observe = { ...value, origin: mode, phase: -1, place: null, previous: observe };
       mode = 'Observe';
       return true;
     },
@@ -109,15 +112,16 @@ function createSession({ minYear, maxYear }) {
     returnFromObserve() {
       if (mode !== 'Observe') return null;
       const previous = observe;
-      observe = null;
+      observe = previous.previous;
       mode = previous.origin;
       return previous;
     },
     readingProgress(key) { return progress.get(key); },
-    updateReadingPosition(key, chapter, value, scroll = 0) {
+    updateReadingPosition(key, chapter, value, scroll = 0, opened = []) {
       if (mode !== 'Read' || !id(key)) return;
       progress.delete(key);
-      progress.set(key, { chapter: id(chapter), position: position(value), scroll: number(scroll, 0, 1e7, 0) });
+      progress.set(key, { chapter: id(chapter), position: position(value), scroll: number(scroll, 0, 1e7, 0),
+        disclosures: disclosures(opened) });
       if (progress.size > MAX_READING_PROGRESS) progress.delete(progress.keys().next().value);
     },
     serialize() {
@@ -132,7 +136,8 @@ function createSession({ minYear, maxYear }) {
       if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
         if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
         const [key, item] = entry;
-        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0) });
+        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
+          disclosures: disclosures(item.disclosures) });
       }
       return { explore, read: value.mode === 'Read' ? lastRead : null };
     },

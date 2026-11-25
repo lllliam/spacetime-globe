@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="地球仪">
@@ -86,22 +86,38 @@
     <div id="sheet-toolbar">
       <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
       <button id="sheet-toc" type="button">目录</button>
-      <button id="sheet-close" type="button" aria-label="收起阅读" hidden>
+      <button id="sheet-close" type="button" aria-label="关闭摘要" hidden>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
       </button>
     </div>
   </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
-  <section id="book" hidden>
-    <header id="book-bar">
-      <button id="reading-back" type="button" hidden aria-label="返回">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
-      </button>
-      <button id="reading-grab" type="button" aria-label="收起阅读"><span></span></button>
-    </header>
-    <div id="book-body" tabindex="0"></div>
-  </section>
 </div>
+
+<section id="book" role="dialog" aria-modal="true" aria-labelledby="reading-title" hidden>
+  <header id="book-bar">
+    <button id="reading-back" type="button" hidden aria-label="返回上一级" title="返回上一级">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
+    </button>
+    <span id="reading-book-name"></span>
+    <nav aria-label="阅读导航">
+      <button id="reading-library" type="button" aria-label="历史书目">书目</button>
+      <button id="reading-index" type="button" aria-label="章节目录">目录</button>
+      <button id="reading-settings" type="button" aria-label="阅读字号" aria-controls="reading-display" aria-expanded="false">Aa</button>
+      <button id="reading-exit" type="button">合上</button>
+    </nav>
+  </header>
+  <div id="book-body" tabindex="0" role="region" aria-label="阅读内容"></div>
+  <div id="reading-display" role="group" aria-label="阅读字号设置" hidden>
+    <strong>阅读字号</strong>
+    <div>
+      <button type="button" data-reading-size="small">小</button>
+      <button type="button" data-reading-size="standard">标准</button>
+      <button type="button" data-reading-size="large">大</button>
+      <button type="button" data-reading-size="extra">特大</button>
+    </div>
+  </div>
+</section>
 
 <div id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" hidden>
   <div id="overlay-head">
@@ -148,16 +164,6 @@
 <aside id="footnote-popover" role="dialog" aria-modal="true" aria-labelledby="footnote-heading" hidden>
   <header><strong id="footnote-heading">史料与注释</strong><button id="footnote-close" type="button" aria-label="关闭注释">×</button></header>
   <p id="footnote-text"></p><a id="footnote-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a>
-</aside>
-
-<aside id="split-globe-bar" hidden aria-label="联动地球场景控制">
-  <div class="split-globe-head">
-    <span id="split-globe-year"></span>
-    <strong id="split-globe-title"></strong>
-    <button id="split-globe-reset" type="button" hidden>复位视角</button>
-  </div>
-  <div id="split-globe-steps" hidden></div>
-  <p id="split-globe-note" hidden></p>
 </aside>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>

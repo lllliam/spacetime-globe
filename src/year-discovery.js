@@ -140,7 +140,7 @@ overlayBody.addEventListener('click', event => {
   if (button.dataset.event) { openWorldEvent(entry); return; }
   const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
-  beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
+  beginReading(null, null, target.chapter.id, target.book, {
     entryYear:target.year, source:worldSource(id, 'read'),
   });
 });

@@ -134,21 +134,24 @@ async function main() {
     const report = () => js(`({ reader:!document.querySelector('#book').hidden,
       sheet:Math.round(document.querySelector('#sheet').getBoundingClientRect().top),
       book:Math.round(document.querySelector('#book').getBoundingClientRect().bottom),
+      top:Math.round(document.querySelector('#book').getBoundingClientRect().top),
       viewport:Math.round(visualViewport.height), toc:document.querySelector('#sheet-toc').textContent,
       theme:document.querySelector('meta[name="theme-color"]').content })`);
     const fillsViewport = async () => {
       const info = await report();
+      assert.equal(info.top, 0, JSON.stringify(info));
       assert.equal(info.book, info.viewport, JSON.stringify(info));
+      assert.equal(await js(`document.querySelector('#globe').inert && getComputedStyle(document.querySelector('#globe')).visibility==='hidden'`), true);
       return info;
     };
     const assertPreview = async () => {
-      assert.equal((await report()).reader, false, 'A deliberate downward pull must close a map-only archive');
+      assert.equal((await report()).reader, false, 'Closing reading must restore the exploration preview');
       assert.equal(await js(`document.querySelector('#sheet').classList.contains('peek')`), true);
       assert.equal(await timelineVisible(), false, 'Returning to the preview should keep the timeline hidden');
     };
     const archiveTitle = await js(`document.querySelector('#reading-title').textContent`);
     assert.equal((await fillsViewport()).theme, '#f6f2e9');
-    assert((await report()).sheet > 200, 'Short map archives should open at half height');
+    assert.equal((await fillsViewport()).reader, true, 'Map-only archives also use fullscreen reading');
     await size(812);
     await until(() => js(`document.querySelector('#book').getBoundingClientRect().bottom === 812`), 'Open archive did not resize');
     await fillsViewport();
@@ -157,25 +160,23 @@ async function main() {
     await fillsViewport();
     await size(874);
     await until(() => js(`document.querySelector('#book').getBoundingClientRect().bottom === 874`), 'Archive did not recover after resize');
-    await tap('#sheet-toc');
+    await tap('#reading-library');
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), '历史书目');
     await tap('#reading-back');
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), archiveTitle);
-    await swipe('#grab', 170, { cancel:true });
-    assert.equal((await report()).reader, true);
-    await swipe('#grab', 170, { pause:150 });
-    await assertPreview();
-    await tap('#sheet-toc');
+    await swipe('#book-body', 170, { cancel:true });
+    await fillsViewport();
+    await swipe('#book-bar', 170, { pause:150 });
+    await fillsViewport();
     await swipe({ x:194, y:520 }, 175, { pause:150 });
-    await assertPreview();
-    await tap('#sheet-toc');
-    await tap('#sheet-close');
+    await fillsViewport();
+    await tap('#reading-exit');
     await assertPreview();
     assert.equal((await report()).theme, '#f6f2e9');
-    console.log('Map-only archive: viewport resize, catalog/back, canceled pull, grip and body pulls, close button');
+    console.log('Map-only archive: fullscreen, viewport resize, catalog/back, gesture isolation and explicit close.');
 
     await tap('#sheet-toc');
-    await tap('#sheet-toc');
+    await tap('#reading-library');
     assert.equal(await js(`document.querySelectorAll('#book-body [data-subject-book]').length`), 57);
     await js(`document.querySelector('[data-subject-book="ming"]').scrollIntoView({block:'center'})`);
     await tap('[data-subject-book="ming"]');
@@ -193,7 +194,7 @@ async function main() {
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), chapterTitle);
     assert.equal(await js(`document.querySelector('#book-body').scrollTop`), readingPosition);
     assert.deepEqual(await mapCamera(), beforeScene, 'Return from observation must restore camera and year');
-    await tap('#sheet-close');
+    await tap('#reading-exit');
     await assertPreview();
     console.log('Historical scene: open from chapter and return to the same reading position');
 
@@ -257,79 +258,65 @@ async function main() {
       await send('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{x:grip.x,y:grip.y-i*11}], timestamp:t0+i*.014});
     }
     await send('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[], timestamp:t0+.05});
-    await until(async () => (await report()).reader && (await report()).sheet < peek - 150, 'A short, fast flick must open half reading');
-    await wait(420);
-    await tap('#sheet-close');
-    await until(async () => !(await report()).reader, 'Reader did not settle back to the preview');
-    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
-    await swipe('.subject-sheet-summary', -110, { pause:150 });
-    assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
-    await tap('#sheet-close');
-    await swipe('#sheet-identity-name', -110, { pause:150 });
-    assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
-    await tap('#sheet-close');
-    await swipe('#grab', -485, { pause:150 });
-    assert.equal((await fillsViewport()).sheet, 0, 'A long pull from the preview should open full reading');
-    assert.equal(await js(`getComputedStyle(document.querySelector('#sheet-top')).paddingTop`), '65px');
-    await tap('#sheet-close');
-    await tap('#sheet-toc');
-    assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
-    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening the chapter list must keep the map camera');
-    assert.equal(await js(`!window.__t || (() => {
-      const {state,view,screenOf} = window.__t;
-      const [x,y,z] = state.focus.anchor;
-      const point = screenOf(Math.atan2(x,z), Math.asin(y));
-      return point.front && point.y < document.querySelector('#sheet').getBoundingClientRect().top - 12 && view.Rz > 0;
-    })()`), true, 'The selected place must remain above the half sheet');
-    assert.equal(await js(`getComputedStyle(document.querySelector('#sheet-top')).paddingTop`), '3px');
-    assert.equal(await js(`getComputedStyle(document.querySelector('#book-bar')).display`), 'none');
-    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
+    await until(async () => (await report()).reader, 'A short, fast flick must open reading');
     await fillsViewport();
-    await swipe('#grab', -175);
-    assert.equal((await fillsViewport()).sheet, 0);
-    await tap('#book-body [data-reading-detail]');
-    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening a chapter must keep the map camera');
+    await wait(400);
+    await tap('#reading-exit');
+    await until(async () => !(await report()).reader, 'Reader did not close to the preview');
+    await send('Emulation.setEmulatedMedia', { features:[{ name:'prefers-reduced-motion', value:'reduce' }] });
+    for (const [target, distance] of [['.subject-sheet-summary',-110],['#sheet-identity-name',-110],['#grab',-485]]) {
+      await swipe(target, distance, { pause:150 });
+      await fillsViewport();
+      await tap('#reading-exit');
+      await assertPreview();
+    }
+    await tap('#sheet-toc');
+    await fillsViewport();
+    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening the chapter list must preserve the map camera');
+    assert.equal(await js(`getComputedStyle(document.querySelector('#book-bar')).paddingTop`), '62px');
+    assert.equal(await js(`getComputedStyle(document.documentElement).backgroundColor`), 'rgb(246, 242, 233)');
+    await swipe('#book-bar', 175, { pause:150 });
+    await fillsViewport();
+    await tap('.reading-row[data-reading-detail]');
+    assert.deepEqual(await mapCamera(), mapBeforeReading, 'Opening a chapter must preserve the map camera');
     await swipe({ x:201, y:547 }, -175);
     const scroll = await js(`document.querySelector('#book-body').scrollTop`);
     assert(scroll > 0, 'Long chapter must scroll normally');
     await swipe({ x:201, y:370 }, 65);
-    assert.equal((await fillsViewport()).sheet, 0);
+    await fillsViewport();
     const assertChapterEnd = async padding => {
       const end = await js(`(() => {
         const body = document.querySelector('#book-body');
-        const lastSource = body.querySelector('.reading-sources a:last-child');
+        const sources = body.querySelector('.reading-sources');
+        sources.open = true;
+        const lastSource = sources.querySelector('li:last-child a');
         body.scrollTop = body.scrollHeight;
         return {padding:getComputedStyle(body).paddingBottom, last:Math.round(lastSource.getBoundingClientRect().bottom),
-          edge:Math.round(body.getBoundingClientRect().bottom)};
+          edge:Math.round(body.getBoundingClientRect().bottom), max:body.scrollHeight-body.clientHeight, scroll:body.scrollTop};
       })()`);
       assert.equal(end.padding, padding + 'px');
-      assert.equal(end.edge - end.last, padding, 'The last source must scroll fully above the viewport edge');
+      assert.ok(end.edge - end.last >= padding && Math.abs(end.max-end.scroll)<2,
+        'The last source must scroll fully above the safe area');
     };
-    await assertChapterEnd(16);
+    await assertChapterEnd(44);
     await size(874);
     await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '34px'`),
       'A full-height viewport still needs the system inset');
-    await assertChapterEnd(50);
+    await assertChapterEnd(78);
     await size(812);
     await until(() => js(`document.documentElement.style.getPropertyValue('--usable-safe-b') === '0px'`),
       'Reader must recover the short viewport layout');
-    await tap('#sheet-toc');
+    const lastChapter = await js('__t.reading.detail');
+    await tap('#reading-index');
     assert.equal(await js(`document.querySelector('#reading-title').textContent`), '中华人民共和国');
-    const globeBackdrop = await js(`getComputedStyle(document.body).backgroundImage`);
-    assert.match(globeBackdrop, /radial-gradient/);
-    await swipe('#grab', 175, { pause:150, during:async () => {
-      assert((await report()).sheet >= 150, 'The test must inspect the sheet while the globe is exposed');
-      assert.equal(await js(`getComputedStyle(document.body).backgroundImage`), globeBackdrop);
-      assert.equal(await js(`document.documentElement.classList.contains('reader-paper')`), false);
-      assert.equal(await js(`getComputedStyle(document.querySelector('#sheet-top')).paddingTop`), '3px');
-    } });
-    assert.equal(await js(`document.body.classList.contains('reading-split')`), true);
+    await swipe('#book-bar', 175, { pause:150 });
     await fillsViewport();
-    await tap('#book-body [data-reading-detail]');
-    await assertChapterEnd(16);
-    await tap('#sheet-close');
+    await tap('#reading-back');
+    assert.equal(await js('__t.reading.detail'),lastChapter);
+    await assertChapterEnd(44);
+    await tap('#reading-exit');
     await assertPreview();
-    console.log('Full book: half/full transitions, chapter scrolling, table of contents and exit');
+    console.log('Full book: auxiliary summary entry gestures, stable fullscreen, ordinary scrolling, safe-area and directory return.');
 
     await swipe('#grab', 90);
     await until(() => js(`!document.body.classList.contains('sheet-open')`), 'Preview did not dismiss');
@@ -341,7 +328,7 @@ async function main() {
     assert.match(await js(`document.querySelector('#reading-title').textContent`), /最后一道城墙/);
     console.log('Updated library: 57 volumes, Central Asia map entry, and 1453 event links to the rewritten Roman chapter');
 
-    await tap('#sheet-close');
+    await tap('#reading-exit');
     await tap('#overlay-close');
     const timeline = () => js(`({selected:Number(document.querySelector('#year-num').textContent),
       preview:Number(document.querySelector('#vernier-track').getAttribute('aria-valuenow')),

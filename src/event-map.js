@@ -7,14 +7,9 @@ const eventMapParticipants = el('event-map-participants');
 const eventMapDistance = el('event-map-distance');
 const eventMapSteps = el('event-map-steps');
 const eventMapTop = el('event-map-top'), eventMapYear = el('event-map-year');
-const splitGlobeBar = el('split-globe-bar'), splitGlobeYear = el('split-globe-year');
-const splitGlobeTitle = el('split-globe-title'), splitGlobeReset = el('split-globe-reset');
-const splitGlobeSteps = el('split-globe-steps'), splitGlobeNote = el('split-globe-note');
 const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent).map(scene => [scene.topicEvent, scene]));
 let worldEvent = null;
-let splitScene = null;
 let globeFlyRaf = 0;
-let readingMapTarget = null;
 
 const ROUTE_STYLES = {
   military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
@@ -53,20 +48,12 @@ function shortestYawDelta(from, to) {
   return d;
 }
 
-function cancelGlobeFly(userInitiated = false) {
-  readingMapTarget = null;
-  if (globeFlyRaf) {
-    cancelAnimationFrame(globeFlyRaf);
-    globeFlyRaf = 0;
-  }
-  if (userInitiated && splitScene) {
-    splitScene.userMoved = true;
-    splitGlobeReset.hidden = false;
-  }
+function cancelGlobeFly() {
+  cancelAnimationFrame(globeFlyRaf);
+  globeFlyRaf = 0;
 }
 
 function captureGlobeView() {
-  if (reading.active && readingMapTarget) return readingMapTarget;
   const { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift } = state;
   return { year, layerId, focus: focus && { ...focus }, yaw, tilt, zoom, panX, panY, lift, natural: chrome.natural };
 }
@@ -79,15 +66,23 @@ function projectGlobeView({ natural, ...globe }) {
 }
 
 function resumeEventMap() {
+  const { readingView, readingMap, phase, place } = session.observe;
+  if (!worldEvent && readingMap) {
+    showEventMap(readingMap);
+    if (phase >= 0) applySceneStep(worldEvent, phase, { animate: false });
+    if (place) selectEventPlace(place, true);
+    cancelGlobeFly();
+  }
   const markers = [...(worldEvent.points?.values() || [])].map(place => place.mark);
   eventMapPoints.replaceChildren(...markers);
   eventMapPoints.hidden = !markers.length;
-  projectGlobeView(session.observe.readingView);
+  projectGlobeView(readingView);
+  session.updateObserve({ camera: session.camera(state) });
   eventMapRead.focus({ preventScroll: true });
 }
 
 function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   if (reducedGlobeMotion.matches || duration <= 0) {
     state.yaw = yaw;
     state.tilt = tilt;
@@ -114,7 +109,7 @@ function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
     view.Rz = view.R * state.zoom;
     invalidate();
     if (p < 1) globeFlyRaf = requestAnimationFrame(step);
-    else { globeFlyRaf = 0; readingMapTarget = null; cameraSettled(); }
+    else { globeFlyRaf = 0; cameraSettled(); }
   };
   globeFlyRaf = requestAnimationFrame(step);
 }
@@ -257,7 +252,7 @@ function drawSceneRoutes(ctxObj, matrix) {
 }
 
 function activeSceneFocusPolities() {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj) return null;
   const list = ctxObj.activeFocusPolities || ctxObj.focusPolities;
   return list?.length ? new Set(list) : null;
@@ -293,9 +288,8 @@ function prepareWorldEventPlaces(places) {
 
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
   const occupied = [];
-  const splitMode = document.body.classList.contains('reading-split') && view.w >= 960;
-  const leftEdge = splitMode ? Math.min(460, Math.round(view.w * 0.42)) + 12 : 14;
-  const bottom = splitMode ? view.h - 24 : isSplitReading() && view.w < 960 ? sheetDetents().half - 12 : (eventMapPanel.getBoundingClientRect().top - 8);
+  const leftEdge = 14;
+  const bottom = eventMapPanel.getBoundingClientRect().top - 8;
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
@@ -336,7 +330,7 @@ function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds 
 }
 
 function drawEventMap(hudBounds) {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj) return;
   const matrix = rotation();
   if (ctxObj.routes?.length && ctxObj.points) {
@@ -387,14 +381,14 @@ function renderStepsBar(container, steps, activeIdx) {
   container.innerHTML = chips.join('');
 }
 
-function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {}) {
+function applySceneStep(ctxObj, stepIdx, { animate = true } = {}) {
   const steps = ctxObj.steps || [];
   const step = stepIdx >= 0 && stepIdx < steps.length ? steps[stepIdx] : null;
   ctxObj.stepIdx = step ? stepIdx : -1;
   ctxObj.selected = null;
 
   const year = step ? step.year : ctxObj.baseYear;
-  if (!split) session.updateObserve({ year });
+  session.updateObserve({ year });
   ctxObj.activePlaceIds = step?.places?.length ? new Set(step.places) : null;
   ctxObj.activeRouteIndices = step?.routes?.length ? new Set(step.routes) : null;
   ctxObj.activeFocusPolities = step?.focusPolities?.length ? step.focusPolities : (ctxObj.focusPolities || null);
@@ -415,25 +409,17 @@ function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {})
     flyGlobeTo({ ...cam, duration: animate ? 560 : 0 });
   }
 
-  if (split) {
-    splitGlobeYear.textContent = fmtYear(year) + ' 年';
-    splitGlobeNote.textContent = step ? step.note : ctxObj.summary;
-    splitGlobeNote.hidden = !splitGlobeNote.textContent;
-    renderStepsBar(splitGlobeSteps, steps, ctxObj.stepIdx);
-    ctxObj.userMoved = false;
-    splitGlobeReset.hidden = true;
-  } else {
-    eventMapYear.textContent = fmtYear(year);
-    eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.summary;
-    renderStepsBar(eventMapSteps, steps, ctxObj.stepIdx);
-  }
+  eventMapYear.textContent = fmtYear(year);
+  eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.summary;
+  renderStepsBar(eventMapSteps, steps, ctxObj.stepIdx);
   invalidate();
 }
 
-function showEventMap({year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route}) {
+function showEventMap(spec) {
+  const {year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route} = spec;
   session.updateObserve({ id: route.sceneId || String(route.event.id), year, phase: -1, place: null });
   worldEvent = {
-    ...route, baseYear: year, summary, points: null, regionVector: null,
+    ...route, spec, baseYear: year, summary, points: null, regionVector: null,
     routes: routes ? routes.map((r) => ({ ...r })) : [],
     steps: steps || [],
     focusPolities: focusPolities || null,
@@ -446,7 +432,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     set selected(place) { session.updateObserve({ place }); },
   };
   pauseGlobe();
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   closeYearControl();
   closeWorld();
   document.body.classList.add('event-map-open');
@@ -528,11 +514,10 @@ function openWorldEvent(event) {
 }
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
-  if (!scene || !reading.active || session.observe) return;
+  if (!scene || !reading.active) return;
   rememberReading();
   const returnView = captureGlobeView();
-  const split = splitScene && { id: splitScene.sceneId, phase: splitScene.stepIdx, place: splitScene.selected };
-  if (!session.enterObserve({ kind: 'scene', returnView, split,
+  if (!session.enterObserve({ kind: 'scene', returnView,
     source: { sceneId: scene.id, triggerPlace: trigger?.dataset.pinPlace || null } })) return;
   hideReader();
   const sceneOrder = [...new Set(reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [])];
@@ -545,7 +530,7 @@ function returnToWorld() {
   const previous = session.returnFromObserve();
   worldEvent = null;
   pauseGlobe();
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   document.body.classList.remove('event-map-open', 'scene-observation');
   eventMapPanel.style.transform = '';
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
@@ -554,20 +539,8 @@ function returnToWorld() {
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
   if (previous.origin === 'Read') {
-    const sceneCamera = session.camera(state);
     projectGlobeView(previous.returnView);
-    showReader(sheetDetents().hidden, 0, { preserveSplitScene: true });
-    if (previous.split && innerWidth >= 960 && isSplitReading()) {
-      const scene = historicalScenes.get(previous.split.id);
-      if (scene) syncSplitScene(scene, { stepIdx: previous.split.phase, force: true });
-      if (previous.split.place) selectEventPlace(previous.split.place, true);
-      cancelGlobeFly(false);
-      projectGlobeView(previous.returnView);
-    } else if (innerWidth < 960 && !reducedGlobeMotion.matches) {
-      Object.assign(state, sceneCamera);
-      flyGlobeTo({ ...previous.returnView, duration:420 });
-      readingMapTarget = previous.returnView;
-    }
+    showReader();
     const { sceneId, triggerPlace } = previous.source;
     const buttons = [...bookBody.querySelectorAll(triggerPlace ? '[data-pin-scene]' : '[data-subject-scene]')];
     const button = buttons.find(node => triggerPlace
@@ -581,126 +554,24 @@ function returnToWorld() {
   saveSession(true);
 }
 
-/* ── 桌面端书球同屏联动（Split-View） ── */
-function syncSplitScene(scene, { stepIdx = -1, pinPlaceId = null, force = false } = {}) {
-  if (!isSplitReading()) return;
-  if (!scene) {
-    clearSplitScene();
-    return;
-  }
-  if (!force && splitScene?.sceneId === scene.id && !pinPlaceId && splitScene.userMoved) return;
-
-  const sameScene = splitScene?.sceneId === scene.id;
-  if (!sameScene) {
-    splitScene = {
-      sceneId: scene.id,
-      baseYear: scene.year,
-      title: scene.title,
-      summary: scene.summary,
-      routes: scene.routes ? scene.routes.map((r) => ({ ...r })) : [],
-      steps: scene.steps || [],
-      focusPolities: scene.focusPolities || (reading.subject?.polities || null),
-      activeFocusPolities: scene.focusPolities || (reading.subject?.polities || null),
-      activePlaceIds: null,
-      activeRouteIndices: null,
-      stepIdx: -1,
-      selected: null,
-      points: null,
-      userMoved: false,
-    };
-    chrome.natural = !(scene.year >= -3400 && scene.year <= POLITY_END);
-    if (!chrome.natural) {
-      state.layerId = 'polity';
-      if (!polityState.loaded) ensurePolity();
-    }
-    buildPlaceMarkers(scene.places, splitScene);
-  }
-
-  splitGlobeBar.hidden = false;
-  splitGlobeTitle.textContent = scene.title;
-  splitGlobeReset.hidden = true;
-  splitScene.userMoved = false;
-
-  for (const btn of bookBody.querySelectorAll('[data-subject-scene]')) {
-    btn.classList.toggle('is-active', btn.dataset.subjectScene === scene.id);
-  }
-
-  if (pinPlaceId && splitScene.points?.has(pinPlaceId)) {
-    if (state.year !== scene.year) {
-      state.year = scene.year;
-      onYearChanged();
-    }
-    splitGlobeYear.textContent = fmtYear(scene.year) + ' 年';
-    renderStepsBar(splitGlobeSteps, splitScene.steps, -1);
-    selectEventPlace(pinPlaceId, true);
-    const pt = splitScene.points.get(pinPlaceId);
-    const cam = cameraForVectors([pt.vector], true);
-    flyGlobeTo({ ...cam, zoom: Math.max(cam.zoom, 2.8), duration: 540 });
-    return;
-  }
-
-  applySceneStep(splitScene, stepIdx, { animate: true, split: true });
-}
-
-function clearSplitScene() {
-  cancelGlobeFly(false);
-  splitScene = null;
-  splitGlobeBar.hidden = true;
-  splitGlobeSteps.replaceChildren();
-  if (!worldEvent) {
-    eventMapPoints.hidden = true;
-    eventMapPoints.replaceChildren();
-  }
-}
-
-let splitScrollTimer = 0;
-function scheduleSplitScrollSync() {
-  if (!isSplitReading() || !reading.subject || !reading.detail) return;
-  if (splitScrollTimer) return;
-  splitScrollTimer = requestAnimationFrame(() => {
-    splitScrollTimer = 0;
-    if (!isSplitReading() || splitScene?.userMoved) return;
-    const buttons = [...bookBody.querySelectorAll('[data-subject-scene]')];
-    if (!buttons.length) return;
-    const box = bookBody.getBoundingClientRect();
-    const anchorY = box.top + box.height * 0.42;
-    let best = buttons[0], bestDist = Infinity;
-    for (const btn of buttons) {
-      const r = btn.getBoundingClientRect();
-      const d = Math.abs((r.top + r.height / 2) - anchorY);
-      if (d < bestDist) { bestDist = d; best = btn; }
-    }
-    const id = best.dataset.subjectScene;
-    if (id && splitScene?.sceneId !== id) {
-      const sc = historicalScenes.get(id);
-      if (sc) syncSplitScene(sc);
-    }
-  });
-}
-
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
-  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book,
+  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, target.book,
     { entryYear:target.year, source:session.observe.source });
 });
 
 function selectEventPlace(id, forceSelect = false) {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj?.points) return;
   ctxObj.selected = (!forceSelect && ctxObj.selected === id) ? null : id;
   const selected = ctxObj.points.get(ctxObj.selected);
-  if (ctxObj === worldEvent) {
-    eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
-    for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
-      chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
-    if (selected) {
-      const cam = cameraForVectors([selected.vector], true);
-      flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
-    }
-  } else {
-    splitGlobeNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
-    splitGlobeNote.hidden = !splitGlobeNote.textContent;
+  eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
+  for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
+    chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
+  if (selected) {
+    const cam = cameraForVectors([selected.vector], true);
+    flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
   }
   for (const [key, place] of ctxObj.points) {
     place.mark.classList.toggle('selected', key === ctxObj.selected);
@@ -716,15 +587,6 @@ eventMapPoints.addEventListener('click', (event) => {
 eventMapSteps.addEventListener('click', (event) => {
   const btn = event.target.closest('[data-scene-step]');
   if (btn && session.mode === 'Observe') applySceneStep(worldEvent, Number(btn.dataset.sceneStep));
-});
-splitGlobeSteps.addEventListener('click', (event) => {
-  const btn = event.target.closest('[data-scene-step]');
-  if (btn && splitScene) applySceneStep(splitScene, Number(btn.dataset.sceneStep), { animate: true, split: true });
-});
-splitGlobeReset.addEventListener('click', () => {
-  if (!splitScene) return;
-  const sc = historicalScenes.get(splitScene.sceneId);
-  if (sc) syncSplitScene(sc, { stepIdx: splitScene.stepIdx, force: true });
 });
 eventMapParticipants.addEventListener('toggle', invalidate);
 
@@ -783,7 +645,5 @@ for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(ki
   const up=dy < -55 || g.vy < -.42;
   const down=dy > 70 || g.vy > .42;
   if (!up && !down) return;
-  const wasReading = session.observe?.origin === 'Read';
   returnToWorld();
-  if (down && wasReading && reading.active && innerWidth<960) mobileReaderSnap('peek',{immediate:true});
 });

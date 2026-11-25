@@ -1,8 +1,11 @@
 /* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
 const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
-const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
-const readingBack = el('reading-back'), readingGrab = el('reading-grab');
+const bookEl = el('book'), bookBody = el('book-body');
+const readingBack = el('reading-back'), readingSettings = el('reading-settings'), readingDisplay = el('reading-display');
+const readingExit = el('reading-exit'), readingLibrary = el('reading-library'), readingDirectory = el('reading-index');
+const readingSizes = [...readingDisplay.querySelectorAll('[data-reading-size]')];
+const readingDisplayKey = 'globe.reading-display.v1';
 const reading = session.read;
 Object.defineProperties(reading, {
   active: { get: () => session.mode === 'Read' },
@@ -11,24 +14,18 @@ Object.defineProperties(reading, {
   ent: { get: () => resolveReadingEntity(reading.entity) },
 });
 let readingTrigger = null, readingEntryPeers = [], readingPositionTimer = 0, readerResizeFrame = 0;
+let readerWidth = 0, readerHeight = 0;
+let readingSize = 'standard';
+try {
+  const stored = localStorage.getItem(readingDisplayKey);
+  if (readingSizes.some(button => button.dataset.readingSize === stored)) readingSize = stored;
+} catch {}
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
-let readerTouch = null;
-const readerEdgeWidth = 32;
 function resolveReadingEntity(ref) {
   if (!ref) return null;
   const ent = entityByKey(ref.layerId, ref.key);
   return ent && (ref.layerId === 'country' || ent.name === ref.name) ? ent : null;
-}
-
-function canSplitReading() {
-  return !reading.catalog && !reading.library &&
-    Boolean(reading.subject || innerWidth < 960 && reading.ent && !reading.topic);
-}
-function isSplitReading() {
-  return reading.active && canSplitReading() &&
-    (window.innerWidth >= 960 || reading.viewMode === 'half');
 }
 
 function pauseGlobe() {
@@ -53,7 +50,9 @@ function readingKey() {
   return null;
 }
 function readingBlocks() {
-  return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, .reading-sources')];
+  return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, ' +
+    '.scene-plate, .reading-sources, .subject-chapter-next, details > summary, details[open] button, details[open] li, ' +
+    '.contemporary-card, .reading-connections .reading-link')].filter(node => node.getClientRects().length);
 }
 function blockFingerprint(node) {
   const text = node.textContent.replace(/\s+/g, ' ').trim().slice(0, 160);
@@ -81,70 +80,68 @@ function restoreReadingPosition(position) {
   const box = block.getBoundingClientRect();
   bookBody.scrollTop += box.top - bookBody.getBoundingClientRect().top + position.offset * box.height;
 }
-function rememberReading() {
+function measureReader() {
+  readerWidth = bookBody.clientWidth;
+  readerHeight = bookBody.clientHeight;
+}
+function readerSizeChanged() {
+  return readerWidth !== bookBody.clientWidth || readerHeight !== bookBody.clientHeight;
+}
+function rememberReading(promote = false) {
   clearTimeout(readingPositionTimer);
+  readingPositionTimer = 0;
   if (!reading.active) return;
   if (reading.catalog) { reading.catalogScroll = bookBody.scrollTop; return; }
   if (reading.library) { reading.scroll = bookBody.scrollTop; return; }
+  const previous = session.readingProgress(readingKey());
   if (reading.detail) {
-    reading.position = captureReadingPosition();
-    session.updateReadingPosition(readingKey(), reading.detail, reading.position, reading.scroll);
+    if (!readerSizeChanged()) reading.position = captureReadingPosition();
+    reading.disclosures = [...bookBody.querySelectorAll('details')].flatMap((node,index) => node.open ? [index] : []);
+    if (promote || reading.position.top > 0 || !previous?.chapter || previous.chapter === reading.detail)
+      session.updateReadingPosition(readingKey(), reading.detail, reading.position, reading.scroll, reading.disclosures);
   } else {
     reading.scroll = bookBody.scrollTop;
-    const previous = session.readingProgress(readingKey());
-    if (!reading.bookId || previous) session.updateReadingPosition(readingKey(), previous?.chapter, previous?.position, reading.scroll);
+    if (!reading.bookId) session.updateReadingPosition(readingKey(), previous?.chapter, previous?.position, reading.scroll, previous?.disclosures);
   }
 }
-function readingBackground(inert) {
-  const split = inert && isSplitReading();
-  for (const id of ['globe', 'hud', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
-    const keepLive = split && (id === 'globe' || id === 'event-map-points') ||
-      inert && reading.active && id === 'grab' && innerWidth < 960;
-    el(id).inert = keepLive ? false : inert;
-  }
-  document.body.classList.toggle('reading-open', inert);
-  document.body.classList.toggle('reading-split', split);
-  if (inert) {
-    sheetEl.setAttribute('role', 'dialog');
-    sheetEl.setAttribute('aria-labelledby', 'reading-title');
-    sheetEl.setAttribute('aria-modal', String(!split));
-  } else {
-    for (const name of ['role', 'aria-labelledby', 'aria-modal']) sheetEl.removeAttribute(name);
-  }
-  grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
-  layout();
+function readingBackground(active) {
+  for (const id of ['globe', 'hud', 'sheet', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points'])
+    el(id).inert = active;
+  if (active) canvas.setAttribute('aria-hidden', 'true');
+  else canvas.removeAttribute('aria-hidden');
+  document.body.classList.toggle('reading-open', active);
+  document.documentElement.classList.toggle('reader-paper', active);
+  themeColorMeta.content = active || standaloneGlobe && document.documentElement.classList.contains('sheet-paper')
+    ? paperThemeColor : globeThemeColor;
+  updateVernier();
 }
-function openBook(fromOffset = null, viewMode = 'half', velocity = 0, { resume = false } = {}) {
+function openBook({ resume = false } = {}) {
   if (session.mode !== 'Explore') return;
-  const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
-  if (!ent) return;
-  const book = subjectBookForEntity(ent);
+  const focus = state.focus;
+  const entity = focus && entityByKey(focus.layerId, focus.key, focus.id);
+  if (!entity) return;
+  const book = subjectBookForEntity(entity);
   const progress = resume ? savedSubjectProgress(book) : null;
-  beginReading(ent, null, progress?.chapter, fromOffset ?? sheetState.offset, book,
-    { viewMode, velocity, resumePosition: progress?.position });
+  beginReading(entity, null, progress?.chapter, book, { resumePosition: progress?.position, resumeDisclosures: progress?.disclosures });
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year,
-  viewMode = 'half', velocity = 0, resumePosition} = {}) {
+function beginReading(entity, topic, chapter, book = null, { source, entryYear = state.year, resumePosition, resumeDisclosures } = {}) {
   if (reading.active) return;
-  if (session.mode === 'Explore') rememberExplore();
-  else if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView() });
-  const entity = ent && { layerId: ent.layerId, key: ent.key, name: ent.name };
-  const key = topic ? 'topic:' + topic.id : ent ? 'atlas:' + ent.layerId + ':' + ent.key : null;
-  const saved = subject ? null : session.readingProgress(key);
+  rememberExplore();
+  if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView(), readingMap: worldEvent.spec });
+  const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
+  const key = topic ? 'topic:' + topic.id : entity ? 'atlas:' + entity.layerId + ':' + entity.key : null;
+  const saved = book ? null : session.readingProgress(key);
   const detail = chapter || saved?.chapter;
   const position = resumePosition || (saved?.chapter === detail ? saved?.position : null);
-  if (!session.enterRead({ bookId: subject?.id, topicId: topic?.id, entity, detail, position,
-    scroll: saved?.scroll, year: entryYear, viewMode,
-    source: source || (ent ? { kind: 'summary' } : { kind: 'map' }), catalog: !ent && !topic && !subject })) return;
+  if (!session.enterRead({ bookId: book?.id, topicId: topic?.id, entity: ref, detail, position,
+    disclosures: resumeDisclosures || (saved?.chapter === detail ? saved?.disclosures : []),
+    scroll: saved?.scroll, year: entryYear, source: source || (entity ? { kind: 'summary' } : { kind: 'map' }),
+    catalog: !entity && !topic && !book })) return;
   readingTrigger = document.activeElement;
   readingEntryPeers = state.focus?.atlasPeers || [];
-  if (!canSplitReading()) reading.viewMode = 'full';
-  pauseGlobe();
-  closeWorld();
-  showReader(fromOffset, velocity);
+  showReader();
   saveSession(true);
 }
-
 function validReadingFrame(frame) {
   const book = subjectsById.get(frame.bookId);
   const topic = TOPICS.find(item => item.id === frame.topicId);
@@ -158,193 +155,32 @@ function resumeStoredReading(stored) {
   const valid = validReadingFrame(stored);
   if (!valid || !session.enterRead({ ...valid, trail: stored.trail.map(validReadingFrame).filter(Boolean) })) return;
   readingEntryPeers = state.focus?.atlasPeers || [];
-  pauseGlobe();
-  if (!canSplitReading()) reading.viewMode = 'full';
-  showReader(sheetDetents().hidden);
+  showReader();
 }
-
-function showReader(fromOffset, velocity = 0, options) {
+function showReader() {
   closeYearControl();
   closeView(false);
+  closeWorld();
+  pauseGlobe();
+  cancelGlobeFly();
+  applySheetOffset(sheetDetents().hidden, false);
   bookEl.hidden = false;
-  readerLastDrag = -Infinity;
   readingBackground(true);
-  renderReading(options);
-  if (innerWidth < 960) {
-    applySheetOffset(fromOffset, false);
-    mobileReaderPaint(fromOffset);
-    mobileReaderSnap(reading.viewMode, { velocity });
-  } else if (isSplitReading()) {
-    readerPosition(0, 1);
-  } else {
-    animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
-  }
-  syncSheetIdentity();
+  applyReadingSize();
+  renderReading();
   el('reading-title').focus({ preventScroll: true });
 }
-function readerRestOffset() {
-  return session.explore.selection ? summaryOffset(session.explore.summary) : sheetDetents().hidden;
+function hideReader() {
+  clearTimeout(readingPositionTimer);
+  readingPositionTimer = 0;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = 0;
+  closeFootnote();
+  closeReadingDisplay();
+  bookEl.hidden = true;
+  readingBackground(false);
 }
-function readerPosition(offset, range = readerRestOffset()) {
-  const progress = clamp(offset / Math.max(1, range), 0, 1);
-  const fade = (start, end) => {
-    const mix = clamp((progress - start) / (end - start), 0, 1);
-    return mix * mix * (3 - 2 * mix);
-  };
-  const summary = fade(.42, .96);
-  const article = 1 - fade(.15, .68);
-  const hud = clamp((progress - .30) / .65, 0, 1);
-  applySheetOffset(offset, false);
-  sheetEl.style.setProperty('--reader-summary', summary);
-  sheetEl.style.setProperty('--reader-article', article);
-  sheetEl.style.setProperty('--reader-safe', 1 - progress);
-  sheetEl.style.setProperty('--reader-grip', progress);
-  sheetEl.style.borderRadius = (progress * 22) + 'px ' + (progress * 22) + 'px 0 0';
-  document.body.style.setProperty('--reader-hud', hud);
-  document.body.classList.toggle('reader-revealing', hud > 0);
-  if (summary > 0 && sheetScroll.scrollTop !== session.explore.summary.scroll) sheetScroll.scrollTop = session.explore.summary.scroll;
-}
-function stopReaderMotion() {
-  cancelAnimationFrame(readerMotion);
-  readerMotion = 0;
-}
-function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false } = {}) {
-  stopReaderMotion();
-  const paint = (offset) => readerPosition(offset, fromSummary ? from : undefined);
-  paint(from);
-  if (reducedReadingMotion.matches || Math.abs(to - from) < 1) {
-    paint(to);
-    onFinish?.();
-    return;
-  }
-  let offset = from, last = performance.now();
-  velocity = clamp(velocity, -1600, 1600);
-  const tick = (now) => {
-    const dt = clamp((now - last) / 1000, .001, .032);
-    last = now;
-    velocity += ((to - offset) * 330 - velocity * 34) * dt;
-    offset += velocity * dt;
-    if (Math.abs(offset - to) < .6 && Math.abs(velocity) < 8) {
-      readerMotion = 0;
-      paint(to);
-      onFinish?.();
-      return;
-    }
-    paint(clamp(offset, 0, sheetDetents().hidden));
-    readerMotion = requestAnimationFrame(tick);
-  };
-  readerMotion = requestAnimationFrame(tick);
-}
-function collapseReader(velocity = 0) {
-  if (!reading.active) return;
-  if (innerWidth < 960) { mobileReaderSnap(reading.viewMode === 'full' && canSplitReading() ? 'half' : 'peek'); return; }
-  if (isSplitReading()) { closeReader(); return; }
-  animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
-}
-function readerDragStart(e) {
-  if (innerWidth < 960 || isSplitReading()) return;
-  if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
-  if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
-  readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
-    moved: false, dy: 0, samples: [{ y: e.clientY, t: e.timeStamp }] };
-}
-function readerDragMove(e) {
-  const drag = readerDrag;
-  if (!drag || e.pointerId !== drag.id) return;
-  drag.dy = e.clientY - drag.y;
-  if (!drag.moved) {
-    const dx = Math.abs(e.clientX - drag.x);
-    if (dx > 8 && dx > Math.abs(drag.dy)) { readerDrag = null; return; }
-    if (Math.abs(drag.dy) < 6) return;
-    drag.moved = true;
-    drag.offset = bookEl.getBoundingClientRect().top;
-    stopReaderMotion();
-    if (e.pointerType === 'mouse') bookBar.setPointerCapture(e.pointerId);
-  }
-  dragReaderTo(drag.offset + drag.dy);
-  drag.samples.push({ y: e.clientY, t: e.timeStamp });
-  drag.samples = drag.samples.filter((sample) => e.timeStamp - sample.t < 110);
-}
-function readerDragEnd(e) {
-  const drag = readerDrag;
-  if (!drag || (e.pointerId !== undefined && e.pointerId !== drag.id)) return;
-  readerDrag = null;
-  bookBar.classList.remove('collapse-ready');
-  if (!drag.moved) return;
-  readerLastDrag = e.timeStamp;
-  const last = drag.samples.at(-1), first = drag.samples[0];
-  const velocity = e.timeStamp - last.t < 110 && last.t > first.t ? (last.y - first.y) / (last.t - first.t) * 1000 : 0;
-  finishReaderPull(drag.dy, velocity, e.type === 'pointerup');
-}
-function dragReaderTo(offset) {
-  const max = readerRestOffset();
-  const eased = offset > max ? max + 24 * (1 - Math.exp((max - offset) / 48)) : Math.max(0, offset);
-  readerPosition(eased);
-  bookBar.classList.toggle('collapse-ready', eased >= clamp(max * .32, 80, 132));
-}
-function finishReaderPull(distance, velocity, released) {
-  const offset = sheetState.offset;
-  const threshold = clamp(readerRestOffset() * .32, 80, 132);
-  if (released && distance > 0 && (offset >= threshold || (distance > 24 && velocity > 620))) collapseReader(velocity);
-  else animateReader(offset, 0);
-}
-function startReaderTouch(e) {
-  if (innerWidth < 960 || isSplitReading()) return;
-  if (e.touches.length !== 1) { endReaderTouch(e); return; }
-  if (readerMotion || readerDrag) return;
-  const touch = e.changedTouches[0];
-  const edge = touch.clientX <= readerEdgeWidth;
-  const canPull = bookBody.contains(e.target) && bookBody.scrollTop <= 1;
-  if (!edge && !canPull) return;
-  readerTouch = { id: touch.identifier, x: touch.clientX, y: touch.clientY, edge, canPull, axis: null, distance: 0, samples: [] };
-}
-function moveReaderTouch(e) {
-  const gesture = readerTouch;
-  if (!gesture) return;
-  if (e.touches.length !== 1 || !e.cancelable) { endReaderTouch(e); return; }
-  const touch = e.touches[0];
-  const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
-  if (!gesture.axis) {
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 6) return;
-    if (gesture.edge && dx > 0 && dx > Math.abs(dy) * 1.35) {
-      gesture.axis = 'back';
-      for (const animation of bookEl.getAnimations()) animation.cancel();
-    }
-    else if (gesture.canPull && dy > Math.abs(dx) * 1.25 && bookBody.scrollTop <= 1) gesture.axis = 'pull';
-    else { readerTouch = null; return; }
-  }
-  e.preventDefault();
-  gesture.distance = gesture.axis === 'back' ? dx : dy;
-  gesture.samples.push({ distance: gesture.distance, time: e.timeStamp });
-  gesture.samples = gesture.samples.filter((sample) => e.timeStamp - sample.time < 110);
-  if (gesture.axis === 'pull') dragReaderTo(dy);
-  else bookEl.style.transform = 'translateX(' + clamp(dx * .55, 0, view.w * .25) + 'px)';
-}
-function endReaderTouch(e) {
-  const gesture = readerTouch;
-  if (!gesture) return;
-  if (e.type === 'touchend' && !Array.from(e.changedTouches).some((touch) => touch.identifier === gesture.id)) return;
-  readerTouch = null;
-  if (!gesture.axis) return;
-  readerLastDrag = e.timeStamp;
-  const released = e.type === 'touchend';
-  const first = gesture.samples[0], last = gesture.samples.at(-1);
-  const velocity = first && last.time > first.time && e.timeStamp - last.time < 110
-    ? (last.distance - first.distance) / (last.time - first.time) * 1000 : 0;
-  if (gesture.axis === 'pull') {
-    bookBar.classList.remove('collapse-ready');
-    finishReaderPull(gesture.distance, velocity, released);
-    return;
-  }
-  const transform = bookEl.style.transform;
-  bookEl.style.transform = '';
-  const goBack = released && (gesture.distance >= clamp(view.w * .24, 72, 125) || (gesture.distance > 30 && velocity > 620));
-  if (goBack) readingGoBack();
-  if (!reducedReadingMotion.matches && reading.active && !readerMotion) {
-    bookEl.animate([{ transform: goBack ? 'translateX(18px)' : transform }, { transform: 'none' }],
-      { duration: 170, easing: 'ease-out' });
-  }
-}
+
 function timelineItem(entry) {
   const note = timelineNotes[entry.id];
   return note ? { ...entry, ...note } : entry;
@@ -368,8 +204,8 @@ function catalogNavigation() {
 }
 function sourcesMarkup(sources) {
   if (!sources.length) return '';
-  return '<section class="reading-sources"><h2>来源</h2>' +
-    sources.map((s, i) => '<a id="reading-source-' + i + '" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">[' + (i + 1) + '] ' + esc(s.title) + (s.note ? ' · ' + esc(s.note) : '') + ' ↗</a>').join('') + '</section>';
+  return '<details class="reading-sources"><summary>来源</summary><ol>' +
+    sources.map((s, i) => '<li><a id="reading-source-' + i + '" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.title) + (s.note ? ' · ' + esc(s.note) : '') + ' ↗</a></li>').join('') + '</ol></details>';
 }
 function referencesMarkup(refs) {
   return refs && refs.length ? '<span class="reading-refs">' + refs.map((i) => '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '">[' + (i + 1) + ']</a>').join(' ') + '</span>' : '';
@@ -388,25 +224,25 @@ function followReadingTopic(topicId, chapterId) {
   const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
   const position = detail && saved?.chapter === detail ? saved.position : null;
   navigateReading({ catalog: false, library: false, bookId: null, topicId: target.id, detail,
-    scroll: saved?.scroll || 0, position, linkEntry: true });
+    scroll: saved?.scroll || 0, position, disclosures: position ? saved.disclosures : [], linkEntry: true });
 }
 function navigateReading(target) {
   if (!reading.active) return;
   rememberReading();
-  if (!session.navigateReading(target)) return;
+  if (!session.navigateReading({ directory: false, disclosures: [], ...target })) return;
   renderReading();
   el('reading-title').focus({preventScroll:true});
   saveSession(true);
 }
 function openReadingCatalog() {
-  if (!reading.catalog) navigateReading({ catalog: true, library: false, catalogContinent: '全部', catalogScroll: 0 });
+  if (!reading.catalog) navigateReading({ catalog: true, library: false, bookId: null, topicId: null,
+    entity: null, detail: null, catalogContinent: '全部', catalogScroll: 0 });
 }
 function renderReadingCatalog() {
   const continents = ['全部','亚洲','非洲','欧洲','北美洲','南美洲','大洋洲'];
   const selected = reading.catalogContinent;
   const topics = TOPICS.filter(t => selected === '全部' || t.continents.includes(selected)).sort((a,b)=>a.from-b.from || a.id.localeCompare(b.id));
   const year = y => y < 0 ? '前' + Math.abs(y) : '公元' + y;
-  setReadingBack(reading.trail.length ? '返回阅读' : '');
   bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">补充专题资料</h1>' +
     '<nav class="reading-filters" aria-label="按大洲筛选">' + continents.map(c=>'<button type="button" data-reading-continent="'+c+'" aria-pressed="'+(c===selected)+'">'+c+'</button>').join('') + '</nav>' +
     '<p class="when" role="status">'+topics.length+' 组专题</p>' + topics.map(t=>'<button type="button" class="reading-card reading-link" data-reading-topic="'+esc(t.id)+'"><small>'+year(t.from)+'—'+year(t.to)+'</small><strong>'+esc(t.title)+'</strong><span>'+esc(t.summary)+'</span>'+readingArrow+'</button>').join('');
@@ -414,7 +250,8 @@ function renderReadingCatalog() {
 }
 function setReadingBack(label) {
   readingBack.hidden = !label;
-  readingBack.setAttribute('aria-label', label || '返回');
+  readingBack.setAttribute('aria-label', label || '返回上一级');
+  readingBack.title = label || '返回上一级';
 }
 function readingHeading(title, meta) {
   return '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><div class="reading-meta"><p class="when">' + esc(meta) + '</p></div>';
@@ -424,109 +261,83 @@ function renderReadingArticle(topic, items, item) {
   const body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
     '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
   const next = items[items.indexOf(item) + 1];
-  return readingHeading(item.opening?.headline || item.title, readingDate(item)) + body + connectionsMarkup(topic, item) +
+  return '<p class="subject-book-label">' + esc(topic.title) + ' · 第 ' + (items.indexOf(item) + 1) + ' 篇 / 共 ' +
+    items.length + ' 篇</p>' + readingHeading(item.opening?.headline || item.title, readingDate(item)) +
+    '<p id="reading-progress" class="reading-progress"></p>' + body + connectionsMarkup(topic, item) +
     (next ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
     sourcesMarkup(item.sources) + catalogNavigation();
 }
-function renderReading({ preserveSplitScene = false } = {}) {
-  if (reading.active) {
-    readingBackground(true);
-    refreshReadingViewport();
+function renderReading() {
+  if (!reading.active) return;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = 0;
+  const book = reading.subject, topic = reading.topic, item = (book || topic)?.chapters.find(c => c.id === reading.detail);
+  const title = reading.library ? '历史书目' : reading.catalog ? '补充专题资料'
+    : book?.title || topic?.title || (reading.ent && subjectEntityName(reading.ent)) || '地图资料';
+  el('reading-book-name').textContent = title;
+  readingLibrary.hidden = reading.library;
+  readingDirectory.hidden = !item;
+  readingExit.textContent = session.observe ? '返回观察' : reading.source.kind === 'events' ? '返回史事' : '合上';
+  readingExit.setAttribute('aria-label', session.observe ? '返回观察' : reading.source.kind === 'events' ? '返回史事' : '合上书卷，返回地球');
+  setReadingBack(reading.directory ? '返回正文' : item && !reading.linkEntry ?
+    (book ? '返回书卷首页' : '返回专题') : reading.trail.length ? '返回上一级' : '');
+  if (reading.catalog) renderReadingCatalog();
+  else if (reading.library) renderSubjectLibrary();
+  else if (book) bookBody.innerHTML = item ? renderSubjectChapter(book, item) : renderSubjectOutline(book);
+  else if (topic && item) bookBody.innerHTML = renderReadingArticle(topic, topic.chapters, item);
+  else if (topic) bookBody.innerHTML = readingHeading(topic.title, topic.subtitle) + '<p class="lede">' + esc(topic.summary) + '</p>' +
+    readingRows(topic.chapters.map(chapter => readingRow(chapter)), '专题篇目') +
+    connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
+  else bookBody.innerHTML = renderAtlasReading();
+  if (item) {
+    const details = bookBody.querySelectorAll('details');
+    for (const index of reading.disclosures) if (details[index]) details[index].open = true;
+    updateReadingLocation();
+    restoreReadingPosition(reading.position);
   }
-  syncSheetIdentity();
-  if (reading.catalog) { clearSplitScene(); renderReadingCatalog(); return; }
-  if (reading.library) { clearSplitScene(); renderSubjectLibrary(); return; }
-  if (reading.subject || !reading.topic) {
-    const subject = reading.subject;
-    const chapter = subject?.chapters.find((item) => item.id === reading.detail);
-    if (subject) setReadingBack(chapter ? '返回目录' : reading.trail.length ? '返回上一级' : '');
-    bookBody.innerHTML = subject
-      ? chapter ? renderSubjectChapter(subject, chapter) : renderSubjectOutline(subject)
-      : renderAtlasReading();
-    if (chapter) restoreReadingPosition(reading.position);
-    else bookBody.scrollTop = reading.scroll;
-    if (innerWidth >= 960 && subject && isSplitReading()) {
-      // Opening the table of contents must not jump the globe back to the first scene.
-      if (!preserveSplitScene) syncSubjectGlobeForReading(subject, chapter);
-    } else if (splitScene) {
-      clearSplitScene();
-    }
-    return;
-  }
-  clearSplitScene();
-  const topic = reading.topic, items = topic.chapters;
-  const item = reading.detail !== null ? items.find((c) => String(c.id) === String(reading.detail)) : null;
-  if (!item) reading.detail = null;
-  setReadingBack(reading.trail.length && (reading.linkEntry || !item) ? '返回上一级' : item ? '返回专题' : '');
-  if (item) bookBody.innerHTML = renderReadingArticle(topic, items, item);
-  else {
-    bookBody.innerHTML = readingHeading(topic.title, topic.subtitle) + '<p class="lede">' + esc(topic.summary) + '</p>' +
-      readingRows(items.map((chapter) => readingRow(chapter)), '专题篇目') +
-      connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
-  }
-  if (item) restoreReadingPosition(reading.position);
-  else bookBody.scrollTop = reading.scroll;
-  syncSheetIdentity();
+  else bookBody.scrollTop = reading.catalog ? reading.catalogScroll : reading.scroll;
+  measureReader();
+  updateReadingLocation();
 }
-function openReadingDetail(id, position = null) {
-  if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id) || reading.detail === id) return;
+function openReadingDetail(id, position = null, { restart = false, sequence = false, disclosures = [] } = {}) {
+  if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id)) return;
+  if (reading.detail === id && !restart) return;
   rememberReading();
-  const previous = reading.topicId && session.readingProgress(readingKey());
-  if (!position && previous?.chapter === id) position = previous.position;
+  if (reading.directory) session.backReading();
+  const previous = session.readingProgress(readingKey());
+  if (!restart && !position && previous?.chapter === id) {
+    position = previous.position;
+    disclosures = previous.disclosures;
+  }
   reading.linkEntry = false;
   reading.detail = id;
   reading.position = session.position(position);
+  reading.disclosures = disclosures;
   renderReading();
   el('reading-title').focus({ preventScroll: true });
-  rememberReading();
+  rememberReading(restart || sequence);
   saveSession(true);
 }
 function readingIndex() {
-  if (!reading.active) return;
+  if (!reading.active || !reading.detail) return;
   const selected = reading.detail;
-  rememberReading();
-  reading.linkEntry = false;
-  const preserveSplitScene = Boolean(isSplitReading() && reading.subject && splitScene);
-  reading.detail = null;
-  renderReading({preserveSplitScene});
-  const row = [...bookBody.querySelectorAll('.reading-row')].find((button) => button.dataset.readingDetail === selected);
-  (row || el('reading-title')).focus({ preventScroll: true });
-  saveSession(true);
+  navigateReading({ detail: null, directory: true, scroll: 0, position: null });
+  const row = [...bookBody.querySelectorAll('[data-reading-detail]')].find(button =>
+    button.dataset.readingDetail === selected && button.closest('ol'));
+  row?.focus();
 }
 function readingGoBack() {
   if (!reading.active || closeTopNavigationPanel()) return;
-  if (!reading.catalog && !reading.library && reading.subject && reading.detail !== null && !reading.linkEntry) {
-    readingIndex();
-    return;
-  }
-  if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
-    rememberReading(); session.backReading(); renderReading();
-    (readingBack.hidden ? el('reading-title') : readingBack).focus({preventScroll:true});
-    saveSession(true);
-  } else if (reading.detail !== null) readingIndex();
-  else closeReader();
-}
-function hideReader() {
-  clearTimeout(readingPositionTimer);
-  cancelAnimationFrame(readerResizeFrame);
-  stopReaderMotion();
-  clearSplitScene();
-  readerDrag = null;
-  readerTouch = null;
-  stopSheetMotion();
-  mobileReaderDrag = null;
-  mobileScrollHandoff = null;
-  sheetEl.classList.remove('dragging');
-  document.body.classList.remove('reader-gesture');
-  bookEl.style.transform = '';
-  bookBar.classList.remove('collapse-ready');
-  closeFootnote();
-  bookEl.hidden = true;
-  document.body.classList.remove('reader-revealing', 'reading-split');
-  sheetEl.style.borderRadius = '';
-  for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
-  document.body.style.removeProperty('--reader-hud');
-  readingBackground(false);
+  rememberReading();
+  if (reading.trail.length && (reading.directory || reading.linkEntry || !reading.detail)) session.backReading();
+  else if (reading.detail) {
+    reading.detail = null;
+    reading.scroll = 0;
+    reading.position = session.position();
+  } else { closeReader(); return; }
+  renderReading();
+  (reading.detail ? readingDirectory : el('reading-title')).focus({ preventScroll: true });
+  saveSession(true);
 }
 function closeReader() {
   if (!reading.active || closeTopNavigationPanel()) return;
@@ -534,11 +345,8 @@ function closeReader() {
   const source = reading.source;
   session.exitRead();
   hideReader();
-  if (session.mode === 'Observe') {
-    sheetState.detent = 'hidden';
-    applySheetOffset(sheetDetents().hidden, false);
-    resumeEventMap();
-  } else {
+  if (session.mode === 'Observe') resumeEventMap();
+  else {
     restoreExploreView();
     if (source.kind === 'events') restoreWorldSource(source);
     else {
@@ -553,21 +361,23 @@ function closeReader() {
   invalidate();
   saveSession(true);
 }
-function handleReadingKey(e) {
+function handleReadingKey(event) {
   if (!reading.active) return false;
-  if (e.key === 'Tab' && !isSplitReading()) {
-    const focusable = [...sheetEl.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href]')]
-      .filter(node => node.getClientRects().length && !node.closest('[inert]'));
-    const first = focusable[0], last = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  }
+  if (event.key !== 'Tab') return true;
+  const scope = footnoteTrigger ? el('footnote-popover') : bookEl;
+  const items = [...scope.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href], summary')]
+    .filter(node => node.getClientRects().length && !node.closest('[inert]'));
+  const first = items[0], last = items[items.length - 1], active = document.activeElement;
+  if (event.shiftKey && active === first) { event.preventDefault(); last?.focus(); }
+  else if (!event.shiftKey && active === last) { event.preventDefault(); first?.focus(); }
   return true;
 }
 let footnoteTrigger = null;
 function closeFootnote(restoreFocus = false) {
+  if (!footnoteTrigger) return;
   el('footnote-popover').hidden = true;
   el('footnote-shade').hidden = true;
+  bookEl.inert = false;
   if (restoreFocus && footnoteTrigger?.isConnected) footnoteTrigger.focus({ preventScroll: true });
   footnoteTrigger = null;
 }
@@ -579,6 +389,7 @@ function openFootnote(link) {
   el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
   el('footnote-link').href = source.href;
   el('footnote-shade').hidden = el('footnote-popover').hidden = false;
+  bookEl.inert = true;
   el('footnote-close').focus({ preventScroll: true });
   return true;
 }
@@ -589,27 +400,12 @@ bookBody.addEventListener('click', (event) => {
   if (ref && openFootnote(ref)) event.preventDefault();
 });
 
-bookBody.addEventListener('scroll', () => {
-  if (!reading.active) return;
-  if (!readingPositionTimer) readingPositionTimer = setTimeout(() => {
-    readingPositionTimer = 0;
-    rememberReading();
-    saveSession();
-  }, 100);
-  if (innerWidth >= 960 && isSplitReading()) scheduleSplitScrollSync();
-}, { passive: true });
-addEventListener('resize', () => {
-  if (!reading.active || !reading.detail || !reading.position.block) return;
-  const position = reading.position, detail = reading.detail;
-  cancelAnimationFrame(readerResizeFrame);
-  readerResizeFrame = requestAnimationFrame(() => {
-    if (reading.active && reading.detail === detail && position === reading.position) restoreReadingPosition(position);
-  });
-});
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
-  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail);
+  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail, null, {
+    restart: b.hasAttribute('data-reading-restart'), sequence: b.hasAttribute('data-reading-sequence'),
+  });
   else if (b.hasAttribute('data-reading-topic')) followReadingTopic(b.dataset.readingTopic, b.dataset.readingChapter);
   else if (b.hasAttribute('data-reading-catalog')) openReadingCatalog();
   else if (b.hasAttribute('data-reading-continent')) {
@@ -621,229 +417,77 @@ bookBody.addEventListener('click', (e) => {
   else if (b.hasAttribute('data-reading-index')) readingIndex();
   else handleSubjectButton(b);
 });
-readingBack.addEventListener('click', () => { if (!readingBack.hidden) readingGoBack(); });
-function dismissReading() {
-  closeReader();
-}
-el('sheet-close').addEventListener('click', () => {
-  if (innerWidth < 960 && reading.active) mobileReaderSnap('peek');
-  else if (reading.active) dismissReading();
-  else closeSheet();
-});
-readingGrab.addEventListener('click', (e) => {
-  if (!e.detail || e.timeStamp - readerLastDrag > 300) dismissReading();
-});
-readingGrab.addEventListener('keydown', (e) => {
-  if (e.key !== 'ArrowDown') return;
-  e.preventDefault();
-  dismissReading();
-});
-bookBar.addEventListener('pointerdown', readerDragStart);
-bookBar.addEventListener('lostpointercapture', readerDragEnd);
-addEventListener('pointermove', readerDragMove);
-addEventListener('pointerup', readerDragEnd);
-addEventListener('pointercancel', readerDragEnd);
-addEventListener('blur', readerDragEnd);
-matchMedia('(min-width:960px)').addEventListener('change', () => {
-  if (reading.active) {
-    readingBackground(true);
-    refreshReadingViewport();
-    if (innerWidth >= 960 && isSplitReading()) {
-      const ch = reading.subject.chapters.find((c) => c.id === reading.detail);
-      syncSubjectGlobeForReading(reading.subject, ch);
-    } else {
-      clearSplitScene();
-    }
-  }
-});
-bookEl.addEventListener('touchstart', startReaderTouch, { passive: true });
-bookEl.addEventListener('touchmove', moveReaderTouch, { passive: false });
-bookEl.addEventListener('touchend', endReaderTouch);
-bookEl.addEventListener('touchcancel', endReaderTouch);
-bookEl.addEventListener('click', (e) => {
-  if (e.detail && e.timeStamp - readerLastDrag < 300) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}, true);
 
-/* v7 · Read the same book in a globe/reader comparison or a full paper view. */
-function setReadingViewMode(mode) {
-  if (!reading.active || !['half', 'full'].includes(mode)) return;
-  rememberReading();
-  const scroll = bookBody.scrollTop;
-  reading.viewMode = mode;
-  stopReaderMotion();
-  readingBackground(true);
-  readerPosition(0, 1);
-  if (mode === 'half' && innerWidth < 960) applySheetOffset(sheetDetents().half, false);
-  else applySheetOffset(0, false);
-  if (innerWidth >= 960 && isSplitReading() && reading.subject) {
-    const chapter = reading.subject.chapters.find(c => c.id === reading.detail);
-    syncSubjectGlobeForReading(reading.subject, chapter);
-  } else clearSplitScene();
-  if (reading.detail) restoreReadingPosition(reading.position);
-  else bookBody.scrollTop = scroll;
-  syncSheetIdentity();
-  invalidate();
+function updateReadingLocation() {
+  const label = el('reading-progress');
+  if (!label) return;
+  const extent = bookBody.scrollHeight - bookBody.clientHeight;
+  const percent = extent > 1 ? Math.min(100, Math.round(bookBody.scrollTop * 100 / extent)) : 0;
+  label.textContent = (reading.topic ? '本篇' : '本章') + '阅读位置 ' + percent + '%';
 }
-
-/* v8 · Mobile archival sheet. One continuous pointer gesture across peek/half/full.
- * The shell uses translateY on a full-height sheet, so visible height is H-offset.
- * Book scroll position and the real WebGL globe remain owned by the existing modules. */
-const mobileSheetTop = el('sheet-top');
-let mobileReaderDrag = null, mobileScrollHandoff = null;
-function refreshReadingViewport() {
-  if (readerMotion || sheetMotion || mobileReaderDrag) return;
-  applySheetOffset(innerWidth < 960 && isSplitReading() ? sheetDetents().half : 0, false);
+function applyReadingSize() {
+  bookEl.dataset.size = readingSize;
+  for (const option of readingSizes) option.setAttribute('aria-pressed', String(option.dataset.readingSize === readingSize));
 }
-function mobileReaderPaint(offset) {
-  const { hidden, peek, half } = sheetDetents();
-  const pass = clamp((offset - half) / Math.max(1, peek - half), 0, 1);
-  const summary = session.explore.selection ? clamp((pass - .52) / .48, 0, 1) : 0;
-  const article = 1 - clamp((pass - .26) / .58, 0, 1);
-  sheetEl.style.transition = 'none';
-  sheetEl.style.setProperty('--reader-summary', summary);
-  sheetEl.style.setProperty('--reader-article', article);
-  document.body.style.setProperty('--reader-hud', clamp(offset / half, 0, 1));
-  document.body.classList.toggle('reader-revealing', offset > 1);
-  // Preserve the scroll range while a reader with an existing position changes height.
-  if (bookBody.scrollTop <= 1) {
-    sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, hidden - Math.max(0, offset)) + 'px');
-  }
-  paintSheetPosition(offset);
-}
-function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {
-  if (!reading.active || innerWidth >= 960 || mobileReaderDrag) return false;
-  stopSheetMotion();
-  stopReaderMotion();
-  mobileReaderDrag = {
-    source, pointerId, startY:clientY,
-    startOffset:sheetState.offset, startMode:canSplitReading() ? reading.viewMode : 'full',
-    moved:false, samples:[{y:clientY,t:timeStamp}],
-  };
+function closeReadingDisplay(restoreFocus = false) {
+  if (readingDisplay.hidden) return false;
+  readingDisplay.hidden = true;
+  readingSettings.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) readingSettings.focus({ preventScroll: true });
   return true;
 }
-function mobileReaderMove(clientY, timeStamp) {
-  const g = mobileReaderDrag;
-  if (!g) return;
-  const dy = clientY - g.startY;
-  if (!g.moved && Math.abs(dy) < 5) return;
-  if (!g.moved) {
-    g.moved = true;
-    sheetEl.classList.add('dragging');
-    document.body.classList.add('reader-gesture');
-  }
-  g.samples.push({y:clientY,t:timeStamp});
-  g.samples = g.samples.filter(s => timeStamp - s.t <= 110);
-  mobileReaderPaint(sheetDragPosition(g.startOffset + dy));
-}
-function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
-  const g = mobileReaderDrag;
-  if (!g) return;
-  mobileReaderDrag = null;
-  document.body.classList.remove('reader-gesture');
-  sheetEl.classList.remove('dragging');
-  if (!g.moved || cancelled) {
-    mobileReaderSnap(g.startMode, {immediate:!g.moved});
-    return;
-  }
-  readerLastDrag = timeStamp;
-  const velocity = sheetReleaseVelocity(g.samples, timeStamp);
-  const modes = canSplitReading() ? ['full', 'half', 'peek'] : ['full', 'peek'];
-  mobileReaderSnap(sheetSnapTarget(g.startMode, sheetState.offset, velocity, modes), { velocity });
-}
-function mobileReaderSnap(mode, { immediate = false, velocity = 0 } = {}) {
-  if (!reading.active) return;
-  if (mode === 'half' && !canSplitReading()) return;
-  if (innerWidth >= 960) {
-    if (mode === 'peek') closeReader();
-    return;
-  }
-  const end = sheetDetents()[mode === 'peek' && !session.explore.selection ? 'hidden' : mode];
-  const finish = () => {
-    if (mode === 'peek') {
-      dismissReading();
-      return;
-    }
-    reading.viewMode = mode;
-    readingBackground(true);
-    refreshReadingViewport();
-    syncSheetIdentity();
-    invalidate();
-    saveSession();
-  };
-  settleSheet(end, mobileReaderPaint, finish, velocity, !immediate);
-}
-mobileSheetTop.addEventListener('pointerdown', event => {
-  if (innerWidth >= 960 || !reading.active || !event.isPrimary || event.button !== 0 ||
-      event.target.closest('button, a, input')) return;
-  if (mobileReaderStart(event.clientY,event.timeStamp,'header',event.pointerId)) {
-    try { mobileSheetTop.setPointerCapture(event.pointerId); } catch {}
-  }
+readingSettings.addEventListener('click', () => {
+  if (closeReadingDisplay(true)) return;
+  readingDisplay.hidden = false;
+  readingSettings.setAttribute('aria-expanded', 'true');
+  readingDisplay.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
 });
-mobileSheetTop.addEventListener('pointermove', event => {
-  if (mobileReaderDrag?.source === 'header' && event.pointerId === mobileReaderDrag.pointerId)
-    mobileReaderMove(event.clientY,event.timeStamp);
+readingDisplay.addEventListener('click', event => {
+  const option = event.target.closest('[data-reading-size]');
+  if (!option || option.dataset.readingSize === readingSize) return;
+  const position = reading.detail ? captureReadingPosition() : null;
+  readingSize = option.dataset.readingSize;
+  applyReadingSize();
+  if (position) { restoreReadingPosition(position); measureReader(); rememberReading(); saveSession(true); }
+  updateReadingLocation();
+  try { localStorage.setItem(readingDisplayKey, readingSize); } catch {}
 });
-for (const kind of ['pointerup','pointercancel','lostpointercapture']) {
-  mobileSheetTop.addEventListener(kind, event => {
-    if (mobileReaderDrag?.source === 'header' && mobileReaderDrag.pointerId === event.pointerId)
-      mobileReaderFinish(kind !== 'pointerup',event.timeStamp);
-  });
-}
-// Book-body native vertical scroll is untouched until a *downward* overscroll at the top.
-bookBody.addEventListener('touchstart', event => {
-  if (innerWidth >= 960 || !reading.active || event.touches.length !== 1 ||
-      event.target.closest('button, a, input, summary')) {
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
-    return;
-  }
-  mobileScrollHandoff = { id:event.touches[0].identifier, y:event.touches[0].clientY, x:event.touches[0].clientX };
-}, {passive:true});
-bookBody.addEventListener('touchmove', event => {
-  const g = mobileScrollHandoff;
-  if (!g) return;
-  if (event.touches.length !== 1 || event.touches[0].identifier !== g.id) {
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
-    return;
-  }
-  const {clientX, clientY} = event.touches[0];
-  const dy = clientY - g.y;
-  const dx = clientX - g.x;
-  if (!mobileReaderDrag) {
-    if (bookBody.scrollTop > 1 || !event.cancelable || dy < -5) {
-      g.y = clientY;
-      g.x = clientX;
-      return;
-    }
-    if (Math.abs(dx) > Math.abs(dy) + 5) { mobileScrollHandoff = null; return; }
-    if (dy < 8 || dy < Math.abs(dx) * 1.25) return;
-    mobileReaderStart(g.y,event.timeStamp,'scroll');
-  }
-  if (mobileReaderDrag?.source !== 'scroll') return;
-  if (event.cancelable) event.preventDefault();
-  mobileReaderMove(clientY,event.timeStamp);
-}, {passive:false});
-for (const kind of ['touchend','touchcancel']) {
-  bookBody.addEventListener(kind, event => {
-    if (!mobileScrollHandoff || !Array.from(event.changedTouches).some(t => t.identifier === mobileScrollHandoff.id)) return;
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(kind !== 'touchend',event.timeStamp);
-  });
-}
+bookEl.addEventListener('pointerdown', event => {
+  if (!readingDisplay.contains(event.target) && !readingSettings.contains(event.target)) closeReadingDisplay();
+});
+readingBack.addEventListener('click', readingGoBack);
+readingExit.addEventListener('click', closeReader);
+readingDirectory.addEventListener('click', readingIndex);
+readingLibrary.addEventListener('click', () => followSubject({ library: true }));
 
-// Header taps navigate adjacent levels; movement-generated synthetic clicks are ignored.
-mobileSheetTop.addEventListener('click', event => {
-  // #grab has its own click handler. Never let one tap trigger both actions.
-  if (innerWidth >= 960 || event.target.closest('#grab, button, a, input') ||
-      sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
-  if (!reading.active) {
-    if (sheetState.detent === 'peek') openPeekProgressively();
-    return;
-  }
-  if (isSplitReading()) mobileReaderSnap('full');
-  else collapseReader();
-});
+bookBody.addEventListener('scroll', () => {
+  if (!reading.active || readerResizeFrame) return;
+  if (readerSizeChanged()) { reflowReading(); return; }
+  if (reading.detail) reading.position = captureReadingPosition();
+  if (!readingPositionTimer) readingPositionTimer = setTimeout(() => {
+    rememberReading();
+    updateReadingLocation();
+    saveSession();
+  }, 100);
+}, { passive: true });
+bookBody.addEventListener('toggle', event => {
+  if (reading.active && reading.detail && event.target.matches('details')) { rememberReading(); saveSession(); }
+}, true);
+function reflowReading() {
+  if (!reading.active || !readerSizeChanged()) return;
+  if (!reading.detail) { measureReader(); return; }
+  const position = reading.position, detail = reading.detail;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = requestAnimationFrame(() => {
+    readerResizeFrame = 0;
+    if (reading.active && reading.detail === detail) {
+      restoreReadingPosition(position);
+      measureReader();
+      rememberReading();
+      saveSession();
+    }
+    updateReadingLocation();
+  });
+}
+addEventListener('resize', reflowReading);
+new ResizeObserver(reflowReading).observe(bookBody);

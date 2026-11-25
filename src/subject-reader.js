@@ -61,12 +61,8 @@ function savedSubjectProgress(book) {
   return saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
 }
 
-function subjectLibraryLink() {
-  return '<nav class="reading-next"><button type="button" data-subject-library>历史书目' + readingArrow + '</button></nav>';
-}
-
-function subjectChapterButton(id, label) {
-  return '<button type="button" data-reading-detail="' + esc(id) + '">' + esc(label) + readingArrow + '</button>';
+function subjectChapterButton(id, label, attributes = '') {
+  return '<button type="button" data-reading-detail="' + esc(id) + '"' + attributes + '>' + esc(label) + readingArrow + '</button>';
 }
 
 function subjectNeighbors() {
@@ -90,10 +86,9 @@ function subjectNeighbors() {
 
 function renderAtlasReading() {
   const entity = reading.ent;
-  setReadingBack(reading.trail.length ? '返回上一级' : '');
   const title = subjectEntityName(entity);
   const history = entity.kind === 'polity';
-  return '<div class="atlas-reading">' + readingHeading(title, fmtYear(reading.year) + ' 年') +
+  return '<div class="atlas-reading">' + readingHeading(title, '地图资料 · ' + yearLabel(reading.year)) +
     '<p class="lede">这个主体的历史正文尚未收录。</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
@@ -101,40 +96,37 @@ function renderAtlasReading() {
       ? '<details class="subject-secondary"><summary>底图原名</summary><p>' + esc(entity.name) + '</p></details>' : '') +
     subjectNeighbors() +
     sourcesMarkup(history ? [{title:'历史疆域 · Cliopatria',url:'https://github.com/Seshat-Global-History-Databank/cliopatria'}]
-      : [{title:'现代底图 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) +
-    subjectLibraryLink() + '</div>';
+      : [{title:'现代参考边界 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) + '</div>';
 }
 
 function renderSubjectOutline(book) {
   const anchor = book.chapters.find((c) => coversYear(c, reading.year));
   const progress = savedSubjectProgress(book);
-  return readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
+  const current = reading.directory ? reading.trail.at(-1)?.detail : null;
+  return '<div class="reading-cover">' + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
-    (progress ? '<button type="button" data-subject-resume>继续阅读' + readingArrow + '</button>' : '') +
-    subjectChapterButton(book.chapters[0].id, '从头读') +
-    (anchor && anchor !== book.chapters[0] && anchor.id !== progress?.chapter
-      ? subjectChapterButton(anchor.id, '跳到 ' + fmtYear(reading.year) + ' 年所在章节') : '') + '</nav>' +
-    '<div class="subject-outline">' + readingRows(book.chapters.map((c) => readingRow({ ...c, date: subjectYears(c) },
-      { current: c === anchor, timeline: true })), '章节目录', true) + '</div>' +
-    subjectNeighbors() + subjectLibraryLink();
+    (progress ? '<button type="button" class="reading-primary" data-subject-resume>继续阅读</button>' : '') +
+    subjectChapterButton(book.chapters[0].id, '从头读', progress ? ' data-reading-restart' : ' class="reading-primary" data-reading-restart') +
+    '</nav>' + (anchor ? '<button type="button" class="reading-entry-year" data-reading-detail="' + esc(anchor.id) + '">' +
+      esc(yearLabel(reading.year) + '对应章节 · ' + anchor.title) + readingArrow + '</button>' : '') +
+    '</div><section class="subject-outline" aria-labelledby="reading-index-title"><h2 id="reading-index-title">章节目录</h2>' +
+    '<ol class="reading-list">' + book.chapters.map((chapter, index) => {
+      const active = chapter.id === current;
+      const status = [active ? '正在阅读' : '', chapter === anchor ? '入口年份' : '',
+        chapter.id === progress?.chapter ? '上次读到' : ''].filter(Boolean).join(' · ');
+      return '<li><button type="button" class="reading-row reading-card" data-reading-detail="' + esc(chapter.id) + '"' +
+        (active ? ' aria-current="location"' : '') + '><span class="chapter-number" aria-hidden="true">' +
+        String(index + 1).padStart(2, '0') + '</span><span class="reading-row-copy"><strong>' + esc(chapter.title) + '</strong>' +
+        (status ? '<span class="chapter-status">' + esc(status) + '</span>' : '') + '</span><small>' +
+        esc(subjectYears(chapter)) + '</small></button></li>';
+    }).join('') + '</ol></section>' + subjectNeighbors();
 }
 
 function sceneButton(scene) {
-  const places = scene.places.slice(0, 3).map(place => place.name).join('、') + (scene.places.length > 3 ? '等 ' + scene.places.length + ' 处地点' : '');
-  const badges = [];
-  if (scene.routes?.length) badges.push('含路线');
-  if (scene.steps?.length) badges.push(scene.steps.length + ' 步推演');
-  if (scene.focusPolities?.length > 1) badges.push(scene.focusPolities.length + ' 方政权');
-  const badgeHtml = badges.length
-    ? '<span class="subject-scene-badges">' + badges.map(b => '<em>' + esc(b) + '</em>').join('') + '</span>'
-    : '';
-  const routeType = scene.routes?.[0]?.type || scene.routes?.[0]?.kind || 'trade';
-  const label = ({canal:'漕运', military:'军事', frontier:'边防', trade:'贸易'})[routeType] || '史地';
-  return '<button type="button" class="subject-scene scene-plate" data-subject-scene="' + esc(scene.id) + '">' +
-    '<span class="scene-plate-top"><span class="scene-plate-tags"><em class="route-pill ' + esc(routeType) + '">' + label +
-    '</em><small>' + esc(fmtYear(scene.year) + ' 年') + '</small></span><b>在地球观察 →</b></span>' +
-    '<strong>' + esc(scene.title) + '</strong><small class="scene-plate-desc">' + esc(scene.summary) + '</small>' +
-    '<span class="scene-place-preview">' + esc(places) + '</span>' + badgeHtml + '</button>';
+  return '<figure class="scene-plate"><figcaption><strong>' + esc(scene.title) + '</strong><small>' +
+    esc(yearLabel(scene.year)) + '</small><p>' + esc(scene.summary) + '</p></figcaption>' +
+    '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) +
+    '" aria-label="' + esc('在地球上观察 · ' + scene.title) + '">在地球上观察' + readingArrow + '</button></figure>';
 }
 
 function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
@@ -202,16 +194,9 @@ function renderSubjectChapter(book, chapter) {
       }).join('') + '</div></section>'
     : '';
 
-  const thesisHtml = chapter.spatialThesis
-    ? '<div class="subject-thesis"><span>空间线索</span><p>' + esc(chapter.spatialThesis) + '</p></div>'
-    : '';
-
-  const ribbon = '<nav class="chapter-ribbon" aria-label="切换书卷章节">' + book.chapters.map((item, i) =>
-    '<button type="button" class="chapter-chip" data-reading-detail="' + esc(item.id) + '" aria-current="' +
-    (item.id === chapter.id ? 'page' : 'false') + '">' + (i + 1) + ' · ' + esc(item.title) + '</button>').join('') + '</nav>';
-  return ribbon + '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
+  return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章 / 共 ' + book.chapters.length + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
-    thesisHtml +
+    '<p id="reading-progress" class="reading-progress"></p>' +
     '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {
       const headingHtml = paragraph.heading
         ? '<h2 class="subject-section-heading">' + esc(paragraph.heading) + '</h2>'
@@ -225,38 +210,23 @@ function renderSubjectChapter(book, chapter) {
       return headingHtml +
         '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
         calloutHtml +
-        (!session.observe ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
+        scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('');
     }).join('') + '</article>' +
+    '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
+    (next ? subjectChapterButton(next.id, '下一章 · ' + next.title, ' class="reading-primary" data-reading-sequence')
+      : '<p>已到书卷末尾</p><button type="button" data-reading-index>返回目录' + readingArrow + '</button>') +
+    (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' +
+    (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p>' + esc(chapter.spatialThesis) + '</p></details>' : '') +
     contemporaries +
-    (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
-      (next ? subjectChapterButton(next.id, '下一章 · ' + next.title) : '') +
-      (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' : '') +
     (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
       related + '</nav></details>' : '') +
     sourcesMarkup(sources);
 }
 
-function syncSubjectGlobeForReading(book, chapter) {
-  if (!isSplitReading() || !book) return;
-  const firstRef = chapter?.sceneRefs?.[0] || book.chapters.find((c) => c.sceneRefs?.length)?.sceneRefs?.[0];
-  if (firstRef) {
-    const sc = historicalScenes.get(firstRef.id);
-    if (sc) { syncSplitScene(sc, { force: true }); return; }
-  }
-  clearSplitScene();
-  const targetYear = chapter ? chapter.from : clamp(reading.year, book.from, book.to ?? book.from);
-  if (state.year !== targetYear) {
-    state.year = targetYear;
-    onYearChanged();
-  }
-}
-
 function renderSubjectLibrary() {
-  setReadingBack('返回阅读');
-  bookBody.innerHTML = readingHeading('历史书目', '从建立、转折读到结局与影响') +
+  bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">历史书目</h1>' + catalogNavigation() +
     subjectBooks.map((book) => '<button class="reading-card reading-link" type="button" data-subject-book="' + esc(book.id) +
-      '"><small>' + esc(subjectYears(book)) + '</small><strong>' + esc(book.title) + '</strong>' + readingArrow + '</button>').join('') +
-    '<nav class="reading-next"><button type="button" data-reading-catalog>补充专题资料' + readingArrow + '</button></nav>';
+      '"><small>' + esc(subjectYears(book)) + '</small><strong>' + esc(book.title) + '</strong>' + readingArrow + '</button>').join('');
   bookBody.scrollTop = reading.scroll;
 }
 
@@ -269,9 +239,8 @@ function followSubject({ book = null, chapter = null, entity = null, library = f
 function handleSubjectButton(button) {
   if (button.hasAttribute('data-subject-resume')) {
     const saved = session.readingProgress(readingKey());
-    if (saved) openReadingDetail(saved.chapter, saved.position);
-  } else if (button.hasAttribute('data-subject-library')) followSubject({ library: true });
-  else if (button.hasAttribute('data-subject-book')) {
+    if (saved) openReadingDetail(saved.chapter, saved.position, { disclosures: saved.disclosures });
+  } else if (button.hasAttribute('data-subject-book')) {
     const book = subjectsById.get(button.dataset.subjectBook);
     if (book) followSubject({ book, chapter: book.chapters.find((c) => c.id === button.dataset.subjectChapter) });
   } else if (button.hasAttribute('data-atlas-entity')) {

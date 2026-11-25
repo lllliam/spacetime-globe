@@ -980,10 +980,6 @@ function rotation() {
 }
 
 function globeHudBounds() {
-  if (document.body.classList.contains('reading-split')) {
-    const bar = el('split-globe-bar');
-    return bar && !bar.hidden ? [bar.getBoundingClientRect()] : [];
-  }
   if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const visible = [elYear, hudViewBtn];
@@ -1361,22 +1357,13 @@ function layout() {
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = safeTop;
   view.safeBottom = safeBottom;
-  const splitActive = isSplitReading();
-  if (splitActive && w >= 960) {
-    const panelW = Math.min(460, Math.round(w * 0.42));
-    const globeW = Math.max(260, w - panelW);
-    view.cx = panelW + globeW / 2;
-    view.cyBase = h * 0.48;
-    view.cy = view.cyBase;
-    view.R = Math.min(globeW * 0.43, h * 0.37, 410);
-  } else {
-    const shortLandscape = session.mode === 'Explore' && w > h && h <= 500;
-    const shortPortrait = session.mode === 'Explore' && h > w && h <= 640;
-    view.cx = w / 2;
-    view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
-    view.cy = view.cyBase - state.lift;
-    view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
-  }
+  const shortLandscape = session.mode !== 'Observe' && w > h && h <= 500;
+  const shortPortrait = session.mode !== 'Observe' && h > w && h <= 640;
+  view.cx = w / 2;
+  view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
+  view.cy = view.cyBase - state.lift;
+  view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
+  if (reading.active) return;
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
   view.Rz = view.R * state.zoom;
@@ -1387,10 +1374,7 @@ function layout() {
   if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (viewportChanged && !sheetMotion && !sheetState.dragging) {
-    if (reading.active) refreshReadingViewport();
-    else applySheetOffset(sheetDetents()[sheetState.detent], false);
-  }
+  if (viewportChanged && !sheetMotion && !sheetState.dragging) applySheetOffset(sheetDetents()[sheetState.detent], false);
   draw();
 }
 
@@ -1618,6 +1602,7 @@ function shouldSpin() {
 }
 
 function invalidate() {
+  if (reading.active) return;
   dirty = true;
   if (!rafId) { lastT = 0; rafId = requestAnimationFrame(frame); }
 }
@@ -1642,10 +1627,11 @@ function frame(t) {
   if (busy || dirty) rafId = requestAnimationFrame(frame);
 }
 function draw() {
+  if (reading.active) return;
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' || isSplitReading() ? globeHudBounds() : [];
+  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -1701,7 +1687,7 @@ canvas.addEventListener('pointerdown', (e) => {
   exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
-  if (typeof cancelGlobeFly === 'function') cancelGlobeFly(true);
+  cancelGlobeFly();
   cancelZoom();
   stopPanReturn();
   momentum.yaw = momentum.tilt = 0;
@@ -1770,11 +1756,6 @@ function endPointer(e) {
     pinch = null;
     if (snapToFit) zoomTo(1);
     else settlePan();
-  }
-  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 6 &&
-      reading.active && reading.viewMode === 'half' && innerWidth < 960 && !session.observe) {
-    mobileReaderSnap('peek');
-    return;
   }
   if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
@@ -1901,18 +1882,11 @@ function paintSheetPosition(offset) {
   sheetState.offset = offset;
   const y = Math.round(offset);
   sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
-  // As the drawer leaves the status bar, remove only the inset it no longer covers.
-  const topOffset = clamp(y, 0, view.safeTop) + 'px';
   if (view.w < 960) sheetEl.style.setProperty('--sheet-radius', clamp(y * .55, 0, 22) + 'px');
-  if (sheetEl.style.getPropertyValue('--sheet-top-offset') !== topOffset) {
-    sheetEl.style.setProperty('--sheet-top-offset', topOffset);
-  }
-  const paper = reading.active && !isSplitReading() && y <= 1;
-  const paperEdge = paper || (offset < (view.h || innerHeight) - 2 && view.w < 960);
+  const paperEdge = offset < (view.h || innerHeight) - 2 && view.w < 960;
   const root = document.documentElement;
-  root.classList.toggle('reader-paper', paper);
   root.classList.toggle('sheet-paper', paperEdge);
-  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
+  const theme = reading.active || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
   if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
@@ -1933,7 +1907,6 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, H - Math.max(0, offset)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -1974,7 +1947,7 @@ function settleSheet(target, paint, finish, velocity = 0, animate = true) {
   sheetMotion = requestAnimationFrame(step);
 }
 function sheetTo(detent, animate = true, velocity = 0) {
-  if (detent === 'full') { enterSheetReading('full'); return; }
+  if (detent === 'full') { enterSheetReading(); return; }
   if (!['hidden', 'half', 'peek'].includes(detent)) detent = 'half';
   sheetState.detent = detent;
   setSheetIntent('idle');
@@ -1986,12 +1959,11 @@ function sheetTo(detent, animate = true, velocity = 0) {
   const H = view.h || innerHeight;
   if (view.w >= 960) animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
 }
-function enterSheetReading(mode = 'half', velocity = 0) {
+function enterSheetReading() {
   if (!state.focus) return;
-  const fromOffset = sheetState.offset;
   stopSheetMotion();
   setSheetIntent('idle');
-  openBook(fromOffset, mode, velocity);
+  openBook({ resume: true });
 }
 
 let liftRaf = 0;
@@ -2097,7 +2069,7 @@ function sheetDragEnd(e, cancelled = e?.type !== 'pointerup') {
   const velocity = sheetReleaseVelocity(sheetState.samples, e.timeStamp);
   const target = sheetSnapTarget(original, sheetState.offset, velocity, ['full', 'half', 'peek', 'hidden']);
   if (target === 'hidden') closeSheet(velocity);
-  else if (target === 'full' || target === 'half' && target !== original) enterSheetReading(target, velocity);
+  else if (target === 'full' || target === 'half' && target !== original) enterSheetReading();
   else sheetTo(target, true, velocity);
 }
 
@@ -2117,11 +2089,8 @@ function openPeekProgressively() {
   if (ent && subjectBookForEntity(ent)) enterSheetReading();
   else sheetTo('half');
 }
-grabEl.addEventListener('click', (event) => {
-  if (sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
-  // A deliberate tap on the grip means 'put the book away', not 'back through pages'.
-  if (reading.active && innerWidth < 960) mobileReaderSnap('peek');
-  else if (!reading.active) openPeekProgressively();
+grabEl.addEventListener('click', () => {
+  if (!sheetState.suppressClick && !reading.active) openPeekProgressively();
 });
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
@@ -2131,10 +2100,7 @@ sheetInner.addEventListener('click', (event) => {
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
   e.preventDefault(); e.stopPropagation();
-  if (reading.active) {
-    if (e.key === 'ArrowUp' && canSplitReading()) mobileReaderSnap('full');
-    else if (e.key !== 'ArrowUp') collapseReader();
-  } else if (e.key === 'ArrowDown') closeSheet();
+  if (e.key === 'ArrowDown') closeSheet();
   else enterSheetReading();
 });
 dimEl.addEventListener('click', () => closeSheet());
@@ -2238,6 +2204,7 @@ function onYearChanged() {
 /* ───────────── 17. 键盘 ───────────── */
 function closeTopNavigationPanel() {
   if (footnoteTrigger) closeFootnote(true);
+  else if (closeReadingDisplay(true)) return true;
   else if (chrome.panel) closeView();
   else if (yearControlOpen()) closeYearControl({ focus: true });
   else return false;
@@ -2298,32 +2265,23 @@ document.addEventListener('visibilitychange', () => {
 });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
-/* v7 · Shared paper toolbar. Reading remains a single source of truth. */
 function syncSheetIdentity() {
-  const entity = reading.active ? reading.ent : state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
-  const book = reading.active ? reading.subject : entity && subjectBookForEntity(entity);
-  const title = reading.active && reading.library ? '历史书目' : reading.active && reading.catalog ? '补充专题资料' :
-    book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
+  const entity = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  const book = entity && subjectBookForEntity(entity);
+  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
   el('sheet-identity-years').textContent = book ? subjectYears(book)
-    : entity && !reading.library ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
-  const close = el('sheet-close');
-  close.hidden = !reading.active && !entity;
-  close.setAttribute('aria-label', reading.active ? '收起阅读' : '关闭摘要');
+    : entity ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
+  el('sheet-close').hidden = !entity;
   const toc = el('sheet-toc');
-  toc.hidden = reading.active ? reading.library || reading.catalog || Boolean(book && reading.detail === null) : !entity;
-  toc.toggleAttribute('data-read-subject', !reading.active && Boolean(entity));
-  toc.textContent = reading.active ? book ? '目录' : '历史书目'
-    : book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
+  toc.hidden = !entity;
+  toc.toggleAttribute('data-read-subject', Boolean(entity));
+  toc.textContent = book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
+el('sheet-close').addEventListener('click', () => closeSheet());
 el('sheet-toc').addEventListener('click', () => {
-  if (reading.active) {
-    if (reading.subject) { if (reading.detail !== null) readingIndex(); }
-    else if (!reading.library && !reading.catalog) followSubject({ library:true });
-    return;
-  }
-  if (state.focus) openBook(null, 'half', 0, { resume: true });
+  if (state.focus) openBook({ resume: true });
 });
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {

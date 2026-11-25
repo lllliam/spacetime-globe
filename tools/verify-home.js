@@ -170,7 +170,7 @@ async function main() {
     await capture('06-year-events');
     const outer = await info();
     for (const [selector, mode, target] of [['[data-event=i-140]','Observe','#event-map-return'],
-      ['[data-world-read=i-140]','Read','#sheet-close']]) {
+      ['[data-world-read=i-140]','Read','#reading-exit']]) {
       const scroll = await js(`document.querySelector('${selector}').scrollIntoView({block:'center'});document.querySelector('#overlay-body').scrollTop`);
       await click(selector);
       assert.equal((await info()).mode,mode);
@@ -198,11 +198,11 @@ async function main() {
     await page.open(url);
     assert.equal((await info()).mode,'Read');
     assert.equal(await js('__t.reading.detail'),'two-capitals');
-    await click('#sheet-close');
+    await click('#reading-exit');
     assert.equal(await text('#sheet-toc'),'继续阅读');
     await click('#sheet-toc');
     assert.equal(await js('__t.reading.detail'),'two-capitals');
-    await click('#sheet-close');
+    await click('#reading-exit');
     await click('#sheet-close');
     await tapAt({x:20,y:360});
     assert.equal((await info()).hidden,false);
@@ -210,7 +210,7 @@ async function main() {
 
     await page.send('Emulation.setTouchEmulationEnabled',{enabled:false});
     await page.size(1366,768,false);
-    const desktopPoint = await until(() => js(`__t.view.w===1366 && __t.readerSettled && __t.sheetSettled &&
+    const desktopPoint = await until(() => js(`__t.view.w===1366 && __t.sheetSettled &&
       document.elementFromPoint(683,360)?.id==='globe' && !document.querySelector('#globe').inert && {x:683,y:360}`),
       'Desktop globe was not interactive');
     const originalYaw = (await info()).camera[0];

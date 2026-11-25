@@ -93,8 +93,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   ok('明朝疆域打开主体书卷', await js(`!document.getElementById('book').hidden && __t.reading.subject?.id==='ming' && document.querySelectorAll('[data-reading-detail].reading-card').length===5`));
   await js(`document.querySelector('[data-reading-detail]').click()`);
   ok('第一章包含连续正文与来源', await js(`document.querySelectorAll('#book-body .subject-prose p').length>=3 && document.querySelectorAll('.reading-sources a').length>=2`));
-  await js(`document.getElementById('reading-back').click();document.getElementById('reading-grab').click()`);
-  for (let i = 0; i < 40 && !await js('__t.readerSettled'); i++) await sleep(40);
+  await js(`document.getElementById('reading-exit').click()`);
   const afterRead = await st();
   ok('返回地球恢复原抽屉、主体与年份', beforeRead.open && afterRead.open && afterRead.year === 1500 &&
     afterRead.focus === beforeRead.focus && afterRead.detent === beforeRead.detent && await js('__t.session.mode==="Explore"'), afterRead);

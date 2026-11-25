@@ -240,8 +240,6 @@
 #overlay-close svg,.witem svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
 body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
-body.reading-open.reading-split #hud{pointer-events:none;visibility:visible;opacity:1}
-body.reading-open.reading-split #year-control,body.reading-open.reading-split #hud-actions{pointer-events:none}
 #scrim,#event-map-points,#vec{pointer-events:none}
 
 button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible,summary:focus-visible{outline:2px solid #c7ab70;outline-offset:3px}

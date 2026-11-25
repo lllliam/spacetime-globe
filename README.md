@@ -22,7 +22,7 @@
 
 现有体验来自 v14.2.1 原型部署。本地基线为 [cfac746](https://github.com/lllliam/spacetime-globe/commit/cfac7462bcd232d50baecd795962c8cd74af2597)，包含 57 卷、228 章、48 个历史地球场景，以及 28 组、117 篇补充专题。覆盖和审校范围见[内容覆盖](docs/CONTENT-COVERAGE.md)与[来源核查](docs/SOURCE-AUDIT.md)。
 
-`develop/1.0` 已实现 Phase 03。初次打开以 1500 年的亚洲地球起步，有会话时恢复最近的探索或阅读。可用底部游标连续选年，点击左上角精确定位，通过「这一年」查看收录的史事，或点击疆域进入主体摘要与书卷。[阶段报告与实拍](docs/progress/PHASE-03.md) · [开发路线](docs/ROADMAP.md) · [状态模型](docs/STATE-MODEL.md) · [原型基线](docs/BASELINE.md)
+`develop/1.0` 已实现 Phase 04。首次打开从 1500 年的亚洲地球起步。点选疆域后可进入全屏书卷，用纵向目录选章，也可继续上次位置。字号和引用随读随调，点正文图版或地名可进入独立地球观察，再返回原文。[阶段报告与实拍](docs/progress/PHASE-04.md) · [开发路线](docs/ROADMAP.md) · [状态模型](docs/STATE-MODEL.md) · [原型基线](docs/BASELINE.md)
 
 正式版 `1.0.0` 在最终验收通过后发布。
 
@@ -40,7 +40,7 @@ node build.mjs
 node tools/serve.mjs
 ```
 
-打开本地服务地址体验在线构建，或直接打开 `index.offline.html`。浏览器回归使用 `npm run verify`、`npm run verify:mobile`、`npm run smoke` 和 `node tools/verify-home.js`，依赖 Chromium 或 Edge。给首页测试传入输出目录即可保存实拍。会话回归使用 `node tools/verify-session-state.mjs` 和 `node tools/verify-session-browser.js`。验证脚本和构建会写出生成文件，文档阶段在临时副本运行。
+打开本地服务地址体验在线构建，或直接打开 `index.offline.html`。浏览器回归使用 `npm run verify`、`npm run verify:mobile`、`npm run smoke`、`node tools/verify-home.js` 和 `node tools/verify-reading.js`，依赖 Chromium 或 Edge。给首页或阅读专项传入输出目录即可保存实拍。会话回归使用 `node tools/verify-session-state.mjs` 和 `node tools/verify-session-browser.js`。验证脚本和构建会写出生成文件，文档阶段在临时副本运行。
 
 [产品规范](docs/PRODUCT-SPEC.md) · [工程架构](docs/ARCHITECTURE.md) · [设计实现](docs/DESIGN.md) · [内容编辑](docs/READING.md) · [最终验收](docs/ACCEPTANCE.md) · [版本规则](docs/VERSIONING.md) · [维护约定](AGENTS.md) · [原型历史档案](docs/archive/README.md)
 

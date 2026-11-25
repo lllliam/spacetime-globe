@@ -80,7 +80,7 @@ async function main() {
     return r.result.value;
   };
   const waitReader = async () => {
-    for (let i = 0; i < 40 && !await js('__t.readerSettled && __t.sheetSettled && __t.globeSettled'); i++) await sleep(40);
+    for (let i = 0; i < 40 && !await js('__t.sheetSettled && __t.globeSettled'); i++) await sleep(40);
   };
   const tap = async (x, y) => {
     await send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', clickCount: 1, buttons: 1 });
@@ -139,8 +139,11 @@ async function main() {
   check('双指平移时有阻尼并暂停自转', elasticFit.x > 5 && elasticFit.x < 47 && elasticFit.zoom === 1 &&
     (await camera()).yaw === yawWhilePressed, elasticFit);
   await finger('touchEnd');
-  await sleep(600);
-  const returned = await camera();
+  let returned = await camera();
+  for (let i=0; i<22 && (Math.hypot(returned.x, returned.y)>=.1 || Math.abs(returned.yaw-yawWhilePressed)<=.003); i++) {
+    await sleep(100);
+    returned = await camera();
+  }
   check('默认倍率松手后回到居中并恢复自转', Math.hypot(returned.x, returned.y) < 0.1 &&
     Math.abs(returned.yaw - yawWhilePressed) > 0.003, returned);
 
@@ -249,7 +252,7 @@ async function main() {
   await waitReader();
   check('从年份事件直接打开清朝对应章，保持地球年份与镜头',originalWorldView===await worldView() && await js(`
     __t.reading.subject?.id==='qing' && __t.reading.detail==='reforms' && !__t.worldEvent && document.getElementById('overlay').hidden`));
-  await js(`document.getElementById('reading-grab').click()`);
+  await js(`document.getElementById('reading-exit').click()`);
   await waitReader();
   check('收起由年份进入的书卷，原事件仍在同一位置并恢复焦点',await js(`
     !document.getElementById('overlay').hidden && document.getElementById('overlay-body').scrollTop===${directScroll} &&
@@ -608,14 +611,14 @@ async function main() {
   const cancel=await sheetGesture(-150,30,8,true,'grab',true);
   check('系统取消手势只回弹，不误触阅读', !cancel.reading && cancel.detent==='peek' && Math.abs(cancel.finalOffset-cancel.start)<2,cancel);
   const expand=await sheetGesture(-510,45,10,true,'header');
-  check('摘要头长拖进入全屏', expand.reading && expand.finalOffset<2,expand);
+  check('摘要头长拖进入全屏', expand.reading && await js("document.getElementById('book').getBoundingClientRect().top===0 && document.getElementById('globe').inert"),expand);
   await js('__t.closeReader()');
   await sleep(200);
   const down=await sheetGesture(155,60,10,true);
   check('缓慢下拖过阈值隐藏摘要', down.detent==='hidden' && !down.reading,down);
   await openCountry();
   const flickUp=await sheetGesture(-60,8,4,true);
-  check('摘要短距离快速上扫进入阅读', flickUp.reading && flickUp.finalOffset<flickUp.start-150,flickUp);
+  check('摘要短距离快速上扫进入阅读', flickUp.reading && await js("document.getElementById('book').getBoundingClientRect().height===innerHeight"),flickUp);
   await js('__t.closeReader()');
   await sleep(200);
   const flickDown=await sheetGesture(60,8,4,true);
@@ -689,7 +692,7 @@ async function main() {
   await openMing(1500);
   const original = await cameraSnapshot();
   const readOutline = () => js(`({title:document.getElementById('reading-title').textContent,
-    anchor:document.querySelector('[aria-current=date]')?.dataset.readingDetail,
+    anchor:document.querySelector('.reading-entry-year')?.dataset.readingDetail,
     chapters:[...document.querySelectorAll('.reading-row')].map(b=>b.dataset.readingDetail)})`);
   const ming1500=await readOutline();
   check('1500 年点明朝疆域打开明朝全卷与入口阶段',ming1500.title==='明朝' && ming1500.anchor==='mid-ming' && ming1500.chapters.length===5,ming1500);
@@ -752,7 +755,7 @@ async function main() {
   await js('__t.closeReader();__t.closeSheet()');
   const mingAction = await openMing(1600);
   check('已读主体摘要直接继续原章',mingAction==='继续阅读' && await js("__t.reading.detail==='two-capitals'"));
-  await js("document.querySelector('#sheet-toc').click()");
+  await js("document.querySelector('#reading-index').click()");
   const ming1600=await readOutline();
   check('1600 年仍打开同一卷，只切换轻量时间定位',ming1600.title===ming1500.title && ming1600.anchor==='silver' &&
     ming1600.chapters.join()===ming1500.chapters.join(),ming1600);
@@ -804,7 +807,7 @@ async function main() {
     __t.openEntity('polity',aztec.id);
     const sheet=document.querySelector('#sheet-identity-name').textContent;
     __t.openBook();
-    return {sheet,book:__t.reading.subject.id,anchor:document.querySelector('[aria-current=date]')?.dataset.readingDetail,
+    return {sheet,book:__t.reading.subject.id,anchor:document.querySelector('.reading-entry-year')?.dataset.readingDetail,
       aztecLabel:__t.vecShapes.some(s=>s.name==='阿兹特克三方同盟'),
       chineseLabels:__t.vecShapes.every(s=>!s.name||/[\\u3400-\\u9fff]/.test(s.name)),
       zapotec:__t.polityNames.get('Zapotec Civilization'),
@@ -828,7 +831,7 @@ async function main() {
   await send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:2,mobile:true});
   await sleep(300);
   check('横屏阅读与关闭按钮有效',await js(`(() => {
-    const close=document.querySelector('#sheet-close').getBoundingClientRect(), body=document.querySelector('#book-body');
+    const close=document.querySelector('#reading-exit').getBoundingClientRect(), body=document.querySelector('#book-body');
     return body.clientHeight>100 && close.height>0 && close.top>=0 && close.bottom<=visualViewport.height;
   })()`));
   await js(`__t.closeReader();__t.closeSheet();__t.setLayer('country');__t.setYear(1980)`);
@@ -846,49 +849,47 @@ async function main() {
   check('抓手上拉打开中华人民共和国卷，现存主体无终年',await js(`__t.reading.subject.id==='prc' &&
     document.querySelector('.reading-meta .when').textContent==='1949 年至今'`));
   const touchReader = async (target, distance, cancel = false, horizontal = false) => {
-    const start = await js(`(()=>{const el=document.querySelector(${JSON.stringify(target)}),r=el.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+(el.id==='book-body'?145:r.height/2)}})()`);
-    if (horizontal) start.x = 20;
-    await send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[start]});
+    const rect = await js(`document.querySelector(${JSON.stringify(target)}).getBoundingClientRect().toJSON()`);
+    const start = { x:horizontal ? 20 : rect.x+rect.width/2, y:rect.y+(target==='#book-body'?200:rect.height/2) };
+    await send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[start]});
     for (let i=1;i<=6;i++) {
       const moved = distance*i/6;
-      await send('Input.dispatchTouchEvent', {type:'touchMove',touchPoints:[{x:start.x+(horizontal?moved:0),y:start.y+(horizontal?0:moved)}]});
+      await send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:start.x+(horizontal?moved:0),y:start.y+(horizontal?0:moved)}]});
       await sleep(48);
     }
-    const during = await js(`({top:__t.sheet.offset,left:document.getElementById('book').getBoundingClientRect().left,
-      summary:Number(getComputedStyle(document.getElementById('sheet-scroll')).opacity),
-      article:Number(getComputedStyle(document.getElementById('book-body')).opacity),
-      sameSurface:document.getElementById('book').parentElement===document.getElementById('sheet')})`);
     await send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});
-    await waitReader();
-    return { ...during, ...await js(`({hidden:document.getElementById('book').hidden,offset:__t.sheet.offset,detent:__t.sheet.detent,scroll:document.getElementById('book-body').scrollTop})`) };
+    await sleep(180);
+    return js(`({ top:document.getElementById('book').getBoundingClientRect().top,
+      reader:__t.reading.active, scroll:document.getElementById('book-body').scrollTop,
+      inert:document.getElementById('globe').inert, isolated:document.getElementById('book').parentElement===document.body })`);
   };
-  const softRead = await touchReader('#grab', 30);
-  check('全屏小幅下拉跟手，松手后回弹', Math.abs(softRead.top-30)<2 && !softRead.hidden && softRead.offset<2, softRead);
-  const cancelledRead = await touchReader('#grab', 150, true);
-  check('系统取消全屏拖动后仍保留阅读', Math.abs(cancelledRead.top-150)<2 && !cancelledRead.hidden && cancelledRead.offset<2, cancelledRead);
+  const shortPull = await touchReader('#book-bar', 65);
+  check('全屏顶栏下拉不改变阅读高度',shortPull.top===0 && shortPull.reader && shortPull.isolated,shortPull);
+  const cancelledRead = await touchReader('#book-bar', 150, true);
+  check('系统取消触摸时仍保留全屏阅读', cancelledRead.top===0 && cancelledRead.reader && cancelledRead.inert,cancelledRead);
   await js(`document.querySelector('.reading-row[data-reading-detail="state-making"]').click()`);
   check('正文直接叙述，史料索引落在同一章节',await js(`document.querySelector('.subject-prose p').textContent.includes('1949 年') &&
     !!document.getElementById(document.querySelector('.reading-refs a').hash.slice(1))`));
   const shortBack = await touchReader('#book-body', 35, false, true);
-  check('移动端小幅横滑仍留在原章节', !shortBack.hidden && shortBack.offset<2 && await js(`__t.reading.detail==='state-making'`), shortBack);
+  check('移动端小幅横滑仍留在原章节', shortBack.reader && shortBack.top===0 && await js(`__t.reading.detail==='state-making'`), shortBack);
   const escape = () => js("document.activeElement.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
   await escape();
   check('Escape 从正文返回同一卷目录', await js("__t.session.mode==='Read' && __t.reading.subject.id==='prc' && __t.reading.detail===null"));
   await escape();
   check('Escape 从卷目录收回原摘要', await js("__t.session.mode==='Explore' && __t.sheet.detent==='peek' && __t.state.focus.key==='CN'"));
-  await js(`__t.openBook(null,'full')`);
-  await waitReader();
+  await js('__t.openBook()');
   await js(`document.querySelector('.reading-row[data-reading-detail="mass-mobilization"]').click()`);
   const scrollRead = await touchReader('#book-body', -160);
-  check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && !scrollRead.hidden && scrollRead.scroll>0, scrollRead);
+  check('全屏正文原生滚动，正文滑动不收起', scrollRead.top===0 && scrollRead.reader && scrollRead.scroll>0, scrollRead);
   const scrollBack = await touchReader('#book-body', 100);
-  check('正文未到顶时下拉仍然滚动', scrollBack.top===0 && !scrollBack.hidden && scrollBack.scroll<scrollRead.scroll, scrollBack);
-  const startHalf = await js('({offset:__t.session.explore.summary.offset,detent:__t.session.explore.summary.detent,year:__t.session.explore.year,key:__t.session.explore.selection.key})');
+  check('正文未到顶时下拉仍然滚动', scrollBack.top===0 && scrollBack.reader && scrollBack.scroll<scrollRead.scroll, scrollBack);
+  const prior = await js('({offset:__t.session.explore.summary.offset,detent:__t.session.explore.summary.detent,year:__t.session.explore.year,key:__t.session.explore.selection.key})');
   await js(`document.getElementById('book-body').scrollTop=0`);
-  const collapse = await touchReader('#book-body', 600);
-  check('拖动中在同一抽屉内衔接正文与摘要', collapse.sameSurface && collapse.summary>.1 && collapse.article>.1, collapse);
-  check('从正文下拉回到原摘要、年份与地区', collapse.hidden && collapse.detent===startHalf.detent && Math.abs(collapse.offset-startHalf.offset)<2 &&
-    await js(`__t.state.year===${startHalf.year} && __t.state.focus.key===${JSON.stringify(startHalf.key)}`),collapse);
+  const pull = await touchReader('#book-body', 500);
+  check('正文到顶继续下拉不会露出地图或摘要',pull.reader && pull.inert && pull.top===0 && pull.scroll===0,pull);
+  await js("document.getElementById('reading-exit').click()");
+  check('合上正文回到原摘要、年份与地区',await js(`!__t.reading.active && __t.sheet.detent===${JSON.stringify(prior.detent)} &&
+    Math.abs(__t.sheet.offset-${prior.offset})<2 && __t.state.year===${prior.year} && __t.state.focus.key===${JSON.stringify(prior.key)}`));
   await js('__t.closeSheet()');
 
   /* 帧率 */
@@ -910,7 +911,7 @@ async function main() {
   await js(`__t.setYear(__t.yearBounds.max);__t.openEntity('country',__t.partition.shapes.find(s=>s.iso==='CN').id);__t.openBook()`);
   check('离线单文件可打开中华人民共和国卷',await js(`__t.reading.subject.id==='prc' && document.querySelectorAll('.reading-row').length===4`));
   check('离线单文件图标已内嵌',await js(`document.querySelector('link[rel="icon"]').href.startsWith('data:image/png;base64,') && document.querySelector('link[rel="apple-touch-icon"]').href.startsWith('data:image/png;base64,')`));
-  await js(`document.querySelector('[data-subject-library]').click()`);
+  await js(`document.querySelector('#reading-library').click()`);
   const offlineBooks = await js(`(() => {
     let count=0;const bad=[];
     for(const book of __t.subjectBooks){

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="地球仪">
@@ -147,7 +147,7 @@ html.reader-paper{color-scheme:light}
   box-shadow:0 -20px 48px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .42s cubic-bezier(.22,.95,.3,1);
   will-change:transform;padding-bottom:var(--safe-b)}
-body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
+body.sheet-open #sheet{visibility:visible}
 #sheet.dragging{transition:none}
 #sheet::before{content:"";position:absolute;inset:0 0 auto;height:120px;pointer-events:none;
   border-radius:22px 22px 0 0;
@@ -243,15 +243,9 @@ body.sheet-open #sheet,body.reading-open #sheet{visibility:visible}
 #overlay .eracard{margin:2px 0 16px}
 #overlay .eracard p{font-size:13px}
 
-/* 阅读入口与独立阅读层 */
+/* 摘要抽屉与独立观察 */
 #sheet-scroll{overflow-y:auto;touch-action:pan-y}
 #grab{touch-action:none}
-body.reading-open #hud{opacity:var(--reader-hud,0);visibility:hidden}
-body.reading-open.reader-revealing #hud{visibility:visible}
-body.reading-open #sheet{z-index:12;overflow:hidden}
-body.reading-open #sheet-dim{transition:none}
-body.reading-open #grab,body.reading-open #sheet-scroll{opacity:var(--reader-summary,0)}
-body.reading-open #grab i{visibility:hidden}
 #event-map-points{position:fixed;inset:0;z-index:5;pointer-events:none}
 body.event-map-open #hud{visibility:hidden}
 #event-map-top{
@@ -355,144 +349,10 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 #sheet[data-gesture="expand"] #sheet-gesture,#sheet[data-gesture="dismiss"] #sheet-gesture{color:var(--gold);opacity:1}
 #sheet-scroll{scrollbar-width:thin;scrollbar-color:#39414d transparent}
 #sheet:not(.full) #sheet-scroll{flex:none;height:var(--sheet-scroll-height,300px)}
-/* 展开的阅读抽屉 */
-#book{
-  --reading-text:#e8e3d8;
-  --reading-muted:#a5adba;
-  --reading-rule:rgba(219,225,236,.16);
-  --reading-serif:"Songti SC","Noto Serif SC",SimSun,Georgia,serif;
-  --reading-gutter:clamp(20px,6vw,36px);
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  overflow:hidden;color:var(--reading-text);
-}
-#book[hidden],#reading-back[hidden]{display:none}
-#book-bar{
-  flex:none;position:relative;display:grid;place-items:end center;
-  height:calc(var(--safe-t) * var(--reader-safe,1) + 44px);touch-action:none;user-select:none;
-}
-#reading-grab,#reading-back{
-  display:grid;place-items:center;min-height:44px;appearance:none;cursor:pointer;
-  border:0;background:transparent;color:var(--reading-text);touch-action:none;
-}
-#reading-grab{width:80px;cursor:grab}
-#reading-grab:active{cursor:grabbing}
-#reading-grab span{
-  width:40px;height:4px;border-radius:10px;background:rgba(255,255,255,.24);
-  transform:translateY(calc(-7px * var(--reader-grip,0)));
-  transition:background-color .16s;
-}
-#book-bar.collapse-ready #reading-grab span{background:var(--gold)}
-#reading-back{position:absolute;bottom:0;left:max(8px,calc((100% - 700px)/2 + 10px));width:44px}
-#reading-back svg{width:21px;height:21px}
-#reading-back,#book-body{opacity:var(--reader-article,1)}
-#book-body{
-  width:100%;max-width:700px;min-height:0;flex:1;margin:0 auto;
-  padding:22px var(--reading-gutter) calc(var(--safe-b) + 44px);
-  overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
-  user-select:text;-webkit-user-select:text;outline:none;
-}
-#book-body h1{
-  margin:0 0 9px;color:var(--ink);
-  font:600 clamp(27px,7.7vw,40px)/1.28 var(--reading-serif);
-  letter-spacing:.015em;overflow-wrap:anywhere;text-wrap:balance;outline:none;
-}
-.reading-meta{
-  display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;
-  gap:0 12px;margin-bottom:22px;
-}
-#book-body .when{margin:0;color:var(--reading-muted);font-size:13px;font-variant-numeric:tabular-nums}
-#book-body .lede{
-  margin:0 0 24px;padding-left:13px;border-left:1px solid var(--gold);
-  color:var(--reading-text);font-size:14px;line-height:1.85;
-}
-.reading-note{margin:0 0 18px;color:var(--reading-muted);font-size:13px;line-height:1.8}
-.reading-note button,.reading-next button{
-  appearance:none;border:0;background:transparent;color:var(--gold);
-  font:inherit;cursor:pointer;
-}
-.reading-note button{min-height:32px;padding:0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--reading-rule)}
-#book-body .reading-opening,
-#book-body .reading-story p{
-  margin:0 0 17px;color:var(--reading-text);font-size:16px;line-height:1.95;
-}
-#book-body p.reading-opening{color:var(--ink)}
-.reading-detail-route button{text-wrap:balance}
-.reading-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--reading-rule)}
-.reading-list li{border-bottom:1px solid var(--reading-rule)}
-.reading-row,.reading-link{
-  width:100%;min-height:56px;appearance:none;border:0;background:transparent;
-  text-align:left;color:var(--reading-text);font:inherit;cursor:pointer;
-}
-.reading-row{
-  display:grid;align-items:baseline;grid-template-columns:clamp(74px,24vw,110px) minmax(0,1fr) 16px;
-  gap:10px;padding:14px 0;
-}
-.reading-row small,.reading-link small{font-size:12px;color:var(--gold);font-variant-numeric:tabular-nums}
-.reading-row-copy,.reading-link{overflow-wrap:anywhere}
-.reading-row-copy strong,.reading-link strong{display:block;font:600 17px/1.52 var(--reading-serif)}
-.reading-row-copy>span,.reading-link>span{display:block;margin-top:3px;color:var(--reading-muted);font-size:12.5px;line-height:1.65}
-.reading-row[aria-current="date"] .reading-row-copy strong{color:var(--gold)}
-.reading-timeline .reading-row{grid-template-columns:minmax(0,1fr) 16px;padding:13px 0 14px}
-.reading-timeline .reading-row small{display:block;margin-bottom:3px}
-.reading-timeline .reading-row-copy strong{font-size:18px}
-.reading-arrow{display:block;width:16px;height:16px;color:var(--gold);align-self:center}
-.reading-row:active,.reading-link:active{background:rgba(224,178,115,.07)}
-.reading-connections,.reading-sources{margin-top:30px}
-#book-body h2{margin:0 0 10px;color:var(--gold);font:600 15px/1.5 var(--reading-serif)}
-#book-body article{margin:0 0 26px}
-#book-body article p{margin:0;color:var(--reading-text);font-size:16px;line-height:1.95}
-.reading-sources{padding-top:18px;border-top:1px solid var(--reading-rule)}
-.reading-sources a{
-  display:block;min-height:36px;padding:7px 0;color:var(--reading-muted);
-  font-size:13px;line-height:1.65;text-underline-offset:3px;scroll-margin-block:18px;
-}
-.reading-refs{white-space:nowrap;margin-left:4px;font-size:11px;vertical-align:super}
-.reading-refs a{color:var(--gold);text-decoration:none}
-.reading-next{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px}
-.reading-next button{
-  display:inline-flex;align-items:center;gap:8px;min-height:44px;
-  padding:0;text-align:left;font-size:13px;line-height:1.6;
-}
-.reading-next .reading-previous svg{transform:rotate(180deg)}
-.subject-sheet-summary{margin:7px 0 12px;color:#c4c9ce;font-size:13px;line-height:1.7}
-.subject-entry-actions{margin:4px 0 18px}
-.subject-outline .reading-row{grid-template-columns:minmax(0,1fr)}
-.subject-outline .reading-arrow{display:none}
-.subject-book-label{margin:0 0 8px;color:var(--gold);font-size:13px}
-#book-body .subject-prose > p + p{margin-top:16px}
-.subject-scene{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  width:100%;min-height:64px;margin:16px 0 18px;padding:8px 8px 8px 14px;
-  border:0;border-left:2px solid var(--gold);background:transparent;
-  text-align:left;color:var(--gold);font:inherit;cursor:pointer;
-}
-.subject-scene strong{display:block;font-weight:600;font-size:15px;line-height:1.5}
-.subject-scene small{display:block;margin-top:4px;color:var(--reading-muted);font-size:13px;line-height:1.45}
-.subject-scene svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.1}
-.subject-scene:active{background:#e0b27312}
-@media(hover:hover){.subject-scene:hover{background:#e0b2730d}}
-.subject-chapter-next{margin:20px 0}
-.subject-secondary{margin:22px 0 16px;border-top:1px solid var(--reading-rule);padding-top:9px}
-.subject-secondary summary{cursor:pointer;color:var(--reading-muted);padding:6px 0;font-size:13px}
-.subject-secondary[open] summary{margin-bottom:8px;color:var(--ink)}
-.reading-link{position:relative;padding:14px 24px 14px 0;border-bottom:1px solid var(--reading-rule)}
-.reading-link small{display:block;margin-bottom:3px}
-.reading-link .reading-arrow{position:absolute;right:0;top:50%;transform:translateY(-50%)}
-#book-body .credits{margin:20px 0 0;color:var(--reading-muted);font-size:12px;line-height:1.7}
-@media (hover:hover){.reading-row:hover,.reading-link:hover{background:rgba(224,178,115,.045)}}
-@media (max-width:520px){#book-body{scrollbar-width:none}}
-@media (prefers-reduced-motion:reduce){#reading-grab span{transition:none}}
-#book button:focus-visible,#book a:focus-visible{outline:1px solid var(--gold);outline-offset:-2px}
-
-.reading-filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
-.reading-filters button{appearance:none;cursor:pointer;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--muted);font:inherit;font-size:12px;line-height:1.6;padding:7px 12px}
-.reading-filters button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(224,178,115,.09)}
-
-/* ── 标杆阅读与书球同屏联动样式 ── */
 .event-map-point.dimmed{opacity:.38;transition:opacity .25s ease}
 .event-map-point{transition:opacity .25s ease}
 
-#event-map-steps,#split-globe-steps{
+#event-map-steps{
   display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;pointer-events:auto;
 }
 #event-map-panel .step-chip,.step-chip{
@@ -506,116 +366,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 }
 @media(hover:hover){.step-chip:hover{border-color:rgba(224,178,115,.65);color:#fff4dc}}
 
-/* 章节空间线索、小节标题、历史现场切片、行内地名、同期世界 */
-.subject-thesis{
-  margin:0 0 24px;padding:13px 15px 14px;border-radius:12px;
-  background:linear-gradient(155deg,rgba(224,178,115,.11),rgba(224,178,115,.03));
-  border:1px solid rgba(224,178,115,.22);
-}
-.subject-thesis span{
-  display:block;margin-bottom:5px;font:600 11px/1 system-ui,"PingFang SC",sans-serif;
-  letter-spacing:.12em;color:var(--gold);
-}
-.subject-thesis p{margin:0;font-size:14px;line-height:1.8;color:#ede6d8}
-
-#book-body .subject-section-heading{
-  margin:30px 0 12px;padding-top:16px;border-top:1px solid rgba(219,225,236,.10);
-  color:#f2d29b;font:600 17px/1.45 var(--reading-serif);letter-spacing:.01em;
-}
-#book-body .subject-section-heading:first-child{margin-top:4px;padding-top:0;border-top:0}
-
-.subject-callout{
-  margin:16px 0 18px;padding:13px 15px;border-radius:10px;
-  background:rgba(255,255,255,.032);border-left:2px solid rgba(224,178,115,.65);
-}
-.subject-callout small{
-  display:inline-block;margin-bottom:4px;font:600 11px/1 system-ui,"PingFang SC",sans-serif;
-  letter-spacing:.1em;color:var(--gold);
-}
-.subject-callout strong{
-  display:block;margin-bottom:5px;font:600 14.5px/1.5 var(--reading-serif);color:var(--ink);
-}
-#book-body .subject-callout p{
-  margin:0;font-size:13.8px;line-height:1.8;color:#c9c2b4;
-}
-
-.inline-place{
-  appearance:none;display:inline;padding:0 1px 1px;margin:0;border:0;
-  border-bottom:1px dotted rgba(224,178,115,.72);background:transparent;
-  color:#f5d7a1;font:inherit;line-height:inherit;cursor:pointer;
-  transition:color .15s,background .15s,border-color .15s;
-}
-.inline-place:hover,.inline-place:focus-visible{
-  color:#fff3d6;background:rgba(224,178,115,.14);border-bottom-style:solid;border-radius:3px;
-}
-
-.subject-scene-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.subject-scene-badges em{
-  font-style:normal;font:500 11px/1.2 system-ui,sans-serif;
-  padding:2px 7px;border-radius:999px;
-  background:rgba(224,178,115,.13);color:#edd09c;border:1px solid rgba(224,178,115,.26);
-}
-.subject-scene.is-active{
-  background:rgba(224,178,115,.11);border-left-width:3px;border-radius:0 10px 10px 0;
-}
-
-.subject-contemporaries{margin:28px 0 22px;padding-top:18px;border-top:1px solid var(--reading-rule)}
-.contemporary-grid{display:grid;gap:10px;margin-top:10px}
-.contemporary-card{
-  position:relative;padding:12px 30px 12px 14px;border-radius:12px;
-  border:1px solid rgba(219,225,236,.12);background:rgba(255,255,255,.026);
-  transition:background .16s,border-color .16s;
-}
-.contemporary-card small{display:block;font-size:11.5px;color:var(--gold);margin-bottom:3px;font-variant-numeric:tabular-nums}
-.contemporary-card strong{display:block;font:600 15.5px/1.45 var(--reading-serif);color:var(--ink)}
-.contemporary-card>span{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--reading-muted)}
-.contemporary-card .reading-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%)}
-@media(hover:hover){.contemporary-card:hover{background:rgba(224,178,115,.07);border-color:rgba(224,178,115,.32)}}
-
-/* ── 桌面端书球同屏联动（>=960px） ── */
-#split-globe-bar{
-  position:fixed;z-index:11;top:22px;right:24px;
-  width:min(380px,calc(100vw - min(460px,42vw) - 48px));
-  padding:12px 15px;border-radius:16px;
-  background:rgba(9,14,22,.84);border:1px solid rgba(224,178,115,.22);
-  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
-  box-shadow:0 12px 34px rgba(0,0,0,.42);color:var(--ink);
-}
-#split-globe-bar[hidden]{display:none}
-.split-globe-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-#split-globe-year{font:600 13px/1.2 system-ui,sans-serif;color:var(--gold);font-variant-numeric:tabular-nums}
-#split-globe-title{font:600 15px/1.35 "Songti SC","Noto Serif SC",serif;color:var(--ink);flex:1;min-width:0}
-#split-globe-reset{
-  appearance:none;border:1px solid rgba(224,178,115,.35);border-radius:999px;
-  background:rgba(224,178,115,.12);color:var(--gold);font:500 11.5px/1 system-ui,sans-serif;
-  padding:5px 10px;cursor:pointer;
-}
-#split-globe-reset[hidden]{display:none}
-#split-globe-note{margin:8px 0 0;font-size:12.5px;line-height:1.6;color:#c7d0da}
-#split-globe-note[hidden]{display:none}
-
-@media(min-width:960px){
-  body.reading-split #sheet-dim{display:none}
-  body.reading-split #sheet{
-    right:auto;width:min(460px,42vw);top:0;bottom:0;height:100%;
-    border-radius:0!important;border-right:1px solid rgba(224,178,115,.16);
-    background:linear-gradient(180deg,rgba(14,20,29,.95) 0%,rgba(10,15,22,.97) 100%);
-    box-shadow:14px 0 44px rgba(0,0,0,.48);
-  }
-  body.reading-split #event-map-points{display:block}
-  body.reading-split #reading-back{left:12px}
-  body.reading-split #book-body{
-    max-width:none;padding:18px 26px 48px;
-  }
-  body.reading-split #reading-grab{
-    width:auto;padding:0 14px;border-radius:999px;
-  }
-  body.reading-split #reading-grab span{display:none}
-  body.reading-split #reading-grab::after{
-    content:"收起阅读";font:500 12px/1 system-ui,sans-serif;color:var(--reading-muted);
-  }
-  body.reading-split #reading-grab:hover::after{color:var(--gold)}
-}
 /* ============================================================================
  * Spacetime Globe — v7 iPhone-First Design System (Direction A)
  * Theme: Deep Cosmos Archival Globe × Warm Rice-Paper Editorial History Book
@@ -679,53 +429,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
   -webkit-backdrop-filter: none !important;
 }
 
-/* Editorial Book Typography (High-legibility Ink on Warm Paper) */
-.book-article,
-#book-body {
-  background: var(--paper-bg);
-  color: var(--paper-body);
-  font-family: var(--font-serif);
-  font-size: 15.5px;
-  line-height: 1.88;
-}
-
-.book-article h1,
-.book-article h2,
-#book-body h1,
-#book-body h2 {
-  color: var(--paper-ink);
-  font-family: var(--font-serif);
-  letter-spacing: -0.01em;
-}
-
-/* Spatial Thesis Epigraph */
-.spatial-thesis {
-  margin: 0 0 18px;
-  padding: 11px 14px;
-  background: var(--paper-surface);
-  border-left: 3px solid var(--vermilion);
-  border-radius: 0 8px 8px 0;
-  color: var(--paper-ink);
-}
-
-/* Inline Cartographic Scene Plate */
-.scene-plate {
-  margin: 16px 0 20px;
-  padding: 13px 14px;
-  background: var(--paper-surface);
-  border: 1px solid var(--paper-border);
-  border-radius: 12px;
-}
-
-/* Archival Callout Marginalia (Editorial hairlines, no drop-shadow SaaS cards) */
-.archival-callout {
-  margin: 16px 0;
-  padding: 12px 14px;
-  border-top: 1px solid var(--paper-border);
-  border-bottom: 1px solid var(--paper-border);
-  background: rgba(237, 231, 217, 0.45);
-}
-
 /* ========================================================================
    v7 · Deep-cosmos stage × quiet archival paper. Shared across all 15 books.
    This layer upgrades the existing engine, rather than replacing its UI.
@@ -781,88 +484,8 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 #sheet.peek #sheet-inner .facts{display:none}
 #sheet.peek #sheet-inner .hint-more{display:none}
 #sheet .subject-sheet-summary{color:var(--paper-body)}
-#sheet .subject-entry-actions button,[data-read-subject]{color:var(--vermilion)}
+[data-read-subject]{color:var(--vermilion)}
 #sheet.full #sheet-scroll{max-height:calc(100dvh - 110px)}
-/* Book remains an editable, accessible modal in the existing reading system. */
-#book{
-  --reading-text:var(--paper-body);--reading-muted:var(--paper-muted);
-  --reading-rule:var(--paper-border);--reading-serif:var(--font-serif);
-  --ink:var(--paper-ink);--gold:var(--vermilion);
-  top:69px;bottom:0;background:var(--paper-bg);color:var(--paper-body);
-}
-#book-bar{height:38px;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
-#reading-back{position:relative;left:auto;bottom:auto;color:var(--vermilion);width:38px;min-height:38px}
-#reading-grab{width:auto;min-width:60px;min-height:36px;padding:0 5px;color:var(--paper-muted)}
-#reading-grab span{width:30px;height:3px;background:#beb3a0}
-#book-body{padding:10px clamp(18px,5vw,36px) calc(var(--safe-b) + 56px);max-width:700px;font:400 15.5px/1.88 var(--font-serif);color:var(--paper-body)}
-#book-body h1{font:700 clamp(24px,6.4vw,34px)/1.36 var(--font-serif);color:var(--paper-ink)}
-#book-body h2{color:var(--paper-ink);font:700 16px/1.5 var(--font-serif)}
-#book-body .lede{color:var(--paper-body);border-left:2px solid var(--vermilion)}
-#book-body .when,#book-body .reading-note{color:var(--paper-muted)}
-#book-body .reading-opening,#book-body .reading-story p,
-#book-body article p{font:400 15.5px/1.88 var(--font-serif);color:var(--paper-body);text-align:justify}
-#book-body .subject-prose > p + p{margin-top:19px}
-#book-body article{margin-bottom:18px}
-#book-body .reading-row-copy strong{color:var(--paper-ink)}
-#book-body .reading-row small,#book-body .reading-link small{color:var(--vermilion)}
-#book-body .reading-link{border-bottom-color:var(--paper-border)}
-#book-body .reading-arrow{color:var(--vermilion)}
-#book-body .reading-row:hover,#book-body .reading-link:hover{background:var(--paper-surface)}
-#book-body .subject-book-label{color:var(--vermilion);font:600 11.5px/1.4 var(--font-sans)}
-#book-body .subject-thesis{margin:15px 0 21px;padding:12px 15px;background:var(--paper-surface);border:0;border-left:3px solid var(--vermilion);border-radius:0 8px 8px 0}
-#book-body .subject-thesis span{display:block;color:var(--vermilion);font:600 11px/1.5 var(--font-sans);margin-bottom:3px}
-#book-body .subject-thesis p{color:var(--paper-ink);font:400 14px/1.75 var(--font-serif)}
-#book-body .subject-section-heading{color:var(--paper-ink);border-color:var(--paper-border);font-size:17px}
-#book-body .subject-callout{border:0;border-top:1px solid var(--paper-border);border-bottom:1px solid var(--paper-border);background:#ede7d973;border-radius:0;padding:12px 14px;margin:16px 0}
-#book-body .subject-callout small{color:var(--ochre)}
-#book-body .subject-callout strong{color:var(--paper-ink)}
-#book-body .subject-callout p{color:var(--paper-body);font:400 13.5px/1.7 var(--font-serif)}
-#book-body .reading-refs{white-space:normal;display:inline-flex;align-items:center;gap:4px;margin:0 3px;font:400 10px/1.4 var(--font-mono);vertical-align:super}
-#book-body .reading-refs a{display:inline-block;padding:2px 4px;border-radius:4px;color:var(--indigo);background:var(--indigo-soft);text-decoration:none}
-#book-body .reading-sources{border-color:var(--paper-border)}
-#book-body .reading-sources a{color:var(--paper-muted)}
-#book-body .reading-next button,#book-body .subject-secondary summary{color:var(--vermilion)}
-#book-body .subject-secondary{border-color:var(--paper-border)}
-#book-body .credits{color:var(--paper-muted)}
-#book-body .reading-filters button{border-color:var(--paper-border);color:var(--paper-muted)}
-#book-body .reading-filters button[aria-pressed="true"]{border-color:var(--vermilion);background:var(--vermilion-soft);color:var(--vermilion)}
-#book-body .inline-place{color:var(--indigo);border-color:var(--indigo)}
-/* Scrollable, single-line chapters retain the complete titles in an accessible list. */
-.chapter-ribbon{display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;max-width:100%;padding:2px 22px 13px 0;margin:0 0 16px;border-bottom:1px solid var(--paper-border);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%)}
-.chapter-ribbon::-webkit-scrollbar{display:none}
-.chapter-chip{flex:none;max-width:none;overflow:visible;text-overflow:clip;min-height:32px;padding:5px 10px;border:1px solid var(--paper-border);border-radius:8px;background:transparent;color:var(--paper-muted);font:500 12px/1.4 var(--font-serif);white-space:nowrap;cursor:pointer}
-.chapter-chip[aria-current="page"]{background:var(--paper-ink);border-color:var(--paper-ink);color:var(--paper-bg)}
-/* Scene plate, not a generic action row. No new geographic data is fabricated. */
-#book-body .subject-scene.scene-plate{display:flex;flex-direction:column;align-items:stretch;gap:7px;margin:17px 0 23px;padding:12px 14px;border:1px solid var(--paper-border);border-radius:12px;background:var(--paper-surface);color:var(--paper-body);width:100%;text-align:left}
-#book-body .scene-plate-top{display:flex;justify-content:space-between;gap:8px;align-items:center;width:100%}
-#book-body .scene-plate-top b{flex:none;font:600 12px var(--font-sans);color:var(--vermilion);white-space:nowrap}
-#book-body .scene-plate-tags{display:flex;align-items:center;gap:7px}
-#book-body .scene-plate-tags small{font:400 11px var(--font-mono);color:var(--paper-muted)}
-#book-body .route-pill{display:inline-block;border-radius:5px;font:600 10.5px/1.3 var(--font-sans);padding:3px 7px}
-#book-body .route-pill.canal{background:var(--indigo-soft);color:var(--indigo)}
-#book-body .route-pill.military{background:var(--vermilion-soft);color:var(--vermilion)}
-#book-body .route-pill.frontier{background:var(--ochre-soft);color:var(--ochre)}
-#book-body .route-pill.trade{background:#1c1b1817;color:var(--paper-ink)}
-#book-body .scene-plate>strong{color:var(--paper-ink);font:700 16px/1.45 var(--font-serif)}
-#book-body .scene-plate-desc{font:400 13px/1.55 var(--font-serif);color:var(--paper-muted)}
-#book-body .scene-place-preview{font:400 11.5px/1.4 var(--font-sans);color:var(--ochre)}
-#book-body .subject-scene-badges{margin:0}
-#book-body .subject-scene-badges em{color:var(--paper-muted);border:1px solid var(--paper-border);background:transparent}
-#book-body .subject-scene.is-active{border-color:var(--vermilion)}
-#book-body .contemporary-card{border-color:var(--paper-border);background:var(--paper-surface);color:var(--paper-body)}
-#book-body .contemporary-card strong{color:var(--paper-ink)}
-#book-body .contemporary-card small{color:var(--vermilion)}
-#book-body .contemporary-card span{color:var(--paper-muted)}
-#book-body .subject-contemporaries{border-color:var(--paper-border)}
-/* Paper footnotes keep the reading position instead of jumping to the bibliography. */
-#footnote-shade{position:fixed;inset:0;z-index:23;background:#05080d8c}
-#footnote-shade[hidden],#footnote-popover[hidden]{display:none}
-#footnote-popover{position:fixed;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 16px);transform:translateX(-50%);z-index:24;width:min(460px,calc(100vw - 28px));padding:15px 18px 18px;background:var(--paper-bg);border:1px solid var(--paper-border);border-radius:14px;box-shadow:0 12px 38px #0006;color:var(--paper-ink)}
-#footnote-popover header{display:flex;align-items:center;justify-content:space-between;gap:8px}
-#footnote-popover header strong{font:700 14px var(--font-serif)}
-#footnote-close{min-width:34px;min-height:34px;border:0;background:none;color:var(--paper-muted);font-size:23px;cursor:pointer}
-#footnote-text{font:400 13.5px/1.75 var(--font-serif);color:var(--paper-body)}
-#footnote-link{font:600 12px var(--font-sans);color:var(--indigo);text-decoration:none}
 /* Archive caption with fixed, clear scene controls; globe remains touchable. */
 #event-map-top{display:flex;justify-content:space-between;gap:8px;padding:calc(var(--safe-t) + 10px) 14px 8px;background:linear-gradient(#0a1016e0,transparent);align-items:center}
 #event-map-return{border:1px solid var(--paper-border);border-radius:999px;padding:0 12px;min-height:38px;background:var(--paper-bg);color:var(--paper-ink);text-shadow:none;font:600 12px var(--font-sans)}
@@ -906,34 +529,7 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 .event-map-point i{background:#a9bec4a6}
 .event-map-point button,.scene-observation .event-map-point button{background:rgba(15,24,33,.9);border:1px solid var(--cosmos-border);color:#f4efe6;box-shadow:0 3px 9px #0006;text-shadow:none}
 .event-map-point.selected button,.scene-observation .event-map-point.selected button{background:#21384a;color:#fff2d8;border-color:var(--route-canal)}
-/* The globe stays above the open paper in 393px portrait comparison mode. */
-@media(max-width:959px){
-  body.reading-open.reading-split #sheet{box-shadow:0 -12px 35px #0008}
-  body.reading-open.reading-split #sheet-dim{display:none}
-  body.reading-open.reading-split #hud{visibility:visible;opacity:1}
-  body.reading-open.reading-split #event-map-points{display:block}
-  body.reading-open.reading-split #split-globe-bar{display:block;position:fixed;left:14px;right:auto;top:calc(var(--safe-t) + 76px);width:min(320px,calc(100vw - 74px));padding:5px 10px;max-height:75px;overflow:auto;border:1px solid var(--cosmos-border);background:var(--cosmos-surface);border-radius:11px;box-shadow:none}
-  body.reading-open.reading-split #split-globe-bar[hidden]{display:none}
-  body.reading-open.reading-split #split-globe-note,body.reading-open.reading-split #split-globe-steps{display:none}
-  body.reading-open.reading-split #book-body{max-width:none}
-  body.reading-open.reading-split #book-bar{height:32px}
-  body.reading-open.reading-split #reading-grab{display:none}
-  body.reading-open.reading-split #book-body{padding-top:6px}
-}
-@media(min-width:960px){
-  body.reading-split #sheet{background:var(--paper-bg);border-right:1px solid var(--paper-border);color:var(--paper-ink);box-shadow:14px 0 44px #0005}
-  body.reading-split #book-body{padding:12px 24px 50px;background:var(--paper-bg)}
-  body.reading-split #split-globe-bar{background:var(--cosmos-surface);border:1px solid var(--cosmos-border);-webkit-backdrop-filter:none;backdrop-filter:none}
-  body.reading-split #split-globe-title{color:var(--cosmos-ink)}
-  body.reading-split #split-globe-note{color:var(--cosmos-muted)}
-}
-@media(min-width:960px){
-  body.reading-open:not(.reading-split) #sheet-top{padding-top:calc(var(--safe-t) + 3px)}
-  body.reading-open:not(.reading-split) #book{top:calc(74px + var(--safe-t))}
-}
-body.reading-open #sheet-top{opacity:1}
-body.reading-open #grab{opacity:0;pointer-events:none}
-#sheet button:focus-visible,#book button:focus-visible,#book a:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
+#sheet button:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px}
 @media(max-width:360px){#sheet-toolbar{gap:4px}#sheet-toc{padding-inline:7px}#sheet-identity-years{font-size:9px}}
 @media(prefers-reduced-motion:reduce){#event-map-panel,#sheet{animation:none;transition:none}}
 
@@ -962,31 +558,12 @@ body.reading-open #grab{opacity:0;pointer-events:none}
 /* v8 · Apple Maps detents; the existing translateY sheet stays the only panel. */
 #sheet-top #grab{height:21px;min-height:21px;display:grid;place-items:center;cursor:grab}
 #sheet-top #grab i{width:36px;height:4px;margin:0;background:#bdb3a4;border-radius:999px}
-body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ada292}
 #sheet-toolbar{justify-content:space-between}
 #sheet.dragging{transition:none!important}
 @media(max-width:959px){
   #sheet{border-top-left-radius:var(--sheet-radius,22px);border-top-right-radius:var(--sheet-radius,22px)}
-  body.reading-open #sheet-dim{display:none}
-  body.reading-open #sheet{display:grid;grid-template-rows:auto minmax(0,1fr);
-    /* Keep the visible WebGL surface in Chromium's composition behind the translated paper. */
-    opacity:.999;
-    padding-bottom:calc(var(--app-height) - var(--sheet-visible-height,var(--app-height)))}
-  body.reading-open #sheet-top{padding-top:calc(3px + max(0px,var(--safe-t) - var(--sheet-top-offset,0px)))}
-  body.reading-open #grab{opacity:1!important;pointer-events:auto!important}
-  body.reading-open #sheet-top{touch-action:none;user-select:none;-webkit-user-select:none}
-  body.reading-open #book,body.reading-open #sheet #sheet-scroll{
-    grid-area:2/1;position:relative;inset:auto;height:auto;min-height:0;max-height:none}
-  body.reading-open #book-bar{height:34px}
-  body.reading-open #book-bar:has(#reading-back[hidden]){display:none}
-  body.reading-open #reading-grab{display:none}
-  body.reading-open #book-body{--reading-end:calc(16px + var(--usable-safe-b));
-    overscroll-behavior-y:none;padding-top:4px;padding-bottom:var(--reading-end);scroll-padding-bottom:var(--reading-end)}
-  #book-body .atlas-reading > h1{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;margin:0}
-  #book-body .atlas-reading > .reading-next:last-child{display:none}
-  body.reading-open.reader-gesture #sheet{touch-action:none}
 }
-#sheet:not([role="dialog"]) #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
+#sheet #sheet-top,#sheet.peek #sheet-scroll{touch-action:none}
 #sheet.peek #sheet-scroll{overflow:hidden}
 #sheet.peek #sheet-inner .subject-sheet-summary{
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
@@ -1246,8 +823,6 @@ body.reading-open #sheet-top #grab i{visibility:visible!important;background:#ad
 #overlay-close svg,.witem svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 
 body.reading-open #hud-actions,body.event-map-open #hud-actions{visibility:hidden!important;opacity:0;pointer-events:none!important}
-body.reading-open.reading-split #hud{pointer-events:none;visibility:visible;opacity:1}
-body.reading-open.reading-split #year-control,body.reading-open.reading-split #hud-actions{pointer-events:none}
 #scrim,#event-map-points,#vec{pointer-events:none}
 
 button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,canvas:focus-visible,summary:focus-visible{outline:2px solid #c7ab70;outline-offset:3px}
@@ -1272,6 +847,167 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 @media(prefers-reduced-motion:reduce){
   #hud,#scrim,#vernier,#vernier[hidden],#vernier-readout,#vernier-track{transition:none}
   #vernier.active #vernier-readout,#vernier.active #vernier-track{transition:none}
+}
+
+body.reading-open,html.reader-paper{background:var(--paper-bg)}
+body.reading-open :is(#globe,#vec,#hud,#scrim,#sheet,#sheet-dim,#event-map-points){visibility:hidden}
+
+#book{
+  --reading-ink:#25221d;--reading-muted:#756d60;--reading-rule:#d9d0bf;
+  --reading-serif:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","SimSun","Noto Serif",Georgia,serif;
+  --reading-size:18px;--reading-gutter:clamp(17px,5.6vw,24px);
+  position:fixed;inset:0 0 auto;z-index:18;height:var(--app-height);
+  display:grid;grid-template-rows:auto minmax(0,1fr);
+  background:var(--paper-bg);color:var(--reading-ink);color-scheme:light;
+}
+#book[hidden],#book [hidden]{display:none}
+#book[data-size="small"]{--reading-size:16px}
+#book[data-size="large"]{--reading-size:21px}
+#book[data-size="extra"]{--reading-size:24px}
+#book-bar{
+  position:relative;z-index:1;display:flex;align-items:center;
+  padding:var(--safe-t) max(9px,env(safe-area-inset-right,0px)) 0 max(9px,env(safe-area-inset-left,0px));
+  border-bottom:1px solid var(--reading-rule);
+}
+#book-bar nav{display:flex;align-items:center;flex:none}
+#reading-book-name{
+  flex:1;min-width:0;padding-inline:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font:600 16px/1.25 var(--reading-serif);
+}
+#book button,#book summary{cursor:pointer}
+#book-bar button{
+  display:grid;place-items:center;min-width:44px;min-height:44px;padding:0 7px;
+  color:var(--reading-ink);background:none;border:0;border-radius:5px;
+  font:600 13px/1 var(--font-sans);white-space:nowrap;
+}
+#book-bar #reading-exit{margin-left:3px;color:var(--vermilion)}
+#book-bar svg,.reading-arrow{
+  width:17px;height:17px;flex:none;fill:none;stroke:currentColor;
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+}
+#book-bar #reading-settings{font:600 16px/1 var(--reading-serif)}
+#book-bar button:hover,#book-bar button[aria-expanded="true"]{background:var(--paper-surface)}
+#book :is(button,a,summary):focus-visible,#footnote-popover :is(button,a):focus-visible{
+  outline:2px solid var(--vermilion);outline-offset:-2px
+}
+#book-body:focus-visible{outline:2px solid var(--vermilion);outline-offset:-3px}
+#book-body{
+  min-height:0;min-width:0;overflow-y:auto;overscroll-behavior-y:contain;overflow-anchor:none;
+  padding:clamp(23px,5.2vh,57px) max(var(--reading-gutter),env(safe-area-inset-right,0px),calc((100% - 680px)/2))
+    calc(44px + var(--usable-safe-b)) max(var(--reading-gutter),env(safe-area-inset-left,0px),calc((100% - 680px)/2));
+  scroll-padding:16px 0 calc(18px + var(--usable-safe-b));scrollbar-color:#b6ad9b transparent;
+  font:400 var(--reading-size)/1.9 var(--reading-serif);overflow-wrap:anywhere;
+  -webkit-user-select:text;user-select:text;touch-action:auto;
+}
+#book-body h1{
+  margin:0 0 8px;font:700 clamp(31px,6.9vw,49px)/1.22 var(--reading-serif);
+  letter-spacing:-.035em;color:var(--reading-ink);
+}
+#reading-title:focus{outline:none}
+#book-body h2{margin:0 0 .5em;font:700 1.12em/1.45 var(--reading-serif)}
+#book-body p{margin:0 0 1em}
+#book .reading-meta{margin-bottom:1.15em}
+#book .reading-meta p{margin:0}
+#book .when,#book .reading-note{color:var(--reading-muted);font-size:.86em}
+#book .subject-book-label,#book .reading-progress{
+  margin:0 0 12px;color:var(--reading-muted);font:500 13px/1.45 var(--font-sans);
+  font-variant-numeric:tabular-nums;
+}
+#book .reading-progress{margin:-7px 0 23px;font-size:12px}
+#book .reading-cover{text-align:center;margin-bottom:clamp(24px,4vh,48px)}
+#book .reading-cover .lede{max-width:36em;margin:0 auto 14px;font-size:.92em;line-height:1.72}
+#book .subject-outline h2{padding-bottom:9px;border-bottom:1px solid var(--reading-rule)}
+#book .reading-list{list-style:none;margin:0;padding:0}
+#book .reading-row,#book .reading-link,#book .contemporary-card{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:8px 13px;
+  width:100%;min-height:51px;border:0;border-bottom:1px solid var(--reading-rule);
+  padding:10px 1px;background:none;color:var(--reading-ink);text-align:left;
+  font:400 .96em/1.48 var(--reading-serif);
+}
+#book .reading-row:hover,#book .reading-link:hover,#book .contemporary-card:hover{background:#ede7d979}
+#book .reading-row-copy{display:grid;gap:3px;min-width:0}
+#book :is(.reading-row,.reading-link,.contemporary-card) small,
+#book :is(.reading-row-copy,.reading-link,.contemporary-card) > span:not(.reading-row-copy){color:var(--reading-muted);font-size:.77em;line-height:1.45}
+#book .subject-outline .chapter-number{font:500 12px/1.4 var(--font-mono);color:var(--reading-muted)}
+#book .subject-outline .chapter-status{font:500 11px/1.4 var(--font-sans);color:var(--vermilion)}
+#book .reading-link,#book .contemporary-card{grid-template-columns:minmax(0,1fr) auto}
+#book :is(.reading-link,.contemporary-card) :is(strong,small,span){grid-column:1}
+#book :is(.reading-link,.contemporary-card) svg{grid-column:2;grid-row:1/3;align-self:center}
+#book .reading-link small{order:1}
+#book .reading-link:has(span) small{order:0}
+#book .reading-next{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:19px 0}
+#book .subject-entry-actions{justify-content:center;margin:10px 0 5px}
+#book .reading-next button,#book .reading-entry-year,#book .subject-scene{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;max-width:100%;
+  min-height:44px;padding:6px 9px;border:0;background:none;color:var(--vermilion);
+  text-align:start;font:600 14px/1.45 var(--font-sans);
+}
+#book .reading-entry-year{color:var(--reading-muted)}
+#book .reading-next .reading-primary{
+  color:#fffaf2;background:var(--vermilion);padding-inline:16px;border-radius:6px;
+}
+#book .reading-next p{margin:0;color:var(--reading-muted)}
+#book .subject-chapter-next{padding-block:13px;border-block:1px solid var(--reading-rule)}
+#book .subject-section-heading,#book article:not(.subject-prose) h2{margin:1.7em 0 .5em}
+#book .subject-callout,#book .scene-plate{margin:1.3em 0;padding:14px 16px;border:1px solid var(--reading-rule);border-radius:6px}
+#book .subject-callout{background:#ede7d955}
+#book .subject-callout :is(small,strong),#book .scene-plate :is(small,strong){display:block}
+#book .subject-callout small,#book .scene-plate small{color:var(--reading-muted);font-size:.76em}
+#book .subject-callout p,#book .scene-plate p{font-size:.9em;margin:.45em 0 0}
+#book .scene-plate p{color:var(--reading-muted)}
+#book .subject-scene{padding-left:0;margin-top:4px}
+#book .inline-place{
+  padding:0;border:0;border-bottom:1px dotted var(--indigo);background:none;
+  color:var(--indigo);font:inherit;text-indent:0;
+}
+#book .reading-refs{vertical-align:super;font:500 .62em/1 var(--font-mono)}
+#book .reading-refs a{display:inline-block;color:var(--indigo);padding:.48em .21em;text-decoration:none}
+#book .reading-refs a:hover{text-decoration:underline}
+#book :is(.subject-secondary,.reading-sources,.subject-contemporaries,.reading-connections){
+  margin:21px 0;padding:7px 0;border-top:1px solid var(--reading-rule);
+}
+#book summary{padding:8px 2px;min-height:44px;color:var(--reading-ink);font-weight:600}
+#book .reading-sources ol{margin:0;padding-inline-start:1.5em;font-size:.82em}
+#book .reading-sources a,#book a,#footnote-link{color:var(--indigo);text-underline-offset:.15em}
+#book .reading-filters{display:flex;flex-wrap:wrap;gap:4px;margin:15px 0}
+#book .reading-filters button{
+  min-height:44px;background:none;border:1px solid var(--reading-rule);padding:4px 9px;
+  color:var(--reading-ink);border-radius:5px;font:500 13px var(--font-sans)
+}
+#book .reading-filters button[aria-pressed="true"]{border-color:var(--vermilion);color:var(--vermilion)}
+#reading-display,#footnote-popover{
+  padding:13px 15px;background:var(--paper-bg);color:var(--paper-ink);
+  border:1px solid var(--paper-border);border-radius:9px;box-shadow:0 8px 27px #1712082e;
+}
+#reading-display{
+  position:absolute;z-index:2;top:calc(var(--safe-t) + 49px);
+  right:max(12px,env(safe-area-inset-right,0px));width:min(266px,calc(100% - 24px));
+}
+#reading-display strong{font:600 13px var(--font-sans)}
+#reading-display div{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:7px}
+#reading-display button{min-width:0;min-height:44px;padding:0;border:1px solid var(--paper-border);border-radius:5px;background:none;color:var(--paper-ink);font:500 13px var(--font-sans)}
+#reading-display button[aria-pressed="true"]{color:var(--vermilion);border-color:var(--vermilion);background:var(--vermilion-soft)}
+#footnote-shade{position:fixed;inset:0;z-index:23;background:#30291c67}
+#footnote-popover{
+  position:fixed;z-index:24;left:50%;bottom:calc(var(--app-bottom) + var(--usable-safe-b) + 14px);
+  width:min(460px,calc(100% - 28px));max-height:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - 28px);
+  overflow:auto;transform:translateX(-50%);overflow-wrap:anywhere;
+}
+#footnote-popover header{display:flex;justify-content:space-between;align-items:center}
+#footnote-close{min-width:44px;min-height:44px;background:none;border:0;color:var(--paper-ink);font-size:22px;cursor:pointer}
+#footnote-link{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+@media(min-width:900px){
+  #book{--reading-size:20px}
+  #book[data-size="small"]{--reading-size:17px}
+  #book[data-size="large"]{--reading-size:23px}
+  #book[data-size="extra"]{--reading-size:26px}
+  #book-bar{padding-inline:max(20px,calc((100% - 820px)/2))}
+  #book-bar button{padding-inline:13px;min-height:49px}
+  #reading-display{top:calc(var(--safe-t) + 54px);right:max(20px,calc((100% - 820px)/2))}
+}
+@media(max-width:360px){
+  #book .subject-outline .reading-row{grid-template-columns:auto minmax(0,1fr);column-gap:9px;row-gap:2px}
+  #book .subject-outline .reading-row small{grid-column:2}
 }
 
 </style>
@@ -1345,22 +1081,38 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
     <div id="sheet-toolbar">
       <div id="sheet-identity"><span id="sheet-seal" aria-hidden="true">史</span><div class="sheet-identity-copy"><strong id="sheet-identity-name">历史档案</strong><small id="sheet-identity-years">时间与空间</small></div></div>
       <button id="sheet-toc" type="button">目录</button>
-      <button id="sheet-close" type="button" aria-label="收起阅读" hidden>
+      <button id="sheet-close" type="button" aria-label="关闭摘要" hidden>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
       </button>
     </div>
   </header>
   <div id="sheet-scroll"><div id="sheet-inner" aria-live="polite"></div></div>
-  <section id="book" hidden>
-    <header id="book-bar">
-      <button id="reading-back" type="button" hidden aria-label="返回">
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
-      </button>
-      <button id="reading-grab" type="button" aria-label="收起阅读"><span></span></button>
-    </header>
-    <div id="book-body" tabindex="0"></div>
-  </section>
 </div>
+
+<section id="book" role="dialog" aria-modal="true" aria-labelledby="reading-title" hidden>
+  <header id="book-bar">
+    <button id="reading-back" type="button" hidden aria-label="返回上一级" title="返回上一级">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 6-6 6 6 6M5 12h14"/></svg>
+    </button>
+    <span id="reading-book-name"></span>
+    <nav aria-label="阅读导航">
+      <button id="reading-library" type="button" aria-label="历史书目">书目</button>
+      <button id="reading-index" type="button" aria-label="章节目录">目录</button>
+      <button id="reading-settings" type="button" aria-label="阅读字号" aria-controls="reading-display" aria-expanded="false">Aa</button>
+      <button id="reading-exit" type="button">合上</button>
+    </nav>
+  </header>
+  <div id="book-body" tabindex="0" role="region" aria-label="阅读内容"></div>
+  <div id="reading-display" role="group" aria-label="阅读字号设置" hidden>
+    <strong>阅读字号</strong>
+    <div>
+      <button type="button" data-reading-size="small">小</button>
+      <button type="button" data-reading-size="standard">标准</button>
+      <button type="button" data-reading-size="large">大</button>
+      <button type="button" data-reading-size="extra">特大</button>
+    </div>
+  </div>
+</section>
 
 <div id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlay-title" hidden>
   <div id="overlay-head">
@@ -1407,16 +1159,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 <aside id="footnote-popover" role="dialog" aria-modal="true" aria-labelledby="footnote-heading" hidden>
   <header><strong id="footnote-heading">史料与注释</strong><button id="footnote-close" type="button" aria-label="关闭注释">×</button></header>
   <p id="footnote-text"></p><a id="footnote-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a>
-</aside>
-
-<aside id="split-globe-bar" hidden aria-label="联动地球场景控制">
-  <div class="split-globe-head">
-    <span id="split-globe-year"></span>
-    <strong id="split-globe-title"></strong>
-    <button id="split-globe-reset" type="button" hidden>复位视角</button>
-  </div>
-  <div id="split-globe-steps" hidden></div>
-  <p id="split-globe-note" hidden></p>
 </aside>
 
 <script id="atlas" type="application/json"></script>
@@ -2415,10 +2157,6 @@ function rotation() {
 }
 
 function globeHudBounds() {
-  if (document.body.classList.contains('reading-split')) {
-    const bar = el('split-globe-bar');
-    return bar && !bar.hidden ? [bar.getBoundingClientRect()] : [];
-  }
   if (session.mode === 'Observe') return [eventMapReturn, eventMapYear].map(node => node.getBoundingClientRect());
   if (getComputedStyle(el('hud')).visibility === 'hidden') return [];
   const visible = [elYear, hudViewBtn];
@@ -2796,22 +2534,13 @@ function layout() {
   view.w = w; view.h = h; view.dpr = dpr;
   view.safeTop = safeTop;
   view.safeBottom = safeBottom;
-  const splitActive = isSplitReading();
-  if (splitActive && w >= 960) {
-    const panelW = Math.min(460, Math.round(w * 0.42));
-    const globeW = Math.max(260, w - panelW);
-    view.cx = panelW + globeW / 2;
-    view.cyBase = h * 0.48;
-    view.cy = view.cyBase;
-    view.R = Math.min(globeW * 0.43, h * 0.37, 410);
-  } else {
-    const shortLandscape = session.mode === 'Explore' && w > h && h <= 500;
-    const shortPortrait = session.mode === 'Explore' && h > w && h <= 640;
-    view.cx = w / 2;
-    view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
-    view.cy = view.cyBase - state.lift;
-    view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
-  }
+  const shortLandscape = session.mode !== 'Observe' && w > h && h <= 500;
+  const shortPortrait = session.mode !== 'Observe' && h > w && h <= 640;
+  view.cx = w / 2;
+  view.cyBase = h * (h > w ? (shortPortrait ? 0.485 : 0.515) : shortLandscape ? 0.425 : 0.46);
+  view.cy = view.cyBase - state.lift;
+  view.R = Math.min(w * 0.455, h * (shortLandscape ? 0.29 : 0.34), 410);
+  if (reading.active) return;
   document.body.style.setProperty('--globe-foot', (view.cyBase + view.R) + 'px');
   constrainPan();
   view.Rz = view.R * state.zoom;
@@ -2822,10 +2551,7 @@ function layout() {
   if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (viewportChanged && !sheetMotion && !sheetState.dragging) {
-    if (reading.active) refreshReadingViewport();
-    else applySheetOffset(sheetDetents()[sheetState.detent], false);
-  }
+  if (viewportChanged && !sheetMotion && !sheetState.dragging) applySheetOffset(sheetDetents()[sheetState.detent], false);
   draw();
 }
 
@@ -3053,6 +2779,7 @@ function shouldSpin() {
 }
 
 function invalidate() {
+  if (reading.active) return;
   dirty = true;
   if (!rafId) { lastT = 0; rafId = requestAnimationFrame(frame); }
 }
@@ -3077,10 +2804,11 @@ function frame(t) {
   if (busy || dirty) rafId = requestAnimationFrame(frame);
 }
 function draw() {
+  if (reading.active) return;
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' || isSplitReading() ? globeHudBounds() : [];
+  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -3136,7 +2864,7 @@ canvas.addEventListener('pointerdown', (e) => {
   exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
-  if (typeof cancelGlobeFly === 'function') cancelGlobeFly(true);
+  cancelGlobeFly();
   cancelZoom();
   stopPanReturn();
   momentum.yaw = momentum.tilt = 0;
@@ -3205,11 +2933,6 @@ function endPointer(e) {
     pinch = null;
     if (snapToFit) zoomTo(1);
     else settlePan();
-  }
-  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 6 &&
-      reading.active && reading.viewMode === 'half' && innerWidth < 960 && !session.observe) {
-    mobileReaderSnap('peek');
-    return;
   }
   if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
     const now = performance.now();
@@ -3336,18 +3059,11 @@ function paintSheetPosition(offset) {
   sheetState.offset = offset;
   const y = Math.round(offset);
   sheetEl.style.transform = 'translate3d(0,' + y + 'px,0)';
-  // As the drawer leaves the status bar, remove only the inset it no longer covers.
-  const topOffset = clamp(y, 0, view.safeTop) + 'px';
   if (view.w < 960) sheetEl.style.setProperty('--sheet-radius', clamp(y * .55, 0, 22) + 'px');
-  if (sheetEl.style.getPropertyValue('--sheet-top-offset') !== topOffset) {
-    sheetEl.style.setProperty('--sheet-top-offset', topOffset);
-  }
-  const paper = reading.active && !isSplitReading() && y <= 1;
-  const paperEdge = paper || (offset < (view.h || innerHeight) - 2 && view.w < 960);
+  const paperEdge = offset < (view.h || innerHeight) - 2 && view.w < 960;
   const root = document.documentElement;
-  root.classList.toggle('reader-paper', paper);
   root.classList.toggle('sheet-paper', paperEdge);
-  const theme = paper || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
+  const theme = reading.active || standaloneGlobe && paperEdge ? paperThemeColor : globeThemeColor;
   if (themeColorMeta.content !== theme) themeColorMeta.content = theme;
   if (view.w < 960 && session.mode !== 'Observe') {
     const previous = view.cy;
@@ -3368,7 +3084,6 @@ function applySheetOffset(offset, animate = true) {
   dimEl.hidden = !show;
   dimEl.style.opacity = show ? Math.min(1, (1 - offset / H) * 0.9).toFixed(3) : '0';
   sheetEl.style.setProperty('--sheet-scroll-height', Math.max(0, H - Math.max(0, offset) - SHEET_BOTTOM_GAP - 48) + 'px');
-  sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, H - Math.max(0, offset)) + 'px');
   sheetEl.classList.toggle('full', offset <= 1);
   sheetEl.classList.toggle('peek', !reading.active && sheetState.detent === 'peek' && show);
   document.body.classList.toggle('sheet-full', offset <= 1);
@@ -3409,7 +3124,7 @@ function settleSheet(target, paint, finish, velocity = 0, animate = true) {
   sheetMotion = requestAnimationFrame(step);
 }
 function sheetTo(detent, animate = true, velocity = 0) {
-  if (detent === 'full') { enterSheetReading('full'); return; }
+  if (detent === 'full') { enterSheetReading(); return; }
   if (!['hidden', 'half', 'peek'].includes(detent)) detent = 'half';
   sheetState.detent = detent;
   setSheetIntent('idle');
@@ -3421,12 +3136,11 @@ function sheetTo(detent, animate = true, velocity = 0) {
   const H = view.h || innerHeight;
   if (view.w >= 960) animateLift(detent === 'half' ? H * .075 : detent === 'peek' ? H * .04 : 0);
 }
-function enterSheetReading(mode = 'half', velocity = 0) {
+function enterSheetReading() {
   if (!state.focus) return;
-  const fromOffset = sheetState.offset;
   stopSheetMotion();
   setSheetIntent('idle');
-  openBook(fromOffset, mode, velocity);
+  openBook({ resume: true });
 }
 
 let liftRaf = 0;
@@ -3532,7 +3246,7 @@ function sheetDragEnd(e, cancelled = e?.type !== 'pointerup') {
   const velocity = sheetReleaseVelocity(sheetState.samples, e.timeStamp);
   const target = sheetSnapTarget(original, sheetState.offset, velocity, ['full', 'half', 'peek', 'hidden']);
   if (target === 'hidden') closeSheet(velocity);
-  else if (target === 'full' || target === 'half' && target !== original) enterSheetReading(target, velocity);
+  else if (target === 'full' || target === 'half' && target !== original) enterSheetReading();
   else sheetTo(target, true, velocity);
 }
 
@@ -3552,11 +3266,8 @@ function openPeekProgressively() {
   if (ent && subjectBookForEntity(ent)) enterSheetReading();
   else sheetTo('half');
 }
-grabEl.addEventListener('click', (event) => {
-  if (sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
-  // A deliberate tap on the grip means 'put the book away', not 'back through pages'.
-  if (reading.active && innerWidth < 960) mobileReaderSnap('peek');
-  else if (!reading.active) openPeekProgressively();
+grabEl.addEventListener('click', () => {
+  if (!sheetState.suppressClick && !reading.active) openPeekProgressively();
 });
 sheetInner.addEventListener('click', (event) => {
   if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
@@ -3566,10 +3277,7 @@ sheetInner.addEventListener('click', (event) => {
 grabEl.addEventListener('keydown', (e) => {
   if (!['Enter', ' ', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
   e.preventDefault(); e.stopPropagation();
-  if (reading.active) {
-    if (e.key === 'ArrowUp' && canSplitReading()) mobileReaderSnap('full');
-    else if (e.key !== 'ArrowUp') collapseReader();
-  } else if (e.key === 'ArrowDown') closeSheet();
+  if (e.key === 'ArrowDown') closeSheet();
   else enterSheetReading();
 });
 dimEl.addEventListener('click', () => closeSheet());
@@ -3673,6 +3381,7 @@ function onYearChanged() {
 /* ───────────── 17. 键盘 ───────────── */
 function closeTopNavigationPanel() {
   if (footnoteTrigger) closeFootnote(true);
+  else if (closeReadingDisplay(true)) return true;
   else if (chrome.panel) closeView();
   else if (yearControlOpen()) closeYearControl({ focus: true });
   else return false;
@@ -3733,32 +3442,23 @@ document.addEventListener('visibilitychange', () => {
 });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
-/* v7 · Shared paper toolbar. Reading remains a single source of truth. */
 function syncSheetIdentity() {
-  const entity = reading.active ? reading.ent : state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
-  const book = reading.active ? reading.subject : entity && subjectBookForEntity(entity);
-  const title = reading.active && reading.library ? '历史书目' : reading.active && reading.catalog ? '补充专题资料' :
-    book?.title || (reading.active && reading.topic?.title) || (entity ? subjectEntityName(entity) : '历史档案');
+  const entity = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  const book = entity && subjectBookForEntity(entity);
+  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
   el('sheet-identity-years').textContent = book ? subjectYears(book)
-    : entity && !reading.library ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
-  const close = el('sheet-close');
-  close.hidden = !reading.active && !entity;
-  close.setAttribute('aria-label', reading.active ? '收起阅读' : '关闭摘要');
+    : entity ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
+  el('sheet-close').hidden = !entity;
   const toc = el('sheet-toc');
-  toc.hidden = reading.active ? reading.library || reading.catalog || Boolean(book && reading.detail === null) : !entity;
-  toc.toggleAttribute('data-read-subject', !reading.active && Boolean(entity));
-  toc.textContent = reading.active ? book ? '目录' : '历史书目'
-    : book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
+  toc.hidden = !entity;
+  toc.toggleAttribute('data-read-subject', Boolean(entity));
+  toc.textContent = book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
+el('sheet-close').addEventListener('click', () => closeSheet());
 el('sheet-toc').addEventListener('click', () => {
-  if (reading.active) {
-    if (reading.subject) { if (reading.detail !== null) readingIndex(); }
-    else if (!reading.library && !reading.catalog) followSubject({ library:true });
-    return;
-  }
-  if (state.focus) openBook(null, 'half', 0, { resume: true });
+  if (state.focus) openBook({ resume: true });
 });
 /* Product navigation and the serializable session. The renderer owns live camera motion. */
 const SESSION_KEY = 'globe.session.v1';
@@ -3780,6 +3480,8 @@ function createSession({ minYear, maxYear }) {
     index: Number.isInteger(value?.index) ? number(value.index, 0, 10000, 0) : 0,
     offset: number(value?.offset, -2, 2, 0),
   });
+  const disclosures = value => Array.isArray(value)
+    ? value.filter(index => Number.isInteger(index) && index >= 0 && index < 128).slice(0, 24) : [];
   const entity = value => {
     if (value?.layerId === 'country' && typeof value.key === 'string' && /^[A-Z]{2,3}$/.test(value.key)) {
       return { layerId: 'country', key: value.key };
@@ -3801,12 +3503,13 @@ function createSession({ minYear, maxYear }) {
     bookId: id(value?.bookId), topicId: id(value?.topicId), entity: entity(value?.entity), detail: id(value?.detail),
     year: validYear(value?.year) ? value.year : maxYear,
     scroll: number(value?.scroll, 0, 1e7, 0),
-    position: position(value?.position), linkEntry: value?.linkEntry === true,
+    position: position(value?.position), disclosures: disclosures(value?.disclosures),
+    linkEntry: value?.linkEntry === true, directory: value?.directory === true,
     catalog: value?.catalog === true, library: value?.library === true,
     catalogContinent: id(value?.catalogContinent) || '全部', catalogScroll: number(value?.catalogScroll, 0, 1e7, 0),
   });
   const readState = value => ({
-    ...frame(value), source: source(value?.source), viewMode: value?.viewMode === 'full' ? 'full' : 'half',
+    ...frame(value), source: source(value?.source),
     trail: Array.isArray(value?.trail) ? value.trail.slice(-MAX_READING_TRAIL).map(frame) : [],
   });
   const exploreState = value => {
@@ -3843,7 +3546,7 @@ function createSession({ minYear, maxYear }) {
       if (mode !== 'Read') return false;
       const next = frame({ ...read, ...value });
       if (next.bookId === read.bookId && next.topicId === read.topicId && next.detail === read.detail &&
-          next.catalog === read.catalog && next.library === read.library &&
+          next.catalog === read.catalog && next.library === read.library && next.directory === read.directory &&
           next.entity?.layerId === read.entity?.layerId && next.entity?.key === read.entity?.key) return false;
       read.trail.push(frame(read));
       if (read.trail.length > MAX_READING_TRAIL) read.trail.shift();
@@ -3862,8 +3565,8 @@ function createSession({ minYear, maxYear }) {
       return true;
     },
     enterObserve(value) {
-      if (observe) return false;
-      observe = { ...value, origin: mode, phase: -1, place: null };
+      if (observe && (mode !== 'Read' || observe.origin !== 'Explore')) return false;
+      observe = { ...value, origin: mode, phase: -1, place: null, previous: observe };
       mode = 'Observe';
       return true;
     },
@@ -3871,15 +3574,16 @@ function createSession({ minYear, maxYear }) {
     returnFromObserve() {
       if (mode !== 'Observe') return null;
       const previous = observe;
-      observe = null;
+      observe = previous.previous;
       mode = previous.origin;
       return previous;
     },
     readingProgress(key) { return progress.get(key); },
-    updateReadingPosition(key, chapter, value, scroll = 0) {
+    updateReadingPosition(key, chapter, value, scroll = 0, opened = []) {
       if (mode !== 'Read' || !id(key)) return;
       progress.delete(key);
-      progress.set(key, { chapter: id(chapter), position: position(value), scroll: number(scroll, 0, 1e7, 0) });
+      progress.set(key, { chapter: id(chapter), position: position(value), scroll: number(scroll, 0, 1e7, 0),
+        disclosures: disclosures(opened) });
       if (progress.size > MAX_READING_PROGRESS) progress.delete(progress.keys().next().value);
     },
     serialize() {
@@ -3894,7 +3598,8 @@ function createSession({ minYear, maxYear }) {
       if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
         if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
         const [key, item] = entry;
-        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0) });
+        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
+          disclosures: disclosures(item.disclosures) });
       }
       return { explore, read: value.mode === 'Read' ? lastRead : null };
     },
@@ -4038,8 +3743,11 @@ addEventListener('pagehide', saveVisibleSession);
 /* 阅读模块由 build.mjs 插入 app.js 的同一作用域。阅读位置独立于地球年份。 */
 const TOPICS = JSON.parse(inlineText('topics') || '[]');
 const timelineNotes = JSON.parse(inlineText('timeline-notes') || '{}');
-const bookEl = el('book'), bookBar = el('book-bar'), bookBody = el('book-body');
-const readingBack = el('reading-back'), readingGrab = el('reading-grab');
+const bookEl = el('book'), bookBody = el('book-body');
+const readingBack = el('reading-back'), readingSettings = el('reading-settings'), readingDisplay = el('reading-display');
+const readingExit = el('reading-exit'), readingLibrary = el('reading-library'), readingDirectory = el('reading-index');
+const readingSizes = [...readingDisplay.querySelectorAll('[data-reading-size]')];
+const readingDisplayKey = 'globe.reading-display.v1';
 const reading = session.read;
 Object.defineProperties(reading, {
   active: { get: () => session.mode === 'Read' },
@@ -4048,24 +3756,18 @@ Object.defineProperties(reading, {
   ent: { get: () => resolveReadingEntity(reading.entity) },
 });
 let readingTrigger = null, readingEntryPeers = [], readingPositionTimer = 0, readerResizeFrame = 0;
+let readerWidth = 0, readerHeight = 0;
+let readingSize = 'standard';
+try {
+  const stored = localStorage.getItem(readingDisplayKey);
+  if (readingSizes.some(button => button.dataset.readingSize === stored)) readingSize = stored;
+} catch {}
 const readingArrow = '<svg class="reading-arrow" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
 const reducedReadingMotion = matchMedia('(prefers-reduced-motion: reduce)');
-let readerMotion = 0, readerDrag = null, readerLastDrag = -Infinity;
-let readerTouch = null;
-const readerEdgeWidth = 32;
 function resolveReadingEntity(ref) {
   if (!ref) return null;
   const ent = entityByKey(ref.layerId, ref.key);
   return ent && (ref.layerId === 'country' || ent.name === ref.name) ? ent : null;
-}
-
-function canSplitReading() {
-  return !reading.catalog && !reading.library &&
-    Boolean(reading.subject || innerWidth < 960 && reading.ent && !reading.topic);
-}
-function isSplitReading() {
-  return reading.active && canSplitReading() &&
-    (window.innerWidth >= 960 || reading.viewMode === 'half');
 }
 
 function pauseGlobe() {
@@ -4090,7 +3792,9 @@ function readingKey() {
   return null;
 }
 function readingBlocks() {
-  return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, .reading-sources')];
+  return [...bookBody.querySelectorAll('.subject-prose > p, .subject-prose > aside, .reading-opening, article > p, ' +
+    '.scene-plate, .reading-sources, .subject-chapter-next, details > summary, details[open] button, details[open] li, ' +
+    '.contemporary-card, .reading-connections .reading-link')].filter(node => node.getClientRects().length);
 }
 function blockFingerprint(node) {
   const text = node.textContent.replace(/\s+/g, ' ').trim().slice(0, 160);
@@ -4118,70 +3822,68 @@ function restoreReadingPosition(position) {
   const box = block.getBoundingClientRect();
   bookBody.scrollTop += box.top - bookBody.getBoundingClientRect().top + position.offset * box.height;
 }
-function rememberReading() {
+function measureReader() {
+  readerWidth = bookBody.clientWidth;
+  readerHeight = bookBody.clientHeight;
+}
+function readerSizeChanged() {
+  return readerWidth !== bookBody.clientWidth || readerHeight !== bookBody.clientHeight;
+}
+function rememberReading(promote = false) {
   clearTimeout(readingPositionTimer);
+  readingPositionTimer = 0;
   if (!reading.active) return;
   if (reading.catalog) { reading.catalogScroll = bookBody.scrollTop; return; }
   if (reading.library) { reading.scroll = bookBody.scrollTop; return; }
+  const previous = session.readingProgress(readingKey());
   if (reading.detail) {
-    reading.position = captureReadingPosition();
-    session.updateReadingPosition(readingKey(), reading.detail, reading.position, reading.scroll);
+    if (!readerSizeChanged()) reading.position = captureReadingPosition();
+    reading.disclosures = [...bookBody.querySelectorAll('details')].flatMap((node,index) => node.open ? [index] : []);
+    if (promote || reading.position.top > 0 || !previous?.chapter || previous.chapter === reading.detail)
+      session.updateReadingPosition(readingKey(), reading.detail, reading.position, reading.scroll, reading.disclosures);
   } else {
     reading.scroll = bookBody.scrollTop;
-    const previous = session.readingProgress(readingKey());
-    if (!reading.bookId || previous) session.updateReadingPosition(readingKey(), previous?.chapter, previous?.position, reading.scroll);
+    if (!reading.bookId) session.updateReadingPosition(readingKey(), previous?.chapter, previous?.position, reading.scroll, previous?.disclosures);
   }
 }
-function readingBackground(inert) {
-  const split = inert && isSplitReading();
-  for (const id of ['globe', 'hud', 'grab', 'sheet-scroll', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points']) {
-    const keepLive = split && (id === 'globe' || id === 'event-map-points') ||
-      inert && reading.active && id === 'grab' && innerWidth < 960;
-    el(id).inert = keepLive ? false : inert;
-  }
-  document.body.classList.toggle('reading-open', inert);
-  document.body.classList.toggle('reading-split', split);
-  if (inert) {
-    sheetEl.setAttribute('role', 'dialog');
-    sheetEl.setAttribute('aria-labelledby', 'reading-title');
-    sheetEl.setAttribute('aria-modal', String(!split));
-  } else {
-    for (const name of ['role', 'aria-labelledby', 'aria-modal']) sheetEl.removeAttribute(name);
-  }
-  grabEl.setAttribute('aria-label', inert ? '收起阅读，按向上键展开' : '上下滑动切换抽屉高度，按回车展开阅读');
-  layout();
+function readingBackground(active) {
+  for (const id of ['globe', 'hud', 'sheet', 'sheet-dim', 'overlay', 'event-map-top', 'event-map-panel', 'event-map-points'])
+    el(id).inert = active;
+  if (active) canvas.setAttribute('aria-hidden', 'true');
+  else canvas.removeAttribute('aria-hidden');
+  document.body.classList.toggle('reading-open', active);
+  document.documentElement.classList.toggle('reader-paper', active);
+  themeColorMeta.content = active || standaloneGlobe && document.documentElement.classList.contains('sheet-paper')
+    ? paperThemeColor : globeThemeColor;
+  updateVernier();
 }
-function openBook(fromOffset = null, viewMode = 'half', velocity = 0, { resume = false } = {}) {
+function openBook({ resume = false } = {}) {
   if (session.mode !== 'Explore') return;
-  const ent = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
-  if (!ent) return;
-  const book = subjectBookForEntity(ent);
+  const focus = state.focus;
+  const entity = focus && entityByKey(focus.layerId, focus.key, focus.id);
+  if (!entity) return;
+  const book = subjectBookForEntity(entity);
   const progress = resume ? savedSubjectProgress(book) : null;
-  beginReading(ent, null, progress?.chapter, fromOffset ?? sheetState.offset, book,
-    { viewMode, velocity, resumePosition: progress?.position });
+  beginReading(entity, null, progress?.chapter, book, { resumePosition: progress?.position, resumeDisclosures: progress?.disclosures });
 }
-function beginReading(ent, topic, chapter, fromOffset, subject = null, {source, entryYear = state.year,
-  viewMode = 'half', velocity = 0, resumePosition} = {}) {
+function beginReading(entity, topic, chapter, book = null, { source, entryYear = state.year, resumePosition, resumeDisclosures } = {}) {
   if (reading.active) return;
-  if (session.mode === 'Explore') rememberExplore();
-  else if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView() });
-  const entity = ent && { layerId: ent.layerId, key: ent.key, name: ent.name };
-  const key = topic ? 'topic:' + topic.id : ent ? 'atlas:' + ent.layerId + ':' + ent.key : null;
-  const saved = subject ? null : session.readingProgress(key);
+  rememberExplore();
+  if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView(), readingMap: worldEvent.spec });
+  const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
+  const key = topic ? 'topic:' + topic.id : entity ? 'atlas:' + entity.layerId + ':' + entity.key : null;
+  const saved = book ? null : session.readingProgress(key);
   const detail = chapter || saved?.chapter;
   const position = resumePosition || (saved?.chapter === detail ? saved?.position : null);
-  if (!session.enterRead({ bookId: subject?.id, topicId: topic?.id, entity, detail, position,
-    scroll: saved?.scroll, year: entryYear, viewMode,
-    source: source || (ent ? { kind: 'summary' } : { kind: 'map' }), catalog: !ent && !topic && !subject })) return;
+  if (!session.enterRead({ bookId: book?.id, topicId: topic?.id, entity: ref, detail, position,
+    disclosures: resumeDisclosures || (saved?.chapter === detail ? saved?.disclosures : []),
+    scroll: saved?.scroll, year: entryYear, source: source || (entity ? { kind: 'summary' } : { kind: 'map' }),
+    catalog: !entity && !topic && !book })) return;
   readingTrigger = document.activeElement;
   readingEntryPeers = state.focus?.atlasPeers || [];
-  if (!canSplitReading()) reading.viewMode = 'full';
-  pauseGlobe();
-  closeWorld();
-  showReader(fromOffset, velocity);
+  showReader();
   saveSession(true);
 }
-
 function validReadingFrame(frame) {
   const book = subjectsById.get(frame.bookId);
   const topic = TOPICS.find(item => item.id === frame.topicId);
@@ -4195,193 +3897,32 @@ function resumeStoredReading(stored) {
   const valid = validReadingFrame(stored);
   if (!valid || !session.enterRead({ ...valid, trail: stored.trail.map(validReadingFrame).filter(Boolean) })) return;
   readingEntryPeers = state.focus?.atlasPeers || [];
-  pauseGlobe();
-  if (!canSplitReading()) reading.viewMode = 'full';
-  showReader(sheetDetents().hidden);
+  showReader();
 }
-
-function showReader(fromOffset, velocity = 0, options) {
+function showReader() {
   closeYearControl();
   closeView(false);
+  closeWorld();
+  pauseGlobe();
+  cancelGlobeFly();
+  applySheetOffset(sheetDetents().hidden, false);
   bookEl.hidden = false;
-  readerLastDrag = -Infinity;
   readingBackground(true);
-  renderReading(options);
-  if (innerWidth < 960) {
-    applySheetOffset(fromOffset, false);
-    mobileReaderPaint(fromOffset);
-    mobileReaderSnap(reading.viewMode, { velocity });
-  } else if (isSplitReading()) {
-    readerPosition(0, 1);
-  } else {
-    animateReader(clamp(fromOffset, 0, sheetDetents().hidden), 0, { fromSummary: true });
-  }
-  syncSheetIdentity();
+  applyReadingSize();
+  renderReading();
   el('reading-title').focus({ preventScroll: true });
 }
-function readerRestOffset() {
-  return session.explore.selection ? summaryOffset(session.explore.summary) : sheetDetents().hidden;
+function hideReader() {
+  clearTimeout(readingPositionTimer);
+  readingPositionTimer = 0;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = 0;
+  closeFootnote();
+  closeReadingDisplay();
+  bookEl.hidden = true;
+  readingBackground(false);
 }
-function readerPosition(offset, range = readerRestOffset()) {
-  const progress = clamp(offset / Math.max(1, range), 0, 1);
-  const fade = (start, end) => {
-    const mix = clamp((progress - start) / (end - start), 0, 1);
-    return mix * mix * (3 - 2 * mix);
-  };
-  const summary = fade(.42, .96);
-  const article = 1 - fade(.15, .68);
-  const hud = clamp((progress - .30) / .65, 0, 1);
-  applySheetOffset(offset, false);
-  sheetEl.style.setProperty('--reader-summary', summary);
-  sheetEl.style.setProperty('--reader-article', article);
-  sheetEl.style.setProperty('--reader-safe', 1 - progress);
-  sheetEl.style.setProperty('--reader-grip', progress);
-  sheetEl.style.borderRadius = (progress * 22) + 'px ' + (progress * 22) + 'px 0 0';
-  document.body.style.setProperty('--reader-hud', hud);
-  document.body.classList.toggle('reader-revealing', hud > 0);
-  if (summary > 0 && sheetScroll.scrollTop !== session.explore.summary.scroll) sheetScroll.scrollTop = session.explore.summary.scroll;
-}
-function stopReaderMotion() {
-  cancelAnimationFrame(readerMotion);
-  readerMotion = 0;
-}
-function animateReader(from, to, { velocity = 0, onFinish, fromSummary = false } = {}) {
-  stopReaderMotion();
-  const paint = (offset) => readerPosition(offset, fromSummary ? from : undefined);
-  paint(from);
-  if (reducedReadingMotion.matches || Math.abs(to - from) < 1) {
-    paint(to);
-    onFinish?.();
-    return;
-  }
-  let offset = from, last = performance.now();
-  velocity = clamp(velocity, -1600, 1600);
-  const tick = (now) => {
-    const dt = clamp((now - last) / 1000, .001, .032);
-    last = now;
-    velocity += ((to - offset) * 330 - velocity * 34) * dt;
-    offset += velocity * dt;
-    if (Math.abs(offset - to) < .6 && Math.abs(velocity) < 8) {
-      readerMotion = 0;
-      paint(to);
-      onFinish?.();
-      return;
-    }
-    paint(clamp(offset, 0, sheetDetents().hidden));
-    readerMotion = requestAnimationFrame(tick);
-  };
-  readerMotion = requestAnimationFrame(tick);
-}
-function collapseReader(velocity = 0) {
-  if (!reading.active) return;
-  if (innerWidth < 960) { mobileReaderSnap(reading.viewMode === 'full' && canSplitReading() ? 'half' : 'peek'); return; }
-  if (isSplitReading()) { closeReader(); return; }
-  animateReader(sheetState.offset, readerRestOffset(), { velocity, onFinish: closeReader });
-}
-function readerDragStart(e) {
-  if (innerWidth < 960 || isSplitReading()) return;
-  if (readerDrag || e.isPrimary === false || e.button !== 0 || e.target.closest('#reading-back')) return;
-  if (e.pointerType === 'touch' && e.clientX <= readerEdgeWidth) return;
-  readerDrag = { id: e.pointerId, x: e.clientX, y: e.clientY, offset: bookEl.getBoundingClientRect().top,
-    moved: false, dy: 0, samples: [{ y: e.clientY, t: e.timeStamp }] };
-}
-function readerDragMove(e) {
-  const drag = readerDrag;
-  if (!drag || e.pointerId !== drag.id) return;
-  drag.dy = e.clientY - drag.y;
-  if (!drag.moved) {
-    const dx = Math.abs(e.clientX - drag.x);
-    if (dx > 8 && dx > Math.abs(drag.dy)) { readerDrag = null; return; }
-    if (Math.abs(drag.dy) < 6) return;
-    drag.moved = true;
-    drag.offset = bookEl.getBoundingClientRect().top;
-    stopReaderMotion();
-    if (e.pointerType === 'mouse') bookBar.setPointerCapture(e.pointerId);
-  }
-  dragReaderTo(drag.offset + drag.dy);
-  drag.samples.push({ y: e.clientY, t: e.timeStamp });
-  drag.samples = drag.samples.filter((sample) => e.timeStamp - sample.t < 110);
-}
-function readerDragEnd(e) {
-  const drag = readerDrag;
-  if (!drag || (e.pointerId !== undefined && e.pointerId !== drag.id)) return;
-  readerDrag = null;
-  bookBar.classList.remove('collapse-ready');
-  if (!drag.moved) return;
-  readerLastDrag = e.timeStamp;
-  const last = drag.samples.at(-1), first = drag.samples[0];
-  const velocity = e.timeStamp - last.t < 110 && last.t > first.t ? (last.y - first.y) / (last.t - first.t) * 1000 : 0;
-  finishReaderPull(drag.dy, velocity, e.type === 'pointerup');
-}
-function dragReaderTo(offset) {
-  const max = readerRestOffset();
-  const eased = offset > max ? max + 24 * (1 - Math.exp((max - offset) / 48)) : Math.max(0, offset);
-  readerPosition(eased);
-  bookBar.classList.toggle('collapse-ready', eased >= clamp(max * .32, 80, 132));
-}
-function finishReaderPull(distance, velocity, released) {
-  const offset = sheetState.offset;
-  const threshold = clamp(readerRestOffset() * .32, 80, 132);
-  if (released && distance > 0 && (offset >= threshold || (distance > 24 && velocity > 620))) collapseReader(velocity);
-  else animateReader(offset, 0);
-}
-function startReaderTouch(e) {
-  if (innerWidth < 960 || isSplitReading()) return;
-  if (e.touches.length !== 1) { endReaderTouch(e); return; }
-  if (readerMotion || readerDrag) return;
-  const touch = e.changedTouches[0];
-  const edge = touch.clientX <= readerEdgeWidth;
-  const canPull = bookBody.contains(e.target) && bookBody.scrollTop <= 1;
-  if (!edge && !canPull) return;
-  readerTouch = { id: touch.identifier, x: touch.clientX, y: touch.clientY, edge, canPull, axis: null, distance: 0, samples: [] };
-}
-function moveReaderTouch(e) {
-  const gesture = readerTouch;
-  if (!gesture) return;
-  if (e.touches.length !== 1 || !e.cancelable) { endReaderTouch(e); return; }
-  const touch = e.touches[0];
-  const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
-  if (!gesture.axis) {
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 6) return;
-    if (gesture.edge && dx > 0 && dx > Math.abs(dy) * 1.35) {
-      gesture.axis = 'back';
-      for (const animation of bookEl.getAnimations()) animation.cancel();
-    }
-    else if (gesture.canPull && dy > Math.abs(dx) * 1.25 && bookBody.scrollTop <= 1) gesture.axis = 'pull';
-    else { readerTouch = null; return; }
-  }
-  e.preventDefault();
-  gesture.distance = gesture.axis === 'back' ? dx : dy;
-  gesture.samples.push({ distance: gesture.distance, time: e.timeStamp });
-  gesture.samples = gesture.samples.filter((sample) => e.timeStamp - sample.time < 110);
-  if (gesture.axis === 'pull') dragReaderTo(dy);
-  else bookEl.style.transform = 'translateX(' + clamp(dx * .55, 0, view.w * .25) + 'px)';
-}
-function endReaderTouch(e) {
-  const gesture = readerTouch;
-  if (!gesture) return;
-  if (e.type === 'touchend' && !Array.from(e.changedTouches).some((touch) => touch.identifier === gesture.id)) return;
-  readerTouch = null;
-  if (!gesture.axis) return;
-  readerLastDrag = e.timeStamp;
-  const released = e.type === 'touchend';
-  const first = gesture.samples[0], last = gesture.samples.at(-1);
-  const velocity = first && last.time > first.time && e.timeStamp - last.time < 110
-    ? (last.distance - first.distance) / (last.time - first.time) * 1000 : 0;
-  if (gesture.axis === 'pull') {
-    bookBar.classList.remove('collapse-ready');
-    finishReaderPull(gesture.distance, velocity, released);
-    return;
-  }
-  const transform = bookEl.style.transform;
-  bookEl.style.transform = '';
-  const goBack = released && (gesture.distance >= clamp(view.w * .24, 72, 125) || (gesture.distance > 30 && velocity > 620));
-  if (goBack) readingGoBack();
-  if (!reducedReadingMotion.matches && reading.active && !readerMotion) {
-    bookEl.animate([{ transform: goBack ? 'translateX(18px)' : transform }, { transform: 'none' }],
-      { duration: 170, easing: 'ease-out' });
-  }
-}
+
 function timelineItem(entry) {
   const note = timelineNotes[entry.id];
   return note ? { ...entry, ...note } : entry;
@@ -4405,8 +3946,8 @@ function catalogNavigation() {
 }
 function sourcesMarkup(sources) {
   if (!sources.length) return '';
-  return '<section class="reading-sources"><h2>来源</h2>' +
-    sources.map((s, i) => '<a id="reading-source-' + i + '" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">[' + (i + 1) + '] ' + esc(s.title) + (s.note ? ' · ' + esc(s.note) : '') + ' ↗</a>').join('') + '</section>';
+  return '<details class="reading-sources"><summary>来源</summary><ol>' +
+    sources.map((s, i) => '<li><a id="reading-source-' + i + '" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + esc(s.title) + (s.note ? ' · ' + esc(s.note) : '') + ' ↗</a></li>').join('') + '</ol></details>';
 }
 function referencesMarkup(refs) {
   return refs && refs.length ? '<span class="reading-refs">' + refs.map((i) => '<a href="#reading-source-' + i + '" aria-label="查看来源 ' + (i + 1) + '">[' + (i + 1) + ']</a>').join(' ') + '</span>' : '';
@@ -4425,25 +3966,25 @@ function followReadingTopic(topicId, chapterId) {
   const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
   const position = detail && saved?.chapter === detail ? saved.position : null;
   navigateReading({ catalog: false, library: false, bookId: null, topicId: target.id, detail,
-    scroll: saved?.scroll || 0, position, linkEntry: true });
+    scroll: saved?.scroll || 0, position, disclosures: position ? saved.disclosures : [], linkEntry: true });
 }
 function navigateReading(target) {
   if (!reading.active) return;
   rememberReading();
-  if (!session.navigateReading(target)) return;
+  if (!session.navigateReading({ directory: false, disclosures: [], ...target })) return;
   renderReading();
   el('reading-title').focus({preventScroll:true});
   saveSession(true);
 }
 function openReadingCatalog() {
-  if (!reading.catalog) navigateReading({ catalog: true, library: false, catalogContinent: '全部', catalogScroll: 0 });
+  if (!reading.catalog) navigateReading({ catalog: true, library: false, bookId: null, topicId: null,
+    entity: null, detail: null, catalogContinent: '全部', catalogScroll: 0 });
 }
 function renderReadingCatalog() {
   const continents = ['全部','亚洲','非洲','欧洲','北美洲','南美洲','大洋洲'];
   const selected = reading.catalogContinent;
   const topics = TOPICS.filter(t => selected === '全部' || t.continents.includes(selected)).sort((a,b)=>a.from-b.from || a.id.localeCompare(b.id));
   const year = y => y < 0 ? '前' + Math.abs(y) : '公元' + y;
-  setReadingBack(reading.trail.length ? '返回阅读' : '');
   bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">补充专题资料</h1>' +
     '<nav class="reading-filters" aria-label="按大洲筛选">' + continents.map(c=>'<button type="button" data-reading-continent="'+c+'" aria-pressed="'+(c===selected)+'">'+c+'</button>').join('') + '</nav>' +
     '<p class="when" role="status">'+topics.length+' 组专题</p>' + topics.map(t=>'<button type="button" class="reading-card reading-link" data-reading-topic="'+esc(t.id)+'"><small>'+year(t.from)+'—'+year(t.to)+'</small><strong>'+esc(t.title)+'</strong><span>'+esc(t.summary)+'</span>'+readingArrow+'</button>').join('');
@@ -4451,7 +3992,8 @@ function renderReadingCatalog() {
 }
 function setReadingBack(label) {
   readingBack.hidden = !label;
-  readingBack.setAttribute('aria-label', label || '返回');
+  readingBack.setAttribute('aria-label', label || '返回上一级');
+  readingBack.title = label || '返回上一级';
 }
 function readingHeading(title, meta) {
   return '<h1 id="reading-title" tabindex="-1">' + esc(title) + '</h1><div class="reading-meta"><p class="when">' + esc(meta) + '</p></div>';
@@ -4461,109 +4003,83 @@ function renderReadingArticle(topic, items, item) {
   const body = '<p class="reading-opening">' + esc(opening) + referencesMarkup(item.opening?.refs) + '</p>' + item.sections.map((s) =>
     '<article><h2>' + esc(s.title) + '</h2><p>' + esc(s.text) + referencesMarkup(s.refs) + '</p></article>').join('');
   const next = items[items.indexOf(item) + 1];
-  return readingHeading(item.opening?.headline || item.title, readingDate(item)) + body + connectionsMarkup(topic, item) +
+  return '<p class="subject-book-label">' + esc(topic.title) + ' · 第 ' + (items.indexOf(item) + 1) + ' 篇 / 共 ' +
+    items.length + ' 篇</p>' + readingHeading(item.opening?.headline || item.title, readingDate(item)) +
+    '<p id="reading-progress" class="reading-progress"></p>' + body + connectionsMarkup(topic, item) +
     (next ? '<nav class="reading-next"><button type="button" data-reading-detail="' + esc(next.id) + '">下一篇 · ' + esc(next.title) + readingArrow + '</button></nav>' : '') +
     sourcesMarkup(item.sources) + catalogNavigation();
 }
-function renderReading({ preserveSplitScene = false } = {}) {
-  if (reading.active) {
-    readingBackground(true);
-    refreshReadingViewport();
+function renderReading() {
+  if (!reading.active) return;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = 0;
+  const book = reading.subject, topic = reading.topic, item = (book || topic)?.chapters.find(c => c.id === reading.detail);
+  const title = reading.library ? '历史书目' : reading.catalog ? '补充专题资料'
+    : book?.title || topic?.title || (reading.ent && subjectEntityName(reading.ent)) || '地图资料';
+  el('reading-book-name').textContent = title;
+  readingLibrary.hidden = reading.library;
+  readingDirectory.hidden = !item;
+  readingExit.textContent = session.observe ? '返回观察' : reading.source.kind === 'events' ? '返回史事' : '合上';
+  readingExit.setAttribute('aria-label', session.observe ? '返回观察' : reading.source.kind === 'events' ? '返回史事' : '合上书卷，返回地球');
+  setReadingBack(reading.directory ? '返回正文' : item && !reading.linkEntry ?
+    (book ? '返回书卷首页' : '返回专题') : reading.trail.length ? '返回上一级' : '');
+  if (reading.catalog) renderReadingCatalog();
+  else if (reading.library) renderSubjectLibrary();
+  else if (book) bookBody.innerHTML = item ? renderSubjectChapter(book, item) : renderSubjectOutline(book);
+  else if (topic && item) bookBody.innerHTML = renderReadingArticle(topic, topic.chapters, item);
+  else if (topic) bookBody.innerHTML = readingHeading(topic.title, topic.subtitle) + '<p class="lede">' + esc(topic.summary) + '</p>' +
+    readingRows(topic.chapters.map(chapter => readingRow(chapter)), '专题篇目') +
+    connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
+  else bookBody.innerHTML = renderAtlasReading();
+  if (item) {
+    const details = bookBody.querySelectorAll('details');
+    for (const index of reading.disclosures) if (details[index]) details[index].open = true;
+    updateReadingLocation();
+    restoreReadingPosition(reading.position);
   }
-  syncSheetIdentity();
-  if (reading.catalog) { clearSplitScene(); renderReadingCatalog(); return; }
-  if (reading.library) { clearSplitScene(); renderSubjectLibrary(); return; }
-  if (reading.subject || !reading.topic) {
-    const subject = reading.subject;
-    const chapter = subject?.chapters.find((item) => item.id === reading.detail);
-    if (subject) setReadingBack(chapter ? '返回目录' : reading.trail.length ? '返回上一级' : '');
-    bookBody.innerHTML = subject
-      ? chapter ? renderSubjectChapter(subject, chapter) : renderSubjectOutline(subject)
-      : renderAtlasReading();
-    if (chapter) restoreReadingPosition(reading.position);
-    else bookBody.scrollTop = reading.scroll;
-    if (innerWidth >= 960 && subject && isSplitReading()) {
-      // Opening the table of contents must not jump the globe back to the first scene.
-      if (!preserveSplitScene) syncSubjectGlobeForReading(subject, chapter);
-    } else if (splitScene) {
-      clearSplitScene();
-    }
-    return;
-  }
-  clearSplitScene();
-  const topic = reading.topic, items = topic.chapters;
-  const item = reading.detail !== null ? items.find((c) => String(c.id) === String(reading.detail)) : null;
-  if (!item) reading.detail = null;
-  setReadingBack(reading.trail.length && (reading.linkEntry || !item) ? '返回上一级' : item ? '返回专题' : '');
-  if (item) bookBody.innerHTML = renderReadingArticle(topic, items, item);
-  else {
-    bookBody.innerHTML = readingHeading(topic.title, topic.subtitle) + '<p class="lede">' + esc(topic.summary) + '</p>' +
-      readingRows(items.map((chapter) => readingRow(chapter)), '专题篇目') +
-      connectionsMarkup(topic, null) + '<p class="credits">' + esc(topic.scope) + '</p>' + catalogNavigation();
-  }
-  if (item) restoreReadingPosition(reading.position);
-  else bookBody.scrollTop = reading.scroll;
-  syncSheetIdentity();
+  else bookBody.scrollTop = reading.catalog ? reading.catalogScroll : reading.scroll;
+  measureReader();
+  updateReadingLocation();
 }
-function openReadingDetail(id, position = null) {
-  if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id) || reading.detail === id) return;
+function openReadingDetail(id, position = null, { restart = false, sequence = false, disclosures = [] } = {}) {
+  if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id)) return;
+  if (reading.detail === id && !restart) return;
   rememberReading();
-  const previous = reading.topicId && session.readingProgress(readingKey());
-  if (!position && previous?.chapter === id) position = previous.position;
+  if (reading.directory) session.backReading();
+  const previous = session.readingProgress(readingKey());
+  if (!restart && !position && previous?.chapter === id) {
+    position = previous.position;
+    disclosures = previous.disclosures;
+  }
   reading.linkEntry = false;
   reading.detail = id;
   reading.position = session.position(position);
+  reading.disclosures = disclosures;
   renderReading();
   el('reading-title').focus({ preventScroll: true });
-  rememberReading();
+  rememberReading(restart || sequence);
   saveSession(true);
 }
 function readingIndex() {
-  if (!reading.active) return;
+  if (!reading.active || !reading.detail) return;
   const selected = reading.detail;
-  rememberReading();
-  reading.linkEntry = false;
-  const preserveSplitScene = Boolean(isSplitReading() && reading.subject && splitScene);
-  reading.detail = null;
-  renderReading({preserveSplitScene});
-  const row = [...bookBody.querySelectorAll('.reading-row')].find((button) => button.dataset.readingDetail === selected);
-  (row || el('reading-title')).focus({ preventScroll: true });
-  saveSession(true);
+  navigateReading({ detail: null, directory: true, scroll: 0, position: null });
+  const row = [...bookBody.querySelectorAll('[data-reading-detail]')].find(button =>
+    button.dataset.readingDetail === selected && button.closest('ol'));
+  row?.focus();
 }
 function readingGoBack() {
   if (!reading.active || closeTopNavigationPanel()) return;
-  if (!reading.catalog && !reading.library && reading.subject && reading.detail !== null && !reading.linkEntry) {
-    readingIndex();
-    return;
-  }
-  if (reading.trail && reading.trail.length && (reading.catalog || reading.linkEntry || reading.detail === null)) {
-    rememberReading(); session.backReading(); renderReading();
-    (readingBack.hidden ? el('reading-title') : readingBack).focus({preventScroll:true});
-    saveSession(true);
-  } else if (reading.detail !== null) readingIndex();
-  else closeReader();
-}
-function hideReader() {
-  clearTimeout(readingPositionTimer);
-  cancelAnimationFrame(readerResizeFrame);
-  stopReaderMotion();
-  clearSplitScene();
-  readerDrag = null;
-  readerTouch = null;
-  stopSheetMotion();
-  mobileReaderDrag = null;
-  mobileScrollHandoff = null;
-  sheetEl.classList.remove('dragging');
-  document.body.classList.remove('reader-gesture');
-  bookEl.style.transform = '';
-  bookBar.classList.remove('collapse-ready');
-  closeFootnote();
-  bookEl.hidden = true;
-  document.body.classList.remove('reader-revealing', 'reading-split');
-  sheetEl.style.borderRadius = '';
-  for (const key of ['--reader-summary', '--reader-article', '--reader-safe', '--reader-grip']) sheetEl.style.removeProperty(key);
-  document.body.style.removeProperty('--reader-hud');
-  readingBackground(false);
+  rememberReading();
+  if (reading.trail.length && (reading.directory || reading.linkEntry || !reading.detail)) session.backReading();
+  else if (reading.detail) {
+    reading.detail = null;
+    reading.scroll = 0;
+    reading.position = session.position();
+  } else { closeReader(); return; }
+  renderReading();
+  (reading.detail ? readingDirectory : el('reading-title')).focus({ preventScroll: true });
+  saveSession(true);
 }
 function closeReader() {
   if (!reading.active || closeTopNavigationPanel()) return;
@@ -4571,11 +4087,8 @@ function closeReader() {
   const source = reading.source;
   session.exitRead();
   hideReader();
-  if (session.mode === 'Observe') {
-    sheetState.detent = 'hidden';
-    applySheetOffset(sheetDetents().hidden, false);
-    resumeEventMap();
-  } else {
+  if (session.mode === 'Observe') resumeEventMap();
+  else {
     restoreExploreView();
     if (source.kind === 'events') restoreWorldSource(source);
     else {
@@ -4590,21 +4103,23 @@ function closeReader() {
   invalidate();
   saveSession(true);
 }
-function handleReadingKey(e) {
+function handleReadingKey(event) {
   if (!reading.active) return false;
-  if (e.key === 'Tab' && !isSplitReading()) {
-    const focusable = [...sheetEl.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href]')]
-      .filter(node => node.getClientRects().length && !node.closest('[inert]'));
-    const first = focusable[0], last = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  }
+  if (event.key !== 'Tab') return true;
+  const scope = footnoteTrigger ? el('footnote-popover') : bookEl;
+  const items = [...scope.querySelectorAll('button:not(:disabled), [tabindex="0"], a[href], summary')]
+    .filter(node => node.getClientRects().length && !node.closest('[inert]'));
+  const first = items[0], last = items[items.length - 1], active = document.activeElement;
+  if (event.shiftKey && active === first) { event.preventDefault(); last?.focus(); }
+  else if (!event.shiftKey && active === last) { event.preventDefault(); first?.focus(); }
   return true;
 }
 let footnoteTrigger = null;
 function closeFootnote(restoreFocus = false) {
+  if (!footnoteTrigger) return;
   el('footnote-popover').hidden = true;
   el('footnote-shade').hidden = true;
+  bookEl.inert = false;
   if (restoreFocus && footnoteTrigger?.isConnected) footnoteTrigger.focus({ preventScroll: true });
   footnoteTrigger = null;
 }
@@ -4616,6 +4131,7 @@ function openFootnote(link) {
   el('footnote-text').textContent = source.textContent.replace(/\s*↗\s*$/, '');
   el('footnote-link').href = source.href;
   el('footnote-shade').hidden = el('footnote-popover').hidden = false;
+  bookEl.inert = true;
   el('footnote-close').focus({ preventScroll: true });
   return true;
 }
@@ -4626,27 +4142,12 @@ bookBody.addEventListener('click', (event) => {
   if (ref && openFootnote(ref)) event.preventDefault();
 });
 
-bookBody.addEventListener('scroll', () => {
-  if (!reading.active) return;
-  if (!readingPositionTimer) readingPositionTimer = setTimeout(() => {
-    readingPositionTimer = 0;
-    rememberReading();
-    saveSession();
-  }, 100);
-  if (innerWidth >= 960 && isSplitReading()) scheduleSplitScrollSync();
-}, { passive: true });
-addEventListener('resize', () => {
-  if (!reading.active || !reading.detail || !reading.position.block) return;
-  const position = reading.position, detail = reading.detail;
-  cancelAnimationFrame(readerResizeFrame);
-  readerResizeFrame = requestAnimationFrame(() => {
-    if (reading.active && reading.detail === detail && position === reading.position) restoreReadingPosition(position);
-  });
-});
 bookBody.addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
-  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail);
+  if (b.hasAttribute('data-reading-detail')) openReadingDetail(b.dataset.readingDetail, null, {
+    restart: b.hasAttribute('data-reading-restart'), sequence: b.hasAttribute('data-reading-sequence'),
+  });
   else if (b.hasAttribute('data-reading-topic')) followReadingTopic(b.dataset.readingTopic, b.dataset.readingChapter);
   else if (b.hasAttribute('data-reading-catalog')) openReadingCatalog();
   else if (b.hasAttribute('data-reading-continent')) {
@@ -4658,232 +4159,80 @@ bookBody.addEventListener('click', (e) => {
   else if (b.hasAttribute('data-reading-index')) readingIndex();
   else handleSubjectButton(b);
 });
-readingBack.addEventListener('click', () => { if (!readingBack.hidden) readingGoBack(); });
-function dismissReading() {
-  closeReader();
-}
-el('sheet-close').addEventListener('click', () => {
-  if (innerWidth < 960 && reading.active) mobileReaderSnap('peek');
-  else if (reading.active) dismissReading();
-  else closeSheet();
-});
-readingGrab.addEventListener('click', (e) => {
-  if (!e.detail || e.timeStamp - readerLastDrag > 300) dismissReading();
-});
-readingGrab.addEventListener('keydown', (e) => {
-  if (e.key !== 'ArrowDown') return;
-  e.preventDefault();
-  dismissReading();
-});
-bookBar.addEventListener('pointerdown', readerDragStart);
-bookBar.addEventListener('lostpointercapture', readerDragEnd);
-addEventListener('pointermove', readerDragMove);
-addEventListener('pointerup', readerDragEnd);
-addEventListener('pointercancel', readerDragEnd);
-addEventListener('blur', readerDragEnd);
-matchMedia('(min-width:960px)').addEventListener('change', () => {
-  if (reading.active) {
-    readingBackground(true);
-    refreshReadingViewport();
-    if (innerWidth >= 960 && isSplitReading()) {
-      const ch = reading.subject.chapters.find((c) => c.id === reading.detail);
-      syncSubjectGlobeForReading(reading.subject, ch);
-    } else {
-      clearSplitScene();
-    }
-  }
-});
-bookEl.addEventListener('touchstart', startReaderTouch, { passive: true });
-bookEl.addEventListener('touchmove', moveReaderTouch, { passive: false });
-bookEl.addEventListener('touchend', endReaderTouch);
-bookEl.addEventListener('touchcancel', endReaderTouch);
-bookEl.addEventListener('click', (e) => {
-  if (e.detail && e.timeStamp - readerLastDrag < 300) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}, true);
 
-/* v7 · Read the same book in a globe/reader comparison or a full paper view. */
-function setReadingViewMode(mode) {
-  if (!reading.active || !['half', 'full'].includes(mode)) return;
-  rememberReading();
-  const scroll = bookBody.scrollTop;
-  reading.viewMode = mode;
-  stopReaderMotion();
-  readingBackground(true);
-  readerPosition(0, 1);
-  if (mode === 'half' && innerWidth < 960) applySheetOffset(sheetDetents().half, false);
-  else applySheetOffset(0, false);
-  if (innerWidth >= 960 && isSplitReading() && reading.subject) {
-    const chapter = reading.subject.chapters.find(c => c.id === reading.detail);
-    syncSubjectGlobeForReading(reading.subject, chapter);
-  } else clearSplitScene();
-  if (reading.detail) restoreReadingPosition(reading.position);
-  else bookBody.scrollTop = scroll;
-  syncSheetIdentity();
-  invalidate();
+function updateReadingLocation() {
+  const label = el('reading-progress');
+  if (!label) return;
+  const extent = bookBody.scrollHeight - bookBody.clientHeight;
+  const percent = extent > 1 ? Math.min(100, Math.round(bookBody.scrollTop * 100 / extent)) : 0;
+  label.textContent = (reading.topic ? '本篇' : '本章') + '阅读位置 ' + percent + '%';
 }
-
-/* v8 · Mobile archival sheet. One continuous pointer gesture across peek/half/full.
- * The shell uses translateY on a full-height sheet, so visible height is H-offset.
- * Book scroll position and the real WebGL globe remain owned by the existing modules. */
-const mobileSheetTop = el('sheet-top');
-let mobileReaderDrag = null, mobileScrollHandoff = null;
-function refreshReadingViewport() {
-  if (readerMotion || sheetMotion || mobileReaderDrag) return;
-  applySheetOffset(innerWidth < 960 && isSplitReading() ? sheetDetents().half : 0, false);
+function applyReadingSize() {
+  bookEl.dataset.size = readingSize;
+  for (const option of readingSizes) option.setAttribute('aria-pressed', String(option.dataset.readingSize === readingSize));
 }
-function mobileReaderPaint(offset) {
-  const { hidden, peek, half } = sheetDetents();
-  const pass = clamp((offset - half) / Math.max(1, peek - half), 0, 1);
-  const summary = session.explore.selection ? clamp((pass - .52) / .48, 0, 1) : 0;
-  const article = 1 - clamp((pass - .26) / .58, 0, 1);
-  sheetEl.style.transition = 'none';
-  sheetEl.style.setProperty('--reader-summary', summary);
-  sheetEl.style.setProperty('--reader-article', article);
-  document.body.style.setProperty('--reader-hud', clamp(offset / half, 0, 1));
-  document.body.classList.toggle('reader-revealing', offset > 1);
-  // Preserve the scroll range while a reader with an existing position changes height.
-  if (bookBody.scrollTop <= 1) {
-    sheetEl.style.setProperty('--sheet-visible-height', Math.max(0, hidden - Math.max(0, offset)) + 'px');
-  }
-  paintSheetPosition(offset);
-}
-function mobileReaderStart(clientY, timeStamp, source = 'header', pointerId = null) {
-  if (!reading.active || innerWidth >= 960 || mobileReaderDrag) return false;
-  stopSheetMotion();
-  stopReaderMotion();
-  mobileReaderDrag = {
-    source, pointerId, startY:clientY,
-    startOffset:sheetState.offset, startMode:canSplitReading() ? reading.viewMode : 'full',
-    moved:false, samples:[{y:clientY,t:timeStamp}],
-  };
+function closeReadingDisplay(restoreFocus = false) {
+  if (readingDisplay.hidden) return false;
+  readingDisplay.hidden = true;
+  readingSettings.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) readingSettings.focus({ preventScroll: true });
   return true;
 }
-function mobileReaderMove(clientY, timeStamp) {
-  const g = mobileReaderDrag;
-  if (!g) return;
-  const dy = clientY - g.startY;
-  if (!g.moved && Math.abs(dy) < 5) return;
-  if (!g.moved) {
-    g.moved = true;
-    sheetEl.classList.add('dragging');
-    document.body.classList.add('reader-gesture');
-  }
-  g.samples.push({y:clientY,t:timeStamp});
-  g.samples = g.samples.filter(s => timeStamp - s.t <= 110);
-  mobileReaderPaint(sheetDragPosition(g.startOffset + dy));
-}
-function mobileReaderFinish(cancelled = false, timeStamp = performance.now()) {
-  const g = mobileReaderDrag;
-  if (!g) return;
-  mobileReaderDrag = null;
-  document.body.classList.remove('reader-gesture');
-  sheetEl.classList.remove('dragging');
-  if (!g.moved || cancelled) {
-    mobileReaderSnap(g.startMode, {immediate:!g.moved});
-    return;
-  }
-  readerLastDrag = timeStamp;
-  const velocity = sheetReleaseVelocity(g.samples, timeStamp);
-  const modes = canSplitReading() ? ['full', 'half', 'peek'] : ['full', 'peek'];
-  mobileReaderSnap(sheetSnapTarget(g.startMode, sheetState.offset, velocity, modes), { velocity });
-}
-function mobileReaderSnap(mode, { immediate = false, velocity = 0 } = {}) {
-  if (!reading.active) return;
-  if (mode === 'half' && !canSplitReading()) return;
-  if (innerWidth >= 960) {
-    if (mode === 'peek') closeReader();
-    return;
-  }
-  const end = sheetDetents()[mode === 'peek' && !session.explore.selection ? 'hidden' : mode];
-  const finish = () => {
-    if (mode === 'peek') {
-      dismissReading();
-      return;
-    }
-    reading.viewMode = mode;
-    readingBackground(true);
-    refreshReadingViewport();
-    syncSheetIdentity();
-    invalidate();
-    saveSession();
-  };
-  settleSheet(end, mobileReaderPaint, finish, velocity, !immediate);
-}
-mobileSheetTop.addEventListener('pointerdown', event => {
-  if (innerWidth >= 960 || !reading.active || !event.isPrimary || event.button !== 0 ||
-      event.target.closest('button, a, input')) return;
-  if (mobileReaderStart(event.clientY,event.timeStamp,'header',event.pointerId)) {
-    try { mobileSheetTop.setPointerCapture(event.pointerId); } catch {}
-  }
+readingSettings.addEventListener('click', () => {
+  if (closeReadingDisplay(true)) return;
+  readingDisplay.hidden = false;
+  readingSettings.setAttribute('aria-expanded', 'true');
+  readingDisplay.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
 });
-mobileSheetTop.addEventListener('pointermove', event => {
-  if (mobileReaderDrag?.source === 'header' && event.pointerId === mobileReaderDrag.pointerId)
-    mobileReaderMove(event.clientY,event.timeStamp);
+readingDisplay.addEventListener('click', event => {
+  const option = event.target.closest('[data-reading-size]');
+  if (!option || option.dataset.readingSize === readingSize) return;
+  const position = reading.detail ? captureReadingPosition() : null;
+  readingSize = option.dataset.readingSize;
+  applyReadingSize();
+  if (position) { restoreReadingPosition(position); measureReader(); rememberReading(); saveSession(true); }
+  updateReadingLocation();
+  try { localStorage.setItem(readingDisplayKey, readingSize); } catch {}
 });
-for (const kind of ['pointerup','pointercancel','lostpointercapture']) {
-  mobileSheetTop.addEventListener(kind, event => {
-    if (mobileReaderDrag?.source === 'header' && mobileReaderDrag.pointerId === event.pointerId)
-      mobileReaderFinish(kind !== 'pointerup',event.timeStamp);
-  });
-}
-// Book-body native vertical scroll is untouched until a *downward* overscroll at the top.
-bookBody.addEventListener('touchstart', event => {
-  if (innerWidth >= 960 || !reading.active || event.touches.length !== 1 ||
-      event.target.closest('button, a, input, summary')) {
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
-    return;
-  }
-  mobileScrollHandoff = { id:event.touches[0].identifier, y:event.touches[0].clientY, x:event.touches[0].clientX };
-}, {passive:true});
-bookBody.addEventListener('touchmove', event => {
-  const g = mobileScrollHandoff;
-  if (!g) return;
-  if (event.touches.length !== 1 || event.touches[0].identifier !== g.id) {
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(true, event.timeStamp);
-    return;
-  }
-  const {clientX, clientY} = event.touches[0];
-  const dy = clientY - g.y;
-  const dx = clientX - g.x;
-  if (!mobileReaderDrag) {
-    if (bookBody.scrollTop > 1 || !event.cancelable || dy < -5) {
-      g.y = clientY;
-      g.x = clientX;
-      return;
-    }
-    if (Math.abs(dx) > Math.abs(dy) + 5) { mobileScrollHandoff = null; return; }
-    if (dy < 8 || dy < Math.abs(dx) * 1.25) return;
-    mobileReaderStart(g.y,event.timeStamp,'scroll');
-  }
-  if (mobileReaderDrag?.source !== 'scroll') return;
-  if (event.cancelable) event.preventDefault();
-  mobileReaderMove(clientY,event.timeStamp);
-}, {passive:false});
-for (const kind of ['touchend','touchcancel']) {
-  bookBody.addEventListener(kind, event => {
-    if (!mobileScrollHandoff || !Array.from(event.changedTouches).some(t => t.identifier === mobileScrollHandoff.id)) return;
-    mobileScrollHandoff = null;
-    if (mobileReaderDrag?.source === 'scroll') mobileReaderFinish(kind !== 'touchend',event.timeStamp);
-  });
-}
+bookEl.addEventListener('pointerdown', event => {
+  if (!readingDisplay.contains(event.target) && !readingSettings.contains(event.target)) closeReadingDisplay();
+});
+readingBack.addEventListener('click', readingGoBack);
+readingExit.addEventListener('click', closeReader);
+readingDirectory.addEventListener('click', readingIndex);
+readingLibrary.addEventListener('click', () => followSubject({ library: true }));
 
-// Header taps navigate adjacent levels; movement-generated synthetic clicks are ignored.
-mobileSheetTop.addEventListener('click', event => {
-  // #grab has its own click handler. Never let one tap trigger both actions.
-  if (innerWidth >= 960 || event.target.closest('#grab, button, a, input') ||
-      sheetState.suppressClick || event.timeStamp - readerLastDrag < 320) return;
-  if (!reading.active) {
-    if (sheetState.detent === 'peek') openPeekProgressively();
-    return;
-  }
-  if (isSplitReading()) mobileReaderSnap('full');
-  else collapseReader();
-});
+bookBody.addEventListener('scroll', () => {
+  if (!reading.active || readerResizeFrame) return;
+  if (readerSizeChanged()) { reflowReading(); return; }
+  if (reading.detail) reading.position = captureReadingPosition();
+  if (!readingPositionTimer) readingPositionTimer = setTimeout(() => {
+    rememberReading();
+    updateReadingLocation();
+    saveSession();
+  }, 100);
+}, { passive: true });
+bookBody.addEventListener('toggle', event => {
+  if (reading.active && reading.detail && event.target.matches('details')) { rememberReading(); saveSession(); }
+}, true);
+function reflowReading() {
+  if (!reading.active || !readerSizeChanged()) return;
+  if (!reading.detail) { measureReader(); return; }
+  const position = reading.position, detail = reading.detail;
+  cancelAnimationFrame(readerResizeFrame);
+  readerResizeFrame = requestAnimationFrame(() => {
+    readerResizeFrame = 0;
+    if (reading.active && reading.detail === detail) {
+      restoreReadingPosition(position);
+      measureReader();
+      rememberReading();
+      saveSession();
+    }
+    updateReadingLocation();
+  });
+}
+addEventListener('resize', reflowReading);
+new ResizeObserver(reflowReading).observe(bookBody);
 
 const subjectBooks = JSON.parse(inlineText('subject-books'));
 const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
@@ -4948,12 +4297,8 @@ function savedSubjectProgress(book) {
   return saved && book.chapters.some(chapter => chapter.id === saved.chapter) ? saved : null;
 }
 
-function subjectLibraryLink() {
-  return '<nav class="reading-next"><button type="button" data-subject-library>历史书目' + readingArrow + '</button></nav>';
-}
-
-function subjectChapterButton(id, label) {
-  return '<button type="button" data-reading-detail="' + esc(id) + '">' + esc(label) + readingArrow + '</button>';
+function subjectChapterButton(id, label, attributes = '') {
+  return '<button type="button" data-reading-detail="' + esc(id) + '"' + attributes + '>' + esc(label) + readingArrow + '</button>';
 }
 
 function subjectNeighbors() {
@@ -4977,10 +4322,9 @@ function subjectNeighbors() {
 
 function renderAtlasReading() {
   const entity = reading.ent;
-  setReadingBack(reading.trail.length ? '返回上一级' : '');
   const title = subjectEntityName(entity);
   const history = entity.kind === 'polity';
-  return '<div class="atlas-reading">' + readingHeading(title, fmtYear(reading.year) + ' 年') +
+  return '<div class="atlas-reading">' + readingHeading(title, '地图资料 · ' + yearLabel(reading.year)) +
     '<p class="lede">这个主体的历史正文尚未收录。</p>' +
     '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
@@ -4988,40 +4332,37 @@ function renderAtlasReading() {
       ? '<details class="subject-secondary"><summary>底图原名</summary><p>' + esc(entity.name) + '</p></details>' : '') +
     subjectNeighbors() +
     sourcesMarkup(history ? [{title:'历史疆域 · Cliopatria',url:'https://github.com/Seshat-Global-History-Databank/cliopatria'}]
-      : [{title:'现代底图 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) +
-    subjectLibraryLink() + '</div>';
+      : [{title:'现代参考边界 · Natural Earth',url:'https://www.naturalearthdata.com/'}]) + '</div>';
 }
 
 function renderSubjectOutline(book) {
   const anchor = book.chapters.find((c) => coversYear(c, reading.year));
   const progress = savedSubjectProgress(book);
-  return readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
+  const current = reading.directory ? reading.trail.at(-1)?.detail : null;
+  return '<div class="reading-cover">' + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +
-    (progress ? '<button type="button" data-subject-resume>继续阅读' + readingArrow + '</button>' : '') +
-    subjectChapterButton(book.chapters[0].id, '从头读') +
-    (anchor && anchor !== book.chapters[0] && anchor.id !== progress?.chapter
-      ? subjectChapterButton(anchor.id, '跳到 ' + fmtYear(reading.year) + ' 年所在章节') : '') + '</nav>' +
-    '<div class="subject-outline">' + readingRows(book.chapters.map((c) => readingRow({ ...c, date: subjectYears(c) },
-      { current: c === anchor, timeline: true })), '章节目录', true) + '</div>' +
-    subjectNeighbors() + subjectLibraryLink();
+    (progress ? '<button type="button" class="reading-primary" data-subject-resume>继续阅读</button>' : '') +
+    subjectChapterButton(book.chapters[0].id, '从头读', progress ? ' data-reading-restart' : ' class="reading-primary" data-reading-restart') +
+    '</nav>' + (anchor ? '<button type="button" class="reading-entry-year" data-reading-detail="' + esc(anchor.id) + '">' +
+      esc(yearLabel(reading.year) + '对应章节 · ' + anchor.title) + readingArrow + '</button>' : '') +
+    '</div><section class="subject-outline" aria-labelledby="reading-index-title"><h2 id="reading-index-title">章节目录</h2>' +
+    '<ol class="reading-list">' + book.chapters.map((chapter, index) => {
+      const active = chapter.id === current;
+      const status = [active ? '正在阅读' : '', chapter === anchor ? '入口年份' : '',
+        chapter.id === progress?.chapter ? '上次读到' : ''].filter(Boolean).join(' · ');
+      return '<li><button type="button" class="reading-row reading-card" data-reading-detail="' + esc(chapter.id) + '"' +
+        (active ? ' aria-current="location"' : '') + '><span class="chapter-number" aria-hidden="true">' +
+        String(index + 1).padStart(2, '0') + '</span><span class="reading-row-copy"><strong>' + esc(chapter.title) + '</strong>' +
+        (status ? '<span class="chapter-status">' + esc(status) + '</span>' : '') + '</span><small>' +
+        esc(subjectYears(chapter)) + '</small></button></li>';
+    }).join('') + '</ol></section>' + subjectNeighbors();
 }
 
 function sceneButton(scene) {
-  const places = scene.places.slice(0, 3).map(place => place.name).join('、') + (scene.places.length > 3 ? '等 ' + scene.places.length + ' 处地点' : '');
-  const badges = [];
-  if (scene.routes?.length) badges.push('含路线');
-  if (scene.steps?.length) badges.push(scene.steps.length + ' 步推演');
-  if (scene.focusPolities?.length > 1) badges.push(scene.focusPolities.length + ' 方政权');
-  const badgeHtml = badges.length
-    ? '<span class="subject-scene-badges">' + badges.map(b => '<em>' + esc(b) + '</em>').join('') + '</span>'
-    : '';
-  const routeType = scene.routes?.[0]?.type || scene.routes?.[0]?.kind || 'trade';
-  const label = ({canal:'漕运', military:'军事', frontier:'边防', trade:'贸易'})[routeType] || '史地';
-  return '<button type="button" class="subject-scene scene-plate" data-subject-scene="' + esc(scene.id) + '">' +
-    '<span class="scene-plate-top"><span class="scene-plate-tags"><em class="route-pill ' + esc(routeType) + '">' + label +
-    '</em><small>' + esc(fmtYear(scene.year) + ' 年') + '</small></span><b>在地球观察 →</b></span>' +
-    '<strong>' + esc(scene.title) + '</strong><small class="scene-plate-desc">' + esc(scene.summary) + '</small>' +
-    '<span class="scene-place-preview">' + esc(places) + '</span>' + badgeHtml + '</button>';
+  return '<figure class="scene-plate"><figcaption><strong>' + esc(scene.title) + '</strong><small>' +
+    esc(yearLabel(scene.year)) + '</small><p>' + esc(scene.summary) + '</p></figcaption>' +
+    '<button type="button" class="subject-scene" data-subject-scene="' + esc(scene.id) +
+    '" aria-label="' + esc('在地球上观察 · ' + scene.title) + '">在地球上观察' + readingArrow + '</button></figure>';
 }
 
 function decorateParagraphPlaces(text, placeMatchers, linkedPlaces) {
@@ -5089,16 +4430,9 @@ function renderSubjectChapter(book, chapter) {
       }).join('') + '</div></section>'
     : '';
 
-  const thesisHtml = chapter.spatialThesis
-    ? '<div class="subject-thesis"><span>空间线索</span><p>' + esc(chapter.spatialThesis) + '</p></div>'
-    : '';
-
-  const ribbon = '<nav class="chapter-ribbon" aria-label="切换书卷章节">' + book.chapters.map((item, i) =>
-    '<button type="button" class="chapter-chip" data-reading-detail="' + esc(item.id) + '" aria-current="' +
-    (item.id === chapter.id ? 'page' : 'false') + '">' + (i + 1) + ' · ' + esc(item.title) + '</button>').join('') + '</nav>';
-  return ribbon + '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章</p>' +
+  return '<p class="subject-book-label">' + esc(book.title) + ' · 第 ' + (index + 1) + ' 章 / 共 ' + book.chapters.length + ' 章</p>' +
     readingHeading(chapter.title, subjectYears(chapter)) +
-    thesisHtml +
+    '<p id="reading-progress" class="reading-progress"></p>' +
     '<article class="subject-prose">' + chapter.paragraphs.map((paragraph, i) => {
       const headingHtml = paragraph.heading
         ? '<h2 class="subject-section-heading">' + esc(paragraph.heading) + '</h2>'
@@ -5112,38 +4446,23 @@ function renderSubjectChapter(book, chapter) {
       return headingHtml +
         '<p>' + bodyHtml + referencesMarkup(paragraph.refs.map((id) => references.get(id))) + '</p>' +
         calloutHtml +
-        (!session.observe ? scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('') : '');
+        scenes.filter(ref => ref.after === i + 1).map(ref => sceneButton(ref.scene)).join('');
     }).join('') + '</article>' +
+    '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
+    (next ? subjectChapterButton(next.id, '下一章 · ' + next.title, ' class="reading-primary" data-reading-sequence')
+      : '<p>已到书卷末尾</p><button type="button" data-reading-index>返回目录' + readingArrow + '</button>') +
+    (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' +
+    (chapter.spatialThesis ? '<details class="subject-secondary"><summary>空间线索</summary><p>' + esc(chapter.spatialThesis) + '</p></details>' : '') +
     contemporaries +
-    (next || previous ? '<nav class="reading-next subject-chapter-next" aria-label="连续阅读">' +
-      (next ? subjectChapterButton(next.id, '下一章 · ' + next.title) : '') +
-      (previous ? subjectChapterButton(previous.id, '上一章 · ' + previous.title) : '') + '</nav>' : '') +
     (related ? '<details class="subject-secondary"><summary>延伸阅读</summary><nav class="reading-next">' +
       related + '</nav></details>' : '') +
     sourcesMarkup(sources);
 }
 
-function syncSubjectGlobeForReading(book, chapter) {
-  if (!isSplitReading() || !book) return;
-  const firstRef = chapter?.sceneRefs?.[0] || book.chapters.find((c) => c.sceneRefs?.length)?.sceneRefs?.[0];
-  if (firstRef) {
-    const sc = historicalScenes.get(firstRef.id);
-    if (sc) { syncSplitScene(sc, { force: true }); return; }
-  }
-  clearSplitScene();
-  const targetYear = chapter ? chapter.from : clamp(reading.year, book.from, book.to ?? book.from);
-  if (state.year !== targetYear) {
-    state.year = targetYear;
-    onYearChanged();
-  }
-}
-
 function renderSubjectLibrary() {
-  setReadingBack('返回阅读');
-  bookBody.innerHTML = readingHeading('历史书目', '从建立、转折读到结局与影响') +
+  bookBody.innerHTML = '<h1 id="reading-title" tabindex="-1">历史书目</h1>' + catalogNavigation() +
     subjectBooks.map((book) => '<button class="reading-card reading-link" type="button" data-subject-book="' + esc(book.id) +
-      '"><small>' + esc(subjectYears(book)) + '</small><strong>' + esc(book.title) + '</strong>' + readingArrow + '</button>').join('') +
-    '<nav class="reading-next"><button type="button" data-reading-catalog>补充专题资料' + readingArrow + '</button></nav>';
+      '"><small>' + esc(subjectYears(book)) + '</small><strong>' + esc(book.title) + '</strong>' + readingArrow + '</button>').join('');
   bookBody.scrollTop = reading.scroll;
 }
 
@@ -5156,9 +4475,8 @@ function followSubject({ book = null, chapter = null, entity = null, library = f
 function handleSubjectButton(button) {
   if (button.hasAttribute('data-subject-resume')) {
     const saved = session.readingProgress(readingKey());
-    if (saved) openReadingDetail(saved.chapter, saved.position);
-  } else if (button.hasAttribute('data-subject-library')) followSubject({ library: true });
-  else if (button.hasAttribute('data-subject-book')) {
+    if (saved) openReadingDetail(saved.chapter, saved.position, { disclosures: saved.disclosures });
+  } else if (button.hasAttribute('data-subject-book')) {
     const book = subjectsById.get(button.dataset.subjectBook);
     if (book) followSubject({ book, chapter: book.chapters.find((c) => c.id === button.dataset.subjectChapter) });
   } else if (button.hasAttribute('data-atlas-entity')) {
@@ -5183,14 +4501,9 @@ const eventMapParticipants = el('event-map-participants');
 const eventMapDistance = el('event-map-distance');
 const eventMapSteps = el('event-map-steps');
 const eventMapTop = el('event-map-top'), eventMapYear = el('event-map-year');
-const splitGlobeBar = el('split-globe-bar'), splitGlobeYear = el('split-globe-year');
-const splitGlobeTitle = el('split-globe-title'), splitGlobeReset = el('split-globe-reset');
-const splitGlobeSteps = el('split-globe-steps'), splitGlobeNote = el('split-globe-note');
 const scenesByEvent = new Map([...historicalScenes.values()].filter(scene => scene.topicEvent).map(scene => [scene.topicEvent, scene]));
 let worldEvent = null;
-let splitScene = null;
 let globeFlyRaf = 0;
-let readingMapTarget = null;
 
 const ROUTE_STYLES = {
   military: { color: '#d65a3e', glow: 'rgba(214,90,62,.31)', dash: [7, 4], width: 2.3 },
@@ -5229,20 +4542,12 @@ function shortestYawDelta(from, to) {
   return d;
 }
 
-function cancelGlobeFly(userInitiated = false) {
-  readingMapTarget = null;
-  if (globeFlyRaf) {
-    cancelAnimationFrame(globeFlyRaf);
-    globeFlyRaf = 0;
-  }
-  if (userInitiated && splitScene) {
-    splitScene.userMoved = true;
-    splitGlobeReset.hidden = false;
-  }
+function cancelGlobeFly() {
+  cancelAnimationFrame(globeFlyRaf);
+  globeFlyRaf = 0;
 }
 
 function captureGlobeView() {
-  if (reading.active && readingMapTarget) return readingMapTarget;
   const { year, layerId, focus, yaw, tilt, zoom, panX, panY, lift } = state;
   return { year, layerId, focus: focus && { ...focus }, yaw, tilt, zoom, panX, panY, lift, natural: chrome.natural };
 }
@@ -5255,15 +4560,23 @@ function projectGlobeView({ natural, ...globe }) {
 }
 
 function resumeEventMap() {
+  const { readingView, readingMap, phase, place } = session.observe;
+  if (!worldEvent && readingMap) {
+    showEventMap(readingMap);
+    if (phase >= 0) applySceneStep(worldEvent, phase, { animate: false });
+    if (place) selectEventPlace(place, true);
+    cancelGlobeFly();
+  }
   const markers = [...(worldEvent.points?.values() || [])].map(place => place.mark);
   eventMapPoints.replaceChildren(...markers);
   eventMapPoints.hidden = !markers.length;
-  projectGlobeView(session.observe.readingView);
+  projectGlobeView(readingView);
+  session.updateObserve({ camera: session.camera(state) });
   eventMapRead.focus({ preventScroll: true });
 }
 
 function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   if (reducedGlobeMotion.matches || duration <= 0) {
     state.yaw = yaw;
     state.tilt = tilt;
@@ -5290,7 +4603,7 @@ function flyGlobeTo({ yaw, tilt, zoom, panX = 0, panY = 0, duration = 620 }) {
     view.Rz = view.R * state.zoom;
     invalidate();
     if (p < 1) globeFlyRaf = requestAnimationFrame(step);
-    else { globeFlyRaf = 0; readingMapTarget = null; cameraSettled(); }
+    else { globeFlyRaf = 0; cameraSettled(); }
   };
   globeFlyRaf = requestAnimationFrame(step);
 }
@@ -5433,7 +4746,7 @@ function drawSceneRoutes(ctxObj, matrix) {
 }
 
 function activeSceneFocusPolities() {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj) return null;
   const list = ctxObj.activeFocusPolities || ctxObj.focusPolities;
   return list?.length ? new Set(list) : null;
@@ -5469,9 +4782,8 @@ function prepareWorldEventPlaces(places) {
 
 function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds = null) {
   const occupied = [];
-  const splitMode = document.body.classList.contains('reading-split') && view.w >= 960;
-  const leftEdge = splitMode ? Math.min(460, Math.round(view.w * 0.42)) + 12 : 14;
-  const bottom = splitMode ? view.h - 24 : isSplitReading() && view.w < 960 ? sheetDetents().half - 12 : (eventMapPanel.getBoundingClientRect().top - 8);
+  const leftEdge = 14;
+  const bottom = eventMapPanel.getBoundingClientRect().top - 8;
   const visible = [...points.values()].map((entry) => ({
     entry, p: projectReadingPlace(entry.vector, rotationMatrix),
   }));
@@ -5512,7 +4824,7 @@ function drawWorldEventPlaces(points, rotationMatrix, hudBounds, activePlaceIds 
 }
 
 function drawEventMap(hudBounds) {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj) return;
   const matrix = rotation();
   if (ctxObj.routes?.length && ctxObj.points) {
@@ -5563,14 +4875,14 @@ function renderStepsBar(container, steps, activeIdx) {
   container.innerHTML = chips.join('');
 }
 
-function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {}) {
+function applySceneStep(ctxObj, stepIdx, { animate = true } = {}) {
   const steps = ctxObj.steps || [];
   const step = stepIdx >= 0 && stepIdx < steps.length ? steps[stepIdx] : null;
   ctxObj.stepIdx = step ? stepIdx : -1;
   ctxObj.selected = null;
 
   const year = step ? step.year : ctxObj.baseYear;
-  if (!split) session.updateObserve({ year });
+  session.updateObserve({ year });
   ctxObj.activePlaceIds = step?.places?.length ? new Set(step.places) : null;
   ctxObj.activeRouteIndices = step?.routes?.length ? new Set(step.routes) : null;
   ctxObj.activeFocusPolities = step?.focusPolities?.length ? step.focusPolities : (ctxObj.focusPolities || null);
@@ -5591,25 +4903,17 @@ function applySceneStep(ctxObj, stepIdx, { animate = true, split = false } = {})
     flyGlobeTo({ ...cam, duration: animate ? 560 : 0 });
   }
 
-  if (split) {
-    splitGlobeYear.textContent = fmtYear(year) + ' 年';
-    splitGlobeNote.textContent = step ? step.note : ctxObj.summary;
-    splitGlobeNote.hidden = !splitGlobeNote.textContent;
-    renderStepsBar(splitGlobeSteps, steps, ctxObj.stepIdx);
-    ctxObj.userMoved = false;
-    splitGlobeReset.hidden = true;
-  } else {
-    eventMapYear.textContent = fmtYear(year);
-    eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.summary;
-    renderStepsBar(eventMapSteps, steps, ctxObj.stepIdx);
-  }
+  eventMapYear.textContent = fmtYear(year);
+  eventMapNote.textContent = step ? step.title + ' · ' + step.note : ctxObj.summary;
+  renderStepsBar(eventMapSteps, steps, ctxObj.stepIdx);
   invalidate();
 }
 
-function showEventMap({year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route}) {
+function showEventMap(spec) {
+  const {year, title, summary, back, places, participants, distanceLabel, routes, steps, focusPolities, initialPlaceId = null, historical = false, ...route} = spec;
   session.updateObserve({ id: route.sceneId || String(route.event.id), year, phase: -1, place: null });
   worldEvent = {
-    ...route, baseYear: year, summary, points: null, regionVector: null,
+    ...route, spec, baseYear: year, summary, points: null, regionVector: null,
     routes: routes ? routes.map((r) => ({ ...r })) : [],
     steps: steps || [],
     focusPolities: focusPolities || null,
@@ -5622,7 +4926,7 @@ function showEventMap({year, title, summary, back, places, participants, distanc
     set selected(place) { session.updateObserve({ place }); },
   };
   pauseGlobe();
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   closeYearControl();
   closeWorld();
   document.body.classList.add('event-map-open');
@@ -5704,11 +5008,10 @@ function openWorldEvent(event) {
 }
 
 function openReadingScene(scene, trigger, { initialPlaceId = null } = {}) {
-  if (!scene || !reading.active || session.observe) return;
+  if (!scene || !reading.active) return;
   rememberReading();
   const returnView = captureGlobeView();
-  const split = splitScene && { id: splitScene.sceneId, phase: splitScene.stepIdx, place: splitScene.selected };
-  if (!session.enterObserve({ kind: 'scene', returnView, split,
+  if (!session.enterObserve({ kind: 'scene', returnView,
     source: { sceneId: scene.id, triggerPlace: trigger?.dataset.pinPlace || null } })) return;
   hideReader();
   const sceneOrder = [...new Set(reading.subject?.chapters.flatMap(c => (c.sceneRefs || []).map(r => r.id)) || [])];
@@ -5721,7 +5024,7 @@ function returnToWorld() {
   const previous = session.returnFromObserve();
   worldEvent = null;
   pauseGlobe();
-  cancelGlobeFly(false);
+  cancelGlobeFly();
   document.body.classList.remove('event-map-open', 'scene-observation');
   eventMapPanel.style.transform = '';
   eventMapTop.hidden = eventMapPanel.hidden = eventMapPoints.hidden = eventMapSteps.hidden = true;
@@ -5730,20 +5033,8 @@ function returnToWorld() {
   eventMapPoints.replaceChildren();
   eventMapSteps.replaceChildren();
   if (previous.origin === 'Read') {
-    const sceneCamera = session.camera(state);
     projectGlobeView(previous.returnView);
-    showReader(sheetDetents().hidden, 0, { preserveSplitScene: true });
-    if (previous.split && innerWidth >= 960 && isSplitReading()) {
-      const scene = historicalScenes.get(previous.split.id);
-      if (scene) syncSplitScene(scene, { stepIdx: previous.split.phase, force: true });
-      if (previous.split.place) selectEventPlace(previous.split.place, true);
-      cancelGlobeFly(false);
-      projectGlobeView(previous.returnView);
-    } else if (innerWidth < 960 && !reducedGlobeMotion.matches) {
-      Object.assign(state, sceneCamera);
-      flyGlobeTo({ ...previous.returnView, duration:420 });
-      readingMapTarget = previous.returnView;
-    }
+    showReader();
     const { sceneId, triggerPlace } = previous.source;
     const buttons = [...bookBody.querySelectorAll(triggerPlace ? '[data-pin-scene]' : '[data-subject-scene]')];
     const button = buttons.find(node => triggerPlace
@@ -5757,126 +5048,24 @@ function returnToWorld() {
   saveSession(true);
 }
 
-/* ── 桌面端书球同屏联动（Split-View） ── */
-function syncSplitScene(scene, { stepIdx = -1, pinPlaceId = null, force = false } = {}) {
-  if (!isSplitReading()) return;
-  if (!scene) {
-    clearSplitScene();
-    return;
-  }
-  if (!force && splitScene?.sceneId === scene.id && !pinPlaceId && splitScene.userMoved) return;
-
-  const sameScene = splitScene?.sceneId === scene.id;
-  if (!sameScene) {
-    splitScene = {
-      sceneId: scene.id,
-      baseYear: scene.year,
-      title: scene.title,
-      summary: scene.summary,
-      routes: scene.routes ? scene.routes.map((r) => ({ ...r })) : [],
-      steps: scene.steps || [],
-      focusPolities: scene.focusPolities || (reading.subject?.polities || null),
-      activeFocusPolities: scene.focusPolities || (reading.subject?.polities || null),
-      activePlaceIds: null,
-      activeRouteIndices: null,
-      stepIdx: -1,
-      selected: null,
-      points: null,
-      userMoved: false,
-    };
-    chrome.natural = !(scene.year >= -3400 && scene.year <= POLITY_END);
-    if (!chrome.natural) {
-      state.layerId = 'polity';
-      if (!polityState.loaded) ensurePolity();
-    }
-    buildPlaceMarkers(scene.places, splitScene);
-  }
-
-  splitGlobeBar.hidden = false;
-  splitGlobeTitle.textContent = scene.title;
-  splitGlobeReset.hidden = true;
-  splitScene.userMoved = false;
-
-  for (const btn of bookBody.querySelectorAll('[data-subject-scene]')) {
-    btn.classList.toggle('is-active', btn.dataset.subjectScene === scene.id);
-  }
-
-  if (pinPlaceId && splitScene.points?.has(pinPlaceId)) {
-    if (state.year !== scene.year) {
-      state.year = scene.year;
-      onYearChanged();
-    }
-    splitGlobeYear.textContent = fmtYear(scene.year) + ' 年';
-    renderStepsBar(splitGlobeSteps, splitScene.steps, -1);
-    selectEventPlace(pinPlaceId, true);
-    const pt = splitScene.points.get(pinPlaceId);
-    const cam = cameraForVectors([pt.vector], true);
-    flyGlobeTo({ ...cam, zoom: Math.max(cam.zoom, 2.8), duration: 540 });
-    return;
-  }
-
-  applySceneStep(splitScene, stepIdx, { animate: true, split: true });
-}
-
-function clearSplitScene() {
-  cancelGlobeFly(false);
-  splitScene = null;
-  splitGlobeBar.hidden = true;
-  splitGlobeSteps.replaceChildren();
-  if (!worldEvent) {
-    eventMapPoints.hidden = true;
-    eventMapPoints.replaceChildren();
-  }
-}
-
-let splitScrollTimer = 0;
-function scheduleSplitScrollSync() {
-  if (!isSplitReading() || !reading.subject || !reading.detail) return;
-  if (splitScrollTimer) return;
-  splitScrollTimer = requestAnimationFrame(() => {
-    splitScrollTimer = 0;
-    if (!isSplitReading() || splitScene?.userMoved) return;
-    const buttons = [...bookBody.querySelectorAll('[data-subject-scene]')];
-    if (!buttons.length) return;
-    const box = bookBody.getBoundingClientRect();
-    const anchorY = box.top + box.height * 0.42;
-    let best = buttons[0], bestDist = Infinity;
-    for (const btn of buttons) {
-      const r = btn.getBoundingClientRect();
-      const d = Math.abs((r.top + r.height / 2) - anchorY);
-      if (d < bestDist) { bestDist = d; best = btn; }
-    }
-    const id = best.dataset.subjectScene;
-    if (id && splitScene?.sceneId !== id) {
-      const sc = historicalScenes.get(id);
-      if (sc) syncSplitScene(sc);
-    }
-  });
-}
-
 eventMapReturn.addEventListener('click', returnToWorld);
 eventMapRead.addEventListener('click', () => {
   const target = worldEvent?.readingTarget;
-  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book,
+  if (session.mode === 'Observe' && target) beginReading(null, null, target.chapter.id, target.book,
     { entryYear:target.year, source:session.observe.source });
 });
 
 function selectEventPlace(id, forceSelect = false) {
-  const ctxObj = session.mode === 'Observe' ? worldEvent : (isSplitReading() ? splitScene : null);
+  const ctxObj = session.mode === 'Observe' ? worldEvent : null;
   if (!ctxObj?.points) return;
   ctxObj.selected = (!forceSelect && ctxObj.selected === id) ? null : id;
   const selected = ctxObj.points.get(ctxObj.selected);
-  if (ctxObj === worldEvent) {
-    eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
-    for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
-      chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
-    if (selected) {
-      const cam = cameraForVectors([selected.vector], true);
-      flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
-    }
-  } else {
-    splitGlobeNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
-    splitGlobeNote.hidden = !splitGlobeNote.textContent;
+  eventMapNote.textContent = selected ? selected.name + ' · ' + selected.role : ctxObj.summary;
+  for (const chip of el('event-map-place-chips').querySelectorAll('[data-scene-place]'))
+    chip.setAttribute('aria-pressed', String(chip.dataset.scenePlace === ctxObj.selected));
+  if (selected) {
+    const cam = cameraForVectors([selected.vector], true);
+    flyGlobeTo({...cam, zoom:Math.min(4,Math.max(2.2,cam.zoom)),duration:460});
   }
   for (const [key, place] of ctxObj.points) {
     place.mark.classList.toggle('selected', key === ctxObj.selected);
@@ -5892,15 +5081,6 @@ eventMapPoints.addEventListener('click', (event) => {
 eventMapSteps.addEventListener('click', (event) => {
   const btn = event.target.closest('[data-scene-step]');
   if (btn && session.mode === 'Observe') applySceneStep(worldEvent, Number(btn.dataset.sceneStep));
-});
-splitGlobeSteps.addEventListener('click', (event) => {
-  const btn = event.target.closest('[data-scene-step]');
-  if (btn && splitScene) applySceneStep(splitScene, Number(btn.dataset.sceneStep), { animate: true, split: true });
-});
-splitGlobeReset.addEventListener('click', () => {
-  if (!splitScene) return;
-  const sc = historicalScenes.get(splitScene.sceneId);
-  if (sc) syncSplitScene(sc, { stepIdx: splitScene.stepIdx, force: true });
 });
 eventMapParticipants.addEventListener('toggle', invalidate);
 
@@ -5959,9 +5139,7 @@ for (const kind of ['touchend','touchcancel']) eventMapPanel.addEventListener(ki
   const up=dy < -55 || g.vy < -.42;
   const down=dy > 70 || g.vy > .42;
   if (!up && !down) return;
-  const wasReading = session.observe?.origin === 'Read';
   returnToWorld();
-  if (down && wasReading && reading.active && innerWidth<960) mobileReaderSnap('peek',{immediate:true});
 });
 
 const worldReadingLinks = new Map(Object.entries(JSON.parse(inlineText('world-reading'))));
@@ -6106,7 +5284,7 @@ overlayBody.addEventListener('click', event => {
   if (button.dataset.event) { openWorldEvent(entry); return; }
   const target = worldReadingTarget(entry, worldEventYear(entry));
   if (!target) return;
-  beginReading(null, null, target.chapter.id, sheetDetents().hidden, target.book, {
+  beginReading(null, null, target.chapter.id, target.book, {
     entryYear:target.year, source:worldSource(id, 'read'),
   });
 });
