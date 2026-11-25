@@ -1,0 +1,213 @@
+{
+  "id": "05-late-qing-and-wartime-records",
+  "access": [
+    {
+      "url": "https://worldjpn.net/documents/texts/pw/18420829.T1E.html",
+      "material": "东京大学东洋文化研究所「世界与日本」｜《南京条约》转录",
+      "locator": "签署行及第 II—VII、X 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.chnmuseum.cn/zp/zpml/gmww/202104/t20210402_249493.shtml",
+      "material": "中国国家博物馆｜虎门一号销烟池出土的铺地石",
+      "locator": "藏品说明、1839 年奉命查禁和 6 月销毁缴获鸦片",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://history.state.gov/historicaldocuments/frus1901China/d179",
+      "material": "美国国务院历史办公室｜1901 年《辛丑条约》签署文本",
+      "locator": "第 VI、IX 条及附件 13",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nam.ac.uk/explore/boxer-rebellion",
+      "material": "英国国家陆军博物馆｜义和团与联军行动",
+      "locator": "The Legation Quarter 和 relief expedition 段落，及馆藏北京掠夺照片",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://jda.cq.gov.cn/web/article/web/content_1463121864266047488.html",
+      "material": "重庆市档案馆｜抗战硝烟下的民生公司",
+      "locator": "第三节宜昌大撤退与分段转运说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://daj.yichang.gov.cn/content-62300-974932-1.html",
+      "material": "宜昌市档案馆｜宜昌大撤退网页",
+      "locator": "访问超时，改读重庆市档案馆材料。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    },
+    {
+      "url": "https://tile.loc.gov/storage-services/service/ll/lltreaties/lltreaties-ustbv001/lltreaties-ustbv001.pdf",
+      "material": "美国国会图书馆｜条约汇编第 1 卷",
+      "locator": "整卷大小超出当前阅读工具上限，改读 FRUS 可定位的签署文本。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/qing/crisis/p-01",
+      "scope": "虎门销烟与后来条约中的鸦片款项，区分两阶段",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "虎门销烟与后来条约中的鸦片款项，区分两阶段",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qing/humen-museum",
+              "locator": "藏品说明、1839 年奉命查禁和 6 月销毁缴获鸦片",
+              "supports": "林则徐查禁鸦片，地方官员在广东虎门销毁缴获物。"
+            },
+            {
+              "source": "source/book/qing/nanking-text-1842",
+              "locator": "签署行及第 II—VII、X 条",
+              "supports": "1842 年 8 月 29 日，五口、香港岛、分项款项及商定关税安排。"
+            }
+          ],
+          "limit": "没有利用缴获量推算全国的白银净外流，也删去未按舰种核实的「铁甲舰」。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重看国博销烟池藏品说明及条约赔款第 IV 条，区分上缴、销毁和战后付款。"
+      }
+    },
+    {
+      "id": "book-paragraph/qing/crisis/p-02",
+      "scope": "南京条约签署日期、五口、割让范围、款项和税则条款",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "南京条约签署日期、五口、割让范围、款项和税则条款",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qing/nanking-text-1842",
+              "locator": "签署行及第 II—VII、X 条",
+              "supports": "1842 年 8 月 29 日，五口、香港岛、分项款项及商定关税安排。"
+            }
+          ],
+          "limit": "香港岛与后来发生的其他割让、租借分开。款项为条约金额，不是战争总开支。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/qing/reforms/p-06",
+      "scope": "北京事件与《辛丑条约》的本金、利息及驻军地点范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "北京事件与《辛丑条约》的本金、利息及驻军地点范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/qing/boxer-nam-1900",
+              "locator": "The Legation Quarter 和 relief expedition 段落，及馆藏北京掠夺照片",
+              "supports": "1900 年北京使馆区围困与各国部队进入北京。"
+            },
+            {
+              "source": "source/book/qing/boxer-protocol-1901",
+              "locator": "第 VI、IX 条及附件 13",
+              "supports": "赔款本金为 4.5 亿海关两，规定利息和分期，并列有允许驻军的地点。"
+            }
+          ],
+          "limit": "只陈述条约的约定，不把附表本息合计当作实际支付；亦不把多方军事冲突归为一句宣战。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "复读条约第 VI、IX 条和附件 13，确认本金、约定利息及驻军地名分别陈述。"
+      }
+    },
+    {
+      "id": "block/topic/china-late-qing/ports/section-02",
+      "scope": "五口、割让范围与赔款条目依条约精确定位",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "五口、割让范围与赔款条目依条约精确定位",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/china-late-qing/ports/nanking-text-1842",
+              "locator": "签署行及第 II—VII、X 条",
+              "supports": "1842 年 8 月 29 日，五口、香港岛、分项款项及商定关税安排。"
+            }
+          ],
+          "limit": "地球地点仍用五口参照坐标，条约所涉地理范围由正文和地图分别表达。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/china-late-qing/boxers/section-04",
+      "scope": "进占与掠夺，条约中本金、驻军和时间的范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "进占与掠夺，条约中本金、驻军和时间的范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/china-late-qing/boxers/boxer-nam-1900",
+              "locator": "The Legation Quarter 和 relief expedition 段落，及馆藏北京掠夺照片",
+              "supports": "1900 年北京使馆区围困与各国部队进入北京。"
+            },
+            {
+              "source": "source/topic/china-late-qing/boxers/boxer-protocol-1901",
+              "locator": "第 VI、IX 条及附件 13",
+              "supports": "赔款本金为 4.5 亿海关两，规定利息和分期，并列有允许驻军的地点。"
+            }
+          ],
+          "limit": "此处不推算后来各国实际获得的金额，亦不将整个驻军通道作为一条固定军事路线。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-03",
+      "scope": "宜昌撤运的时间、参加机构、分段水路及原因",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "宜昌撤运的时间、参加机构、分段水路及原因",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roc/yichang-evacuation",
+              "locator": "第三节宜昌大撤退与分段转运说明",
+              "supports": "卢作孚等组织多家公司，经宜昌、万县向重庆方向撤运人员和设备。"
+            }
+          ],
+          "limit": "各档案对待运者、实际运送人员及物资的统计范围不同，删除未区分统计口径的合计数字。"
+        }
+      ]
+    }
+  ]
+}

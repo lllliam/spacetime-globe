@@ -154,15 +154,33 @@
           "url": "https://www.un.org/unispal/history/",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "armenian-1915-archive",
+          "title": "美国国务院历史办公室｜1915 年 7 月 10 日摩根索电报",
+          "url": "https://history.state.gov//historicaldocuments/frus1915Supp/d1400"
+        },
+        {
+          "id": "armenian-genocide-museum",
+          "title": "美国大屠杀纪念馆｜1915—1916 年亚美尼亚人种族灭绝",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth"
         }
       ],
       "sections": [
         {
           "title": "帝国的战争",
-          "text": "第一次世界大战使奥斯曼卷入大规模动员、战斗和人口灾难，战后其阿拉伯行省进入新的政治格局。英国、法国等列强在战争期间作出相互交叠的安排和承诺，地方民族主义者也提出自身诉求。地区未来并不是由一份协议独自决定，战争结果与战后谈判同样关键。",
+          "text": "第一次世界大战期间，奥斯曼帝国动员军队、物资和人口。在联合进步委员会控制下，奥斯曼政府自 1915 年起对亚美尼亚人实施强制驱逐和大规模杀害。许多人被迫离开家园，部分被驱往今日叙利亚等地，途中与抵达后持续受害。讨论战后西亚的行政区和边界时，也需要认识到战争已经改变了这里的人口分布。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "armenian-1915-archive",
+              "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+              "note": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+            },
+            {
+              "sourceId": "armenian-genocide-museum",
+              "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+              "note": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+            }
           ],
           "id": "section-01"
         },

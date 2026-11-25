@@ -24,7 +24,7 @@
 
 `develop/1.0` 已完成 Phase 06。读者可从正文主动进入历史现场，按阶段观察地点与有依据的空间联系，再返回原文。书卷按共时、比较、历史联系及背景组织延伸阅读。[历史现场](docs/HISTORICAL-SCENES.md) · [阶段报告与实拍](docs/progress/PHASE-06.md) · [开发路线](docs/ROADMAP.md) · [历史内容模型](docs/HISTORY-MODEL.md) · [状态模型](docs/STATE-MODEL.md)
 
-Phase 07 正在审校存量内容。首批优先查证《中华人民共和国》《古埃及》《印度》和《罗马帝国》的高风险段落，并核对相关地图与年表入口。已查证的范围和待处理对象逐项登记。[Phase 07 进度](docs/progress/PHASE-07.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
+Phase 07 正在审校存量内容。首批从四部优先书卷及其地图、年表入口开始，续审按战争暴行、强制迁移、饥荒和条约等一级风险分批查证。已查证的范围和待处理对象逐项登记。[Phase 07 进度](docs/progress/PHASE-07.md) · [历史编辑规范](docs/EDITORIAL-STANDARD.md)
 
 正式版 `1.0.0` 在最终验收通过后发布。
 

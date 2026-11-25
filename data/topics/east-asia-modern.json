@@ -267,6 +267,16 @@
           "id": "state-archives-1949",
           "title": "国家档案局｜开国大典档案目录",
           "url": "https://www.saac.gov.cn/daj/gqzt/06.html"
+        },
+        {
+          "id": "nanjing-1937-date",
+          "title": "美国国务院历史办公室｜驻南京外交人员报告",
+          "url": "https://history.state.gov/historicaldocuments/frus1931-41v01/d415"
+        },
+        {
+          "id": "nanjing-1938-allison",
+          "title": "美国国务院历史办公室｜南京使馆电报及证词摘要",
+          "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53"
         }
       ],
       "sections": [
@@ -281,10 +291,18 @@
         },
         {
           "title": "战争：国家统一与外来侵略交织",
-          "text": "国民党建立南京政府后试图扩大控制，同时面对内部反对与日本侵略。抗日战争造成重大人员与社会损失，也改变政党、地方组织与居民的联系。国共合作与冲突不能脱离战争和资源环境理解，军队之外，生产、运输、难民救济和基层组织都影响不同力量能够动员多少支持与维持多久行动。",
+          "text": "日本侵华战争造成严重人员伤亡与社会损失。1937 年 12 月，日军占领南京并对平民实施杀戮、性暴力和掠夺。留在南京的外交人员和传教士留下了同时代的证词。战争也迫使居民迁徙，改变了政党、地方组织和居民之间的关系，战时救济和运输因此成为值得单独观察的问题。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nanjing-1937-date",
+              "locator": "FRUS 日本卷 I 第 415 号文电首段",
+              "note": "驻南京外交人员注明日军于 1937 年 12 月 13 日占领南京。"
+            },
+            {
+              "sourceId": "nanjing-1938-allison",
+              "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+              "note": "记录日军进入南京后平民遭杀害及性暴力的事例和书面证词。"
+            }
           ],
           "id": "section-02"
         },

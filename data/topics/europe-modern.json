@@ -284,6 +284,21 @@
           "url": "https://www.nam.ac.uk/explore/second-world-war",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "holocaust-ushmm",
+          "title": "美国大屠杀纪念馆｜大屠杀研究与馆藏资料",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust"
+        },
+        {
+          "id": "warsaw-ghetto-1943",
+          "title": "美国大屠杀纪念馆｜1943 年华沙犹太隔离区起义",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/warsaw-ghetto-uprising"
+        },
+        {
+          "id": "warsaw-uprising-1944",
+          "title": "美国大屠杀纪念馆｜1944 年华沙起义",
+          "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising"
         }
       ],
       "sections": [
@@ -298,19 +313,30 @@
         },
         {
           "title": "大屠杀的机制",
-          "text": "纳粹德国及其盟友和合作者系统性迫害并杀害约六百万欧洲犹太人，其他许多群体也遭迫害与屠杀。排斥、剥夺财产、隔离、驱逐与工业化杀戮并非同一天出现，制度逐步激化。法律、警察、交通、官僚与社会参与使暴力得以执行，因此不能把种族灭绝只描述为个别人私下的仇恨。",
+          "text": "纳粹德国及其盟友和合作者系统性迫害和杀害约六百万欧洲犹太人。罗姆人、残障人士及其他群体也遭到纳粹政权迫害和杀害。歧视性法律、财产掠夺、强制隔离和驱逐逐步扩大，许多人在枪杀和灭绝中心遭到杀害。追踪这些手段的变化，可以具体辨认国家机构及合作者怎样组织暴力。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "holocaust-ushmm",
+              "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+              "note": "纳粹德国及其盟友和合作者系统性迫害及杀害欧洲犹太人，1939 年德国入侵波兰。"
+            }
           ],
           "id": "section-02"
         },
         {
           "title": "平民的战争",
-          "text": "占领、轰炸、饥饿、强制劳动和人口迁移使平民深陷战争，抵抗与救助也在高度危险中发生。不能要求受害者以成功抵抗来证明自身尊严，更不能用旁观者处境复杂抹去主动参与迫害的责任。不同地区经历不同暴力制度，比较时需要明确行动者、目标与组织方式，避免把所有苦难模糊成同一事件。",
+          "text": "被占领地区的平民面临轰炸、饥饿、强制劳动和驱逐，也发展出抵抗和互助。华沙在 1943 年发生反抗驱逐的犹太隔离区起义。1944 年，波兰家乡军又发动反对德国占领的华沙起义。两次事件可以放在同一城市观察，各自参与者及抵抗目标需要分别辨认。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "warsaw-ghetto-1943",
+              "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+              "note": "确认起义发生在 1943 年，参与者抵抗德国当局驱逐。"
+            },
+            {
+              "sourceId": "warsaw-uprising-1944",
+              "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+              "note": "1944 年 8 月波兰家乡军发起另一次起义，遭德国占领军镇压。"
+            }
           ],
           "id": "section-03"
         },

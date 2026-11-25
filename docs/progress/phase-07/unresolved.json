@@ -153,7 +153,6 @@
     "book-paragraph/british-empire/industrial-pax-britannica/p-03",
     "block/british-empire/industrial-pax-britannica/aside-03",
     "book-paragraph/british-empire/industrial-pax-britannica/p-04",
-    "book-paragraph/british-empire/industrial-pax-britannica/p-05",
     "book-paragraph/british-empire/industrial-pax-britannica/p-06",
     "scene-ref/british-empire/industrial-pax-britannica/british-global-sea-lanes",
     "relation/book/british-empire/industrial-pax-britannica/world-01",
@@ -276,8 +275,6 @@
     "book-paragraph/canada-north-america/modern-canada-arctic/p-02",
     "book-paragraph/canada-north-america/modern-canada-arctic/p-03",
     "book-paragraph/canada-north-america/modern-canada-arctic/p-04",
-    "block/canada-north-america/modern-canada-arctic/aside-04",
-    "book-paragraph/canada-north-america/modern-canada-arctic/p-05",
     "book-paragraph/canada-north-america/modern-canada-arctic/p-06",
     "relation/book/canada-north-america/modern-canada-arctic/world-01",
     "relation/book/canada-north-america/modern-canada-arctic/world-02",
@@ -380,11 +377,9 @@
     "text/chapter/central-eastern-europe/interwar-iron-curtain-to-european-integration/summary",
     "text/chapter/central-eastern-europe/interwar-iron-curtain-to-european-integration/spatialThesis",
     "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-01",
-    "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-02",
     "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-03",
     "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-04",
     "block/central-eastern-europe/interwar-iron-curtain-to-european-integration/aside-04",
-    "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-05",
     "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-06",
     "relation/book/central-eastern-europe/interwar-iron-curtain-to-european-integration/world-01",
     "text/book/egypt/title",
@@ -396,10 +391,7 @@
     "book-paragraph/egypt/old-kingdom-pyramids/p-04",
     "relation/book/egypt/old-kingdom-pyramids/world-01",
     "text/chapter/egypt/middle-kingdom-hyksos/spatialThesis",
-    "book-paragraph/egypt/middle-kingdom-hyksos/p-01",
-    "book-paragraph/egypt/middle-kingdom-hyksos/p-02",
     "book-paragraph/egypt/middle-kingdom-hyksos/p-03",
-    "block/egypt/middle-kingdom-hyksos/aside-03",
     "book-paragraph/egypt/middle-kingdom-hyksos/p-04",
     "relation/book/egypt/middle-kingdom-hyksos/world-01",
     "text/chapter/egypt/new-kingdom-empire/spatialThesis",
@@ -412,7 +404,6 @@
     "text/chapter/egypt/late-period-ptolemy/spatialThesis",
     "book-paragraph/egypt/late-period-ptolemy/p-01",
     "book-paragraph/egypt/late-period-ptolemy/p-02",
-    "book-paragraph/egypt/late-period-ptolemy/p-06",
     "relation/book/egypt/late-period-ptolemy/world-01",
     "book/ethiopia",
     "text/book/ethiopia/title",
@@ -462,8 +453,6 @@
     "block/ethiopia/haile-selassie-modern-horn/aside-01",
     "book-paragraph/ethiopia/haile-selassie-modern-horn/p-02",
     "book-paragraph/ethiopia/haile-selassie-modern-horn/p-03",
-    "book-paragraph/ethiopia/haile-selassie-modern-horn/p-04",
-    "book-paragraph/ethiopia/haile-selassie-modern-horn/p-05",
     "book-paragraph/ethiopia/haile-selassie-modern-horn/p-06",
     "relation/book/ethiopia/haile-selassie-modern-horn/world-01",
     "book/five-dynasties",
@@ -818,10 +807,8 @@
     "book-paragraph/india-classical-modern/mughal-company-raj/p-02",
     "book-paragraph/india-classical-modern/mughal-company-raj/p-03",
     "book-paragraph/india-classical-modern/mughal-company-raj/p-05",
-    "book-paragraph/india-classical-modern/mughal-company-raj/p-06",
     "relation/book/india-classical-modern/mughal-company-raj/world-01",
     "book-paragraph/india-classical-modern/independence-partition-republic/p-01",
-    "book-paragraph/india-classical-modern/independence-partition-republic/p-04",
     "relation/book/india-classical-modern/independence-partition-republic/world-01",
     "book/italy-renaissance",
     "text/book/italy-renaissance/title",
@@ -1661,7 +1648,6 @@
     "book-paragraph/mughal/aurangzeb-deccan-company-takeover/p-04",
     "block/mughal/aurangzeb-deccan-company-takeover/aside-04",
     "book-paragraph/mughal/aurangzeb-deccan-company-takeover/p-05",
-    "book-paragraph/mughal/aurangzeb-deccan-company-takeover/p-06",
     "relation/book/mughal/aurangzeb-deccan-company-takeover/reading-01",
     "relation/book/mughal/aurangzeb-deccan-company-takeover/world-01",
     "book/netherlands-low-countries",
@@ -1854,10 +1840,7 @@
     "text/chapter/oceania-australia/cook-convict-waitangi/summary",
     "text/chapter/oceania-australia/cook-convict-waitangi/spatialThesis",
     "book-paragraph/oceania-australia/cook-convict-waitangi/p-01",
-    "book-paragraph/oceania-australia/cook-convict-waitangi/p-02",
     "book-paragraph/oceania-australia/cook-convict-waitangi/p-03",
-    "book-paragraph/oceania-australia/cook-convict-waitangi/p-04",
-    "block/oceania-australia/cook-convict-waitangi/aside-04",
     "book-paragraph/oceania-australia/cook-convict-waitangi/p-05",
     "book-paragraph/oceania-australia/cook-convict-waitangi/p-06",
     "relation/book/oceania-australia/cook-convict-waitangi/world-01",
@@ -1866,10 +1849,7 @@
     "text/chapter/oceania-australia/gold-rush-dominions/title",
     "text/chapter/oceania-australia/gold-rush-dominions/summary",
     "text/chapter/oceania-australia/gold-rush-dominions/spatialThesis",
-    "book-paragraph/oceania-australia/gold-rush-dominions/p-01",
     "book-paragraph/oceania-australia/gold-rush-dominions/p-02",
-    "book-paragraph/oceania-australia/gold-rush-dominions/p-03",
-    "block/oceania-australia/gold-rush-dominions/aside-03",
     "book-paragraph/oceania-australia/gold-rush-dominions/p-04",
     "book-paragraph/oceania-australia/gold-rush-dominions/p-05",
     "book-paragraph/oceania-australia/gold-rush-dominions/p-06",
@@ -1939,8 +1919,6 @@
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-02",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-03",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-04",
-    "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-05",
-    "block/ottoman/tanzimat-sick-man-collapse/aside-05",
     "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-06",
     "relation/book/ottoman/tanzimat-sick-man-collapse/world-01",
     "book/persia-sasanian-safavid",
@@ -2093,8 +2071,6 @@
     "text/chapter/qing/crisis/title",
     "text/chapter/qing/crisis/summary",
     "text/chapter/qing/crisis/spatialThesis",
-    "book-paragraph/qing/crisis/p-01",
-    "book-paragraph/qing/crisis/p-02",
     "block/qing/crisis/aside-02",
     "book-paragraph/qing/crisis/p-03",
     "book-paragraph/qing/crisis/p-04",
@@ -2114,7 +2090,6 @@
     "block/qing/reforms/aside-03",
     "book-paragraph/qing/reforms/p-04",
     "book-paragraph/qing/reforms/p-05",
-    "book-paragraph/qing/reforms/p-06",
     "scene-ref/qing/reforms/boxer-crisis-1900",
     "relation/book/qing/reforms/reading-01",
     "relation/book/qing/reforms/world-01",
@@ -2165,12 +2140,9 @@
     "text/chapter/roc/war-resistance/summary",
     "text/chapter/roc/war-resistance/spatialThesis",
     "book-paragraph/roc/war-resistance/p-01",
-    "book-paragraph/roc/war-resistance/p-02",
-    "book-paragraph/roc/war-resistance/p-03",
     "block/roc/war-resistance/aside-03",
     "book-paragraph/roc/war-resistance/p-04",
     "book-paragraph/roc/war-resistance/p-05",
-    "book-paragraph/roc/war-resistance/p-06",
     "scene-ref/roc/war-resistance/roc-nanjing-chongqing",
     "relation/book/roc/war-resistance/world-01",
     "book-chapter/roc/civil-war-1949",
@@ -2196,11 +2168,9 @@
     "text/chapter/roman/principate-mare-nostrum/title",
     "text/chapter/roman/principate-mare-nostrum/spatialThesis",
     "book-paragraph/roman/principate-mare-nostrum/p-02",
-    "book-paragraph/roman/principate-mare-nostrum/p-03",
     "block/roman/principate-mare-nostrum/aside-03",
     "book-paragraph/roman/principate-mare-nostrum/p-04",
     "book-paragraph/roman/principate-mare-nostrum/p-05",
-    "book-paragraph/roman/principate-mare-nostrum/p-06",
     "relation/book/roman/principate-mare-nostrum/world-01",
     "text/chapter/roman/crisis-tetrarchy-west-fall/title",
     "text/chapter/roman/crisis-tetrarchy-west-fall/spatialThesis",
@@ -2251,11 +2221,8 @@
     "text/chapter/russia-ussr/revolution-stalin-ww2/spatialThesis",
     "book-paragraph/russia-ussr/revolution-stalin-ww2/p-01",
     "book-paragraph/russia-ussr/revolution-stalin-ww2/p-02",
-    "book-paragraph/russia-ussr/revolution-stalin-ww2/p-03",
     "book-paragraph/russia-ussr/revolution-stalin-ww2/p-04",
-    "book-paragraph/russia-ussr/revolution-stalin-ww2/p-05",
     "block/russia-ussr/revolution-stalin-ww2/aside-05",
-    "book-paragraph/russia-ussr/revolution-stalin-ww2/p-06",
     "relation/book/russia-ussr/revolution-stalin-ww2/world-01",
     "book-chapter/russia-ussr/cold-war-collapse-russia",
     "text/chapter/russia-ussr/cold-war-collapse-russia/title",
@@ -2558,7 +2525,6 @@
     "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-02",
     "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-03",
     "block/southern-eastern-africa/liberation-rainbow-east-south/aside-03",
-    "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-04",
     "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-05",
     "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-06",
     "relation/book/southern-eastern-africa/liberation-rainbow-east-south/world-01",
@@ -2849,20 +2815,14 @@
     "book-paragraph/usa/founding-constitution-frontier/p-01",
     "book-paragraph/usa/founding-constitution-frontier/p-02",
     "block/usa/founding-constitution-frontier/aside-02",
-    "book-paragraph/usa/founding-constitution-frontier/p-03",
     "book-paragraph/usa/founding-constitution-frontier/p-04",
-    "book-paragraph/usa/founding-constitution-frontier/p-05",
     "book-paragraph/usa/founding-constitution-frontier/p-06",
     "relation/book/usa/founding-constitution-frontier/world-01",
     "book-chapter/usa/civil-war-gilded-industry",
     "text/chapter/usa/civil-war-gilded-industry/title",
-    "text/chapter/usa/civil-war-gilded-industry/summary",
     "text/chapter/usa/civil-war-gilded-industry/spatialThesis",
     "book-paragraph/usa/civil-war-gilded-industry/p-01",
-    "book-paragraph/usa/civil-war-gilded-industry/p-02",
-    "book-paragraph/usa/civil-war-gilded-industry/p-03",
     "block/usa/civil-war-gilded-industry/aside-03",
-    "book-paragraph/usa/civil-war-gilded-industry/p-04",
     "book-paragraph/usa/civil-war-gilded-industry/p-05",
     "book-paragraph/usa/civil-war-gilded-industry/p-06",
     "relation/book/usa/civil-war-gilded-industry/world-01",
@@ -3034,12 +2994,9 @@
     "text/chapter/west-central-africa/ashanti-sokoto-colonial/title",
     "text/chapter/west-central-africa/ashanti-sokoto-colonial/summary",
     "text/chapter/west-central-africa/ashanti-sokoto-colonial/spatialThesis",
-    "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-01",
     "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-02",
     "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-03",
-    "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-04",
     "block/west-central-africa/ashanti-sokoto-colonial/aside-04",
-    "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-05",
     "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-06",
     "relation/book/west-central-africa/ashanti-sokoto-colonial/world-01",
     "book-chapter/west-central-africa/postcolonial-west-central-africa",
@@ -3122,9 +3079,7 @@
     "article/africa-modern/partition",
     "text/topic/africa-modern/partition/title",
     "text/topic/africa-modern/partition/summary",
-    "block/topic/africa-modern/partition/section-01",
     "block/topic/africa-modern/partition/section-02",
-    "block/topic/africa-modern/partition/section-03",
     "block/topic/africa-modern/partition/section-04",
     "block/topic/africa-modern/partition/section-05",
     "source/topic/africa-modern/partition/source-01",
@@ -3289,7 +3244,6 @@
     "text/topic/china-late-qing/ports/summary",
     "block/topic/china-late-qing/ports/opening",
     "block/topic/china-late-qing/ports/section-01",
-    "block/topic/china-late-qing/ports/section-02",
     "block/topic/china-late-qing/ports/section-03",
     "block/topic/china-late-qing/ports/section-04",
     "block/topic/china-late-qing/ports/section-05",
@@ -3363,7 +3317,6 @@
     "block/topic/china-late-qing/boxers/section-01",
     "block/topic/china-late-qing/boxers/section-02",
     "block/topic/china-late-qing/boxers/section-03",
-    "block/topic/china-late-qing/boxers/section-04",
     "block/topic/china-late-qing/boxers/section-05",
     "event-map/topic/china-late-qing/boxers",
     "source/topic/china-late-qing/boxers/source-01",
@@ -3432,7 +3385,6 @@
     "text/topic/east-asia-modern/china-revolutions/title",
     "text/topic/east-asia-modern/china-revolutions/summary",
     "block/topic/east-asia-modern/china-revolutions/section-01",
-    "block/topic/east-asia-modern/china-revolutions/section-02",
     "block/topic/east-asia-modern/china-revolutions/section-03",
     "block/topic/east-asia-modern/china-revolutions/section-04",
     "source/topic/east-asia-modern/china-revolutions/source-01",
@@ -3760,8 +3712,6 @@
     "text/topic/europe-modern/world-war-two/title",
     "text/topic/europe-modern/world-war-two/summary",
     "block/topic/europe-modern/world-war-two/section-01",
-    "block/topic/europe-modern/world-war-two/section-02",
-    "block/topic/europe-modern/world-war-two/section-03",
     "block/topic/europe-modern/world-war-two/section-04",
     "block/topic/europe-modern/world-war-two/section-05",
     "source/topic/europe-modern/world-war-two/source-01",
@@ -4198,9 +4148,7 @@
     "article/north-america-modern/expansion-emancipation",
     "text/topic/north-america-modern/expansion-emancipation/title",
     "text/topic/north-america-modern/expansion-emancipation/summary",
-    "block/topic/north-america-modern/expansion-emancipation/section-01",
     "block/topic/north-america-modern/expansion-emancipation/section-02",
-    "block/topic/north-america-modern/expansion-emancipation/section-03",
     "block/topic/north-america-modern/expansion-emancipation/section-04",
     "block/topic/north-america-modern/expansion-emancipation/section-05",
     "source/topic/north-america-modern/expansion-emancipation/source-01",
@@ -4213,7 +4161,6 @@
     "text/topic/north-america-modern/rights-and-memory/summary",
     "block/topic/north-america-modern/rights-and-memory/section-01",
     "block/topic/north-america-modern/rights-and-memory/section-02",
-    "block/topic/north-america-modern/rights-and-memory/section-03",
     "block/topic/north-america-modern/rights-and-memory/section-04",
     "block/topic/north-america-modern/rights-and-memory/section-05",
     "source/topic/north-america-modern/rights-and-memory/source-01",
@@ -4244,7 +4191,6 @@
     "text/topic/oceania/australia/title",
     "text/topic/oceania/australia/summary",
     "block/topic/oceania/australia/section-01",
-    "block/topic/oceania/australia/section-02",
     "block/topic/oceania/australia/section-03",
     "block/topic/oceania/australia/section-04",
     "block/topic/oceania/australia/section-05",
@@ -4256,7 +4202,6 @@
     "text/topic/oceania/waitangi/title",
     "text/topic/oceania/waitangi/summary",
     "block/topic/oceania/waitangi/section-01",
-    "block/topic/oceania/waitangi/section-02",
     "block/topic/oceania/waitangi/section-03",
     "block/topic/oceania/waitangi/section-04",
     "block/topic/oceania/waitangi/section-05",
@@ -4417,7 +4362,6 @@
     "block/topic/south-asia-modern/company-rule/section-01",
     "block/topic/south-asia-modern/company-rule/section-02",
     "block/topic/south-asia-modern/company-rule/section-03",
-    "block/topic/south-asia-modern/company-rule/section-04",
     "block/topic/south-asia-modern/company-rule/section-05",
     "source/topic/south-asia-modern/company-rule/source-01",
     "source/topic/south-asia-modern/company-rule/source-02",
@@ -4601,7 +4545,6 @@
     "block/topic/west-africa/atlantic/section-02",
     "block/topic/west-africa/atlantic/section-03",
     "block/topic/west-africa/atlantic/section-04",
-    "block/topic/west-africa/atlantic/section-05",
     "source/topic/west-africa/atlantic/source-01",
     "source/topic/west-africa/atlantic/source-02",
     "relation/topic/west-africa/atlantic/topic-link-01",
@@ -4683,7 +4626,6 @@
     "article/west-asia-modern/mandates",
     "text/topic/west-asia-modern/mandates/title",
     "text/topic/west-asia-modern/mandates/summary",
-    "block/topic/west-asia-modern/mandates/section-01",
     "block/topic/west-asia-modern/mandates/section-02",
     "block/topic/west-asia-modern/mandates/section-03",
     "block/topic/west-asia-modern/mandates/section-04",
@@ -5439,6 +5381,296 @@
     "source/topic/south-asia-modern/partition/source-01"
   ],
   "recordedLimits": [
+    {
+      "id": "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-05",
+      "claim": "区分加里波利战事与奥斯曼当局组织的亚美尼亚人种族灭绝",
+      "limit": "外交文电记录当时的观察与报告，单份文电无法统计全部伤亡。"
+    },
+    {
+      "id": "block/ottoman/tanzimat-sick-man-collapse/aside-05",
+      "claim": "用同时代档案取代未注明原始来源的加里波利引语和现场描写",
+      "limit": "只转述电报的观察范围，未使用未经对证的引语。"
+    },
+    {
+      "id": "block/topic/west-asia-modern/mandates/section-01",
+      "claim": "西亚边界专题补充有档案支持的驱逐、种族灭绝及对区域人口的影响",
+      "limit": "不从驱逐目的地推断某条现代国界的成因。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-02",
+      "claim": "区分德国入侵、针对犹太人的种族灭绝及华沙两场起义",
+      "limit": "去掉以总伤亡推算中东欧平民和犹太人受害规模的泛称。"
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-05",
+      "claim": "明确斯雷布雷尼察种族灭绝的时间、行动者和法庭认定",
+      "limit": "该案判决的认定范围是斯雷布雷尼察，不能用于估算整场波斯尼亚战争死亡人数。"
+    },
+    {
+      "id": "block/topic/europe-modern/world-war-two/section-02",
+      "claim": "约六百万的对象和组织性迫害范围",
+      "limit": "约六百万为欧洲犹太人死亡估计，其他受害群体另有各自资料与统计口径。"
+    },
+    {
+      "id": "block/topic/europe-modern/world-war-two/section-03",
+      "claim": "两场华沙起义的时间、参与者及目标",
+      "limit": "两个事件的性质和范围独立，未引入超出原专题范围的伤亡估算。"
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-02",
+      "claim": "南京陷落日期和占领后暴行，区分当时记录与事后调查",
+      "limit": "此处没有用个案或单份档案推算全部伤亡。"
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-06",
+      "claim": "区分广播、签署投降书和参加联合国创设的时间与文书",
+      "limit": "不沿用缺少统计范围的综合伤亡数字。本段不处理战后台湾接管的法律地位。"
+    },
+    {
+      "id": "block/topic/east-asia-modern/china-revolutions/section-02",
+      "claim": "把东亚专题的战时损失与南京暴行个案及档案对应",
+      "limit": "南京个案能够说明当地占领暴力，不能代表各战区全部伤亡。"
+    },
+    {
+      "id": "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-04",
+      "claim": "明确卢旺达种族灭绝的对象、加害组织和时间",
+      "limit": "没有把统计区间写成一个精确总数，也未以战后发展叙述替代受害经过。"
+    },
+    {
+      "id": "book-paragraph/usa/founding-constitution-frontier/p-03",
+      "claim": "购地协定的金额、国家当事方与第六条涉及的其他既有条约",
+      "limit": "条约可说明国家主张，不能代表当地原住民族同意转让土地。"
+    },
+    {
+      "id": "book-paragraph/usa/founding-constitution-frontier/p-05",
+      "claim": "区分立法授权、条约以及切罗基人遭到的实际强制迁移",
+      "limit": "档案目录注明不存在迁移参与者的完整名单，撤下不分地域及人群的宽泛死者数字。"
+    },
+    {
+      "id": "text/chapter/usa/civil-war-gilded-industry/summary",
+      "claim": "摘要区分战争、宪法废奴、土地分配与经济变化",
+      "limit": "撤下未区分阵亡和总死亡的估计及没有口径的全球工业排名。"
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-02",
+      "claim": "解放宣言、军事实施和宪法废奴的范围及例外",
+      "limit": "撤下把内战全体死亡都称为阵亡的数字，以及对英法决策的无证因果。"
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-03",
+      "claim": "第十四、十五修正案的条文与实际权利落实差异",
+      "limit": "宪法禁止事项不等于对每种限制的排除，且当时仍有性别等投票资格限制。"
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-04",
+      "claim": "宅地法的具体条件及与原住民强制迁移的时代对照",
+      "limit": "两种政策在时间和地理上各有范围，本段未宣称切罗基人的所有土地均按此法分配。"
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-01",
+      "claim": "美国迁移法与切罗基人个案对应主卷",
+      "limit": "档案收录多种名册和文电，没有完整人员名单。"
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-03",
+      "claim": "战时措施与第十三修正案条文及例外",
+      "limit": "宣言的地区名单与修正案的法律范围分别引用。"
+    },
+    {
+      "id": "block/canada-north-america/modern-canada-arctic/aside-04",
+      "claim": "努纳武特成立日期和公共政府性质",
+      "limit": "撤下把公共政府描述为单一族群专属政权和首次治理故土的表述。"
+    },
+    {
+      "id": "book-paragraph/canada-north-america/modern-canada-arctic/p-05",
+      "claim": "寄宿学校的强制同化、儿童死亡和记录不完整",
+      "limit": "原始调查的确认记录会随资料增加而扩充，本段不把某次登记数当作最终总数。"
+    },
+    {
+      "id": "block/topic/north-america-modern/rights-and-memory/section-03",
+      "claim": "寄宿学校制度、儿童死亡与调查证据边界",
+      "limit": "失踪、死亡登记、墓地记录是不同类别，不能互相替代。"
+    },
+    {
+      "id": "book-paragraph/oceania-australia/cook-convict-waitangi/p-02",
+      "claim": "1788 年殖民建立、土地假设与原住民所受损害",
+      "limit": "避免将后来的法律概括写成 1788 年正式宣读的条文，疫情的源头也不作判断。"
+    },
+    {
+      "id": "book-paragraph/oceania-australia/cook-convict-waitangi/p-04",
+      "claim": "首次签署与随后各地签署的时间和范围",
+      "limit": "资料支持分批签署，不推定全部社群有一致理解。"
+    },
+    {
+      "id": "block/oceania-australia/cook-convict-waitangi/aside-04",
+      "claim": "两种文本的概念差异而非统一的签署心理",
+      "limit": "以官方译释说明历史用词，不对当代法律效果作判断。"
+    },
+    {
+      "id": "block/topic/oceania/australia/section-02",
+      "claim": "悉尼湾殖民节点和原住民土地权利受到的侵害",
+      "limit": "不以悉尼作为所有澳大利亚原住民族遭遇的统一时点。"
+    },
+    {
+      "id": "block/topic/oceania/waitangi/section-02",
+      "claim": "条约两种文本关键用语与主卷对应",
+      "limit": "用语差异不能替代对个别条约签署者实际意见的查证。"
+    },
+    {
+      "id": "book-paragraph/oceania-australia/gold-rush-dominions/p-01",
+      "claim": "淘金、执照争议、镇压及调查安排的时序",
+      "limit": "调低和改变执照收费有直接证据，撤下本段无法证实的全澳普选单因和迁入总数。"
+    },
+    {
+      "id": "book-paragraph/oceania-australia/gold-rush-dominions/p-03",
+      "claim": "限定 1893 年选举权的政治范围并区分 1919 年参选权",
+      "limit": "按资料的自治国家和全国性选举口径陈述，不否定其他地区较早的局部选举规定。"
+    },
+    {
+      "id": "block/oceania-australia/gold-rush-dominions/aside-03",
+      "claim": "主要请愿卷和全部请愿的统计口径区分",
+      "limit": "其他批次请愿及总签名应单独统计。"
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-01",
+      "claim": "区分西非与中西非的航线、航次档案和登船到达口径",
+      "limit": "撤下没有年龄统计的「青壮年」和将贸易单因直接推导为阿散蒂建国的叙述。"
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-04",
+      "claim": "柏林会议与议定书条款范围，区分通知、控制和后来边界",
+      "limit": "不能由会议条文得到所有后来国界，也不能删除非洲社会后续抗拒和谈判的历史。"
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-05",
+      "claim": "刚果自由邦的行动者、强迫劳动与多重人口损失机制",
+      "limit": "馆方研究确认大规模损失，撤下未给出区域、日期与方法的单一死亡估计。"
+    },
+    {
+      "id": "block/topic/africa-modern/partition/section-01",
+      "claim": "柏林会议文件的法律范围及与实际管辖的区别",
+      "limit": "可定位的证据属于沿海新占领条文，不能据此确认所有具体国界。"
+    },
+    {
+      "id": "block/topic/africa-modern/partition/section-03",
+      "claim": "刚果河流域的强迫劳动及人口损失个案",
+      "limit": "本段以刚果自由邦为例，不将此制度概括为所有非洲殖民地。"
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-05",
+      "claim": "航次估计的方法和两种不同人数",
+      "limit": "估计有数据缺口，单凭这一来源不能恢复每一位被奴役者的身份。"
+    },
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-01",
+      "claim": "门图霍特普二世统一及中王国的惯用分期",
+      "limit": "不同机构的精确断代有别，撤下未定位的部队编成和因灾荒修水渠的墓铭转述。"
+    },
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-02",
+      "claim": "伊塔威为新都且位置待考，王像风格变化与解释边界",
+      "limit": "王像表情不能直接证明法老的心理或饥荒经历，删除无定位引语。"
+    },
+    {
+      "id": "block/egypt/middle-kingdom-hyksos/aside-03",
+      "claim": "法尤姆有灌溉与土地开发，设施规模与细节仍有限",
+      "limit": "撤下未能对证的双向闸门、精确垦地面积及布亨巡逻文字。"
+    },
+    {
+      "id": "book-paragraph/egypt/late-period-ptolemy/p-06",
+      "claim": "公元前 30 年接管与埃及王朝、文化分期",
+      "limit": "撤下罗马人口及埃及为皇帝私人领地的笼统表述，粮税和行省法规待专题来源。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/mughal-company-raj/p-06",
+      "claim": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+    },
+    {
+      "id": "book-paragraph/mughal/aurangzeb-deccan-company-takeover/p-06",
+      "claim": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+    },
+    {
+      "id": "book-paragraph/british-empire/industrial-pax-britannica/p-05",
+      "claim": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+    },
+    {
+      "id": "block/topic/south-asia-modern/company-rule/section-04",
+      "claim": "与三部书卷统一公司行政权交接的纪年和权限描述",
+      "limit": "只核查国家和公司之间的权限，人口与暴力规模另查。"
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-04",
+      "claim": "工业审批与农业变化的政策、年代和区域差异",
+      "limit": "产量统计不能证明所有地区或家庭从此免于饥饿。"
+    },
+    {
+      "id": "book-paragraph/roman/principate-mare-nostrum/p-03",
+      "claim": "奥斯蒂亚的谷物仓储遗迹及可支持的空间线索",
+      "limit": "没有用一个仓库估算罗马人口、全部运费和粮运规模。"
+    },
+    {
+      "id": "book-paragraph/roman/principate-mare-nostrum/p-06",
+      "claim": "安东尼瘟疫的史料范围及人口后果分歧",
+      "limit": "不采用单一死亡总数，也不把疫情直接解释为帝国走向衰落的唯一因素。"
+    },
+    {
+      "id": "book-paragraph/ethiopia/haile-selassie-modern-horn/p-04",
+      "claim": "沃洛饥荒期间的不同群体、救助与 1974 年政权变化",
+      "limit": "报告把饥荒和应对作为政权变化的因素之一，不归结为单一自然原因。"
+    },
+    {
+      "id": "book-paragraph/ethiopia/haile-selassie-modern-horn/p-05",
+      "claim": "八十年代北部饥荒成因的区域证据与联邦宪法生效日期",
+      "limit": "没有把 1991 年政权更替与联邦宪法的生效合并，也不从局部调查推算全国伤亡。"
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-03",
+      "claim": "集体化时期的饥荒、征粮和禁止部分地区向外迁移的文件",
+      "limit": "不套用同一政策解释哈萨克斯坦等地的具体成因，撤下无定位引语和汇总数字。"
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-05",
+      "claim": "1941 年进攻日期与对平民及战俘的暴力",
+      "limit": "撤下不可对应到资料的铁路运力和工厂工人迁移数字，不从特定战役推测总伤亡。"
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-06",
+      "claim": "斯大林格勒结束时间、苏军推进和战时损失分类",
+      "limit": "材料证明战局转折与严重损失，本段不把军民死亡总数当作阵亡数字。"
+    },
+    {
+      "id": "book-paragraph/qing/crisis/p-01",
+      "claim": "虎门销烟与后来条约中的鸦片款项，区分两阶段",
+      "limit": "没有利用缴获量推算全国的白银净外流，也删去未按舰种核实的「铁甲舰」。"
+    },
+    {
+      "id": "book-paragraph/qing/crisis/p-02",
+      "claim": "南京条约签署日期、五口、割让范围、款项和税则条款",
+      "limit": "香港岛与后来发生的其他割让、租借分开。款项为条约金额，不是战争总开支。"
+    },
+    {
+      "id": "book-paragraph/qing/reforms/p-06",
+      "claim": "北京事件与《辛丑条约》的本金、利息及驻军地点范围",
+      "limit": "只陈述条约的约定，不把附表本息合计当作实际支付；亦不把多方军事冲突归为一句宣战。"
+    },
+    {
+      "id": "block/topic/china-late-qing/ports/section-02",
+      "claim": "五口、割让范围与赔款条目依条约精确定位",
+      "limit": "地球地点仍用五口参照坐标，条约所涉地理范围由正文和地图分别表达。"
+    },
+    {
+      "id": "block/topic/china-late-qing/boxers/section-04",
+      "claim": "进占与掠夺，条约中本金、驻军和时间的范围",
+      "limit": "此处不推算后来各国实际获得的金额，亦不将整个驻军通道作为一条固定军事路线。"
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-03",
+      "claim": "宜昌撤运的时间、参加机构、分段水路及原因",
+      "limit": "各档案对待运者、实际运送人员及物资的统计范围不同，删除未区分统计口径的合计数字。"
+    },
     {
       "id": "map/country/IN/india-classical-modern/1947",
       "claim": "现代印度读者入口与书卷涵盖地域的区别",

@@ -109,6 +109,39 @@
     }
   },
   {
+    "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen",
+    "uses": [
+      "source/book/british-empire/india-1857-museum",
+      "source/book/india-classical-modern/india-1857-museum",
+      "source/book/mughal/india-1857-museum",
+      "source/topic/south-asia-modern/company-rule/source-02",
+      "source/topic/south-asia-modern/company-rule/india-1857-museum"
+    ],
+    "access": {
+      "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen",
+      "material": "英国国家陆军博物馆｜1857 年印度起义",
+      "locator": "The rebellion begins、传统领袖和参与者段落",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/",
+    "uses": [
+      "source/book/british-empire/india-act-1858",
+      "source/book/india-classical-modern/india-act-1858",
+      "source/book/mughal/india-act-1858",
+      "source/topic/south-asia-modern/company-rule/india-act-1858"
+    ],
+    "access": {
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/",
+      "material": "英国议会档案｜东印度公司与英属印度，1785—1858",
+      "locator": "The end of Company rule 段落",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/topic/Abbasid-caliphate",
     "uses": [
       "source/book/caliphate/source-01",
@@ -134,6 +167,47 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.justice.gc.ca/eng/rp-pr/aj-ja/rr00_8/p1.html",
+    "uses": [
+      "source/book/canada-north-america/nunavut-justice"
+    ],
+    "access": {
+      "url": "https://www.justice.gc.ca/eng/rp-pr/aj-ja/rr00_8/p1.html",
+      "material": "加拿大司法部｜努纳武特设立与公共政府",
+      "locator": "A New Territory and A New Approach",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nctr.ca/wp-content/uploads/2021/01/Executive_Summary_English_Web.pdf",
+    "uses": [
+      "source/book/canada-north-america/trc-canada-summary",
+      "source/topic/north-america-modern/rights-and-memory/trc-canada-summary"
+    ],
+    "access": {
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Executive_Summary_English_Web.pdf",
+      "material": "加拿大真相与和解委员会｜最终报告摘要",
+      "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf",
+    "uses": [
+      "source/book/canada-north-america/trc-children-record",
+      "source/topic/north-america-modern/rights-and-memory/trc-children-record"
+    ],
+    "access": {
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf",
+      "material": "加拿大真相与和解委员会｜失踪儿童及无标记墓葬",
+      "locator": "第 1—2 页 Executive summary",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -170,6 +244,62 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
+    "uses": [
+      "source/book/central-eastern-europe/holocaust-ushmm",
+      "source/topic/europe-modern/world-war-two/source-01",
+      "source/topic/europe-modern/world-war-two/holocaust-ushmm"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
+      "material": "美国大屠杀纪念馆｜大屠杀研究与馆藏资料",
+      "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/warsaw-ghetto-uprising",
+    "uses": [
+      "source/book/central-eastern-europe/warsaw-ghetto-1943",
+      "source/topic/europe-modern/world-war-two/warsaw-ghetto-1943"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/warsaw-ghetto-uprising",
+      "material": "美国大屠杀纪念馆｜1943 年华沙犹太隔离区起义",
+      "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising",
+    "uses": [
+      "source/book/central-eastern-europe/warsaw-uprising-1944",
+      "source/topic/europe-modern/world-war-two/warsaw-uprising-1944"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising",
+      "material": "美国大屠杀纪念馆｜1944 年华沙起义",
+      "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.icty.org/en/press/appeals-chamber-judgement-case-prosecutor-v-radislav-krstic",
+    "uses": [
+      "source/book/central-eastern-europe/icty-krstic"
+    ],
+    "access": {
+      "url": "https://www.icty.org/en/press/appeals-chamber-judgement-case-prosecutor-v-radislav-krstic",
+      "material": "前南斯拉夫问题国际刑事法庭｜克尔斯蒂奇案上诉判决说明",
+      "locator": "事实背景与 The existence of genocide 的裁判说明",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -275,12 +405,64 @@
     }
   },
   {
+    "url": "https://egymonuments.gov.eg/en/historical-periods/middle-kingdom/",
+    "uses": [
+      "source/book/egypt/egypt-mota-middle"
+    ],
+    "access": {
+      "url": "https://egymonuments.gov.eg/en/historical-periods/middle-kingdom/",
+      "material": "埃及旅游和文物部｜中王国",
+      "locator": "第十一王朝、伊塔威和法尤姆垦殖段落",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.metmuseum.org/es/essays/egypt-in-the-middle-kingdom-2030-1640-b-c",
+    "uses": [
+      "source/book/egypt/met-middle-kingdom"
+    ],
+    "access": {
+      "url": "https://www.metmuseum.org/es/essays/egypt-in-the-middle-kingdom-2030-1640-b-c",
+      "material": "大都会艺术博物馆｜中王国埃及",
+      "locator": "开篇分期，以及第十二王朝雕像与发掘史",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Aksum-ancient-kingdom-Africa",
     "uses": [
       "source/book/ethiopia/source-01"
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://www.hrw.org/reports/pdfs/e/ethiopia/ethiopia.919/ethiop991.pdf",
+    "uses": [
+      "source/book/ethiopia/ethiopia-famine-report"
+    ],
+    "access": {
+      "url": "https://www.hrw.org/reports/pdfs/e/ethiopia/ethiopia.919/ethiop991.pdf",
+      "material": "Africa Watch｜Evil Days，埃塞俄比亚战争与饥荒调查",
+      "locator": "第 54—57 页沃洛饥荒及 PDF 第 115—117 页北部饥荒调查",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.wipo.int/wipolex/en/legislation/details/7438",
+    "uses": [
+      "source/book/ethiopia/ethiopia-constitution-1995"
+    ],
+    "access": {
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/7438",
+      "material": "世界知识产权组织法律数据库｜埃塞俄比亚联邦宪法",
+      "locator": "1994 年通过、1995 年生效的宪法及档案说明",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -646,6 +828,19 @@
       "date": "2026-11-25",
       "material": "联合国经社部｜2023 年人口政策简报第 153 号",
       "locator": "2023 年 4 月简报、图 1 的历史估算和预测。"
+    }
+  },
+  {
+    "url": "https://tci.cornell.edu/?blog=spatial-trends-in-indian-agriculture-1960s-to-2000s",
+    "uses": [
+      "source/book/india-classical-modern/cornell-indian-crops"
+    ],
+    "access": {
+      "url": "https://tci.cornell.edu/?blog=spatial-trends-in-indian-agriculture-1960s-to-2000s",
+      "material": "康奈尔大学塔塔中心｜印度农业的地区变化",
+      "locator": "北印度平原、1960 年代谷物和投入设施，以及对地区数据的分析",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -1453,6 +1648,114 @@
     }
   },
   {
+    "url": "https://humanrights.gov.au/resource-hub/by-resource-type/publications/aboriginal-and-torres-strait-islander-peoples/bringing-them-home-8-history-new-south-wales-and-australian-capital-territory",
+    "uses": [
+      "source/book/oceania-australia/first-fleet-nsw",
+      "source/topic/oceania/australia/first-fleet-nsw"
+    ],
+    "access": {
+      "url": "https://humanrights.gov.au/resource-hub/by-resource-type/publications/aboriginal-and-torres-strait-islander-peoples/bringing-them-home-8-history-new-south-wales-and-australian-capital-territory",
+      "material": "澳大利亚人权委员会｜新南威尔士与首都领地历史",
+      "locator": "The First Fleet and settlement",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision",
+    "uses": [
+      "source/book/oceania-australia/mabo-nma",
+      "source/topic/oceania/australia/mabo-nma"
+    ],
+    "access": {
+      "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision",
+      "material": "澳大利亚国家博物馆｜马博判决",
+      "locator": "Claiming Australia、Challenging terra nullius",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/politics/treaty/making-the-treaty/signing-the-treaty",
+    "uses": [
+      "source/book/oceania-australia/waitangi-signatures",
+      "source/topic/oceania/waitangi/waitangi-signatures"
+    ],
+    "access": {
+      "url": "https://nzhistory.govt.nz/politics/treaty/making-the-treaty/signing-the-treaty",
+      "material": "新西兰文化与遗产部｜怀唐伊条约签署",
+      "locator": "The first signing 与 Subsequent signings",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
+    "uses": [
+      "source/book/oceania-australia/waitangi-versions",
+      "source/topic/oceania/waitangi/waitangi-versions"
+    ],
+    "access": {
+      "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
+      "material": "新西兰文化与遗产部｜怀唐伊条约两种文本",
+      "locator": "The Treaty in brief，下方 Differences between the texts",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.nma.gov.au/defining-moments/resources/eureka-stockade",
+    "uses": [
+      "source/book/oceania-australia/eureka-stockade"
+    ],
+    "access": {
+      "url": "https://www.nma.gov.au/defining-moments/resources/eureka-stockade",
+      "material": "澳大利亚国家博物馆｜尤里卡栅栏事件",
+      "locator": "1851 年金矿发现、冲突和 1855 年调查委员会",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/womens-suffrage-day",
+    "uses": [
+      "source/book/oceania-australia/nz-suffrage-1893"
+    ],
+    "access": {
+      "url": "https://nzhistory.govt.nz/womens-suffrage-day",
+      "material": "新西兰文化与遗产部｜1893 年《选举法》与妇女投票权",
+      "locator": "19 September 1893，正文及选举资料",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/page/women-can-stand-parliament",
+    "uses": [
+      "source/book/oceania-australia/nz-parliament-1919"
+    ],
+    "access": {
+      "url": "https://nzhistory.govt.nz/page/women-can-stand-parliament",
+      "material": "新西兰文化与遗产部｜妇女候选资格",
+      "locator": "29 October 1919 条目",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://nzhistory.govt.nz/page/about-suffrage-petition",
+    "uses": [
+      "source/book/oceania-australia/nz-suffrage-petition"
+    ],
+    "access": {
+      "url": "https://nzhistory.govt.nz/page/about-suffrage-petition",
+      "material": "新西兰文化与遗产部｜1893 年妇女参政请愿档案",
+      "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.metmuseum.org/-/media/files/learn/for%20educators/publications%20for%20educators/islamic%20teacher%20resource/unit5.pdf",
     "uses": [
       "source/book/ottoman/source-01"
@@ -1516,10 +1819,16 @@
   {
     "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth",
     "uses": [
-      "source/book/ottoman/source-07"
+      "source/book/ottoman/source-07",
+      "source/book/ottoman/armenian-genocide-museum",
+      "source/topic/west-asia-modern/mandates/armenian-genocide-museum"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth",
+      "material": "美国大屠杀纪念馆｜1915—1916 年亚美尼亚人种族灭绝",
+      "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -1535,6 +1844,33 @@
       "date": "2026-11-25",
       "material": "维多利亚与阿尔伯特博物馆｜君士坦丁堡到伊斯坦布尔",
       "locator": "The end of Constantinople 与 A capital reborn 两节，以及贝利尼苏丹肖像条目。"
+    }
+  },
+  {
+    "url": "https://history.state.gov//historicaldocuments/frus1915Supp/d1400",
+    "uses": [
+      "source/book/ottoman/armenian-1915-archive",
+      "source/topic/west-asia-modern/mandates/armenian-1915-archive"
+    ],
+    "access": {
+      "url": "https://history.state.gov//historicaldocuments/frus1915Supp/d1400",
+      "material": "美国国务院历史办公室｜1915 年 7 月 10 日摩根索电报",
+      "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915",
+    "uses": [
+      "source/book/ottoman/gallipoli-awm"
+    ],
+    "access": {
+      "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915",
+      "material": "澳大利亚战争纪念馆｜1915 年加里波利战事",
+      "locator": "首段及撤离部分的澳军部队日志资料",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -1913,12 +2249,18 @@
     "url": "https://www.nam.ac.uk/explore/boxer-rebellion",
     "uses": [
       "source/book/qing/source-06",
+      "source/book/qing/boxer-nam-1900",
       "source/topic/china-late-qing/boxers/source-02",
+      "source/topic/china-late-qing/boxers/boxer-nam-1900",
       "source/scene/boxer-crisis-1900/source-02",
       "source/timeline/i-140/source-01"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://www.nam.ac.uk/explore/boxer-rebellion",
+      "material": "英国国家陆军博物馆｜义和团与联军行动",
+      "locator": "The Legation Quarter 和 relief expedition 段落，及馆藏北京掠夺照片",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -1933,6 +2275,47 @@
     }
   },
   {
+    "url": "https://worldjpn.net/documents/texts/pw/18420829.T1E.html",
+    "uses": [
+      "source/book/qing/nanking-text-1842",
+      "source/topic/china-late-qing/ports/nanking-text-1842"
+    ],
+    "access": {
+      "url": "https://worldjpn.net/documents/texts/pw/18420829.T1E.html",
+      "material": "东京大学东洋文化研究所「世界与日本」｜《南京条约》转录",
+      "locator": "签署行及第 II—VII、X 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.chnmuseum.cn/zp/zpml/gmww/202104/t20210402_249493.shtml",
+    "uses": [
+      "source/book/qing/humen-museum"
+    ],
+    "access": {
+      "url": "https://www.chnmuseum.cn/zp/zpml/gmww/202104/t20210402_249493.shtml",
+      "material": "中国国家博物馆｜虎门一号销烟池出土的铺地石",
+      "locator": "藏品说明、1839 年奉命查禁和 6 月销毁缴获鸦片",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1901China/d179",
+    "uses": [
+      "source/book/qing/boxer-protocol-1901",
+      "source/topic/china-late-qing/boxers/boxer-protocol-1901"
+    ],
+    "access": {
+      "url": "https://history.state.gov/historicaldocuments/frus1901China/d179",
+      "material": "美国国务院历史办公室｜1901 年《辛丑条约》签署文本",
+      "locator": "第 VI、IX 条及附件 13",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Beijing/Cultural-life",
     "uses": [
       "source/book/roc/source-01",
@@ -1940,6 +2323,112 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1931-41v01/d415",
+    "uses": [
+      "source/book/roc/nanjing-1937-date",
+      "source/topic/east-asia-modern/china-revolutions/nanjing-1937-date"
+    ],
+    "access": {
+      "url": "https://history.state.gov/historicaldocuments/frus1931-41v01/d415",
+      "material": "美国国务院历史办公室｜驻南京外交人员报告",
+      "locator": "FRUS 日本卷 I 第 415 号文电首段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53",
+    "uses": [
+      "source/book/roc/nanjing-1938-allison",
+      "source/topic/east-asia-modern/china-revolutions/nanjing-1938-allison"
+    ],
+    "access": {
+      "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53",
+      "material": "美国国务院历史办公室｜南京使馆电报及证词摘要",
+      "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.unesco.org/en/memory-world/documents-nanjing-massacre",
+    "uses": [
+      "source/book/roc/nanjing-unesco"
+    ],
+    "access": {
+      "url": "https://www.unesco.org/en/memory-world/documents-nanjing-massacre",
+      "material": "联合国教科文组织｜南京大屠杀档案",
+      "locator": "登记说明，1937—1938 年档案与 1945—1956 年调查、审判记录",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.ndl.go.jp/constitution/e/shiryo/01/017shoshi.html",
+    "uses": [
+      "source/book/roc/japan-rescript-1945"
+    ],
+    "access": {
+      "url": "https://www.ndl.go.jp/constitution/e/shiryo/01/017shoshi.html",
+      "material": "日本国立国会图书馆｜终战诏书",
+      "locator": "馆藏文书 1-7 及 8 月 14 日发布、次日广播说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/surrender-of-japan",
+    "uses": [
+      "source/book/roc/japan-surrender-1945"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/surrender-of-japan",
+      "material": "美国国家档案馆｜日本投降书",
+      "locator": "Record Group 218，1945 年 9 月 2 日签署页与第二段",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://research.un.org/en/unmembers/founders",
+    "uses": [
+      "source/book/roc/un-charter-founders-1945"
+    ],
+    "access": {
+      "url": "https://research.un.org/en/unmembers/founders",
+      "material": "联合国达格·哈马舍尔德图书馆｜创始成员档案",
+      "locator": "Republic of China 及签署、批准日期条目",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://jda.cq.gov.cn/web/article/web/content_1463121864266047488.html",
+    "uses": [
+      "source/book/roc/yichang-evacuation"
+    ],
+    "access": {
+      "url": "https://jda.cq.gov.cn/web/article/web/content_1463121864266047488.html",
+      "material": "重庆市档案馆｜抗战硝烟下的民生公司",
+      "locator": "第三节宜昌大撤退与分段转运说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/files/iwg/japanese-war-crimes/introductory-essays.pdf?level=1",
+    "uses": [
+      "source/book/roc/nanjing-disarmed-archive"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/files/iwg/japanese-war-crimes/introductory-essays.pdf?level=1",
+      "material": "美国国家档案馆｜日本战争罪行档案研究导论",
+      "locator": "导论，日本战争罪行文献研究中南京段，PDF 第 38 页",
+      "status": "read",
+      "date": "2026-11-25"
     }
   },
   {
@@ -2097,6 +2586,71 @@
     }
   },
   {
+    "url": "https://ostiaantica.cultura.gov.it/percorsi/grano-e-pane-a-ostia-antica/magazzino-granario/",
+    "uses": [
+      "source/book/roman/ostia-grain-storage"
+    ],
+    "access": {
+      "url": "https://ostiaantica.cultura.gov.it/percorsi/grano-e-pane-a-ostia-antica/magazzino-granario/",
+      "material": "奥斯蒂亚考古公园｜谷物仓库",
+      "locator": "Magazzino granario 关于储存识别、布局和通道的实地说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0313684",
+    "uses": [
+      "source/book/roman/antonine-study"
+    ],
+    "access": {
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0313684",
+      "material": "PLOS ONE｜安东尼瘟疫的规模与历史证据局限",
+      "locator": "Introduction 及 Discussion 对古代文字证据、影响估计及不确定性的讨论",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://tile.loc.gov/storage-services/service/ll/llglrd/2019670044/2019670044.pdf",
+    "uses": [
+      "source/book/russia-ussr/soviet-famine-decrees"
+    ],
+    "access": {
+      "url": "https://tile.loc.gov/storage-services/service/ll/llglrd/2019670044/2019670044.pdf",
+      "material": "美国国会图书馆法律部｜1932—1933 年饥荒相关苏联法令",
+      "locator": "Background Information、1932 年征粮法规与 1933 年 1 月 22 日指令",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/article/the-soviet-union-and-the-eastern-front",
+    "uses": [
+      "source/book/russia-ussr/soviet-eastern-front"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-soviet-union-and-the-eastern-front",
+      "material": "美国大屠杀纪念馆｜苏联与东线战争",
+      "locator": "German Invasion of the Soviet Union 与结尾的东线战事",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1942-1945/german-defeat-at-stalingrad",
+    "uses": [
+      "source/book/russia-ussr/stalingrad-1943"
+    ],
+    "access": {
+      "url": "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1942-1945/german-defeat-at-stalingrad",
+      "material": "美国大屠杀纪念馆｜斯大林格勒战事与投降",
+      "locator": "1942 年末至 1943 年 2 月条目",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/topic/Song-dynasty",
     "uses": [
       "source/book/song/source-01",
@@ -2213,6 +2767,32 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://unictr.irmct.org/en/news/ictr-appeals-chamber-takes-judicial-notice-genocide-rwanda",
+    "uses": [
+      "source/book/southern-eastern-africa/ictr-rwanda-genocide"
+    ],
+    "access": {
+      "url": "https://unictr.irmct.org/en/news/ictr-appeals-chamber-takes-judicial-notice-genocide-rwanda",
+      "material": "卢旺达问题国际刑事法庭｜上诉庭对种族灭绝事实的司法认知",
+      "locator": "2006 年 6 月 20 日公告，裁定事实第 2—3 项",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://digitallibrary.un.org/record/251353/files/E_CN.4_1998_61-EN.pdf",
+    "uses": [
+      "source/book/southern-eastern-africa/un-rwanda-field-report"
+    ],
+    "access": {
+      "url": "https://digitallibrary.un.org/record/251353/files/E_CN.4_1998_61-EN.pdf",
+      "material": "联合国人权实地行动｜1998 年卢旺达情况报告",
+      "locator": "E/CN.4/1998/61 第 2—3 段，首次阅读第 2—3 段，复访工具返回 403。",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
@@ -2359,6 +2939,115 @@
     }
   },
   {
+    "url": "https://www.archives.gov/milestone-documents/jacksons-message-to-congress-on-indian-removal",
+    "uses": [
+      "source/book/usa/removal-1830",
+      "source/topic/north-america-modern/expansion-emancipation/removal-1830"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/jacksons-message-to-congress-on-indian-removal",
+      "material": "美国国家档案馆｜杰克逊致国会原住民迁移文告及档案说明",
+      "locator": "馆方说明、1830 年 12 月 6 日总统信件",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/research/native-americans/cherokee-removal",
+    "uses": [
+      "source/book/usa/cherokee-removal-orders",
+      "source/topic/north-america-modern/expansion-emancipation/cherokee-removal-orders"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/research/native-americans/cherokee-removal",
+      "material": "美国国家档案馆｜切罗基人强制迁移相关档案",
+      "locator": "开篇与军事档案、人口档案目录",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/louisiana-purchase-treaty",
+    "uses": [
+      "source/book/usa/louisiana-purchase"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/louisiana-purchase-treaty",
+      "material": "美国国家档案馆｜1803 年路易斯安那购地条约",
+      "locator": "条约日期、第 I、III、VI 条及相关付款说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+    "uses": [
+      "source/book/usa/emancipation-1863",
+      "source/topic/north-america-modern/expansion-emancipation/source-02",
+      "source/topic/north-america-modern/expansion-emancipation/emancipation-1863"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "material": "美国国家档案馆｜解放奴隶宣言",
+      "locator": "1863 年 1 月 1 日文书和适用地区说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/13th-amendment",
+    "uses": [
+      "source/book/usa/amendment-13",
+      "source/topic/north-america-modern/expansion-emancipation/amendment-13"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/13th-amendment",
+      "material": "美国国家档案馆｜宪法第十三修正案",
+      "locator": "第 1 条及 1865 年批准说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/14th-amendment",
+    "uses": [
+      "source/book/usa/amendment-14"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/14th-amendment",
+      "material": "美国国家档案馆｜宪法第十四修正案",
+      "locator": "第 1 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/15th-amendment",
+    "uses": [
+      "source/book/usa/amendment-15"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/15th-amendment",
+      "material": "美国国家档案馆｜宪法第十五修正案",
+      "locator": "第 1 条及馆方说明",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.archives.gov/milestone-documents/homestead-act",
+    "uses": [
+      "source/book/usa/homestead-act-1862"
+    ],
+    "access": {
+      "url": "https://www.archives.gov/milestone-documents/homestead-act",
+      "material": "美国国家档案馆｜1862 年宅地法",
+      "locator": "第 1—2 条，土地申请、居住和耕作规定",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
     "url": "https://www.britannica.com/place/Ghana-historical-West-African-empire",
     "uses": [
       "source/book/west-central-africa/source-01"
@@ -2386,20 +3075,54 @@
     }
   },
   {
-    "url": "https://www.britannica.com/topic/Yuan-dynasty",
+    "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf",
     "uses": [
-      "source/book/yuan/source-01",
-      "source/scene/yuan-two-capitals-canal/source-01",
-      "source/scene/yuan-eurasia-network/source-01"
+      "source/book/west-central-africa/slavevoyages-estimates",
+      "source/topic/west-africa/atlantic/slavevoyages-estimates"
     ],
     "access": {
-      "status": "unaccessed"
+      "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf",
+      "material": "Eltis 与 Lachance｜跨大西洋奴隶贸易规模及方向估计",
+      "locator": "Estimates of the Size and Direction，第 20—22 页的航次推估示例",
+      "date": "2026-11-25",
+      "status": "read"
     }
   },
   {
     "url": "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414",
     "uses": [
-      "source/topic/africa-modern/partition/source-01"
+      "source/book/west-central-africa/berlin-act-1885",
+      "source/topic/africa-modern/partition/source-01",
+      "source/topic/africa-modern/partition/berlin-act-1885"
+    ],
+    "access": {
+      "url": "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414",
+      "material": "德国外交部政治档案｜1885 年柏林会议总议定书",
+      "locator": "1885 年 2 月 26 日文本说明、第 34—35 条",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.africamuseum.be/en/about_us/viewpoints",
+    "uses": [
+      "source/book/west-central-africa/congo-forced-labour",
+      "source/topic/africa-modern/partition/congo-forced-labour"
+    ],
+    "access": {
+      "url": "https://www.africamuseum.be/en/about_us/viewpoints",
+      "material": "比利时皇家中非博物馆｜殖民史、馆藏和研究立场",
+      "locator": "关于刚果殖民史，1885—1908 年段落",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  },
+  {
+    "url": "https://www.britannica.com/topic/Yuan-dynasty",
+    "uses": [
+      "source/book/yuan/source-01",
+      "source/scene/yuan-two-capitals-canal/source-01",
+      "source/scene/yuan-eurasia-network/source-01"
     ],
     "access": {
       "status": "unaccessed"
@@ -3151,15 +3874,6 @@
     }
   },
   {
-    "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
-    "uses": [
-      "source/topic/europe-modern/world-war-two/source-01"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
     "url": "https://www.nam.ac.uk/explore/second-world-war",
     "uses": [
       "source/topic/europe-modern/world-war-two/source-02"
@@ -3739,15 +4453,6 @@
     }
   },
   {
-    "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
-    "uses": [
-      "source/topic/north-america-modern/expansion-emancipation/source-02"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
     "url": "https://www.archives.gov/milestone-documents/civil-rights-act",
     "uses": [
       "source/topic/north-america-modern/rights-and-memory/source-01"
@@ -3981,15 +4686,6 @@
     "url": "https://www.nam.ac.uk/explore/armies-east-india-company",
     "uses": [
       "source/topic/south-asia-modern/company-rule/source-01"
-    ],
-    "access": {
-      "status": "unaccessed"
-    }
-  },
-  {
-    "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen",
-    "uses": [
-      "source/topic/south-asia-modern/company-rule/source-02"
     ],
     "access": {
       "status": "unaccessed"
@@ -4450,6 +5146,83 @@
     ],
     "access": {
       "status": "unaccessed"
+    }
+  },
+  {
+    "url": "https://peacekeeping.un.org/sites/default/files/past/unamirFT.htm",
+    "uses": [],
+    "access": {
+      "url": "https://peacekeeping.un.org/sites/default/files/past/unamirFT.htm",
+      "material": "联合国维和资料｜卢旺达援助团旧页面",
+      "locator": "返回 403，改读国际刑庭裁定公告和联合国人权实地行动报告。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://www.un.org/en/node/215825",
+    "uses": [],
+    "access": {
+      "url": "https://www.un.org/en/node/215825",
+      "material": "联合国｜卢旺达纪念网页",
+      "locator": "返回 403。以实际读到的联合国人权实地行动报告记录受害者。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://www.sciencedirect.com/science/article/pii/S1369848615000060",
+    "uses": [],
+    "access": {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1369848615000060",
+      "material": "Elsevier｜印度绿色革命小麦史",
+      "locator": "正文访问返回 403，本段改读康奈尔大学研究团队公开的数据分析。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://dppa.un.org/en/united-nations-observer-mission-to-verify-the-referendum-in-eritrea-unover-1992-1993",
+    "uses": [],
+    "access": {
+      "url": "https://dppa.un.org/en/united-nations-observer-mission-to-verify-the-referendum-in-eritrea-unover-1992-1993",
+      "material": "联合国政治和建设和平事务部｜厄立特里亚公投观察团",
+      "locator": "返回 403，本段仅使用已读文献陈述埃塞俄比亚联邦宪法。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://www.nber.org/system/files/working_papers/w29089/w29089.pdf",
+    "uses": [],
+    "access": {
+      "url": "https://www.nber.org/system/files/working_papers/w29089/w29089.pdf",
+      "material": "NBER｜乌克兰饥荒死亡率研究工作论文",
+      "locator": "论文 PDF 返回 403。邻近的部分假说尚待可读取全文，本段采用可查阅的法令及档案摘要。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    }
+  },
+  {
+    "url": "https://daj.yichang.gov.cn/content-62300-974932-1.html",
+    "uses": [],
+    "access": {
+      "url": "https://daj.yichang.gov.cn/content-62300-974932-1.html",
+      "material": "宜昌市档案馆｜宜昌大撤退网页",
+      "locator": "访问超时，改读重庆市档案馆材料。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
+    }
+  },
+  {
+    "url": "https://tile.loc.gov/storage-services/service/ll/lltreaties/lltreaties-ustbv001/lltreaties-ustbv001.pdf",
+    "uses": [],
+    "access": {
+      "url": "https://tile.loc.gov/storage-services/service/ll/lltreaties/lltreaties-ustbv001/lltreaties-ustbv001.pdf",
+      "material": "美国国会图书馆｜条约汇编第 1 卷",
+      "locator": "整卷大小超出当前阅读工具上限，改读 FRUS 可定位的签署文本。",
+      "date": "2026-11-25",
+      "status": "temporary-failure"
     }
   },
   {

@@ -356,6 +356,11 @@
           "url": "https://nmaahc.si.edu/explore/stories/african-muslims-early-america",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "slavevoyages-estimates",
+          "title": "Eltis 与 Lachance｜跨大西洋奴隶贸易规模及方向估计",
+          "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf"
         }
       ],
       "sections": [
@@ -397,10 +402,13 @@
         },
         {
           "title": "数字之外的人",
-          "text": "船运记录常把人压缩为数量、价格和运输损耗，其书写本身服务于奴役制度。阅读时应与幸存者叙述、家族记忆和物品证据对照。我们可以用记录重建强制迁徙的规模，同时拒绝沿用其把人当成货物的视角；这也是在历史叙述中恢复个人身份与行动的重要步骤。",
+          "text": "跨大西洋奴隶贸易航次档案留下了被迫登船和抵达人数等记录。部分航线的起止地点或人数不完整，研究者会把可查的记录和推估区分开。两种人数能说明运输途中发生的损失，了解被奴役者的生活还须对照个人叙述与其他材料。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "slavevoyages-estimates",
+              "locator": "Estimates of the Size and Direction，第 20—22 页的航次推估示例",
+              "note": "分开统计登船和抵达，以原始记录及方法估算缺失数据；举出 1783 年西中非至圣多明各。"
+            }
           ],
           "id": "section-05"
         }

@@ -247,16 +247,43 @@
           "url": "https://www.archives.gov/founding-docs/amendments-11-27",
           "checkedAt": "2026-11-17",
           "id": "source-03"
+        },
+        {
+          "id": "removal-1830",
+          "title": "美国国家档案馆｜杰克逊致国会原住民迁移文告及档案说明",
+          "url": "https://www.archives.gov/milestone-documents/jacksons-message-to-congress-on-indian-removal"
+        },
+        {
+          "id": "cherokee-removal-orders",
+          "title": "美国国家档案馆｜切罗基人强制迁移相关档案",
+          "url": "https://www.archives.gov/research/native-americans/cherokee-removal"
+        },
+        {
+          "id": "emancipation-1863",
+          "title": "美国国家档案馆｜解放奴隶宣言",
+          "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation"
+        },
+        {
+          "id": "amendment-13",
+          "title": "美国国家档案馆｜宪法第十三修正案",
+          "url": "https://www.archives.gov/milestone-documents/13th-amendment"
         }
       ],
       "sections": [
         {
           "title": "扩张与迁移",
-          "text": "十九世纪美国领土与定居者经济向西扩展，原住民土地权与条约不断受到侵犯。一八三零年印第安人迁移法推动东南部多个原住民族被迫离开故土，迁移途中大量人员死亡。所谓向西开拓在不同群体眼中具有不同含义，土地不能因外来者需要而被视作没有权利主人的资源。",
+          "text": "1830 年，美国国会通过《印第安人迁移法》，授权总统与密西西比河以东的原住民族缔结迁移条约。切罗基人的强制迁移主要发生于 1838 至 1839 年，美国陆军参与执行，许多人在途中死亡。各原住民族遭遇征地和迁移的方式及时间不同，须按各自的条约和档案查证。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "removal-1830",
+              "locator": "馆方说明、1830 年 12 月 6 日总统信件",
+              "note": "1830 年法案授权缔结迁移条约，档案说明记载切罗基人在 1838—1839 年被强制迁移并有大量人员死亡。"
+            },
+            {
+              "sourceId": "cherokee-removal-orders",
+              "locator": "开篇与军事档案、人口档案目录",
+              "note": "新埃科塔条约规定迁移，1838 年美国陆军受命执行，档案无完整参与者名册。"
+            }
           ],
           "id": "section-01"
         },
@@ -272,11 +299,18 @@
         },
         {
           "title": "解放的范围",
-          "text": "一八六三年解放奴隶宣言针对叛乱地区，并未在公布当天消除美国全部奴役制度，其实施也依赖军事进展。第十三修正案后来从宪法层面废除奴隶制，但保留刑事惩罚相关例外。区分战时措施与宪法制度，可以避免把一纸宣言写成所有人立即自由，也能更准确理解制度转折的重要性。",
+          "text": "1863 年的《解放奴隶宣言》生效时，适用范围为联邦政府指定为叛乱中的地区。联邦军推进影响解放的实际落实。1865 年批准的第十三修正案适用于美国及其管辖地区，废除奴隶制和强迫劳役，但保留依法定罪后的惩罚例外。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "emancipation-1863",
+              "locator": "1863 年 1 月 1 日文书和适用地区说明",
+              "note": "适用于处于叛乱状态的指定地区，宣布黑人可加入联邦部队，生效依赖战事。"
+            },
+            {
+              "sourceId": "amendment-13",
+              "locator": "第 1 条及 1865 年批准说明",
+              "note": "废除奴隶制和强迫劳役，保留依法定罪后的惩罚例外。"
+            }
           ],
           "id": "section-03"
         },
@@ -357,6 +391,16 @@
           "url": "https://parks.canada.ca/culture/designation/pensionnat-residential",
           "checkedAt": "2026-11-17",
           "id": "source-03"
+        },
+        {
+          "id": "trc-canada-summary",
+          "title": "加拿大真相与和解委员会｜最终报告摘要",
+          "url": "https://nctr.ca/wp-content/uploads/2021/01/Executive_Summary_English_Web.pdf"
+        },
+        {
+          "id": "trc-children-record",
+          "title": "加拿大真相与和解委员会｜失踪儿童及无标记墓葬",
+          "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf"
         }
       ],
       "sections": [
@@ -382,11 +426,18 @@
         },
         {
           "title": "加拿大的另一种经验",
-          "text": "加拿大寄宿学校制度使许多原住民儿童被带离家庭，压制语言与文化，造成严重伤害与死亡。其历史与美国种族隔离并不相同，不能只用相同标签概括。幸存者推动公开证言、调查与记忆工作，表明国家自我叙述需要面对原本被排除的经验，教育政策也可能成为强制同化的工具。",
+          "text": "加拿大原住民寄宿学校是政府同化政策的一部分。许多儿童被带离家庭，学校压制原住民语言和文化，不少儿童在校期间死亡。幸存者的证言推动了公开调查和记忆工作。真相与和解委员会的登记册仍有资料缺口，一些家庭至今缺少亲属死亡或安葬的信息。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "trc-canada-summary",
+              "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+              "note": "报告认定以寄宿学校迫使原住民同化，并说明死亡记录及失踪资料缺口。"
+            },
+            {
+              "sourceId": "trc-children-record",
+              "locator": "第 1—2 页 Executive summary",
+              "note": "该卷记录当时已确认的死亡、资料缺口以及原住民儿童无法回家的经历。"
+            }
           ],
           "id": "section-03"
         },

@@ -14,6 +14,46 @@
       "title": "新西兰国家博物馆蒂帕帕《太平洋航行与发现》",
       "url": "https://www.tepapa.govt.nz/digital-museum/explore-digital-museum/voyage-and-discovery-pacific",
       "id": "source-02"
+    },
+    {
+      "id": "first-fleet-nsw",
+      "title": "澳大利亚人权委员会｜新南威尔士与首都领地历史",
+      "url": "https://humanrights.gov.au/resource-hub/by-resource-type/publications/aboriginal-and-torres-strait-islander-peoples/bringing-them-home-8-history-new-south-wales-and-australian-capital-territory"
+    },
+    {
+      "id": "mabo-nma",
+      "title": "澳大利亚国家博物馆｜马博判决",
+      "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision"
+    },
+    {
+      "id": "waitangi-signatures",
+      "title": "新西兰文化与遗产部｜怀唐伊条约签署",
+      "url": "https://nzhistory.govt.nz/politics/treaty/making-the-treaty/signing-the-treaty"
+    },
+    {
+      "id": "waitangi-versions",
+      "title": "新西兰文化与遗产部｜怀唐伊条约两种文本",
+      "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief"
+    },
+    {
+      "id": "eureka-stockade",
+      "title": "澳大利亚国家博物馆｜尤里卡栅栏事件",
+      "url": "https://www.nma.gov.au/defining-moments/resources/eureka-stockade"
+    },
+    {
+      "id": "nz-suffrage-1893",
+      "title": "新西兰文化与遗产部｜1893 年《选举法》与妇女投票权",
+      "url": "https://nzhistory.govt.nz/womens-suffrage-day"
+    },
+    {
+      "id": "nz-parliament-1919",
+      "title": "新西兰文化与遗产部｜妇女候选资格",
+      "url": "https://nzhistory.govt.nz/page/women-can-stand-parliament"
+    },
+    {
+      "id": "nz-suffrage-petition",
+      "title": "新西兰文化与遗产部｜1893 年妇女参政请愿档案",
+      "url": "https://nzhistory.govt.nz/page/about-suffrage-petition"
     }
   ],
   "chapters": [
@@ -125,9 +165,18 @@
           "id": "p-01"
         },
         {
-          "text": "北美十三殖民地独立后，英国骤然失去了流放罪犯的海外去处。1788 年 1 月，阿瑟·菲利普率领满载七百余名流放犯与海军陆战队的“第一舰队”驶入悉尼湾，宣布建立新南威尔士殖民地。英国当局单方面套用“无主之地”法理，无视原住民绵延数万年的土地归属，由此开启了剧烈的边疆土地冲突与天花疫病灾难。",
+          "text": "1788 年，英国第一舰队在悉尼湾建立新南威尔士殖民据点。英国殖民者以当地土地可由王室支配为前提，原住民族的土地关系没有得到承认。定居点扩展伴随暴力、失地和疾病，对当地社群造成严重伤害。后世澳大利亚法院和历史研究把这一殖民土地假设与原住民族原有的权利作了区分。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "first-fleet-nsw",
+              "locator": "The First Fleet and settlement",
+              "note": "1788 年第一舰队抵达，与原住民发生冲突，殖民扩展伴随失地及疾病。"
+            },
+            {
+              "sourceId": "mabo-nma",
+              "locator": "Claiming Australia、Challenging terra nullius",
+              "note": "殖民者的无主地假设、土地安排与 1992 年高等法院判决。"
+            }
           ],
           "id": "p-02"
         },
@@ -140,18 +189,39 @@
           "id": "p-03"
         },
         {
-          "text": "而在塔斯曼海对岸的新西兰，十九世纪初的岛屿湾挤满了欧美捕鲸船与木材商，火枪流入引发毛利部落间惨烈的“火枪战争”。为遏制法方染指并规范殖民秩序，英国代表霍布森于 1840 年 2 月与数百名毛利酋长签署《怀唐伊条约》。然而英文版中的“主权”与毛利文版中的“治理权”存在根本歧义，埋下了此后土地战争的长期火种。",
+          "text": "1840 年 2 月 6 日，一部分毛利首领与英国代表在岛屿湾的怀唐伊首次签署条约。随后，条约副本被送往其他地方，更多毛利首领及部分女性签署，也有人拒绝签署。毛利语和英语文本对英国取得的治理权或主权，以及毛利保有的权威，作出了不同表述。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "waitangi-signatures",
+              "locator": "The first signing 与 Subsequent signings",
+              "note": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+            },
+            {
+              "sourceId": "waitangi-versions",
+              "locator": "The Treaty in brief，下方 Differences between the texts",
+              "note": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1840 年怀唐伊草坪",
-            "title": "两份文本，两种对主权的理解",
-            "text": "1840 年 2 月 6 日，四十余位北方毛利酋长在岛屿湾白色帐篷下蘸墨签字或描摹面部纹身。在毛利语文本里，他们以为自己只是把维持秩序的“治理权”托付给英国女王，同时完整保留部落对土地与渔场的最高酋长权。",
-            "id": "aside-04"
+            "label": "读两种文本",
+            "title": "治理、主权和首领权威",
+            "text": "英语文本第一条使用「主权」。毛利语文本中使用的 kāwanatanga 通常译为治理或治理权，第二条保留 tino rangatiratanga 所指的权威。并列词语有助于辨出文本差异，参与者在各地如何理解它们，还需对照谈判和签署的记录。",
+            "id": "aside-04",
+            "refs": [
+              {
+                "sourceId": "waitangi-versions",
+                "locator": "The Treaty in brief，下方 Differences between the texts",
+                "note": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+              },
+              {
+                "sourceId": "waitangi-signatures",
+                "locator": "The first signing 与 Subsequent signings",
+                "note": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+              }
+            ]
           },
-          "id": "p-04"
+          "id": "p-04",
+          "heading": "怀唐伊的首次签署与各地商议"
         },
         {
           "heading": "夏威夷与大溪地的王国自强",
@@ -205,10 +275,14 @@
       "spatialThesis": "黄金、冷藏羊肉船与海底电报线彻底压缩了南半球与欧洲的距离：墨尔本与悉尼跃升为南半球金融重镇，而巴布亚、斐济与萨摩亚则被划入英、德、法、美的殖民势力圈。",
       "paragraphs": [
         {
-          "heading": "金色浪潮与民主试验田",
-          "text": "1851 年新南威尔士与维多利亚相继发现特大金矿，十年间吸引逾五十万来自英国、欧洲大陆、北美与中国广东的淘金客涌入。墨尔本一跃成为大英帝国仅次于伦敦的繁华都会，而巴拉瑞特矿工爆发的“尤里卡栅栏”武装抗税虽遭镇压，却直接催生了秘密投票与成年男性普选权，推动澳大利亚走向民主自治。",
+          "heading": "淘金、采矿执照与尤里卡事件",
+          "text": "1851 年，新南威尔士和维多利亚相继公布发现金矿，吸引澳大利亚各地及海外移民前往矿区。矿工对采矿执照收费及执法方式的不满，在 1854 年巴拉瑞特的尤里卡栅栏事件中集中爆发。镇压之后，殖民地调查委员会提出调整，原来的执照收费被另一套制度取代。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "eureka-stockade",
+              "locator": "1851 年金矿发现、冲突和 1855 年调查委员会",
+              "note": "两地金矿、执照冲突与调查后费用制度变更。"
+            }
           ],
           "id": "p-01"
         },
@@ -221,16 +295,37 @@
           "id": "p-02"
         },
         {
-          "heading": "女性选举权与澳新自治领",
-          "text": "十九世纪末的澳大利亚与新西兰被欧洲观察家誉为“社会实验室”。1893 年，在凯特·谢泼德率领的数万份请愿书推动下，新西兰成为全球第一个赋予全体成年女性选举权的国家；随后澳新两地相继确立八小时工作制、养老金与劳资仲裁法庭，在福利与劳工立法上领先旧大陆数十年。",
+          "heading": "从参政请愿到全国选举投票",
+          "text": "在新西兰，妇女参政组织持续向议会提交请愿。1893 年《选举法》允许妇女参加全国议会选举投票。新西兰由此成为最早在全国议会选举中给予妇女投票权的自治国家。投票与参选是不同权利，妇女到 1919 年才获得参选众议院的资格。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "nz-suffrage-1893",
+              "locator": "19 September 1893，正文及选举资料",
+              "note": "《选举法》使新西兰成为率先在全国议会选举中给予妇女投票权的自治国家。"
+            },
+            {
+              "sourceId": "nz-parliament-1919",
+              "locator": "29 October 1919 条目",
+              "note": "1919 年后才可参选众议院。"
+            },
+            {
+              "sourceId": "nz-suffrage-petition",
+              "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+              "note": "该主卷约 2.4 万人签名，长超过 270 米。"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1893 年新西兰万名女性请愿卷轴",
-            "title": "两百七十米长卷推开全球女性投票之门",
-            "text": "1893 年冬，一张由五百余页纸张首尾粘连、全长超过两百七十米的请愿卷轴被滚入惠灵顿议会大厅，上面签着近三万二千名新西兰女性的名字。数周后选举法案惊险过关，改写了世界现代民主史的进程。",
-            "id": "aside-03"
+            "label": "读档案",
+            "title": "1893 年妇女参政请愿卷",
+            "text": "在新西兰文化与遗产部收录的 1893 年主要请愿卷中，约有 2.4 万名妇女的姓名和地址。它由各地收集的单页粘接而成。卷轴的签名人数可以理解为这一份请愿的规模。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "nz-suffrage-petition",
+                "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+                "note": "该主卷约 2.4 万人签名，长超过 270 米。"
+              }
+            ]
           },
           "id": "p-03"
         },

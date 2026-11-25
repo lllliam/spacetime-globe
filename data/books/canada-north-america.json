@@ -14,6 +14,21 @@
       "title": "加拿大百科全书《易洛魁联盟（豪德诺索尼人）》",
       "url": "https://thecanadianencyclopedia.ca/en/article/iroquois",
       "id": "source-02"
+    },
+    {
+      "id": "nunavut-justice",
+      "title": "加拿大司法部｜努纳武特设立与公共政府",
+      "url": "https://www.justice.gc.ca/eng/rp-pr/aj-ja/rr00_8/p1.html"
+    },
+    {
+      "id": "trc-canada-summary",
+      "title": "加拿大真相与和解委员会｜最终报告摘要",
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Executive_Summary_English_Web.pdf"
+    },
+    {
+      "id": "trc-children-record",
+      "title": "加拿大真相与和解委员会｜失踪儿童及无标记墓葬",
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf"
     }
   ],
   "chapters": [
@@ -318,19 +333,34 @@
             "source-01"
           ],
           "callout": {
-            "label": "历史现场 · 1999 年努纳武特诞生",
-            "title": "北极地图上划出的因纽特自治版图",
-            "text": "1999 年 4 月 1 日，面积达两百万平方公里的努纳武特地区正式从西北地区分出，成为加拿大首个由因纽特原住民占绝对多数的自治行政区。首府伊魁特街头飘扬起石堆人像旗帜，标志着极地原住民首次通过现代条约重掌故土治理权。",
-            "id": "aside-04"
+            "label": "读制度",
+            "title": "努纳武特的土地协议与公共政府",
+            "text": "1993 年，努纳武特因纽特人与加拿大政府达成土地权利协议。随后的立法安排规定，努纳武特于 1999 年 4 月 1 日从西北地区分出，设立自己的立法机构和公共政府。因纽特人的土地权利与面向全体居民的公共政府，是这一安排的两个方面。",
+            "id": "aside-04",
+            "refs": [
+              {
+                "sourceId": "nunavut-justice",
+                "locator": "A New Territory and A New Approach",
+                "note": "1993 年土地权利协议和立法承诺，1999 年建立努纳武特及面向全体居民的公共政府。"
+              }
+            ]
           },
           "id": "p-04"
         },
         {
-          "heading": "和解之路与北极新前沿",
-          "text": "步入二十一世纪，加拿大社会开始直面原住民寄宿学校的历史伤口。2015 年真相与和解委员会发布九十四项行动呼吁，推动政府在土地主权、原住民语言复兴与资源收益共享上展开漫长补偿。与此同时，来自亚洲、非洲与拉美的持续移民使多伦多、温哥华与蒙特利尔成为全球多元族裔高度融合的都会样本。",
+          "heading": "寄宿学校、幸存者与调查",
+          "text": "加拿大政府的同化政策通过原住民寄宿学校使许多儿童与家庭分离，并压制他们使用自己的语言和延续文化。学校中的疾病、忽视和其他伤害造成了儿童死亡，许多家庭长期不知道孩子的去向。加拿大真相与和解委员会对幸存者证言与行政档案进行了对照，并说明仍有姓名和死亡原因无法查明。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "trc-canada-summary",
+              "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+              "note": "报告认定以寄宿学校迫使原住民同化，并说明死亡记录及失踪资料缺口。"
+            },
+            {
+              "sourceId": "trc-children-record",
+              "locator": "第 1—2 页 Executive summary",
+              "note": "该卷记录当时已确认的死亡、资料缺口以及原住民儿童无法回家的经历。"
+            }
           ],
           "id": "p-05"
         },

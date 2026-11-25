@@ -116,6 +116,11 @@
           "url": "https://afe.easia.columbia.edu/main_pop/ps/ps_china-nanjing.htm",
           "checkedAt": "2026-11-18",
           "id": "source-04"
+        },
+        {
+          "id": "nanking-text-1842",
+          "title": "东京大学东洋文化研究所「世界与日本」｜《南京条约》转录",
+          "url": "https://worldjpn.net/documents/texts/pw/18420829.T1E.html"
         }
       ],
       "sections": [
@@ -130,10 +135,13 @@
         },
         {
           "title": "转折：军事失败转化为制度让步",
-          "text": "1842年《南京条约》结束第一次鸦片战争，清廷开放五个通商口岸、赔款并割让香港岛。战争的结果因此没有停在战场，而是写进可以持续执行的条约。港口成为外国商人较稳定进入中国的节点，沿海不同城市面对的机会、压力和行政问题也随之改变，地方官必须在新的约束下处理日常事务。",
+          "text": "1842 年，清政府在英国军事压力下签订《南京条约》。条约列明五口、香港岛及赔款各项。广州、厦门、福州、宁波与上海由此成为英商获准通商的五个节点。各口岸的行政、司法和商贸规定仍经过后续文件与地方执行。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nanking-text-1842",
+              "locator": "签署行及第 II—VII、X 条",
+              "note": "1842 年 8 月 29 日，五口、香港岛、分项款项及商定关税安排。"
+            }
           ],
           "id": "section-02"
         },
@@ -720,6 +728,16 @@
           "url": "https://www.library.gov.au/learn/digital-classroom/celestial-empire/contact-and-conflict",
           "checkedAt": "2026-11-17",
           "id": "source-03"
+        },
+        {
+          "id": "boxer-protocol-1901",
+          "title": "美国国务院历史办公室｜1901 年《辛丑条约》签署文本",
+          "url": "https://history.state.gov/historicaldocuments/frus1901China/d179"
+        },
+        {
+          "id": "boxer-nam-1900",
+          "title": "英国国家陆军博物馆｜义和团与联军行动",
+          "url": "https://www.nam.ac.uk/explore/boxer-rebellion"
         }
       ],
       "sections": [
@@ -752,9 +770,18 @@
         },
         {
           "title": "社会：进入北京之后发生了什么",
-          "text": "联军在1900年进入北京后，部分部队进行掠夺，并对被怀疑为义和团成员的人实施暴力。军事胜利与平民遭遇需要同时进入叙事。1901年《辛丑条约》带来赔款及驻军等安排，战争的代价又被延长到此后的财政与政治生活中。以使馆解围作为故事终点，会遗漏这些持续的影响。",
+          "text": "1900 年，联军进占北京后，一些部队进行掠夺。1901 年签订的《辛丑条约》进一步规定赔款及驻军。第六条的 4.5 亿海关两是本金，另有利息与分期安排。第九条授权列强在北京到海岸通道上的指定地点驻军。",
           "refs": [
-            "source-02"
+            {
+              "sourceId": "boxer-nam-1900",
+              "locator": "The Legation Quarter 和 relief expedition 段落，及馆藏北京掠夺照片",
+              "note": "1900 年北京使馆区围困与各国部队进入北京。"
+            },
+            {
+              "sourceId": "boxer-protocol-1901",
+              "locator": "第 VI、IX 条及附件 13",
+              "note": "赔款本金为 4.5 亿海关两，规定利息和分期，并列有允许驻军的地点。"
+            }
           ],
           "id": "section-04"
         },

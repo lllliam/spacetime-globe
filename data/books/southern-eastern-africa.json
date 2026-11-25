@@ -19,6 +19,16 @@
       "title": "大英百科全书《大津巴布韦：历史、建筑与印度洋商贸》",
       "url": "https://www.britannica.com/place/Great-Zimbabwe",
       "id": "source-03"
+    },
+    {
+      "id": "ictr-rwanda-genocide",
+      "title": "卢旺达问题国际刑事法庭｜上诉庭对种族灭绝事实的司法认知",
+      "url": "https://unictr.irmct.org/en/news/ictr-appeals-chamber-takes-judicial-notice-genocide-rwanda"
+    },
+    {
+      "id": "un-rwanda-field-report",
+      "title": "联合国人权实地行动｜1998 年卢旺达情况报告",
+      "url": "https://digitallibrary.un.org/record/251353/files/E_CN.4_1998_61-EN.pdf"
     }
   ],
   "chapters": [
@@ -303,11 +313,21 @@
           "id": "p-03"
         },
         {
-          "text": "同一年的东非大湖区却经历了震惊世界的卢旺达大屠杀，数十万无辜生命在短短一百天内惨遭杀戮，国家一度陷入废墟。惊人的历史韧性在于，战后的卢旺达迅速推进社区和解、女性高比例参政与数字政务建设，首都基加利如今以整洁安全与创新生态闻名非洲，成为从绝境中重塑国家治理的罕见样本。",
+          "text": "1994 年 4 至 7 月，卢旺达发生针对图西族人的种族灭绝。政府武装中的相关成员和胡图极端派民兵系统性攻击图西族平民，反对暴行的胡图人也遭杀害。战后调查与审判为遇难者家属和幸存者留下了记录。联合国调查采用的伤亡范围有限，不同统计的时间与地域口径需要分别辨认。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "ictr-rwanda-genocide",
+              "locator": "2006 年 6 月 20 日公告，裁定事实第 2—3 项",
+              "note": "1994 年 4 至 7 月，图西族人遭到有系统的攻击及种族灭绝。"
+            },
+            {
+              "sourceId": "un-rwanda-field-report",
+              "locator": "E/CN.4/1998/61 第 2—3 段",
+              "note": "调查报告指出政府军成员与胡图极端派民兵实施杀戮，死者主要是图西族平民，也有胡图温和派。"
+            }
           ],
-          "id": "p-04"
+          "id": "p-04",
+          "heading": "1994 年卢旺达种族灭绝"
         },
         {
           "heading": "硅谷草原、自然遗产与港口升级",

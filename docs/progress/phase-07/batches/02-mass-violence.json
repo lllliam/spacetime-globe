@@ -1,0 +1,464 @@
+{
+  "id": "02-mass-violence",
+  "access": [
+    {
+      "url": "https://history.state.gov//historicaldocuments/frus1915Supp/d1400",
+      "material": "美国国务院历史办公室｜1915 年 7 月 10 日摩根索电报",
+      "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth",
+      "material": "美国大屠杀纪念馆｜1915—1916 年亚美尼亚人种族灭绝",
+      "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915",
+      "material": "澳大利亚战争纪念馆｜1915 年加里波利战事",
+      "locator": "首段及撤离部分的澳军部队日志资料",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust",
+      "material": "美国大屠杀纪念馆｜大屠杀研究与馆藏资料",
+      "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/warsaw-ghetto-uprising",
+      "material": "美国大屠杀纪念馆｜1943 年华沙犹太隔离区起义",
+      "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising",
+      "material": "美国大屠杀纪念馆｜1944 年华沙起义",
+      "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.icty.org/en/press/appeals-chamber-judgement-case-prosecutor-v-radislav-krstic",
+      "material": "前南斯拉夫问题国际刑事法庭｜克尔斯蒂奇案上诉判决说明",
+      "locator": "事实背景与 The existence of genocide 的裁判说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://history.state.gov/historicaldocuments/frus1931-41v01/d415",
+      "material": "美国国务院历史办公室｜驻南京外交人员报告",
+      "locator": "FRUS 日本卷 I 第 415 号文电首段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53",
+      "material": "美国国务院历史办公室｜南京使馆电报及证词摘要",
+      "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.unesco.org/en/memory-world/documents-nanjing-massacre",
+      "material": "联合国教科文组织｜南京大屠杀档案",
+      "locator": "登记说明，1937—1938 年档案与 1945—1956 年调查、审判记录",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.ndl.go.jp/constitution/e/shiryo/01/017shoshi.html",
+      "material": "日本国立国会图书馆｜终战诏书",
+      "locator": "馆藏文书 1-7 及 8 月 14 日发布、次日广播说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/surrender-of-japan",
+      "material": "美国国家档案馆｜日本投降书",
+      "locator": "Record Group 218，1945 年 9 月 2 日签署页与第二段",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://research.un.org/en/unmembers/founders",
+      "material": "联合国达格·哈马舍尔德图书馆｜创始成员档案",
+      "locator": "Republic of China 及签署、批准日期条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://unictr.irmct.org/en/news/ictr-appeals-chamber-takes-judicial-notice-genocide-rwanda",
+      "material": "卢旺达问题国际刑事法庭｜上诉庭对种族灭绝事实的司法认知",
+      "locator": "2006 年 6 月 20 日公告，裁定事实第 2—3 项",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://digitallibrary.un.org/record/251353/files/E_CN.4_1998_61-EN.pdf",
+      "material": "联合国人权实地行动｜1998 年卢旺达情况报告",
+      "locator": "E/CN.4/1998/61 第 2—3 段，首次阅读第 2—3 段，复访工具返回 403。",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://peacekeeping.un.org/sites/default/files/past/unamirFT.htm",
+      "material": "联合国维和资料｜卢旺达援助团旧页面",
+      "locator": "返回 403，改读国际刑庭裁定公告和联合国人权实地行动报告。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://www.un.org/en/node/215825",
+      "material": "联合国｜卢旺达纪念网页",
+      "locator": "返回 403。以实际读到的联合国人权实地行动报告记录受害者。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://www.archives.gov/files/iwg/japanese-war-crimes/introductory-essays.pdf?level=1",
+      "material": "美国国家档案馆｜日本战争罪行档案研究导论",
+      "locator": "导论，日本战争罪行文献研究中南京段，PDF 第 38 页",
+      "status": "read",
+      "date": "2026-11-25"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/ottoman/tanzimat-sick-man-collapse/p-05",
+      "scope": "区分加里波利战事与奥斯曼当局组织的亚美尼亚人种族灭绝",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分加里波利战事与奥斯曼当局组织的亚美尼亚人种族灭绝",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/armenian-genocide-museum",
+              "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+              "supports": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+            },
+            {
+              "source": "source/book/ottoman/armenian-1915-archive",
+              "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+              "supports": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+            },
+            {
+              "source": "source/book/ottoman/gallipoli-awm",
+              "locator": "首段及撤离部分的澳军部队日志资料",
+              "supports": "盟军登陆发生在 1915 年；加里波利撤离分阶段至 1916 年 1 月。"
+            }
+          ],
+          "limit": "外交文电记录当时的观察与报告，单份文电无法统计全部伤亡。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重开摩根索电报的非战斗区域段及纪念馆的馆藏资料，核对有组织驱逐与战争年表相互独立。"
+      }
+    },
+    {
+      "id": "block/ottoman/tanzimat-sick-man-collapse/aside-05",
+      "scope": "用同时代档案取代未注明原始来源的加里波利引语和现场描写",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "用同时代档案取代未注明原始来源的加里波利引语和现场描写",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ottoman/armenian-1915-archive",
+              "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+              "supports": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+            },
+            {
+              "source": "source/book/ottoman/armenian-genocide-museum",
+              "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+              "supports": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+            }
+          ],
+          "limit": "只转述电报的观察范围，未使用未经对证的引语。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-asia-modern/mandates/section-01",
+      "scope": "西亚边界专题补充有档案支持的驱逐、种族灭绝及对区域人口的影响",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "西亚边界专题补充有档案支持的驱逐、种族灭绝及对区域人口的影响",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-asia-modern/mandates/armenian-1915-archive",
+              "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+              "supports": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+            },
+            {
+              "source": "source/topic/west-asia-modern/mandates/armenian-genocide-museum",
+              "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+              "supports": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+            }
+          ],
+          "limit": "不从驱逐目的地推断某条现代国界的成因。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-02",
+      "scope": "区分德国入侵、针对犹太人的种族灭绝及华沙两场起义",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分德国入侵、针对犹太人的种族灭绝及华沙两场起义",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/holocaust-ushmm",
+              "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+              "supports": "纳粹德国及其盟友和合作者系统性迫害及杀害欧洲犹太人，1939 年德国入侵波兰。"
+            },
+            {
+              "source": "source/book/central-eastern-europe/warsaw-ghetto-1943",
+              "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+              "supports": "确认起义发生在 1943 年，参与者抵抗德国当局驱逐。"
+            },
+            {
+              "source": "source/book/central-eastern-europe/warsaw-uprising-1944",
+              "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+              "supports": "1944 年 8 月波兰家乡军发起另一次起义，遭德国占领军镇压。"
+            }
+          ],
+          "limit": "去掉以总伤亡推算中东欧平民和犹太人受害规模的泛称。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重查纪念馆 1943、1944 年页的日期、发起者及目标，核对两个事件分列。"
+      }
+    },
+    {
+      "id": "book-paragraph/central-eastern-europe/interwar-iron-curtain-to-european-integration/p-05",
+      "scope": "明确斯雷布雷尼察种族灭绝的时间、行动者和法庭认定",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "明确斯雷布雷尼察种族灭绝的时间、行动者和法庭认定",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/central-eastern-europe/icty-krstic",
+              "locator": "事实背景与 The existence of genocide 的裁判说明",
+              "supports": "1995 年斯雷布雷尼察的受害群体、波斯尼亚塞族部队行动及种族灭绝认定。"
+            }
+          ],
+          "limit": "该案判决的认定范围是斯雷布雷尼察，不能用于估算整场波斯尼亚战争死亡人数。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-modern/world-war-two/section-02",
+      "scope": "约六百万的对象和组织性迫害范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "约六百万的对象和组织性迫害范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-modern/world-war-two/holocaust-ushmm",
+              "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+              "supports": "纳粹德国及其盟友和合作者系统性迫害及杀害欧洲犹太人，1939 年德国入侵波兰。"
+            }
+          ],
+          "limit": "约六百万为欧洲犹太人死亡估计，其他受害群体另有各自资料与统计口径。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/europe-modern/world-war-two/section-03",
+      "scope": "两场华沙起义的时间、参与者及目标",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "两场华沙起义的时间、参与者及目标",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/europe-modern/world-war-two/warsaw-ghetto-1943",
+              "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+              "supports": "确认起义发生在 1943 年，参与者抵抗德国当局驱逐。"
+            },
+            {
+              "source": "source/topic/europe-modern/world-war-two/warsaw-uprising-1944",
+              "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+              "supports": "1944 年 8 月波兰家乡军发起另一次起义，遭德国占领军镇压。"
+            }
+          ],
+          "limit": "两个事件的性质和范围独立，未引入超出原专题范围的伤亡估算。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-02",
+      "scope": "南京陷落日期和占领后暴行，区分当时记录与事后调查",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "南京陷落日期和占领后暴行，区分当时记录与事后调查",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roc/nanjing-1937-date",
+              "locator": "FRUS 日本卷 I 第 415 号文电首段",
+              "supports": "驻南京外交人员注明日军于 1937 年 12 月 13 日占领南京。"
+            },
+            {
+              "source": "source/book/roc/nanjing-1938-allison",
+              "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+              "supports": "记录日军进入南京后平民遭杀害及性暴力的事例和书面证词。"
+            },
+            {
+              "source": "source/book/roc/nanjing-unesco",
+              "locator": "登记说明，1937—1938 年档案与 1945—1956 年调查、审判记录",
+              "supports": "区分事发时期的资料与战后调查记录。"
+            },
+            {
+              "source": "source/book/roc/nanjing-disarmed-archive",
+              "locator": "导论，日本战争罪行文献研究中南京段，PDF 第 38 页",
+              "supports": "引用当时日军记录研究，确认缴械的中国士兵遭日军处决。"
+            }
+          ],
+          "limit": "此处没有用个案或单份档案推算全部伤亡。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重读南京文电与联合国教科文组织精确记录，再查美国国家档案馆导论第 37 页，补足缴械军人遇害的独立证据。"
+      }
+    },
+    {
+      "id": "book-paragraph/roc/war-resistance/p-06",
+      "scope": "区分广播、签署投降书和参加联合国创设的时间与文书",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分广播、签署投降书和参加联合国创设的时间与文书",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roc/japan-rescript-1945",
+              "locator": "馆藏文书 1-7 及 8 月 14 日发布、次日广播说明",
+              "supports": "1945 年 8 月 15 日日本天皇通过广播告知接受《波茨坦公告》。"
+            },
+            {
+              "source": "source/book/roc/japan-surrender-1945",
+              "locator": "Record Group 218，1945 年 9 月 2 日签署页与第二段",
+              "supports": "日本代表签署投降书，该文书规定日本军队及其控制的武装力量无条件投降。"
+            },
+            {
+              "source": "source/book/roc/un-charter-founders-1945",
+              "locator": "Republic of China 及签署、批准日期条目",
+              "supports": "中华民国代表于 1945 年 6 月 26 日签署《联合国宪章》。"
+            }
+          ],
+          "limit": "不沿用缺少统计范围的综合伤亡数字。本段不处理战后台湾接管的法律地位。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/east-asia-modern/china-revolutions/section-02",
+      "scope": "把东亚专题的战时损失与南京暴行个案及档案对应",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "把东亚专题的战时损失与南京暴行个案及档案对应",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/nanjing-1937-date",
+              "locator": "FRUS 日本卷 I 第 415 号文电首段",
+              "supports": "驻南京外交人员注明日军于 1937 年 12 月 13 日占领南京。"
+            },
+            {
+              "source": "source/topic/east-asia-modern/china-revolutions/nanjing-1938-allison",
+              "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+              "supports": "记录日军进入南京后平民遭杀害及性暴力的事例和书面证词。"
+            }
+          ],
+          "limit": "南京个案能够说明当地占领暴力，不能代表各战区全部伤亡。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/southern-eastern-africa/liberation-rainbow-east-south/p-04",
+      "scope": "明确卢旺达种族灭绝的对象、加害组织和时间",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "明确卢旺达种族灭绝的对象、加害组织和时间",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/southern-eastern-africa/ictr-rwanda-genocide",
+              "locator": "2006 年 6 月 20 日公告，裁定事实第 2—3 项",
+              "supports": "1994 年 4 至 7 月，图西族人遭到有系统的攻击及种族灭绝。"
+            },
+            {
+              "source": "source/book/southern-eastern-africa/un-rwanda-field-report",
+              "locator": "E/CN.4/1998/61 第 2—3 段",
+              "supports": "调查报告指出政府军成员与胡图极端派民兵实施杀戮，死者主要是图西族平民，也有胡图温和派。"
+            }
+          ],
+          "limit": "没有把统计区间写成一个精确总数，也未以战后发展叙述替代受害经过。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重新打开上诉庭裁定事实第 2、3 项，核对移用到正文的时间及目标群体。联合国实地报告本批曾实际读取，复访返回 403。"
+      }
+    }
+  ]
+}

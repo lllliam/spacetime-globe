@@ -1,0 +1,813 @@
+{
+  "id": "03-colonial-dispossession",
+  "access": [
+    {
+      "url": "https://www.archives.gov/milestone-documents/jacksons-message-to-congress-on-indian-removal",
+      "material": "美国国家档案馆｜杰克逊致国会原住民迁移文告及档案说明",
+      "locator": "馆方说明、1830 年 12 月 6 日总统信件",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/research/native-americans/cherokee-removal",
+      "material": "美国国家档案馆｜切罗基人强制迁移相关档案",
+      "locator": "开篇与军事档案、人口档案目录",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/louisiana-purchase-treaty",
+      "material": "美国国家档案馆｜1803 年路易斯安那购地条约",
+      "locator": "条约日期、第 I、III、VI 条及相关付款说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/emancipation-proclamation",
+      "material": "美国国家档案馆｜解放奴隶宣言",
+      "locator": "1863 年 1 月 1 日文书和适用地区说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/13th-amendment",
+      "material": "美国国家档案馆｜宪法第十三修正案",
+      "locator": "第 1 条及 1865 年批准说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/14th-amendment",
+      "material": "美国国家档案馆｜宪法第十四修正案",
+      "locator": "第 1 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/15th-amendment",
+      "material": "美国国家档案馆｜宪法第十五修正案",
+      "locator": "第 1 条及馆方说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.archives.gov/milestone-documents/homestead-act",
+      "material": "美国国家档案馆｜1862 年宅地法",
+      "locator": "第 1—2 条，土地申请、居住和耕作规定",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.justice.gc.ca/eng/rp-pr/aj-ja/rr00_8/p1.html",
+      "material": "加拿大司法部｜努纳武特设立与公共政府",
+      "locator": "A New Territory and A New Approach",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Executive_Summary_English_Web.pdf",
+      "material": "加拿大真相与和解委员会｜最终报告摘要",
+      "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nctr.ca/wp-content/uploads/2021/01/Volume_4_Missing_Children_English_Web.pdf",
+      "material": "加拿大真相与和解委员会｜失踪儿童及无标记墓葬",
+      "locator": "第 1—2 页 Executive summary",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://humanrights.gov.au/resource-hub/by-resource-type/publications/aboriginal-and-torres-strait-islander-peoples/bringing-them-home-8-history-new-south-wales-and-australian-capital-territory",
+      "material": "澳大利亚人权委员会｜新南威尔士与首都领地历史",
+      "locator": "The First Fleet and settlement",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision",
+      "material": "澳大利亚国家博物馆｜马博判决",
+      "locator": "Claiming Australia、Challenging terra nullius",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nzhistory.govt.nz/politics/treaty/making-the-treaty/signing-the-treaty",
+      "material": "新西兰文化与遗产部｜怀唐伊条约签署",
+      "locator": "The first signing 与 Subsequent signings",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief",
+      "material": "新西兰文化与遗产部｜怀唐伊条约两种文本",
+      "locator": "The Treaty in brief，下方 Differences between the texts",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nma.gov.au/defining-moments/resources/eureka-stockade",
+      "material": "澳大利亚国家博物馆｜尤里卡栅栏事件",
+      "locator": "1851 年金矿发现、冲突和 1855 年调查委员会",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nzhistory.govt.nz/womens-suffrage-day",
+      "material": "新西兰文化与遗产部｜1893 年《选举法》与妇女投票权",
+      "locator": "19 September 1893，正文及选举资料",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nzhistory.govt.nz/page/women-can-stand-parliament",
+      "material": "新西兰文化与遗产部｜妇女候选资格",
+      "locator": "29 October 1919 条目",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://nzhistory.govt.nz/page/about-suffrage-petition",
+      "material": "新西兰文化与遗产部｜1893 年妇女参政请愿档案",
+      "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://legacy.slavevoyages.org/documents/download/2010estimates-method.pdf",
+      "material": "Eltis 与 Lachance｜跨大西洋奴隶贸易规模及方向估计",
+      "locator": "Estimates of the Size and Direction，第 20—22 页的航次推估示例",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://archiv.diplo.de/arc-en/the-political-archive/general-act-2684414",
+      "material": "德国外交部政治档案｜1885 年柏林会议总议定书",
+      "locator": "1885 年 2 月 26 日文本说明、第 34—35 条",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.africamuseum.be/en/about_us/viewpoints",
+      "material": "比利时皇家中非博物馆｜殖民史、馆藏和研究立场",
+      "locator": "关于刚果殖民史，1885—1908 年段落",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/usa/founding-constitution-frontier/p-03",
+      "scope": "购地协定的金额、国家当事方与第六条涉及的其他既有条约",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "购地协定的金额、国家当事方与第六条涉及的其他既有条约",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/louisiana-purchase",
+              "locator": "条约日期、第 I、III、VI 条及相关付款说明",
+              "supports": "美法两国的领土转让和金额；原住民族与西班牙既有条约另有规定。"
+            }
+          ],
+          "limit": "条约可说明国家主张，不能代表当地原住民族同意转让土地。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重开条约第 I、VI 条和付款附约，核对两国协定的范围与当地既有条约的区别。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/founding-constitution-frontier/p-05",
+      "scope": "区分立法授权、条约以及切罗基人遭到的实际强制迁移",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分立法授权、条约以及切罗基人遭到的实际强制迁移",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/removal-1830",
+              "locator": "馆方说明、1830 年 12 月 6 日总统信件",
+              "supports": "1830 年法案授权缔结迁移条约，档案说明记载切罗基人在 1838—1839 年被强制迁移并有大量人员死亡。"
+            },
+            {
+              "source": "source/book/usa/cherokee-removal-orders",
+              "locator": "开篇与军事档案、人口档案目录",
+              "supports": "新埃科塔条约规定迁移，1838 年美国陆军受命执行，档案无完整参与者名册。"
+            }
+          ],
+          "limit": "档案目录注明不存在迁移参与者的完整名单，撤下不分地域及人群的宽泛死者数字。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/usa/civil-war-gilded-industry/summary",
+      "scope": "摘要区分战争、宪法废奴、土地分配与经济变化",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "摘要区分战争、宪法废奴、土地分配与经济变化",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/emancipation-1863",
+              "locator": "1863 年 1 月 1 日文书和适用地区说明",
+              "supports": "适用于处于叛乱状态的指定地区，宣布黑人可加入联邦部队，生效依赖战事。"
+            },
+            {
+              "source": "source/book/usa/amendment-13",
+              "locator": "第 1 条及 1865 年批准说明",
+              "supports": "废除奴隶制和强迫劳役，保留依法定罪后的惩罚例外。"
+            },
+            {
+              "source": "source/book/usa/homestead-act-1862",
+              "locator": "第 1—2 条，土地申请、居住和耕作规定",
+              "supports": "符合资格的申请者可领取经测量的公地，取得所有权须满足占有和耕作等条件。"
+            }
+          ],
+          "limit": "撤下未区分阵亡和总死亡的估计及没有口径的全球工业排名。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-02",
+      "scope": "解放宣言、军事实施和宪法废奴的范围及例外",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "解放宣言、军事实施和宪法废奴的范围及例外",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/emancipation-1863",
+              "locator": "1863 年 1 月 1 日文书和适用地区说明",
+              "supports": "适用于处于叛乱状态的指定地区，宣布黑人可加入联邦部队，生效依赖战事。"
+            },
+            {
+              "source": "source/book/usa/amendment-13",
+              "locator": "第 1 条及 1865 年批准说明",
+              "supports": "废除奴隶制和强迫劳役，保留依法定罪后的惩罚例外。"
+            }
+          ],
+          "limit": "撤下把内战全体死亡都称为阵亡的数字，以及对英法决策的无证因果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "逐条对照解放宣言的地区清单及第十三修正案的惩罚例外。"
+      }
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-03",
+      "scope": "第十四、十五修正案的条文与实际权利落实差异",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "第十四、十五修正案的条文与实际权利落实差异",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/amendment-14",
+              "locator": "第 1 条",
+              "supports": "规定符合条件者的公民身份以及法律平等保护。"
+            },
+            {
+              "source": "source/book/usa/amendment-15",
+              "locator": "第 1 条及馆方说明",
+              "supports": "禁止以种族、肤色或曾受奴役为由限制公民投票。"
+            }
+          ],
+          "limit": "宪法禁止事项不等于对每种限制的排除，且当时仍有性别等投票资格限制。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/usa/civil-war-gilded-industry/p-04",
+      "scope": "宅地法的具体条件及与原住民强制迁移的时代对照",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "宅地法的具体条件及与原住民强制迁移的时代对照",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/usa/homestead-act-1862",
+              "locator": "第 1—2 条，土地申请、居住和耕作规定",
+              "supports": "符合资格的申请者可领取经测量的公地，取得所有权须满足占有和耕作等条件。"
+            },
+            {
+              "source": "source/book/usa/cherokee-removal-orders",
+              "locator": "开篇与军事档案、人口档案目录",
+              "supports": "新埃科塔条约规定迁移，1838 年美国陆军受命执行，档案无完整参与者名册。"
+            }
+          ],
+          "limit": "两种政策在时间和地理上各有范围，本段未宣称切罗基人的所有土地均按此法分配。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-01",
+      "scope": "美国迁移法与切罗基人个案对应主卷",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "美国迁移法与切罗基人个案对应主卷",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/removal-1830",
+              "locator": "馆方说明、1830 年 12 月 6 日总统信件",
+              "supports": "1830 年法案授权缔结迁移条约，档案说明记载切罗基人在 1838—1839 年被强制迁移并有大量人员死亡。"
+            },
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/cherokee-removal-orders",
+              "locator": "开篇与军事档案、人口档案目录",
+              "supports": "新埃科塔条约规定迁移，1838 年美国陆军受命执行，档案无完整参与者名册。"
+            }
+          ],
+          "limit": "档案收录多种名册和文电，没有完整人员名单。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/expansion-emancipation/section-03",
+      "scope": "战时措施与第十三修正案条文及例外",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "战时措施与第十三修正案条文及例外",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/emancipation-1863",
+              "locator": "1863 年 1 月 1 日文书和适用地区说明",
+              "supports": "适用于处于叛乱状态的指定地区，宣布黑人可加入联邦部队，生效依赖战事。"
+            },
+            {
+              "source": "source/topic/north-america-modern/expansion-emancipation/amendment-13",
+              "locator": "第 1 条及 1865 年批准说明",
+              "supports": "废除奴隶制和强迫劳役，保留依法定罪后的惩罚例外。"
+            }
+          ],
+          "limit": "宣言的地区名单与修正案的法律范围分别引用。"
+        }
+      ]
+    },
+    {
+      "id": "block/canada-north-america/modern-canada-arctic/aside-04",
+      "scope": "努纳武特成立日期和公共政府性质",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "努纳武特成立日期和公共政府性质",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/nunavut-justice",
+              "locator": "A New Territory and A New Approach",
+              "supports": "1993 年土地权利协议和立法承诺，1999 年建立努纳武特及面向全体居民的公共政府。"
+            }
+          ],
+          "limit": "撤下把公共政府描述为单一族群专属政权和首次治理故土的表述。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/canada-north-america/modern-canada-arctic/p-05",
+      "scope": "寄宿学校的强制同化、儿童死亡和记录不完整",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "寄宿学校的强制同化、儿童死亡和记录不完整",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/canada-north-america/trc-canada-summary",
+              "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+              "supports": "报告认定以寄宿学校迫使原住民同化，并说明死亡记录及失踪资料缺口。"
+            },
+            {
+              "source": "source/book/canada-north-america/trc-children-record",
+              "locator": "第 1—2 页 Executive summary",
+              "supports": "该卷记录当时已确认的死亡、资料缺口以及原住民儿童无法回家的经历。"
+            }
+          ],
+          "limit": "原始调查的确认记录会随资料增加而扩充，本段不把某次登记数当作最终总数。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/north-america-modern/rights-and-memory/section-03",
+      "scope": "寄宿学校制度、儿童死亡与调查证据边界",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "寄宿学校制度、儿童死亡与调查证据边界",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/north-america-modern/rights-and-memory/trc-canada-summary",
+              "locator": "Introduction 及 Missing children, unmarked graves, and residential school cemeteries",
+              "supports": "报告认定以寄宿学校迫使原住民同化，并说明死亡记录及失踪资料缺口。"
+            },
+            {
+              "source": "source/topic/north-america-modern/rights-and-memory/trc-children-record",
+              "locator": "第 1—2 页 Executive summary",
+              "supports": "该卷记录当时已确认的死亡、资料缺口以及原住民儿童无法回家的经历。"
+            }
+          ],
+          "limit": "失踪、死亡登记、墓地记录是不同类别，不能互相替代。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/oceania-australia/cook-convict-waitangi/p-02",
+      "scope": "1788 年殖民建立、土地假设与原住民所受损害",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1788 年殖民建立、土地假设与原住民所受损害",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/first-fleet-nsw",
+              "locator": "The First Fleet and settlement",
+              "supports": "1788 年第一舰队抵达，与原住民发生冲突，殖民扩展伴随失地及疾病。"
+            },
+            {
+              "source": "source/book/oceania-australia/mabo-nma",
+              "locator": "Claiming Australia、Challenging terra nullius",
+              "supports": "殖民者的无主地假设、土地安排与 1992 年高等法院判决。"
+            }
+          ],
+          "limit": "避免将后来的法律概括写成 1788 年正式宣读的条文，疫情的源头也不作判断。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/oceania-australia/cook-convict-waitangi/p-04",
+      "scope": "首次签署与随后各地签署的时间和范围",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "首次签署与随后各地签署的时间和范围",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/waitangi-signatures",
+              "locator": "The first signing 与 Subsequent signings",
+              "supports": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+            },
+            {
+              "source": "source/book/oceania-australia/waitangi-versions",
+              "locator": "The Treaty in brief，下方 Differences between the texts",
+              "supports": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+            }
+          ],
+          "limit": "资料支持分批签署，不推定全部社群有一致理解。"
+        }
+      ]
+    },
+    {
+      "id": "block/oceania-australia/cook-convict-waitangi/aside-04",
+      "scope": "两种文本的概念差异而非统一的签署心理",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "两种文本的概念差异而非统一的签署心理",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/waitangi-versions",
+              "locator": "The Treaty in brief，下方 Differences between the texts",
+              "supports": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+            },
+            {
+              "source": "source/book/oceania-australia/waitangi-signatures",
+              "locator": "The first signing 与 Subsequent signings",
+              "supports": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+            }
+          ],
+          "limit": "以官方译释说明历史用词，不对当代法律效果作判断。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/oceania/australia/section-02",
+      "scope": "悉尼湾殖民节点和原住民土地权利受到的侵害",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "悉尼湾殖民节点和原住民土地权利受到的侵害",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/oceania/australia/first-fleet-nsw",
+              "locator": "The First Fleet and settlement",
+              "supports": "1788 年第一舰队抵达，与原住民发生冲突，殖民扩展伴随失地及疾病。"
+            },
+            {
+              "source": "source/topic/oceania/australia/mabo-nma",
+              "locator": "Claiming Australia、Challenging terra nullius",
+              "supports": "殖民者的无主地假设、土地安排与 1992 年高等法院判决。"
+            }
+          ],
+          "limit": "不以悉尼作为所有澳大利亚原住民族遭遇的统一时点。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/oceania/waitangi/section-02",
+      "scope": "条约两种文本关键用语与主卷对应",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "条约两种文本关键用语与主卷对应",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/oceania/waitangi/waitangi-versions",
+              "locator": "The Treaty in brief，下方 Differences between the texts",
+              "supports": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+            },
+            {
+              "source": "source/topic/oceania/waitangi/waitangi-signatures",
+              "locator": "The first signing 与 Subsequent signings",
+              "supports": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+            }
+          ],
+          "limit": "用语差异不能替代对个别条约签署者实际意见的查证。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/oceania-australia/gold-rush-dominions/p-01",
+      "scope": "淘金、执照争议、镇压及调查安排的时序",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "淘金、执照争议、镇压及调查安排的时序",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/eureka-stockade",
+              "locator": "1851 年金矿发现、冲突和 1855 年调查委员会",
+              "supports": "两地金矿、执照冲突与调查后费用制度变更。"
+            }
+          ],
+          "limit": "调低和改变执照收费有直接证据，撤下本段无法证实的全澳普选单因和迁入总数。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/oceania-australia/gold-rush-dominions/p-03",
+      "scope": "限定 1893 年选举权的政治范围并区分 1919 年参选权",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "限定 1893 年选举权的政治范围并区分 1919 年参选权",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/nz-suffrage-1893",
+              "locator": "19 September 1893，正文及选举资料",
+              "supports": "《选举法》使新西兰成为率先在全国议会选举中给予妇女投票权的自治国家。"
+            },
+            {
+              "source": "source/book/oceania-australia/nz-parliament-1919",
+              "locator": "29 October 1919 条目",
+              "supports": "1919 年后才可参选众议院。"
+            },
+            {
+              "source": "source/book/oceania-australia/nz-suffrage-petition",
+              "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+              "supports": "该主卷约 2.4 万人签名，长超过 270 米。"
+            }
+          ],
+          "limit": "按资料的自治国家和全国性选举口径陈述，不否定其他地区较早的局部选举规定。"
+        }
+      ]
+    },
+    {
+      "id": "block/oceania-australia/gold-rush-dominions/aside-03",
+      "scope": "主要请愿卷和全部请愿的统计口径区分",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "主要请愿卷和全部请愿的统计口径区分",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/oceania-australia/nz-suffrage-petition",
+              "locator": "1893 年 7 月 28 日主请愿卷的馆方介绍",
+              "supports": "该主卷约 2.4 万人签名，长超过 270 米。"
+            }
+          ],
+          "limit": "其他批次请愿及总签名应单独统计。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重开新西兰文化与遗产部请愿卷说明，复查数字是主要请愿卷可读转录，并限定为姓名及地址记录。"
+      }
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-01",
+      "scope": "区分西非与中西非的航线、航次档案和登船到达口径",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "区分西非与中西非的航线、航次档案和登船到达口径",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/west-central-africa/slavevoyages-estimates",
+              "locator": "Estimates of the Size and Direction，第 20—22 页的航次推估示例",
+              "supports": "分开统计登船和抵达，以原始记录及方法估算缺失数据；举出 1783 年西中非至圣多明各。"
+            }
+          ],
+          "limit": "撤下没有年龄统计的「青壮年」和将贸易单因直接推导为阿散蒂建国的叙述。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-04",
+      "scope": "柏林会议与议定书条款范围，区分通知、控制和后来边界",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "柏林会议与议定书条款范围，区分通知、控制和后来边界",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/west-central-africa/berlin-act-1885",
+              "locator": "1885 年 2 月 26 日文本说明、第 34—35 条",
+              "supports": "议定书规定贸易、航行与通知及有效占领等规则。"
+            }
+          ],
+          "limit": "不能由会议条文得到所有后来国界，也不能删除非洲社会后续抗拒和谈判的历史。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/west-central-africa/ashanti-sokoto-colonial/p-05",
+      "scope": "刚果自由邦的行动者、强迫劳动与多重人口损失机制",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "刚果自由邦的行动者、强迫劳动与多重人口损失机制",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/west-central-africa/congo-forced-labour",
+              "locator": "关于刚果殖民史，1885—1908 年段落",
+              "supports": "橡胶等经济开发伴随强迫劳动、暴力和迁移，疾病及农业破坏也是人口损失因素。"
+            }
+          ],
+          "limit": "馆方研究确认大规模损失，撤下未给出区域、日期与方法的单一死亡估计。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/africa-modern/partition/section-01",
+      "scope": "柏林会议文件的法律范围及与实际管辖的区别",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "柏林会议文件的法律范围及与实际管辖的区别",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/africa-modern/partition/berlin-act-1885",
+              "locator": "1885 年 2 月 26 日文本说明、第 34—35 条",
+              "supports": "议定书规定贸易、航行与通知及有效占领等规则。"
+            }
+          ],
+          "limit": "可定位的证据属于沿海新占领条文，不能据此确认所有具体国界。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/africa-modern/partition/section-03",
+      "scope": "刚果河流域的强迫劳动及人口损失个案",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "刚果河流域的强迫劳动及人口损失个案",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/africa-modern/partition/congo-forced-labour",
+              "locator": "关于刚果殖民史，1885—1908 年段落",
+              "supports": "橡胶等经济开发伴随强迫劳动、暴力和迁移，疾病及农业破坏也是人口损失因素。"
+            }
+          ],
+          "limit": "本段以刚果自由邦为例，不将此制度概括为所有非洲殖民地。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/west-africa/atlantic/section-05",
+      "scope": "航次估计的方法和两种不同人数",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "航次估计的方法和两种不同人数",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/west-africa/atlantic/slavevoyages-estimates",
+              "locator": "Estimates of the Size and Direction，第 20—22 页的航次推估示例",
+              "supports": "分开统计登船和抵达，以原始记录及方法估算缺失数据；举出 1783 年西中非至圣多明各。"
+            }
+          ],
+          "limit": "估计有数据缺口，单凭这一来源不能恢复每一位被奴役者的身份。"
+        }
+      ]
+    }
+  ]
+}

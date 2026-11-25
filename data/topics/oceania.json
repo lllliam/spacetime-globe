@@ -158,6 +158,16 @@
           "url": "https://www.nma.gov.au/__data/assets/pdf_file/0013/540121/NMA-100-defining-moments-print-version.pdf",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "first-fleet-nsw",
+          "title": "澳大利亚人权委员会｜新南威尔士与首都领地历史",
+          "url": "https://humanrights.gov.au/resource-hub/by-resource-type/publications/aboriginal-and-torres-strait-islander-peoples/bringing-them-home-8-history-new-south-wales-and-australian-capital-territory"
+        },
+        {
+          "id": "mabo-nma",
+          "title": "澳大利亚国家博物馆｜马博判决",
+          "url": "https://www.nma.gov.au/defining-moments/resources/mabo-decision"
         }
       ],
       "sections": [
@@ -172,10 +182,18 @@
         },
         {
           "title": "殖民的到来",
-          "text": "一七八八年英国第一舰队建立悉尼湾殖民点，囚犯、军政机构和后续移民进入已有居民的领地。殖民者把土地纳入新的法律和生产安排，疾病、暴力与失地严重冲击原住民。称其为定居不能遮住对当地人的侵入，也不能用早期殖民者的生活困难证明取得土地不需要面对原有权利。",
+          "text": "1788 年，英国第一舰队在悉尼湾建立殖民据点，进入当地原住民族已经使用和管理的领地。殖民者在未承认原有土地权利的情况下扩大控制，原住民遭遇失地、暴力和疾病。不同地区的时间和经验有别，悉尼湾的档案可作为了解这一过程的一个起点。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "first-fleet-nsw",
+              "locator": "The First Fleet and settlement",
+              "note": "1788 年第一舰队抵达，与原住民发生冲突，殖民扩展伴随失地及疾病。"
+            },
+            {
+              "sourceId": "mabo-nma",
+              "locator": "Claiming Australia、Challenging terra nullius",
+              "note": "殖民者的无主地假设、土地安排与 1992 年高等法院判决。"
+            }
           ],
           "id": "section-02"
         },
@@ -258,6 +276,16 @@
           "url": "https://www.tepapa.govt.nz/visit/exhibitions/treaty-waitangi-signs-nation",
           "checkedAt": "2026-11-17",
           "id": "source-02"
+        },
+        {
+          "id": "waitangi-signatures",
+          "title": "新西兰文化与遗产部｜怀唐伊条约签署",
+          "url": "https://nzhistory.govt.nz/politics/treaty/making-the-treaty/signing-the-treaty"
+        },
+        {
+          "id": "waitangi-versions",
+          "title": "新西兰文化与遗产部｜怀唐伊条约两种文本",
+          "url": "https://nzhistory.govt.nz/politics/treaty/the-treaty-in-brief"
         }
       ],
       "sections": [
@@ -272,10 +300,18 @@
         },
         {
           "title": "两种文本",
-          "text": "英语文本与毛利语文本在治理、主权以及首领保有的权威等关键概念上存在差异，语言不是可以忽略的表面问题。读者不能用英语中的一个词，直接证明所有毛利签署者已经明确放弃同样范围的权力。条约需要结合翻译、谈判和当时双方理解，而非仅从后来的国家制度倒推其唯一含义。",
+          "text": "在怀唐伊条约的英语文本中，第一条写明转让主权。毛利语文本相应位置使用 kāwanatanga，通常译作治理权。毛利语第二条还写到 tino rangatiratanga。不同签署者对治理、土地和首领权威的理解需要结合各地记录，文本之间的差异可以直接对照。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "waitangi-versions",
+              "locator": "The Treaty in brief，下方 Differences between the texts",
+              "note": "英语版本的 sovereignty、毛利语的治理表述与所保留权威的差异。"
+            },
+            {
+              "sourceId": "waitangi-signatures",
+              "locator": "The first signing 与 Subsequent signings",
+              "note": "1840 年 2 月 6 日仅为首次签署，其余毛利首领在更多地点陆续签署。"
+            }
           ],
           "id": "section-02"
         },

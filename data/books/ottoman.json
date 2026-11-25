@@ -49,6 +49,21 @@
       "id": "vam-city-guide",
       "title": "维多利亚与阿尔伯特博物馆｜君士坦丁堡到伊斯坦布尔",
       "url": "https://www.vam.ac.uk/info/constantinople-to-istanbul-one-city-two-empires-large-print-guide"
+    },
+    {
+      "id": "armenian-1915-archive",
+      "title": "美国国务院历史办公室｜1915 年 7 月 10 日摩根索电报",
+      "url": "https://history.state.gov//historicaldocuments/frus1915Supp/d1400"
+    },
+    {
+      "id": "armenian-genocide-museum",
+      "title": "美国大屠杀纪念馆｜1915—1916 年亚美尼亚人种族灭绝",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-armenian-genocide-1915-16-in-depth"
+    },
+    {
+      "id": "gallipoli-awm",
+      "title": "澳大利亚战争纪念馆｜1915 年加里波利战事",
+      "url": "https://www.awm.gov.au/articles/first-world-war/gallipoli-1915"
     }
   ],
   "chapters": [
@@ -360,17 +375,42 @@
           "id": "p-04"
         },
         {
-          "heading": "一战豪赌与加里波利孤勇",
-          "text": "为摆脱英法俄瓜分阴影，青年土耳其三巨头在一九一四年押宝德意志帝国卷入第一次世界大战。尽管奥斯曼守军在达达尼尔海峡的加里波利半岛浴血阻击英法澳新联军、赢得震撼世界的防御大捷，但高加索东线的冻馁惨败、战时对亚美尼亚人的惨烈驱逐屠杀，以及英军策动的阿拉伯大起义，彻底拖垮了帝国的战争机器。",
+          "heading": "一战、加里波利与亚美尼亚人种族灭绝",
+          "text": "奥斯曼帝国在 1914 年加入同盟国一方。1915 年，协约国在加里波利登陆，后来撤离。与此同时，奥斯曼联合进步委员会控制的政府组织对亚美尼亚人的强制驱逐和大规模杀害。1915 至 1916 年，大量亚美尼亚平民遭杀害或在驱逐途中死于饥饿、疾病及恶劣条件。现今的历史研究将这场暴行称为亚美尼亚人种族灭绝。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "armenian-genocide-museum",
+              "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+              "note": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+            },
+            {
+              "sourceId": "armenian-1915-archive",
+              "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+              "note": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+            },
+            {
+              "sourceId": "gallipoli-awm",
+              "locator": "首段及撤离部分的澳军部队日志资料",
+              "note": "盟军登陆发生在 1915 年；加里波利撤离分阶段至 1916 年 1 月。"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1915 年加里波利半岛战壕",
-            "title": "旧帝国废墟上站起的民族救星",
-            "text": "在舰炮轰鸣与泥泞战壕间，三十四岁的陆军中校穆斯塔法·凯末尔向弹尽粮绝的第五十七团下达了冷峻命令：“我不是命令你们进攻，而是命令你们去死。”这场惨烈的海峡血战未能挽救苏丹皇室，却锻造出拯救土耳其的铁血领袖。",
-            "id": "aside-05"
+            "label": "读档案",
+            "title": "1915 年的外交电报",
+            "text": "1915 年 7 月，美国驻奥斯曼帝国大使摩根索根据各地来报，记录对亚美尼亚平民的逮捕、驱逐与杀害。他指出，一些行动发生在没有战事的地区。对读教育研究和各地文电，可以辨认政府命令及其执行范围。",
+            "id": "aside-05",
+            "refs": [
+              {
+                "sourceId": "armenian-1915-archive",
+                "locator": "FRUS 1915 年增补卷第 1400 号，841 号电报",
+                "note": "记录各地驱逐和杀戮、电报所述君士坦丁堡方面的命令及平民受害。"
+              },
+              {
+                "sourceId": "armenian-genocide-museum",
+                "locator": "World War I、Massacres and Deportations 与 Centralized Orders",
+                "note": "说明参战、驱逐及杀戮的组织方式、时间范围、加害者与主要目标群体。"
+              }
+            ]
           },
           "id": "p-05"
         },

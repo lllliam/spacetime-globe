@@ -14,6 +14,16 @@
       "title": "大英百科全书《近代印度与独立运动》",
       "url": "https://www.britannica.com/topic/Indian-Independence-Movement",
       "id": "source-02"
+    },
+    {
+      "id": "india-1857-museum",
+      "title": "英国国家陆军博物馆｜1857 年印度起义",
+      "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen"
+    },
+    {
+      "id": "india-act-1858",
+      "title": "英国议会档案｜东印度公司与英属印度，1785—1858",
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/"
     }
   ],
   "chapters": [
@@ -230,11 +240,19 @@
           "id": "p-04"
         },
         {
-          "heading": "印度明珠与维多利亚暗影",
-          "text": "然而帝国的繁荣背面刻满铁血与不平等。1840 年鸦片战争用炮舰撬开清朝通商口岸；1857 年印度土兵起义被血腥镇压后，英国撤销东印度公司、由王室直接统治印度，把孟加拉手织业摧毁为英国棉布倾销地。十九世纪末列强瓜分非洲时，英国从开罗到开普敦纵贯大陆，领土面积一度占全球陆地四分之一。",
+          "heading": "东印度公司退出印度行政统治",
+          "text": "英国对印度的统治曾由一家特许公司行使。1857 年，军中起义和地方反抗扩展到德里等地，英方调集兵力镇压。1858 年，英国议会依法将公司的行政权、领地和武装力量交由王室掌管。管理机构因此改变，英国在印度的殖民统治继续。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "india-1857-museum",
+              "locator": "The rebellion begins、传统领袖和参与者段落",
+              "note": "密拉特及德里事件的时序，以及参与者与诉求的差别。"
+            },
+            {
+              "sourceId": "india-act-1858",
+              "locator": "The end of Company rule 段落",
+              "note": "1858 年《印度政府法》终止公司的行政权，财产与军队转归王室。"
+            }
           ],
           "id": "p-05"
         },

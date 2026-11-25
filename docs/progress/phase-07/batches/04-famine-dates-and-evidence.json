@@ -1,0 +1,535 @@
+{
+  "id": "04-famine-dates-and-evidence",
+  "access": [
+    {
+      "url": "https://egymonuments.gov.eg/en/historical-periods/middle-kingdom/",
+      "material": "埃及旅游和文物部｜中王国",
+      "locator": "第十一王朝、伊塔威和法尤姆垦殖段落",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.metmuseum.org/es/essays/egypt-in-the-middle-kingdom-2030-1640-b-c",
+      "material": "大都会艺术博物馆｜中王国埃及",
+      "locator": "开篇分期，以及第十二王朝雕像与发掘史",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nam.ac.uk/explore/why-did-indian-mutiny-happen",
+      "material": "英国国家陆军博物馆｜1857 年印度起义",
+      "locator": "The rebellion begins、传统领袖和参与者段落",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/east-india-company-and-raj-1785-1858/",
+      "material": "英国议会档案｜东印度公司与英属印度，1785—1858",
+      "locator": "The end of Company rule 段落",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://tci.cornell.edu/?blog=spatial-trends-in-indian-agriculture-1960s-to-2000s",
+      "material": "康奈尔大学塔塔中心｜印度农业的地区变化",
+      "locator": "北印度平原、1960 年代谷物和投入设施，以及对地区数据的分析",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1369848615000060",
+      "material": "Elsevier｜印度绿色革命小麦史",
+      "locator": "正文访问返回 403，本段改读康奈尔大学研究团队公开的数据分析。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://ostiaantica.cultura.gov.it/percorsi/grano-e-pane-a-ostia-antica/magazzino-granario/",
+      "material": "奥斯蒂亚考古公园｜谷物仓库",
+      "locator": "Magazzino granario 关于储存识别、布局和通道的实地说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0313684",
+      "material": "PLOS ONE｜安东尼瘟疫的规模与历史证据局限",
+      "locator": "Introduction 及 Discussion 对古代文字证据、影响估计及不确定性的讨论",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.hrw.org/reports/pdfs/e/ethiopia/ethiopia.919/ethiop991.pdf",
+      "material": "Africa Watch｜Evil Days，埃塞俄比亚战争与饥荒调查",
+      "locator": "第 54—57 页沃洛饥荒及 PDF 第 115—117 页北部饥荒调查",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/7438",
+      "material": "世界知识产权组织法律数据库｜埃塞俄比亚联邦宪法",
+      "locator": "1994 年通过、1995 年生效的宪法及档案说明",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://dppa.un.org/en/united-nations-observer-mission-to-verify-the-referendum-in-eritrea-unover-1992-1993",
+      "material": "联合国政治和建设和平事务部｜厄立特里亚公投观察团",
+      "locator": "返回 403，本段仅使用已读文献陈述埃塞俄比亚联邦宪法。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://tile.loc.gov/storage-services/service/ll/llglrd/2019670044/2019670044.pdf",
+      "material": "美国国会图书馆法律部｜1932—1933 年饥荒相关苏联法令",
+      "locator": "Background Information、1932 年征粮法规与 1933 年 1 月 22 日指令",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://www.nber.org/system/files/working_papers/w29089/w29089.pdf",
+      "material": "NBER｜乌克兰饥荒死亡率研究工作论文",
+      "locator": "论文 PDF 返回 403。邻近的部分假说尚待可读取全文，本段采用可查阅的法令及档案摘要。",
+      "date": "2026-11-25",
+      "status": "restricted"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-soviet-union-and-the-eastern-front",
+      "material": "美国大屠杀纪念馆｜苏联与东线战争",
+      "locator": "German Invasion of the Soviet Union 与结尾的东线战事",
+      "date": "2026-11-25",
+      "status": "read"
+    },
+    {
+      "url": "https://encyclopedia.ushmm.org/content/en/timeline-event/holocaust/1942-1945/german-defeat-at-stalingrad",
+      "material": "美国大屠杀纪念馆｜斯大林格勒战事与投降",
+      "locator": "1942 年末至 1943 年 2 月条目",
+      "date": "2026-11-25",
+      "status": "read"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-01",
+      "scope": "门图霍特普二世统一及中王国的惯用分期",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "门图霍特普二世统一及中王国的惯用分期",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/egypt/egypt-mota-middle",
+              "locator": "第十一王朝、伊塔威和法尤姆垦殖段落",
+              "supports": "门图霍特普重建统一、伊塔威位置未确定及法尤姆的开渠与垦殖。"
+            },
+            {
+              "source": "source/book/egypt/met-middle-kingdom",
+              "locator": "开篇分期，以及第十二王朝雕像与发掘史",
+              "supports": "支持统一和中晚期雕像的艺术变化，对形象解释持保留态度。"
+            }
+          ],
+          "limit": "不同机构的精确断代有别，撤下未定位的部队编成和因灾荒修水渠的墓铭转述。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/middle-kingdom-hyksos/p-02",
+      "scope": "伊塔威为新都且位置待考，王像风格变化与解释边界",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "伊塔威为新都且位置待考，王像风格变化与解释边界",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/egypt/egypt-mota-middle",
+              "locator": "第十一王朝、伊塔威和法尤姆垦殖段落",
+              "supports": "门图霍特普重建统一、伊塔威位置未确定及法尤姆的开渠与垦殖。"
+            },
+            {
+              "source": "source/book/egypt/met-middle-kingdom",
+              "locator": "开篇分期，以及第十二王朝雕像与发掘史",
+              "supports": "支持统一和中晚期雕像的艺术变化，对形象解释持保留态度。"
+            }
+          ],
+          "limit": "王像表情不能直接证明法老的心理或饥荒经历，删除无定位引语。"
+        }
+      ]
+    },
+    {
+      "id": "block/egypt/middle-kingdom-hyksos/aside-03",
+      "scope": "法尤姆有灌溉与土地开发，设施规模与细节仍有限",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "法尤姆有灌溉与土地开发，设施规模与细节仍有限",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/egypt/egypt-mota-middle",
+              "locator": "第十一王朝、伊塔威和法尤姆垦殖段落",
+              "supports": "门图霍特普重建统一、伊塔威位置未确定及法尤姆的开渠与垦殖。"
+            }
+          ],
+          "limit": "撤下未能对证的双向闸门、精确垦地面积及布亨巡逻文字。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/egypt/late-period-ptolemy/p-06",
+      "scope": "公元前 30 年接管与埃及王朝、文化分期",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "公元前 30 年接管与埃及王朝、文化分期",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/egypt/met-ptolemy",
+              "locator": "开篇，克娄巴特拉七世之后的接管及艺术延续段落",
+              "supports": "罗马于公元前 30 年接管埃及，政治变动后仍有文化延续。"
+            }
+          ],
+          "limit": "撤下罗马人口及埃及为皇帝私人领地的笼统表述，粮税和行省法规待专题来源。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/mughal-company-raj/p-06",
+      "scope": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/india-1857-museum",
+              "locator": "The rebellion begins、传统领袖和参与者段落",
+              "supports": "密拉特及德里事件的时序，以及参与者与诉求的差别。"
+            },
+            {
+              "source": "source/book/india-classical-modern/india-act-1858",
+              "locator": "The end of Company rule 段落",
+              "supports": "1858 年《印度政府法》终止公司的行政权，财产与军队转归王室。"
+            }
+          ],
+          "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "核对英国国家陆军博物馆的密拉特、德里时序和英国议会档案的公司交权范围。"
+      }
+    },
+    {
+      "id": "book-paragraph/mughal/aurangzeb-deccan-company-takeover/p-06",
+      "scope": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/mughal/india-1857-museum",
+              "locator": "The rebellion begins、传统领袖和参与者段落",
+              "supports": "密拉特及德里事件的时序，以及参与者与诉求的差别。"
+            },
+            {
+              "source": "source/book/mughal/india-act-1858",
+              "locator": "The end of Company rule 段落",
+              "supports": "1858 年《印度政府法》终止公司的行政权，财产与军队转归王室。"
+            }
+          ],
+          "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/british-empire/industrial-pax-britannica/p-05",
+      "scope": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1857 年起义的地理范围与参与者，1858 年行政权转移",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/british-empire/india-1857-museum",
+              "locator": "The rebellion begins、传统领袖和参与者段落",
+              "supports": "密拉特及德里事件的时序，以及参与者与诉求的差别。"
+            },
+            {
+              "source": "source/book/british-empire/india-act-1858",
+              "locator": "The end of Company rule 段落",
+              "supports": "1858 年《印度政府法》终止公司的行政权，财产与军队转归王室。"
+            }
+          ],
+          "limit": "区分棉纺业长期变化与 1858 年制度交接，撤下未经对证的单一导火索和经济因果。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/south-asia-modern/company-rule/section-04",
+      "scope": "与三部书卷统一公司行政权交接的纪年和权限描述",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "claims": [
+        {
+          "statement": "与三部书卷统一公司行政权交接的纪年和权限描述",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/topic/south-asia-modern/company-rule/india-1857-museum",
+              "locator": "The rebellion begins、传统领袖和参与者段落",
+              "supports": "密拉特及德里事件的时序，以及参与者与诉求的差别。"
+            },
+            {
+              "source": "source/topic/south-asia-modern/company-rule/india-act-1858",
+              "locator": "The end of Company rule 段落",
+              "supports": "1858 年《印度政府法》终止公司的行政权，财产与军队转归王室。"
+            }
+          ],
+          "limit": "只核查国家和公司之间的权限，人口与暴力规模另查。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/india-classical-modern/independence-partition-republic/p-04",
+      "scope": "工业审批与农业变化的政策、年代和区域差异",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "工业审批与农业变化的政策、年代和区域差异",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/india-classical-modern/ec-1991",
+              "locator": "Structural features and challenges",
+              "supports": "独立后混合经济下的审批制度及其后变化。"
+            },
+            {
+              "source": "source/book/india-classical-modern/cornell-indian-crops",
+              "locator": "北印度平原、1960 年代谷物和投入设施，以及对地区数据的分析",
+              "supports": "高产品种、灌溉和化肥推动粮食生产，增长集中于部分地区。"
+            }
+          ],
+          "limit": "产量统计不能证明所有地区或家庭从此免于饥饿。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roman/principate-mare-nostrum/p-03",
+      "scope": "奥斯蒂亚的谷物仓储遗迹及可支持的空间线索",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "奥斯蒂亚的谷物仓储遗迹及可支持的空间线索",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roman/ostia-grain-storage",
+              "locator": "Magazzino granario 关于储存识别、布局和通道的实地说明",
+              "supports": "考古机构将该处与邻近市场仓储相区分，并认定该仓库用于储存谷物。"
+            }
+          ],
+          "limit": "没有用一个仓库估算罗马人口、全部运费和粮运规模。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/roman/principate-mare-nostrum/p-06",
+      "scope": "安东尼瘟疫的史料范围及人口后果分歧",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "安东尼瘟疫的史料范围及人口后果分歧",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/roman/antonine-study",
+              "locator": "Introduction 及 Discussion 对古代文字证据、影响估计及不确定性的讨论",
+              "supports": "公元二世纪疫情有文献可考，研究对详细流行时序和人口影响存在不确定性。"
+            }
+          ],
+          "limit": "不采用单一死亡总数，也不把疫情直接解释为帝国走向衰落的唯一因素。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ethiopia/haile-selassie-modern-horn/p-04",
+      "scope": "沃洛饥荒期间的不同群体、救助与 1974 年政权变化",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "沃洛饥荒期间的不同群体、救助与 1974 年政权变化",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ethiopia/ethiopia-famine-report",
+              "locator": "第 54—57 页沃洛饥荒及 PDF 第 115—117 页北部饥荒调查",
+              "supports": "区分 1972—1973 年沃洛饥荒和军政府时期战乱中的饥荒，讨论粮食可得、政策及救助。"
+            }
+          ],
+          "limit": "报告把饥荒和应对作为政权变化的因素之一，不归结为单一自然原因。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/ethiopia/haile-selassie-modern-horn/p-05",
+      "scope": "八十年代北部饥荒成因的区域证据与联邦宪法生效日期",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "八十年代北部饥荒成因的区域证据与联邦宪法生效日期",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/ethiopia/ethiopia-famine-report",
+              "locator": "第 54—57 页沃洛饥荒及 PDF 第 115—117 页北部饥荒调查",
+              "supports": "区分 1972—1973 年沃洛饥荒和军政府时期战乱中的饥荒，讨论粮食可得、政策及救助。"
+            },
+            {
+              "source": "source/book/ethiopia/ethiopia-constitution-1995",
+              "locator": "1994 年通过、1995 年生效的宪法及档案说明",
+              "supports": "联邦宪法于 1994 年通过，1995 年生效。"
+            }
+          ],
+          "limit": "没有把 1991 年政权更替与联邦宪法的生效合并，也不从局部调查推算全国伤亡。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "对读调查的提格雷、沃洛北部段落与宪法档案，分别核对区域饥荒和联邦宪法生效。"
+      }
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-03",
+      "scope": "集体化时期的饥荒、征粮和禁止部分地区向外迁移的文件",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "集体化时期的饥荒、征粮和禁止部分地区向外迁移的文件",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/russia-ussr/soviet-famine-decrees",
+              "locator": "Background Information、1932 年征粮法规与 1933 年 1 月 22 日指令",
+              "supports": "列举饥荒地区、征粮的强制执行以及对乌克兰和北高加索农民外出的限制。"
+            }
+          ],
+          "limit": "不套用同一政策解释哈萨克斯坦等地的具体成因，撤下无定位引语和汇总数字。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-25",
+        "scope": "重看 1933 年 1 月 22 日指令的地理范围及征粮法规，确认没有把乌克兰和北高加索规定套用于其他地区。"
+      }
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-05",
+      "scope": "1941 年进攻日期与对平民及战俘的暴力",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "1941 年进攻日期与对平民及战俘的暴力",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/russia-ussr/soviet-eastern-front",
+              "locator": "German Invasion of the Soviet Union 与结尾的东线战事",
+              "supports": "德国和盟友 1941 年进攻，东线占领暴行及苏军后续推进。"
+            }
+          ],
+          "limit": "撤下不可对应到资料的铁路运力和工厂工人迁移数字，不从特定战役推测总伤亡。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/russia-ussr/revolution-stalin-ww2/p-06",
+      "scope": "斯大林格勒结束时间、苏军推进和战时损失分类",
+      "action": "revise",
+      "status": "checked",
+      "date": "2026-11-25",
+      "level": 1,
+      "confirmed": true,
+      "claims": [
+        {
+          "statement": "斯大林格勒结束时间、苏军推进和战时损失分类",
+          "result": "supported",
+          "evidence": [
+            {
+              "source": "source/book/russia-ussr/stalingrad-1943",
+              "locator": "1942 年末至 1943 年 2 月条目",
+              "supports": "斯大林格勒战事的时间和德军余部的投降。"
+            },
+            {
+              "source": "source/book/russia-ussr/soviet-eastern-front",
+              "locator": "German Invasion of the Soviet Union 与结尾的东线战事",
+              "supports": "德国和盟友 1941 年进攻，东线占领暴行及苏军后续推进。"
+            }
+          ],
+          "limit": "材料证明战局转折与严重损失，本段不把军民死亡总数当作阵亡数字。"
+        }
+      ]
+    }
+  ]
+}

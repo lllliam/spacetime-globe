@@ -14,6 +14,26 @@
       "title": "大英百科全书《奥匈帝国与哈布斯堡王朝》",
       "url": "https://www.britannica.com/place/Austria-Hungary",
       "id": "source-02"
+    },
+    {
+      "id": "holocaust-ushmm",
+      "title": "美国大屠杀纪念馆｜大屠杀研究与馆藏资料",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/introduction-to-the-holocaust"
+    },
+    {
+      "id": "warsaw-ghetto-1943",
+      "title": "美国大屠杀纪念馆｜1943 年华沙犹太隔离区起义",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/warsaw-ghetto-uprising"
+    },
+    {
+      "id": "warsaw-uprising-1944",
+      "title": "美国大屠杀纪念馆｜1944 年华沙起义",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-warsaw-polish-uprising"
+    },
+    {
+      "id": "icty-krstic",
+      "title": "前南斯拉夫问题国际刑事法庭｜克尔斯蒂奇案上诉判决说明",
+      "url": "https://www.icty.org/en/press/appeals-chamber-judgement-case-prosecutor-v-radislav-krstic"
     }
   ],
   "chapters": [
@@ -265,11 +285,26 @@
           "id": "p-01"
         },
         {
-          "text": "1938 年慕尼黑协定肢解捷克斯洛伐克后，1939 年 9 月纳粹德国闪击波兰引爆第二次世界大战。随后的六年成为中东欧史上最黑暗的深渊：波兰、乌克兰、白俄罗斯与巴尔干沦为纳粹种族灭绝营、惨烈游击战与苏德大反攻的焦土，华沙全城在 1944 年起义后被夷为平地，数以千万计的平民与中东欧悠久的犹太社区在浩劫中几乎消逝。",
+          "text": "1939 年 9 月，纳粹德国入侵波兰，欧洲战事扩大。德国占领当局及其盟友和合作者系统性迫害和杀害欧洲犹太人。1943 年，华沙犹太隔离区内的抵抗者起义，反抗德方驱逐。1944 年 8 月，波兰家乡军在华沙发动另一次起义，试图结束德国占领。两次起义都遭镇压，但各自的时间、组织者和目标有明确区别。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "holocaust-ushmm",
+              "locator": "开篇、How did the Holocaust happen、How did the Nazis gain control of Europe",
+              "note": "纳粹德国及其盟友和合作者系统性迫害及杀害欧洲犹太人，1939 年德国入侵波兰。"
+            },
+            {
+              "sourceId": "warsaw-ghetto-1943",
+              "locator": "Key facts、第 April 19, 1943–May 16, 1943 节及同期馆藏照片",
+              "note": "确认起义发生在 1943 年，参与者抵抗德国当局驱逐。"
+            },
+            {
+              "sourceId": "warsaw-uprising-1944",
+              "locator": "开篇、第 The Uprising, August 1–October 2, 1944 节及馆藏新闻片",
+              "note": "1944 年 8 月波兰家乡军发起另一次起义，遭德国占领军镇压。"
+            }
           ],
-          "id": "p-02"
+          "id": "p-02",
+          "heading": "纳粹占领与华沙的两场起义"
         },
         {
           "heading": "铁幕降临与广场上的自由浪潮",
@@ -294,10 +329,14 @@
           "id": "p-04"
         },
         {
-          "heading": "南斯拉夫解体与苏联疆界重绘",
-          "text": "与中欧和平转型形成对照，多民族联邦南斯拉夫在 1991 年后陷入血腥解体。斯洛文尼亚与克罗地亚率先独立，波斯尼亚战争造成十余万人丧生，直至《代顿协议》落幕才逐步稳定。同期，捷克斯洛伐克在 1993 年和平分家，苏联解体则让乌克兰、白俄罗斯、摩尔多瓦与波罗的海三国重登舞台。",
+          "heading": "南斯拉夫解体与斯雷布雷尼察",
+          "text": "南斯拉夫解体后，波斯尼亚和黑塞哥维那陷入战争。1995 年 7 月，波斯尼亚塞族部队夺取斯雷布雷尼察，杀害大批波斯尼亚穆斯林男子和男孩，并将妇女、儿童和老年人逐离。前南斯拉夫问题国际刑事法庭在克尔斯蒂奇案中认定，斯雷布雷尼察发生了种族灭绝。",
           "refs": [
-            "source-02"
+            {
+              "sourceId": "icty-krstic",
+              "locator": "事实背景与 The existence of genocide 的裁判说明",
+              "note": "1995 年斯雷布雷尼察的受害群体、波斯尼亚塞族部队行动及种族灭绝认定。"
+            }
           ],
           "id": "p-05"
         },

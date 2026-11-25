@@ -14,6 +14,46 @@
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
       "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
       "id": "source-02"
+    },
+    {
+      "id": "nanjing-1937-date",
+      "title": "美国国务院历史办公室｜驻南京外交人员报告",
+      "url": "https://history.state.gov/historicaldocuments/frus1931-41v01/d415"
+    },
+    {
+      "id": "nanjing-1938-allison",
+      "title": "美国国务院历史办公室｜南京使馆电报及证词摘要",
+      "url": "https://history.state.gov/historicaldocuments/frus1938v03/d53"
+    },
+    {
+      "id": "nanjing-unesco",
+      "title": "联合国教科文组织｜南京大屠杀档案",
+      "url": "https://www.unesco.org/en/memory-world/documents-nanjing-massacre"
+    },
+    {
+      "id": "japan-rescript-1945",
+      "title": "日本国立国会图书馆｜终战诏书",
+      "url": "https://www.ndl.go.jp/constitution/e/shiryo/01/017shoshi.html"
+    },
+    {
+      "id": "japan-surrender-1945",
+      "title": "美国国家档案馆｜日本投降书",
+      "url": "https://www.archives.gov/milestone-documents/surrender-of-japan"
+    },
+    {
+      "id": "un-charter-founders-1945",
+      "title": "联合国达格·哈马舍尔德图书馆｜创始成员档案",
+      "url": "https://research.un.org/en/unmembers/founders"
+    },
+    {
+      "id": "yichang-evacuation",
+      "title": "重庆市档案馆｜抗战硝烟下的民生公司",
+      "url": "https://jda.cq.gov.cn/web/article/web/content_1463121864266047488.html"
+    },
+    {
+      "id": "nanjing-disarmed-archive",
+      "title": "美国国家档案馆｜日本战争罪行档案研究导论",
+      "url": "https://www.archives.gov/files/iwg/japanese-war-crimes/introductory-essays.pdf?level=1"
     }
   ],
   "chapters": [
@@ -199,19 +239,41 @@
           "id": "p-01"
         },
         {
-          "text": "1937 年 12 月南京陷落，日军制造了惨绝人寰的南京大屠杀。但中国人没有屈服：1938 年李宗仁指挥台儿庄大捷打破日军不可战胜神话，武汉会战消耗日军主力后，抗战进入漫长而惨烈的战略相持阶段。",
+          "text": "1937 年 12 月 13 日，日军占领南京。占领之后，日军对平民和已失去抵抗能力的人员实施杀戮，并对平民实施强奸、抢掠等暴行。南京安全区内外的外交文电与目击记录保存了不少个案。战后调查和审判形成了另一批档案，可与当时记录对读。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nanjing-1937-date",
+              "locator": "FRUS 日本卷 I 第 415 号文电首段",
+              "note": "驻南京外交人员注明日军于 1937 年 12 月 13 日占领南京。"
+            },
+            {
+              "sourceId": "nanjing-1938-allison",
+              "locator": "1938 年 1 月，FRUS 远东卷 III 第 53 号文电",
+              "note": "记录日军进入南京后平民遭杀害及性暴力的事例和书面证词。"
+            },
+            {
+              "sourceId": "nanjing-unesco",
+              "locator": "登记说明，1937—1938 年档案与 1945—1956 年调查、审判记录",
+              "note": "区分事发时期的资料与战后调查记录。"
+            },
+            {
+              "sourceId": "nanjing-disarmed-archive",
+              "locator": "导论，日本战争罪行文献研究中南京段，PDF 第 38 页",
+              "note": "引用当时日军记录研究，确认缴械的中国士兵遭日军处决。"
+            }
           ],
-          "id": "p-02"
+          "id": "p-02",
+          "heading": "南京陷落与南京大屠杀"
         },
         {
-          "heading": "宜昌大撤退、战时陪都与西南联大",
-          "text": "在东部河山沦丧的至暗时刻，一场被誉为“中国实业敦刻尔克”的逆江大迁徙在长江三峡展开。实业家卢作孚指挥民生公司船队在日机轰炸下抢运数万吨机器与十余万难民入川；国民政府迁驻山城重庆作为战时陪都，在长达五年的重庆大轰炸下坚持“愈炸愈强”。",
+          "heading": "宜昌撤运与长江上游交通",
+          "text": "1938 年秋，人员和工业设备由长江中下游向西撤运。宜昌是进入川江的重要换装节点。卢作孚组织民生公司等轮运力量，按船只条件和设备重量，将部分物资经万县转运，部分直接送往重庆。分段转运与上游水位有关，也使不同船型能够承担各自航段。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "yichang-evacuation",
+              "locator": "第三节宜昌大撤退与分段转运说明",
+              "note": "卢作孚等组织多家公司，经宜昌、万县向重庆方向撤运人员和设备。"
+            }
           ],
           "callout": {
             "label": "历史现场 · 1938 年云南昆明西南联大",
@@ -240,12 +302,26 @@
           "id": "p-05"
         },
         {
-          "text": "历经十四年浴血奋战、付出超过三千五百万军民伤亡的惨痛代价后，1945 年 8 月 15 日日本宣布无条件投降。中国不仅收复了被日本殖民五十年的台湾与澎湖，更以四大国之一的身份参与创立联合国，洗刷了鸦片战争以来百余年的屈辱。",
+          "text": "中国的抗日战争造成严重军民伤亡和大规模流离失所。1945 年 8 月 15 日，日本天皇的广播公布接受《波茨坦公告》。9 月 2 日，日本代表签署投降书，两者是不同的历史时点。同年 6 月，中华民国代表在旧金山签署《联合国宪章》。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "japan-rescript-1945",
+              "locator": "馆藏文书 1-7 及 8 月 14 日发布、次日广播说明",
+              "note": "1945 年 8 月 15 日日本天皇通过广播告知接受《波茨坦公告》。"
+            },
+            {
+              "sourceId": "japan-surrender-1945",
+              "locator": "Record Group 218，1945 年 9 月 2 日签署页与第二段",
+              "note": "日本代表签署投降书，该文书规定日本军队及其控制的武装力量无条件投降。"
+            },
+            {
+              "sourceId": "un-charter-founders-1945",
+              "locator": "Republic of China 及签署、批准日期条目",
+              "note": "中华民国代表于 1945 年 6 月 26 日签署《联合国宪章》。"
+            }
           ],
-          "id": "p-06"
+          "id": "p-06",
+          "heading": "日本投降与联合国创设"
         }
       ],
       "contemporaries": [
