@@ -226,6 +226,10 @@
 .view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(14px);background:#fff9f2}
 
 #reset-view{width:100%;margin-top:3px}
+#graphics-status{margin:7px 8px 0;color:#c4ccd5;font-size:12px}
+#offline-info{margin-top:7px;padding:7px 8px 0;border-top:1px solid rgba(255,255,255,.12);color:#c4ccd5;font-size:12px;line-height:1.5}
+#offline-retry{min-height:44px;border:0;background:transparent;padding:0;color:#f6e6cd;text-decoration:underline;display:block}
+#offline-info[hidden],#offline-retry[hidden]{display:none}
 
 /* ── 纸张阅读与史事全屏层保持暖宣纸美学 ── */
 #overlay{background:var(--paper-bg);color:var(--paper-ink)}

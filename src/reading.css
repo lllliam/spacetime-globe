@@ -1,5 +1,5 @@
 body.reading-open,html.reader-paper{background:var(--paper-bg)}
-body.reading-open :is(#globe,#vec,#hud,#scrim,#sheet,#sheet-dim,#event-map-points){visibility:hidden}
+body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,#event-map-points){visibility:hidden}
 
 #book{
   --reading-ink:#25221d;--reading-muted:#756d60;--reading-rule:#d9d0bf;

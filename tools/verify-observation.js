@@ -167,7 +167,7 @@ async function main() {
     await page.send('Network.enable');
     await page.send('Network.setBypassServiceWorker',{bypass:true});
     await page.send('Network.setCacheDisabled',{cacheDisabled:true});
-    await page.send('Network.setBlockedURLs',{urls:['*/data/polity.bin.gz','*/data/polity.bin']});
+    await page.send('Network.setBlockedURLs',{urls:['*/data/polity.bin.gz*','*/data/polity.bin*']});
     await js(`__t.forgetPolity();__t.openReadingScene(${fixture},document.querySelector('${plate}'));`);
     await until(()=>js('!!__t.polityFailure'),'Map request did not fail as expected');
     assert.equal((await observe()).natural,true);

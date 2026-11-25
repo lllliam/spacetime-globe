@@ -1,6 +1,6 @@
 {
-  "name": "地球仪 · 时空坐标",
-  "short_name": "地球仪",
+  "name": "时空地球 · Spacetime Globe",
+  "short_name": "时空地球",
   "description": "一本可以通过地球和时间打开的世界历史书。",
   "lang": "zh-CN",
   "start_url": "./",

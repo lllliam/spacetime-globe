@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   地球仪 · 时空坐标 · v2
+   时空地球 · Spacetime Globe
    架构：球是空间索引，年份是时间索引，两者交叉出「此刻此地」的切片；
         切片里挂着实体（国家 / 政权），实体之间用关系连成图。
         所有界面都是这张图的投影，共享同一个会话状态 {year, layer, focus}。
@@ -38,6 +38,7 @@ const Q = 4;                           // 政权几何的量化倍数
 
 const el = (id) => document.getElementById(id);
 const canvas = el('globe');
+const fallbackCanvas = el('globe-fallback');
 const elYear = el('year');
 const sheetEl = el('sheet'), sheetInner = el('sheet-inner');
 const overlay = el('overlay');
@@ -45,6 +46,9 @@ const overlayTitle = el('overlay-title'), overlaySub = el('overlay-sub'), overla
 const bootEl = el('boot');
 
 const inlineText = (id) => { const n = el(id); return n ? n.textContent.trim() : ''; };
+const buildAssets = JSON.parse(inlineText('build-assets'));
+const assetURL = path => buildAssets.runtime?.[path]?.url || path;
+const fetchRuntimeAsset = path => fetch(assetURL(path), {integrity:buildAssets.runtime?.[path]?.integrity || ''});
 
 function b64ToBytes(b64) {
   const bin = atob(b64);
@@ -58,7 +62,7 @@ async function gunzip(buf) {
   return new Response(stream).arrayBuffer();
 }
 async function fetchBinary(url) {
-  const res = await fetch(url);
+  const res = await fetchRuntimeAsset(url);
   if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
   return res.arrayBuffer();
 }
@@ -67,7 +71,7 @@ async function fetchBinary(url) {
 async function loadWorld() {
   const inline = inlineText('atlas');
   if (inline.length > 100) return JSON.parse(inline);
-  const res = await fetch('data/world.json');
+  const res = await fetchRuntimeAsset('data/world.json');
   if (!res.ok) throw new Error('data/world.json 读取失败');
   return res.json();
 }
@@ -362,7 +366,7 @@ function updateSummary() {
 
 /* ───────────── 5. 材质 ───────────── */
 let baseCanvas = null, earthImg = null, cloudsImg = null, reliefImg = null;
-let glr = null;
+let glr = null, renderGeneration = 0;
 
 function newCanvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
 
@@ -617,6 +621,7 @@ function initGL() {
   let gl = null;
   try { gl = canvas.getContext('webgl2', opts) || canvas.getContext('webgl', opts); } catch (_) { gl = null; }
   if (!gl) return null;
+  const generation = ++renderGeneration;
   const shader = (type, src) => {
     const s = gl.createShader(type);
     gl.shaderSource(s, src); gl.compileShader(s);
@@ -728,6 +733,7 @@ function initGL() {
     detailState = 'loading';
     const image = new Image();
     image.onload = () => {
+      if (generation!==renderGeneration) return;
       detailState = 'unavailable';
       if (image.naturalWidth !== DETAIL_WIDTH || image.naturalHeight !== DETAIL_WIDTH / 2) return;
       const detail = tex(0, false);
@@ -745,13 +751,14 @@ function initGL() {
     };
     image.onerror = () => { detailState = state.zoom < DETAIL_ZOOM ? 'idle' : 'retry'; };
     const inline = inlineText('earth-detail').trim();
-    image.src = inline ? 'data:image/jpeg;base64,' + inline : 'data/earth-detail.jpg';
+    image.src = inline ? 'data:image/jpeg;base64,' + inline : assetURL('data/earth-detail.jpg');
   }
 
   function loadTerrain() {
     terrainState = 'loading';
     const image = new Image();
     image.onload = () => {
+      if (generation!==renderGeneration) return;
       terrainState = 'unavailable';
       if (image.naturalWidth !== TERRAIN_WIDTH || image.naturalHeight !== TERRAIN_WIDTH / 2) return;
       const texture = tex(4, false);
@@ -772,7 +779,7 @@ function initGL() {
     };
     image.onerror = () => { terrainState = state.zoom < TERRAIN_ZOOM ? 'idle' : 'retry'; };
     const inline = inlineText('terrain').trim();
-    image.src = inline ? 'data:image/png;base64,' + inline : 'data/terrain-4k-v1.png';
+    image.src = inline ? 'data:image/png;base64,' + inline : assetURL('data/terrain-4k-v1.png');
   }
 
   return {
@@ -1069,7 +1076,6 @@ function drawVector(hudBounds = globeHudBounds()) {
 
   }
 
-  window.__labelStats = { drawn: 0, placed: 0, zoom: state.zoom };
   if (chrome.natural) {
     vctx.restore();
     return;
@@ -1215,7 +1221,6 @@ function drawVector(hudBounds = globeHudBounds()) {
 
   /* 地名：按投影面积决定显不显示，贪心避让 */
   const placed = [];
-  window.__labelStats.drawn = drawn.length;
   const hasScenePolities = focusedIds.size > 0;
   const maxLabels = !chrome.labels || (worldEvent?.sceneId && !hasScenePolities) || (state.zoom === 1 && !state.focus && !hasScenePolities)
     ? 0 : hasScenePolities ? Math.min(8, focusedIds.size) : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
@@ -1246,7 +1251,6 @@ function drawVector(hudBounds = globeHudBounds()) {
     }
     if (overlap) continue;
     placed.push({ x: d.x, y: d.y, w, h });
-    window.__labelStats.placed = placed.length;
     vctx.shadowColor = 'rgba(0,0,0,.75)';
     vctx.shadowBlur = 4;
     vctx.fillStyle = isPolity ? 'rgba(255,238,206,.94)' : 'rgba(248,244,236,.94)';
@@ -1260,7 +1264,7 @@ function drawVector(hudBounds = globeHudBounds()) {
 /* ───────────── 7. Canvas2D 兜底 ───────────── */
 let fallback = null;
 function initFallback() {
-  const cv = canvas;
+  const cv = fallbackCanvas;
   const ctx = cv.getContext('2d');
   if (!ctx) return null;
   const off = newCanvas(1, 1);
@@ -1332,6 +1336,37 @@ function initFallback() {
   };
 }
 
+function useFallback() {
+  if (!fallback) {
+    fallback = initFallback();
+    fallback?.prepare();
+  }
+  fallbackCanvas.hidden = !fallback;
+  el('graphics-status').hidden = !fallback;
+}
+
+canvas.addEventListener('webglcontextlost', event => {
+  event.preventDefault();
+  renderGeneration++;
+  glr = null;
+  if (!baseCanvas) return;
+  useFallback();
+  layout();
+  invalidate();
+});
+canvas.addEventListener('webglcontextrestored', () => {
+  if (!baseCanvas || !(glr = initGL())) return;
+  glr.uploadBase(baseCanvas);
+  glr.uploadId(idCanvas);
+  glr.uploadLut(partition.lut);
+  fallbackCanvas.hidden = true;
+  fallbackCanvas.width = fallbackCanvas.height = 1;
+  fallback = null;
+  el('graphics-status').hidden = true;
+  layout();
+  invalidate();
+});
+
 /* ───────────── 8. 布局与拾取 ───────────── */
 function layout() {
   const root = document.documentElement;
@@ -1372,7 +1407,8 @@ function layout() {
 
   const r = glr || fallback;
   const pixelsWide = Math.round(w * dpr), pixelsHigh = Math.round(h * dpr);
-  if (r && (canvas.width !== pixelsWide || canvas.height !== pixelsHigh)) r.resize(w, h, dpr);
+  const surface = glr ? canvas : fallbackCanvas;
+  if (r && (surface.width !== pixelsWide || surface.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
   if (viewportChanged && !sheetMotion && !sheetState.dragging) applySheetOffset(sheetDetents()[sheetState.detent], false);
@@ -1603,11 +1639,12 @@ function shouldSpin() {
 }
 
 function invalidate() {
-  if (reading.active) return;
+  if (reading.active || document.hidden) return;
   dirty = true;
   if (!rafId) { lastT = 0; rafId = requestAnimationFrame(frame); }
 }
 function frame(t) {
+  if (document.hidden) { rafId = 0; return; }
   const dt = lastT ? Math.min(0.05, (t - lastT) / 1000) : 0;
   lastT = t; rafId = 0;
   let busy = false;
@@ -2263,6 +2300,7 @@ new ResizeObserver(scheduleViewportLayout).observe(canvas);
 document.addEventListener('visibilitychange', () => {
   lastT = 0;
   if (!document.hidden) { scheduleViewportLayout(); invalidate(); }
+  else { cancelAnimationFrame(rafId); rafId = 0; }
 });
 reducedGlobeMotion.addEventListener('change', invalidate);
 
@@ -2287,27 +2325,18 @@ el('sheet-toc').addEventListener('click', () => {
 /* ───────────── 19. 启动 ───────────── */
 async function loadRelief() {
   const inline = inlineText('relief');
-  const src = inline.length > 100 ? 'data:image/jpeg;base64,' + inline.replace(/[^A-Za-z0-9+/=]/g, '') : 'data/relief.jpg';
-  const cloudInline = inlineText('clouds');
-  await new Promise(resolve => {
+  const relief = inline ? 'data:image/jpeg;base64,' + inline : assetURL('data/relief.jpg');
+  const load = src => new Promise(resolve => {
     const image = new Image();
-    image.onload = () => { cloudsImg = image; resolve(); };
-    image.onerror = resolve;
-    image.src = cloudInline.length > 100 ? 'data:image/png;base64,' + cloudInline.trim() : 'data/clouds.png';
+    image.onload = () => resolve(image);
+    image.onerror = () => resolve(null);
+    image.src = src;
   });
-  const earthInline = inlineText('earth');
-  await new Promise(resolve => {
-    const image = new Image();
-    image.onload = () => { earthImg = image; resolve(); };
-    image.onerror = resolve;
-    image.src = earthInline.length > 100 ? 'data:image/jpeg;base64,' + earthInline.trim() : 'data/earth.jpg';
-  });
-  await new Promise((res) => {
-    const img = new Image();
-    img.onload = () => { reliefImg = img; res(); };
-    img.onerror = () => res();
-    img.src = src;
-  });
+  [cloudsImg,earthImg,reliefImg] = await Promise.all([
+    load('data:image/png;base64,' + inlineText('clouds')),
+    load('data:image/jpeg;base64,' + inlineText('earth')),
+    load(relief),
+  ]);
 }
 
 let polityLoadPromise = null;
@@ -2324,12 +2353,10 @@ async function loadPolity() {
   try {
     const inline = inlineText('politypack');
     let buf;
-    if (inline.length > 100) {
-      const raw = b64ToBytes(inline);
-      buf = (await gunzip(raw)) || raw;
-    } else {
-      const gz = await fetchBinary('data/polity.bin.gz');
-      buf = (await gunzip(gz));
+    if (inline) buf = b64ToBytes(inline).buffer;
+    else {
+      if (typeof DecompressionStream !== 'undefined')
+        buf = await fetchBinary('data/polity.bin.gz').then(gunzip).catch(() => null);
       if (!buf) buf = await fetchBinary('data/polity.bin');
     }
     pk = parsePolityBin(buf);
@@ -2355,14 +2382,12 @@ async function loadPolity() {
 }
 
 (async function boot() {
-  const world_ = await loadWorld();
+  const [world_] = await Promise.all([loadWorld(),loadRelief()]);
   initWorld(world_);
-  await loadRelief();
   buildBaseCanvas();
   glr = initGL();
-  if (!glr) fallback = initFallback();
+  if (!glr) useFallback();
   if (glr) { glr.uploadBase(baseCanvas); glr.uploadId(idCanvas); }
-  if (fallback) fallback.prepare();
 
   buildCountryPick();
   rebuildPartition();
@@ -2379,10 +2404,18 @@ async function loadPolity() {
   setTimeout(() => { if (bootEl.parentNode) bootEl.remove(); }, 600);
   invalidate();
   recheckViewportLayout();
+  setTimeout(() => { initializeOfflineStatus(); },700);
 
   /* 空闲时后台预热 4K 高清底图与政权边界，放大和切换图层都无需等待 */
   if (glr && typeof glr.preloadDetail === 'function') setTimeout(() => { glr.preloadDetail(); }, 600);
   if (restored && state.layerId === 'country') setTimeout(() => { ensurePolity(); }, 2200);
-})();
+})().catch(() => {
+  bootEl.querySelector('.spin').hidden = true;
+  bootEl.querySelector('p').textContent = '地图资料未能加载。请检查连接后重试。';
+  const retry = el('boot-retry');
+  retry.hidden = false;
+  retry.addEventListener('click', () => location.reload());
+  retry.focus();
+});
 
 })();

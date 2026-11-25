@@ -419,8 +419,9 @@ async function main() {
   await sleep(300);
   check('短主屏幕视口按实际画布绘制且不会重复扣除安全区',await js(`(() => {
     const globe=document.getElementById('globe'), vec=document.getElementById('vec');
+    const surface=__t.rendererKind==='canvas2d' ? document.getElementById('globe-fallback') : globe;
     return document.documentElement.style.getPropertyValue('--usable-safe-b') === '0px' && __t.view.h===812 &&
-      globe.height===2436 && vec.height===2436;
+      globe.getBoundingClientRect().height===812 && surface.height===2436 && vec.height===2436;
   })()`));
   await readingShot('globe-short-viewport');
   await send('Emulation.setDeviceMetricsOverride',{...phoneSize,height:874});

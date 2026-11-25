@@ -18,6 +18,7 @@ body{position:fixed;inset:0 0 auto;height:var(--app-height);
 html.reader-paper{color-scheme:light}
 
 #globe{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);display:block;touch-action:none;z-index:1}
+#globe-fallback{position:fixed;inset:0 0 auto;width:100%;height:var(--app-height);pointer-events:none;z-index:1}
 
 /* ── 顶部 ── */
 #scrim{position:fixed;left:0;right:0;top:0;height:190px;z-index:2;pointer-events:none;
@@ -100,6 +101,7 @@ html.reader-paper{color-scheme:light}
   align-items:center;justify-content:center;background:var(--page-bg);transition:opacity .5s ease}
 #boot.gone{opacity:0;pointer-events:none}
 #boot p{margin:0;font-size:12px;color:var(--muted);letter-spacing:.06em}
+#boot-retry{min-height:44px;padding:0 16px;border:1px solid #788894;border-radius:8px;background:transparent;color:#f6f2e9}
 #boot .spin{width:26px;height:26px;border-radius:50%;border:2px solid rgba(224,178,115,.22);
   border-top-color:var(--gold);animation:sp .8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}

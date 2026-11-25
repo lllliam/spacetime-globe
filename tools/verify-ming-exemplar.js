@@ -71,7 +71,8 @@ async function main() {
       for (const paragraph of chapter.paragraphs) assert(restored.paragraphs.some(item=>item.id===paragraph.id &&
         (!paragraph.callout || item.callout?.id===paragraph.callout.id)), chapter.id+'/'+paragraph.id);
       for (const ref of chapter.sceneRefs || []) {
-        assert.deepEqual(restored.sceneRefs.find(item=>item.id===ref.id), ref);
+        const currentRef=restored.sceneRefs.find(item=>item.id===ref.id);
+        assert.deepEqual(Object.fromEntries(Object.keys(ref).map(key=>[key,currentRef?.[key]])), ref);
         const selector = '[data-subject-scene="'+ref.id+'"]';
         await scrollTo(selector);
         const before = await position();

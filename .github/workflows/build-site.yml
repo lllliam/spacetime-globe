@@ -1,4 +1,4 @@
-name: Build and publish site
+name: Verify main site artifacts
 
 on:
   push:
@@ -9,11 +9,16 @@ on:
       - 'tools/**'
       - 'build.mjs'
       - 'package.json'
+      - 'manifest.webmanifest'
+      - '.gitattributes'
+      - 'index.html'
+      - 'index.offline.html'
+      - 'sw.js'
       - '.github/workflows/build-site.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: build-site-main
@@ -21,11 +26,12 @@ concurrency:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -41,12 +47,5 @@ jobs:
           node --check src/reading.js
           node --check src/subject-reader.js
           node --check src/event-map.js
-      - name: Publish generated pages to main
-        run: |
-          git config user.name "lllliam"
-          git config user.email "lllliam@users.noreply.github.com"
-          git add index.html index.offline.html docs/CONTENT-COVERAGE.md data/topics.json
-          if ! git diff --cached --quiet; then
-            git commit -m "build: publish updated Ming reading and maps"
-            git push origin HEAD:main
-          fi
+          node --check sw.js
+          git diff --exit-code -- index.html index.offline.html sw.js docs/CONTENT-COVERAGE.md data/topics.json

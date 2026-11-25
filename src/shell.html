@@ -5,20 +5,22 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="地球仪">
+<meta name="apple-mobile-web-app-title" content="时空地球">
+<meta name="application-name" content="Spacetime Globe">
 <meta name="theme-color" content="#0a1016">
 <meta name="description" content="一本可以通过地球和时间打开的世界历史书。转动地球，选一个年份，读一段完整的历史。">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4">
 <link rel="manifest" href="manifest.webmanifest?v=4">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
 <link rel="shortcut icon" href="favicon.ico?v=4" type="image/x-icon">
-<title>地球仪 · 时空坐标</title>
+<title>时空地球 · Spacetime Globe</title>
 <style>
 /*CSS*/
 </style>
 </head>
 <body>
 
+<canvas id="globe-fallback" hidden aria-hidden="true"></canvas>
 <canvas id="globe" tabindex="0" aria-label="地球。拖动旋转，捏合或滚轮缩放，点选疆域阅读。按 R 复位视角" aria-haspopup="dialog" aria-controls="view-panel"></canvas>
 <canvas id="vec" aria-hidden="true"></canvas>
 
@@ -77,6 +79,11 @@
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
   </div>
   <button type="button" id="reset-view">复位视角</button>
+  <p id="graphics-status" role="status" hidden>当前使用兼容地球渲染</p>
+  <div id="offline-info" hidden>
+    <span id="offline-status" role="status"></span>
+    <button type="button" id="offline-retry" hidden>重试离线准备</button>
+  </div>
 </section>
 
 <div id="sheet-dim" hidden></div>
@@ -132,9 +139,10 @@
   <div id="overlay-body"></div>
 </div>
 
-<div id="boot" role="status">
+<div id="boot">
   <div class="spin"></div>
-  <p>正在铺开地图…</p>
+  <p role="status">正在铺开地图…</p>
+  <button id="boot-retry" type="button" hidden>重新加载地图</button>
 </div>
 
 <header id="event-map-top" hidden>
@@ -173,6 +181,7 @@
 </aside>
 
 <script id="atlas" type="application/json">/*ATLAS*/</script>
+<script id="build-assets" type="application/json">/*BUILD_ASSETS*/</script>
 <script id="clouds" type="application/octet-stream">/*CLOUDS*/</script>
 <script id="earth" type="application/octet-stream">/*EARTH*/</script>
 <script id="earth-detail" type="application/octet-stream">/*EARTH_DETAIL*/</script>
@@ -189,11 +198,6 @@
 <script id="history-map-sources" type="application/json">/*HISTORY_MAP_SOURCES*/</script>
 <script>
 /*APP*/
-</script>
-<script>
-if ("serviceWorker" in navigator && location.protocol === "https:") {
-  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
-}
 </script>
 </body>
 </html>

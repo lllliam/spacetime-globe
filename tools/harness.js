@@ -121,7 +121,7 @@ const TYPES = {
   '.png': 'image/png', '.jpg': 'image/jpeg', '.gz': 'application/gzip', '.bin': 'application/octet-stream',
 };
 
-function startServer(port = 0) {
+function startServer(port = 0, {cacheControl = 'no-cache'} = {}) {
   return new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
       try {
@@ -133,7 +133,7 @@ function startServer(port = 0) {
         res.writeHead(200, {
           'content-type': TYPES[path.extname(file)] || 'application/octet-stream',
           'content-length': data.length,
-          'cache-control': 'no-cache',
+          'cache-control': cacheControl,
         });
         res.end(data);
       } catch {
