@@ -1370,6 +1370,204 @@
         "scope": "主体身份、阅读时段、地理材料及范围限制。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "song-capital-at-shangqiu",
+      "type": "region",
+      "name": "宋国故城遗址区",
+      "aliases": [
+        "宋国故城",
+        "商丘",
+        "宋"
+      ],
+      "range": {
+        "from": -595,
+        "to": -546,
+        "dateLabel": "约公元前 595—前 546 年 · 本批阅读区间",
+        "approximate": true
+      },
+      "scope": "商丘宋国故城南墙及内侧道路考古区。会盟会场地望仍待证。",
+      "sources": [
+        {
+          "id": "song-capital-excavation",
+          "title": "孙政委等介绍商丘宋国故城南墙发掘",
+          "url": "https://www.cssn.cn/kgxc/kgxc_xccz/202306/t20230630_5664245.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zuo-xiang",
+          "title": "《左传·襄公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/襄公",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域的位置、所用年代与证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "lu-capital-at-qufu",
+      "type": "region",
+      "name": "鲁国故城遗址区",
+      "aliases": [
+        "鲁国",
+        "鲁故城",
+        "曲阜"
+      ],
+      "range": {
+        "from": -594,
+        "to": -450,
+        "dateLabel": "约公元前 594—前 450 年 · 本批阅读区间",
+        "approximate": true
+      },
+      "scope": "曲阜宫城和郭城具有不同的营建与修补时段。地图不承担地块或赋税范围的识别。",
+      "sources": [
+        {
+          "id": "lu-capital-fieldwork",
+          "title": "中国社会科学网访刘延常、韩辉等《见证“周礼在鲁”的鲁故城》",
+          "url": "https://www.cssn.cn/dfpd/djbd/202506/t20250619_5880254.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "lu-capital-remains",
+          "title": "济宁市文化和旅游局《曲阜鲁国故城》",
+          "url": "https://whlyj.jining.gov.cn/art/2025/6/12/art_70690_2705991.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "gongyang-tax",
+          "title": "《春秋公羊传·宣公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋公羊傳/宣公",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域的位置、所用年代与证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wu-sites-at-taihu",
+      "type": "region",
+      "name": "太湖东侧吴地城址区",
+      "aliases": [
+        "木渎",
+        "胥口",
+        "吴国"
+      ],
+      "range": {
+        "from": -520,
+        "to": -470,
+        "dateLabel": "约公元前 520—前 470 年 · 本批阅读区间",
+        "approximate": true
+      },
+      "scope": "太湖东侧春秋晚期城址区，作为吴地空间背景。古城名称和具体都邑身份仍待核实。",
+      "sources": [
+        {
+          "id": "mudu-archaeology",
+          "title": "苏州市地方志办公室《众说纷纭的阖闾古城》",
+          "url": "https://dfzb.suzhou.gov.cn/dfzb/fzxh/201107/2670e6a6682149a0b0777b63d30eecf3.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "wu-shiji",
+          "title": "《史记》卷三十一《吴太伯世家》",
+          "url": "https://zh.wikisource.org/zh-hans/史記/卷031",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域的位置、所用年代与证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "yue-settlements-at-shaoxing",
+      "type": "region",
+      "name": "绍兴越地聚落区",
+      "aliases": [
+        "大湖头",
+        "绍兴",
+        "越国"
+      ],
+      "range": {
+        "from": -520,
+        "to": -450,
+        "dateLabel": "约公元前 520—前 450 年 · 本批阅读区间",
+        "approximate": true
+      },
+      "scope": "东湖附近的越地聚落区，活动年代以各遗迹及发掘材料为准。",
+      "sources": [
+        {
+          "id": "yue-dahutou",
+          "title": "发掘者报告纪要《浙江考古与中华文明》",
+          "url": "https://archaeology.pku.edu.cn/info/1031/36465.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yue-dahutou-location",
+          "title": "绍兴市文广旅游局供稿《绍兴年鉴 2022》",
+          "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2247/site/attach/0/142fc340121a45b595996539a83f77ce.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yue-shiji",
+          "title": "《史记》卷四十一《越王句践世家》",
+          "url": "https://zh.wikisource.org/zh-hans/史記/卷041",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域的位置、所用年代与证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hangou-jianghuai-corridor",
+      "type": "region",
+      "name": "春秋邗沟所在的江淮区域",
+      "aliases": [
+        "邗沟",
+        "邗城",
+        "末口"
+      ],
+      "range": {
+        "from": -486,
+        "to": -482,
+        "dateLabel": "约公元前 486—前 482 年 · 本批阅读区间",
+        "approximate": true
+      },
+      "scope": "以今扬州和淮安一带表示江淮两侧的参照。水道延续与改修须按各期材料。",
+      "sources": [
+        {
+          "id": "zuo-ai",
+          "title": "《左传·哀公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/哀公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hangou-locations",
+          "title": "淮安政协文史《1958年，里运河裁弯取直开新河》",
+          "url": "https://zx.huaian.gov.cn/col/14069_277241/art/m/17144928/1715305425880pwInb8VD.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "grand-canal-unesco",
+          "title": "联合国教科文组织世界遗产中心《大运河》",
+          "url": "https://whc.unesco.org/en/list/1443/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域的位置、所用年代与证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

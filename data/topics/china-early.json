@@ -2055,6 +2055,386 @@
         "scope": "遗址参照、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "song-and-zheng-capital-sites",
+      "year": -546,
+      "date": "约公元前 595—前 546 年 · 阅读区间",
+      "title": "商丘宋城与新郑郑城",
+      "summary": "为什么读宋国弭兵和晋楚争郑，地图上要分看两座城？",
+      "place": {
+        "label": "商丘宋国故城 · 宋国都邑遗址区参照",
+        "lon": 115.585,
+        "lat": 34.366
+      },
+      "sources": [
+        {
+          "id": "song-capital-excavation",
+          "title": "孙政委等介绍商丘宋国故城南墙发掘",
+          "url": "https://www.cssn.cn/kgxc/kgxc_xccz/202306/t20230630_5664245.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zheng-han-site",
+          "title": "郑州市文物局《郑韩故城》",
+          "url": "https://wwj.zhengzhou.gov.cn/country/3176064.jhtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zuo-xiang",
+          "title": "《左传·襄公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/襄公",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "商丘宋国故城南墙附近发现过道路遗迹，新郑郑韩故城在双洎河与黄水河交汇处。两地的墙、道路和遗存都需要分期阅读。",
+          "refs": [
+            {
+              "sourceId": "song-capital-excavation",
+              "locator": "南墙内外踩踏面、车辙与睢阳城墙的叠压",
+              "note": "在商丘宋国故城南墙旁辨认东周道路使用线索，并与晚期城墙区分"
+            },
+            {
+              "sourceId": "zheng-han-site",
+              "locator": "新郑双洎河、黄水河交汇地带的故城",
+              "note": "郑、韩相继建都的遗址及其地理位置"
+            },
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+              "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-song-capital-landscape",
+        "title": "商丘宋城与新郑郑城",
+        "summary": "为什么读宋国弭兵和晋楚争郑，地图上要分看两座城？",
+        "places": [
+          {
+            "id": "zheng",
+            "name": "新郑郑韩故城",
+            "role": "郑国都邑遗址区参照",
+            "lon": 113.722,
+            "lat": 34.412
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "song-capital-excavation",
+            "locator": "南墙内外踩踏面、车辙与睢阳城墙的叠压",
+            "note": "在商丘宋国故城南墙旁辨认东周道路使用线索，并与晚期城墙区分"
+          },
+          {
+            "sourceId": "zheng-han-site",
+            "locator": "新郑双洎河、黄水河交汇地带的故城",
+            "note": "郑、韩相继建都的遗址及其地理位置"
+          },
+          {
+            "sourceId": "zuo-xiang",
+            "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+            "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qufu-lu-inner-and-outer-city",
+      "year": -500,
+      "date": "约公元前 550—前 450 年 · 阅读区间",
+      "title": "曲阜鲁故城的宫城和郭城",
+      "summary": "城址的中部与东北边缘分别留下了什么？",
+      "place": {
+        "label": "曲阜周公庙北部一带 · 鲁故城宫城遗址区参照",
+        "lon": 116.999,
+        "lat": 35.606
+      },
+      "sources": [
+        {
+          "id": "lu-capital-fieldwork",
+          "title": "中国社会科学网访刘延常、韩辉等《见证“周礼在鲁”的鲁故城》",
+          "url": "https://www.cssn.cn/dfpd/djbd/202506/t20250619_5880254.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "lu-capital-remains",
+          "title": "济宁市文化和旅游局《曲阜鲁国故城》",
+          "url": "https://whlyj.jining.gov.cn/art/2025/6/12/art_70690_2705991.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "周公庙北部台地发现较晚的宫城遗存，东北城垣发掘区可观察外侧墙与门的营建线索。",
+          "refs": [
+            {
+              "sourceId": "lu-capital-fieldwork",
+              "locator": "郭城勘探、周公庙北部宫城与东北城垣发掘段",
+              "note": "周公庙北部台地、东北墙垣、内外城及各期遗存的研究解释"
+            },
+            {
+              "sourceId": "lu-capital-remains",
+              "locator": "周至汉城垣、城壕、城门、作坊及居住区段",
+              "note": "曲阜故城的地理位置及多期遗存"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-lu-capital-landscape",
+        "title": "曲阜鲁故城的宫城和郭城",
+        "summary": "城址的中部与东北边缘分别留下了什么？",
+        "places": [
+          {
+            "id": "northeast",
+            "name": "鲁故城东北城垣一带",
+            "role": "鲁故城东北方向郭城遗址区参照",
+            "lon": 117.014,
+            "lat": 35.616
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "lu-capital-fieldwork",
+            "locator": "郭城勘探、周公庙北部宫城与东北城垣发掘段",
+            "note": "周公庙北部台地、东北墙垣、内外城及各期遗存的研究解释"
+          },
+          {
+            "sourceId": "lu-capital-remains",
+            "locator": "周至汉城垣、城壕、城门、作坊及居住区段",
+            "note": "曲阜故城的地理位置及多期遗存"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hangou-yangzhou-huaian",
+      "year": -486,
+      "date": "公元前 486 年 · 鲁哀公九年",
+      "title": "邗沟的两端，扬州与淮安",
+      "summary": "从长江到淮河，古邗沟连接的是怎样的地形？",
+      "place": {
+        "label": "扬州邗城一带 · 江淮之间的南侧区域参照",
+        "lon": 119.46,
+        "lat": 32.37
+      },
+      "sources": [
+        {
+          "id": "zuo-ai",
+          "title": "《左传·哀公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/哀公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hangou-locations",
+          "title": "淮安政协文史《1958年，里运河裁弯取直开新河》",
+          "url": "https://zx.huaian.gov.cn/col/14069_277241/art/m/17144928/1715305425880pwInb8VD.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "grand-canal-unesco",
+          "title": "联合国教科文组织世界遗产中心《大运河》",
+          "url": "https://whc.unesco.org/en/list/1443/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "以扬州与淮安的两个区域作参照，比较长江一侧与淮河一侧。地方研究还讨论沿线湖泊与水道的关系。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "hangou-locations",
+              "locator": "邗城、末口及古邗沟联系江淮段",
+              "note": "以今扬州、淮安附近说明邗沟南北参照及湖泊相连的解释"
+            },
+            {
+              "sourceId": "grand-canal-unesco",
+              "locator": "突出普遍价值，分段建设及隋代联通段",
+              "note": "运河系统从公元前 5 世纪起分段建设，7 世纪首次作为统一交通体系构建"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-hangou-connects-jiang-huai",
+        "title": "邗沟的两端，扬州与淮安",
+        "summary": "从长江到淮河，古邗沟连接的是怎样的地形？",
+        "places": [
+          {
+            "id": "mokou",
+            "name": "淮安末口一带",
+            "role": "江淮之间的北侧区域参照",
+            "lon": 119.15,
+            "lat": 33.51
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zuo-ai",
+            "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+            "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+          },
+          {
+            "sourceId": "hangou-locations",
+            "locator": "邗城、末口及古邗沟联系江淮段",
+            "note": "以今扬州、淮安附近说明邗沟南北参照及湖泊相连的解释"
+          },
+          {
+            "sourceId": "grand-canal-unesco",
+            "locator": "突出普遍价值，分段建设及隋代联通段",
+            "note": "运河系统从公元前 5 世纪起分段建设，7 世纪首次作为统一交通体系构建"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "taihu-and-shaoxing-sites",
+      "year": -490,
+      "date": "约公元前 520—前 450 年 · 阅读区间",
+      "title": "木渎城址与绍兴大湖头聚落",
+      "summary": "吴地城址和越地聚落各保存了怎样的证据？",
+      "place": {
+        "label": "绍兴东湖大湖头一带 · 越地城郊聚落遗址区参照",
+        "lon": 120.64,
+        "lat": 30.01
+      },
+      "sources": [
+        {
+          "id": "mudu-archaeology",
+          "title": "苏州市地方志办公室《众说纷纭的阖闾古城》",
+          "url": "https://dfzb.suzhou.gov.cn/dfzb/fzxh/201107/2670e6a6682149a0b0777b63d30eecf3.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yue-dahutou",
+          "title": "发掘者报告纪要《浙江考古与中华文明》",
+          "url": "https://archaeology.pku.edu.cn/info/1031/36465.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yue-dahutou-location",
+          "title": "绍兴市文广旅游局供稿《绍兴年鉴 2022》",
+          "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2247/site/attach/0/142fc340121a45b595996539a83f77ce.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "木渎、胥口位于太湖东侧盆地，保存春秋晚期大型城址材料；绍兴东湖附近的大湖头有建筑和生活用水的线索。",
+          "refs": [
+            {
+              "sourceId": "mudu-archaeology",
+              "locator": "木渎与胥口盆地、城垣及不同吴都候选地点段",
+              "note": "木渎有春秋晚期大型城址，存在无锡、苏州等不同都城解释"
+            },
+            {
+              "sourceId": "yue-dahutou",
+              "locator": "浙江商周考古段的大湖头遗址、竹编水井与干栏式建筑",
+              "note": "绍兴发现有建筑、竹编井壁与生活空间的大规模越国时期聚落"
+            },
+            {
+              "sourceId": "yue-dahutou-location",
+              "locator": "大湖头遗址考古发掘条",
+              "note": "遗址位于绍兴越城区东湖附近、龙池山南侧，发现建筑相关遗迹和器物"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wu-yue-settlement-landscapes",
+        "title": "木渎城址与绍兴大湖头聚落",
+        "summary": "吴地城址和越地聚落各保存了怎样的证据？",
+        "places": [
+          {
+            "id": "mudu",
+            "name": "苏州木渎与胥口一带",
+            "role": "太湖东侧的春秋晚期城址区参照",
+            "lon": 120.5,
+            "lat": 31.25
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "mudu-archaeology",
+            "locator": "木渎与胥口盆地、城垣及不同吴都候选地点段",
+            "note": "木渎有春秋晚期大型城址，存在无锡、苏州等不同都城解释"
+          },
+          {
+            "sourceId": "yue-dahutou",
+            "locator": "浙江商周考古段的大湖头遗址、竹编水井与干栏式建筑",
+            "note": "绍兴发现有建筑、竹编井壁与生活空间的大规模越国时期聚落"
+          },
+          {
+            "sourceId": "yue-dahutou-location",
+            "locator": "大湖头遗址考古发掘条",
+            "note": "遗址位于绍兴越城区东湖附近、龙池山南侧，发现建筑相关遗迹和器物"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [

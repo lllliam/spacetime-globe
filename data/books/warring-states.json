@@ -3,7 +3,7 @@
   "title": "春秋与战国",
   "from": -770,
   "to": -221,
-  "summary": "从平王东迁、郑国、齐桓公会盟和晋国兴起读起，继而考察晋楚角力、东南吴越与列国变法。本卷以传世文献、出土文献和都邑遗存分别说明这些变化。",
+  "summary": "从东周初年王室与诸侯的关系读到晋楚角力、江淮水路和吴越兴亡，再接列国变法。本卷以经传、出土文字与都邑遗存分别核对年代、地理和制度。",
   "sources": [
     {
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
@@ -156,6 +156,114 @@
       "id": "linzi-city-survey",
       "title": "山东省志·文物库《临淄齐国故城》",
       "url": "https://shandong-chorography.org/database/a/section/70/article/75/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zuo-ding",
+      "title": "《左传·定公》",
+      "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/定公",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zuo-ai",
+      "title": "《左传·哀公》",
+      "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/哀公",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "gongyang-tax",
+      "title": "《春秋公羊传·宣公》",
+      "url": "https://zh.wikisource.org/zh-hans/春秋公羊傳/宣公",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "lu-capital-remains",
+      "title": "济宁市文化和旅游局《曲阜鲁国故城》",
+      "url": "https://whlyj.jining.gov.cn/art/2025/6/12/art_70690_2705991.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "lu-capital-fieldwork",
+      "title": "中国社会科学网访刘延常、韩辉等《见证“周礼在鲁”的鲁故城》",
+      "url": "https://www.cssn.cn/dfpd/djbd/202506/t20250619_5880254.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "song-capital-excavation",
+      "title": "孙政委等介绍商丘宋国故城南墙发掘",
+      "url": "https://www.cssn.cn/kgxc/kgxc_xccz/202306/t20230630_5664245.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "chu-jinan-phases",
+      "title": "尹弘兵《楚都纪南城探析》",
+      "url": "https://www.lsdlyj.com.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=47117",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "chu-research-review",
+      "title": "湖北省文物考古研究所《楚文化考古研究的回顾与展望》",
+      "url": "https://www.hbww.org.cn/xlkd/p/7218.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "wu-shiji",
+      "title": "《史记》卷三十一《吴太伯世家》",
+      "url": "https://zh.wikisource.org/zh-hans/史記/卷031",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yue-shiji",
+      "title": "《史记》卷四十一《越王句践世家》",
+      "url": "https://zh.wikisource.org/zh-hans/史記/卷041",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "mudu-archaeology",
+      "title": "苏州市地方志办公室《众说纷纭的阖闾古城》",
+      "url": "https://dfzb.suzhou.gov.cn/dfzb/fzxh/201107/2670e6a6682149a0b0777b63d30eecf3.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yue-dahutou",
+      "title": "发掘者报告纪要《浙江考古与中华文明》",
+      "url": "https://archaeology.pku.edu.cn/info/1031/36465.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yue-dahutou-location",
+      "title": "绍兴市文广旅游局供稿《绍兴年鉴 2022》",
+      "url": "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web2247/site/attach/0/142fc340121a45b595996539a83f77ce.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hangou-locations",
+      "title": "淮安政协文史《1958年，里运河裁弯取直开新河》",
+      "url": "https://zx.huaian.gov.cn/col/14069_277241/art/m/17144928/1715305425880pwInb8VD.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "grand-canal-unesco",
+      "title": "联合国教科文组织世界遗产中心《大运河》",
+      "url": "https://whc.unesco.org/en/list/1443/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-confucius",
+      "title": "《史记》卷四十七《孔子世家》",
+      "url": "https://zh.wikisource.org/zh-hans/史記/卷047",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "tongjian-three-jin",
+      "title": "《资治通鉴》卷一",
+      "url": "https://zh.wikisource.org/zh-hans/資治通鑑/卷001",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "herodotus-salamis",
+      "title": "希罗多德《历史》卷八",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Herodotus/8B*.html",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -442,6 +550,51 @@
           "audit": {
             "status": "checked",
             "scope": "阅读承接及所引材料的范围。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "toward-bi-and-zheng",
+          "book": "warring-states",
+          "chapter": "jin-chu-and-zheng-at-bi",
+          "label": "细读 · 邲之战与郑国",
+          "display": "从晋楚争霸的概述进入前 597 年的年序与郑国处境。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经传的郑、邲；十五年经传的宋楚讲和、初税亩",
+              "note": "周边诸侯在楚围郑、晋救郑、邲之战中的行动，以及鲁国初税亩的记载"
+            },
+            {
+              "sourceId": "zheng-han-site",
+              "locator": "新郑双洎河、黄水河交汇地带的故城",
+              "note": "郑、韩相继建都的遗址及其地理位置"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "toward-song-conference",
+          "book": "warring-states",
+          "chapter": "song-mediates-jin-and-chu",
+          "label": "细读 · 宋国弭兵之会",
+          "display": "追踪向戌怎样分别游说晋、楚及其他参与国。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+              "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
             "checkedAt": "2026-11-26"
           }
         }
@@ -1169,80 +1322,948 @@
     },
     {
       "id": "wu-yue-three-jin",
-      "title": "吴越兴亡、三家分晋与铁犁牛耕",
+      "title": "吴越兴亡、鲁国田赋与战国开端",
       "from": -549,
       "to": -403,
-      "summary": "东南吴越凭青铜水师与孙武兵法骤然争霸中原；同时铁制农具与牛耕冲垮井田制，各国公室被卿大夫架空，公元前 403 年“三家分晋”正式宣告战国时代降临。",
-      "spatialThesis": "铁犁牛耕让原本荒芜的沼泽与丘陵变成良田，经济重心不再局限于古老城邑；而邗沟开凿把长江与淮河首次人工连通，将东南吴越彻底拉入了中原争霸棋局。",
+      "summary": "循吴楚战争与吴越往来进入江淮和江南，接着读鲁国财政与孔子传记，再看周王命三家为诸侯的记载。",
+      "spatialThesis": "吴、越、楚的史事涉及江汉、太湖与会稽。邗沟在江淮，鲁、齐与晋国的变化又各有地方背景。",
       "paragraphs": [
         {
-          "heading": "柏举破楚、卧薪尝胆与邗沟开凿",
-          "text": "春秋晚期，原本被中原视为“断发文身”的东南吴国与越国异军突起。吴王阖闾重用逃亡而来的伍子胥与兵圣孙武，于公元前 506 年柏举之战长驱直入攻破楚国郢都，险些灭亡楚国；其子夫差更在公元前 486 年开凿连通长江与淮河的“邗沟”（京杭大运河最早一段），率水师北上黄池与晋国争霸。",
+          "id": "p-01",
+          "heading": "柏举、入郢与邗沟",
+          "text": "前 506 年，《春秋》先记蔡与吴一方在柏举胜楚，后记吴入郢。前 486 年，《左传》在另一年记吴筑邗城、沟通江淮。前 482 年，鲁、晋、吴等在黄池相会。把这些事按年分开，才能分别了解区域、参与者和后续。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            },
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "hangou-locations",
+              "locator": "邗城、末口及古邗沟联系江淮段",
+              "note": "以今扬州、淮安附近说明邗沟南北参照及湖泊相连的解释"
+            }
+          ]
         },
         {
-          "text": "然而夫差得意忘形之际，曾忍辱入吴为奴的越王勾践与范蠡、文种“十年生聚，十年教训”。公元前 473 年越军趁吴国北上虚弱一举灭吴，勾践成为春秋最后一位霸主，留下了惊心动魄的兴亡寓言。",
+          "id": "p-02",
+          "heading": "从越入吴到吴国结束",
+          "text": "《左传》先写前 482 年于越入吴，而后记笠泽之战、围吴和前 473 年吴亡。《史记》把文种、范蠡以及吴廷决策写入兴亡过程。取材时分别核对年序、人物解释和后世复述。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "wu-shiji",
+              "locator": "阖闾伐楚、夫差黄池及二十一至二十三年",
+              "note": "史记以吴君年次追述柏举、吴继续用兵及亡国"
+            },
+            {
+              "sourceId": "yue-shiji",
+              "locator": "勾践据会稽求成、夫差黄池及越灭吴前后",
+              "note": "记越国求和、范蠡和文种所涉政事及吴亡后的北上叙述"
+            }
+          ]
         },
         {
-          "heading": "铁犁牛耕砸碎“井田制”",
-          "text": "比吴越争霸更深刻地改变历史的，是田间地头的一场静悄悄的技术革命。春秋末期，人工冶铁技术与牛耕迅速在中原普及：锋利的铁犁能翻开坚硬的熟土与荒坡，一户普通农家不再需要依赖贵族组织大规模集体劳作，就能独自开垦大量“私田”。",
+          "id": "p-03",
+          "heading": "鲁国田上的征收记录",
+          "text": "较吴越争战更早，前 594 年《春秋》写鲁国初税亩。随后又记前 483 年用田赋。两条记载很短，《公羊传》的解释提供了一种理解税亩的办法。征收和田地归属、各地铁器与耕作技术的扩散，需要不同材料。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经传的郑、邲；十五年经传的宋楚讲和、初税亩",
+              "note": "周边诸侯在楚围郑、晋救郑、邲之战中的行动，以及鲁国初税亩的记载"
+            },
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "gongyang-tax",
+              "locator": "宣公十五年，初税亩与履亩而税",
+              "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 公元前 594 年鲁国“初税亩”",
-            "title": "一纸田税改写所有权",
-            "text": "面对越来越多躲避公田劳役的私田，鲁国干脆不再区分公田私田，一律按实际耕地面积征税。这看似务实的财政妥协，实际上等于国家正式承认了土地私有，延续五百年的西周井田制就此瓦解。",
-            "id": "aside-03"
-          },
-          "id": "p-03"
+            "id": "aside-03",
+            "label": "史料 · 前 594 年鲁国初税亩",
+            "title": "年表记事与经传的解释",
+            "text": "《春秋》在鲁宣公十五年简记税亩，《公羊传》解释为履亩而税。实际税率、实施范围和田地权属仍需要别的材料。",
+            "refs": [
+              {
+                "sourceId": "zuo-xuan",
+                "locator": "宣公十二年经传的郑、邲；十五年经传的宋楚讲和、初税亩",
+                "note": "周边诸侯在楚围郑、晋救郑、邲之战中的行动，以及鲁国初税亩的记载"
+              },
+              {
+                "sourceId": "gongyang-tax",
+                "locator": "宣公十五年，初税亩与履亩而税",
+                "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+              }
+            ]
+          }
         },
         {
-          "heading": "孔子删述六经与私学兴起",
-          "text": "随着旧贵族没落与社会剧烈流动，原本由王室官府垄断的“学在官府”被打破。鲁国士人孔子开办私学、提出“有教无类”，带着弟子周游列国十四年宣扬“仁”与“礼”，晚年整理《诗》《书》《礼》《易》《春秋》。他生前四处碰壁，却在不经意间开启了中国平民知识分子阶层——“士”的伟大时代。",
+          "id": "p-04",
+          "heading": "鲁国人与问学的传承",
+          "text": "《孔子世家》写孔子在鲁国活动、离鲁游历、与弟子问答及晚年返鲁，也把编纂《春秋》归给孔子。这是汉代史家记录的传承。各部典籍各有形成过程，和春秋时期教育如何组织也需要分别考查。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-04"
+            {
+              "sourceId": "shiji-confucius",
+              "locator": "孔子出鲁、至卫与晚年返鲁、弟子问学及作春秋诸段",
+              "note": "汉代史书把游历、问学和《春秋》编纂归到孔子生平"
+            }
+          ]
         },
         {
-          "heading": "“田氏代齐”与公元前 403 年三家分晋",
-          "text": "在政治舞台上，大夫吞并诸侯已成不可逆的浪潮。齐国田氏以“大斗出、小斗进”收买民心，最终取代姜姓执掌齐政；而在称霸百年的晋国，韩、赵、魏三家卿大夫瓜分公室领地，并于公元前 403 年获得周威烈王正式册封为诸侯。",
+          "id": "p-05",
+          "heading": "田氏掌齐与韩赵魏成诸侯",
+          "text": "《田敬仲完世家》记田氏长期掌齐政，又记田和获得周王承认为侯。另据《资治通鉴》卷首，前 403 年周威烈王命晋大夫魏斯、赵籍、韩虔为诸侯。这些承认与各家在地方取得实权、有无留下旧君，各有年序。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田齐太公节，康公徙于海上、田和列诸侯",
+              "note": "记录田氏执政、齐康公保留先祀及周王册立田和"
+            },
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "卷首周威烈王二十三年、命魏斯赵籍韩虔为诸侯",
+              "note": "以周王命三家为诸侯作为通鉴纪年叙事的开头"
+            }
+          ]
         },
         {
-          "text": "司马光撰写《资治通鉴》正是从这一年下笔。三家分晋彻底撕掉了西周宗法伦理的最后一层遮羞布——从此之后，列国不再谈什么“尊王攘夷”，只剩下你死我活的兼并、变法与灭国之战。",
+          "id": "p-06",
+          "heading": "为什么有不同的战国起点",
+          "text": "司马光从周威烈王命三家为诸侯的这一年写起，借此提出君臣名分问题。这个选点来自宋代史家的编排。本卷用它过渡到战国早期，各国变法、战争和外交网络的转型发生在不同阶段。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "卷首周威烈王二十三年、命魏斯赵籍韩虔为诸侯",
+              "note": "以周王命三家为诸侯作为通鉴纪年叙事的开头"
+            }
+          ]
         }
       ],
       "contemporaries": [
         {
-          "book": "greece-macedon",
-          "year": -480,
-          "label": "希波战争与雅典古典时代",
-          "note": "当孔子周游列国、吴越在江南争霸时，雅典与斯巴达正并肩在萨拉米斯海战击退波斯大军。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "greece-macedon",
+          "chapter": "classical-persian-peloponnesian",
+          "year": -480,
+          "label": "同期 · 萨拉米斯与吴越争夺",
+          "relation": "contemporary",
+          "note": "约前 480 年，东亚吴越还在多年的冲突中，地中海有希腊各城邦在萨拉米斯与波斯交战。两地记录各自的战争与政治协作。",
+          "display": "约前 480 年，东亚吴越还在多年的冲突中，地中海有希腊各城邦在萨拉米斯与波斯交战。两地记录各自的战争与政治协作。",
+          "evidence": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "herodotus-salamis",
+              "locator": "第 83–96 节，萨拉米斯交战与诸邦记载",
+              "note": "记录希腊各城邦合作与同波斯的萨拉米斯交战"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对萨拉米斯通行年代与吴越战事的前后覆盖。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "read-wu-and-chu",
+          "book": "warring-states",
+          "chapter": "boju-and-the-name-ying",
+          "label": "细读 · 柏举与入郢",
+          "display": "比较经传所记年次和纪南城的考古年代。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            },
+            {
+              "sourceId": "chu-jinan-phases",
+              "locator": "第 47–51 页，历次勘探、地层及新发掘",
+              "note": "早期发掘与新资料给出不同年代上限，作者据新资料把纪南城厘定为较晚的战国楚都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-jianghuai",
+          "book": "warring-states",
+          "chapter": "hangou-and-huangchi",
+          "label": "细读 · 邗沟通江淮",
+          "display": "把水路地理、前 486 年的传文和前 482 年的黄池分开读。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "grand-canal-unesco",
+              "locator": "突出普遍价值，分段建设及隋代联通段",
+              "note": "运河系统从公元前 5 世纪起分段建设，7 世纪首次作为统一交通体系构建"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-yue-and-wu",
+          "book": "warring-states",
+          "chapter": "yue-and-the-end-of-wu",
+          "label": "细读 · 入吴、围吴与灭吴",
+          "display": "依哀公各年记事展开越、吴之间的连续交涉和征战。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "yue-shiji",
+              "locator": "勾践据会稽求成、夫差黄池及越灭吴前后",
+              "note": "记越国求和、范蠡和文种所涉政事及吴亡后的北上叙述"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-lu-tax",
+          "book": "warring-states",
+          "chapter": "lu-tax-by-mu-and-capital",
+          "label": "细读 · 鲁国初税亩与用田赋",
+          "display": "比较公羊、左氏对财政记事的不同层次。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经传的郑、邲；十五年经传的宋楚讲和、初税亩",
+              "note": "周边诸侯在楚围郑、晋救郑、邲之战中的行动，以及鲁国初税亩的记载"
+            },
+            {
+              "sourceId": "gongyang-tax",
+              "locator": "宣公十五年，初税亩与履亩而税",
+              "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+            },
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "jin-chu-and-zheng-at-bi",
+      "from": -606,
+      "to": -594,
+      "dateLabel": "公元前 606—前 594 年 · 前 597 年邲之战",
+      "title": "邲之战前后，郑国在晋楚之间",
+      "summary": "从郑遭围和楚郑讲和读起，看晋军到达时，救援已经面对怎样的局势。",
+      "spatialThesis": "新郑故城为郑国都邑遗址区。邲之战及传文涉及的古河渡口各有地望问题。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "郑与晋、楚都保持往来",
+          "text": "鲁宣公三年，《左传》先写晋师来后郑与晋讲和，又叙楚侵郑。关系可以随一次交涉变化。看郑国处境，需要把使者、结盟、围城这些事一件件摆回年序。",
+          "refs": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公三年传，郑晋讲和及楚侵郑",
+              "note": "郑与不同强国的交涉时间和原因见传文"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "救援到达前，郑已与楚讲和",
+          "text": "前 597 年，春季经文记楚围郑，夏季记晋与楚在邲作战。传文写楚入郑城、郑伯求成，也写晋军内部为是否继续进军争执。两种文字放在一起，可以看出晋所谓救郑在进行中已改变了前提。",
+          "refs": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经传，围郑、入郑、郑成及晋军争议",
+              "note": "经文纪事与传文所补的楚郑议和和晋军内部争论"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "战败之后，还有别的交涉",
+          "text": "《春秋》记晋军在邲败绩。同年冬天，晋、宋、卫、曹又在清丘订盟；随后宋伐陈，卫救陈。战事结果与此后各国如何应对可以分别追踪，参与一次会盟也没有消除各国之间的分歧。",
+          "refs": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经，邲败与冬季清丘盟、宋伐陈及卫救陈",
+              "note": "同年战事、后续盟会和盟方相互分歧"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从都邑遗址进入这段历史",
+          "text": "郑韩故城位于今新郑双洎河、黄水河交汇之处。这里保存郑、韩不同时期的城垣、作坊和墓葬。遗址能帮助读者在地形中定位郑国政治中心，邲的战场位置需要另一套证据。",
+          "refs": [
+            {
+              "sourceId": "zheng-han-site",
+              "locator": "新郑双洎河、黄水河交汇地带的故城",
+              "note": "郑、韩相继建都的遗址及其地理位置"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-song-mediation",
+          "book": "warring-states",
+          "chapter": "song-mediates-jin-and-chu",
+          "label": "接读 · 宋的斡旋",
+          "display": "对照郑曾面对的晋楚交涉与宋后来主持的会盟。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十二年经传的郑、邲；十五年经传的宋楚讲和、初税亩",
+              "note": "周边诸侯在楚围郑、晋救郑、邲之战中的行动，以及鲁国初税亩的记载"
+            },
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+              "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "song-and-zheng-capital-sites",
+          "afterBlockId": "p-04",
+          "scope": "以邻近时段的都邑背景对读前 597 年史事。",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "郑韩故城",
+              "placeId": "zheng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lu-tax-by-mu-and-capital",
+      "from": -594,
+      "to": -483,
+      "dateLabel": "公元前 594—前 483 年 · 两次鲁国财政记事",
+      "title": "鲁国初税亩与曲阜故城",
+      "summary": "从《春秋》简记和经传对读，了解鲁国税收记载，也看看城门、作坊、居住和墓葬怎样留在都邑里。",
+      "spatialThesis": "故城中的宫城、郭城和各门来自不同营建时期。都邑考古可以交代环境，田亩与纳税还须看文字材料。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "《春秋》只用三个字记下变化",
+          "text": "鲁宣公十五年秋，通常折算为前 594 年，经文记下“初税亩”。同年另记虫害及冬饥。经文没有解释三件事怎样相连。《左传》用礼制评判税亩，《公羊传》则用按亩征税解释这项变化。",
+          "refs": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十五年经及传末税亩段",
+              "note": "经文记税亩及同年虫饥，传文评税亩制度"
+            },
+            {
+              "sourceId": "gongyang-tax",
+              "locator": "宣公十五年，初税亩与履亩而税",
+              "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "按亩征收与土地归属是两件事",
+          "text": "《公羊传》拿既有规范评说新做法，提供了理解税亩的线索。经传没有留下地块登记、实际征收名册，也没有宣告产权在那一年统一改变。若要了解不同家庭的负担，需要知道所征对象、尺度与执行方式。",
+          "refs": [
+            {
+              "sourceId": "gongyang-tax",
+              "locator": "宣公十五年，初税亩与履亩而税",
+              "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+            },
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十五年传末",
+              "note": "传将新做法放在礼与谷物征纳的议论中"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "后来又有一条不同的记录",
+          "text": "鲁哀公十二年即前 483 年，经文记“用田赋”。传文把它放在季孙征询意见的情境里。从初税亩到用田赋隔了一百多年，条文简短，不同名目下缴纳人的实际责任仍不清楚。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公十一、十二年经传，季孙问田赋与用田赋",
+              "note": "传文和经文分别写到询议与施行"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "鲁故城里的在场者",
+          "text": "曲阜鲁国故城保存手工作坊、居住址、墓葬和道路。周公庙北部的台地有较晚的宫城遗迹，郭城的部分墙段则有更早基础和多期修补。城门与宫城提供看都邑组织的入口，前 594 年的具体纳税地块仍待查。",
+          "refs": [
+            {
+              "sourceId": "lu-capital-remains",
+              "locator": "周至汉城垣、城壕、城门、作坊及居住区段",
+              "note": "曲阜故城的地理位置及多期遗存"
+            },
+            {
+              "sourceId": "lu-capital-fieldwork",
+              "locator": "郭城勘探、周公庙北部宫城与东北城垣发掘段",
+              "note": "周公庙北部台地、东北墙垣、内外城及各期遗存的研究解释"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-late-spring-autumn",
+          "book": "warring-states",
+          "chapter": "wu-yue-three-jin",
+          "label": "回读 · 田赋与吴越在全卷的位置",
+          "display": "把鲁国征收史放回其他列国同时发展的叙事。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "gongyang-tax",
+              "locator": "宣公十五年，初税亩与履亩而税",
+              "note": "解释初税亩为按亩征收，并以旧制评价该行为"
+            },
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "qufu-lu-inner-and-outer-city",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "周公庙北部",
+              "placeId": "main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "song-mediates-jin-and-chu",
+      "from": -595,
+      "to": -546,
+      "dateLabel": "公元前 595—前 546 年 · 重点为前 546 年",
+      "title": "宋国怎样促成弭兵之会",
+      "summary": "从宋与楚讲和，到向戌请晋楚与会、两边的从国能否互访，读小国主持协商的过程。",
+      "spatialThesis": "宋国故城在今商丘一带。东周道路贴近城墙，盟所仍要用独立材料定位。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "宋人经历过楚军围城",
+          "text": "鲁宣公十五年，经文记宋和楚讲和。传文把它写成城内困乏、宋使求救、双方私下接谈而后撤军的过程。到后来的弭兵会，宋国已有处理楚、晋两方关系的经历。",
+          "refs": [
+            {
+              "sourceId": "zuo-xuan",
+              "locator": "宣公十四、十五年经传，楚围宋、求晋与五月议和",
+              "note": "宋被围且求援，最后与楚讲和"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "向戌逐方争取同意",
+          "text": "前 546 年，《左传》写宋大夫向戌先与晋国赵武和楚国令尹子木交涉，又往齐，消息也传到秦。晋楚都要考虑，让对方单独召集诸侯会带来什么后果。各国代表在宋会合，议程仍需继续谈。",
+          "refs": [
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+              "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "各自的从国如何往来",
+          "text": "楚提出晋楚的从国相互朝见。传文让赵武提出，晋无法支使齐，正如楚也不能支使秦。后来的安排对齐、秦另作处理。这个细节说明，两大国的影响力和会盟条款都有边界。",
+          "refs": [
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年传，赵孟、向戌和子木商议从国互见",
+              "note": "争议及关于齐、秦例外的协商"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从宋国故城看多期城邑",
+          "text": "今商丘宋国故城南墙内侧发现多个时期的踩踏面，部分留有与墙线同向的车辙。发掘者把东周的相关遗迹解释为城内沿墙道路。后建的睢阳城墙与早层叠压，沿墙遗迹和会盟场所各须自己的证据。",
+          "refs": [
+            {
+              "sourceId": "song-capital-excavation",
+              "locator": "南墙内外踩踏面、车辙与睢阳城墙的叠压",
+              "note": "在商丘宋国故城南墙旁辨认东周道路使用线索，并与晚期城墙区分"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-boju",
+          "book": "warring-states",
+          "chapter": "boju-and-the-name-ying",
+          "label": "接读 · 吴参与诸侯交涉",
+          "display": "从晋楚参与的宋盟，接读另一组由蔡、唐、吴、楚参与的史事。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-xiang",
+              "locator": "襄公二十七年经传，向戌斡旋、宋盟及从国互见",
+              "note": "向戌奔走、晋楚应允及诸侯在宋参加会盟的记载"
+            },
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "song-and-zheng-capital-sites",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "宋国故城",
+              "placeId": "main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boju-and-the-name-ying",
+      "from": -507,
+      "to": -505,
+      "dateLabel": "公元前 507—前 505 年 · 前 506 年柏举与入郢",
+      "title": "柏举与吴入郢，郢在哪里",
+      "summary": "把蔡、唐、吴与楚放回柏举前后的时间线，再用纪南城发掘讨论地名和遗址之间的距离。",
+      "spatialThesis": "经传写到淮、汉与郢。荆州纪南城提供另一时段的楚都资料，春秋郢的准确位置继续待考。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "蔡侯和唐侯也在叙事里",
+          "text": "定公三、四年，《左传》写蔡、唐的国君都与楚廷发生争执。定公四年秋，经文记楚围蔡；同年冬，蔡与吴和楚在柏举交战，传文在这一段战事中也写到唐侯。进入楚国的战争与几方的关系有关。",
+          "refs": [
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "柏举交战、吴入郢分条记载",
+          "text": "前 506 年的经文先记柏举交战和楚败，另记吴入郢。传文用舟船、淮水与汉水连接各段记事，但地名对应今地时仍有争论。吴入郢之后，次年传文又写秦师救楚以及楚王返郢。",
+          "refs": [
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            },
+            {
+              "sourceId": "wu-shiji",
+              "locator": "阖闾伐楚、夫差黄池及二十一至二十三年",
+              "note": "史记以吴君年次追述柏举、吴继续用兵及亡国"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "考古遗址还有自己的历史",
+          "text": "荆州纪南城是一处重要楚都遗址。以往发掘曾把遗址年代上限估到春秋晚期或战国早期。近年的城垣、台基发掘和周边发现促成较晚的分期，有研究将可辨认的城址放入战国中期。楚人多次迁都或称不同地点为郢，各项材料需要按时段对应。",
+          "refs": [
+            {
+              "sourceId": "chu-jinan-phases",
+              "locator": "第 47–51 页，历次勘探、地层及新发掘",
+              "note": "早期发掘与新资料给出不同年代上限，作者据新资料把纪南城厘定为较晚的战国楚都"
+            },
+            {
+              "sourceId": "chu-research-review",
+              "locator": "纪南城南垣、松柏区台基及早期郢地望段",
+              "note": "新增发掘修订纪南城城墙和主要建筑年代，梳理早期郢的多种地望说"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "地图上该留下哪些信息",
+          "text": "柏举与入郢可以依鲁定公四年进入年表；转向纪南城的材料时要看显露的是哪些层位。地名相同可以提供考证方向，确定春秋郢和战事经过还需要更多地理与考古证据。",
+          "refs": [
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            },
+            {
+              "sourceId": "chu-jinan-phases",
+              "locator": "第 47–51 页，历次勘探、地层及新发掘",
+              "note": "早期发掘与新资料给出不同年代上限，作者据新资料把纪南城厘定为较晚的战国楚都"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-yue-and-wu",
+          "book": "warring-states",
+          "chapter": "yue-and-the-end-of-wu",
+          "label": "接读 · 吴、越的兴亡",
+          "display": "进入吴与越之间的多年行动与讲和。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ding",
+              "locator": "定公四年经传，蔡与吴、唐、楚、柏举入郢；五年传秦师救楚",
+              "note": "前 506 年的交战、入郢及后续楚国求援；蔡、唐也是史事主体"
+            },
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "yue-and-the-end-of-wu",
+      "from": -494,
+      "to": -473,
+      "dateLabel": "公元前 494—前 473 年 · 吴越冲突与吴亡",
+      "title": "越怎样击败吴，从会稽到吴亡",
+      "summary": "用两种编年材料说明讲和、入吴、笠泽、围吴与亡国的间隔，并走进绍兴越地聚落。",
+      "spatialThesis": "太湖东侧与会稽所在的绍兴地区保留各自的遗址。都邑、聚落和战场的位置需要分别考证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "失败之后先求成",
+          "text": "哀公元年，《左传》记吴在夫椒败越，越君据会稽，通过大夫文种求和。《越王句践世家》将范蠡、文种和勾践摆在这次失利后的决策中。传世叙事的言辞和后来流传的故事各有形成过程。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元年传，夫椒与会稽求成",
+              "note": "夫椒交战和越方求和见传文"
+            },
+            {
+              "sourceId": "yue-shiji",
+              "locator": "勾践据会稽求成、夫差黄池及越灭吴前后",
+              "note": "记越国求和、范蠡和文种所涉政事及吴亡后的北上叙述"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "发生在黄池同年的只是其中一役",
+          "text": "前 482 年越军入吴。前 478 年《左传》又记笠泽之战；前 475 年记越围吴，仍有晋人直接向被围的吴君致意。按这些年次读，黄池之会当年吴国仍然存在。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公十三、十七、二十年传，黄池与入吴、笠泽和越围吴",
+              "note": "越数年间逐步转入进攻，围吴仍有列国回应"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "前 473 年，吴国结束",
+          "text": "哀公二十二年冬，《左传》记越灭吴。《吴太伯世家》系在夫差二十三年，也记越方提出安置夫差、夫差拒绝。两书都把吴亡置于连续战事之后；越在吴亡后与诸侯关系如何演变，需要另查。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            },
+            {
+              "sourceId": "wu-shiji",
+              "locator": "阖闾伐楚、夫差黄池及二十一至二十三年",
+              "note": "史记以吴君年次追述柏举、吴继续用兵及亡国"
+            },
+            {
+              "sourceId": "yue-shiji",
+              "locator": "勾践据会稽求成、夫差黄池及越灭吴前后",
+              "note": "记越国求和、范蠡和文种所涉政事及吴亡后的北上叙述"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "水井让都城之外的生活可见",
+          "text": "绍兴东湖附近的大湖头有成片的越地聚落遗存。发掘发现建筑痕迹、带竹编井壁的水井及用具。太湖东侧木渎的材料则主要用来讨论吴地城址。两处遗址分别揭示城邑与聚落活动，与史书写到的君王会盟和征战相互补充。",
+          "refs": [
+            {
+              "sourceId": "yue-dahutou",
+              "locator": "浙江商周考古段的大湖头遗址、竹编水井与干栏式建筑",
+              "note": "绍兴发现有建筑、竹编井壁与生活空间的大规模越国时期聚落"
+            },
+            {
+              "sourceId": "yue-dahutou-location",
+              "locator": "大湖头遗址考古发掘条",
+              "note": "遗址位于绍兴越城区东湖附近、龙池山南侧，发现建筑相关遗迹和器物"
+            },
+            {
+              "sourceId": "mudu-archaeology",
+              "locator": "木渎与胥口盆地、城垣及不同吴都候选地点段",
+              "note": "木渎有春秋晚期大型城址，存在无锡、苏州等不同都城解释"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-huangchi",
+          "book": "warring-states",
+          "chapter": "hangou-and-huangchi",
+          "label": "对照 · 黄池与江淮水道",
+          "display": "在夫差北会诸侯时另看鲁国经传怎样记录吴本土的情况。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "taihu-and-shaoxing-sites",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "大湖头",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "木渎",
+              "placeId": "mudu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hangou-and-huangchi",
+      "from": -486,
+      "to": -482,
+      "dateLabel": "公元前 486—前 482 年 · 邗沟与黄池",
+      "title": "邗沟通江淮，夫差赴黄池",
+      "summary": "从邗城与江淮水路读吴国北上，再看黄池会盟时江南发生了什么。",
+      "spatialThesis": "扬州与淮安附近的水陆交会地带可以对照水路两端。楚、吴及后世各期实际运河线须另查。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "前 486 年的传文极短",
+          "text": "鲁哀公九年，《左传》把吴筑邗城和沟通江淮连在同一条记事。南边临长江，北接淮河水系，水路还利用沿途湖泊。短记没有注明每段是疏浚原有水体还是新挖，地方地理研究从后来的记录追溯南北接水位置。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公九年传，秋吴城邗段",
+              "note": "筑邗城与沟通江淮的纪事"
+            },
+            {
+              "sourceId": "hangou-locations",
+              "locator": "邗城、末口及古邗沟联系江淮段",
+              "note": "以今扬州、淮安附近说明邗沟南北参照及湖泊相连的解释"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "走到地图上的两个区域",
+          "text": "从今扬州附近的邗城区域，看到今淮安附近的末口一带，可以理解邗沟为何连接两大流域。后世还修筑和改造过水道。大运河遗产资料区分早期分段建设与隋代把多段纳入统一交通体系。",
+          "refs": [
+            {
+              "sourceId": "hangou-locations",
+              "locator": "邗城、末口及古邗沟联系江淮段",
+              "note": "以今扬州、淮安附近说明邗沟南北参照及湖泊相连的解释"
+            },
+            {
+              "sourceId": "grand-canal-unesco",
+              "locator": "突出普遍价值，分段建设及隋代联通段",
+              "note": "运河系统从公元前 5 世纪起分段建设，7 世纪首次作为统一交通体系构建"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "黄池会议和入吴在同一年",
+          "text": "鲁哀公十三年，即前 482 年，经文记鲁君与晋侯、吴君在黄池相会，同一年的记事还写于越入吴。传文也提到周廷单平公到场，另写吴、晋争先。这里同时有北方盟会和吴本地的战事，黄池会场与行程仍须另证。",
+          "refs": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公十三年经传，黄池、单平公与于越入吴",
+              "note": "同一年两地的事件、参与者和争先记录"
+            },
+            {
+              "sourceId": "wu-shiji",
+              "locator": "阖闾伐楚、夫差黄池及二十一至二十三年",
+              "note": "史记以吴君年次追述柏举、吴继续用兵及亡国"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-wu-defeat",
+          "book": "warring-states",
+          "chapter": "yue-and-the-end-of-wu",
+          "label": "接读 · 黄池之后吴国还有哪些年月",
+          "display": "从黄池同年于越入吴，跟进笠泽、围吴和吴亡。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zuo-ai",
+              "locator": "哀公元、九、十二、十三、十七、二十、二十二年传及有关经文",
+              "note": "越败求成、邗沟、用田赋、黄池与入吴、吴越后续交战及越灭吴"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对承接范围、相关论断和阅读目标。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "toward-sui-canal",
+          "book": "sui",
+          "chapter": "grand-canal-luoyang",
+          "label": "延伸 · 隋代联通的运河系统",
+          "relation": "further",
+          "display": "从邗沟所在的江淮水道读到数百年后的跨流域建设，逐段核对营建时段。",
+          "evidence": [
+            {
+              "sourceId": "grand-canal-unesco",
+              "locator": "突出普遍价值，分段建设及隋代联通段",
+              "note": "运河系统从公元前 5 世纪起分段建设，7 世纪首次作为统一交通体系构建"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "后续运河系统与春秋水道各自的年代和证据。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "hangou-yangzhou-huaian",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "邗城区域",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "末口一带",
+              "placeId": "mokou"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "shang-yang-hundred-schools",
@@ -1430,6 +2451,11 @@
     "eastern-zhou-royal-city-area",
     "spring-autumn-zheng-state",
     "qi-jiang-era-linzi",
-    "spring-autumn-jin"
+    "spring-autumn-jin",
+    "song-capital-at-shangqiu",
+    "lu-capital-at-qufu",
+    "wu-sites-at-taihu",
+    "yue-settlements-at-shaoxing",
+    "hangou-jianghuai-corridor"
   ]
 }

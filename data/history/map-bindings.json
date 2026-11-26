@@ -7284,6 +7284,48 @@
     {
       "map": {
         "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "boju-and-the-name-ying"
+      },
+      "range": {
+        "from": -507,
+        "to": -505
+      },
+      "relation": "related",
+      "scope": "从楚的时段底图查柏举入郢及楚都遗址的年代问题。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "jin-chu-and-zheng-at-bi"
+      },
+      "range": {
+        "from": -606,
+        "to": -594
+      },
+      "relation": "related",
+      "scope": "从楚的时段底图进入邲之战与晋楚争郑。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Qi"
       },
       "target": {
@@ -7476,6 +7518,28 @@
     {
       "map": {
         "type": "polity",
+        "key": "Wu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "hangou-and-huangchi"
+      },
+      "range": {
+        "from": -486,
+        "to": -482
+      },
+      "relation": "related",
+      "scope": "从吴的时段底图了解邗沟及黄池会盟，疆域和工程点按各自证据理解。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "hangou-jianghuai-corridor"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Yue"
       },
       "target": {
@@ -7490,6 +7554,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yue"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "yue-and-the-end-of-wu"
+      },
+      "range": {
+        "from": -494,
+        "to": -473
+      },
+      "relation": "related",
+      "scope": "从越的时段底图查越灭吴的年序与绍兴越地聚落。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "yue-settlements-at-shaoxing"
     },
     {
       "map": {
@@ -7512,7 +7598,69 @@
     {
       "map": {
         "type": "polity",
+        "key": "Lu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "lu-tax-by-mu-and-capital"
+      },
+      "range": {
+        "from": -594,
+        "to": -483
+      },
+      "relation": "related",
+      "scope": "从鲁的时段底图了解鲁国税收记事、曲阜都邑和相关材料。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "lu-capital-at-qufu"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Song"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Song"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "song-mediates-jin-and-chu"
+      },
+      "range": {
+        "from": -595,
+        "to": -546
+      },
+      "relation": "related",
+      "scope": "从宋的时段底图查宋楚交涉、弭兵与商丘都邑考古。",
+      "audit": {
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "song-capital-at-shangqiu"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zheng"
       },
       "target": {
         "bookId": "warring-states"
@@ -7533,17 +7681,21 @@
         "key": "Zheng"
       },
       "target": {
-        "bookId": "warring-states"
+        "bookId": "warring-states",
+        "chapterId": "jin-chu-and-zheng-at-bi"
       },
       "range": {
-        "from": -770,
-        "to": -221
+        "from": -606,
+        "to": -594
       },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "relation": "related",
+      "scope": "从郑国底图主体查春秋中期晋楚与郑的交涉，城址材料提供都邑参照。",
       "audit": {
-        "status": "legacy"
-      }
+        "status": "checked",
+        "scope": "核对底图覆盖、时段和目标章节。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "spring-autumn-zheng-state"
     },
     {
       "map": {
