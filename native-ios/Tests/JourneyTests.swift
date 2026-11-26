@@ -16,6 +16,12 @@ final class JourneyTests: XCTestCase {
         XCTAssertEqual(scale.value as? String,"100 年 / 格")
         scale.tap()
         app.buttons["1 年 / 格"].tap()
+        let ruler = app.descendants(matching:.any)["timeline-ruler"].firstMatch
+        let cursor = ruler.coordinate(withNormalizedOffset:CGVector(dx:0.5,dy:0.52))
+        cursor.withOffset(CGVector(dx:22,dy:0)).tap()
+        XCTAssertEqual(choose.value as? String,"1500 年")
+        cursor.withOffset(CGVector(dx:-22,dy:0)).tap()
+        XCTAssertEqual(choose.value as? String,"1499 年")
         choose.tap()
         XCTAssertTrue(app.staticTexts["这一年的世界"].waitForExistence(timeout:8))
         app.buttons["关闭史事"].tap()

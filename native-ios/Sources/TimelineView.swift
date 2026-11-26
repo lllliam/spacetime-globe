@@ -39,6 +39,7 @@ final class TimelineControl: UIView {
         let x: CGFloat
         let label: Bool
     }
+    @MainActor
     private final class FrameTarget: NSObject {
         weak var view: TimelineControl?
         @objc func tick(_ link: CADisplayLink) { view?.tick(link) }
