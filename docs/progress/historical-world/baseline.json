@@ -5,7 +5,7 @@
   "counts": {
     "originalTotal": 5576,
     "phase07Disposed": 387,
-    "currentOriginalDisposed": 490,
+    "currentOriginalDisposed": 510,
     "priorityAtDeferral": 106,
     "currentPriorityRemaining": 100,
     "inheritedPhase08Priority": 3,
@@ -14,8 +14,8 @@
     "intakeModified": 78,
     "intakeRemoved": 9,
     "newHighRiskAtIntake": 0,
-    "batchReviewed": 281,
-    "batchNewNonSources": 256
+    "batchReviewed": 408,
+    "batchNewNonSources": 363
   },
   "remainingPriority": [
     "book-paragraph/achaemenid/satrap-revolt-and-alexander/p-05",

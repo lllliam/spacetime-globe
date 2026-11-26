@@ -3,7 +3,7 @@
   "title": "夏商与西周",
   "from": -1600,
   "to": -771,
-  "summary": "在黄河中下游的黄土与冲积平原之间，华夏文明从二里头宫城与青铜礼器中破土而出。商王朝以甲骨文字与青铜铸造确立了中国最早的信史框架，西周则用宗法分封、“天命靡常”的德治观念与礼乐制度，将星罗棋布的部落方国锻造成延绵三千年的中华文化共同体。",
+  "summary": "从二里头与早商遗址的分期出发，观察偃师、郑州、盘龙城和洹河流域的城市、作坊与金属往来。晚商甲骨和出土铭文为王室与聚落研究提供了同时代材料，随后接续克商与西周的政治变化。",
   "sources": [
     {
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
@@ -38,6 +38,126 @@
       "id": "zhengzhou-wall",
       "title": "安金槐：郑州商城及相关问题",
       "url": "https://www.cambridge.org/core/journals/early-china/article/2-the-shang-city-at-zhengzhou-and-related-problems/CC79184977EE1B2D6143C9EB03FA9720",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhengzhou-earth",
+      "title": "郑州商城古地貌与城址布局研究",
+      "url": "https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.656193/full",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "early-shang-sites",
+      "title": "河南省政府：伊洛平原上的偃师商城",
+      "url": "https://english.henan.gov.cn/2023/04-30/2735278.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "panlongcheng-mapping",
+      "title": "盘龙城遗址测绘与水下调查",
+      "url": "https://www.mdpi.com/2073-445X/10/10/1033",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "panlongcheng-xiaozui",
+      "title": "刘思然等《盘龙城遗址小嘴商代冶金遗物的分析与研究》",
+      "url": "https://archaeology.pku.edu.cn/2020panlongchengyizhixiaozuishangdaiyejinyiwudefenxiyuyanjiu_liusiran.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "early-shang-metals",
+      "title": "Liu 等：盘龙城、郑州与早期青铜时代金属流通",
+      "url": "https://link.springer.com/article/10.1007/s10963-019-09137-w",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "jiurui-copper",
+      "title": "孙振飞等：郑州两处铸铜地点铜矿料溯源",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43052327/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "huan-river-layout",
+      "title": "牛世山：从洹北商城到殷墟商邑",
+      "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552691.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "huanbei-workshops",
+      "title": "何毓灵：殷墟近十年发掘的收获与思考",
+      "url": "https://www.cssn.cn/lsx/lsx_ttxw/202210/t20221031_5557593.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yinxu-layout",
+      "title": "何毓灵等：殷墟都城与洹河流域聚落研究",
+      "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202304/t20230412_5619581.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yinxu-heritage",
+      "title": "世界遗产名录：殷墟",
+      "url": "https://whc.unesco.org/en/list/1114/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yinxu-site-map",
+      "title": "世界遗产名录：殷墟构成区坐标",
+      "url": "https://whc.unesco.org/en/list/1114/maps/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "oracle-bone-dating",
+      "title": "殷墟晚商甲骨的碳十四测年",
+      "url": "https://www.cambridge.org/core/journals/radiocarbon/article/radiocarbon-dating-of-oracle-bones-of-late-shang-period-in-anciant-china/38A7B64D6D538A3A7B96F912BBEE9592",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "oracle-practice",
+      "title": "Keightley：商代甲骨刻辞、文字与仪式",
+      "url": "https://www11.ihp.sinica.edu.tw/storage/w2_file/1498TVgfzRI.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "huayuanzhuang-oracle",
+      "title": "殷墟花园庄东地甲骨卜用丁日的卜辞",
+      "url": "https://www.dpm.org.cn/historical/talk/208898.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "fuhao-owl",
+      "title": "中国国家博物馆馆藏：妇好青铜鸮尊",
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202107/t20210728_250872.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "fuhao-tomb-study",
+      "title": "殷墟妇好墓的发现与研究",
+      "url": "https://files.sciengine.com/pdfs/2096-1715/D25A6E10C84F4953ADC52B1F0F07DBFE.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shang-chariots",
+      "title": "Rawson 等：晚商车马与北方邻近人群",
+      "url": "https://link.springer.com/article/10.1007/s10963-020-09142-4",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "kadesh-museum",
+      "title": "大英博物馆：卡迭石与拉美西斯二世相关器物",
+      "url": "https://www.britishmuseum.org/sites/default/files/2022-10/Hieroglyphs_unlocking_ancient_Egypt_large_print_guide_The_British_Museum.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "li-gui",
+      "title": "中国国家博物馆馆藏：克商之证利簋",
+      "url": "https://www.chnmuseum.cn/Portals/0/web/zt/100n/guobao_content-5.html?id=27",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "huanbei-outer-ditch",
+      "title": "洹北商城郭城考古进展",
+      "url": "https://wenwu.hebei.gov.cn/system/2023/08/15/030241782.shtml",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -90,40 +210,110 @@
           "heading": "传世的成汤与发掘的商城"
         },
         {
-          "heading": "青铜鼎彝与跨地域矿产走廊",
-          "text": "商朝最震撼世界的成就不是金字塔式的巨石建筑，而是登峰造极的青铜块范铸造术。要铸造一件厚重威严的青铜大方鼎，需要把铜、锡、铅按极精确比例熔炼——而中原本身并不盛产铜锡，商王必须沿着汉水与江淮建立远程运输线，从长江中游的铜绿山与赣北源源不断调运铜料。",
+          "heading": "青铜器的工艺和铜矿料的来处",
+          "text": "作坊出土的陶范、坩埚和冶金渣，可以帮助还原铸造活动。铜、锡和铅的配比随器类和用料而变。要追查铜从哪里来，已有研究直接比较郑州地区两处铸铜遗址的铜矿料，发现所测样品与长江中游九瑞矿集区相符。这个结果说明两地之间存在矿料流动，材料所经过的节点与线路还须另行核对。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "panlongcheng-xiaozui",
+              "locator": "摘要、二、样品与分析方法、结论",
+              "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+            },
+            {
+              "sourceId": "jiurui-copper",
+              "locator": "摘要、图 1–2、图 4–6",
+              "note": "约前 1400 年创新街学校北校区、小双桥的铜矿料与长江中游九瑞矿集区相符，图 1 提出可能路线"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 郑州商城与盘龙城",
-            "title": "一条为了青铜而生的南北通道",
-            "text": "考古学家在湖北武汉盘龙城发现了与郑州商城如出一辙的商代宫殿与青铜器——它是商王朝楔入长江流域的军事与矿产前哨站，只为确保长江铜矿源源不断北运中原。",
-            "id": "aside-03"
+            "label": "历史现场 · 郑州与盘龙城",
+            "title": "两地都留下铸铜的线索",
+            "text": "盘龙城城址、墓葬及部分青铜器形制可以与郑州商城对照。小嘴的陶范、坩埚和冶金渣也支持本地熔铸。有了两处作坊和矿料样品，研究就能分别追问在哪里铸造、哪些原料流动以及两地怎样联系。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "panlongcheng-xiaozui",
+                "locator": "摘要、二、样品与分析方法、结论",
+                "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+              },
+              {
+                "sourceId": "early-shang-metals",
+                "locator": "Abstract、Discussion、图 16–18",
+                "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+              }
+            ]
           },
           "id": "p-03"
         },
         {
-          "heading": "神权政治与“国之大事，在祀与戎”",
-          "text": "与古埃及法老自称现世神明不同，商王的权威建立在“沟通祖先与上帝”的独家垄断上。青铜鼎、爵、尊、觚并非日常炊具，而是用来盛放祭酒与牺牲的政治礼器——谁能掌控更多精美青铜器，谁就拥有替人间向祖先与上帝请命的最高权力。",
+          "heading": "从器物组合看礼仪",
+          "text": "青铜礼器常成组出现在较高等级的墓葬中。不同器形和同类器的组合，可以同使用场所、动物遗存和陶器一起考察。偃师商城的研究把部分遗存与宴饮、祭仪联系起来，盘龙城墓葬也提供了青铜容器与地方精英的材料。器物出土的场合，有助于理解谁能参与这些活动。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            }
           ],
           "id": "p-04"
         },
         {
-          "text": "商代前期王都曾先后五次迁徙（史称“前八后五”），学界普遍认为这既与黄河改道洪泛、寻找优质木材铜料有关，也源于商王室“兄终弟及”引发的继承纷争。每迁一次都城，王权便借助新建宫庙重新洗牌贵族势力。",
+          "text": "《史记·殷本纪》记下了商王数次迁居的叙事。偃师、郑州和后来洹河流域的城址，则有自己的建筑次序与陶器分期。把传世名单和各遗址对照是一种研究方法。迁居是否对应某座城的开工、原因是什么，还需要当地的层位和独立年代支持。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            },
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "zhengzhou-wall",
+              "locator": "摘要，城墙、层位及城内外遗迹",
+              "note": "郑州城墙、陶器分期与城内外建筑、作坊、窖穴等材料"
+            },
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            }
           ],
-          "id": "p-05"
+          "id": "p-05",
+          "heading": "文献中的迁都与考古中的多座城市"
         },
         {
-          "text": "直到公元前 1300 年前后，商王盘庚力排贵族反对，率领臣民渡过黄河迁都于太行山东麓的殷（今河南安阳），商王朝才终于稳定下来，迎来了中国历史上第一个留下海量第一手文字档案的辉煌时代。",
+          "text": "郑州一带的早商遗存之后，今安阳洹河北岸留下有郭城和作坊的洹北商城。洹河两岸后来又出现以小屯宫殿宗庙区为中心的殷墟遗存。两座城市怎样前后衔接，可以从围合遗迹、房址和陶器追查。传世的盘庚迁殷与具体地点怎样对应，仍有不同看法。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "huanbei-workshops",
+              "locator": "洹北商城、韩王度发掘及图二",
+              "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+            },
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            }
           ],
-          "id": "p-06"
+          "id": "p-06",
+          "heading": "把问题带到洹河"
         }
       ],
       "contemporaries": [
@@ -161,99 +351,777 @@
             "scope": "前后卷的考古材料接续。",
             "checkedAt": "2026-11-26"
           }
+        },
+        {
+          "id": "read-early-shang-cities",
+          "book": "shang-zhou",
+          "chapter": "yanshi-zhengzhou-early-cities",
+          "label": "接着阅读 · 偃师与郑州的城址",
+          "relation": "further",
+          "display": "把两处早商遗址放回黄河中游地形，观察墙垣和作坊。",
+          "evidence": [
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "zhengzhou-earth",
+              "locator": "Study Area、Results、Discussion，图 1–2",
+              "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "shang-bronze-centres",
+          "afterBlockId": "p-03"
+        }
+      ]
+    },
+    {
+      "id": "yanshi-zhengzhou-early-cities",
+      "from": -1600,
+      "to": -1400,
+      "dateLabel": "约公元前 1600—前 1400 年",
+      "kind": "narrative",
+      "title": "偃师与郑州：两座早商城址怎样营建",
+      "summary": "从墙垣叠压、陶器分期和作坊区入手，比较两城的布局、地形与使用年代。",
+      "spatialThesis": "从伊洛盆地向东到郑州，地形、墙垣和作坊的位置提供了对读早商城市的线索。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "伊洛盆地另一处夯土围合",
+          "text": "离二里头遗址不远，偃师商城的城墙、建筑基址与院落为另一处城市留下轮廓。发掘依据建筑叠压和陶器组合划分前后阶段。较早的围合和后来扩建的城垣属于不同营建活动，可以沿遗址平面和地层逐一比较。",
+          "refs": [
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "early-shang-sites",
+              "locator": "伊洛平原的遗址排列及偃师商城建筑段",
+              "note": "偃师商城和二里头在伊洛地区的位置关系以及早商城址遗存"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "顺着墙看郑州",
+          "text": "郑州商城的夯土墙圈出城内空间，外侧也有围合遗迹、建筑与生产地点。地貌研究用钻孔和沉积材料重建当时的河流、低地与较高地表。结合城内外的遗存，能够看出为什么同一个城址里的居住与手工业位置各不相同。",
+          "refs": [
+            {
+              "sourceId": "zhengzhou-wall",
+              "locator": "摘要，城墙、层位及城内外遗迹",
+              "note": "郑州城墙、陶器分期与城内外建筑、作坊、窖穴等材料"
+            },
+            {
+              "sourceId": "zhengzhou-earth",
+              "locator": "Study Area、Results、Discussion，图 1–2",
+              "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "墙外的工匠",
+          "text": "郑州发掘见到与铸铜、制骨等活动有关的遗存。窖穴、建筑和作坊的分布为居民生活和生产管理提供线索。遗址本身包含不同时期的活动，要判断作坊与哪段城墙同时使用，得回到二者的层位和分期。",
+          "refs": [
+            {
+              "sourceId": "zhengzhou-wall",
+              "locator": "摘要，城墙、层位及城内外遗迹",
+              "note": "郑州城墙、陶器分期与城内外建筑、作坊、窖穴等材料"
+            },
+            {
+              "sourceId": "zhengzhou-earth",
+              "locator": "Study Area、Results、Discussion，图 1–2",
+              "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "两个地名与一套断代问题",
+          "text": "年代接近的城市可以在墙垣、建筑和陶器上作比较，传世记载中的汤都名称还需要另据文字和年代去确认。书中采用宽口径的早商时段，让两处遗址的材料可以放在一起阅读。",
+          "refs": [
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "zhengzhou-wall",
+              "locator": "摘要，城墙、层位及城内外遗迹",
+              "note": "郑州城墙、陶器分期与城内外建筑、作坊、窖穴等材料"
+            },
+            {
+              "sourceId": "early-shang-sites",
+              "locator": "伊洛平原的遗址排列及偃师商城建筑段",
+              "note": "偃师商城和二里头在伊洛地区的位置关系以及早商城址遗存"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "early-shang-city-layouts",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "偃师商城",
+              "placeId": "yanshi"
+            },
+            {
+              "blockId": "p-02",
+              "text": "郑州商城",
+              "placeId": "main"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "supply-panlongcheng",
+          "book": "shang-zhou",
+          "chapter": "panlongcheng-bronze-workshops",
+          "label": "接着阅读 · 盘龙城的铸铜作坊",
+          "relation": "further",
+          "display": "沿早商遗址的陶器、铜器和作坊材料向长江中游延伸。",
+          "evidence": [
+            {
+              "sourceId": "panlongcheng-mapping",
+              "locator": "Research Background、图 1–2、Discussion",
+              "note": "约前 1500—前 1300 年的遗址时段、城垣和周围地点、考古遗迹与现代水面的关系"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "panlongcheng-bronze-workshops",
+      "from": -1500,
+      "to": -1300,
+      "dateLabel": "约公元前 1500—前 1300 年",
+      "kind": "narrative",
+      "title": "盘龙城：湖边铸铜与长江中游铜料",
+      "summary": "从城址、附近墓葬到小嘴熔铸遗物，追查早商聚落的本地生产与铜料的跨区流动。",
+      "spatialThesis": "城墙、近湖的发掘点和后来活动较多的高地，呈现聚落空间的变化。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "在现代湖岸找古代聚落",
+          "text": "今武汉北部的盘龙城位于长江中游、现今盘龙湖附近。测绘与发掘确认城垣、建筑和附近墓葬。考古队还调查了今天被水淹没的一些地点。现在看见的湖岸只能作为定位参照，古代陆地、水位和遗迹分布要用调查材料重建。",
+          "refs": [
+            {
+              "sourceId": "panlongcheng-mapping",
+              "locator": "Research Background、图 1–2、Discussion",
+              "note": "约前 1500—前 1300 年的遗址时段、城垣和周围地点、考古遗迹与现代水面的关系"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "从坩埚和废渣看本地熔铸",
+          "text": "在城址西侧的小嘴，发掘者找到了陶范、熔铜坩埚和铜冶金渣。样品分析支持盘龙城第四、五期当地已有熔铸活动，也提示较晚层位可能延续。器物的外形可以跨区相似，陶范与废渣让生产地点有了可以复查的线索。",
+          "refs": [
+            {
+              "sourceId": "panlongcheng-xiaozui",
+              "locator": "摘要、二、样品与分析方法、结论",
+              "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "同类器物有几种料",
+          "text": "比较盘龙城和郑州所见铜器，研究者找到了成分和同位素方面的相似与差异。加入合金的铅、原料混用和金属回收都会影响检验结果。部分器物的形制与墓葬组合表明两地有联系，各类器物的制作与流通过程还需要逐件或分组分析。",
+          "refs": [
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            },
+            {
+              "sourceId": "panlongcheng-xiaozui",
+              "locator": "摘要、二、样品与分析方法、结论",
+              "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "测到矿源以后，还要找路",
+          "text": "郑州地区创新街学校北校区和小双桥出土的一组矿料，经过石榴石年代和微量元素等多项比较，被研究者追溯到长江中游九瑞矿集区。这提供了部分铜料北上的证据。要回答这批矿料是否经过盘龙城、沿哪条河谷运输，仍需要途经地点和各环节的考古材料。",
+          "refs": [
+            {
+              "sourceId": "jiurui-copper",
+              "locator": "摘要、图 1–2、图 4–6",
+              "note": "约前 1400 年创新街学校北校区、小双桥的铜矿料与长江中游九瑞矿集区相符，图 1 提出可能路线"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "shang-bronze-centres",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "盘龙城",
+              "placeId": "main"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "return-to-zhengzhou",
+          "book": "shang-zhou",
+          "chapter": "yanshi-zhengzhou-early-cities",
+          "label": "回读 · 郑州和偃师的城市布局",
+          "relation": "further",
+          "display": "回到北方的城墙与作坊，再对照南方聚落的地形和生产遗物。",
+          "evidence": [
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            },
+            {
+              "sourceId": "zhengzhou-earth",
+              "locator": "Study Area、Results、Discussion，图 1–2",
+              "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "huanbei-yinxu-urban-change",
+      "from": -1400,
+      "to": -1250,
+      "dateLabel": "约公元前 1400—前 1250 年",
+      "kind": "narrative",
+      "title": "洹河北岸到小屯：商代城市怎样改变",
+      "summary": "沿洹河两岸对照洹北商城的城壕、韩王度作坊与殷墟小屯周边的建筑、道路与墓地。",
+      "spatialThesis": "洹北商城的外郭城壕与宫殿区有各自的遗迹。殷墟的功能区、道路与聚落分布在洹河两岸。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "在北岸找城壕与宫殿",
+          "text": "安阳洹河北岸的洹北商城发现长方形的外围沟槽，城内另有大型夯土建筑基址。较早研究曾将部分沟槽看作墙基槽，后来的解剖发掘把东、西郭城的所查区段辨认为城壕。考古材料支持这里是一处中商都邑，城市的开建与使用仍须逐段研究。",
+          "refs": [
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "huanbei-workshops",
+              "locator": "洹北商城、韩王度发掘及图二",
+              "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+            },
+            {
+              "sourceId": "huanbei-outer-ditch",
+              "locator": "洹北商城郭城考古发掘取得新发现段，东、西郭城解剖及通道",
+              "note": "部分郭城沟槽解剖后由原先解释的墙基槽改判为城壕，内外空间有通道连接"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "水沟旁边发现的作坊",
+          "text": "发掘韩王度一带时，原先以为是大型夯土建筑的遗迹，经发掘辨认为水沟。附近出现铸铜、制骨遗物、浇铸地点和废料堆积，有的墓葬随葬陶范、刻刀。调查结果因此改写，居民的生产与埋葬也有了可以定位的材料。",
+          "refs": [
+            {
+              "sourceId": "huanbei-workshops",
+              "locator": "洹北商城、韩王度发掘及图二",
+              "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "南岸宫殿，北岸王陵",
+          "text": "到晚商，殷墟在洹河两岸形成不同功能区。小屯宫殿宗庙区位于南岸，北岸另见西北岗王陵。考古队还在不同地点辨认道路、居址和加工遗存。把这些线索放回地形，就能看到城市怎样越出宫殿和墓地本身。",
+          "refs": [
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "yinxu-layout",
+              "locator": "聚落层次、殷墟都邑内部结构两节",
+              "note": "陶家营、辛店、殷墟道路、居址、作坊之间的空间差异"
+            },
+            {
+              "sourceId": "yinxu-site-map",
+              "locator": "地理数据表 1114-001、1114-002",
+              "note": "宫殿宗庙区及王陵区的地理代表点"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "哪一次迁居留下了遗址",
+          "text": "传世材料记载盘庚迁殷，考古研究则从有年代差别的围合、建筑与出土物寻找城市变化。洹北商城与殷墟若干地点存在先后和重叠，关于中心何时转到小屯、与哪一位商王对应，研究者仍有不同解释。",
+          "refs": [
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            },
+            {
+              "sourceId": "yinxu-layout",
+              "locator": "聚落层次、殷墟都邑内部结构两节",
+              "note": "陶家营、辛店、殷墟道路、居址、作坊之间的空间差异"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "anyang-huan-river-urban-sites",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "洹北商城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "小屯宫殿宗庙区",
+              "placeId": "xiaotun"
+            },
+            {
+              "blockId": "p-03",
+              "text": "西北岗王陵",
+              "placeId": "royal-tombs"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-yinxu-records",
+          "book": "shang-zhou",
+          "chapter": "yinxu-oracle-wuding",
+          "label": "接着阅读 · 殷墟、武丁与妇好",
+          "relation": "further",
+          "display": "从城市遗迹进入甲骨、出土铭文和实物样品能够支持的时间线。",
+          "evidence": [
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
         }
       ]
     },
     {
       "id": "yinxu-oracle-wuding",
-      "title": "盘庚迁殷、甲骨占卜与妇好征伐",
+      "title": "殷墟、武丁年代与妇好墓",
       "from": -1300,
       "to": -1047,
-      "summary": "盘庚定都殷墟开启两百七十余年定居时期；武丁中兴时期留下的十五万片甲骨文让商史成为铁证信史，同时战车传入与四方征伐也逐渐透支了商帝国的元气。",
-      "spatialThesis": "安阳殷墟背靠太行山矿产与森林、面向华北冲积平原，既是商王统摄四方方国的祭祀中心，也是欧亚草原马拉战车技术传入中原后的第一座超级军工城。",
+      "summary": "走进洹河两岸的晚商都邑，对照卜辞、测年和妇好墓，再看车马、聚落关系和商周交替如何留下各自的证据。",
+      "spatialThesis": "小屯宫殿宗庙区在洹河南岸，王陵区在北岸。道路、居址和作坊让这座都邑的布局可以分地点追查。",
       "paragraphs": [
         {
-          "heading": "殷墟甲骨：中国最早的“国家档案馆”",
-          "text": "在安阳小屯村的地下，埋藏着超过十五万片刻满文字的龟甲与牛肩胛骨。商王几乎无事不卜：从明天是否下雨、今年粟米收成、商王牙痛能否痊愈，到出兵讨伐西北羌方或东南人方，贞人先用火灼烧甲骨看裂纹，再把占卜日期、问题、结果甚至事后应验情况一笔一画刻在骨面上。",
+          "heading": "骨面上的问题、判断和结果",
+          "text": "安阳小屯等地出土了刻有文字的龟甲与兽骨。占卜者使甲骨受热产生裂纹，有些刻辞记下日期、贞人、所问的事项和判断。少数还写有后来发生的事。天气、田猎和边地消息都出现在卜辞里，阅读时要看一行写的是疑问、判断还是事后补记。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "oracle-practice",
+              "locator": "第 145–152 页，天候、战争与验辞实例",
+              "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+            },
+            {
+              "sourceId": "yinxu-heritage",
+              "locator": "Brief synthesis 与 Criteria",
+              "note": "殷墟晚商都城约略范围、宫殿宗庙、王陵、甲骨和手工业"
+            }
           ],
           "id": "p-01"
         },
         {
-          "text": "这批已有四千五百多个单字、具备象形指事会意形声完整造字法的甲骨文，不仅将中国有文字可考的信史牢牢钉在公元前十三世纪，更与司马迁《史记·殷本纪》记载的商王世系惊人吻合，令近代史学界为之震撼。",
+          "text": "研究者用贞人、称谓和内容对甲骨分组，并比较能够辨认的商王世系。将部分样品测年再进行统计校正，一套模型把武丁时期放在约前 1254—前 1197 年。论文也列出其他年代方案。这些上下界是对样本和王期的估计，无法把每条卜辞或迁都落到一个确定的公元纪年。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            },
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            }
           ],
-          "id": "p-02"
+          "id": "p-02",
+          "heading": "武丁年代怎样估计"
         },
         {
-          "heading": "武丁中兴与女将妇好",
-          "text": "商朝的极盛属于在位五十九年的雄主武丁。他在即位前曾深入民间体验疾苦，继位后重用奴隶出身的傅说整顿朝政，并依靠骁勇善战的王后妇好四面出击。甲骨卜辞记载，妇好曾一次统领一万三千名精锐大军大破北方土方与西方羌方，并主持国家级盛大祭祀。",
+          "heading": "妇好的名字怎样和墓葬对应",
+          "text": "武丁时期的卜辞里有妇好。小屯五号墓出土的青铜器上也有这个名字，墓葬层位、器物组合和卜辞提供了相互参照的材料。传世的武丁和傅说叙事有自己的成书背景。要研究晚商的具体人物与活动，器物上的名字与同一时期的记录尤其重要。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "fuhao-tomb-study",
+              "locator": "发掘经过、铜器铭文与墓主人身份部分",
+              "note": "安阳小屯五号墓、青铜铭文与甲骨中妇好的对读，发掘所见玉器与其他随葬品"
+            },
+            {
+              "sourceId": "fuhao-owl",
+              "locator": "器物说明，殷墟妇好墓出土与口内壁铭文",
+              "note": "妇好墓出土青铜鸮尊及器内妇好铭文"
+            },
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 1976 年安阳妇好墓",
-            "title": "三千年前女战神的地下宝库",
-            "text": "妇好墓是殷墟唯一未被盗掘的商代王室墓葬，出土随葬品多达一千九百余件，包括重达九公斤的青铜大钺（军权象征）、七百余件新疆和田玉器与近七千枚来自印度洋的货贝，折射出商朝惊人的远距离贸易网。",
-            "id": "aside-03"
+            "label": "器物档案 · 殷墟五号墓",
+            "title": "鸮尊内壁的名字",
+            "text": "中国国家博物馆收藏的一件青铜鸮尊出自小屯妇好墓，铭文铸在器身的口内壁。墓里的玉、骨、青铜与贝类各有其生产和来源问题。单凭材质或外观，很难给出具体产地，也难以画出运输路线。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "fuhao-owl",
+                "locator": "器物说明，殷墟妇好墓出土与口内壁铭文",
+                "note": "妇好墓出土青铜鸮尊及器内妇好铭文"
+              },
+              {
+                "sourceId": "fuhao-tomb-study",
+                "locator": "发掘经过、铜器铭文与墓主人身份部分",
+                "note": "安阳小屯五号墓、青铜铭文与甲骨中妇好的对读，发掘所见玉器与其他随葬品"
+              }
+            ]
           },
           "id": "p-03"
         },
         {
-          "heading": "欧亚战车东来与“内外服”网状帝国",
-          "text": "大约在武丁前后，源自欧亚草原的双轮双马战车翻越蒙古高原传入安阳，彻底改变了中原战争形态。殷墟王陵与车马坑中成排的战车与青铜戈矛，展示了商王朝作为青铜时代东亚军事霸主的威慑力。",
+          "heading": "车马坑提供什么证据",
+          "text": "殷墟出土了埋有车、马的坑和随葬车马的墓葬。车具和同时出土的器物，可以与北方地区的材料比较，研究技术、人和器物的往来。墓葬中的车马有其礼仪语境，战车何时从哪里进入安阳、作战中怎样使用，需要再结合别类证据。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shang-chariots",
+              "locator": "车马坑、北方材料与结论",
+              "note": "安阳埋车、马匹、器物组合与北方技术联系"
+            },
+            {
+              "sourceId": "yinxu-heritage",
+              "locator": "Brief synthesis 与 Criteria",
+              "note": "殷墟晚商都城约略范围、宫殿宗庙、王陵、甲骨和手工业"
+            }
           ],
           "id": "p-04"
         },
         {
-          "text": "但商朝并不是后世秦汉那样的郡县集权国家，而是“内外服”结构：王畿之内由商王直接统治，王畿之外则是星罗棋布的侯伯方国。一旦商王权威衰落或过度索取贡赋与人牲，边疆方国便会迅速倒戈。",
+          "text": "甲骨记录过边地冲突和向王庭传递消息的情形。考古调查同时看到洹河流域不同规模的居址、墓地和作坊。记录中的称谓、与王室的关系以及遗址之间的距离需要分别理解，还不能从它们推定所有地方一律受同一种制度管辖。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "oracle-practice",
+              "locator": "第 145–152 页，天候、战争与验辞实例",
+              "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+            },
+            {
+              "sourceId": "yinxu-layout",
+              "locator": "聚落层次、殷墟都邑内部结构两节",
+              "note": "陶家营、辛店、殷墟道路、居址、作坊之间的空间差异"
+            }
           ],
-          "id": "p-05"
+          "id": "p-05",
+          "heading": "都邑之外还有聚落"
         },
         {
-          "heading": "东南用兵与西土周人的悄然崛起",
-          "text": "商朝末代君主帝辛（商纣王）并非昏庸无能，相反他精力旺盛、大举南征淮河流域的东夷人方，甚至打通了通往东南的通道；但连年苦战耗空了安阳守军与国库。与此同时，远在关中渭河平原的“西伯”周文王与周武王正暗中结盟西南巴蜀与羌人，一场改写华夏文明底色的决战已迫在眉睫。",
+          "heading": "从商末接到周初",
+          "text": "后世《史记》记下帝辛、周人和武王克商的故事。西周早期利簋的铭文也提到征商、甲子日和赏赐，提供了时距更近的证据。商末局势错综，这些记录能够交代一部分行动和时间线，仍不足以重建商军全部部署或把商亡归于某一次远征。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            },
+            {
+              "sourceId": "li-gui",
+              "locator": "簋底铭文及甲子纪日段",
+              "note": "利簋铭文记克商的干支日及赐金，公元前 1046 年为综合推定方案"
+            },
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            }
           ],
           "id": "p-06"
         }
       ],
       "contemporaries": [
         {
-          "book": "egypt",
-          "year": -1274,
-          "label": "埃及与赫梯卡迭石战车大会战",
-          "note": "就在武丁时期的商军驾驭战车纵横中原时，西亚的埃及拉美西斯二世与赫梯帝国也正以数千辆战车展开决战。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "egypt",
+          "chapter": "new-kingdom-empire",
+          "year": -1275,
+          "label": "比较 · 安阳车马坑与埃及的卡迭石铭刻",
+          "note": "安阳留下车马坑，埃及王室留下描述战车参战的铭刻。两地材料记录的用途不同。",
+          "relation": "compare",
+          "dimension": "车马的使用与不同史料的记录方式",
+          "display": "安阳车马坑展示了埋藏情境。埃及卡迭石纪功材料以另一种方式记录战车。并读可以比较证据怎样形成，双方各自的分期和用途须从当地材料判断。",
+          "evidence": [
+            {
+              "sourceId": "shang-chariots",
+              "locator": "车马坑、北方材料与结论",
+              "note": "安阳埋车、马匹、器物组合与北方技术联系"
+            },
+            {
+              "sourceId": "kadesh-museum",
+              "locator": "Qadesh 段，拉美西斯二世纪念材料",
+              "note": "埃及王室图像与铭刻呈现战车参与战事"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "不同证据类型的比较，当地年代分别从各自场景或断代研究取得。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "sceneRefs": [
+        {
+          "id": "anyang-huan-river-urban-sites",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "安阳小屯",
+              "placeId": "xiaotun"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wuding-oracle-bones",
+          "book": "shang-zhou",
+          "chapter": "wuding-reading-oracle-bones",
+          "label": "接着阅读 · 读一条甲骨刻辞",
+          "relation": "further",
+          "display": "在天候与祭祀的实际材料中辨认问题、判断和验辞。",
+          "evidence": [
+            {
+              "sourceId": "oracle-practice",
+              "locator": "第 145–152 页，天候、战争与验辞实例",
+              "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+            },
+            {
+              "sourceId": "huayuanzhuang-oracle",
+              "locator": "开篇对花东材料的说明及卜辞分类",
+              "note": "花园庄东地一组甲骨、占卜主体与不同祭祀事项"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wuding-reading-oracle-bones",
+      "from": -1254,
+      "to": -1197,
+      "dateLabel": "约公元前 1254—前 1197 年 · 一套甲骨测年模型",
+      "kind": "narrative",
+      "title": "武丁时期怎样读一条甲骨刻辞",
+      "summary": "通过天候、边地消息与花园庄东地卜辞，辨认问辞、判断和验辞，理解甲骨为什么可以分组。",
+      "spatialThesis": "同在殷墟出土的甲骨来自不同地点和记录群体，出土位置与文字内容一起决定如何解释。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "骨片上的几种信息",
+          "text": "一条记事较多的卜辞可能写下占卜日期、负责占卜的人、提出的问题和判断。有的记录之后又补写后来发生的事。一块骨片也可能有若干次占卜留下的刻辞，读者要先把同一轮占卜所关联的文字辨出来。",
+          "refs": [
+            {
+              "sourceId": "oracle-practice",
+              "locator": "第 145–152 页，天候、战争与验辞实例",
+              "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+            },
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "从问雨读到真实天气",
+          "text": "武丁时期有刻辞把预测与后来天气放在一起，研究者借此认识验辞。有的卜辞也记录传来的边地消息。问一件事会不会发生，与写下消息说它已经发生，提供的历史证据强度不同。比较这些句子，比把所有问辞都当作事件表更能还原记录过程。",
+          "refs": [
+            {
+              "sourceId": "oracle-practice",
+              "locator": "第 145–152 页，天候、战争与验辞实例",
+              "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "谁在花园庄东地占问",
+          "text": "花园庄东地出土一批晚商甲骨，其中有围绕称为「子」的主体所作的占问。刻辞涉及祭祀等活动，有些记法与商王占卜不同。不同的出土组别使研究者能追问王室之外的生活和关系，但称谓的具体指代仍要逐组检验。",
+          "refs": [
+            {
+              "sourceId": "huayuanzhuang-oracle",
+              "locator": "开篇对花东材料的说明及卜辞分类",
+              "note": "花园庄东地一组甲骨、占卜主体与不同祭祀事项"
+            },
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "把分组和测年放在一起",
+          "text": "不同贞人、用词及王室称谓帮助排列刻辞的前后。测年研究用归入武丁时期的一组样品建立模型，本章采用约前 1254—前 1197 年作为阅读范围。测年得到的区间与出土分组相互参照，某片刻辞的准确公历日期仍须另外论证。",
+          "refs": [
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            },
+            {
+              "sourceId": "huayuanzhuang-oracle",
+              "locator": "开篇对花东材料的说明及卜辞分类",
+              "note": "花园庄东地一组甲骨、占卜主体与不同祭祀事项"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "anyang-huan-river-urban-sites",
+          "afterBlockId": "p-03",
+          "scope": "以洹河自然地形定位殷墟相关遗址，晚商具体年代采用本章测年研究。"
+        }
+      ],
+      "related": [
+        {
+          "id": "return-to-yinxu",
+          "book": "shang-zhou",
+          "chapter": "yinxu-oracle-wuding",
+          "label": "回读 · 武丁年代与妇好墓",
+          "relation": "further",
+          "display": "用卜辞释读的办法回看武丁时期与墓葬器物的证据。",
+          "evidence": [
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            },
+            {
+              "sourceId": "fuhao-tomb-study",
+              "locator": "发掘经过、铜器铭文与墓主人身份部分",
+              "note": "安阳小屯五号墓、青铜铭文与甲骨中妇好的对读，发掘所见玉器与其他随葬品"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "叙事衔接、目标章节与史料范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
     },
     {
       "id": "muye-fengjian",
       "title": "牧野克商、周公制礼与宗法分封",
       "from": -1046,
       "to": -1000,
-      "summary": "公元前 1046 年周武王在牧野一战覆灭商朝；面对“小邦周克大邦殷”的统治危机，周公东征平叛、营建洛邑，并以分封制、宗法制与礼乐制度重构华夏秩序。",
+      "summary": "利簋记载周武王克商的干支日，公元前 1046 年是一套综合推定。随后进入周初的东方战事、洛邑营建、诸侯与礼制。",
       "spatialThesis": "起家关中渭水的周人以丰镐为政治心脏、洛邑（洛阳）为东方军事副都，把王室子弟与功臣像棋子一样沿着黄河与江淮撒向齐、鲁、燕、晋、卫等封国，织成一张覆盖华北的统治大网。",
       "paragraphs": [
         {
-          "heading": "公元前 1046 年：牧野清晨的一战定鼎",
-          "text": "公元前 1046 年正月，周武王抓住商军主力远征东夷未归的绝佳时机，联合庸、蜀、羌、微、卢等西方八族联军东出潼关、渡过孟津，直插殷都南郊牧野。仓促武装起大批奴隶与战俘迎战的商纣王遭遇阵前倒戈，兵败退回鹿台自焚。一个延续五百余年的青铜大帝国在一日之间轰然易主。",
+          "heading": "从利簋的甲子日读克商",
+          "text": "西周早期的利簋铭文记下征商发生在一个甲子日的清晨，并记事后王向利赏赐金属。公元前 1046 年是结合铭文、传世记载、天象等材料提出的一种纪年，其他方案仍在讨论。牧野战场如何展开，双方怎样动员、哪些人参与，不能直接从这一器铭文推出。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "li-gui",
+              "locator": "簋底铭文及甲子纪日段",
+              "note": "利簋铭文记克商的干支日及赐金，公元前 1046 年为综合推定方案"
+            },
+            {
+              "sourceId": "oracle-bone-dating",
+              "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+              "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+            },
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "盘庚、武丁与帝辛各节",
+              "note": "文本关于迁都、傅说与商末战事的叙述"
+            }
           ],
           "id": "p-01"
         },
@@ -412,5 +1280,11 @@
       "kind": "narrative",
       "spatialThesisId": "spatial-thesis"
     }
+  ],
+  "subjectIds": [
+    "early-shang-walled-cities",
+    "panlongcheng-site",
+    "huanbei-shang-city",
+    "yinxu-late-shang-site"
   ]
 }

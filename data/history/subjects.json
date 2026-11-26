@@ -894,6 +894,177 @@
         "scope": "考古身份、分期口径与遗址区。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "early-shang-walled-cities",
+      "type": "region",
+      "name": "偃师与郑州的早商城址",
+      "aliases": [
+        "偃师商城",
+        "郑州商城"
+      ],
+      "range": {
+        "from": -1600,
+        "to": -1400,
+        "dateLabel": "约公元前 1600—前 1400 年",
+        "approximate": true
+      },
+      "scope": "伊洛盆地与黄河中游郑州一带的早商城市考古。范围用于比较所选地点。",
+      "sources": [
+        {
+          "id": "zhengzhou-earth",
+          "title": "郑州商城古地貌与城址布局研究",
+          "url": "https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.656193/full",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yanshi-strata",
+          "title": "Reinhart：偃师商城遗迹中的日常生活与礼仪",
+          "url": "https://tangcenter-columbia.org/wp-content/uploads/2015/12/Rethinking-ritual-Columbia-Early-China-Reinhart.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "early-shang-sites",
+          "title": "河南省政府：伊洛平原上的偃师商城",
+          "url": "https://english.henan.gov.cn/2023/04-30/2735278.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古遗址的区域参照和覆盖年代。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "panlongcheng-site",
+      "type": "region",
+      "name": "盘龙城聚落与铸铜",
+      "aliases": [
+        "盘龙城",
+        "小嘴"
+      ],
+      "range": {
+        "from": -1500,
+        "to": -1300,
+        "dateLabel": "约公元前 1500—前 1300 年",
+        "approximate": true
+      },
+      "scope": "以武汉北部盘龙湖附近的城址、墓地和作坊地点为中心的早商聚落。",
+      "sources": [
+        {
+          "id": "panlongcheng-mapping",
+          "title": "盘龙城遗址测绘与水下调查",
+          "url": "https://www.mdpi.com/2073-445X/10/10/1033",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "panlongcheng-xiaozui",
+          "title": "刘思然等《盘龙城遗址小嘴商代冶金遗物的分析与研究》",
+          "url": "https://archaeology.pku.edu.cn/2020panlongchengyizhixiaozuishangdaiyejinyiwudefenxiyuyanjiu_liusiran.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "early-shang-metals",
+          "title": "Liu 等：盘龙城、郑州与早期青铜时代金属流通",
+          "url": "https://link.springer.com/article/10.1007/s10963-019-09137-w",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古遗址的区域参照和覆盖年代。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "huanbei-shang-city",
+      "type": "region",
+      "name": "洹北商城与洹河流域的城市变化",
+      "aliases": [
+        "洹北商城",
+        "韩王度"
+      ],
+      "range": {
+        "from": -1400,
+        "to": -1250,
+        "dateLabel": "约公元前 1400—前 1250 年",
+        "approximate": true
+      },
+      "scope": "安阳洹河流域中商都邑及与随后殷墟都邑的区域对照。",
+      "sources": [
+        {
+          "id": "huan-river-layout",
+          "title": "牛世山：从洹北商城到殷墟商邑",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552691.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "huanbei-workshops",
+          "title": "何毓灵：殷墟近十年发掘的收获与思考",
+          "url": "https://www.cssn.cn/lsx/lsx_ttxw/202210/t20221031_5557593.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yinxu-layout",
+          "title": "何毓灵等：殷墟都城与洹河流域聚落研究",
+          "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202304/t20230412_5619581.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "huanbei-outer-ditch",
+          "title": "洹北商城郭城考古进展",
+          "url": "https://wenwu.hebei.gov.cn/system/2023/08/15/030241782.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古遗址的区域参照和覆盖年代。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "yinxu-late-shang-site",
+      "type": "region",
+      "name": "殷墟晚商都邑与甲骨",
+      "aliases": [
+        "殷墟",
+        "小屯",
+        "西北岗"
+      ],
+      "range": {
+        "from": -1300,
+        "to": -1047,
+        "dateLabel": "约公元前 1300 年至前 11 世纪中叶",
+        "approximate": true
+      },
+      "scope": "安阳洹河两岸的晚商都邑遗址，本条呈现区域与功能定位。",
+      "sources": [
+        {
+          "id": "yinxu-heritage",
+          "title": "世界遗产名录：殷墟",
+          "url": "https://whc.unesco.org/en/list/1114/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yinxu-site-map",
+          "title": "世界遗产名录：殷墟构成区坐标",
+          "url": "https://whc.unesco.org/en/list/1114/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yinxu-layout",
+          "title": "何毓灵等：殷墟都城与洹河流域聚落研究",
+          "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202304/t20230412_5619581.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古遗址的区域参照和覆盖年代。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

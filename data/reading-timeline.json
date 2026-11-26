@@ -701,5 +701,296 @@
       "scope": "区间解释、区域参照及正文入口。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-early-shang-urban-sites": {
+    "title": "偃师与郑州的早商城址",
+    "date": "约公元前 1600—前 1400 年",
+    "start": -1600,
+    "end": -1400,
+    "context": true,
+    "summary": "偃师的分期营建与郑州的内外围合提供了两份独立的早商城市考古材料。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用约前 1600—前 1400 年作为早商城址的阅读范围。各城垣、建筑和作坊有各自层位，不能据此为一座城指定确切开工年或传世都名。",
+        "refs": [
+          {
+            "sourceId": "zhengzhou-earth",
+            "locator": "Study Area、Results、Discussion，图 1–2",
+            "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+          },
+          {
+            "sourceId": "yanshi-strata",
+            "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+            "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+          },
+          {
+            "sourceId": "early-shang-sites",
+            "locator": "伊洛平原的遗址排列及偃师商城建筑段",
+            "note": "偃师商城和二里头在伊洛地区的位置关系以及早商城址遗存"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zhengzhou-earth",
+        "title": "郑州商城古地貌与城址布局研究",
+        "url": "https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.656193/full",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yanshi-strata",
+        "title": "Reinhart：偃师商城遗迹中的日常生活与礼仪",
+        "url": "https://tangcenter-columbia.org/wp-content/uploads/2015/12/Rethinking-ritual-Columbia-Early-China-Reinhart.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "early-shang-sites",
+        "title": "河南省政府：伊洛平原上的偃师商城",
+        "url": "https://english.henan.gov.cn/2023/04-30/2735278.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年代范围、区域参照与相应的原生阅读入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-panlongcheng-bronze-workshops": {
+    "title": "盘龙城聚落与铸铜",
+    "date": "约公元前 1500—前 1300 年",
+    "start": -1500,
+    "end": -1300,
+    "context": true,
+    "summary": "长江中游城址与墓葬保留早商聚落的线索，小嘴出土熔铸遗物。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用遗址测绘论文中约前 1500—前 1300 年的宽口径，具体本地熔铸证据以小嘴发掘层位和所测样品为准。",
+        "refs": [
+          {
+            "sourceId": "panlongcheng-mapping",
+            "locator": "Research Background、图 1–2、Discussion",
+            "note": "约前 1500—前 1300 年的遗址时段、城垣和周围地点、考古遗迹与现代水面的关系"
+          },
+          {
+            "sourceId": "panlongcheng-xiaozui",
+            "locator": "摘要、二、样品与分析方法、结论",
+            "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+          },
+          {
+            "sourceId": "early-shang-metals",
+            "locator": "Abstract、Discussion、图 16–18",
+            "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "panlongcheng-mapping",
+        "title": "盘龙城遗址测绘与水下调查",
+        "url": "https://www.mdpi.com/2073-445X/10/10/1033",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "panlongcheng-xiaozui",
+        "title": "刘思然等《盘龙城遗址小嘴商代冶金遗物的分析与研究》",
+        "url": "https://archaeology.pku.edu.cn/2020panlongchengyizhixiaozuishangdaiyejinyiwudefenxiyuyanjiu_liusiran.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "early-shang-metals",
+        "title": "Liu 等：盘龙城、郑州与早期青铜时代金属流通",
+        "url": "https://link.springer.com/article/10.1007/s10963-019-09137-w",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年代范围、区域参照与相应的原生阅读入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-huanbei-shang-city": {
+    "title": "洹北商城与洹河流域的城市变化",
+    "date": "约公元前 1400—前 1250 年",
+    "start": -1400,
+    "end": -1250,
+    "context": true,
+    "summary": "安阳洹河北岸的城壕、宫殿和作坊与稍后的殷墟布局可以对照。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "显示中商至晚商过渡的约略阅读时段。洹北郭城、作坊与殷墟不同遗迹的年代需要按各自分期核对。",
+        "refs": [
+          {
+            "sourceId": "huan-river-layout",
+            "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+            "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+          },
+          {
+            "sourceId": "huanbei-workshops",
+            "locator": "洹北商城、韩王度发掘及图二",
+            "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+          },
+          {
+            "sourceId": "yinxu-layout",
+            "locator": "聚落层次、殷墟都邑内部结构两节",
+            "note": "陶家营、辛店、殷墟道路、居址、作坊之间的空间差异"
+          },
+          {
+            "sourceId": "huanbei-outer-ditch",
+            "locator": "洹北商城郭城考古发掘取得新发现段，东、西郭城解剖及通道",
+            "note": "部分郭城沟槽解剖后由原先解释的墙基槽改判为城壕，内外空间有通道连接"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "huan-river-layout",
+        "title": "牛世山：从洹北商城到殷墟商邑",
+        "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552691.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "huanbei-workshops",
+        "title": "何毓灵：殷墟近十年发掘的收获与思考",
+        "url": "https://www.cssn.cn/lsx/lsx_ttxw/202210/t20221031_5557593.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yinxu-layout",
+        "title": "何毓灵等：殷墟都城与洹河流域聚落研究",
+        "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202304/t20230412_5619581.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "huanbei-outer-ditch",
+        "title": "洹北商城郭城考古进展",
+        "url": "https://wenwu.hebei.gov.cn/system/2023/08/15/030241782.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年代范围、区域参照与相应的原生阅读入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-yinxu-late-shang-city": {
+    "title": "殷墟晚商都邑与甲骨",
+    "date": "约公元前 1300 年至前 11 世纪中叶",
+    "start": -1300,
+    "end": -1047,
+    "context": true,
+    "summary": "洹河两岸的宫殿宗庙、王陵、道路与周围居址提供不同种类的都城证据。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "时段采用晚商都邑的宽口径。殷墟各建筑和墓地有各自年代，甲骨样品亦按出土与文字材料分组。",
+        "refs": [
+          {
+            "sourceId": "yinxu-heritage",
+            "locator": "Brief synthesis 与 Criteria",
+            "note": "殷墟晚商都城约略范围、宫殿宗庙、王陵、甲骨和手工业"
+          },
+          {
+            "sourceId": "yinxu-site-map",
+            "locator": "地理数据表 1114-001、1114-002",
+            "note": "宫殿宗庙区及王陵区的地理代表点"
+          },
+          {
+            "sourceId": "yinxu-layout",
+            "locator": "聚落层次、殷墟都邑内部结构两节",
+            "note": "陶家营、辛店、殷墟道路、居址、作坊之间的空间差异"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "yinxu-heritage",
+        "title": "世界遗产名录：殷墟",
+        "url": "https://whc.unesco.org/en/list/1114/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yinxu-site-map",
+        "title": "世界遗产名录：殷墟构成区坐标",
+        "url": "https://whc.unesco.org/en/list/1114/maps/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yinxu-layout",
+        "title": "何毓灵等：殷墟都城与洹河流域聚落研究",
+        "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202304/t20230412_5619581.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年代范围、区域参照与相应的原生阅读入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wuding-oracle-records": {
+    "title": "武丁时期的甲骨记录",
+    "date": "约公元前 1254—前 1197 年 · 一套甲骨测年模型",
+    "start": -1254,
+    "end": -1197,
+    "context": true,
+    "summary": "一套放射性碳测年模型给出武丁时期的约略上下界。殷墟卜辞可用来区分占问与后来记下的事情。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "上下界采用所引研究的模型值，用于把材料放到年度背景中。其他研究有不同方案，朔日和具体占问仍各需考证。",
+        "refs": [
+          {
+            "sourceId": "oracle-bone-dating",
+            "locator": "Samples、表 1–2、King Wu Ding’s Ruling Time 与 The End of Shang",
+            "note": "武丁甲骨年代的一套模型约前 1254—前 1197 年，文章讨论不同方案及误差"
+          },
+          {
+            "sourceId": "oracle-practice",
+            "locator": "第 145–152 页，天候、战争与验辞实例",
+            "note": "占卜记录的部分构成，武丁时期个别刻辞记录实况，边地消息及占问事项"
+          },
+          {
+            "sourceId": "yinxu-site-map",
+            "locator": "地理数据表 1114-001、1114-002",
+            "note": "宫殿宗庙区及王陵区的地理代表点"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "oracle-bone-dating",
+        "title": "殷墟晚商甲骨的碳十四测年",
+        "url": "https://www.cambridge.org/core/journals/radiocarbon/article/radiocarbon-dating-of-oracle-bones-of-late-shang-period-in-anciant-china/38A7B64D6D538A3A7B96F912BBEE9592",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "oracle-practice",
+        "title": "Keightley：商代甲骨刻辞、文字与仪式",
+        "url": "https://www11.ihp.sinica.edu.tw/storage/w2_file/1498TVgfzRI.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yinxu-site-map",
+        "title": "世界遗产名录：殷墟构成区坐标",
+        "url": "https://whc.unesco.org/en/list/1114/maps/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年代范围、区域参照与相应的原生阅读入口。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

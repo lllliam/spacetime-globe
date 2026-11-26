@@ -605,6 +605,365 @@
       }
     },
     {
+      "id": "early-shang-city-layouts",
+      "year": -1500,
+      "date": "约公元前 1600—前 1400 年",
+      "title": "伊洛盆地至郑州：早商城址的区域位置",
+      "summary": "沿黄河中游从伊洛盆地往东，两座城址分别落在什么位置？",
+      "place": {
+        "label": "郑州商城 · 冲积平原与台地交接处的早商城址",
+        "lon": 113.68,
+        "lat": 34.75
+      },
+      "sources": [
+        {
+          "id": "zhengzhou-earth",
+          "title": "郑州商城古地貌与城址布局研究",
+          "url": "https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.656193/full",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yanshi-strata",
+          "title": "Reinhart：偃师商城遗迹中的日常生活与礼仪",
+          "url": "https://tangcenter-columbia.org/wp-content/uploads/2015/12/Rethinking-ritual-Columbia-Early-China-Reinhart.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "early-shang-sites",
+          "title": "河南省政府：伊洛平原上的偃师商城",
+          "url": "https://english.henan.gov.cn/2023/04-30/2735278.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地形上对照考古地点",
+          "text": "偃师商城位于伊洛盆地，向东到郑州商城，可比较两处城址的地形与各自围合。郑州商城建在黄土台地向冲积平原过渡的地带。",
+          "refs": [
+            {
+              "sourceId": "zhengzhou-earth",
+              "locator": "Study Area、Results、Discussion，图 1–2",
+              "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+            },
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+              "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+            },
+            {
+              "sourceId": "early-shang-sites",
+              "locator": "伊洛平原的遗址排列及偃师商城建筑段",
+              "note": "偃师商城和二里头在伊洛地区的位置关系以及早商城址遗存"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-early-shang-urban-sites",
+        "title": "伊洛盆地至郑州：早商城址的区域位置",
+        "summary": "沿黄河中游从伊洛盆地往东，两座城址分别落在什么位置？",
+        "places": [
+          {
+            "id": "yanshi",
+            "name": "偃师商城",
+            "role": "伊洛盆地里的早商城址",
+            "lon": 112.76,
+            "lat": 34.72
+          }
+        ],
+        "participants": [
+          {
+            "name": "城址或作坊遗存",
+            "role": "对照各地点的营建与生产活动"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zhengzhou-earth",
+            "locator": "Study Area、Results、Discussion，图 1–2",
+            "note": "郑州商城位置、内外城地形与发掘地点以及城址年代背景"
+          },
+          {
+            "sourceId": "yanshi-strata",
+            "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng、城址平面",
+            "note": "偃师商城分期、墙垣、院落基址和部分遗迹的用途研究"
+          },
+          {
+            "sourceId": "early-shang-sites",
+            "locator": "伊洛平原的遗址排列及偃师商城建筑段",
+            "note": "偃师商城和二里头在伊洛地区的位置关系以及早商城址遗存"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "地图参照点、原始材料和关联入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "shang-bronze-centres",
+      "year": -1400,
+      "date": "约公元前 1500—前 1300 年",
+      "title": "郑州、盘龙城与长江中游铜料",
+      "summary": "铸造地点和研究指向的矿集区各在哪里？",
+      "place": {
+        "label": "盘龙城 · 长江中游有本地熔铸证据的早商城址",
+        "lon": 114.26,
+        "lat": 30.6966
+      },
+      "sources": [
+        {
+          "id": "panlongcheng-mapping",
+          "title": "盘龙城遗址测绘与水下调查",
+          "url": "https://www.mdpi.com/2073-445X/10/10/1033",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "panlongcheng-xiaozui",
+          "title": "刘思然等《盘龙城遗址小嘴商代冶金遗物的分析与研究》",
+          "url": "https://archaeology.pku.edu.cn/2020panlongchengyizhixiaozuishangdaiyejinyiwudefenxiyuyanjiu_liusiran.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "early-shang-metals",
+          "title": "Liu 等：盘龙城、郑州与早期青铜时代金属流通",
+          "url": "https://link.springer.com/article/10.1007/s10963-019-09137-w",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "jiurui-copper",
+          "title": "孙振飞等：郑州两处铸铜地点铜矿料溯源",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/43052327/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地形上对照考古地点",
+          "text": "盘龙城邻近长江中游，小嘴有本地熔铸证据。郑州地区的部分矿料样品指向九瑞矿集区。",
+          "refs": [
+            {
+              "sourceId": "panlongcheng-mapping",
+              "locator": "Research Background、图 1–2、Discussion",
+              "note": "约前 1500—前 1300 年的遗址时段、城垣和周围地点、考古遗迹与现代水面的关系"
+            },
+            {
+              "sourceId": "panlongcheng-xiaozui",
+              "locator": "摘要、二、样品与分析方法、结论",
+              "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+            },
+            {
+              "sourceId": "early-shang-metals",
+              "locator": "Abstract、Discussion、图 16–18",
+              "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+            },
+            {
+              "sourceId": "jiurui-copper",
+              "locator": "摘要、图 1–2、图 4–6",
+              "note": "约前 1400 年创新街学校北校区、小双桥的铜矿料与长江中游九瑞矿集区相符，图 1 提出可能路线"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-panlongcheng-bronze-workshops",
+        "title": "郑州、盘龙城与长江中游铜料",
+        "summary": "铸造地点和研究指向的矿集区各在哪里？",
+        "places": [
+          {
+            "id": "zhengzhou",
+            "name": "郑州作坊地点所在区域",
+            "role": "创新街学校北校区和小双桥的部分矿料样品来自这一带",
+            "lon": 113.64,
+            "lat": 34.8
+          },
+          {
+            "id": "jiurui",
+            "name": "九瑞矿集区",
+            "role": "研究所指的部分郑州铜矿料来源区",
+            "lon": 115.65,
+            "lat": 29.7
+          }
+        ],
+        "participants": [
+          {
+            "name": "城址或作坊遗存",
+            "role": "对照各地点的营建与生产活动"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "panlongcheng-mapping",
+            "locator": "Research Background、图 1–2、Discussion",
+            "note": "约前 1500—前 1300 年的遗址时段、城垣和周围地点、考古遗迹与现代水面的关系"
+          },
+          {
+            "sourceId": "panlongcheng-xiaozui",
+            "locator": "摘要、二、样品与分析方法、结论",
+            "note": "小嘴第四、五期有本地熔铸证据，坩埚、冶金渣与器物合金分析"
+          },
+          {
+            "sourceId": "early-shang-metals",
+            "locator": "Abstract、Discussion、图 16–18",
+            "note": "器物与墓葬可对照，两地金属样品存在共性与差异，支持本地生产与复杂供料"
+          },
+          {
+            "sourceId": "jiurui-copper",
+            "locator": "摘要、图 1–2、图 4–6",
+            "note": "约前 1400 年创新街学校北校区、小双桥的铜矿料与长江中游九瑞矿集区相符，图 1 提出可能路线"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "地图参照点、原始材料和关联入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "anyang-huan-river-urban-sites",
+      "year": -1300,
+      "date": "约公元前 1400—前 1250 年",
+      "title": "洹河两岸：洹北商城、小屯与王陵",
+      "summary": "洹北城址、殷墟宫殿区和王陵怎样分布于洹河两岸？",
+      "place": {
+        "label": "洹北商城 · 洹河北岸的中商城址区",
+        "lon": 114.34,
+        "lat": 36.13
+      },
+      "sources": [
+        {
+          "id": "huan-river-layout",
+          "title": "牛世山：从洹北商城到殷墟商邑",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552691.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "huanbei-workshops",
+          "title": "何毓灵：殷墟近十年发掘的收获与思考",
+          "url": "https://www.cssn.cn/lsx/lsx_ttxw/202210/t20221031_5557593.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yinxu-site-map",
+          "title": "世界遗产名录：殷墟构成区坐标",
+          "url": "https://whc.unesco.org/en/list/1114/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yinxu-heritage",
+          "title": "世界遗产名录：殷墟",
+          "url": "https://whc.unesco.org/en/list/1114/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "huanbei-outer-ditch",
+          "title": "洹北商城郭城考古进展",
+          "url": "https://wenwu.hebei.gov.cn/system/2023/08/15/030241782.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地形上对照考古地点",
+          "text": "洹北商城在洹河北岸。殷墟的宫殿宗庙区在小屯一带的南岸，王陵区在北岸西北岗。三处参照点用于读各自的考古格局。",
+          "refs": [
+            {
+              "sourceId": "huan-river-layout",
+              "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+              "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+            },
+            {
+              "sourceId": "huanbei-workshops",
+              "locator": "洹北商城、韩王度发掘及图二",
+              "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+            },
+            {
+              "sourceId": "yinxu-site-map",
+              "locator": "地理数据表 1114-001、1114-002",
+              "note": "宫殿宗庙区及王陵区的地理代表点"
+            },
+            {
+              "sourceId": "yinxu-heritage",
+              "locator": "Brief synthesis 与 Criteria",
+              "note": "殷墟晚商都城约略范围、宫殿宗庙、王陵、甲骨和手工业"
+            },
+            {
+              "sourceId": "huanbei-outer-ditch",
+              "locator": "洹北商城郭城考古发掘取得新发现段，东、西郭城解剖及通道",
+              "note": "部分郭城沟槽解剖后由原先解释的墙基槽改判为城壕，内外空间有通道连接"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-huanbei-shang-city",
+        "title": "洹河两岸：洹北商城、小屯与王陵",
+        "summary": "洹北城址、殷墟宫殿区和王陵怎样分布于洹河两岸？",
+        "places": [
+          {
+            "id": "xiaotun",
+            "name": "小屯宫殿宗庙区",
+            "role": "殷墟南岸的宫殿宗庙与甲骨遗存",
+            "lon": 114.32516,
+            "lat": 36.12198
+          },
+          {
+            "id": "royal-tombs",
+            "name": "西北岗王陵区",
+            "role": "殷墟北岸的王陵区域",
+            "lon": 114.30923,
+            "lat": 36.141975
+          }
+        ],
+        "participants": [
+          {
+            "name": "城址或作坊遗存",
+            "role": "对照各地点的营建与生产活动"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "huan-river-layout",
+            "locator": "第一、二、三节，图示、城市功能分布与末段王世讨论",
+            "note": "洹北商城郭城、宫殿区、殷墟建筑布局及两处中心先后与王世对应争论"
+          },
+          {
+            "sourceId": "huanbei-workshops",
+            "locator": "洹北商城、韩王度发掘及图二",
+            "note": "韩王度的铸铜、制骨、废料区与工具随葬，调查判断经发掘修正"
+          },
+          {
+            "sourceId": "yinxu-site-map",
+            "locator": "地理数据表 1114-001、1114-002",
+            "note": "宫殿宗庙区及王陵区的地理代表点"
+          },
+          {
+            "sourceId": "yinxu-heritage",
+            "locator": "Brief synthesis 与 Criteria",
+            "note": "殷墟晚商都城约略范围、宫殿宗庙、王陵、甲骨和手工业"
+          },
+          {
+            "sourceId": "huanbei-outer-ditch",
+            "locator": "洹北商城郭城考古发掘取得新发现段，东、西郭城解剖及通道",
+            "note": "部分郭城沟槽解剖后由原先解释的墙基槽改判为城壕，内外空间有通道连接"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "地图参照点、原始材料和关联入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
       "id": "bronze",
       "year": -1046,
       "date": "约前1600—前256",
