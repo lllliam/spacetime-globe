@@ -1,0 +1,415 @@
+{
+  "id": "early-china-origins",
+  "title": "早期中国：聚落、古城与国家",
+  "from": -7100,
+  "to": -1500,
+  "dateLabel": "约公元前 7100—前 1500 年",
+  "summary": "从早期村落怎样取得食物开始，沿长江下游、陕北和伊洛盆地观察水利、石城、手工业和地位差异怎样改变聚落。最后回到一个需要分开检验的问题：考古发现能说明二里头怎样运作，现有材料能把它叫作夏都吗？",
+  "editorialNotice": "卷首部分早于地图的可选年份，可在书目中阅读。书内年代采用所引材料的近似区间。",
+  "subjectIds": [
+    "liangzhu-regional-state",
+    "shimao-complex",
+    "erlitou-complex"
+  ],
+  "sources": [
+    {
+      "id": "peiligang-plants",
+      "title": "裴李岗遗址稻黍利用的植硅体研究",
+      "url": "https://www.mdpi.com/2073-4395/13/8/2130",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "dadiwan-diet",
+      "title": "大地湾骨骼稳定同位素与早期粟作研究",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2667055/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liangzhu-decision",
+      "title": "世界遗产委员会第 43 COM 8B.15 号决定",
+      "url": "https://whc.unesco.org/en/decisions/7372/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liangzhu-evaluation",
+      "title": "ICOMOS 良渚古城遗址申报评估",
+      "url": "https://whc.unesco.org/archive/2019/whc19-43com-inf8B1-en.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shimao-terrace-report",
+      "title": "《考古》2017 年第 7 期：陕西神木县石峁城址皇城台地点",
+      "url": "https://lishiwenhua.snnu.edu.cn/__local/A/20/48/184389776D61687E1BC0B14F290_9C77E51C_289D04.pdf?e=.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shimao-survey-review",
+      "title": "《Antiquity》石峁城考古报告三卷书评",
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/excavations-of-the-city-of-shimao-and-its-monuments/AD1050E0DB5579F9DE2835ED5489752A",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "erlitou-layers",
+      "title": "刘莉、许宏《重新思考二里头》",
+      "url": "https://www.researchgate.net/publication/273293121_Rethinking_Erlitou_Legend_History_and_Chinese_Archaeology",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "erlitou-dating",
+      "title": "《Radiocarbon》二里头遗址碳十四断代",
+      "url": "https://www.cambridge.org/core/journals/radiocarbon/article/abs/14c-dating-of-the-erlitou-site/475359D750D8F9AE70E5126CF4744A4C",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "eurasia-crops",
+      "title": "Stevens 等：青铜时代欧亚作物传播",
+      "url": "https://discovery.ucl.ac.uk/1497179/1/Stevens%20et%20al%202016%20Between%20China%20and%20South%20Asia%20-%20a%20middle%20Asian%20corridor.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "ur-royal-game",
+      "title": "大英博物馆馆藏解说：乌尔王陵出土棋盘",
+      "url": "https://artsandculture.google.com/asset/the-royal-game-of-ur/MwE2MMZNSKiTwQ?hl=en",
+      "checkedAt": "2026-11-26"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "early-farming",
+      "from": -7100,
+      "to": -3301,
+      "dateLabel": "约前 7100 年起，新石器时代的村落与食物",
+      "kind": "narrative",
+      "title": "村落怎样开始种田",
+      "summary": "从贾湖、裴李岗和大地湾的材料入手，理解种植怎样进入采集、狩猎与饲养并行的日常生活。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "在谷粒之外找食物",
+          "text": "一碗饭能直接说明今天的人吃了什么。考古学家面对的常是烧焦的籽粒、被丢在坑里的加工残余，或保留食物信号的骨胶原。在淮河上游的贾湖，早期材料中发现了稻，人体同位素也支持以稻所属的一类植物为主的食物来源。它们给出村落饮食的一角，餐桌上的肉、坚果和野生植物仍须从各自的材料追查。",
+          "refs": [
+            {
+              "sourceId": "dadiwan-diet",
+              "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+              "note": "贾湖植物与人体同位素对照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "同一个村落的旱地与湿地",
+          "text": "黄河中游的裴李岗提供了另一个画面。灰坑和堆积里同时留下稻和黍的微体遗存。研究组比较稻作废料、黍作废料及周边湿生植物的信号，推测村民在近处低湿地利用稻，又在排水较好的地块种黍。沉积里还有丰富的野生植物证据，这些食物来源可以长期并用。",
+          "refs": [
+            {
+              "sourceId": "peiligang-plants",
+              "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+              "note": "稻黍残留、湿地植物和食物利用"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "动物也记录人怎样生活",
+          "text": "再往西看渭河上游的大地湾。早段样本中，一部分狗的骨胶原出现较明显的粟类食物信号，研究者据此推测有人给狗喂过与人类采食有关的食物。后来的样本中，粟类在居民和家畜的食物链里留下更突出痕迹。两段材料提示，当栽培逐渐占据重要位置，人喂什么、动物能吃到什么，也会随之改变。",
+          "refs": [
+            {
+              "sourceId": "dadiwan-diet",
+              "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+              "note": "两阶段样本与动物食物链"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从村落进入良渚",
+          "text": "这些村落展示了不同地形和不同家庭选择下的食物组合。到长江下游的良渚，稻作已是支撑区域中心的重要基础。接下来要问的是，村落自己处理的水与收成，怎样变成许多群体共同投入的工程和储备。",
+          "refs": [
+            {
+              "sourceId": "peiligang-plants",
+              "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+              "note": "作物与局部地貌"
+            },
+            {
+              "sourceId": "liangzhu-decision",
+              "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+              "note": "良渚区域中心的稻作基础"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liangzhu-water-and-jade",
+      "from": -3300,
+      "to": -2300,
+      "dateLabel": "约公元前 3300—前 2300 年",
+      "kind": "narrative",
+      "title": "良渚：低地上的城、水与玉",
+      "summary": "从谷口高坝、平原低坝和等级墓地理解长江下游如何形成区域中心。",
+      "spatialThesis": "天目山东麓山谷出水，向东接入河网平原。城市、坝群和墓地的位置保留了居民如何分别利用山口与低地的线索。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "城建在怎样的地方",
+          "text": "在长江下游、环太湖地区的西南缘，良渚人利用天目山东麓的山谷和河网平原。现存遗址中，有夯土筑成的高台、内城、外围台地以及分布其间的古河道。平原有利于种稻，水位变化也会影响耕地和聚落。城址恰处在丘陵与低地相接的地方，观察城的位置，才能理解城外为什么也有大规模的人工遗迹。",
+          "refs": [
+            {
+              "sourceId": "liangzhu-decision",
+              "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+              "note": "区域环境与稻作基础"
+            },
+            {
+              "sourceId": "liangzhu-evaluation",
+              "locator": "印刷页 111–113，Description 与 History and development",
+              "note": "城址构成和古河道"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "出城看两种坝",
+          "text": "往西北的谷口看，人工坝段借助天然山脊围出蓄水空间。靠近平原的一组低坝及山前长堤，沿另一层地形布置。在 ICOMOS 的评估里，谷口高坝与平原设施的营造年代区间有重合，也有先后差异。地图可同时看几类工程的位置。每一处设施如何调水、怎样维护，需要回到各自的剖面和地形理解。",
+          "refs": [
+            {
+              "sourceId": "liangzhu-evaluation",
+              "locator": "印刷页 111–113，Description 与 History and development",
+              "note": "两组坝、长堤、天然山脊及营造层位"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "谁有玉器入葬",
+          "text": "瑶山在城外的高地，发掘发现祭坛和成排墓葬。良渚不同墓地、不同墓葬中，随葬品的数量和组合存在差异，精细玉器集中出现在高等级墓葬。坝群显示有人能够调度跨出单一聚落的工作，墓地则让这种社会差异在死亡之后依然可见。至于谁决定开工、怎样组织，每个遗迹只能回答其中的一部分。",
+          "refs": [
+            {
+              "sourceId": "liangzhu-evaluation",
+              "locator": "印刷页 111–113，Description 与 History and development",
+              "note": "瑶山祭坛与墓地"
+            },
+            {
+              "sourceId": "liangzhu-decision",
+              "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+              "note": "墓葬分层、玉器与组织规模"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "区域中心如何被识别",
+          "text": "遗产评估采用约前 3300—前 2300 年作为良渚主体年代。这个区间包含早期高地活动、城市与工程兴建、以及后期变动。考古材料支持把良渚理解为以稻作为基础的早期区域性国家。它在史料里没有可核对的君主年表，地图能定位城和遗迹，政治边界须另有证据。",
+          "refs": [
+            {
+              "sourceId": "liangzhu-decision",
+              "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+              "note": "早期区域性国家与年代口径"
+            },
+            {
+              "sourceId": "liangzhu-evaluation",
+              "locator": "印刷页 111–113，Description 与 History and development",
+              "note": "不同遗址活动阶段"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "liangzhu-waterworks",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "placeId": "high-dams",
+              "text": "谷口高坝"
+            }
+          ]
+        }
+      ],
+      "contemporaries": [
+        {
+          "id": "ur-contemporary",
+          "book": "mesopotamia-near-east",
+          "chapter": "sumer-akkad-ur",
+          "year": -2500,
+          "label": "同时期 · 两河下游的乌尔",
+          "note": "在良渚古城活动的后期，乌尔王陵也留下了精制器物。",
+          "relation": "contemporary",
+          "display": "约前 2500 年，良渚和两河下游的乌尔都留下可观察社会分层的埋葬材料。两地各自的墓地资料用于对照。",
+          "evidence": [
+            {
+              "sourceId": "liangzhu-decision",
+              "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+              "note": "良渚文化年代与墓葬"
+            },
+            {
+              "sourceId": "ur-royal-game",
+              "locator": "Details，馆藏号 1928,1009.378",
+              "note": "乌尔王陵出土档案及估计年代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "两个地区的考古年代重叠与墓地证据。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "spatialThesisId": "spatial-thesis"
+    },
+    {
+      "id": "shimao-stone-city",
+      "from": -2300,
+      "to": -1800,
+      "dateLabel": "约公元前 2300—前 1800 年",
+      "kind": "narrative",
+      "title": "石峁：黄土高原北缘的石城",
+      "summary": "城墙、皇城台和城门沿山脊展开。将建筑放回沟谷，理解石峁怎样形成与良渚不同的区域中心。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "顺着山脊看城",
+          "text": "石峁坐落在黄河大拐弯以内、今陕北神木一带。发掘图把外围城墙、内城和皇城台放在同一片被沟谷切割的地形上。在这里，城墙沿山脊与陡崖布置，城的轮廓随地势转折。现存石墙提供城市空间的证据，区域内还有其他石筑聚落，单座城的地位要放在周边遗址的分布中理解。",
+          "refs": [
+            {
+              "sourceId": "shimao-terrace-report",
+              "locator": "第 46–48 页，图一、皇城台门址",
+              "note": "图一：内城、外城、皇城台和地形"
+            },
+            {
+              "sourceId": "shimao-survey-review",
+              "locator": "The landscape、The East Gate 及 Scientific analyses",
+              "note": "早期石城范围及利用地形"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "两道门通向不同空间",
+          "text": "外城东门是穿过外壁的入口，发掘显示门道狭窄，并由对向墩台和额外墙体限定进入方式。城内的皇城台是另一处建筑群，石砌护墙逐级内收，包住夯土台体。考古队在台东侧找到通向高台的门道。两处出入口与人的移动有关，二者所在的位置和所通往的空间各有用途。",
+          "refs": [
+            {
+              "sourceId": "shimao-survey-review",
+              "locator": "The landscape、The East Gate 及 Scientific analyses",
+              "note": "东门的建筑与入口"
+            },
+            {
+              "sourceId": "shimao-terrace-report",
+              "locator": "第 46–48 页，图一、皇城台门址",
+              "note": "皇城台门址、护墙与广场"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "城墙里的人靠什么吃饭",
+          "text": "食物研究指向包括粟黍类在内的作物。家猪和狩猎资源也进入居民食物供给。城墙研究从石头和黄土看建筑，食物证据则从谷物和骨骼看日常生活。把它们放在一起，就能追问城周围的居民如何供给这处大聚落，而无需假定城里人人的饮食和地位都相同。",
+          "refs": [
+            {
+              "sourceId": "shimao-survey-review",
+              "locator": "The landscape、The East Gate 及 Scientific analyses",
+              "note": "Scientific analyses 所述植物与动物证据"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从谷粒看远距离移动",
+          "text": "差不多同一大时期，欧亚各地开始出现原本在别处驯化的作物。直接测年的谷粒和其他出土材料显示，小麦由西亚向东扩散，黍从东亚向西传播。中亚与西北多地的材料让这一过程可追踪，具体路线及传播人群仍有待查证。石峁这样的北方聚落因此可以放进更宽广的区域背景中观察，某一座城与远方遗址是否直接往来，须寻找另外的证据。",
+          "refs": [
+            {
+              "sourceId": "eurasia-crops",
+              "locator": "The spread of wheat and barley、图 2–3",
+              "note": "小麦和黍在多个遗址的出土序列及路线限度"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erlitou-evidence-and-xia",
+      "from": -1900,
+      "to": -1500,
+      "dateLabel": "约公元前 1900—前 1500 年（采用所引论文的宽口径）",
+      "kind": "narrative",
+      "title": "二里头：从道路、作坊到夏代问题",
+      "summary": "先读二里头聚落的考古层位，再理解后世王朝叙述如何进入考古讨论。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "沿道路走进伊洛盆地的中心",
+          "text": "二里头遗址在今河南偃师一带。考古人员从各层堆积辨认聚落的早期活动、扩张和随后的变化。较大规模的夯土建筑、成组道路以及墓葬、居住区分布，让研究者能够重画聚落的一部分。后代活动扰动了一些地层，部分建筑和道路的关系仍需靠相邻区域的发掘来判断。",
+          "refs": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "遗址分期、道路、夯土基址和发掘限制"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "作坊说明了什么",
+          "text": "发掘者在大型建筑区南侧附近寻找到了铸铜遗迹和绿松石加工活动的线索。青铜器和镶嵌绿松石的遗物也进入高等级墓葬。在空间上，生产、仪式性器物和高地位人群相距很近，可以由此讨论工艺组织与权力的关系。要把某一作坊称作某个官署的直属机构，还需要制度材料。",
+          "refs": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "铸铜作坊、绿松石材料、墓葬及空间关系"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "可以把它叫作夏都吗",
+          "text": "有一种解释把二里头与后世文献中的夏代联系起来，依据包括区域与年代的大体吻合，以及聚落展现的组织能力。也有研究认为二里头各阶段可能跨过不同的王朝分界，或主张先用考古分期描述遗址。碳十四测年可以约束遗存的年代，哪位君主、哪个政权曾在这里活动，要靠能直接把遗址与名称连起来的证据。",
+          "refs": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "夏、商归属的不同假说"
+            },
+            {
+              "sourceId": "erlitou-dating",
+              "locator": "摘要第 1–3 段",
+              "note": "测年研究摘要中的争议与方法"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "进入商周材料时有什么变化",
+          "text": "从伊洛盆地向东看，早期商文化相关的城市和陶器组合可以与二里头材料并读。二里头后段与二里岗文化的年代关系仍需结合地层和测年，文字里的王朝更替不能直接当作地层界线。下一卷从早商城市和青铜器展开，继续比较不同地点的证据，后来晚商甲骨提供的王名和卜问又带来一种新的观察尺度。",
+          "refs": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "二里头晚段、二里岗叠压及分期讨论"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-shang-archaeology",
+          "book": "shang-zhou",
+          "chapter": "erlitou-shang-bronze",
+          "label": "接读 · 早商城市与青铜器",
+          "relation": "context",
+          "display": "循二里头晚段与二里岗文化的考古分期，进入早商城市和青铜器的材料。",
+          "evidence": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "考古分期及先后和重叠问题"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "跨卷阅读接续及分期范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    }
+  ]
+}

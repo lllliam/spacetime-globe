@@ -22,6 +22,103 @@
   "scope": "以中国 · 前1600—589为范围，选取四个相互联系的历史节点。现代国家与地区仅作为空间入口，不表示当时疆界；地点标记用于定位，不能代替事件的完整分布。各节的理解线索是基于所列资料的解释，不代表只有一种史学观点。",
   "chapters": [
     {
+      "id": "liangzhu-water-landscape",
+      "year": -2850,
+      "date": "约前 3300—前 2300 年的良渚文化背景",
+      "title": "良渚遗址导读：从城址向西看坝群",
+      "summary": "用四个遗产构成区辨认城址、谷地、平原与高地。",
+      "place": {
+        "label": "良渚城址区 · 城内外台地与古河道",
+        "lon": 119.99083,
+        "lat": 30.39555
+      },
+      "sources": [
+        {
+          "id": "liangzhu-evaluation",
+          "title": "ICOMOS 良渚古城遗址申报评估",
+          "url": "https://whc.unesco.org/archive/2019/whc19-43com-inf8B1-en.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liangzhu-maps",
+          "title": "UNESCO 良渚世界遗产构成区坐标",
+          "url": "https://whc.unesco.org/fr/list/1592/cartes/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "先把地形与遗迹对应起来",
+          "text": "先找城址，再向西北辨认谷口高坝区。顺着山前向平原看，低坝和长堤所在的组成区处在不同层次的地形。最后转向城北偏东的瑶山，从高处墓地对照城西的水利工程。四个标点是遗产区参照，适合比较位置，具体坝体、墓葬和古水道还要查考古平面图。",
+          "refs": [
+            {
+              "sourceId": "liangzhu-evaluation",
+              "locator": "印刷页 111–112，Description",
+              "note": "组成区地形、位置和主要工程差异"
+            },
+            {
+              "sourceId": "liangzhu-maps",
+              "locator": "地理数据表 1592-001 至 1592-004",
+              "note": "四个遗产区的坐标对照"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-liangzhu-regional-centre",
+        "title": "良渚水利：从谷口到河网平原",
+        "summary": "良渚城外的高坝、低坝与墓地各在什么地形上？",
+        "places": [
+          {
+            "id": "high-dams",
+            "name": "谷口高坝区",
+            "role": "西北部山脊之间的坝群",
+            "lon": 119.90361,
+            "lat": 30.42028
+          },
+          {
+            "id": "low-dams",
+            "name": "平原低坝与山前长堤区",
+            "role": "接近平原的水利遗存",
+            "lon": 119.94955,
+            "lat": 30.40358
+          },
+          {
+            "id": "yaoshan",
+            "name": "瑶山遗址区",
+            "role": "城外高地上的祭坛和墓地",
+            "lon": 120.01194,
+            "lat": 30.42611
+          }
+        ],
+        "participants": [
+          {
+            "name": "良渚区域社会",
+            "role": "遗址所见史前居民与工程的使用者"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "liangzhu-evaluation",
+            "locator": "印刷页 111–112，Description",
+            "note": "组成区地形、位置和主要工程差异"
+          },
+          {
+            "sourceId": "liangzhu-maps",
+            "locator": "地理数据表 1592-001 至 1592-004",
+            "note": "四个组成区的地图代表点"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址导读和四个组成区的地理范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
       "id": "bronze",
       "year": -1046,
       "date": "约前1600—前256",
@@ -448,5 +545,5 @@
       }
     }
   ],
-  "from": -1600
+  "from": -3300
 }

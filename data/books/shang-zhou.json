@@ -9,31 +9,85 @@
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
       "url": "https://www.metmuseum.org/toah/hd/chem/hd_chem.htm",
       "id": "source-01"
+    },
+    {
+      "id": "erlitou-layers",
+      "title": "刘莉、许宏《重新思考二里头》",
+      "url": "https://www.researchgate.net/publication/273293121_Rethinking_Erlitou_Legend_History_and_Chinese_Archaeology",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "erlitou-dating",
+      "title": "《Radiocarbon》二里头遗址碳十四断代",
+      "url": "https://www.cambridge.org/core/journals/radiocarbon/article/abs/14c-dating-of-the-erlitou-site/475359D750D8F9AE70E5126CF4744A4C",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-yin-foundation",
+      "title": "《史记》卷三《殷本纪》",
+      "url": "https://zh.wikisource.org/zh-hans/%E5%8F%B2%E8%A8%98/%E5%8D%B7003",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yanshi-strata",
+      "title": "Reinhart：偃师商城遗迹中的日常生活与礼仪",
+      "url": "https://tangcenter-columbia.org/wp-content/uploads/2015/12/Rethinking-ritual-Columbia-Early-China-Reinhart.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhengzhou-wall",
+      "title": "安金槐：郑州商城及相关问题",
+      "url": "https://www.cambridge.org/core/journals/early-china/article/2-the-shang-city-at-zhengzhou-and-related-problems/CC79184977EE1B2D6143C9EB03FA9720",
+      "checkedAt": "2026-11-26"
     }
   ],
   "chapters": [
     {
       "id": "erlitou-shang-bronze",
-      "title": "二里头曙光、成汤建商与青铜礼器",
+      "title": "从二里头到早商城市与青铜礼器",
       "from": -1600,
       "to": -1301,
-      "summary": "从伊洛河畔二里头王都到郑州商城，中原王朝掌握了复杂的青铜合范铸造技术，依托黄土农耕与矿料运输网确立起超越部落联盟的广域王权。",
-      "spatialThesis": "夏商王都始终紧贴中原腹地的伊洛河与黄河中下游，一方面坐拥肥沃易垦的黄土粟作粮仓，另一方面恰好扼守通往长江中游铜矿与晋南盐池的战略要冲。",
+      "summary": "二里头遗址为伊洛盆地的早期城市提供了考古材料。接着观察偃师、郑州一带的早商城市、青铜器与礼制。",
+      "spatialThesis": "沿伊洛河与黄河中游观察二里头、偃师商城和郑州商城的不同位置。各处遗迹的营造与使用年代由遗址分期判断。",
       "paragraphs": [
         {
-          "heading": "从满天星斗到中原王都",
-          "text": "距今四千年前后，原本在黄河、长江与辽河流域各自闪耀的良渚、陶寺、石峁等史前古城相继经历气候突变与洪涝震荡。唯有中原腹地伊洛盆地的二里头遗址率先跨过国家门槛：这里出现了中轴对称的大型夯土宫殿、严整的城市道路网、官营绿松石与青铜作坊，成为传说中夏王朝最贴近的考古坐标。",
+          "heading": "从伊洛盆地的二里头说起",
+          "text": "二里头遗址的道路、成组夯土基址、铸铜和绿松石加工遗存，呈现了伊洛盆地一处早期政治中心。有人将它与后世文献中的夏联系起来，二里头遗址各期能否对应夏商分界仍有异议。考古分期可以查验城址和遗物怎样变化，王朝名称是另一个需要证据的问题。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "伊洛盆地的聚落空间、手工业和身份争论"
+            },
+            {
+              "sourceId": "erlitou-dating",
+              "locator": "摘要第 1–3 段",
+              "note": "测年与王朝归属的证据范围"
+            }
           ],
           "id": "p-01"
         },
         {
-          "text": "约公元前 1600 年，原本活跃在黄河下游、擅长畜牧与长途贸易的商部落在成汤与伊尹率领下西进鸣条，推翻夏桀建立商朝。商王并不满足于占据一隅，而是沿着黄河中下游接连筑起偃师商城、郑州商城等巨型夯土城池，把周边数十个方国纳入朝贡体系。",
+          "text": "《史记·殷本纪》叙述成汤与伊尹伐桀，夏桀奔鸣条，汤随后即位。商初的考古材料提供了另一条时间线。约公元前十六世纪，偃师商城已有夯土内墙和大型建筑，后来又增筑城垣。郑州商城的夯土墙内外见到建筑、作坊和窖穴遗迹。研究者可以对照这些遗迹怎样分期，传世叙事中的地名、战争和继位日期还要分别检验。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-yin-foundation",
+              "locator": "成汤节，汤起兵、桀奔鸣条与即位段",
+              "note": "成汤、伊尹与夏桀的后世记载"
+            },
+            {
+              "sourceId": "yanshi-strata",
+              "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+              "note": "偃师商城的年代和分段营建"
+            },
+            {
+              "sourceId": "zhengzhou-wall",
+              "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+              "note": "商城建筑、作坊和遗址识别"
+            }
           ],
-          "id": "p-02"
+          "id": "p-02",
+          "heading": "传世的成汤与发掘的商城"
         },
         {
           "heading": "青铜鼎彝与跨地域矿产走廊",
@@ -86,7 +140,29 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "erlitou-earlier-context",
+          "book": "early-china-origins",
+          "chapter": "erlitou-evidence-and-xia",
+          "label": "回看 · 二里头的分期与夏代问题",
+          "relation": "context",
+          "display": "从考古层位与作坊材料理解二里头怎样运作，再看它与夏代叙述之间仍在讨论的问题。",
+          "evidence": [
+            {
+              "sourceId": "erlitou-layers",
+              "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+              "note": "分期与身份争论"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "前后卷的考古材料接续。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
     },
     {
       "id": "yinxu-oracle-wuding",

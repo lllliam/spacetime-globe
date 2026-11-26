@@ -1,0 +1,2115 @@
+{
+  "id": "02-china-early-origins",
+  "date": "2026-11-26",
+  "base": "92aae1b",
+  "access": [
+    {
+      "url": "https://www.mdpi.com/2073-4395/13/8/2130",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "裴李岗遗址稻黍利用的植硅体研究",
+      "material": "原始植物微体化石分析",
+      "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+      "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+      "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+    },
+    {
+      "url": "https://whc.unesco.org/en/decisions/7372/",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "世界遗产委员会第 43 COM 8B.15 号决定",
+      "material": "名录决定及价值说明",
+      "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+      "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+      "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/antiquity/article/excavations-of-the-city-of-shimao-and-its-monuments/AD1050E0DB5579F9DE2835ED5489752A",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "《Antiquity》石峁城考古报告三卷书评",
+      "material": "考古调查与发掘报告的专业评介",
+      "locator": "The landscape、The East Gate 及 Scientific analyses",
+      "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+      "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+    },
+    {
+      "url": "https://www.researchgate.net/publication/273293121_Rethinking_Erlitou_Legend_History_and_Chinese_Archaeology",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "刘莉、许宏《重新思考二里头》",
+      "material": "参与考古的作者整理遗址分期、遗迹和解释",
+      "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+      "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+      "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2667055/",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "大地湾骨骼稳定同位素与早期粟作研究",
+      "material": "原始骨胶原同位素与碳十四结果",
+      "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+      "supports": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+      "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+    },
+    {
+      "url": "https://whc.unesco.org/archive/2019/whc19-43com-inf8B1-en.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "ICOMOS 良渚古城遗址申报评估",
+      "material": "考古材料与遗产构成评估",
+      "locator": "印刷页 111–113，Description 与 History and development",
+      "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+      "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+    },
+    {
+      "url": "https://lishiwenhua.snnu.edu.cn/__local/A/20/48/184389776D61687E1BC0B14F290_9C77E51C_289D04.pdf?e=.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "《考古》2017 年第 7 期：陕西神木县石峁城址皇城台地点",
+      "material": "考古队的原始发掘简报",
+      "locator": "第 46–48 页，图一、皇城台门址",
+      "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+      "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/radiocarbon/article/abs/14c-dating-of-the-erlitou-site/475359D750D8F9AE70E5126CF4744A4C",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "《Radiocarbon》二里头遗址碳十四断代",
+      "material": "考古队研究摘要",
+      "locator": "摘要第 1–3 段",
+      "supports": "分期依赖样本与测年，王朝归属仍有争论",
+      "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+    },
+    {
+      "url": "https://discovery.ucl.ac.uk/1497179/1/Stevens%20et%20al%202016%20Between%20China%20and%20South%20Asia%20-%20a%20middle%20Asian%20corridor.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "Stevens 等：青铜时代欧亚作物传播",
+      "material": "考古植物数据库的比较研究",
+      "locator": "The spread of wheat and barley、图 2–3",
+      "supports": "西亚作物东传、黍西传及遗址间年代差异",
+      "limit": "少数早期年代存争议；数据支持跨区传播，具体走过哪条路及由谁携带仍需更多证据。"
+    },
+    {
+      "url": "https://artsandculture.google.com/asset/the-royal-game-of-ur/MwE2MMZNSKiTwQ?hl=en",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "大英博物馆馆藏解说：乌尔王陵出土棋盘",
+      "material": "博物馆提供的出土器物档案",
+      "locator": "Details，馆藏号 1928,1009.378",
+      "supports": "乌尔王陵出土位置、制作年代约前 2600—前 2400",
+      "limit": "用于确认两个区域同一时期具备高等级墓葬，未提供其与良渚的接触证据。"
+    },
+    {
+      "url": "https://whc.unesco.org/fr/list/1592/cartes/",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "UNESCO 良渚世界遗产构成区坐标",
+      "material": "世界遗产地理记录",
+      "locator": "地理数据表 1592-001 至 1592-004",
+      "supports": "四个遗产组成区的地图参照坐标",
+      "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+    },
+    {
+      "url": "https://zh.wikisource.org/zh-hans/%E5%8F%B2%E8%A8%98/%E5%8D%B7003",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "《史记》卷三《殷本纪》",
+      "material": "汉代成书的传世叙事",
+      "locator": "成汤节，汤起兵、桀奔鸣条与即位段",
+      "supports": "后世关于汤、伊尹、夏桀及鸣条的王朝更替叙事",
+      "limit": "与所述时代相隔久远，不能单独确证征伐日期、方向和遗址身份。"
+    },
+    {
+      "url": "https://tangcenter-columbia.org/wp-content/uploads/2015/12/Rethinking-ritual-Columbia-Early-China-Reinhart.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "Reinhart：偃师商城遗迹中的日常生活与礼仪",
+      "material": "考古资料分析",
+      "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+      "supports": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+      "limit": "采用发掘与测年的阶段约数。早商政治身份和都城名称另需证据。"
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/early-china/article/2-the-shang-city-at-zhengzhou-and-related-problems/CC79184977EE1B2D6143C9EB03FA9720",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "安金槐：郑州商城及相关问题",
+      "material": "早期发掘者报告摘要",
+      "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+      "supports": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+      "limit": "所用为发掘摘要，阶段关系不能单独对应到某位古代君主。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book/early-china-origins",
+      "before": null,
+      "after": "23ebf58e14077ec580499ff796accd7bd7e798450bf0bbab6379f0b915ac2100",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "史前书卷的叙事入口、年代范围和证据口径。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/early-china-origins/title",
+      "before": null,
+      "after": "53542f082bb193e5a650a011460432651a3bf910c28f433badb8fbe96ce92eea",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "史前书卷的叙事入口、年代范围和证据口径。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/early-china-origins/summary",
+      "before": null,
+      "after": "890d3b72936c9568b3e02278fbd44a671454a58060463234a30858c28ea57792",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "史前书卷的叙事入口、年代范围和证据口径。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/early-china-origins/dateLabel",
+      "before": null,
+      "after": "fea9b85e52ee2c50878b5a3948c98745095ae7776db94159f2a1738a3ecf8930",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "史前书卷的叙事入口、年代范围和证据口径。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/early-china-origins/editorialNotice",
+      "before": null,
+      "after": "f5ad6ee007334b1f6b17f999c1884a3577c76f412ad53842b53ad973bab191c5",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "史前书卷的叙事入口、年代范围和证据口径。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-chapter/early-china-origins/early-farming",
+      "before": null,
+      "after": "e44fa389126d3c6091feb01402b26e5d699bf3aa73f9c2d79b988f05c0818041",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "result": "supported",
+          "supports": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/early-farming/title",
+      "before": null,
+      "after": "4d13ed09a6a3bede06c4a3fd346c2a3546aa9c5b483d3c030a19593293b951ae",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "result": "supported",
+          "supports": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/early-farming/summary",
+      "before": null,
+      "after": "f4a6bcc1a615c1b82ccea0fa8421e57b200e18bf6290ef8d0156c5242991d012",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "result": "supported",
+          "supports": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/early-farming/dateLabel",
+      "before": null,
+      "after": "db691e42ca499b93fca66a7c4367ae0969f827996b242c0ec4d085e7e485c62a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "result": "supported",
+          "supports": "稻、黍和少量粟线索，湿地和旱地条件及加工残留差异",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "result": "supported",
+          "supports": "大地湾不同时段人、狗等的饮食信号，贾湖与兴隆洼的对照",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/early-farming/p-01",
+      "before": null,
+      "after": "6fa617aa1fb9b593cdb5b3776a5fba3a62ed07da12e59ab4694605ac2aa0f1f6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "贾湖植物与人体同位素对照",
+          "result": "supported",
+          "supports": "贾湖植物与人体同位素对照",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/early-farming/p-02",
+      "before": null,
+      "after": "5b12f90f3eb0a1c5ca8d84e499123a950b040157b7dfbaab1cdd9b91cad817a1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "稻黍残留、湿地植物和食物利用",
+          "result": "supported",
+          "supports": "稻黍残留、湿地植物和食物利用",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/early-farming/p-03",
+      "before": null,
+      "after": "0b5741734c5dbc996154f6dcc700e2e77c141802376ce176f18323fd674b036a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/dadiwan-diet",
+          "locator": "正文 Phase 1、Phase 2、图 2 及与贾湖的比较",
+          "statement": "两阶段样本与动物食物链",
+          "result": "supported",
+          "supports": "两阶段样本与动物食物链",
+          "limit": "同位素指向食物链，单独不足以确定作物种类、驯化起点或所有居民饮食。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/early-farming/p-04",
+      "before": null,
+      "after": "d6801b1a6e3c6b00c0c4ebf9b74f2cd15f8f56230666122a81edcdf42b85ffb6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/peiligang-plants",
+          "locator": "第 4 节结果、第 5.1–5.3 节与图 5",
+          "statement": "作物与局部地貌",
+          "result": "supported",
+          "supports": "作物与局部地貌",
+          "limit": "植硅体数量受物种产量、保存与弃置影响，不能换算为饮食比例。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚区域中心的稻作基础",
+          "result": "supported",
+          "supports": "良渚区域中心的稻作基础",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        }
+      ]
+    },
+    {
+      "id": "book-chapter/early-china-origins/liangzhu-water-and-jade",
+      "before": null,
+      "after": "e573fe902da1222de86e963bc151dc4131f28fae14c0325a427fa1c7128a3ae7",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/liangzhu-water-and-jade/title",
+      "before": null,
+      "after": "5fcb62de4c56ee71c91db77a8a052d6d6fb55f8684be6c4a9b18112a914daf8c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/liangzhu-water-and-jade/summary",
+      "before": null,
+      "after": "071511a565135ffc087b31c550e7dbd1e5e3dbb3b28eea8419dbb585591e2716",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/liangzhu-water-and-jade/dateLabel",
+      "before": null,
+      "after": "0bb9c494dc93ed8d44d0ebf7944497a5986385fce8186095bbe77de6c2c3f2ee",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/liangzhu-water-and-jade/spatialThesis",
+      "before": null,
+      "after": "63580b8107d19d82d7045223af7161d59943b6a0fb59f86b6d9ddc98d219e503",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/liangzhu-water-and-jade/p-01",
+      "before": null,
+      "after": "9380b4502483c60063f3b61f3511795b1c397e55c61060cd7290e3e8e774eba9",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "区域环境与稻作基础",
+          "result": "supported",
+          "supports": "区域环境与稻作基础",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "城址构成和古河道",
+          "result": "supported",
+          "supports": "城址构成和古河道",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/liangzhu-water-and-jade/p-02",
+      "before": null,
+      "after": "a879cc6d9ec342010d72ae27a1e2a68c0491555ca3530c1cdf804a6901375739",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "两组坝、长堤、天然山脊及营造层位",
+          "result": "supported",
+          "supports": "两组坝、长堤、天然山脊及营造层位",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/liangzhu-water-and-jade/p-03",
+      "before": null,
+      "after": "e649d9d8b90b93deb618211244432742f9e160db074fa89ed16146b138313b4e",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山祭坛与墓地",
+          "result": "supported",
+          "supports": "瑶山祭坛与墓地",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "墓葬分层、玉器与组织规模",
+          "result": "supported",
+          "supports": "墓葬分层、玉器与组织规模",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/liangzhu-water-and-jade/p-04",
+      "before": null,
+      "after": "341523880930641727a7a0d02e9bd915727894dafe5081cb22ea8f26558b05da",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "交叉核对遗产委员会决定与 ICOMOS 评估。文化背景约前 3300—前 2300，政治范围与单项工程使用期分别处理。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "早期区域性国家与年代口径",
+          "result": "supported",
+          "supports": "早期区域性国家与年代口径",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "不同遗址活动阶段",
+          "result": "supported",
+          "supports": "不同遗址活动阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "交叉核对遗产委员会决定与 ICOMOS 评估。文化背景约前 3300—前 2300，政治范围与单项工程使用期分别处理。"
+      }
+    },
+    {
+      "id": "scene-ref/early-china-origins/liangzhu-water-and-jade/liangzhu-waterworks",
+      "before": null,
+      "after": "8913e6d0570258686f643b85c5021d3b3c624df86b83abd0b08f37c43d8fd2a8",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "正文与谷口高坝区的空间入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "place-link/early-china-origins/liangzhu-water-and-jade/liangzhu-waterworks/p-02/high-dams",
+      "before": null,
+      "after": "a96c88ed1adb0ec052f84335d7ca3ee34ff2df50f813cf14b9f17addb472b133",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "正文与谷口高坝区的空间入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/early-china-origins/liangzhu-water-and-jade/ur-contemporary",
+      "before": null,
+      "after": "31bbb2b6513a7c6cfa6a8fceb3e83f61914a99c402b148e80cea49a64bc74237",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚文化年代与墓葬",
+          "result": "supported",
+          "supports": "良渚文化年代与墓葬",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/book/early-china-origins/ur-royal-game",
+          "locator": "Details，馆藏号 1928,1009.378",
+          "statement": "乌尔王陵出土档案及估计年代",
+          "result": "supported",
+          "supports": "乌尔王陵出土档案及估计年代",
+          "limit": "用于确认两个区域同一时期具备高等级墓葬，未提供其与良渚的接触证据。"
+        }
+      ]
+    },
+    {
+      "id": "book-chapter/early-china-origins/shimao-stone-city",
+      "before": null,
+      "after": "fc807b5f8c85079c70f10ee00e866b36f5ef2c31f3731ff9004ada47b34ee42a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/shimao-stone-city/title",
+      "before": null,
+      "after": "a0225f560ccf438183e98c012d52409cbc9c02d5aeaea7219ca13e4e047246bf",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/shimao-stone-city/summary",
+      "before": null,
+      "after": "963cbc5134d5ab46b1707a421812f0ab81a3e2aee334d6c1a3191bdf7d76b575",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/shimao-stone-city/dateLabel",
+      "before": null,
+      "after": "0ba0f9a81be3d9bebdfb5101b3d1d92dd83549a4e6db1e74a060ffd67df0627a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/shimao-stone-city/p-01",
+      "before": null,
+      "after": "6f4150d0481e3bf4f93af2c8d604ae992d32a4975f1a02b6854862d8497673c4",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "图一：内城、外城、皇城台和地形",
+          "result": "supported",
+          "supports": "图一：内城、外城、皇城台和地形",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "早期石城范围及利用地形",
+          "result": "supported",
+          "supports": "早期石城范围及利用地形",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/shimao-stone-city/p-02",
+      "before": null,
+      "after": "deb6f357f5cb840b6a6eede4f8aee110677ffc12823e32351f91b38a6f839d0c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "东门的建筑与入口",
+          "result": "supported",
+          "supports": "东门的建筑与入口",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/book/early-china-origins/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台门址、护墙与广场",
+          "result": "supported",
+          "supports": "皇城台门址、护墙与广场",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/shimao-stone-city/p-03",
+      "before": null,
+      "after": "3cfc0a9ca42355f352dd57e6880a76dcdd296da728165354b7a6cc65dfa4dc2b",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "Scientific analyses 所述植物与动物证据",
+          "result": "supported",
+          "supports": "Scientific analyses 所述植物与动物证据",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/shimao-stone-city/p-04",
+      "before": null,
+      "after": "bb2db83a5bf3f6938c7c2230f24b46912ad1a38e458436d0e94881af30f4c3c7",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "回看 Stevens 等原始数据库分析的图 2–3 和直接测年讨论，保留作物传播及多个可能路段，未据此断定石峁直接接触。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/eurasia-crops",
+          "locator": "The spread of wheat and barley、图 2–3",
+          "statement": "小麦和黍在多个遗址的出土序列及路线限度",
+          "result": "supported",
+          "supports": "小麦和黍在多个遗址的出土序列及路线限度",
+          "limit": "少数早期年代存争议；数据支持跨区传播，具体走过哪条路及由谁携带仍需更多证据。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "回看 Stevens 等原始数据库分析的图 2–3 和直接测年讨论，保留作物传播及多个可能路段，未据此断定石峁直接接触。"
+      }
+    },
+    {
+      "id": "book-chapter/early-china-origins/erlitou-evidence-and-xia",
+      "before": null,
+      "after": "31aaf338bf476d249c06138e3065b291b31a492f3ab3602358a2436b0fa6b386",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/erlitou-evidence-and-xia/title",
+      "before": null,
+      "after": "78ce67b5f77f512d9f7f1160ebdc2d565f6b74140e6bffca1e76409136d833f2",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/erlitou-evidence-and-xia/summary",
+      "before": null,
+      "after": "4a2c38691bdc52fbc907c5c9d0f5419100e7dc15fc949a56f47e90402c993673",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/erlitou-evidence-and-xia/dateLabel",
+      "before": null,
+      "after": "54d1f5d061f31be034d48e34fd9dbd5e8cac877592beb748ff7de0f58fbbcece",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/erlitou-evidence-and-xia/p-01",
+      "before": null,
+      "after": "b0dcdafe5e67b73391f33edf4bb0534f54d4ac242f42b20526fe145fe3f78ad1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "遗址分期、道路、夯土基址和发掘限制",
+          "result": "supported",
+          "supports": "遗址分期、道路、夯土基址和发掘限制",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/erlitou-evidence-and-xia/p-02",
+      "before": null,
+      "after": "85e1d69b422f310084cb19814e24d666045c26813a4f1552eed76fea12b915ef",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "铸铜作坊、绿松石材料、墓葬及空间关系",
+          "result": "supported",
+          "supports": "铸铜作坊、绿松石材料、墓葬及空间关系",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/erlitou-evidence-and-xia/p-03",
+      "before": null,
+      "after": "5a88a717666d534ea463981ce2d6cb79f168f29395b2a3018b77744e50f2bc81",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "对照刘莉、许宏的发掘分期及 Radiocarbon 研究摘要。核定测年约束遗存年代，夏商归属仍需独立证据。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "夏、商归属的不同假说",
+          "result": "supported",
+          "supports": "夏、商归属的不同假说",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "测年研究摘要中的争议与方法",
+          "result": "supported",
+          "supports": "测年研究摘要中的争议与方法",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "对照刘莉、许宏的发掘分期及 Radiocarbon 研究摘要。核定测年约束遗存年代，夏商归属仍需独立证据。"
+      }
+    },
+    {
+      "id": "book-paragraph/early-china-origins/erlitou-evidence-and-xia/p-04",
+      "before": null,
+      "after": "536a44f7ad4920e56c49301ed07fa6a97037610d1c3fbf957ca78f0e00160bbc",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "二里头晚段、二里岗叠压及分期讨论",
+          "result": "supported",
+          "supports": "二里头晚段、二里岗叠压及分期讨论",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/early-china-origins/erlitou-evidence-and-xia/toward-shang-archaeology",
+      "before": null,
+      "after": "c0f74dae4e01aa194f1e15363b20c58a520d6fbb38418816e40c0093e0a96a4b",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本章的考古年代、地理背景和所引材料覆盖的论断。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "考古分期及先后和重叠问题",
+          "result": "supported",
+          "supports": "考古分期及先后和重叠问题",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/shang-zhou/erlitou-shang-bronze/title",
+      "before": "e12589a4561795dea26d4c6c7b656dc14d2c8205d2a92952d71f56358ccdbeb5",
+      "after": "c347b2bd174fbc1d1f2189f112d393af6494afc5ab5137c71f244e412c82bbb6",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "根据材料修订范围及进入路径。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/shang-zhou/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        },
+        {
+          "source": "source/book/shang-zhou/yanshi-strata",
+          "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+          "statement": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "result": "supported",
+          "supports": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "limit": "采用发掘与测年的阶段约数。早商政治身份和都城名称另需证据。"
+        },
+        {
+          "source": "source/book/shang-zhou/zhengzhou-wall",
+          "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+          "statement": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "result": "supported",
+          "supports": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "limit": "所用为发掘摘要，阶段关系不能单独对应到某位古代君主。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/shang-zhou/erlitou-shang-bronze/summary",
+      "before": "dd49dccf1d8610320768a85a73dd8400d1bb38b1eee1ce403af4bc4da5b02ffb",
+      "after": "897d22dc4fc1bab526759d8506b032e63ef43c5a521d062f41f4a4ce8d5ef8a7",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "根据材料修订范围及进入路径。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/shang-zhou/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        },
+        {
+          "source": "source/book/shang-zhou/yanshi-strata",
+          "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+          "statement": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "result": "supported",
+          "supports": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "limit": "采用发掘与测年的阶段约数。早商政治身份和都城名称另需证据。"
+        },
+        {
+          "source": "source/book/shang-zhou/zhengzhou-wall",
+          "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+          "statement": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "result": "supported",
+          "supports": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "limit": "所用为发掘摘要，阶段关系不能单独对应到某位古代君主。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/shang-zhou/erlitou-shang-bronze/spatialThesis",
+      "before": "7ba8ee3054f4014d024d192d57e526de1108d4ed72e0f048228b8bde80279cb7",
+      "after": "4897b82174c3dec6431f7079f2924be8ca9d6e577be810fcfe90b896d49f950e",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "根据材料修订范围及进入路径。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/shang-zhou/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        },
+        {
+          "source": "source/book/shang-zhou/yanshi-strata",
+          "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+          "statement": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "result": "supported",
+          "supports": "偃师商城的近似分期、分期营建的城墙、宫殿区、仓储和工匠区域",
+          "limit": "采用发掘与测年的阶段约数。早商政治身份和都城名称另需证据。"
+        },
+        {
+          "source": "source/book/shang-zhou/zhengzhou-wall",
+          "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+          "statement": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "result": "supported",
+          "supports": "郑州商城夯土城墙、建筑与生产活动。发掘者保留对古都名称的疑问。",
+          "limit": "所用为发掘摘要，阶段关系不能单独对应到某位古代君主。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/shang-zhou/erlitou-shang-bronze/p-01",
+      "before": "cf0c64a5233a4881f547289cccce82bb3728948d6b0b3f512bdd0b7949e4ef8c",
+      "after": "dffba9d989e4a909b4bb99fff2e43b6c82b03c0d6be989a356d4f35655ec1cc4",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "对照《重新思考二里头》各期层位及碳十四研究摘要。删除共享气候突变成因、唯一最早国家和官营作坊断言。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地的聚落空间、手工业和身份争论",
+          "result": "supported",
+          "supports": "伊洛盆地的聚落空间、手工业和身份争论",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/book/shang-zhou/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "测年与王朝归属的证据范围",
+          "result": "supported",
+          "supports": "测年与王朝归属的证据范围",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "对照《重新思考二里头》各期层位及碳十四研究摘要。删除共享气候突变成因、唯一最早国家和官营作坊断言。"
+      }
+    },
+    {
+      "id": "book-paragraph/shang-zhou/erlitou-shang-bronze/p-02",
+      "before": "506852a84cc73b6128bd287a53c766ff3b6eb7f07396e6e1a38cf4240d2ce676",
+      "after": "553c72653625a486299b09f7db8d7a0322aa957d63374b7f84dae7b60a5110a4",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "重新核对《殷本纪》成汤段、偃师商代遗址考古论文和郑州商城发掘摘要。将后世记述与考古年代分开，撤去远征方向和方国数量。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/shiji-yin-foundation",
+          "locator": "成汤节，汤起兵、桀奔鸣条与即位段",
+          "statement": "成汤、伊尹与夏桀的后世记载",
+          "result": "supported",
+          "supports": "成汤、伊尹与夏桀的后世记载",
+          "limit": "与所述时代相隔久远，不能单独确证征伐日期、方向和遗址身份。"
+        },
+        {
+          "source": "source/book/shang-zhou/yanshi-strata",
+          "locator": "第 2–3 页，Ritual and daily life at Yanshi Shangcheng",
+          "statement": "偃师商城的年代和分段营建",
+          "result": "supported",
+          "supports": "偃师商城的年代和分段营建",
+          "limit": "采用发掘与测年的阶段约数。早商政治身份和都城名称另需证据。"
+        },
+        {
+          "source": "source/book/shang-zhou/zhengzhou-wall",
+          "locator": "摘要，城墙、层位、陶器变化和城内外出土遗迹",
+          "statement": "商城建筑、作坊和遗址识别",
+          "result": "supported",
+          "supports": "商城建筑、作坊和遗址识别",
+          "limit": "所用为发掘摘要，阶段关系不能单独对应到某位古代君主。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "重新核对《殷本纪》成汤段、偃师商代遗址考古论文和郑州商城发掘摘要。将后世记述与考古年代分开，撤去远征方向和方国数量。"
+      }
+    },
+    {
+      "id": "relation/book/shang-zhou/erlitou-shang-bronze/erlitou-earlier-context",
+      "before": null,
+      "after": "36f07bed9b3e961b7ca1f678b189e4433edd9f014a11ea624b84f4c738434ab6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "商周卷首的二里头考古、早商城市，以及后世记述的证据界限。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/book/shang-zhou/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "分期与身份争论",
+          "result": "supported",
+          "supports": "分期与身份争论",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        }
+      ]
+    },
+    {
+      "id": "topic/china-early",
+      "before": "ae928a6bfaec4f74de312107c56246d235bf32d90be48a7d0cc51d9eec2a4e19",
+      "after": "fc69216db2f4075dd8fb97a6918724992e98b8a5f5e2347a645a213e7683d8d2",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "根据材料修订范围及进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "article/china-early/liangzhu-water-landscape",
+      "before": null,
+      "after": "24eaca7610a6113f68e42feecf6823346120f5efabe2b3b081e4399ad0ba3aa8",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "text/topic/china-early/liangzhu-water-landscape/title",
+      "before": null,
+      "after": "6c7fb62f102bc07c9ef96e4a5385a3c7cdb5fc9951545ff189d64bb99c1e746c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "text/topic/china-early/liangzhu-water-landscape/summary",
+      "before": null,
+      "after": "33ea94703c1d034b3f31da743e722733c66d36f6c586a05cf7b5ae5661fe613d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产组成区的地图参照坐标",
+          "result": "supported",
+          "supports": "四个遗产组成区的地图参照坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "block/topic/china-early/liangzhu-water-landscape/read-the-landscape",
+      "before": null,
+      "after": "57090b2bcea2f47c151e010ad88945e021a3fa68fdee1a454eb0b0298752b4a3",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–112，Description",
+          "statement": "组成区地形、位置和主要工程差异",
+          "result": "supported",
+          "supports": "组成区地形、位置和主要工程差异",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个遗产区的坐标对照",
+          "result": "supported",
+          "supports": "四个遗产区的坐标对照",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "event-map/topic/china-early/liangzhu-water-landscape",
+      "before": null,
+      "after": "d2f2ca15c935c958e4945af8c1bd4b01edf7511004441603512cff499fb276ed",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "良渚遗址导读、组成区的不同空间用途与地图入口。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-evaluation",
+          "locator": "印刷页 111–112，Description",
+          "statement": "组成区地形、位置和主要工程差异",
+          "result": "supported",
+          "supports": "组成区地形、位置和主要工程差异",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/topic/china-early/liangzhu-water-landscape/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个组成区的地图代表点",
+          "result": "supported",
+          "supports": "四个组成区的地图代表点",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "scene/liangzhu-waterworks",
+      "before": null,
+      "after": "a9c51a1e2a3435a673557162a9a960fcff736d080b58178185a8f889db5b07c9",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "四个遗产区的相对地形、组件定位、近似背景与观察精度。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-evaluation",
+          "locator": "印刷页 111–112，Description",
+          "statement": "组成区地形、位置和主要工程差异",
+          "result": "supported",
+          "supports": "组成区地形、位置和主要工程差异",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "statement": "四个组成区地图参照",
+          "result": "supported",
+          "supports": "四个组成区地图参照",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-liangzhu-regional-centre/title",
+      "before": null,
+      "after": "9fb03aa14716418ff3525cb9f9b6e155c21291f221bf8953533933938b80c503",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-liangzhu-regional-centre/summary",
+      "before": null,
+      "after": "b095ba0ccae126bc3d64394e1cc3b22a117d2509c895d547a18c6a0d95eff248",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-liangzhu-regional-centre/date",
+      "before": null,
+      "after": "0bb9c494dc93ed8d44d0ebf7944497a5986385fce8186095bbe77de6c2c3f2ee",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-cn-liangzhu-regional-centre/p-01",
+      "before": null,
+      "after": "75f7fcfc58579ca1e22fee25f7feeb837e9fdb95c225064829a6fa3096641c9f",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚的区域背景及约数年代",
+          "result": "supported",
+          "supports": "良渚的区域背景及约数年代",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "水利与墓地的分期",
+          "result": "supported",
+          "supports": "水利与墓地的分期",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-shimao-stone-city/title",
+      "before": null,
+      "after": "19af332e82ef231d6538e95741fdcb4e50a591714403d6dacd8a063f2e837e5c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-shimao-stone-city/summary",
+      "before": null,
+      "after": "023424c62cc1a82195ab3c0f07075c95ae32be7aea4ca79a1d5ad71aaaab55e0",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-cn-shimao-stone-city/date",
+      "before": null,
+      "after": "0ba0f9a81be3d9bebdfb5101b3d1d92dd83549a4e6db1e74a060ffd67df0627a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-cn-shimao-stone-city/p-01",
+      "before": null,
+      "after": "f703e97787ff189b93a84114976872d7fbbe1d38edccd18f3c7f58a1ba7e06b0",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛年代和遗址概况",
+          "result": "supported",
+          "supports": "石峁兴盛年代和遗址概况",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台地点、分层与门道",
+          "result": "supported",
+          "supports": "皇城台地点、分层与门道",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-cn-liangzhu-regional-centre",
+      "before": null,
+      "after": "f529df3490d4956d01f6cda8facc06bbfd2cb95c3ed22f2d5635b9366e575ebf",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-cn-shimao-stone-city",
+      "before": null,
+      "after": "3a21d64f59be3106e14eb17c83f7a73e381a50820cb84468a708a6fe25285884",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "subject/liangzhu-regional-state",
+      "before": null,
+      "after": "01175c0499926823042734e1bd5b6caca644ae773ea6bcfc98bd1c2bba17b29d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "主体类型、材料覆盖的年代及考古地理范围。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/subject/liangzhu-regional-state/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/subject/liangzhu-regional-state/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        }
+      ]
+    },
+    {
+      "id": "subject/shimao-complex",
+      "before": null,
+      "after": "d3eaf8ff1d62b7bd099e3179042ac8082335235078b99d807edccc2bab80c00d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "主体类型、材料覆盖的年代及考古地理范围。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/subject/shimao-complex/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/subject/shimao-complex/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    },
+    {
+      "id": "subject/erlitou-complex",
+      "before": null,
+      "after": "c9f3ba6992256874c48e0df62366e19bea19595af32f3fd3a677648256529cf6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "主体类型、材料覆盖的年代及考古地理范围。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/subject/erlitou-complex/erlitou-layers",
+          "locator": "《Antiquity》81 卷，第 886–895 页，图 1–4",
+          "statement": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "result": "supported",
+          "supports": "伊洛盆地遗址、道路、夯土建筑、手工业遗存、墓葬及归属争议",
+          "limit": "采用论文分期的约数，不作某王在位纪年。宫殿区、作坊位置和遗物可以复查，制度名称是解释。"
+        },
+        {
+          "source": "source/subject/erlitou-complex/erlitou-dating",
+          "locator": "摘要第 1–3 段",
+          "statement": "分期依赖样本与测年，王朝归属仍有争论",
+          "result": "supported",
+          "supports": "分期依赖样本与测年，王朝归属仍有争论",
+          "limit": "公开摘要支持测年方法和争议背景，不能单凭摘要给出更窄的分期年份。"
+        }
+      ]
+    },
+    {
+      "id": "world-entry/i-cn-liangzhu-regional-centre",
+      "before": null,
+      "after": "d5ef83a4f124e9ffc80d60083f140393fbdf824a08bf5f984f07171e3838c21e",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-decision",
+          "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+          "statement": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "result": "supported",
+          "supports": "良渚约前 3300—前 2300 年的文化背景，稻作、分层墓地和区域中心",
+          "limit": "遗产价值判断不提供政权边界、城市人口或单项工程建成年。"
+        },
+        {
+          "source": "source/timeline/i-cn-liangzhu-regional-centre/liangzhu-evaluation",
+          "locator": "印刷页 111–113，Description 与 History and development",
+          "statement": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "result": "supported",
+          "supports": "瑶山、谷口高坝、低坝与塘山长堤、城址的地形关系及阶段",
+          "limit": "年代是考古估计。世界遗产区范围和组件面积用于理解遗迹，不是史前行政区。"
+        },
+        {
+          "source": "source/scene/liangzhu-waterworks/liangzhu-maps",
+          "locator": "1592-004",
+          "statement": "良渚城址区代表坐标",
+          "result": "supported",
+          "supports": "良渚城址区代表坐标",
+          "limit": "每点代表一个遗产区，不能当作某座坝、墓或城门的精确点位。"
+        }
+      ]
+    },
+    {
+      "id": "world-entry/i-cn-shimao-stone-city",
+      "before": null,
+      "after": "d728309fd819b310bd0e2e1b0f327bca5c6dc6865018e21f5be033cd93c21d28",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "考古时间区间内的年份背景及书卷入口，良渚依遗产区代表位置定位。",
+      "disposition": "新增所引材料可支持的正文、身份或进入路径。",
+      "claims": [
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-survey-review",
+          "locator": "The landscape、The East Gate 及 Scientific analyses",
+          "statement": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "result": "supported",
+          "supports": "石峁兴盛时期、山脊城垣、东门结构与食物材料",
+          "limit": "东门具体用途和远距离传播假说需独立证据，衰落原因不能由一项工程推出。"
+        },
+        {
+          "source": "source/timeline/i-cn-shimao-stone-city/shimao-terrace-report",
+          "locator": "第 46–48 页，图一、皇城台门址",
+          "statement": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "result": "supported",
+          "supports": "皇城台临崖、护墙内收、与内外城及高家堡镇的相对位置",
+          "limit": "发掘限于部分区段。台名为近现代地名，无同时代王号可校验。"
+        }
+      ]
+    }
+  ]
+}

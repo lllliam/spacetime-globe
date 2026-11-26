@@ -218,5 +218,95 @@
       "scope": "前 539 年入城次序及城址参照。圆柱用于说明新王的自述。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-liangzhu-regional-centre": {
+    "title": "良渚古城与区域社会",
+    "date": "约公元前 3300—前 2300 年",
+    "start": -3300,
+    "end": -2300,
+    "context": true,
+    "summary": "环太湖地区的良渚，以稻作为经济基础，在丘陵与河网平原之间形成城址、坝群和分层墓地。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "所列区间用于辨认良渚文化与区域中心的背景。谷口高坝、平原低坝、长堤和各处墓地的营造及使用有各自的分期。",
+        "refs": [
+          {
+            "sourceId": "liangzhu-decision",
+            "locator": "第 3 项，Brief synthesis、标准 (iii) 与 (iv)",
+            "note": "良渚的区域背景及约数年代"
+          },
+          {
+            "sourceId": "liangzhu-evaluation",
+            "locator": "印刷页 111–113，Description 与 History and development",
+            "note": "水利与墓地的分期"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "liangzhu-decision",
+        "title": "世界遗产委员会第 43 COM 8B.15 号决定",
+        "url": "https://whc.unesco.org/en/decisions/7372/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "liangzhu-evaluation",
+        "title": "ICOMOS 良渚古城遗址申报评估",
+        "url": "https://whc.unesco.org/archive/2019/whc19-43com-inf8B1-en.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "良渚考古年代、地区背景与设施分期。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-shimao-stone-city": {
+    "title": "陕北石峁与石筑聚落",
+    "date": "约公元前 2300—前 1800 年",
+    "start": -2300,
+    "end": -1800,
+    "context": true,
+    "summary": "黄河大拐弯以内，石峁城沿山脊和陡崖展开，皇城台、内城、外城与周边聚落各有空间角色。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这一范围采用石峁城的主要兴盛期。皇城台发掘揭示了城内高台、护墙和独立门道的布局，相关城垣和建筑应按各自层位判断。",
+        "refs": [
+          {
+            "sourceId": "shimao-survey-review",
+            "locator": "The landscape、The East Gate 及 Scientific analyses",
+            "note": "石峁兴盛年代和遗址概况"
+          },
+          {
+            "sourceId": "shimao-terrace-report",
+            "locator": "第 46–48 页，图一、皇城台门址",
+            "note": "皇城台地点、分层与门道"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shimao-survey-review",
+        "title": "《Antiquity》石峁城考古报告三卷书评",
+        "url": "https://www.cambridge.org/core/journals/antiquity/article/excavations-of-the-city-of-shimao-and-its-monuments/AD1050E0DB5579F9DE2835ED5489752A",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shimao-terrace-report",
+        "title": "《考古》2017 年第 7 期：陕西神木县石峁城址皇城台地点",
+        "url": "https://lishiwenhua.snnu.edu.cn/__local/A/20/48/184389776D61687E1BC0B14F290_9C77E51C_289D04.pdf?e=.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "石峁兴盛期与皇城台考古材料。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

@@ -2,6 +2,111 @@
   "version": 1,
   "subjects": [
     {
+      "id": "liangzhu-regional-state",
+      "type": "polity",
+      "name": "良渚区域性国家",
+      "aliases": [
+        "良渚古城",
+        "良渚文化"
+      ],
+      "range": {
+        "from": -3300,
+        "to": -2300,
+        "approximate": true,
+        "dateLabel": "约公元前 3300—前 2300 年"
+      },
+      "scope": "长江下游环太湖区域的早期区域性国家，以良渚古城为中心。政治范围由遗址材料讨论。",
+      "sources": [
+        {
+          "id": "liangzhu-decision",
+          "title": "世界遗产委员会第 43 COM 8B.15 号决定",
+          "url": "https://whc.unesco.org/en/decisions/7372/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liangzhu-evaluation",
+          "title": "ICOMOS 良渚古城遗址申报评估",
+          "url": "https://whc.unesco.org/archive/2019/whc19-43com-inf8B1-en.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体性质、近似年代和可辨认的遗迹范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "shimao-complex",
+      "type": "civilization",
+      "name": "石峁聚落群",
+      "aliases": [
+        "石峁古城",
+        "皇城台"
+      ],
+      "range": {
+        "from": -2300,
+        "to": -1800,
+        "approximate": true,
+        "dateLabel": "约公元前 2300—前 1800 年"
+      },
+      "scope": "以陕北石峁石城为重要中心的考古聚落群。前 2300—前 1800 年为石峁城主要兴盛期。",
+      "sources": [
+        {
+          "id": "shimao-survey-review",
+          "title": "《Antiquity》石峁城考古报告三卷书评",
+          "url": "https://www.cambridge.org/core/journals/antiquity/article/excavations-of-the-city-of-shimao-and-its-monuments/AD1050E0DB5579F9DE2835ED5489752A",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shimao-terrace-report",
+          "title": "《考古》2017 年第 7 期：陕西神木县石峁城址皇城台地点",
+          "url": "https://lishiwenhua.snnu.edu.cn/__local/A/20/48/184389776D61687E1BC0B14F290_9C77E51C_289D04.pdf?e=.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体性质、近似年代和可辨认的遗迹范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "erlitou-complex",
+      "type": "civilization",
+      "name": "二里头文化与二里头遗址",
+      "aliases": [
+        "二里头",
+        "伊洛盆地早期城市"
+      ],
+      "range": {
+        "from": -1900,
+        "to": -1500,
+        "approximate": true,
+        "dateLabel": "约公元前 1900—前 1500 年"
+      },
+      "scope": "伊洛盆地的考古遗址及其代表的物质文化。以所引研究的宽口径标示年代，王朝归属仍在讨论。",
+      "sources": [
+        {
+          "id": "erlitou-layers",
+          "title": "刘莉、许宏《重新思考二里头》",
+          "url": "https://www.researchgate.net/publication/273293121_Rethinking_Erlitou_Legend_History_and_Chinese_Archaeology",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "erlitou-dating",
+          "title": "《Radiocarbon》二里头遗址碳十四断代",
+          "url": "https://www.cambridge.org/core/journals/radiocarbon/article/abs/14c-dating-of-the-erlitou-site/475359D750D8F9AE70E5126CF4744A4C",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体性质、近似年代和可辨认的遗迹范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
       "id": "ming-dynasty",
       "type": "polity",
       "name": "明朝",

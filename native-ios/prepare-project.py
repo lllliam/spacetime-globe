@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 NAME = "SpacetimeGlobe"
 PROJECT = ROOT / f"{NAME}.xcodeproj"
 BUNDLE = "io.github.lllliam.spacetimeglobe.native"
-VERSION = "0.4.1"
+VERSION = "0.4.2"
 OBJECTS = {}
 
 
@@ -99,7 +99,7 @@ def prepare():
         "PRODUCT_NAME": NAME,
         "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE,
         "MARKETING_VERSION": VERSION,
-        "CURRENT_PROJECT_VERSION": "9",
+        "CURRENT_PROJECT_VERSION": "10",
         "GENERATE_INFOPLIST_FILE": "NO",
         "INFOPLIST_FILE": f"{PROJECT.name}/Info.plist",
         "TARGETED_DEVICE_FAMILY": "1",

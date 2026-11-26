@@ -2,6 +2,10 @@
 
 [原型更新记录](docs/archive/CHANGELOG-PROTOTYPE.md)保留从 v0.1 至 v14.2.x 的历史。从公开候选开始，产品更新按版本记录上线日期、提交、面向读者的变化和相关限制。
 
+## iOS 原生 0.4.2 · 2026-11-26
+
+- 新增《早期中国》、良渚与石峁的年代背景和良渚水利观察现场，修订商周卷的开篇叙事。[中国历史检查点](docs/progress/CHINA-HISTORY.md)
+
 ## iOS 原生 0.4.1 · 2026-11-26
 
 - 启动 Historical World，复核居鲁士与新巴比伦的相关正文、铭文和编年史，补上公元前 539 年的年度入口。[建设检查点](docs/progress/HISTORICAL-WORLD.md)

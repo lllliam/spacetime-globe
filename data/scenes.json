@@ -1,5 +1,83 @@
 [
   {
+    "id": "liangzhu-waterworks",
+    "topicEvent": "i-cn-liangzhu-regional-centre",
+    "observation": {
+      "kind": "structure",
+      "status": "available",
+      "question": "良渚城外的高坝、低坝与墓地各在什么地形上？",
+      "dateLabel": "良渚时期 · 约公元前 3300—前 2300 年",
+      "note": "城址在平原河网附近。谷口高坝区倚山，低坝与山前长堤介于山麓和低地之间，瑶山墓地位于另一处高地。",
+      "limit": "用遗产名录构成区的代表坐标定位，水网和坝体形状以考古地图为准。观察使用约前 2850 年作为阶段参照。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "high-dams",
+        "low-dams",
+        "yaoshan"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "liangzhu-maps",
+              "locator": "1592-004",
+              "note": "遗产构成区代表点"
+            }
+          ]
+        },
+        "high-dams": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "liangzhu-maps",
+              "locator": "1592-002",
+              "note": "遗产构成区代表点"
+            }
+          ]
+        },
+        "low-dams": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "liangzhu-maps",
+              "locator": "1592-003",
+              "note": "遗产构成区代表点"
+            }
+          ]
+        },
+        "yaoshan": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "liangzhu-maps",
+              "locator": "1592-001",
+              "note": "遗产构成区代表点"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "liangzhu-evaluation",
+          "locator": "印刷页 111–112，Description",
+          "note": "组成区地形、位置和主要工程差异"
+        },
+        {
+          "sourceId": "liangzhu-maps",
+          "locator": "地理数据表 1592-001 至 1592-004",
+          "note": "四个组成区地图参照"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "四个组成区的相对位置、材料支持的工程性质和地图精度。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
     "id": "achaemenid-darius",
     "year": -500,
     "title": "苏萨与波斯波利斯",
