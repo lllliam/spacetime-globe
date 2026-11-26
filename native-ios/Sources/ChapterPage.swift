@@ -191,7 +191,7 @@ struct ChapterPage: View {
         let title = numbers.isEmpty ? "注" : numbers.map { "[\($0)]" }.joined(separator:" ")
         return Button { citations = CitationContext(evidence:refs,sources:sources) } label: {
             Text(title).font(.footnote.weight(.semibold)).foregroundStyle(paper.link)
-                .padding(.horizontal,5).frame(minHeight:38)
+                .padding(.horizontal,5).frame(minHeight:44)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)

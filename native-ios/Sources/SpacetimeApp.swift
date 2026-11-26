@@ -96,6 +96,7 @@ private struct JourneyRoot: View {
         }
         .onChange(of:session.panel) { _ in session.scheduleSave() }
         .onChange(of:session.preferences) { _ in session.scheduleSave() }
+        .onChange(of:session.shelf) { _ in session.scheduleSave() }
         .onChange(of:phase) { phase in if phase != .active { session.save() } }
     }
 }

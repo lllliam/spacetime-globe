@@ -76,7 +76,7 @@ struct HistorySearch {
     }
 }
 
-enum HistoricalPeriod: String, CaseIterable, Identifiable {
+enum HistoricalPeriod: String, CaseIterable, Identifiable, Codable {
     case ancient, medieval, earlyModern, modern, contemporary
     var id: String { rawValue }
     var title: String {

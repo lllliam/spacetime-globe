@@ -8,11 +8,11 @@ struct ExplorerView: View {
     @State private var preview: Int?
     @State private var requested: Int
     @State private var applied: AtlasKey?
+    @State private var appliedMap: PaintedAtlas?
     @State private var picked: MapRegion?
     @State private var coincident: [MapRegion] = []
     @State private var yearEditor = false
     @State private var pendingJump: String?
-    @State private var drawerSelector = false
 
     init(content: AppContent,session: SessionStore) {
         self.content = content
@@ -175,6 +175,7 @@ struct ExplorerView: View {
     private func apply(_ key: AtlasKey,_ map: PaintedAtlas) {
         guard key.year == requested, key.layer == atlasRequest.layer else { return }
         applied = key
+        appliedMap = map
         if let pendingJump, let shape = map.shapes.first(where:{ $0.region.id == pendingJump }) {
             self.pendingJump = nil
             viewport.camera.center(longitude:Double(shape.center.x)*0.36-180,latitude:90-Double(shape.center.y)*0.36,zoom:2)
@@ -214,9 +215,13 @@ struct ExplorerView: View {
 
     private func followJump(_ jump: MapJump?) {
         guard let jump else { return }
+        session.consumeJump(jump)
         pendingJump = jump.mapID
         if let year = content.atlas.year(for:jump.mapID,near:jump.year ?? session.explore.year) {
             commit(year,feedback:false)
+        }
+        if let applied, let appliedMap, applied.year == requested, applied.layer == atlasRequest.layer {
+            apply(applied,appliedMap)
         }
     }
 

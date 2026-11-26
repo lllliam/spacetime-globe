@@ -66,24 +66,25 @@ private struct MapSources: View {
 private struct HistoricalLibrary: View {
     let content: AppContent
     @ObservedObject var session: SessionStore
-    @State private var query = ""
     @State private var results: [SearchResult] = []
     @State private var settledQuery = ""
-    @State private var section = ShelfSection.volumes
-    @State private var region: String?
-    @State private var period: HistoricalPeriod?
-    @State private var yearHit: HistoryEvent?
     @Environment(\.dismiss) private var dismiss
 
     private enum ShelfSection: String, CaseIterable, Identifiable {
         case volumes = "书卷", topics = "专题"
         var id: String { rawValue }
     }
+    private var query: String { session.shelf.query }
+    private var region: String? { session.shelf.region }
+    private var period: HistoricalPeriod? { session.shelf.period }
+    private var section: Binding<ShelfSection> {
+        Binding(get:{ session.shelf.showTopics ? .topics : .volumes },set:{ session.shelf.showTopics = $0 == .topics })
+    }
 
     var body: some View {
-        if let yearHit {
+        if let event = session.shelf.event, let yearHit = content.archive.event(event) {
             PaperSheet(title:yearHit.title,subtitle:yearHit.dateText) {
-                PaperAction(title:"返回搜索",symbol:"chevron.backward") { self.yearHit = nil }
+                PaperAction(title:"返回搜索",symbol:"chevron.backward") { session.shelf.event = nil }
                 EventDetails(content:content,session:session,event:yearHit,year:yearHit.from,source:.library)
             }
         } else {
@@ -100,33 +101,39 @@ private struct HistoricalLibrary: View {
             .padding(.horizontal,Design.inset).padding(.top,22)
             HStack(spacing:8) {
                 Image(systemName:"magnifyingglass").foregroundStyle(Design.quiet)
-                TextField("搜索书卷、主体、史事或现场",text:$query)
+                TextField("搜索书卷、主体、史事或现场",text:$session.shelf.query)
                     .textFieldStyle(.plain).font(.subheadline).submitLabel(.search)
                     .accessibilityIdentifier("library-search")
                 if !query.isEmpty {
-                    IconAction(icon:"xmark.circle.fill",label:"清空搜索",tint:Design.quiet) { query = "" }
+                    IconAction(icon:"xmark.circle.fill",label:"清空搜索",tint:Design.quiet) { session.shelf.query = "" }
                         .frame(height:34)
                 }
             }
             .padding(.horizontal,11).frame(minHeight:44)
             .background(Design.quiet.opacity(0.08),in:RoundedRectangle(cornerRadius:8))
             .padding(.horizontal,Design.inset).padding(.vertical,13)
-            ScrollView {
-                LazyVStack(alignment:.leading,spacing:13) {
-                    if query.trimmingCharacters(in:.whitespacesAndNewlines).isEmpty {
-                        browsing
-                    } else if settledQuery == query {
-                        if results.isEmpty { Text("没有找到相关内容").font(.subheadline).foregroundStyle(Design.quiet) }
-                        ForEach(results) { result in
-                            ShelfRow(title:result.title,label:result.detail) { open(result) }
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(alignment:.leading,spacing:13) {
+                        if query.trimmingCharacters(in:.whitespacesAndNewlines).isEmpty {
+                            browsing
+                        } else if settledQuery == query {
+                            if results.isEmpty { Text("没有找到相关内容").font(.subheadline).foregroundStyle(Design.quiet) }
+                            ForEach(results) { result in
+                                ShelfRow(title:result.title,label:result.detail) { open(result) }.id(result.id)
+                            }
+                        } else {
+                            ProgressView().tint(Design.vermilion)
                         }
-                    } else {
-                        ProgressView().tint(Design.vermilion)
                     }
+                    .padding(.horizontal,Design.inset).padding(.bottom,24)
                 }
-                .padding(.horizontal,Design.inset).padding(.bottom,24)
+                .scrollDismissesKeyboard(.interactively)
+                .onAppear { if let row = session.shelf.row { proxy.scrollTo(row,anchor:.center) } }
+                .onChange(of:settledQuery) { _ in
+                    if let row = session.shelf.row { proxy.scrollTo(row,anchor:.center) }
+                }
             }
-            .scrollDismissesKeyboard(.interactively)
         }
         .foregroundStyle(Design.ink).background(Design.paper.ignoresSafeArea())
         .preferredColorScheme(.light)
@@ -153,20 +160,20 @@ private struct HistoricalLibrary: View {
             Text(chapter.title).font(.caption).foregroundStyle(Design.quiet)
             Divider()
         }
-        Picker("书目",selection:$section) { ForEach(ShelfSection.allCases) { Text($0.rawValue).tag($0) } }
+        Picker("书目",selection:section) { ForEach(ShelfSection.allCases) { Text($0.rawValue).tag($0) } }
             .pickerStyle(.segmented)
         HStack(spacing:20) {
             Menu {
-                Button("全部地区") { region = nil }
-                ForEach(regions,id:\.self) { region in Button(region) { self.region = region } }
-                Button("未标注地区") { region = "" }
+                Button("全部地区") { session.shelf.region = nil }
+                ForEach(regions,id:\.self) { region in Button(region) { session.shelf.region = region } }
+                Button("未标注地区") { session.shelf.region = "" }
             } label: {
                 Label(region == "" ? "未标注地区" : region ?? "全部地区",systemImage:"globe")
                     .frame(minHeight:40)
             }
             Menu {
-                Button("全部时期") { period = nil }
-                ForEach(HistoricalPeriod.allCases) { period in Button(period.title) { self.period = period } }
+                Button("全部时期") { session.shelf.period = nil }
+                ForEach(HistoricalPeriod.allCases) { period in Button(period.title) { session.shelf.period = period } }
             } label: {
                 Label(period?.title ?? "全部时期",systemImage:"clock").frame(minHeight:40)
             }
@@ -174,19 +181,22 @@ private struct HistoricalLibrary: View {
         .font(.subheadline).foregroundStyle(Design.indigo)
         let filtered = content.archive.volumes.filter { volume in
             let matchingRegion = region == nil || (region == "" ? volume.regions.isEmpty : volume.regions.contains(region ?? ""))
-            return volume.isTopic == (section == .topics) && matchingRegion && (period?.includes(volume) ?? true)
+            return volume.isTopic == session.shelf.showTopics && matchingRegion && (period?.includes(volume) ?? true)
         }
         if filtered.isEmpty { Text("这个范围内暂未收录书卷或专题").font(.footnote).foregroundStyle(Design.quiet) }
         ForEach(filtered) { volume in
             ShelfRow(title:volume.title,label:volume.dateText) {
+                session.shelf.row = volume.id
                 session.open(ReadingNode(volume:volume.id,entryYear:session.explore.year),from:.library)
             }
+            .id(volume.id)
         }
     }
 
     private var regions: [String] { Array(Set(content.archive.volumes.flatMap(\.regions))).sorted() }
 
     private func open(_ result: SearchResult) {
+        session.shelf.row = result.id
         switch result.destination {
         case .volume(let id):
             session.open(ReadingNode(volume:id,entryYear:session.explore.year),from:.library)
@@ -195,7 +205,7 @@ private struct HistoricalLibrary: View {
         case .subject(let mapID):
             session.reveal(mapID)
         case .event(let id):
-            yearHit = content.archive.event(id)
+            session.shelf.event = id
         case .scene(let id):
             session.startObservation(.scene(id),source:.library)
         }

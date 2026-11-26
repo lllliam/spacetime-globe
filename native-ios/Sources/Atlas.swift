@@ -43,6 +43,7 @@ struct RegionShape {
 struct PaintedAtlas {
     let shapes: [RegionShape]
     let image: CGImage
+    let labelAnchors: [[CGPoint]]
 
     func pick(at point: CGPoint) -> MapRegion? {
         picks(at: point).first
@@ -192,7 +193,15 @@ struct GlobeAtlas {
             image.drawPath(using:.eoFillStroke)
         }
         guard let result = image.makeImage() else { throw FormatError.invalidAtlas }
-        return PaintedAtlas(shapes:shapes, image:result)
+        let labelAnchors = try shapes.map { shape in
+            try Task.checkCancellation()
+            return shape.anchors.filter { point in
+                shapes.reversed().first {
+                    $0.bounds.contains(point) && $0.path.contains(point,using:.evenOdd)
+                }?.region.id == shape.region.id
+            }
+        }
+        return PaintedAtlas(shapes:shapes,image:result,labelAnchors:labelAnchors)
     }
 }
 

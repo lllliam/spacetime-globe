@@ -149,6 +149,15 @@ struct MapJump: Equatable {
     let year: Int?
 }
 
+struct ShelfContext: Codable, Equatable {
+    var query = ""
+    var event: String?
+    var row: String?
+    var showTopics = false
+    var region: String?
+    var period: HistoricalPeriod?
+}
+
 @MainActor
 final class SessionStore: ObservableObject {
     @Published var explore: ExploreSession
@@ -156,6 +165,7 @@ final class SessionStore: ObservableObject {
     @Published private(set) var reading: ReadingSession?
     @Published private(set) var observe: ObservationSession?
     @Published var panel: Companion?
+    @Published var shelf: ShelfContext
     @Published private(set) var jump: MapJump?
     @Published private(set) var lastRead: ReadingTarget?
 
@@ -176,6 +186,7 @@ final class SessionStore: ObservableObject {
         var progress: [String: ReadingPosition]
         var bookmarks: [String: ReadingPosition]
         var lastRead: ReadingTarget?
+        var shelf: ShelfContext? = nil
     }
 
     init(archive: Archive, index: AtlasIndex, defaults: UserDefaults = .standard) {
@@ -193,6 +204,7 @@ final class SessionStore: ObservableObject {
         progress = recovered.progress
         bookmarks = recovered.bookmarks
         lastRead = recovered.lastRead
+        shelf = recovered.shelf ?? ShelfContext()
         if let previous = recovered.reading {
             let valid = previous.nodes.compactMap { node -> ReadingNode? in
                 guard let volume = archive.volume(node.target.volume) else { return nil }
@@ -347,6 +359,10 @@ final class SessionStore: ObservableObject {
         scheduleSave()
     }
 
+    func consumeJump(_ request: MapJump) {
+        if jump == request { jump = nil }
+    }
+
     func scheduleSave() {
         pendingSave?.cancel()
         pendingSave = Task {
@@ -363,7 +379,7 @@ final class SessionStore: ObservableObject {
         if case .companion(let route)? = observe?.origin { fromObservation = route } else { fromObservation = nil }
         let presented = fromObservation ?? (panel?.restorable == true ? panel : nil)
         let snapshot = Saved(explore: explore, preferences: preferences, reading: reading,
-                             panel: presented, progress: progress, bookmarks: bookmarks, lastRead: lastRead)
+                             panel: presented, progress: progress, bookmarks: bookmarks, lastRead: lastRead, shelf:shelf)
         if let data = try? JSONEncoder().encode(snapshot) { defaults.set(data, forKey: Self.key) }
     }
 }

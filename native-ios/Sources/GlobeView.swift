@@ -68,6 +68,7 @@ struct NativeGlobe: View {
                     .id(retry)
             }
             GlobeArtwork(camera:viewport.camera, shapes:isCurrent || showPendingArt ? layer?.shapes ?? [] : [],
+                         anchors:isCurrent || showPendingArt ? layer?.labelAnchors ?? [] : [],
                          selected:isCurrent ? selected : nil, marks:isCurrent ? marks : GlobeMarks(),
                          top:protectedTop, bottom:protectedBottom, showNames:showNames && !rendererError)
                 .allowsHitTesting(false).accessibilityHidden(true)
@@ -131,6 +132,7 @@ struct NativeGlobe: View {
 private struct GlobeArtwork: View {
     let camera: GlobeCamera
     let shapes: [RegionShape]
+    let anchors: [[CGPoint]]
     let selected: String?
     let marks: GlobeMarks
     let top: CGFloat
@@ -174,14 +176,14 @@ private struct GlobeArtwork: View {
             let maxLabels = camera.zoom < 1.3 ? 8 : camera.zoom < 2.6 ? 15 : 27
             let minimumArea = 105 / max(1,camera.zoom * camera.zoom)
             var printed = Set<String>()
-            let order = shapes.filter { $0.region.id == selected } + shapes.filter { $0.region.id != selected }
-            for shape in order where occupied.count < maxLabels {
+            let order = shapes.indices.filter { shapes[$0].region.id == selected } +
+                shapes.indices.filter { shapes[$0].region.id != selected }
+            for index in order where occupied.count < maxLabels {
+                let shape = shapes[index]
                 let front = shape.region.id == selected
                 guard front || Double(shape.area) > minimumArea, !printed.contains(shape.region.name) else { continue }
-                for anchor in shape.anchors {
+                for anchor in front ? shape.anchors : anchors[index] {
                     guard let position = camera.project(anchor,size:size), bounds.contains(position) else { continue }
-                    let topShape = shapes.reversed().first { $0.bounds.contains(anchor) && $0.path.contains(anchor,using:.evenOdd) }
-                    guard front || topShape?.region.id == shape.region.id else { continue }
                     if drawLabel(shape.region.name,point:position,front:front,leading:false) {
                         printed.insert(shape.region.name)
                         break

@@ -182,6 +182,7 @@ private struct ChapterRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("chapter-" + chapter.id)
     }
 }
 

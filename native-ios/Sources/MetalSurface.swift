@@ -99,7 +99,7 @@ struct MetalSurface: UIViewRepresentable {
                 descriptor.vertexFunction = library.makeFunction(name:"globeVertex")
                 descriptor.fragmentFunction = library.makeFunction(name:"globeFragment")
                 descriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
-                pipeline = try device.makeRenderPipelineState(descriptor)
+                pipeline = try device.makeRenderPipelineState(descriptor:descriptor)
                 earth = try loader.newTexture(URL:dir.appendingPathComponent("earth-detail.jpg"),options:textureOptions)
                 clouds = try loader.newTexture(URL:dir.appendingPathComponent("clouds.png"),options:textureOptions)
                 terrain = try loader.newTexture(URL:dir.appendingPathComponent("terrain-4k-v1.png"),options:textureOptions)

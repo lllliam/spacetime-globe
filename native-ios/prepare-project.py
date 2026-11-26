@@ -85,11 +85,15 @@ def prepare():
 
     sources = [file_ref(file.name, "sourcecode.swift") for file in sorted((ROOT / "Sources").glob("*.swift"))]
     source_group = add("PBXGroup", children=sources, path="Sources", sourceTree="<group>")
+    tests = [file_ref(file.name, "sourcecode.swift") for file in sorted((ROOT / "Tests").glob("*.swift"))]
+    test_group = add("PBXGroup", children=tests, path="Tests", sourceTree="<group>")
     resources = [file_ref("OfflineData", "folder"), file_ref("AppIcon.xcassets", "folder.assetcatalog")]
     product = add("PBXFileReference", explicitFileType="wrapper.application", includeInIndex=0,
                   path=f"{NAME}.app", sourceTree="BUILT_PRODUCTS_DIR")
-    products = add("PBXGroup", children=[product], name="Products", sourceTree="<group>")
-    main_group = add("PBXGroup", children=[source_group, *resources, products], sourceTree="<group>")
+    test_product = add("PBXFileReference", explicitFileType="wrapper.cfbundle", includeInIndex=0,
+                       path=f"{NAME}UITests.xctest", sourceTree="BUILT_PRODUCTS_DIR")
+    products = add("PBXGroup", children=[product, test_product], name="Products", sourceTree="<group>")
+    main_group = add("PBXGroup", children=[source_group, test_group, *resources, products], sourceTree="<group>")
     target_config = configurations({
         "PRODUCT_NAME": NAME,
         "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE,
@@ -101,6 +105,7 @@ def prepare():
         "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
         "LD_RUNPATH_SEARCH_PATHS": "$(inherited) @executable_path/Frameworks",
         "ENABLE_PREVIEWS": "NO",
+        "ENABLE_DEBUG_DYLIB": "NO",
     })
     target = add("PBXNativeTarget", name=NAME, productName=NAME,
                  productType="com.apple.product-type.application", productReference=product,
@@ -115,10 +120,29 @@ def prepare():
         "SWIFT_VERSION": "5.0",
         "ALWAYS_SEARCH_USER_PATHS": "NO",
     })
-    project = add("PBXProject", attributes={"LastUpgradeCheck": "2600"}, buildConfigurationList=project_config,
+    test_config = configurations({
+        "PRODUCT_NAME": NAME + "UITests",
+        "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE + ".uitests",
+        "GENERATE_INFOPLIST_FILE": "YES",
+        "TARGETED_DEVICE_FAMILY": "1",
+        "TEST_TARGET_NAME": NAME,
+        "CODE_SIGN_IDENTITY": "-",
+    })
+    test_target = add("PBXNativeTarget", name=NAME + "UITests", productName=NAME + "UITests",
+                      productType="com.apple.product-type.bundle.ui-testing", productReference=test_product,
+                      buildConfigurationList=test_config,
+                      buildPhases=[phase("PBXSourcesBuildPhase", tests), phase("PBXFrameworksBuildPhase", [])],
+                      buildRules=[], dependencies=[])
+    project = add("PBXProject", attributes={"LastUpgradeCheck": "2600",
+                 "TargetAttributes": {test_target: {"TestTargetID": target}}},
+                  buildConfigurationList=project_config,
                   compatibilityVersion="Xcode 14.0", developmentRegion="zh-Hans", hasScannedForEncodings=0,
                   knownRegions=["zh-Hans", "en", "Base"], mainGroup=main_group, productRefGroup=products,
-                  projectDirPath="", projectRoot="", targets=[target])
+                  projectDirPath="", projectRoot="", targets=[target, test_target])
+    proxy = add("PBXContainerItemProxy", containerPortal=project, proxyType=1,
+                remoteGlobalIDString=target, remoteInfo=NAME)
+    dependency = add("PBXTargetDependency", target=target, targetProxy=proxy)
+    OBJECTS[test_target]["dependencies"].append(dependency)
     pbx = {"archiveVersion": 1, "classes": {}, "objectVersion": 56, "objects": OBJECTS, "rootObject": project}
     (PROJECT / "project.pbxproj").write_text("// !$*UTF8*$!\n" + serialize(pbx) + "\n", encoding="utf-8")
 
@@ -131,6 +155,20 @@ def prepare():
                        buildForProfiling="YES", buildForArchiving="YES", buildForAnalyzing="YES")
     SubElement(entry, "BuildableReference", BuildableIdentifier="primary", BlueprintIdentifier=target,
                BuildableName=f"{NAME}.app", BlueprintName=NAME, ReferencedContainer=f"container:{PROJECT.name}")
+    test_build = SubElement(entries, "BuildActionEntry", buildForTesting="YES", buildForRunning="NO",
+                            buildForProfiling="NO", buildForArchiving="NO", buildForAnalyzing="NO")
+    test_reference = {
+        "BuildableIdentifier": "primary", "BlueprintIdentifier": test_target,
+        "BuildableName": f"{NAME}UITests.xctest", "BlueprintName": NAME + "UITests",
+        "ReferencedContainer": f"container:{PROJECT.name}",
+    }
+    SubElement(test_build, "BuildableReference", **test_reference)
+    test_action = SubElement(scheme, "TestAction", buildConfiguration="Debug",
+                             selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.PosixSpawn",
+                             shouldUseLaunchSchemeArgsEnv="YES")
+    testables = SubElement(test_action, "Testables")
+    testable = SubElement(testables, "TestableReference", skipped="NO", parallelizable="NO")
+    SubElement(testable, "BuildableReference", **test_reference)
     SubElement(scheme, "ArchiveAction", buildConfiguration="Release", revealArchiveInOrganizer="YES")
     ElementTree(scheme).write(schemes / f"{NAME}.xcscheme", encoding="utf-8", xml_declaration=True)
 

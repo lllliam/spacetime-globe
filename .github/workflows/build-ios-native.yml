@@ -73,9 +73,9 @@ jobs:
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
-      - name: Launch and capture the native globe in an iPhone simulator
+      - name: Exercise exploration, year selection, reading and observation on iPhone
         id: simulator
-        timeout-minutes: 5
+        timeout-minutes: 8
         continue-on-error: true
         run: |
           set -euo pipefail
@@ -84,30 +84,26 @@ jobs:
           devices = json.load(sys.stdin)["devices"].values()
           print(next(device["udid"] for runtime in reversed(list(devices)) for device in runtime if device["name"] == "iPhone 17 Pro"))
           ')"
-          echo "Building for the simulator"
-          simulator_package="$(mktemp -d /tmp/spacetime-simulator.XXXXXX)"
+          echo "Running the journey on $simulator"
+          result=0
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
-            -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
-            ARCHS=arm64 CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGNING_ALLOWED=NO \
-            build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
-          simulator_app="$simulator_package/SpacetimeGlobe.app"
-          "$RUNNER_TEMP/native-smoke" native-ios/OfflineData "$simulator_app"
-          bundle_id="$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$simulator_app/Info.plist")"
-          [ "$bundle_id" = io.github.lllliam.spacetimeglobe.native ]
-          codesign --force --sign - --timestamp=none "$simulator_app"
-          codesign --verify --strict "$simulator_app"
-          echo "Booting $simulator"
-          xcrun simctl bootstatus "$simulator" -b
-          echo "Installing the simulator build"
-          xcrun simctl install "$simulator" "$simulator_app"
-          echo "Launching the simulator build"
-          xcrun simctl launch "$simulator" "$bundle_id"
-          sleep 6
-          xcrun simctl io "$simulator" screenshot "$RUNNER_TEMP/native-simulator.png"
+            -configuration Debug -destination "platform=iOS Simulator,id=$simulator" \
+            -derivedDataPath "$RUNNER_TEMP/native-sim" -resultBundlePath "$RUNNER_TEMP/Journey.xcresult" \
+            -parallel-testing-enabled NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 175 \
+            CODE_SIGN_IDENTITY=- ARCHS=arm64 test > "$RUNNER_TEMP/native-sim.log" 2>&1 || result=$?
+          tail -n 215 "$RUNNER_TEMP/native-sim.log"
+          if [ "$result" = 0 ]; then
+            xcrun simctl launch "$simulator" io.github.lllliam.spacetimeglobe.native
+            sleep 4
+          fi
+          xcrun simctl io "$simulator" screenshot "$RUNNER_TEMP/native-simulator.png" || true
+          exit "$result"
       - name: Upload native simulator evidence
-        if: steps.simulator.outcome == 'success'
+        if: always() && (steps.simulator.outcome == 'success' || steps.simulator.outcome == 'failure')
         uses: actions/upload-artifact@v4
         with:
           name: SpacetimeGlobe-Native-Simulator
-          path: ${{ runner.temp }}/native-simulator.png
+          path: |
+            ${{ runner.temp }}/native-simulator.png
+            ${{ runner.temp }}/native-sim.log
           retention-days: 14
