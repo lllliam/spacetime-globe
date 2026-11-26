@@ -79,7 +79,7 @@ jobs:
           simulator_package="$(mktemp -d /tmp/spacetime-simulator.XXXXXX)"
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
             -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
-            -arch arm64 CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGNING_ALLOWED=NO \
+            ARCHS=arm64 CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGNING_ALLOWED=NO \
             build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
           simulator_app="$simulator_package/Test/SpacetimeGlobe.app"
           mkdir "$simulator_package/Test"
