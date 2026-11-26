@@ -16,9 +16,14 @@ struct CompanionView: View {
                 Toggle("显示地名",isOn:$session.preferences.showNames).tint(Design.vermilion)
                 Toggle("触感反馈",isOn:$session.preferences.haptics).tint(Design.vermilion)
                 Divider()
-                Toggle("地球空闲自转",isOn:$session.preferences.idleRotation)
-                    .tint(Design.vermilion)
-                    .accessibilityIdentifier("idle-rotation-toggle")
+                HStack {
+                    Text("地球空闲自转").accessibilityHidden(true)
+                    Spacer()
+                    Toggle("地球空闲自转",isOn:$session.preferences.idleRotation)
+                        .labelsHidden()
+                        .tint(Design.vermilion)
+                        .accessibilityIdentifier("idle-rotation-toggle")
+                }
                 VStack(alignment:.leading,spacing:3) {
                     HStack {
                         Text("自转速度")
