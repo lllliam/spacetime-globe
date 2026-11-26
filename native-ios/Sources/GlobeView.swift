@@ -1,20 +1,28 @@
 import MetalKit
 import SwiftUI
 
-struct GlobeCamera: Equatable {
+struct GlobeCamera: Codable, Hashable {
     var yaw = -1.65
     var tilt = 0.42
     var zoom = 1.0
     var verticalCenter = 0.48
+    var offsetX = 0.0
+    var offsetY = 0.0
+
+    static let magnification = 0.85...7.0
 
     mutating func center(longitude: Double, latitude: Double, zoom: Double) {
         yaw = -longitude * .pi / 180
         tilt = latitude * .pi / 180
         self.zoom = zoom
+        offsetX = 0
+        offsetY = 0
     }
 
     func center(in size: CGSize) -> CGPoint {
-        CGPoint(x: size.width * 0.5, y: size.height * verticalCenter)
+        let unit = Double(min(size.width, size.height))
+        return CGPoint(x: Double(size.width) * 0.5 + unit * offsetX,
+                       y: Double(size.height) * verticalCenter + unit * offsetY)
     }
 
     func radius(in size: CGSize) -> Double {
@@ -68,9 +76,11 @@ struct NativeGlobe: View {
     var showNames = true
     var places: [ScenePlace] = []
     var routes: [SceneRoute] = []
+    var onZoomLimit: () -> Void = {}
     var onRegion: (MapRegion?) -> Void = { _ in }
 
     @State private var painted: PaintedAtlas?
+    @State private var paintedRequest: AtlasRequest?
     @State private var error: String?
     @State private var renderError: String?
 
@@ -79,7 +89,8 @@ struct NativeGlobe: View {
             Color(red: 0.044, green: 0.063, blue: 0.085)
             MetalSurface(resources: resources, camera: $camera, image: painted?.image, onError: {
                 renderError = $0
-            }, onTap: { point in
+            }, onZoomLimit: onZoomLimit, onTap: { point in
+                guard paintedRequest?.year == request.year, paintedRequest?.layer == request.layer else { return }
                 onRegion(painted?.pick(at: point))
             })
             if renderError == nil {
@@ -102,6 +113,7 @@ struct NativeGlobe: View {
                 let result = try await load.value
                 guard !Task.isCancelled else { return }
                 painted = result
+                paintedRequest = request
                 error = nil
             } catch {
                 guard !Task.isCancelled else { return }
@@ -163,6 +175,7 @@ private struct MetalSurface: UIViewRepresentable {
     @Binding var camera: GlobeCamera
     let image: CGImage?
     let onError: (String) -> Void
+    let onZoomLimit: () -> Void
     let onTap: (CGPoint) -> Void
 
     func makeCoordinator() -> Renderer { Renderer(parent: self) }
@@ -188,7 +201,7 @@ private struct MetalSurface: UIViewRepresentable {
         view.setNeedsDisplay()
     }
 
-    final class Renderer: NSObject, MTKViewDelegate, UIGestureRecognizerDelegate {
+    final class Renderer: NSObject, MTKViewDelegate {
         var parent: MetalSurface
         private var queue: MTLCommandQueue?
         private var pipeline: MTLRenderPipelineState?
@@ -199,6 +212,8 @@ private struct MetalSurface: UIViewRepresentable {
         private var blank: MTLTexture?
         private var overlay: MTLTexture?
         private var overlayImage: CGImage?
+        private var pinchCenter: CGPoint?
+        private var reachedPinchLimit = false
         private let textureOptions: [MTKTextureLoader.Option: Any] = [
             .origin: MTKTextureLoader.Origin.topLeft, .SRGB: false
         ]
@@ -263,7 +278,7 @@ private struct MetalSurface: UIViewRepresentable {
             let position = SIMD4<Float>(Float(center.x), Float(center.y), Float(camera.radius(in: size)), Float(camera.zoom))
             let rotation = SIMD4<Float>(Float(cos(camera.yaw)), Float(sin(camera.yaw)),
                                         Float(cos(camera.tilt)), Float(sin(camera.tilt)))
-            var uniforms = [position, rotation]
+            let uniforms = [position, rotation]
             encoder.setRenderPipelineState(pipeline)
             uniforms.withUnsafeBytes { bytes in
                 if let address = bytes.baseAddress { encoder.setFragmentBytes(address, length: bytes.count, index: 0) }
@@ -288,8 +303,37 @@ private struct MetalSurface: UIViewRepresentable {
         }
 
         @objc private func pinch(_ gesture: UIPinchGestureRecognizer) {
+            guard let view = gesture.view else { return }
+            let center = gesture.location(in: view)
+            if gesture.state == .began {
+                pinchCenter = center
+                reachedPinchLimit = false
+                return
+            }
             guard gesture.state == .changed else { return }
-            parent.camera.zoom = (parent.camera.zoom * Double(gesture.scale)).clamped(to: 0.85...7)
+            var camera = parent.camera
+            let requested = camera.zoom * Double(gesture.scale)
+            let zoom = requested.clamped(to: GlobeCamera.magnification)
+            let hitLimit = zoom != requested
+            if hitLimit && !reachedPinchLimit { parent.onZoomLimit() }
+            reachedPinchLimit = hitLimit
+            let size = view.bounds.size
+            let unit = Double(min(size.width, size.height))
+            if unit > 0, let previous = pinchCenter, zoom > 1 {
+                let current = camera.center(in: size)
+                let ratio = zoom / camera.zoom
+                let x = Double(center.x - previous.x) + Double(previous.x - current.x) * (1 - ratio)
+                let y = Double(center.y - previous.y) + Double(previous.y - current.y) * (1 - ratio)
+                let bound = (min(zoom, 4.2) - 1) * 0.27
+                camera.offsetX = (camera.offsetX + x / unit).clamped(to: -bound...bound)
+                camera.offsetY = (camera.offsetY + y / unit).clamped(to: -bound...bound)
+            } else {
+                camera.offsetX = 0
+                camera.offsetY = 0
+            }
+            camera.zoom = zoom
+            parent.camera = camera
+            pinchCenter = center
             gesture.scale = 1
         }
 
@@ -302,7 +346,11 @@ private struct MetalSurface: UIViewRepresentable {
         @objc private func doubleTap(_ gesture: UITapGestureRecognizer) {
             guard let view = gesture.view else { return }
             if parent.camera.zoom > 1.1 {
-                parent.camera.zoom = 1
+                var camera = parent.camera
+                camera.zoom = 1
+                camera.offsetX = 0
+                camera.offsetY = 0
+                parent.camera = camera
             } else if let point = parent.camera.unproject(gesture.location(in: view), size: view.bounds.size) {
                 parent.camera.center(longitude: Double(point.x) * 0.36 - 180,
                                      latitude: 90 - Double(point.y) * 0.36, zoom: 2.4)

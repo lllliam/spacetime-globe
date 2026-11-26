@@ -63,3 +63,34 @@ jobs:
           path: native-ios/dist/*
           if-no-files-found: error
           retention-days: 14
+          compression-level: 0
+      - name: Launch and capture the native globe in an iPhone simulator
+        id: simulator
+        timeout-minutes: 4
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          simulator="$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"].values()
+          print(next(device["udid"] for runtime in reversed(list(devices)) for device in runtime if device["name"] == "iPhone 17 Pro"))
+          ')"
+          xcrun simctl boot "$simulator" || xcrun simctl list devices booted
+          xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
+            -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
+            CODE_SIGNING_ALLOWED=NO build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
+          xcrun simctl bootstatus "$simulator" -b
+          xcrun simctl status_bar "$simulator" override --time '9:41' --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState unplugged --batteryLevel 100
+          xcrun simctl install "$simulator" "$RUNNER_TEMP/native-sim/Build/Products/Debug-iphonesimulator/SpacetimeGlobe.app"
+          xcrun simctl launch "$simulator" io.github.lllliam.spacetimeglobe.native
+          sleep 6
+          xcrun simctl io "$simulator" screenshot "$RUNNER_TEMP/native-simulator.png"
+          xcrun simctl spawn "$simulator" log show --last 1m --predicate 'eventMessage CONTAINS "Globe rendering initialization"' > "$RUNNER_TEMP/native-render.log"
+          if grep 'Globe rendering initialization:' "$RUNNER_TEMP/native-render.log"; then exit 1; fi
+      - name: Upload native simulator evidence
+        if: steps.simulator.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpacetimeGlobe-Native-Simulator
+          path: ${{ runner.temp }}/native-simulator.png
+          retention-days: 14

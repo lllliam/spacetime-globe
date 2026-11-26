@@ -113,6 +113,7 @@ def prepare():
         "SUPPORTED_PLATFORMS": "iphoneos iphonesimulator",
         "IPHONEOS_DEPLOYMENT_TARGET": "16.0",
         "SWIFT_VERSION": "5.0",
+        "ALWAYS_SEARCH_USER_PATHS": "NO",
     })
     project = add("PBXProject", attributes={"LastUpgradeCheck": "2600"}, buildConfigurationList=project_config,
                   compatibilityVersion="Xcode 14.0", developmentRegion="zh-Hans", hasScannedForEncodings=0,

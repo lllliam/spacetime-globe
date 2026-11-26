@@ -56,6 +56,7 @@ private struct Explorer: View {
     @AppStorage("mapLayer") private var layer: GlobeLayer = .timeline
     @AppStorage("showMapNames") private var showNames = true
     @AppStorage("selectionHaptics") private var haptics = true
+    @AppStorage("exploreCamera") private var storedCamera = Data()
     @AppStorage("lastReadingVolume") private var lastVolume = ""
     @AppStorage("lastReadingChapter") private var lastChapter = ""
     @State private var camera = GlobeCamera()
@@ -65,6 +66,8 @@ private struct Explorer: View {
     @State private var showingSources = false
     @State private var previewYear: Int?
     @State private var draggedFrom: Int?
+    @State private var lastTick = Date.distantPast
+    @State private var restoredCamera = false
 
     private let firstYear = -3500
     private var lastYear: Int { Calendar(identifier: .gregorian).component(.year, from: Date()) }
@@ -73,25 +76,36 @@ private struct Explorer: View {
         ZStack {
             NativeGlobe(atlas: atlas, resources: history.resources,
                         request: AtlasRequest(layer: layer, year: year, selected: region?.id),
-                        camera: $camera, showNames: showNames, onRegion: selectRegion)
+                        camera: $camera, showNames: showNames, onZoomLimit: {
+                if haptics { GlobeHaptics.boundary() }
+            }, onRegion: selectRegion)
                 .ignoresSafeArea()
-                .overlay {
-                    VStack(spacing: 8) {
-                        header
-                        Spacer(minLength: 12)
-                        if let region {
-                            regionCard(region)
-                        } else {
-                            timelinePanel
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
+            VStack(spacing: 8) {
+                header
+                Spacer(minLength: 12)
+                if let region {
+                    regionCard(region)
+                } else {
+                    timelinePanel
                 }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
         }
         .background(Color(red: 0.044, green: 0.063, blue: 0.085).ignoresSafeArea())
+        .onAppear {
+            guard !restoredCamera else { return }
+            if let saved = try? JSONDecoder().decode(GlobeCamera.self, from: storedCamera) { camera = saved }
+            restoredCamera = true
+        }
+        .task(id: camera) {
+            guard restoredCamera else { return }
+            try? await Task.sleep(nanoseconds: 350_000_000)
+            guard !Task.isCancelled, let encoded = try? JSONEncoder().encode(camera) else { return }
+            storedCamera = encoded
+        }
         .sheet(isPresented: $showingCalendar) {
-            YearEditor(year: year, range: firstYear...lastYear, onSelection: setYear)
+            YearEditor(year: year, range: firstYear...lastYear) { setYear($0) }
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $showingSources) {
@@ -195,11 +209,19 @@ private struct Explorer: View {
                     }
                     .contentShape(Rectangle())
                     .gesture(DragGesture(minimumDistance: 0).onChanged { value in
-                        if draggedFrom == nil { draggedFrom = year }
-                        previewYear = offsetYear(from: draggedFrom ?? year,
-                                                 by: Int((-value.translation.width / max(8, proxy.size.width / 50)).rounded()) * 5)
+                        if draggedFrom == nil {
+                            draggedFrom = year
+                            if haptics { GlobeHaptics.prepareSelection() }
+                        }
+                        let next = offsetYear(from: draggedFrom ?? year,
+                                              by: Int((-value.translation.width / max(8, proxy.size.width / 50)).rounded()) * 5)
+                        if next != (previewYear ?? year), haptics, Date().timeIntervalSince(lastTick) >= 0.065 {
+                            GlobeHaptics.selection()
+                            lastTick = Date()
+                        }
+                        previewYear = next
                     }.onEnded { _ in
-                        if let previewYear { setYear(previewYear) }
+                        if let previewYear { setYear(previewYear, feedback: false) }
                         previewYear = nil
                         draggedFrom = nil
                     })
@@ -277,14 +299,14 @@ private struct Explorer: View {
     private func selectRegion(_ selected: MapRegion?) {
         guard region?.id != selected?.id else { return }
         region = selected
-        if selected != nil && haptics { UISelectionFeedbackGenerator().selectionChanged() }
+        if selected != nil && haptics { GlobeHaptics.selection() }
     }
 
-    private func setYear(_ newYear: Int) {
+    private func setYear(_ newYear: Int, feedback: Bool = true) {
         guard newYear != year, newYear != 0, (firstYear...lastYear).contains(newYear) else { return }
         year = newYear
         region = nil
-        if haptics { UISelectionFeedbackGenerator().selectionChanged() }
+        if feedback && haptics { GlobeHaptics.selection() }
     }
 }
 

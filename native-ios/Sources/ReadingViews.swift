@@ -406,9 +406,12 @@ private struct ObservationView: View {
                     NativeGlobe(atlas: atlas, resources: resources,
                                 request: AtlasRequest(layer: scene.naturalOnly == true ? .terrain : .timeline,
                                                       year: frame.year, selected: region?.id),
-                                camera: $camera, showNames: false, places: frame.places, routes: frame.routes) {
-                        region = $0
-                    }
+                                camera: $camera, showNames: false, places: frame.places, routes: frame.routes,
+                                onZoomLimit: { if haptics { GlobeHaptics.boundary() } },
+                                onRegion: { selected in
+                        if selected?.id != region?.id, selected != nil, haptics { GlobeHaptics.selection() }
+                        region = selected
+                    })
                     .frame(height: 310)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     if let region { Text(region.name + " · " + region.dates).font(.caption) }
@@ -418,7 +421,7 @@ private struct ObservationView: View {
                         VStack(alignment: .leading, spacing: 5) {
                             Button {
                                 camera.center(longitude: place.lon, latitude: place.lat, zoom: 3.5)
-                                if haptics { UISelectionFeedbackGenerator().selectionChanged() }
+                                if haptics { GlobeHaptics.selection() }
                             } label: { Label(place.name, systemImage: "mappin.circle") }
                             .font(.headline)
                             if let note = place.note { Text(note).font(.subheadline) }
@@ -444,15 +447,19 @@ private struct ObservationView: View {
         .onAppear(perform: resetCamera)
         .onChange(of: frameId) { _ in
             resetCamera()
-            if haptics { UISelectionFeedbackGenerator().selectionChanged() }
+            if haptics { GlobeHaptics.selection() }
         }
     }
 
     private func resetCamera() {
         region = nil
         guard let places = scene.frames.first(where: { $0.id == frameId })?.places, let first = places.first else { return }
-        let extent = places.map { abs(($0.lon - first.lon + 540).truncatingRemainder(dividingBy: 360) - 180)
-            + abs($0.lat - first.lat) }.max() ?? 0
+        var extent = 0.0
+        for place in places {
+            let longitude = place.lon - first.lon + 540.0
+            let wrapped = longitude.truncatingRemainder(dividingBy: 360.0) - 180.0
+            extent = max(extent, abs(wrapped) + abs(place.lat - first.lat))
+        }
         camera.center(longitude: first.lon, latitude: first.lat, zoom: extent > 38 ? 1.3 : 2.6)
     }
 }
