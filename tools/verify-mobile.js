@@ -113,7 +113,8 @@ async function main() {
     const kazakhstan = await location(68, 47, { x:145, y:373 });
     await tap(kazakhstan);
     await until(() => js(`document.body.classList.contains('sheet-open')`), 'Kazakhstan did not open');
-    assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /中亚丝路/);
+    assert.equal(await js(`document.querySelector('#sheet-identity-name').textContent`), '哈萨克斯坦');
+    assert.match(await js(`document.querySelector('#sheet [data-open-sheet-book]')?.textContent || ''`), /中亚丝路帝国/);
     assert.equal(await timelineVisible(), false);
     const timelineTop = () => js(`Math.round(document.querySelector('#vernier').getBoundingClientRect().top)`);
     const tuckedTimelineTop = await timelineTop();
@@ -482,8 +483,9 @@ async function main() {
     await size(874);
     await js(`Object.defineProperty(visualViewport, 'height', { value: 812, configurable: true });
       dispatchEvent(new Event('resize'));`);
-    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px'`),
-      'Split standalone viewport did not restore --app-height: 812px');
+    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px' &&
+      document.documentElement.style.getPropertyValue('--usable-safe-b') === '34px'`),
+      'Split standalone viewport did not restore --app-height: 812px and --usable-safe-b: 34px');
 
     // 3. Read: top solid #0a1016 safe-t + bottom fills 812..874 with rice-paper (#f6f2e9)
     await tap('#sheet-toc');
@@ -545,6 +547,33 @@ async function main() {
 
     await js(`delete visualViewport.height; dispatchEvent(new Event('resize'));`);
     console.log('Four-state top & bottom safe-area surfaces: Explore, Sheet, Read, Observe verified');
+
+    // Long-title reading navbar responsiveness (393x852 and 320x568 with extra font size)
+    for (const [w, h] of [[393, 852], [320, 568]]) {
+      await send('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 2, mobile: true });
+      await js(`(() => { const topic = __t.topics.find(t => t.id === 'china-late-qing');
+        __t.beginReading(null, topic, 'boxers', null, { source: { kind: 'events', year: 1900, eventId: 'i-cn-boxer', action: 'topic', scroll: 0, disclosures: [] } });
+        document.querySelector('[data-reading-size="extra"]')?.click(); })()`);
+      await until(() => js(`!document.querySelector('#book').hidden && document.querySelector('#reading-exit')?.textContent.trim() === '返回史事'`),
+        `Boxer topic did not open cleanly at ${w}x${h}`);
+      const m = await js(`(() => {
+        const box = id => { const r = document.getElementById(id).getBoundingClientRect(); return { left: r.left, right: r.right, width: r.width, height: r.height }; };
+        const book = document.getElementById('book'), body = document.getElementById('book-body');
+        return {
+          vw: innerWidth,
+          bookSW: book.scrollWidth, bookCW: book.clientWidth,
+          bodySW: body.scrollWidth, bodyCW: body.clientWidth,
+          bar: box('book-bar'), back: box('reading-back'), exit: box('reading-exit'),
+          idx: box('reading-index'), lib: box('reading-library'), settings: box('reading-settings'),
+        };
+      })()`);
+      assert.ok(m.bookSW <= m.bookCW && m.bodySW <= m.bodyCW, `Horizontal overflow at ${w}x${h}: ${JSON.stringify(m)}`);
+      assert.ok([m.bar, m.back, m.idx, m.lib, m.settings, m.exit].every(b => b.left >= 0 && b.right <= m.vw),
+        `Navbar button clipped at ${w}x${h}: ${JSON.stringify(m)}`);
+      assert.ok(m.exit.width >= 44 && m.exit.height >= 44, `Exit target too small at ${w}x${h}: ${JSON.stringify(m.exit)}`);
+      await js(`document.querySelector('[data-reading-size="medium"]')?.click();__t.closeReader();`);
+    }
+    console.log('Long-title mobile reading navbar (393x852, 320x568) verified without clipping or overflow');
   } finally {
     ws?.close();
     proc.kill();

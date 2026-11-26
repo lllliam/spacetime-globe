@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "confirmedDuplicates": [
+    {
+      "id": "united-monarchy-of-israel",
+      "canonicalEntryId": "i-il-united-monarchy",
+      "memberIds": ["i-il-united-monarchy", "i-jud-united-kingdom"],
+      "note": "以色列联合王国（大卫与所罗门）在地区与宗教两条分类下重复录入，年份与来源完全一致。"
+    },
+    {
+      "id": "siege-of-jerusalem-70",
+      "canonicalEntryId": "i-il-jerusalem-destroyed",
+      "memberIds": ["i-il-jerusalem-destroyed", "i-jud-second-temple-destroyed"],
+      "note": "公元 70 年罗马围攻耶路撒冷并毁坏第二圣殿，在以色列与犹太教两个分类下重复录入。"
+    },
+    {
+      "id": "bar-kokhba-revolt-132",
+      "canonicalEntryId": "i-il-bar-kokhba",
+      "memberIds": ["i-il-bar-kokhba", "i-jud-bar-kokhba"],
+      "note": "132—135 年巴尔科赫巴起义在以色列与犹太教分类中重复记录。"
+    },
+    {
+      "id": "edict-of-milan-313",
+      "canonicalEntryId": "i-it-edict-milan",
+      "memberIds": ["i-it-edict-milan", "i-199"],
+      "note": "313 年《米兰敕令》在意大利与基督教分类中重复记录，统一保留《罗马帝国》章节绑定。"
+    },
+    {
+      "id": "byzantine-empire-330-1453",
+      "canonicalEntryId": "i-tr-byzantine",
+      "memberIds": ["i-tr-byzantine", "i-gr-byzantine"],
+      "note": "330—1453 年拜占庭帝国长期分期条目在土耳其与希腊分类下重复录入，统一保留《罗马帝国》关联。"
+    },
+    {
+      "id": "treaty-of-verdun-843",
+      "canonicalEntryId": "i-fr-verdun-843",
+      "memberIds": ["i-fr-verdun-843", "i-de-verdun"],
+      "note": "843 年《凡尔登条约》在法国与德国条目中重复录入。"
+    },
+    {
+      "id": "mongol-sack-of-baghdad-1258",
+      "canonicalEntryId": "i-iq-mongol-sack",
+      "memberIds": ["i-iq-mongol-sack", "i-islam-baghdad-sack"],
+      "note": "1258 年蒙古攻陷巴格达在伊拉克与伊斯兰教条目中重复录入。"
+    },
+    {
+      "id": "burgundian-netherlands-1384",
+      "canonicalEntryId": "i-nl-burgundian",
+      "memberIds": ["i-nl-burgundian", "i-be-burgundian"],
+      "note": "1384—1482 年勃艮第尼德兰在荷兰与比利时条目中重复录入。"
+    },
+    {
+      "id": "fall-of-constantinople-1453",
+      "canonicalEntryId": "i-tr-constantinople-1453",
+      "memberIds": ["i-tr-constantinople-1453", "i-islam-constantinople", "i-gr-constantinople"],
+      "note": "1453 年 5 月 29 日奥斯曼帝国攻陷君士坦丁堡，分别在土耳其、伊斯兰教与希腊分类下重复创建；合并显示并同时保留《罗马帝国》与《奥斯曼帝国》书卷入口。"
+    },
+    {
+      "id": "cabral-reaches-brazil-1500",
+      "canonicalEntryId": "i-br-portuguese-arrival",
+      "displayTitle": "葡萄牙船队抵达巴西（卡布拉尔）",
+      "memberIds": ["i-br-portuguese-arrival", "i-pt-cabral-brazil"],
+      "note": "1500 年 4 月 22 日佩德罗·阿尔瓦雷斯·卡布拉尔船队抵达巴西，在巴西与葡萄牙条目中重复录入。"
+    },
+    {
+      "id": "reformation-1517-1648",
+      "canonicalEntryId": "i-001",
+      "memberIds": ["i-001", "i-207"],
+      "note": "1517—1648 年宗教改革在欧洲与基督教分类下重复记录。"
+    },
+    {
+      "id": "denmark-norway-union-1537",
+      "canonicalEntryId": "i-dk-denmark-norway",
+      "memberIds": ["i-dk-denmark-norway", "i-no-danish-union"],
+      "note": "1537—1814 年丹麦—挪威联合在丹麦与挪威条目中重复记录。"
+    },
+    {
+      "id": "polish-lithuanian-commonwealth-1569",
+      "canonicalEntryId": "i-pl-commonwealth",
+      "memberIds": ["i-pl-commonwealth", "i-by-commonwealth"],
+      "note": "1569—1795 年波兰—立陶宛联邦在波兰与白俄罗斯分类下重复记录。"
+    },
+    {
+      "id": "altan-khan-dalai-lama-1578",
+      "canonicalEntryId": "i-mn-dalai-lama",
+      "memberIds": ["i-mn-dalai-lama", "i-194"],
+      "note": "1578 年俺答汗授予索南嘉措「达赖喇嘛」称号在蒙古与佛教分类下重复记录。"
+    },
+    {
+      "id": "thirty-years-war-1618",
+      "canonicalEntryId": "i-015",
+      "memberIds": ["i-015", "i-de-thirty-years-war"],
+      "note": "1618—1648 年三十年战争在欧洲与德国条目中重复录入。"
+    },
+    {
+      "id": "enlightenment-1637-1789",
+      "canonicalEntryId": "i-020",
+      "memberIds": ["i-020", "i-026"],
+      "note": "1637—1789 年启蒙运动（理性时代）在欧洲与英国条目中重复录入。"
+    },
+    {
+      "id": "peace-of-westphalia-1648",
+      "canonicalEntryId": "i-018",
+      "memberIds": ["i-018", "i-de-westphalia"],
+      "note": "1648 年《威斯特伐利亚和约》在欧洲与德国条目中重复录入。"
+    },
+    {
+      "id": "war-of-spanish-succession-1701",
+      "canonicalEntryId": "i-028",
+      "memberIds": ["i-028", "i-es-succession"],
+      "note": "1701—1714 年西班牙王位继承战争在法国与西班牙条目中重复录入。"
+    },
+    {
+      "id": "napoleonic-wars-1803",
+      "canonicalEntryId": "i-007",
+      "memberIds": ["i-007", "i-127"],
+      "note": "1803—1815 年拿破仑战争在法国与英国条目中重复录入。"
+    },
+    {
+      "id": "franco-prussian-war-1870",
+      "canonicalEntryId": "i-de-franco-prussian-war",
+      "memberIds": ["i-de-franco-prussian-war", "i-fr-franco-prussian"],
+      "note": "1870—1871 年普法战争在德国与法国条目中重复录入。"
+    },
+    {
+      "id": "war-of-the-pacific-1879",
+      "canonicalEntryId": "i-cl-war-pacific",
+      "memberIds": ["i-cl-war-pacific", "i-pe-war-pacific"],
+      "note": "1879—1884 年南美太平洋战争在智利与秘鲁条目中重复录入。"
+    },
+    {
+      "id": "congo-free-state-1885",
+      "canonicalEntryId": "i-cd-free-state",
+      "memberIds": ["i-cd-free-state", "i-be-congo-free-state"],
+      "note": "1885—1908 年刚果自由邦在刚果（金）与比利时条目中重复录入。"
+    },
+    {
+      "id": "separation-of-panama-1903",
+      "canonicalEntryId": "i-pa-separation",
+      "memberIds": ["i-pa-separation", "i-co-panama"],
+      "note": "1903 年 11 月 3 日巴拿马脱离哥伦比亚独立在巴拿马与哥伦比亚条目中重复录入。"
+    },
+    {
+      "id": "belgian-congo-1908",
+      "canonicalEntryId": "i-cd-belgian-congo",
+      "memberIds": ["i-cd-belgian-congo", "i-be-belgian-congo"],
+      "note": "1908—1960 年比属刚果在刚果（金）与比利时条目中重复录入。"
+    },
+    {
+      "id": "gallipoli-anzac-wwi-1914",
+      "canonicalEntryId": "i-au-wwi",
+      "memberIds": ["i-au-wwi", "i-nz-wwi"],
+      "note": "澳新军团加里波利战役与第一次世界大战条目在澳大利亚与新西兰中重复录入。"
+    },
+    {
+      "id": "world-war-ii-1939",
+      "canonicalEntryId": "i-032",
+      "memberIds": ["i-032", "i-125"],
+      "note": "1939—1945 年第二次世界大战在世界与英国条目中重复录入。"
+    },
+    {
+      "id": "cold-war-1947",
+      "canonicalEntryId": "i-135",
+      "memberIds": ["i-135", "i-078", "i-137"],
+      "note": "1947—1989 年冷战在世界、美国与俄罗斯三条分类下重复录入。"
+    },
+    {
+      "id": "state-of-israel-1948",
+      "canonicalEntryId": "i-il-state-established",
+      "memberIds": ["i-il-state-established", "i-jud-israel"],
+      "note": "1948 年 5 月 14 日以色列国建立在以色列与犹太教分类下重复录入。"
+    },
+    {
+      "id": "korean-war-1950",
+      "canonicalEntryId": "i-kr-korean-war",
+      "memberIds": ["i-kr-korean-war", "i-079"],
+      "note": "1950—1953 年朝鲜战争在朝鲜半岛与美国条目中重复录入。"
+    },
+    {
+      "id": "algerian-war-1954",
+      "canonicalEntryId": "i-af-algerian-war",
+      "memberIds": ["i-af-algerian-war", "i-fr-algerian-war"],
+      "note": "1954—1962 年阿尔及利亚战争在阿尔及利亚与法国条目中重复录入。"
+    },
+    {
+      "id": "vietnam-war-1955",
+      "canonicalEntryId": "i-vn-vietnam-war",
+      "memberIds": ["i-vn-vietnam-war", "i-080"],
+      "note": "1955—1975 年越南战争在越南与美国条目中重复录入。"
+    },
+    {
+      "id": "treaty-of-rome-1957",
+      "canonicalEntryId": "i-eu-treaty-rome",
+      "memberIds": ["i-eu-treaty-rome", "i-it-treaty-rome"],
+      "note": "1957 年 3 月 25 日《罗马条约》在欧洲与意大利条目中重复录入。"
+    },
+    {
+      "id": "cambodian-vietnamese-war-1978",
+      "canonicalEntryId": "i-vn-cambodia-war",
+      "memberIds": ["i-vn-cambodia-war", "i-kh-vietnam-war"],
+      "note": "1978—1989 年柬越战争在越南与柬埔寨条目中重复录入。"
+    },
+    {
+      "id": "iran-iraq-war-1980",
+      "canonicalEntryId": "i-iq-iran-iraq-war",
+      "memberIds": ["i-iq-iran-iraq-war", "i-ir-iraq-war"],
+      "note": "1980—1988 年两伊战争在伊拉克与伊朗条目中重复录入。"
+    },
+    {
+      "id": "dissolution-of-czechoslovakia-1993",
+      "canonicalEntryId": "i-cz-velvet-divorce",
+      "memberIds": ["i-cz-velvet-divorce", "i-svk-independence"],
+      "note": "1993 年捷克斯洛伐克解体与斯洛伐克独立共用同一来源与历史事件。"
+    }
+  ],
+  "pendingCandidates": [
+    {
+      "id": "pending-achaemenid-anatolia",
+      "memberIds": ["i-ir-achaemenid", "i-tr-persian"],
+      "reason": "伊朗阿契美尼德本国分期（-551..-331）与安纳托利亚行省统治分期（-546..-334）起讫年及语义视角不同，暂不强制合并。"
+    },
+    {
+      "id": "pending-arab-levant-636",
+      "memberIds": ["i-il-caliphates", "i-ps-arab-islamization"],
+      "reason": "政治统治分期与社会伊斯兰化长期过程表述不同，待进一步人工史学审校。"
+    },
+    {
+      "id": "pending-al-andalus-711",
+      "memberIds": ["i-islam-al-andalus", "i-pt-al-andalus", "i-es-al-andalus"],
+      "reason": "分别记录 711 年传入节点、711—1139 年葡萄牙部分与 711—1492 年伊比利亚长期进程，时限不同暂保留独立记录。"
+    },
+    {
+      "id": "pending-columbus-1492",
+      "memberIds": ["i-es-columbus", "i-cu-columbus"],
+      "reason": "全局航行到达美洲与古巴登陆两项关联但空间层级不同，暂保留独立记录。"
+    },
+    {
+      "id": "pending-peninsular-war-1807",
+      "memberIds": ["i-pt-napoleonic", "i-es-peninsular-war"],
+      "reason": "葡萄牙（1807—1814）与西班牙（1808—1814）半岛战区起点不同，暂保留地方叙事差异。"
+    },
+    {
+      "id": "pending-1848-austria-hungary",
+      "memberIds": ["i-at-1848", "i-hu-1848"],
+      "reason": "奥地利政治革命（movement）与匈牙利独立战争（war）性质与战程不同，暂保留独立记录。"
+    },
+    {
+      "id": "pending-wwi-national-entries",
+      "memberIds": ["i-000", "i-ca-wwi", "i-de-wwi", "i-fr-wwi", "i-be-wwi", "i-lu-wwi"],
+      "reason": "包含总体大战与维米岭战役、各国参战及被占领经历等不同战役/国别侧面，不强制合并。"
+    },
+    {
+      "id": "pending-mandate-palestine-1920",
+      "memberIds": ["i-il-british-mandate", "i-ps-mandate-nationalism"],
+      "reason": "委任统治制度史与巴勒斯坦民族主义兴起两条并行长期叙事，暂保留。"
+    },
+    {
+      "id": "pending-baltic-soviet-1940",
+      "memberIds": ["i-lt-soviet-occupation", "i-ee-soviet-occupation", "i-lv-soviet-occupation"],
+      "reason": "波罗的海三国各自独立状态与结束年份（1990 / 1991）不同，保留分国记录。"
+    },
+    {
+      "id": "pending-ecsc-1951",
+      "memberIds": ["i-eu-ecsc", "i-lu-eu-seat"],
+      "reason": "欧洲煤钢共同体成立（1951—1952）与卢森堡成为机构驻地（1952）属因果关联而非同一事件。"
+    },
+    {
+      "id": "pending-iberia-eec-1986",
+      "memberIds": ["i-es-eec", "i-pt-eu-accession"],
+      "reason": "虽同于 1986 年 1 月 1 日生效，分属西班牙与葡萄牙各自入盟条约及本国进程，待审。"
+    },
+    {
+      "id": "pending-vietnam-1995",
+      "memberIds": ["i-119", "i-vn-1995"],
+      "reason": "东盟扩员事件与越南双边美越关系正常化合并条目内容不完全重合，待后续整理。"
+    },
+    {
+      "id": "pending-laos-asean-1997",
+      "memberIds": ["i-120", "i-la-asean"],
+      "reason": "分别覆盖老挝与缅甸共同加入与老挝单国加入东盟视角，待后续整理。"
+    }
+  ]
+}

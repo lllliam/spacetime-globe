@@ -3,7 +3,7 @@ import {join} from 'node:path';
 import rules from '../src/history-rules.js';
 import {readHistorySources} from './migrate-history-model.mjs';
 import {compileHistoricalScenes} from './historical-scenes.mjs';
-import {loadPolityNames,readPolityIds} from './polity-names.mjs';
+import {loadPolityNames,readPolityIds,readPolityRanges} from './polity-names.mjs';
 
 const {isHistoryYear,historyIncludes,historyOverlaps,referenceId} = rules;
 const string = value => typeof value === 'string' && value.trim().length > 0;
@@ -107,6 +107,7 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
   const world = read(root,'data/world.json');
   const plan = read(root,'data/content-plan.json');
   const polityIds = readPolityIds(root);
+  const polityRanges = readPolityRanges(root);
   const names = loadPolityNames(root);
   const countries = new Set(world.map.map(([iso])=>iso));
   const regions = identities(world.regions,'data/world.json 地区',item=>item.id,string);
@@ -351,6 +352,8 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     target(row.target?.bookId,row.target?.chapterId,byBook,bookChapter,label);
     check(row.relation==='related' || row.target.chapterId===undefined,label + ' 主入口应打开整卷');
     requireRange(row.range,label);
+    check(row.map.type !== 'polity' || historyOverlaps(row.range, polityRanges.get(row.map.key)),
+      label + ' 入口年代与底图覆盖年代不相交');
     requireAudit(row.audit,label);
     if (row.subjectId !== undefined) {
       const subject = subjects.get(row.subjectId);
@@ -389,6 +392,83 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
   }
   const legacyBindings = bindings.filter(row=>['legacy','unreviewed'].includes(row.audit.status)).length;
   if (legacyBindings) warnings.push(legacyBindings + ' 条地图入口待按书卷与底图范围逐条审校');
+
+  const compiledSubjects = [];
+  for (const subject of subjects.values()) {
+    if (!subject.maps?.length) continue;
+    for (const map of subject.maps) {
+      compiledSubjects.push([
+        map.type + ':' + map.key,
+        {
+          id: subject.id,
+          type: subject.type,
+          name: subject.name,
+          from: subject.range?.from ?? null,
+          to: subject.range?.to ?? null,
+          ...(subject.range?.dateLabel ? { dateLabel: subject.range.dateLabel } : {}),
+          ...(subject.scope ? { scope: subject.scope } : {}),
+        },
+      ]);
+    }
+  }
+
+  const eventIdentities = files.get('data/history/event-identities.json');
+  const eventGroups = [];
+  let pendingEventCandidates = [];
+  if (eventIdentities !== undefined) {
+    check(eventIdentities?.version === 1 && Array.isArray(eventIdentities.confirmedDuplicates) &&
+      Array.isArray(eventIdentities.pendingCandidates), 'data/history/event-identities.json 格式无效');
+    const groupedMembers = new Set();
+    const seenGroupIds = new Set();
+    for (const group of eventIdentities.confirmedDuplicates) {
+      const label = 'data/history/event-identities.json/' + group?.id;
+      check(id(group?.id) && !seenGroupIds.has(group.id), label + ' 重复事件组 ID 无效或重复');
+      seenGroupIds.add(group.id);
+      check(Array.isArray(group.memberIds) && group.memberIds.length >= 2 &&
+        group.memberIds.every(eid => events.has(eid)) && group.memberIds.includes(group.canonicalEntryId) &&
+        string(group.note), label + ' 重复事件组成员或说明无效');
+      check(new Set(group.memberIds).size === group.memberIds.length, label + ' 存在重复成员 ID');
+      if (group.displayTitle !== undefined) check(string(group.displayTitle), label + ' 显示标题无效');
+      let noteCount = 0, storyCount = 0;
+      for (const eid of group.memberIds) {
+        check(!groupedMembers.has(eid), label + ' 成员 ' + eid + ' 属于多个重复组');
+        groupedMembers.add(eid);
+        if (notes[eid]) noteCount++;
+        if (mapStories.has(eid)) storyCount++;
+      }
+      check(noteCount <= 1 && storyCount <= 1, label + ' 同一重复组不可丢弃多份长注或专题地图');
+      eventGroups.push([
+        group.id,
+        group.canonicalEntryId,
+        group.memberIds,
+        ...(group.displayTitle ? [group.displayTitle] : []),
+      ]);
+    }
+    const pendingSet = new Set();
+    for (const cand of eventIdentities.pendingCandidates) {
+      const label = 'data/history/event-identities.json/' + cand?.id;
+      check(id(cand?.id) && !seenGroupIds.has(cand.id) && Array.isArray(cand.memberIds) &&
+        cand.memberIds.length >= 2 && cand.memberIds.every(eid => events.has(eid)) && string(cand.reason),
+        label + ' 待核候选无效');
+      seenGroupIds.add(cand.id);
+      for (const eid of cand.memberIds) {
+        check(!groupedMembers.has(eid), label + ' 待核成员 ' + eid + ' 与已确认重复组冲突');
+        pendingSet.add(eid);
+      }
+    }
+    pendingEventCandidates = eventIdentities.pendingCandidates;
+    const seenExactSource = new Map();
+    for (const ev of events.values()) {
+      if (groupedMembers.has(ev.id) || pendingSet.has(ev.id)) continue;
+      if (!ev.source) continue;
+      const key = `${ev.start}|${ev.point ? ev.start : ev.end}|${ev.kind}|${ev.source}`;
+      const previous = seenExactSource.get(key);
+      check(!previous || previous.zh !== ev.zh,
+        '存在未纳入事件身份治理的同源同日同名事件：' + ev.id + ' 与 ' + previous?.id);
+      seenExactSource.set(key, ev);
+    }
+  }
+
   return { world, plan:planned, books, topics, scenes, notes, eventLinks, mapBindings:compiledBindings, bindings,
-    polityNames:names, subjects, metadata, version:registry.version, warnings };
+    polityNames:names, subjects, compiledSubjects, eventGroups, pendingEventCandidates, metadata, version:registry.version, warnings };
 }

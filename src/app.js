@@ -173,8 +173,9 @@ function polityShape(pk, pathId) {
 }
 
 /* ───────────── 2. 世界索引 ───────────── */
-let world = null, regions = [], regionById = new Map(), regionByIso = new Map(), entries = [], mapShapes = [];
-let entryByRegion = new Map();
+let world = null, regions = [], regionById = new Map(), regionByIso = new Map(), entries = [], canonicalEntries = [], mapShapes = [];
+let entryByRegion = new Map(), canonicalEventById = new Map();
+const rawEventGroups = JSON.parse(inlineText('history-event-groups') || '[]');
 let pk = null;                          // 政权包
 let polityState = { loading: false, loaded: false, error: null };
 
@@ -196,6 +197,40 @@ function initWorld(w) {
     if (!(t1 >= t0)) t1 = t0;
     return { ...e, t0, t1 };
   });
+  const rawById = new Map(entries.map((e) => [e.id, e]));
+  const groupedMemberIds = new Set();
+  canonicalEntries = [];
+  canonicalEventById = new Map();
+  for (const [, canonicalId, memberIds, displayTitle] of rawEventGroups) {
+    const members = memberIds.map((id) => rawById.get(id)).filter(Boolean);
+    if (!members.length) continue;
+    const base = rawById.get(canonicalId) || members[0];
+    const pointSource = members.find((m) => m.px != null && m.py != null);
+    const canonical = {
+      ...base,
+      ...(displayTitle ? { zh: displayTitle } : {}),
+      memberIds: members.map((m) => m.id),
+      regions: [...new Set(members.map((m) => m.region).filter(Boolean))],
+      sources: [...new Set(members.map((m) => m.source).filter(Boolean))],
+      ...(pointSource ? { px: pointSource.px, py: pointSource.py } : {}),
+    };
+    canonicalEntries.push(canonical);
+    for (const m of members) {
+      groupedMemberIds.add(m.id);
+      canonicalEventById.set(m.id, canonical);
+    }
+  }
+  for (const e of entries) {
+    if (groupedMemberIds.has(e.id)) continue;
+    const canonical = {
+      ...e,
+      memberIds: [e.id],
+      regions: e.region ? [e.region] : [],
+      sources: e.source ? [e.source] : [],
+    };
+    canonicalEntries.push(canonical);
+    canonicalEventById.set(e.id, canonical);
+  }
   entryByRegion = new Map();
   for (const e of entries) {
     let a = entryByRegion.get(e.region);
@@ -1244,22 +1279,28 @@ function drawVector(hudBounds = globeHudBounds()) {
     }
   }
 
-  /* 地名：按投影面积决定显不显示，贪心避让 */
+  /* 地名：按相对球盘面积决定显不显示，默启保留克制的重点锚点，放大后渐进增多，贪心避让 */
   const placed = [];
   const hasScenePolities = focusedIds.size > 0;
-  const maxLabels = !chrome.labels || (worldEvent?.sceneId && !hasScenePolities) || (state.zoom === 1 && !state.focus && !hasScenePolities)
-    ? 0 : hasScenePolities ? Math.min(8, focusedIds.size) : state.zoom > 1.5 ? (innerWidth<500?14:24) : (innerWidth<500?7:14);
+  const defaultExplore = state.zoom <= 1.15 && !state.focus && !hasScenePolities;
+  const maxLabels = !chrome.labels || (worldEvent?.sceneId && !hasScenePolities)
+    ? 0 : hasScenePolities ? Math.min(8, focusedIds.size)
+    : defaultExplore ? (view.w < 500 ? 5 : 8)
+    : state.zoom > 1.5 ? (view.w < 500 ? 14 : 24) : (view.w < 500 ? 8 : 15);
   const uiTop = view.safeTop + 12;
   const uiBottom = Math.min(view.h - 55, view.h - view.safeBottom - 24);
-  const cand = drawn.filter((d) => d.area > 0 && d.name && (!hasScenePolities || focusedIds.has(d.id))).sort((a, b) => b.area - a.area);
+  const disk = Rz * Rz || 1;
+  const need = Math.max(180, Math.round(disk * (state.zoom > 2 ? 0.0022 : state.zoom > 1.3 ? 0.0085 : defaultExplore ? 0.022 : 0.015)));
+  const focusId = state.focus?.id;
+  const cand = drawn.filter((d) => d.area > 0 && d.name && (!hasScenePolities || focusedIds.has(d.id)))
+    .sort((a, b) => (b.id === focusId ? 1e9 : b.area) - (a.id === focusId ? 1e9 : a.area));
   vctx.textAlign = 'center';
   vctx.textBaseline = 'middle';
   for (const d of cand) {
     if (placed.length >= maxLabels) break;
     if (d.y < uiTop || d.y > uiBottom) continue;
-    const area = d.area;
-    const need = state.zoom > 2 ? 220 : state.zoom > 1.3 ? 800 : 3000;
-    if (area < need) continue;
+    const isFocused = d.id === focusId;
+    if (!isFocused && d.area < need) continue;
     vctx.font = isPolity
       ? '600 11.5px Georgia,"Songti SC",serif'
       : '600 11.5px system-ui,sans-serif';
@@ -1276,9 +1317,10 @@ function drawVector(hudBounds = globeHudBounds()) {
     }
     if (overlap) continue;
     placed.push({ x: d.x, y: d.y, w, h });
-    vctx.shadowColor = 'rgba(0,0,0,.75)';
+    vctx.shadowColor = 'rgba(0,0,0,.78)';
     vctx.shadowBlur = 4;
-    vctx.fillStyle = isPolity ? 'rgba(255,238,206,.94)' : 'rgba(248,244,236,.94)';
+    const alpha = defaultExplore && !isFocused ? '.84' : '.95';
+    vctx.fillStyle = isPolity ? `rgba(255,238,206,${alpha})` : `rgba(248,244,236,${alpha})`;
     vctx.fillText(d.name, d.x, d.y);
     vctx.shadowBlur = 0;
   }
@@ -1437,7 +1479,10 @@ function layout() {
   if (r && (surface.width !== pixelsWide || surface.height !== pixelsHigh)) r.resize(w, h, dpr);
   if (vecCanvas.width !== pixelsWide) vecCanvas.width = pixelsWide;
   if (vecCanvas.height !== pixelsHigh) vecCanvas.height = pixelsHigh;
-  if (viewportChanged && !sheetMotion && !sheetState.dragging) applySheetOffset(sheetDetents()[sheetState.detent], false);
+  if (viewportChanged && !sheetState.dragging) {
+    if (sheetMotion) sheetTo(sheetState.detent);
+    else applySheetOffset(sheetDetents()[sheetState.detent], false);
+  }
   draw();
 }
 
@@ -1695,7 +1740,8 @@ function draw() {
   const r = glr || fallback;
   if (!r || !baseCanvas) return;
   r.draw(view, state);
-  const hudBounds = state.zoom !== 1 || state.focus || session.mode === 'Observe' ? globeHudBounds() : [];
+  const hudBounds = (chrome.labels && !chrome.natural) || state.zoom !== 1 || state.focus || session.mode === 'Observe'
+    ? globeHudBounds() : [];
   drawVector(hudBounds);
   drawEventMap(hudBounds);
 }
@@ -1918,7 +1964,12 @@ const SHEET_BOTTOM_GAP = 16;
 
 function sheetDetents() {
   const H = view.h || innerHeight;
-  const peek = H - (144 + view.safeBottom);
+  const entity = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+  const book = entity && subjectBookForEntity(entity);
+  const hasSeparateBook = Boolean(entity && (book ? book.title !== subjectEntityName(entity)
+    : historyBindingsFor(entity, state.year).some(row => row[3] === 'related')));
+  const peekHeight = hasSeparateBook ? 202 : 144;
+  const peek = H - (peekHeight + view.safeBottom);
   const half = Math.min(peek - 68, Math.round(H * .42));
   return { hidden: H, peek: Math.max(H * .46, peek), half: Math.max(H * .3, half), full: 0 };
 }
@@ -2149,7 +2200,18 @@ grabEl.addEventListener('click', () => {
   if (!sheetState.suppressClick && !reading.active) openPeekProgressively();
 });
 sheetInner.addEventListener('click', (event) => {
-  if (reading.active || sheetState.suppressClick || sheetState.detent !== 'peek' || !state.focus) return;
+  if (reading.active || sheetState.suppressClick || !state.focus) return;
+  if (event.target.closest('[data-open-sheet-book]')) { openBook({ resume: true }); return; }
+  const relatedBtn = event.target.closest('[data-open-sheet-related]');
+  if (relatedBtn) {
+    const book = subjectsById.get(relatedBtn.dataset.openSheetRelated);
+    if (book) {
+      const entity = entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
+      beginReading(entity, null, relatedBtn.dataset.openSheetChapter || null, book);
+    }
+    return;
+  }
+  if (sheetState.detent !== 'peek') return;
   if (event.target.closest('button, a, input, select, summary')) return;
   if (event.target.closest('.subject-sheet-summary')) openPeekProgressively();
 });
@@ -2325,11 +2387,10 @@ reducedGlobeMotion.addEventListener('change', invalidate);
 function syncSheetIdentity() {
   const entity = state.focus && entityByKey(state.focus.layerId, state.focus.key, state.focus.id);
   const book = entity && subjectBookForEntity(entity);
-  const title = book?.title || (entity ? subjectEntityName(entity) : '历史档案');
+  const title = entity ? subjectEntityName(entity) : '历史档案';
   el('sheet-identity-name').textContent = title;
   el('sheet-seal').textContent = title.includes('明') ? '明' : title.slice(0, 1) || '史';
-  el('sheet-identity-years').textContent = book ? subjectYears(book)
-    : entity ? entity.kind === 'polity' ? subjectYears(entity) : '现代参考边界' : '时间与空间';
+  el('sheet-identity-years').textContent = entity ? subjectIdentitySubtitle(entity) : '时间与空间';
   el('sheet-close').hidden = !entity;
   const toc = el('sheet-toc');
   toc.hidden = !entity;

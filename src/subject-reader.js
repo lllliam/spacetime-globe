@@ -2,6 +2,25 @@ const subjectBooks = JSON.parse(inlineText('subject-books'));
 const historicalScenes = new Map(JSON.parse(inlineText('historical-scenes')).map(scene => [scene.id, scene]));
 const subjectsById = new Map(subjectBooks.map((book) => [book.id, book]));
 const bindingsByMapObject = new Map(JSON.parse(inlineText('history-map-bindings')));
+const historySubjects = new Map(JSON.parse(inlineText('history-subjects') || '[]'));
+
+function historySubjectFor(entity) {
+  if (!entity) return null;
+  const key = entity.kind === 'polity' ? 'polity:' + entity.name : 'country:' + entity.iso;
+  return historySubjects.get(key) || null;
+}
+
+function subjectIdentitySubtitle(entity) {
+  if (!entity) return '时间与空间';
+  const subject = historySubjectFor(entity);
+  if (entity.kind === 'polity') {
+    if (subject && (subject.dateLabel || subject.from != null)) return subjectYears(subject) + ' · 历史政权';
+    if (polityRelations.has(entity.name)) return '历史关系记录 · 底图记录 ' + subjectYears(entity);
+    return '历史政权 · 存续年代待核（底图记录 ' + subjectYears(entity) + '）';
+  }
+  if (subject && subject.from != null) return subjectYears(subject) + ' · 现代国家';
+  return '现代国家 · 现代参考边界';
+}
 
 function historyBindingsFor(entity, year) {
   if (!entity) return [];
@@ -46,10 +65,39 @@ function subjectEntityName(entity) {
 
 function subjectSheetMarkup(entity) {
   const book = subjectBookForEntity(entity);
-  if (book) return '<p class="subject-sheet-summary">' + esc(book.summary) + '</p>';
+  const subject = historySubjectFor(entity);
+  const subjectTitle = subjectEntityName(entity);
+  const related = historyBindingsFor(entity, state.year).filter(row => row[3] === 'related');
   const source = historyMapSources[entity.kind === 'polity' ? 'polity' : 'country'];
-  return '<p class="subject-sheet-summary map-sheet-summary">仅有地图资料。 ' +
-    '<a href="' + esc(source.source) + '" target="_blank" rel="noopener noreferrer">' + esc(source.name) + ' ↗</a></p>';
+  const sameTitle = Boolean(book && book.title === subjectTitle);
+  if (book) {
+    const primaryRow = historyBindingsFor(entity, state.year).find(row => row[0] === book.id && row[3] === 'primary');
+    const customScope = primaryRow?.[4] && !primaryRow[4].includes('入口按原书卷叙事范围沿用') ? primaryRow[4] : '';
+    const intro = sameTitle
+      ? book.summary
+      : (subject?.scope || customScope || (entity.kind === 'country'
+          ? '此处以现代国家边界定位，可通过下方相关书卷阅读这一地区在不同时代的历史。'
+          : '当前展示该时期的历史政权，可通过对应书卷与相关章节进一步理解。'));
+    const entryButton = sameTitle ? ''
+      : '<p class="subject-sheet-book"><button type="button" data-open-sheet-book="' + esc(book.id) + '">' +
+        '<span>阅读《' + esc(book.title) + '》</span>' +
+        '<small>书卷范围 ' + esc(subjectYears(book)) + '</small></button></p>';
+    return '<p class="subject-sheet-summary">' + esc(intro) + '</p>' + entryButton;
+  }
+  const fallbackSummary = subject?.scope
+    ? '<p class="subject-sheet-summary">' + esc(subject.scope) + '</p>'
+    : '';
+  const relatedBook = related.length ? subjectsById.get(related[0][0]) : null;
+  const relatedButton = relatedBook
+    ? '<p class="subject-sheet-book"><button type="button" data-open-sheet-related="' + esc(relatedBook.id) +
+      '" data-open-sheet-chapter="' + esc(related[0][5] || '') + '">' +
+      '<span>相关书卷：阅读《' + esc(relatedBook.title) + '》</span>' +
+      '<small>' + esc(related[0][4] || subjectYears(relatedBook)) + '</small></button></p>'
+    : '';
+  return fallbackSummary +
+    '<p class="subject-sheet-summary map-sheet-summary">仅有地图资料。 ' +
+    '<a href="' + esc(source.source) + '" target="_blank" rel="noopener noreferrer">' + esc(source.name) + ' ↗</a></p>' +
+    relatedButton;
 }
 
 function savedSubjectProgress(book) {
@@ -69,10 +117,11 @@ function subjectNeighbors() {
   const candidates = readingEntryPeers.filter((id) => id !== reading.ent.entId)
     .map((id) => entityByKey('polity', id)).filter(Boolean).flatMap((entity) => {
       const linked = subjectBookForEntity(entity, reading.year);
-      const key = linked?.id ?? entity.entId;
-      if (linked?.id && linked.id === currentBook || seen.has(key)) return [];
+      const entityName = subjectEntityName(entity);
+      const key = entity.entId;
+      if ((linked?.id && linked.id === currentBook && entityName === reading.subject?.title) || seen.has(key)) return [];
       seen.add(key);
-      return [{ entity, label: linked?.title || subjectEntityName(entity) }];
+      return [{ entity, label: entityName }];
     });
   if (!candidates.length) return '';
   return '<details class="subject-secondary"><summary>地图上重叠的主体</summary>' +
@@ -87,9 +136,11 @@ function renderAtlasReading() {
   const history = entity.kind === 'polity';
   const isRelation = history && polityRelations.has(entity.name);
   const source = historyMapSources[history ? 'polity' : 'country'];
+  const subjectScope = !isRelation ? historySubjectFor(entity)?.scope : '';
   return '<div class="atlas-reading">' + readingHeading(title, (isRelation ? '历史关系 · ' : '地图资料 · ') + yearLabel(reading.year)) +
     '<p class="lede">' + (isRelation ? '这是底图中的双边或联合关系记录，不作为独立政权主体。' : '这个主体的历史正文尚未收录。') + '</p>' +
-    '<p class="reading-note">' + (history ? '疆域资料记录于 ' + esc(subjectYears(entity)) + '。覆盖年代取决于底图资料。'
+    (subjectScope ? '<p class="reading-note">' + esc(subjectScope) + '</p>' : '') +
+    '<p class="reading-note">' + (history ? '底图疆域记录区间为 ' + esc(subjectYears(entity)) + '；边界与年代覆盖取决于 Cliopatria 原始底图，不等同于政权完整存续考证。'
       : '这里使用现代国界定位。历史政权可在对应年代的历史疆域视图中查找。') + '</p>' +
     (history && !polityNames.has(entity.name)
       ? '<details class="subject-secondary"><summary>底图原名</summary><p>' + esc(entity.name) + '</p></details>' : '') +
@@ -116,7 +167,10 @@ function renderSubjectOutline(book) {
   const scope = historyBindingsFor(reading.ent,reading.year).find(row=>row[0]===book.id && row[3]==='primary')?.[4];
   const progress = savedSubjectProgress(book);
   const current = reading.directory ? reading.trail.at(-1)?.detail : null;
-  return '<div class="reading-cover">' + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
+  const entTitle = reading.ent && subjectEntityName(reading.ent);
+  const entryContext = entTitle && entTitle !== book.title
+    ? '<p class="subject-entry-context">当前地图主体：' + esc(entTitle) + '（' + esc(subjectIdentitySubtitle(reading.ent)) + '）</p>' : '';
+  return '<div class="reading-cover">' + entryContext + readingHeading(book.title, subjectYears(book)) + '<p class="lede">' + esc(book.summary) + '</p>' +
     (scope ? '<p class="reading-note">' + esc(scope) + '</p>' : '') +
     editorialNoticeMarkup(book) +
     '<nav class="reading-next subject-entry-actions" aria-label="开始阅读">' +

@@ -9,8 +9,8 @@ body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,
   --reading-ink:#25221d;--reading-muted:#756d60;--reading-rule:#d9d0bf;
   --reading-serif:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC","Source Han Serif SC","SimSun","Noto Serif",Georgia,serif;
   --reading-size:18px;--reading-gutter:clamp(17px,5.6vw,24px);
-  position:fixed;inset:0 0 auto;z-index:18;height:var(--app-height);
-  display:grid;grid-template-rows:auto minmax(0,1fr);
+  position:fixed;inset:0 0 auto;z-index:18;width:100%;max-width:100%;height:var(--app-height);
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);
   background:var(--paper-bg);color:var(--reading-ink);color-scheme:light;
 }
 #book[hidden],#book [hidden]{display:none}
@@ -18,22 +18,22 @@ body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,
 #book[data-size="large"]{--reading-size:21px}
 #book[data-size="extra"]{--reading-size:24px}
 #book-bar{
-  position:relative;z-index:1;display:flex;align-items:center;
+  position:relative;z-index:1;display:flex;align-items:center;gap:2px;min-width:0;max-width:100%;overflow:hidden;
   padding:var(--safe-t) max(9px,env(safe-area-inset-right,0px)) 0 max(9px,env(safe-area-inset-left,0px));
   border-bottom:1px solid var(--reading-rule);
 }
 #book-bar nav{display:flex;align-items:center;flex:none}
 #reading-book-name{
-  flex:1;min-width:0;padding-inline:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  flex:1 1 0;min-width:0;padding-inline:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   font:600 16px/1.25 var(--reading-serif);
 }
 #book button,#book summary{cursor:pointer}
 #book-bar button{
-  display:grid;place-items:center;min-width:44px;min-height:44px;padding:0 7px;
+  display:grid;place-items:center;flex:none;min-width:44px;min-height:44px;padding:0 7px;
   color:var(--reading-ink);background:none;border:0;border-radius:5px;
   font:600 13px/1 var(--font-sans);white-space:nowrap;
 }
-#book-bar #reading-exit{margin-left:3px;color:var(--vermilion)}
+#book-bar #reading-exit{margin-left:2px;color:var(--vermilion)}
 #book-bar svg,.reading-arrow{
   width:17px;height:17px;flex:none;fill:none;stroke:currentColor;
   stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
@@ -45,12 +45,15 @@ body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,
 }
 #book-body:focus-visible{outline:2px solid var(--vermilion);outline-offset:-3px}
 #book-body{
-  min-height:0;min-width:0;overflow-y:auto;overscroll-behavior-y:contain;overflow-anchor:none;
+  min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;overflow-anchor:none;
   padding:clamp(23px,5.2vh,57px) max(var(--reading-gutter),env(safe-area-inset-right,0px),calc((100% - 680px)/2))
     calc(44px + var(--usable-safe-b)) max(var(--reading-gutter),env(safe-area-inset-left,0px),calc((100% - 680px)/2));
   scroll-padding:16px 0 calc(18px + var(--usable-safe-b));scrollbar-color:#b6ad9b transparent;
   font:400 var(--reading-size)/1.9 var(--reading-serif);overflow-wrap:anywhere;
   -webkit-user-select:text;user-select:text;touch-action:auto;
+}
+#book .subject-entry-context{
+  margin:0 0 8px;color:var(--reading-muted);font:500 13px/1.45 var(--font-sans);
 }
 #book-body h1{
   margin:0 0 8px;font:700 clamp(31px,6.9vw,49px)/1.22 var(--reading-serif);
@@ -161,6 +164,10 @@ body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,
   #book-bar{padding-inline:max(20px,env(safe-area-inset-left,0px),calc((100% - 820px)/2)) max(20px,env(safe-area-inset-right,0px),calc((100% - 820px)/2))}
   #book-bar button{padding-inline:13px;min-height:49px}
   #reading-display{top:calc(var(--safe-t) + 54px);right:max(20px,calc((100% - 820px)/2))}
+}
+@media(max-width:440px){
+  #book-bar button{padding:0 5px;font-size:12.5px}
+  #book-bar #reading-book-name{font-size:14.5px;padding-inline:4px}
 }
 @media(max-width:360px){
   #book .subject-outline .reading-row{grid-template-columns:auto minmax(0,1fr);column-gap:9px;row-gap:2px}

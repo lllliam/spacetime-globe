@@ -483,14 +483,14 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
   background:linear-gradient(#0a1016e0,transparent);
 }
 #event-map-return{
-  min-height:44px;padding:0 12px;border:1px solid var(--paper-border);border-radius:999px;
-  background:var(--paper-bg);color:var(--paper-ink);font:600 13px var(--font-sans);text-shadow:none;
+  flex:none;min-height:44px;padding:0 12px;border:1px solid var(--paper-border);border-radius:999px;
+  background:var(--paper-bg);color:var(--paper-ink);font:600 13px var(--font-sans);text-shadow:none;white-space:nowrap;
 }
 #event-map-meta{
-  max-width:62%;padding:6px 12px;border:1px solid var(--cosmos-border);border-radius:999px;
+  min-width:0;max-width:62%;padding:6px 12px;border:1px solid var(--cosmos-border);border-radius:999px;
   background:var(--cosmos-surface);color:var(--cosmos-ink);
 }
-#event-map-year{display:block;color:inherit;font:600 13px/1.35 var(--font-sans);margin:0;text-shadow:none;letter-spacing:0}
+#event-map-year{display:block;color:inherit;font:600 13px/1.35 var(--font-sans);margin:0;text-shadow:none;letter-spacing:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #event-map-panel,.scene-observation #event-map-panel{
   left:0;right:0;bottom:var(--app-bottom);margin:0 auto;transform:none;width:min(100vw,660px);
   display:flex;max-height:37dvh;padding:0;overflow:hidden;
@@ -573,4 +573,12 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 }
 #sheet-toc[data-read-subject]{background:var(--vermilion);border-color:var(--vermilion);color:#fff9f0}
 #sheet .map-sheet-summary a{color:var(--paper-muted);text-underline-offset:3px}
+#sheet .subject-sheet-book{margin:6px 0 0}
+#sheet .subject-sheet-book button{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 8px;width:100%;min-height:44px;padding:7px 0;
+  border:0;border-top:1px solid var(--paper-border);background:none;color:var(--vermilion);
+  font:600 13.5px/1.4 var(--font-sans);text-align:left;cursor:pointer;
+}
+#sheet .subject-sheet-book button:hover{opacity:.85}
+#sheet .subject-sheet-book small{color:var(--paper-muted);font:400 11.5px/1.3 var(--font-sans)}
 #sheet.full #sheet-scroll{padding-bottom:calc(36px + var(--usable-safe-b))}

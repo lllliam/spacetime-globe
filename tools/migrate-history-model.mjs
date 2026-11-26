@@ -9,6 +9,7 @@ const here = fileURLToPath(import.meta.url);
 const root = dirname(dirname(here));
 const subjectsFile = 'data/history/subjects.json';
 const bindingsFile = 'data/history/map-bindings.json';
+const eventIdentitiesFile = 'data/history/event-identities.json';
 const ordinalId = (prefix, index) => prefix + '-' + String(index + 1).padStart(2, '0');
 const { stringify } = JSON;
 const json = value => stringify(value, null, 2) + '\n';
@@ -36,7 +37,7 @@ export function readHistorySources(base) {
     const path = 'data/' + name + '.json';
     files.set(path, read(base, path));
   }
-  for (const path of [subjectsFile, bindingsFile]) {
+  for (const path of [subjectsFile, bindingsFile, eventIdentitiesFile]) {
     if (existsSync(join(base, path))) files.set(path, read(base, path));
   }
   return files;

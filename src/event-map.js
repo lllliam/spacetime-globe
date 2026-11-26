@@ -496,11 +496,14 @@ function showEventMap(spec, {animate = true} = {}) {
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
+  event = canonicalEventById.get(event.id) || event;
+  const memberIds = event.memberIds || [event.id];
   const year = worldEventYear(event);
   const target = worldEventTarget(event,year);
   const story = target?.chapter.mapStory;
   const scene = target && scenesByEvent.get(event.id);
-  const region = event.regionRef || regionById.get(event.region);
+  const regionNames = [...new Set((event.regions || [event.region])
+    .map(rid => regionById.get(rid)?.zh || event.regionRef?.zh).filter(Boolean))];
   const fromList = !overlay.hidden;
   const source = fromList ? worldSource(String(event.id),'map') : session.source({kind:'map'});
   rememberExplore();
@@ -508,12 +511,19 @@ function openWorldEvent(event) {
   const topicPlaces = target && ![...historicalScenes.values()].some(scene=>scene.topicEvent===event.id) ? chapterPlaces(target.chapter) : [];
   const places = topicPlaces.map(p=>({...p,precision:'approximate'}));
   const articleSources = story && story.refs.map(ref=>target.chapter.sources.find(s=>s.id===referenceId(ref)));
-  showEventMap({ note:story?.summary || (region?.zh ? '相关地区 · ' + region.zh : '地点未详'),
+  const memberSources = (event.sources || (event.source ? [event.source] : [])).map((url, idx) => ({
+    id: 'event-source-' + idx, title: (titleFromEventNote(event) || event.zh) + (regionNames[idx] ? ' · ' + regionNames[idx] : ''), url,
+  }));
+  showEventMap({ note:story?.summary || (regionNames.length ? '相关地区 · ' + regionNames.join('、') : '地点未详'),
     ...scene, event, target, year,
     readingTarget:worldReadingTarget(event,year),
     title:timelineItem(event).title || event.zh, participants:story?.participants,
-    places:scene?.places || places, sources:scene?.sources || articleSources,
+    places:scene?.places || places, sources:scene?.sources || articleSources || (memberSources.length ? memberSources : undefined),
     back:fromList ? '返回史事' : '返回探索' });
+}
+
+function titleFromEventNote(event) {
+  return timelineItem(event)?.title || event?.zh || '';
 }
 
 function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId = null} = {}) {

@@ -15,6 +15,20 @@ export function readPolityIds(root) {
   return ids;
 }
 
+export function readPolityRanges(root) {
+  const pack = readFileSync(join(root, 'data/polity.bin'));
+  const ranges = new Map();
+  let offset = pack.readUInt32LE(16);
+  for (let id = 0; id < pack.readUInt32LE(4); id++) {
+    const length = pack.readUInt16LE(offset);
+    const end = offset + 2 + length;
+    const name = pack.toString('utf8', offset + 2, end);
+    ranges.set(name, { from: pack.readInt16LE(end), to: pack.readInt16LE(end + 2) });
+    offset = end + 4;
+  }
+  return ranges;
+}
+
 const relationPatterns = [
   ['alliance', /^Alliance between (.+) and (.+)$/, (a, b) => a + '与' + b + '的同盟'],
   ['personal-union', /^Personal union of (.+) with (.+)$/, (a, b) => a + '与' + b + '的共主邦联'],

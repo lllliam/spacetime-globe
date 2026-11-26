@@ -5,37 +5,449 @@
       "id": "ming-dynasty",
       "type": "polity",
       "name": "明朝",
-      "range": {
-        "from": 1368,
-        "to": 1644
-      },
-      "maps": [
-        {
-          "type": "polity",
-          "key": "Ming Dynasty"
-        }
-      ],
-      "audit": {
-        "status": "legacy"
-      }
+      "range": { "from": 1368, "to": 1644 },
+      "maps": [{ "type": "polity", "key": "Ming Dynasty" }],
+      "audit": { "status": "legacy" }
     },
     {
       "id": "south-asian-subcontinent",
       "type": "region",
       "name": "南亚次大陆",
       "scope": "此地理区域用于说明书卷的部分叙事范围。",
-      "audit": {
-        "status": "unreviewed"
-      }
+      "audit": { "status": "unreviewed" }
     },
     {
       "id": "maya-societies",
       "type": "civilization",
       "name": "玛雅文明与社会",
       "scope": "中部美洲的玛雅社会与文化，涵盖多个城邦和时期。",
-      "audit": {
-        "status": "unreviewed"
-      }
+      "audit": { "status": "unreviewed" }
+    },
+    {
+      "id": "state-of-qin",
+      "type": "polity",
+      "name": "秦国",
+      "range": { "from": -770, "to": -221, "dateLabel": "约公元前 770—前 221 年" },
+      "scope": "春秋战国时期的西部诸侯国，经商鞅变法与长期兼并于公元前 221 年统一六国。",
+      "maps": [{ "type": "polity", "key": "Qin" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "qin-dynasty",
+      "type": "polity",
+      "name": "秦朝",
+      "range": { "from": -221, "to": -207 },
+      "scope": "中国历史上首个大一统中央集权帝国，实行郡县制并统一度量衡与文字。",
+      "maps": [{ "type": "polity", "key": "Qin Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "han-dynasty",
+      "type": "polity",
+      "name": "汉朝",
+      "range": { "from": -202, "to": 220 },
+      "scope": "历西汉与东汉两个阶段的统一帝国，确立儒学官学地位并开辟通向中亚的丝绸之路。",
+      "maps": [{ "type": "polity", "key": "Han Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "sui-dynasty",
+      "type": "polity",
+      "name": "隋朝",
+      "range": { "from": 581, "to": 618 },
+      "scope": "结束南北朝分裂、开凿大运河并创始科举制度的中原统一王朝。",
+      "maps": [{ "type": "polity", "key": "Sui Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "tang-dynasty",
+      "type": "polity",
+      "name": "唐朝",
+      "range": { "from": 618, "to": 907 },
+      "scope": "以长安、洛阳为中心的多民族开放帝国，在制度、诗歌、都城营建与欧亚往来上影响深远。",
+      "maps": [{ "type": "polity", "key": "Tang Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "northern-song",
+      "type": "polity",
+      "name": "北宋",
+      "range": { "from": 960, "to": 1127 },
+      "scope": "定都开封的宋朝前期政权，出现活字印刷、纸币交子及市民与理学繁荣。",
+      "maps": [{ "type": "polity", "key": "Northern Song" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "southern-song",
+      "type": "polity",
+      "name": "南宋",
+      "range": { "from": 1127, "to": 1279 },
+      "scope": "靖康之变后定都临安（杭州）的宋朝后期政权，江南经济与海上贸易高度发展。",
+      "maps": [{ "type": "polity", "key": "Southern Song" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "yuan-dynasty",
+      "type": "polity",
+      "name": "元朝",
+      "range": { "from": 1271, "to": 1368 },
+      "scope": "忽必烈所建以大都（北京）为都的大一统王朝，行省制度奠定后世省级区划雏形。",
+      "maps": [{ "type": "polity", "key": "Yuan Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "qing-dynasty",
+      "type": "polity",
+      "name": "清朝",
+      "range": { "from": 1636, "to": 1912 },
+      "scope": "由满洲建立并统一中原、蒙古、西藏、新疆与台湾的中国最后一个封建帝制王朝。",
+      "maps": [{ "type": "polity", "key": "Qing Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "roc-polity",
+      "type": "polity",
+      "name": "中华民国",
+      "range": { "from": 1912, "to": 1949, "dateLabel": "1912—1949 年（大陆时期，现仍行于台湾地区）" },
+      "scope": "1912 年辛亥革命后建立的共和政权，底图继续延伸记录至当代台湾地区。",
+      "maps": [{ "type": "polity", "key": "Republic of China" }],
+      "audit": { "status": "checked", "scope": "主体名称与底图连续覆盖范围差异已核对并加注说明。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "prc-polity",
+      "type": "polity",
+      "name": "中华人民共和国",
+      "range": { "from": 1949, "to": null },
+      "scope": "1949 年建立的现代主权国家，经工业化建设与改革开放深刻塑造当代中国与世界格局。",
+      "maps": [{ "type": "polity", "key": "People's Republic of China" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "timurid-empire",
+      "type": "polity",
+      "name": "帖木儿帝国",
+      "range": { "from": 1370, "to": 1507 },
+      "scope": "帖木儿在河中与伊朗高原建立的中亚帝国，以撒马尔罕与赫拉特为枢要，在建筑、学术与丝路贸易史上留下深远遗产。",
+      "maps": [{ "type": "polity", "key": "Timurid Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1370—1507 年存续分期已核对；Cliopatria 底图向后切片至 1528 年。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "kazakh-khanate",
+      "type": "polity",
+      "name": "哈萨克汗国",
+      "range": { "from": 1465, "to": 1847, "dateLabel": "约 1465—1847 年" },
+      "scope": "活跃于钦察草原东部的游牧汗国，分化为大、中、小三玉兹并在清与沙俄之间维系草原政权。",
+      "maps": [{ "type": "polity", "key": "Kazakh Khanate" }],
+      "audit": { "status": "checked", "scope": "主体名称与约 1465—1847 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "mongol-empire",
+      "type": "polity",
+      "name": "蒙古帝国",
+      "range": { "from": 1206, "to": 1368, "dateLabel": "1206—1259 年（统一阶段，大宗室及四大汗国分期延伸）" },
+      "scope": "成吉思汗于 1206 年在斡难河源建立的跨欧亚游牧大帝国，后分化为四大汗国与元朝。",
+      "maps": [{ "type": "polity", "key": "Mongol Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称、统一阶段与底图 1206—1293 年切片差异已说明。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "chagatai-khanate",
+      "type": "polity",
+      "name": "察合台汗国",
+      "range": { "from": 1225, "to": 1370, "dateLabel": "约 1225—14 世纪末（西部并入帖木儿帝国，东部别失八里续存）" },
+      "scope": "蒙古帝国西部四大汗国之一，领有天山南北与河中绿洲地带。",
+      "maps": [{ "type": "polity", "key": "Chagatai Khanate" }],
+      "audit": { "status": "checked", "scope": "主体名称与东察合台延续差异已核对说明。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "achaemenid-empire",
+      "type": "polity",
+      "name": "阿契美尼德帝国",
+      "range": { "from": -550, "to": -330 },
+      "scope": "居鲁士二世创立的古代波斯第一帝国，以行省总督、御道驿站与多元宽容治理横跨近东与埃及。",
+      "maps": [{ "type": "polity", "key": "Achaemenid Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "sasanian-empire",
+      "type": "polity",
+      "name": "萨珊帝国",
+      "range": { "from": 224, "to": 651 },
+      "scope": "古代伊朗最后一部伊斯兰化前的帝国王朝，与罗马/拜占庭长期对峙并深刻影响丝路艺术与制度。",
+      "maps": [{ "type": "polity", "key": "Sasanian Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "rashidun-caliphate",
+      "type": "polity",
+      "name": "正统哈里发国",
+      "range": { "from": 632, "to": 661 },
+      "scope": "伊斯兰初期由麦地那四任正统哈里发领导的政权，迅速扩展至叙利亚、埃及与伊朗。",
+      "maps": [{ "type": "polity", "key": "Rashidun Caliphate" }],
+      "audit": { "status": "checked", "scope": "主体名称与 632—661 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "umayyad-caliphate",
+      "type": "polity",
+      "name": "倭马亚哈里发国",
+      "range": { "from": 661, "to": 750 },
+      "scope": "定都大马士革的阿拉伯帝国王朝，疆域东至中亚印度河、西达伊比利亚半岛。",
+      "maps": [{ "type": "polity", "key": "Umayyad Caliphate" }],
+      "audit": { "status": "checked", "scope": "主体名称与 661—750 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "abbasid-caliphate",
+      "type": "polity",
+      "name": "阿拔斯哈里发国",
+      "range": { "from": 750, "to": 1258 },
+      "scope": "以巴格达为都城的伊斯兰帝国王朝，孕育百年翻译运动及阿拉伯古典学术与城市繁荣。",
+      "maps": [{ "type": "polity", "key": "Abbasid Caliphate" }],
+      "audit": { "status": "checked", "scope": "主体名称与 750—1258 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "safavid-dynasty",
+      "type": "polity",
+      "name": "萨法维王朝",
+      "range": { "from": 1501, "to": 1736 },
+      "scope": "立什叶派十二伊玛目派为国教的现代伊朗前身大帝国，伊斯法罕建筑与丝路贸易一度极盛。",
+      "maps": [{ "type": "polity", "key": "Safavid Dynasty" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1501—1736 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "ottoman-empire",
+      "type": "polity",
+      "name": "奥斯曼帝国",
+      "range": { "from": 1299, "to": 1922 },
+      "scope": "跨欧亚非三洲的地中海大帝国，1453 年定都君士坦丁堡（伊斯坦布尔）后主导近东与东南欧格局六百余年。",
+      "maps": [{ "type": "polity", "key": "Ottoman Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "maurya-empire",
+      "type": "polity",
+      "name": "孔雀帝国",
+      "range": { "from": -321, "to": -185, "dateLabel": "约公元前 321—前 185 年" },
+      "scope": "首次在南亚次大陆大部分地区建立统一治理的古代印度帝国，阿育王时期大力弘传佛教。",
+      "maps": [{ "type": "polity", "key": "Maurya Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与约公元前 321—前 185 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "gupta-empire",
+      "type": "polity",
+      "name": "笈多帝国",
+      "range": { "from": 320, "to": 550, "dateLabel": "约 320—550 年" },
+      "scope": "被称为南亚古典文化高峰时期的重要北印度帝国，十进制计数法与梵语文学大放异彩。",
+      "maps": [{ "type": "polity", "key": "Gupta Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与约 320—550 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "delhi-sultanate",
+      "type": "polity",
+      "name": "德里苏丹国",
+      "range": { "from": 1206, "to": 1526 },
+      "scope": "先后历经奴隶、卡尔吉、图格鲁克等五个穆斯林王朝的北印度政权中心。",
+      "maps": [{ "type": "polity", "key": "Delhi Sultanate" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1206—1526 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "mughal-empire",
+      "type": "polity",
+      "name": "莫卧儿帝国",
+      "range": { "from": 1526, "to": 1857 },
+      "scope": "由巴布尔在帕尼帕特战役后建立的南亚大帝国，在阿克巴至奥朗则布时期统治次大陆主体。",
+      "maps": [{ "type": "polity", "key": "Mughal Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1526—1857 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "joseon-dynasty",
+      "type": "polity",
+      "name": "朝鲜王朝",
+      "range": { "from": 1392, "to": 1897 },
+      "scope": "李成桂在汉阳（首尔）建立的朝鲜半岛儒学王朝，创制训民正音并延续逾五百年。",
+      "maps": [{ "type": "polity", "key": "Joseon" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1392—1897 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "tokugawa-shogunate",
+      "type": "polity",
+      "name": "德川幕府",
+      "range": { "from": 1603, "to": 1868 },
+      "scope": "以江户为中心统治日本的最后一个武家幕府时代，伴随两百余年国内和平与都市商业成长。",
+      "maps": [{ "type": "polity", "key": "Tokugawa Shogunate" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1603—1868 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "roman-empire",
+      "type": "polity",
+      "name": "罗马帝国",
+      "range": { "from": -27, "to": 395, "dateLabel": "公元前 27—395 年（东西分裂前）" },
+      "scope": "由奥古斯都确立元首制、环绕地中海的古典世界霸权帝国；395 年后分为东西两部分。",
+      "maps": [{ "type": "polity", "key": "Roman Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 395 年东西分治前年代界线已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "western-roman-empire",
+      "type": "polity",
+      "name": "西罗马帝国",
+      "range": { "from": 395, "to": 476 },
+      "scope": "395 年罗马帝国分治后管辖西地中海与西欧行省的部分，476 年末代皇帝罗慕路斯·奥古斯都被废。",
+      "maps": [{ "type": "polity", "key": "Western Roman Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 395—476 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "eastern-roman-empire",
+      "type": "polity",
+      "name": "东罗马帝国",
+      "range": { "from": 395, "to": 1453, "dateLabel": "395—1453 年（底图早期分段标示至 632 年）" },
+      "scope": "以君士坦丁堡为都城的东半部罗马帝国，学术史中通常亦按阶段称为拜占庭帝国。",
+      "maps": [{ "type": "polity", "key": "Eastern Roman Empire" }],
+      "audit": { "status": "checked", "scope": "已区分历史存在时间（395—1453）与 Cliopatria 底图分段切片（395—632）。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "byzantine-empire",
+      "type": "polity",
+      "name": "拜占庭帝国",
+      "range": { "from": 395, "to": 1453, "dateLabel": "395—1453 年（延续自东罗马帝国）" },
+      "scope": "延续罗马法律、希腊学术与正教传统的东地中海帝国，1453 年君士坦丁堡陷落后终结。",
+      "maps": [{ "type": "polity", "key": "Byzantine Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "holy-roman-empire",
+      "type": "polity",
+      "name": "神圣罗马帝国",
+      "range": { "from": 962, "to": 1806 },
+      "scope": "横跨中欧的多邦联帝国体系，由德意志诸侯、自由市与宗教领地共同构成，存在至拿破仑时期解体。",
+      "maps": [{ "type": "polity", "key": "Holy Roman Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 962—1806 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "kingdom-of-france",
+      "type": "polity",
+      "name": "法兰西王国",
+      "range": { "from": 987, "to": 1792 },
+      "scope": "卡佩、瓦卢瓦与波旁王室治下的法国君主国，从封建共主逐步集权为欧洲主要强权。",
+      "maps": [{ "type": "polity", "key": "Kingdom of France" }],
+      "audit": { "status": "checked", "scope": "主体名称与 987—1792 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "kingdom-of-england",
+      "type": "polity",
+      "name": "英格兰王国",
+      "range": { "from": 927, "to": 1707 },
+      "scope": "西欧岛国王国，见证普通法、大宪章与议会制早期演化，1707 年与苏格兰联合为大不列颠王国。",
+      "maps": [{ "type": "polity", "key": "Kingdom of England" }],
+      "audit": { "status": "checked", "scope": "主体名称与 927—1707 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "polish-lithuanian-commonwealth",
+      "type": "polity",
+      "name": "波兰立陶宛联邦",
+      "range": { "from": 1569, "to": 1795 },
+      "scope": "1569 年卢布林联合成立的东欧贵族共和联邦，鼎盛期横跨波罗的海至黑海边缘。",
+      "maps": [{ "type": "polity", "key": "Polish-Lithuanian Commonwealth" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1569—1795 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "russian-empire",
+      "type": "polity",
+      "name": "俄罗斯帝国",
+      "range": { "from": 1721, "to": 1917 },
+      "scope": "彼得一世称帝至 1917 年革命期间跨欧亚与北太平洋的君主制大帝国。",
+      "maps": [{ "type": "polity", "key": "Russian Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1721—1917 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "soviet-union",
+      "type": "polity",
+      "name": "苏联",
+      "range": { "from": 1922, "to": 1991 },
+      "scope": "1922 年成立的社会主义联邦国家，工业化与二战胜利使其成为冷战两极之一，1991 年解体。",
+      "maps": [{ "type": "polity", "key": "Union of Soviet Socialist Republics" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1922—1991 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "aztec-triple-alliance",
+      "type": "polity",
+      "name": "阿兹特克三方同盟",
+      "range": { "from": 1428, "to": 1521, "dateLabel": "约 1428—1521 年" },
+      "scope": "由特诺奇蒂特兰、特斯科科与特拉科潘组成的墨西哥盆地霸权同盟，1521 年亡于西班牙殖民征服。",
+      "maps": [{ "type": "polity", "key": "Aztec Triple Alliance" }],
+      "audit": { "status": "checked", "scope": "主体名称与约 1428—1521 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "inca-empire",
+      "type": "polity",
+      "name": "印加帝国",
+      "range": { "from": 1438, "to": 1572, "dateLabel": "约 1438—1572 年（含比尔卡班巴延续时期）" },
+      "scope": "以库斯科为中心的安第斯山脉统一大帝国，凭借梯田农业、驿道系统与奇普结绳进行跨海拔治理。",
+      "maps": [{ "type": "polity", "key": "Inca Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与约 1438—1572 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "mali-empire",
+      "type": "polity",
+      "name": "马里帝国",
+      "range": { "from": 1235, "to": 1600, "dateLabel": "约 1235—1600 年" },
+      "scope": "以尼日尔河上游与廷巴克图著称的西非伊斯兰贸易帝国，以黄金与盐道及曼萨·穆萨朝觐闻名世界。",
+      "maps": [{ "type": "polity", "key": "Mali Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与约 1235—1600 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "songhai-empire",
+      "type": "polity",
+      "name": "桑海帝国",
+      "range": { "from": 1464, "to": 1591 },
+      "scope": "15 世纪后期继马里而起的西非尼日尔河中游帝国，控制加奥、杰内与廷巴克图等文化商业重镇。",
+      "maps": [{ "type": "polity", "key": "Songhai Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1464—1591 年分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "ethiopian-empire",
+      "type": "polity",
+      "name": "埃塞俄比亚帝国",
+      "range": { "from": 1270, "to": 1974 },
+      "scope": "所罗门王朝统治东北非高原的古老君主国，近代在阿杜瓦战役中抵御殖民征服而保持独立。",
+      "maps": [{ "type": "polity", "key": "Ethiopian Empire" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1270—1974 年分期已核对（Cliopatria 底图截至于 1935 战前）。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "united-states-polity",
+      "type": "polity",
+      "name": "美利坚合众国",
+      "range": { "from": 1776, "to": null },
+      "scope": "1776 年《独立宣言》后成立的北美联邦共和国，通过西进扩张与工业革命成为现代世界大国。",
+      "maps": [{ "type": "polity", "key": "United States of America" }],
+      "audit": { "status": "checked", "scope": "主体名称与 1776 年至今分期已核对。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "country-kazakhstan",
+      "type": "country",
+      "name": "哈萨克斯坦",
+      "iso": "KZ",
+      "range": { "from": 1991, "to": null },
+      "scope": "位于中亚草原腹地的现代国家。在历史疆域层可追溯匈奴、突厥、哈萨克汗国等政权，也可阅读跨时代的中亚书卷。",
+      "maps": [{ "type": "country", "key": "KZ" }],
+      "audit": { "status": "checked", "scope": "现代国家边界身份与 1991 年独立后年代已区分说明。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "country-china",
+      "type": "country",
+      "name": "中国",
+      "iso": "CN",
+      "range": { "from": null, "to": null, "dateLabel": "现代参考边界 · 多朝代长时段空间范围" },
+      "scope": "东亚现代国家地理边界；切换至「随年份」视图可按所选年代直接定位历代政权。",
+      "maps": [{ "type": "country", "key": "CN" }],
+      "audit": { "status": "checked", "scope": "现代参考边界身份已与单朝代或当代政权书卷分离。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "country-pakistan",
+      "type": "country",
+      "name": "巴基斯坦",
+      "iso": "PK",
+      "range": { "from": 1947, "to": null },
+      "scope": "南亚西北部现代国家，境内的印度河流域是哈拉帕文明及孔雀、贵霜、莫卧儿时期的重要历史舞台。",
+      "maps": [{ "type": "country", "key": "PK" }],
+      "audit": { "status": "checked", "scope": "现代国家边界身份已与《印度：从孔雀王朝到现代共和》相关条目区分。", "checkedAt": "2026-11-26" }
     }
   ],
   "mapSources": {

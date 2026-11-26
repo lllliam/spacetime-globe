@@ -207,8 +207,10 @@ async function main() {
   await tap(p.x, p.y);
   const sheet = await js(`({open: document.body.classList.contains('sheet-open'),
     title: document.querySelector('#sheet-identity-name').textContent,
+    bookLink: document.querySelector('#sheet [data-open-sheet-book]')?.textContent || '',
     entries: document.querySelectorAll('#sheet [data-read-subject]').length})`);
-  check('点当下的中国打开单一主体书卷入口', sheet.open && sheet.title === '中华人民共和国' && sheet.entries === 1, sheet);
+  check('点当下的中国清晰显示现代国家名并附相关书卷入口',
+    sheet.open && sheet.title === '中国' && sheet.bookLink.includes('中华人民共和国') && sheet.entries === 1, sheet);
   await js(`window.__t.closeSheet()`);
   await sleep(500);
   // Canvas 兜底在繁忙机器上可能少帧，等待实际弹簧位置而非固定延迟。
@@ -829,7 +831,7 @@ async function main() {
       mingLabel:__t.vecShapes.some(s=>s.name==='明朝'),
       joseonLabel:__t.vecShapes.some(s=>s.name==='朝鲜王朝')};
   })()`);
-  check('同一份中文名称用于历史地图，关系记录不作为主体标签并保留明朝与朝鲜王朝',localized.sheet==='阿兹特克帝国' && localized.book==='aztec' &&
+  check('同一份中文名称用于历史地图，关系记录不作为主体标签并保留明朝与朝鲜王朝',localized.sheet==='阿兹特克三方同盟' && localized.book==='aztec' &&
     localized.anchor==='tribute-grid-pochteca' && localized.aztecLabel && localized.chineseLabels && localized.zapotec==='萨波特克文明' &&
     !localized.relationInNames && localized.relationMeta==='朝鲜王朝向明朝效忠' && localized.noRelationShapes &&
     localized.mingLabel && localized.joseonLabel,localized);
@@ -908,6 +910,145 @@ async function main() {
   check('合上正文回到原摘要、年份与地区',await js(`!__t.reading.active && __t.sheet.detent===${JSON.stringify(prior.detent)} &&
     Math.abs(__t.sheet.offset-${prior.offset})<2 && __t.state.year===${prior.year} && __t.state.focus.key===${JSON.stringify(prior.key)}`));
   await js('__t.closeSheet()');
+
+  /* P1 · 历史主体与编辑书卷身份分离（1453 帖木儿帝国 / 1500 明朝同名不重复 / 未核年代待核标记） */
+  await send('Emulation.setDeviceMetricsOverride',{width:393,height:852,deviceScaleFactor:3,mobile:true});
+  await js(`__t.setLayer('polity');__t.setYear(1453);
+    const t= __t.partition.shapes.find(s=>s.ent.name==='Timurid Empire');
+    __t.openEntity('polity',t.id);`);
+  await sleep(450);
+  const timuridSheet = await js(`(() => {
+    const bookBtn = document.querySelector('#sheet [data-open-sheet-book]');
+    return {
+      name: document.querySelector('#sheet-identity-name')?.textContent,
+      years: document.querySelector('#sheet-identity-years')?.textContent,
+      bookText: bookBtn?.textContent?.trim(),
+      bookId: bookBtn?.dataset.openSheetBook,
+      sheetBottom: Math.round(document.getElementById('sheet').getBoundingClientRect().bottom),
+      peekBtnBottom: Math.round((bookBtn || document.querySelector('#sheet-toc'))?.getBoundingClientRect().bottom || 0),
+    };
+  })()`);
+  check('1453 帖木儿帝国主体身份与《中亚丝路帝国》书卷入口分离且不贴边裁切',
+    timuridSheet.name==='帖木儿帝国' && timuridSheet.years==='1370—1507 年 · 历史政权' &&
+    timuridSheet.bookId==='central-asia-silk-road' && timuridSheet.bookText.includes('中亚丝路帝国') &&
+    timuridSheet.bookText.includes('公元前 209 年至今') && timuridSheet.peekBtnBottom <= 840, timuridSheet);
+  await js(`document.querySelector('#sheet [data-open-sheet-book]').click()`);
+  await waitReader();
+  const timuridReader = await js(`(() => ({
+    bookId: __t.reading.subject?.id,
+    ctx: document.querySelector('.subject-entry-context')?.textContent?.trim(),
+    yearRec: document.querySelector('.reading-entry-year')?.textContent?.trim(),
+    hasRecChapter: !!document.querySelector('.reading-row[data-reading-detail]'),
+  }))()`);
+  check('从帖木儿帝国打开《中亚丝路帝国》保留主体来源语境并推荐 1453 年章节',
+    timuridReader.bookId==='central-asia-silk-road' && timuridReader.ctx?.includes('帖木儿帝国') &&
+    timuridReader.yearRec?.includes('1453 年') && timuridReader.hasRecChapter, timuridReader);
+  await js(`__t.closeReader();__t.closeSheet();__t.setYear(1500);
+    __t.openEntity('polity',__t.partition.shapes.find(s=>s.ent.name==='Ming Dynasty').id);`);
+  await sleep(450);
+  const mingSheet = await js(`(() => ({
+    name: document.querySelector('#sheet-identity-name')?.textContent,
+    dupBookBtn: !!document.querySelector('#sheet [data-open-sheet-book]'),
+    tocText: document.querySelector('#sheet-toc')?.textContent?.trim(),
+  }))()`);
+  check('同名主体明朝与《明朝》书卷不重复展示入口',
+    mingSheet.name==='明朝' && !mingSheet.dupBookBtn && ['阅读历史','继续阅读'].includes(mingSheet.tocText), mingSheet);
+  const unverifiedSample = await js(`(() => {
+    const s = __t.partition.shapes.find(sh => {
+      const ent = __t.entityByKey('polity', sh.ent.id);
+      return ent && __t.subjectBookForEntity(ent, 1500) && !__t.historySubjectFor(ent);
+    });
+    if (!s) return null;
+    __t.openEntity('polity', s.id);
+    return {
+      name: document.querySelector('#sheet-identity-name')?.textContent,
+      years: document.querySelector('#sheet-identity-years')?.textContent,
+      hasBookBtn: !!document.querySelector('#sheet [data-open-sheet-book]'),
+    };
+  })()`);
+  check('未进主体台账的有书卷政权显示存续年代待核', unverifiedSample && unverifiedSample.years?.includes('存续年代待核') && unverifiedSample.years?.includes('底图记录'), unverifiedSample);
+
+  /* P1 · 历史事件身份去重（1453 君士坦丁堡陷落、1500 卡布拉尔、1960 冷战） */
+  await js(`__t.closeSheet();__t.setYear(1453);`);
+  await sleep(250);
+  await js(`document.getElementById('vernier-events').click()`);
+  await sleep(250);
+  const ev1453 = await js(`(() => {
+    const rows = [...document.querySelectorAll('#overlay-body .witem')].map(el => ({
+      title: el.querySelector('.wrow strong')?.textContent,
+      meta: el.querySelector('.wrow small')?.textContent,
+      books: [...el.querySelectorAll('[data-world-book]')].map(b => ({ book: b.dataset.worldBook, text: b.textContent.trim() })),
+    }));
+    const constRows = rows.filter(r => r.title === '君士坦丁堡陷落');
+    const cabral = __t.yearEventGroups(1500).events.filter(e => e.start === 1500 && e.point);
+    const coldwar = __t.yearEventGroups(1960).background.filter(e => /冷战/.test(e.zh || '') && e.start === 1947);
+    return {
+      label: document.getElementById('vernier-events')?.textContent?.trim(),
+      constRows,
+      cabralCount: cabral.length,
+      coldwarCount: coldwar.length,
+      groupCount: __t.yearEventGroups(1453).events.length + __t.yearEventGroups(1453).background.length,
+      renderedCount: rows.length,
+    };
+  })()`);
+  check('1453 年君士坦丁堡陷落合并为单条并保留罗马与奥斯曼双书卷入口',
+    ev1453.constRows.length===1 && ev1453.constRows[0].meta.includes('土耳其') && ev1453.constRows[0].meta.includes('希腊') &&
+    ev1453.constRows[0].books.some(b=>b.book==='roman') && ev1453.constRows[0].books.some(b=>b.book==='ottoman') &&
+    ev1453.cabralCount===1 && ev1453.coldwarCount===1 && ev1453.groupCount===ev1453.renderedCount, ev1453);
+  await js(`document.querySelector('#overlay [data-world-book="ottoman"]').click()`);
+  await waitReader();
+  const ottomanBookId = await js(`__t.reading.subject?.id`);
+  check('从合并史事卡可直达奥斯曼帝国对应章节', ottomanBookId==='ottoman', ottomanBookId);
+
+  /* P2 · 移动端顶栏响应式排版（393x852 / 320x568 / 430x932，含长标题义和团危机与八国联军及加大字号） */
+  const boxerCheck = async (width, height) => {
+    await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:2,mobile:true});
+    await sleep(160);
+    return js(`(() => {
+      const box = id => { const el = document.getElementById(id); if (!el || el.hidden) return null; const r = el.getBoundingClientRect(); return { l: Math.round(r.left), r: Math.round(r.right), w: Math.round(r.width), h: Math.round(r.height), text: el.textContent.trim() }; };
+      const body = document.getElementById('book-body');
+      const book = document.getElementById('book');
+      return {
+        vw: innerWidth,
+        bookSW: book.scrollWidth, bookCW: book.clientWidth,
+        bodySW: body.scrollWidth, bodyCW: body.clientWidth,
+        bar: box('book-bar'), back: box('reading-back'), name: box('reading-book-name'),
+        idx: box('reading-index'), lib: box('reading-library'), size: box('reading-settings'), exit: box('reading-exit'),
+      };
+    })()`);
+  };
+  await js(`(() => { __t.closeReader();
+    const topic = __t.topics.find(t => t.id === 'china-late-qing');
+    __t.beginReading(null, topic, 'boxers', null, { source: { kind: 'events', year: 1900, eventId: 'i-cn-boxer', action: 'topic', scroll: 0, disclosures: [] } });
+    document.querySelector('[data-reading-size="extra"]')?.click(); })()`);
+  await sleep(250);
+  const bx393 = await boxerCheck(393, 852);
+  const bx320 = await boxerCheck(320, 568);
+  const bx430 = await boxerCheck(430, 932);
+  const fitsNav = s => s.bookSW <= s.bookCW && s.bodySW <= s.bodyCW &&
+    [s.bar, s.back, s.idx, s.lib, s.size, s.exit].filter(Boolean).every(b => b.l >= 0 && b.r <= s.vw) &&
+    s.exit && s.exit.w >= 44 && s.exit.h >= 44 && s.exit.text === '返回史事';
+  check('393px/320px/430px 阅读长标题专题与加大字号时顶栏及退出按钮完整不溢出',
+    fitsNav(bx393) && fitsNav(bx320) && fitsNav(bx430), { bx393, bx320, bx430 });
+  await js(`document.querySelector('[data-reading-size="medium"]')?.click();__t.closeReader();
+    const ovClose = document.getElementById('overlay-close'); if (ovClose && !document.getElementById('overlay').hidden) ovClose.click();`);
+
+  /* P2 · 1x 默认缩放探索标签可见性与 HUD 避让 */
+  await send('Emulation.setDeviceMetricsOverride',{width:402,height:874,deviceScaleFactor:3,mobile:true});
+  await js(`__t.setLayer('polity');__t.setYear(1500);__t.state.zoom=1;__t.state.yaw=-1.65;__t.state.tilt=0.45;__t.state.focus=null;`);
+  await sleep(250);
+  const zoomOneLabels = await js(`(() => {
+    const ctx = document.getElementById('vec').getContext('2d');
+    const orig = ctx.fillText;
+    const drawn = [];
+    ctx.fillText = function(text, x, y) { drawn.push({ text, x: Math.round(x), y: Math.round(y) }); return orig.apply(this, arguments); };
+    try { __t.drawVector([{ left: 0, top: 0, right: innerWidth, bottom: 130 }, { left: 0, top: innerHeight - 130, right: innerWidth, bottom: innerHeight }]); }
+    finally { ctx.fillText = orig; }
+    return drawn;
+  })()`);
+  check('默认 1x 缩放主动展示克制数量的历史政权标签且避让 HUD 区域',
+    zoomOneLabels.length >= 2 && zoomOneLabels.length <= 5 &&
+    zoomOneLabels.every(l => l.y > 130 && l.y < 744), zoomOneLabels);
 
   /* 帧率 */
   await js(`window.__req = 0; (function t(){ window.__req++; requestAnimationFrame(t); })();`);

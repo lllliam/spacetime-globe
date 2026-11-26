@@ -12,12 +12,15 @@
 | 现代国家 `country` | 底图注册表使用 ISO 键。需要围绕国家开展编辑工作时可建立对象并显式指定 `iso`。`world.json` 提供现代地图注册表 |
 | 书卷与专题 | `data/books`、`data/topics` 中的稳定 `id`。书卷可通过可选 `subjectIds` 说明叙事涉及的对象，可以完全没有地图入口 |
 | 地图入口 | `data/history/map-bindings.json`。独立维护编辑关系、有效年代、范围及审校状态 |
+| 年表归并条目 | `data/history/event-identities.json`。将跨地区、宗教或国别重复录入的同一历史事件归并到统一 `canonicalEntryId`，保留 `memberIds` 与未强合并的 `pendingCandidates` |
 
 优先复用底图注册表。Cliopatria 数字索引用于当前数据包绘制和拾取，入口以原名映射，叙事和稳定编辑身份另行维护。底图几何由已有资源加载。只有明确编辑需求才在对象注册表添加记录。Cliopatria 原始包中的双边与联合关系记录（如 `Alliance between`、`Personal union of`、`Allegiance of`、`Vassalage of`）在保留原始 ID 与几何的前提下由 `tools/polity-names.mjs` 单独分类为关系元数据，不生成为地图主标签，也不参与政权图层的渲染、拾取或标签避让。
 
-## 地图入口
+## 地图入口与主体身份区分
 
-每条记录有 `map`（`type` 为 `country` 或 `polity`，`key` 为 ISO 或精确底图原名）、`target.bookId`、`range`、`relation`、`scope` 和 `audit`。可用 `subjectId` 连到编辑对象。任一对象在一个有效年份最多有一条 `primary`，打开整卷；多条重叠主入口会拒绝构建。`related` 可与主入口并存，也可指定书卷的 `chapterId`，在资料页或扉页显示为「相关历史」。无主入口时摘要保留「查看地图资料」。
+每条记录有 `map`（`type` 为 `country` 或 `polity`，`key` 为 ISO 或精确底图原名）、`target.bookId`、`range`、`relation`、`scope` 和 `audit`。可用 `subjectId` 连到编辑对象。任一对象在一个有效年份最多有一条 `primary`，打开整卷；多条重叠主入口会拒绝构建。构建同时校验 `polity` 入口范围必须与 `data/polity.bin` 的实际底图存在时间存在交集，拒绝同名异物或零重叠绑定。`related` 可与主入口并存，也可指定书卷的 `chapterId`，在资料页或扉页显示为「相关历史」。
+
+摘要界面与地图选区必须区分「历史主体本身」与「编辑书卷」：当选中如 1453 年帖木儿帝国或现代哈萨克斯坦等与书卷不同名的主体时，主标题与副标题仅展示该主体的规范名称与核定年代（未核定者显式标为「存续年代待核（底图记录 …）」），编辑书卷以独立「阅读《…》 · 书卷范围 …」入口呈现；仅同名主卷（如 `明朝`）不重复展示入口。无主入口时摘要保留「查看地图资料」。
 
 ```json
 {

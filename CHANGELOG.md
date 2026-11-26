@@ -25,6 +25,15 @@
 - **历史地图主体标签语义治理**：在 `tools/polity-names.mjs`、`build.mjs`、`src/app.js` 与 `src/subject-reader.js` 中严格区分 Cliopatria 原始记录、规范主体中文名与双边/联合关系记录（同盟、共主邦联、效忠、臣属共 50 条）。保留 `data/polity.bin` 原始记录、稳定 ID、年代与几何，但不再将关系描述生成到地图主标签，并使关系复合多边形不参与地图图层绘制、标签避让、拾取与重叠主体列举，解决 1500 年明朝区域显示「朝鲜王朝向明朝效忠」及同类跨年代复合标签遮挡问题；1500 年中国区域正确显示「明朝」，朝鲜半岛在相应缩放下显示「朝鲜王朝」。
 - **验证**：已通过内容校验、在线与离线构建、WebGL 与 Canvas2D 全量 UI 回归、四状态上下安全区覆盖与颜色回归，以及首页/移动端/阅读/观察/冒烟/真实产品路径测试和跨版本 PWA 缓存更新与旧阅读进度恢复验证；iPhone 真机体验与主屏幕实测仍待产品负责人确认。
 
+### 实际使用反馈与全局产品质量治理 · 2026-11-26
+
+- **历史主体与书卷身份彻底分离（P1）**：重构 `syncSheetIdentity()`（`src/app.js`）与 `subjectSheetMarkup()` / `renderSubjectOutline()`（`src/subject-reader.js`），摘要主标题与副标题固定展示地图选中主体的规范名称、经核实的身份/年代或诚实的待核标记，书卷以独立「阅读《…》 · 书卷范围 …」入口呈现，同名主卷（如《明朝》）不重复展示。全局清理 9 条时间零重叠同名误绑（`471 → 462`），扩充 `data/history/subjects.json` 重点主体台账至 50 项（含 47 项已核定年代与简介），并在 `tools/history-model.mjs` 新增政权入口时间交集硬校验。[治理报告](docs/progress/QUALITY-GOVERNANCE.md)
+- **历史事件身份统一与去重（P1）**：新增 `data/history/event-identities.json`，构建与运行时（`initWorld()`）单源输出 `canonicalEntries` 与 `canonicalEventById`。将跨地区/宗教重复拆录的 35 组（72 条原始记录）合并为 35 条规范史事，保留多地区聚合、双书卷阅读按钮（如 1453 年君士坦丁堡陷落同时提供《罗马帝国》与《奥斯曼帝国》入口）、全部来源及观察返回定位，同时保留 13 组历史视角尚存差异的 `pendingCandidates` 供后续审校；构建期新增零遗漏与防重复回归断言。
+- **移动端窄屏阅读顶栏修复（P2）**：为 `src/reading.css` `#book` 补充 `grid-template-columns: minmax(0, 1fr); width: 100%; max-width: 100%` 并收敛 `< 440px` 顶栏边距，修复阅读长标题专题（如 1900 年《义和团危机与八国联军》）时「返回史事」被推出 393px 视口的问题；同时修正全屏尺寸突变期间 `sheetMotion` 未随 `sheetDetents()` 更新的滞留问题，严格保留四状态上下安全区独立管理机制。
+- **时间轴可读性与 1x 探索地名可发现性（P2）**：在 `src/chrome.css` 统一提升 `#vernier-track`、`major/med/minor` 刻度、BCE/CE 年份标注与事件点的对比度；重构 `src/app.js` `drawVector()` 与 `draw()`，以与球面半径平方（`Rz * Rz`）成比例的尺度判定代替固定像素面积阈值，在 `1x` 默认视口克制展示 5（手机）至 8（桌面）个主要地名并主动避让 HUD。
+- **全库 57 卷只读清查**：在不动用书卷正文与不重启 Phase 07 的前提下完成全库体量、场景覆盖与来源厚度统计并记入 [治理报告](docs/progress/QUALITY-GOVERNANCE.md)。
+- **验证**：已重新通过内容校验、干净构建复现、模型与会话单测、WebGL 与 Canvas2D 全量 UI/移动/首页/阅读/观察/PWA/稳定性/产品路径浏览器回归；iPhone 真机体验仍待产品负责人验收。
+
 ### 待验收
 
 - 人工产品体验、iPhone Safari 与主屏幕安装和离线更新、原生辅助技术及实机性能仍待完成。已有浏览器模拟、键盘、可访问树及软件渲染数据留档。[验收矩阵](docs/progress/phase-09/matrix.md) · [人工与真机清单](docs/progress/phase-09/device-checklist.md)

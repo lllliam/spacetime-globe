@@ -185,7 +185,8 @@ function hideReader() {
 }
 
 function timelineItem(entry) {
-  const note = timelineNotes[entry.id];
+  const ids = entry?.memberIds || (entry ? [entry.id] : []);
+  const note = ids.map(id => timelineNotes[id]).find(Boolean);
   return note ? { ...entry, ...note } : entry;
 }
 function readingDate(item) {
@@ -325,7 +326,9 @@ function renderReading() {
   const book = reading.subject, topic = reading.topic, item = (book || topic)?.chapters.find(c => c.id === reading.detail);
   const title = reading.library ? '历史书目' : reading.catalog ? '补充专题资料'
     : book?.title || topic?.title || (reading.ent && subjectEntityName(reading.ent)) || '地图资料';
-  el('reading-book-name').textContent = title;
+  const nameEl = el('reading-book-name');
+  nameEl.textContent = title;
+  nameEl.title = title;
   readingLibrary.hidden = reading.library;
   readingDirectory.hidden = !item;
   readingExit.textContent = session.observe ? '返回观察' : reading.source.kind === 'events' ? '返回史事' : '合上';

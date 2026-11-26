@@ -4854,43 +4854,7 @@
     {
       "map": {
         "type": "polity",
-        "key": "Great Mongol State"
-      },
-      "target": {
-        "bookId": "mongol-empire"
-      },
-      "range": {
-        "from": 1206,
-        "to": 1368
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
         "key": "Mongol Empire"
-      },
-      "target": {
-        "bookId": "mongol-empire"
-      },
-      "range": {
-        "from": 1206,
-        "to": 1368
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Mongol Khanate"
       },
       "target": {
         "bookId": "mongol-empire"
@@ -4999,24 +4963,6 @@
       "map": {
         "type": "polity",
         "key": "Netherlands"
-      },
-      "target": {
-        "bookId": "netherlands-low-countries"
-      },
-      "range": {
-        "from": 1568,
-        "to": null
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Duchy of Burgundy"
       },
       "target": {
         "bookId": "netherlands-low-countries"
@@ -6186,43 +6132,7 @@
     {
       "map": {
         "type": "polity",
-        "key": "Xia"
-      },
-      "target": {
-        "bookId": "shang-zhou"
-      },
-      "range": {
-        "from": -1600,
-        "to": -771
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
         "key": "Shang Dynasty"
-      },
-      "target": {
-        "bookId": "shang-zhou"
-      },
-      "range": {
-        "from": -1600,
-        "to": -771
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Yin"
       },
       "target": {
         "bookId": "shang-zhou"
@@ -6493,24 +6403,6 @@
       "map": {
         "type": "polity",
         "key": "Merina Kingdom"
-      },
-      "target": {
-        "bookId": "southern-eastern-africa"
-      },
-      "range": {
-        "from": 1000,
-        "to": null
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Kingdom of Kush"
       },
       "target": {
         "bookId": "southern-eastern-africa"
@@ -7410,24 +7302,6 @@
     {
       "map": {
         "type": "polity",
-        "key": "Qi Kingdom"
-      },
-      "target": {
-        "bookId": "warring-states"
-      },
-      "range": {
-        "from": -770,
-        "to": -221
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
         "key": "Jin"
       },
       "target": {
@@ -7447,24 +7321,6 @@
       "map": {
         "type": "polity",
         "key": "Yan"
-      },
-      "target": {
-        "bookId": "warring-states"
-      },
-      "range": {
-        "from": -770,
-        "to": -221
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Yan Kingdom"
       },
       "target": {
         "bookId": "warring-states"
@@ -7519,24 +7375,6 @@
       "map": {
         "type": "polity",
         "key": "Han"
-      },
-      "target": {
-        "bookId": "warring-states"
-      },
-      "range": {
-        "from": -770,
-        "to": -221
-      },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
-      "audit": {
-        "status": "legacy"
-      }
-    },
-    {
-      "map": {
-        "type": "polity",
-        "key": "Hán"
       },
       "target": {
         "bookId": "warring-states"

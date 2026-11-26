@@ -128,7 +128,8 @@ async function main() {
     await year('前221');
     assert.equal(await text('#year-num'),'前221');
     await point(108,34);
-    await until(async()=>await text('#sheet-identity-name')==='春秋与战国','Did not pick the Qin polity in the source map');
+    await until(async()=>await text('#sheet-identity-name')==='秦国','Did not pick the Qin polity in the source map');
+    assert.match(await text('#sheet [data-open-sheet-book]'),/春秋与战国/);
     await click('#sheet-toc');
     await click('#reading-library');
     await click('#book-body [data-subject-book=qin]');

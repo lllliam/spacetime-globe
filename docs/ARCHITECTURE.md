@@ -33,7 +33,7 @@
 
 ## 数据与状态
 
-历史疆域来自 Cliopatria，现代国界来自 Natural Earth，绘制底图是现代地表。几何切片用于绘制、拾取和高亮，其中 `tools/polity-names.mjs` 将规范历史主体名（`polity-names`）与 Cliopatria 中的 50 条双边或联合关系记录（`polity-relations`）分离，原始数据包保持不变，地图政权图层只渲染和拾取规范主体而非关系复合轮廓。`data/history/` 记录独立历史主体、地图来源及分时段入口。构建按底图身份编译主叙事与相关历史索引，并将世界年表映射和章节 `eventIds` 合为一个阅读索引。编目 ID 和正文块 ID 由编辑维护，章节按场景 ID 和正文块 ID 定位图版。[历史内容模型](HISTORY-MODEL.md) · [阅读与内容组织](READING.md)
+历史疆域来自 Cliopatria，现代国界来自 Natural Earth，绘制底图是现代地表。几何切片用于绘制、拾取和高亮，其中 `tools/polity-names.mjs` 将规范历史主体名（`polity-names`）与 Cliopatria 中的 50 条双边或联合关系记录（`polity-relations`）分离，原始数据包保持不变，地图政权图层只渲染和拾取规范主体而非关系复合轮廓。`data/history/` 维护 `subjects.json`（独立历史主体与核定年代）、`map-bindings.json`（经底图时间交集校验的地图入口）与 `event-identities.json`（跨地区/宗教重复年表条目的唯一 `canonicalEntryId` 归并清单）。构建按底图身份编译主叙事、主体元数据与相关历史索引，并将世界年表映射和章节 `eventIds` 合为一个阅读索引；运行时 `initWorld()` 单源构建 `canonicalEntries` 与 `canonicalEventById` 索引，保证角标计数、列表与观察定位一致。编目 ID 和正文块 ID 由编辑维护，章节按场景 ID 和正文块 ID 定位图版。[历史内容模型](HISTORY-MODEL.md) · [阅读与内容组织](READING.md)
 
 探索年、阅读入口年与观察年分别由协调层的三个业务上下文持有。阅读使用独立的 `#book` 滚动区域，隐藏底图、停掉地球绘制，并保留探索镜头。地图只在 Explore 与主动 Observe 中绘制。稳定导航于本地保存，书卷与章节使用编目 ID，正文位置优先按逻辑锚点复原。在线和单文件共用解码与降级路径。
 

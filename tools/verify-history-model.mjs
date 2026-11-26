@@ -104,6 +104,7 @@ const withRelated = fixture(bindingsPath,data=>data.bindings.push({
 assert.deepEqual(new Map(loadHistoryModel(root,withRelated).mapBindings).get('polity:Ming Dynasty').map(row=>row[3]),
   ['primary','related']);
 reject(bindingsPath,data=>data.bindings.push({...data.bindings.find(row=>row.map.key==='Ming Dynasty'),target:{bookId:'qing'}}),/主入口冲突/);
+reject(bindingsPath,data=>{const row=data.bindings.find(r=>r.map.type==='polity');row.range={from:-3400,to:-3350};},/底图覆盖年代不相交/);
 reject(bindingsPath,data=>{data.bindings[0].map.key='Nonexistent Map Object';},/入口无效/);
 reject(bindingsPath,data=>{data.bindings[0].target.bookId='missing-book';},/不存在的目标/);
 reject(mingPath,book=>{book.chapters[0].from=0;},/年代非法/);
@@ -119,6 +120,9 @@ reject(scenesPath,data=>{data[0].places[0].lon=181;},/地点/);
 reject('data/world-reading.json',data=>{data['i-tr-constantinople-1453']='roman/fake-chapter';},/不存在的目标/);
 const existing = model.books.flatMap(book=>book.chapters.flatMap(ch=>ch.eventIds || []))[0];
 reject('data/world-reading.json',data=>{data[existing]=model.eventLinks.get(existing).join('/');},/多个主入口/);
+const eventIdsPath = 'data/history/event-identities.json';
+reject(eventIdsPath,data=>{data.confirmedDuplicates[0].canonicalEntryId='missing-event-id';},/重复事件组成员或说明无效/);
+reject(eventIdsPath,data=>{data.confirmedDuplicates[1].memberIds.push(data.confirmedDuplicates[0].memberIds[0]);},/属于多个重复组/);
 
 const stable = fixture(mingPath,book=>{
   const chapter = book.chapters[1], p = chapter.paragraphs[0];
