@@ -114,11 +114,15 @@ struct HistoryTimeline: UIViewRepresentable {
                                        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
             if input.reduceMotion { targetContentOffset.pointee.x = scrollView.contentOffset.x }
             let candidate = year(targetContentOffset.pointee.x)
+            targetContentOffset.pointee.x = offset(aligned(candidate))
+        }
+
+        private func aligned(_ candidate: Int) -> Int {
             let step = Int(stride)
+            if step == 1 || candidate == Chronology.first || candidate == Chronology.latest { return candidate }
             let nearest = Int((Double(candidate)/stride).rounded()) * step
             let normalized = nearest == 0 ? (candidate < 0 ? -1 : 1) : nearest
-            let snapped = (step == 1 ? candidate : normalized).clamped(to:Chronology.range)
-            targetContentOffset.pointee.x = offset(snapped)
+            return normalized.clamped(to:Chronology.range)
         }
 
         func scrollViewDidEndDragging(_ scrollView: UIScrollView,willDecelerate decelerate: Bool) {
@@ -130,8 +134,12 @@ struct HistoryTimeline: UIViewRepresentable {
         private func finish() {
             guard let control, !committed else { return }
             committed = true
-            let value = year(control.scroll.contentOffset.x)
+            let value = aligned(year(control.scroll.contentOffset.x))
+            internalChange = true
+            control.scroll.setContentOffset(CGPoint(x:offset(value),y:0),animated:false)
+            internalChange = false
             scaleDuringDrag = nil
+            control.accessibilityValue = eraYear(value) + " 年"
             input.onCommit(value)
         }
 

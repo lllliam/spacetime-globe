@@ -263,6 +263,12 @@ final class SessionStore: ObservableObject {
     }
 
     func record(_ position: ReadingPosition) {
+        if var active = reading, let node = active.nodes.last, node.focusBlock != nil,
+           node.target.volume == position.volume, node.target.chapter == position.chapter {
+            active.nodes[active.nodes.count-1].focusBlock = nil
+            reading = active
+            scheduleSave()
+        }
         let key = position.volume + "/" + position.chapter
         guard progress[key] != position || bookmarks[position.volume] != position else { return }
         progress[key] = position

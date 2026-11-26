@@ -22,7 +22,7 @@ struct ReadingView: View {
                 if let chapter {
                     ChapterPage(content:content,session:session,node:node,volume:volume,chapter:chapter,
                                 openContents:{ auxiliary = .contents })
-                        .id(node)
+                        .id(node.target)
                 } else {
                     VolumePage(volume:volume,node:node,bookmark:session.bookmark(for:volume),paper:paper) { chapter,start in
                         session.open(ReadingNode(volume:volume.id,chapter:chapter.id,entryYear:node.entryYear,

@@ -227,8 +227,17 @@ struct ObservationView: View {
         } else {
             Text("历史疆域底图 · \(eraYear(frame.year)) 年").font(.caption).foregroundStyle(Design.quiet)
         }
-        ForEach(Array(Set(frame.routes.map(\.precisionText))).sorted(),id:\.self) { value in
-            Label(value,systemImage:value == "有据路线" ? "line.diagonal" : "ellipsis").font(.caption)
+        ForEach(Array(Set(frame.routes.map(\.precision))).sorted(),id:\.self) { precision in
+            if let route = frame.routes.first(where:{ $0.precision == precision }) {
+                HStack(spacing:8) {
+                    Path { line in line.move(to:CGPoint(x:0,y:5)); line.addLine(to:CGPoint(x:23,y:5)) }
+                        .stroke(Design.quiet,style:StrokeStyle(lineWidth:2,lineCap:.round,
+                                dash:precision == "attested" ? [] : precision == "approximate" ? [6,4] : [1,4]))
+                        .frame(width:24,height:10)
+                    Text(route.precisionText)
+                }
+                .font(.caption)
+            }
         }
         ForEach(Array(Set(frame.places.map(\.precisionText))).sorted(),id:\.self) { value in
             Label(value,systemImage:value == "有定位依据" ? "circle.fill" : "circle").font(.caption)

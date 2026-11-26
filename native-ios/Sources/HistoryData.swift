@@ -22,6 +22,7 @@ enum Chronology {
     static func parse(_ raw: String) -> Int? {
         let input = raw.trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "公元前", with: "-")
+            .replacingOccurrences(of: "公元后", with: "")
             .replacingOccurrences(of: "公元", with: "")
             .replacingOccurrences(of: "前", with: "-")
             .replacingOccurrences(of: "−", with: "-")
@@ -388,6 +389,9 @@ struct AtlasIndex: Decodable {
     let coverage: HistoricalRange
     let mapSources: [String: MapSource]
 
+    static let empty = AtlasIndex(countries:[],subjects:[:],books:[:],names:[:],relations:[],
+                                  coverage:HistoricalRange(from:1,to:0),mapSources:[:])
+
     func bindings(_ id: String, in year: Int) -> [Binding] {
         (books[id] ?? []).filter { $0.from <= year && year <= ($0.to ?? Int.max) }
     }
@@ -497,9 +501,10 @@ struct OfflineHistory {
         }
         manifest = try load(ContentManifest.self, "Manifest.json")
         guard manifest.schemaVersion == 2 else { throw CocoaError(.fileReadUnknown) }
-        archive = try Archive(catalog: load(ContentCatalog.self, "Library.json"), scenes: load([HistoryScene].self, "Scenes.json"))
-        index = try load(AtlasIndex.self, "Atlas.json")
-        polygons = try? Data(contentsOf: directory.appendingPathComponent("polity.bin"), options: .mappedIfSafe)
+        let catalog = try load(ContentCatalog.self,"Library.json")
+        archive = Archive(catalog:catalog,scenes:(try? load([HistoryScene].self,"Scenes.json")) ?? [])
+        index = (try? load(AtlasIndex.self,"Atlas.json")) ?? .empty
+        polygons = index.countries.isEmpty ? nil : (try? Data(contentsOf:directory.appendingPathComponent("polity.bin"),options:.mappedIfSafe))
         chapters = ChapterStore(directory: directory)
     }
 }

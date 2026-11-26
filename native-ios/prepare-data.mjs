@@ -53,6 +53,22 @@ for (const topic of model.topics) for (const chapter of topic.chapters) {
 for (const scene of model.scenes) if (scene.topicEvent) scenesByEvent.set(scene.topicEvent, scene);
 
 const volumeRegions = new Map();
+const polityRegions = new Map();
+for (const topic of model.topics) {
+  for (const name of topic.polityNames) {
+    const labels = polityRegions.get(name) ?? new Set();
+    for (const region of topic.continents) labels.add(region);
+    polityRegions.set(name,labels);
+  }
+}
+for (const binding of model.bindings) {
+  if (binding.map.type !== 'polity' || binding.relation !== 'primary') continue;
+  const regions = polityRegions.get(binding.map.key);
+  if (!regions) continue;
+  const target = binding.target.bookId, labels = volumeRegions.get(target) ?? new Set();
+  for (const region of regions) labels.add(region);
+  volumeRegions.set(target,labels);
+}
 const events = groups.map(({groupId,event,members,title}) => {
   const memberIds = members.map(m=>m.id);
   const point = members.find(({px,py})=>Number.isFinite(px) && Number.isFinite(py));
@@ -70,6 +86,11 @@ const events = groups.map(({groupId,event,members,title}) => {
   if (linked) {
     const volume = 'topic:' + linked.topic.id;
     reading.set(volume + '/' + linked.chapter.id,{volume,chapter:linked.chapter.id});
+  }
+  if (note?.related?.topicId) {
+    const volume = 'topic:' + note.related.topicId;
+    const chapter = note.related.chapterId;
+    reading.set(volume + '/' + (chapter ?? ''),{volume,chapter});
   }
   const scene = members.map(m=>scenesByEvent.get(m.id)).find(s=>s?.status==='available');
   const from = note?.start ?? event.start, to = note?.end ?? (event.point ? event.start : event.end ?? event.start);

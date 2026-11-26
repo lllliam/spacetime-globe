@@ -21,7 +21,7 @@ enum Design {
     static func font(_ size: CGFloat, relativeTo style: Font.TextStyle = .body) -> Font {
         if UIFont(name:"SongtiSC-Regular",size:size) != nil { return .custom("SongtiSC-Regular",size:size,relativeTo:style) }
         if UIFont(name:"STSongti-SC-Regular",size:size) != nil { return .custom("STSongti-SC-Regular",size:size,relativeTo:style) }
-        return .system(size:size,design:.serif)
+        return .system(size:UIFontMetrics.default.scaledValue(for:size),design:.serif)
     }
 }
 

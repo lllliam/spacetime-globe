@@ -67,11 +67,7 @@ struct NativeGlobe: View {
                              onSettled:settled, onTap:tap)
                     .id(retry)
             }
-            GlobeArtwork(camera:viewport.camera, shapes:isCurrent || showPendingArt ? layer?.shapes ?? [] : [],
-                         anchors:isCurrent || showPendingArt ? layer?.labelAnchors ?? [] : [],
-                         selected:isCurrent ? selected : nil, marks:isCurrent ? marks : GlobeMarks(),
-                         top:protectedTop, bottom:protectedBottom, showNames:showNames && !rendererError)
-                .allowsHitTesting(false).accessibilityHidden(true)
+            artwork.allowsHitTesting(false).accessibilityHidden(true)
 
             if loadError || rendererError {
                 Button {
@@ -117,8 +113,23 @@ struct NativeGlobe: View {
         onSettled(value)
     }
 
+    private var artwork: GlobeArtwork {
+        let map = isCurrent || showPendingArt ? layer : nil
+        return GlobeArtwork(camera:viewport.camera,shapes:map?.shapes ?? [],anchors:map?.labelAnchors ?? [],
+                            selected:isCurrent ? selected : nil,marks:isCurrent ? marks : GlobeMarks(),
+                            top:protectedTop,bottom:protectedBottom,showNames:showNames && !rendererError)
+    }
+
     private func tap(_ location: CGPoint, _ size: CGSize) {
-        guard isCurrent, let layer else { return }
+        guard isCurrent, let layer, !rendererError else { return }
+        if let hit = artwork.labels(in:size).first(where:{ $0.bounds.contains(location) }) {
+            if hit.isPlace { onPlace(hit.id); return }
+            if let region = layer.shapes.first(where:{ $0.region.id == hit.id })?.region {
+                let overlaps = viewport.camera.unproject(location,size:size).map(layer.picks(at:)) ?? []
+                onRegions([region] + overlaps.filter { $0.id != region.id })
+                return
+            }
+        }
         let nearest = marks.places.compactMap { place -> (String,CGFloat)? in
             guard let point = viewport.camera.project(longitude:place.lon,latitude:place.lat,size:size) else { return nil }
             return (place.id,hypot(point.x - location.x,point.y - location.y))
@@ -139,10 +150,23 @@ private struct GlobeArtwork: View {
     let bottom: CGFloat
     let showNames: Bool
 
+    struct LabelPlacement {
+        let id: String
+        let name: String
+        let point: CGPoint
+        let bounds: CGRect
+        let front: Bool
+        let isPlace: Bool
+    }
+
+    private var focus: Set<String> { Set(marks.focusPolities.map { $0.hasPrefix("polity:") ? $0 : "polity:" + $0 }) }
+    private func protectedArea(_ size: CGSize) -> CGRect {
+        CGRect(x:8,y:top,width:max(0,size.width-16),height:max(0,size.height-top-bottom))
+    }
+
     var body: some View {
         Canvas { context, size in
-            let bounds = CGRect(x:8,y:top,width:max(0,size.width - 16),height:max(0,size.height - top - bottom))
-            let focus = Set(marks.focusPolities.map { $0.hasPrefix("polity:") ? $0 : "polity:" + $0 })
+            let bounds = protectedArea(size)
             for shape in shapes where selected == shape.region.id || focus.contains(shape.region.id) {
                 let strength: CGFloat = selected == shape.region.id ? 1.8 : 1.2
                 for ring in shape.rings {
@@ -162,52 +186,78 @@ private struct GlobeArtwork: View {
             }
             for route in marks.routes { draw(route,context:context,size:size) }
 
-            var occupied: [CGRect] = []
-            for place in marks.places.sorted(by: { ($0.id == marks.selectedPlace ? 0 : 1) < ($1.id == marks.selectedPlace ? 0 : 1) }) {
+            for place in marks.places {
                 guard let point = camera.project(longitude:place.lon,latitude:place.lat,size:size), bounds.contains(point) else { continue }
                 let active = place.id == marks.selectedPlace
-                let r: CGFloat = active ? 7 : 4
-                let dot = Path(ellipseIn:CGRect(x:point.x-r,y:point.y-r,width:r*2,height:r*2))
-                context.fill(dot,with:.color(place.precision == "site" || active ? Design.gold : Design.space))
-                context.stroke(dot,with:.color(Design.gold),lineWidth:active ? 2 : 1.3)
-                drawLabel(place.name,point:CGPoint(x:point.x+r+4,y:point.y),front:active,leading:true)
-            }
-            guard showNames else { return }
-            let maxLabels = camera.zoom < 1.3 ? 8 : camera.zoom < 2.6 ? 15 : 27
-            let minimumArea = 105 / max(1,camera.zoom * camera.zoom)
-            var printed = Set<String>()
-            let order = shapes.indices.filter { shapes[$0].region.id == selected } +
-                shapes.indices.filter { shapes[$0].region.id != selected }
-            for index in order where occupied.count < maxLabels {
-                let shape = shapes[index]
-                let front = shape.region.id == selected
-                guard front || Double(shape.area) > minimumArea, !printed.contains(shape.region.name) else { continue }
-                for anchor in front ? shape.anchors : anchors[index] {
-                    guard let position = camera.project(anchor,size:size), bounds.contains(position) else { continue }
-                    if drawLabel(shape.region.name,point:position,front:front,leading:false) {
-                        printed.insert(shape.region.name)
-                        break
+                let r: CGFloat = active || place.precision == "region" ? 7 : 4
+                let dot: Path
+                if place.precision == "reference" {
+                    dot = Path { path in
+                        path.addLines([CGPoint(x:point.x,y:point.y-r),CGPoint(x:point.x+r,y:point.y),
+                                       CGPoint(x:point.x,y:point.y+r),CGPoint(x:point.x-r,y:point.y)])
+                        path.closeSubpath()
                     }
+                } else {
+                    dot = Path(ellipseIn:CGRect(x:point.x-r,y:point.y-r,width:r*2,height:r*2))
                 }
+                let fill = place.precision == "region" ? Design.gold.opacity(0.17) :
+                    place.precision == "site" || active ? Design.gold : Design.space
+                let dash: [CGFloat] = place.precision == "region" ? [2,2] : []
+                context.fill(dot,with:.color(fill))
+                context.stroke(dot,with:.color(Design.gold),style:StrokeStyle(lineWidth:active ? 2 : 1.3,dash:dash))
             }
-
-            @discardableResult func drawLabel(_ string: String,point: CGPoint,front: Bool,leading: Bool) -> Bool {
-                let anchored: UnitPoint = leading ? .leading : .center
-                let base = Text(string).font(.system(size:front ? 13 : 11,weight:front ? .semibold : .medium))
-                let ink = base.foregroundColor(front ? Design.gold : .white.opacity(0.93))
-                let measured = context.resolve(ink).measure(in:CGSize(width:bounds.width,height:24))
-                let box = CGRect(x:leading ? point.x-3 : point.x-measured.width/2-4,
-                                 y:point.y-measured.height/2-3,width:measured.width+8,height:measured.height+6)
-                guard bounds.contains(box), !occupied.contains(where: { $0.intersects(box) }) else { return false }
-                occupied.append(box)
+            for label in labels(in:size) {
+                let anchor: UnitPoint = label.isPlace ? .leading : .center
+                let base = Text(label.name).font(.system(size:label.front ? 13 : 11,weight:label.front ? .semibold : .medium))
+                let ink = base.foregroundColor(label.front ? Design.gold : .white.opacity(0.93))
                 let shadow = base.foregroundColor(Design.space.opacity(0.92))
                 for delta in [CGPoint(x:-1,y:0),CGPoint(x:1,y:0),CGPoint(x:0,y:-1),CGPoint(x:0,y:1)] {
-                    context.draw(shadow,at:CGPoint(x:point.x+delta.x,y:point.y+delta.y),anchor:anchored)
+                    context.draw(shadow,at:CGPoint(x:label.point.x+delta.x,y:label.point.y+delta.y),anchor:anchor)
                 }
-                context.draw(ink,at:point,anchor:anchored)
-                return true
+                context.draw(ink,at:label.point,anchor:anchor)
             }
         }
+    }
+
+    func labels(in size: CGSize) -> [LabelPlacement] {
+        let area = protectedArea(size)
+        var chosen: [LabelPlacement] = []
+        func add(_ name: String,id: String,at position: CGPoint,front: Bool,place: Bool) -> Bool {
+            let font = UIFont.systemFont(ofSize:front ? 13 : 11,weight:front ? .semibold : .medium)
+            let measurement = (name as NSString).size(withAttributes:[.font:font])
+            let box = CGRect(x:place ? position.x-3 : position.x-measurement.width/2-4,
+                             y:position.y-measurement.height/2-3,width:measurement.width+8,height:measurement.height+6)
+            guard area.contains(box), !chosen.contains(where:{ $0.bounds.intersects(box) }) else { return false }
+            chosen.append(LabelPlacement(id:id,name:name,point:position,bounds:box,front:front,isPlace:place))
+            return true
+        }
+        let places = marks.places.filter { $0.id == marks.selectedPlace } + marks.places.filter { $0.id != marks.selectedPlace }
+        for place in places {
+            guard let point = camera.project(longitude:place.lon,latitude:place.lat,size:size), area.contains(point) else { continue }
+            let front = place.id == marks.selectedPlace
+            let gap: CGFloat = front || place.precision == "region" ? 11 : 8
+            _ = add(place.name,id:place.id,at:CGPoint(x:point.x+gap,y:point.y),front:front,place:true)
+        }
+        guard showNames || !focus.isEmpty else { return chosen }
+        let maxLabels = camera.zoom < 1.3 ? 8 : camera.zoom < 2.6 ? 15 : 27
+        let minimumArea = 105 / max(1,camera.zoom * camera.zoom)
+        var printed = Set<String>()
+        let order = shapes.indices.filter { shapes[$0].region.id == selected } +
+            shapes.indices.filter { shapes[$0].region.id != selected }
+        for index in order where chosen.count < maxLabels {
+            let shape = shapes[index]
+            if !showNames && !focus.contains(shape.region.id) { continue }
+            let front = shape.region.id == selected
+            guard front || Double(shape.area)>minimumArea, !printed.contains(shape.region.name) else { continue }
+            for anchor in front ? shape.anchors : anchors[index] {
+                guard let position = camera.project(anchor,size:size),area.contains(position) else { continue }
+                if add(shape.region.name,id:shape.region.id,at:position,front:front,place:false) {
+                    printed.insert(shape.region.name)
+                    break
+                }
+            }
+        }
+        return chosen
     }
 
     private func draw(_ route: SceneRoute, context: GraphicsContext, size: CGSize) {
