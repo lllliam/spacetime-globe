@@ -68,6 +68,7 @@ struct AppContent {
 private struct JourneyRoot: View {
     let content: AppContent
     @StateObject private var session: SessionStore
+    @State private var mapStatusUsesPaper = false
     @Environment(\.scenePhase) private var phase
 
     init(content: AppContent) {
@@ -76,9 +77,9 @@ private struct JourneyRoot: View {
     }
 
     private var colorScheme: ColorScheme {
-        if let observation = session.observe { return observation.drawer == .full ? .light : .dark }
+        if session.observe != nil { return mapStatusUsesPaper ? .light : .dark }
         if session.reading != nil { return session.preferences.paper == .night ? .dark : .light }
-        return session.explore.selected != nil && session.explore.drawer == .full ? .light : .dark
+        return mapStatusUsesPaper ? .light : .dark
     }
 
     var body: some View {
@@ -96,6 +97,7 @@ private struct JourneyRoot: View {
                     .transition(.opacity)
             }
         }
+        .environment(\.mapStatusBar) { mapStatusUsesPaper = $0 }
         .preferredColorScheme(colorScheme)
         .sheet(item:$session.panel) { panel in
             CompanionView(content:content,session:session,kind:panel)
@@ -104,5 +106,16 @@ private struct JourneyRoot: View {
         .onChange(of:session.preferences) { _ in session.scheduleSave() }
         .onChange(of:session.shelf) { _ in session.scheduleSave() }
         .onChange(of:phase) { phase in if phase != .active { session.save() } }
+    }
+}
+
+private struct MapStatusBarKey: EnvironmentKey {
+    static let defaultValue: (Bool) -> Void = { _ in }
+}
+
+extension EnvironmentValues {
+    var mapStatusBar: (Bool) -> Void {
+        get { self[MapStatusBarKey.self] }
+        set { self[MapStatusBarKey.self] = newValue }
     }
 }

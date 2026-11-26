@@ -24,6 +24,10 @@
 
 截图采自 `1.0.0-rc.1` 的 Edge 验收构建。[工程验收报告](docs/progress/PHASE-09.md)
 
+## iPhone 原生离线版
+
+原生分支提供 SwiftUI 和 Metal 版。Windows 用户可下载未签名 IPA，使用 Sideloadly 覆盖安装。[原生安装说明](native-ios/README.md)
+
 ## 当前公开版本
 
 `1.0.0-rc.2` 于 2026-11-26 发布，修复多页面关闭时的进度覆盖、摘要卡打开后的整页缩放、长按判定、视图菜单退出和短视口的年份提示。现有 57 卷、243 章、48 个历史现场（44 个可用、4 个暂停）及 28 组、117 篇补充专题。《明朝》标杆书卷共 20 章。[更新记录](CHANGELOG.md) · [质量治理与书卷清查](docs/progress/QUALITY-GOVERNANCE.md) · [内容覆盖](docs/CONTENT-COVERAGE.md) · [《明朝》专项报告](docs/progress/PHASE-08.md)

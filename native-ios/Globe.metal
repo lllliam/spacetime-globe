@@ -145,7 +145,7 @@ vertex BorderVertex boundaryVertex(uint vertexID [[vertex_id]], uint segmentID [
     const bool relevant = any(float4(edge.first.w) == focused);
     const float detail = smoothstep(1.0,3.2,camera.centerRadiusZoom.w);
     const float width = (selected ? 0.96 + detail*0.23 : (relevant ? 0.70 : 0.34) + detail*0.28) * camera.drawableSelectionScale.w;
-    const float extent = width + 0.85;
+    const float extent = width + 1.4;
     const float2 direction = axis/span, perpendicular = float2(-direction.y,direction.x);
     const float2 corners[] = {{0,-1},{1,-1},{0,1},{0,1},{1,-1},{1,1}};
     const float2 corner = corners[vertexID];
@@ -163,5 +163,7 @@ fragment float4 boundaryFragment(BorderVertex in [[stage_in]]) {
     const float outside = max(max(-in.distance.x,in.distance.x-in.length),0.0);
     const float d = length(float2(outside,in.distance.y));
     const float alpha = (1.0 - smoothstep(in.halfWidth-0.65,in.halfWidth+0.65,d)) * in.ink.a;
-    return float4(in.ink.rgb*alpha,alpha);
+    const float casing = (1.0 - smoothstep(in.halfWidth+0.10,in.halfWidth+1.30,d)) * in.ink.a*0.53;
+    const float shadow = casing*(1.0-alpha);
+    return float4(in.ink.rgb*alpha + float3(0.018,0.013,0.008)*shadow,alpha+shadow);
 }

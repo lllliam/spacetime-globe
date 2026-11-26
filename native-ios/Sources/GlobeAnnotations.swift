@@ -81,12 +81,14 @@ final class GlobeAnnotations {
             artwork.sublayers = nil
             placeGeometry = marks.places.map { place in
                 let layer = CAShapeLayer()
+                layer.frame = artwork.bounds
                 artwork.addSublayer(layer)
                 return (place,GlobeProjection.vector(longitude:place.lon,latitude:place.lat),layer)
             }
             routeGeometry = marks.routes.map { route in
                 let shadow = CAShapeLayer(), line = CAShapeLayer()
                 for layer in [shadow,line] {
+                    layer.frame = artwork.bounds
                     artwork.insertSublayer(layer,at:0)
                     layer.fillColor = nil
                     layer.lineCap = .round
@@ -117,7 +119,10 @@ final class GlobeAnnotations {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         root.frame = viewport
-        artwork.frame = viewport
+        if artwork.frame != viewport {
+            artwork.frame = viewport
+            artwork.sublayers?.forEach { $0.frame = viewport }
+        }
         text.frame = viewport
         root.isHidden = !valid
         guard valid else {
@@ -254,9 +259,11 @@ final class GlobeAnnotations {
         }
         layer.frame = frame
         layer.contentsScale = scale
-        layer.font = CGFont(font.fontName as CFString)
-        layer.fontSize = font.pointSize
-        layer.foregroundColor = candidate.emphasized ? gold.cgColor : UIColor.white.withAlphaComponent(0.94).cgColor
+        if layer.fontSize != font.pointSize {
+            layer.font = CGFont(font.fontName as CFString)
+            layer.fontSize = font.pointSize
+            layer.foregroundColor = candidate.emphasized ? gold.cgColor : UIColor.white.withAlphaComponent(0.94).cgColor
+        }
         if (layer.string as? String) != candidate.name { layer.string = candidate.name }
         setVisible(id,true,opacity:opacity,reduced:reduced)
     }

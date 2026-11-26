@@ -13,6 +13,7 @@ struct MapPanel<Compact: View, Full: View>: UIViewControllerRepresentable {
     @ViewBuilder var full: () -> Full
 
     @Environment(\.accessibilityReduceMotion) private var reduced
+    @Environment(\.mapStatusBar) private var statusBar
 
     func makeUIViewController(context: Context) -> PaperPanelController {
         PaperPanelController()
@@ -23,7 +24,7 @@ struct MapPanel<Compact: View, Full: View>: UIViewControllerRepresentable {
                           compact:AnyView(compact().environment(\.colorScheme,.light)),
                           full:AnyView(full().environment(\.colorScheme,.light)),
                           onHeight:{ viewport.protect(bottom:$0) },
-                          onPosition:onPosition,onDismiss:onDismiss)
+                          onPosition:onPosition,onDismiss:onDismiss,onStatus:statusBar)
     }
 
     static func dismantleUIViewController(_ controller: PaperPanelController, coordinator: ()) {
@@ -70,6 +71,8 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
     private var onHeight: (CGFloat) -> Void = { _ in }
     private var onPosition: (DrawerPosition) -> Void = { _ in }
     private var onDismiss: () -> Void = {}
+    private var onStatus: (Bool) -> Void = { _ in }
+    private var statusIsPaper = false
 
     override func loadView() {
         let passThrough = PassThroughView()
@@ -89,7 +92,7 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
         scroll.delegate = self
         scroll.contentInsetAdjustmentBehavior = .never
         scroll.alwaysBounceVertical = true
-        scroll.directionalLockEnabled = true
+        scroll.isDirectionalLockEnabled = true
         scroll.delaysContentTouches = false
         scroll.showsHorizontalScrollIndicator = false
         attach(compactHost,to:card)
@@ -119,13 +122,14 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
 
     func update(position: DrawerPosition, canDismiss: Bool, dismissal: Int, reduced: Bool, compact: AnyView, full: AnyView,
                 onHeight: @escaping (CGFloat) -> Void, onPosition: @escaping (DrawerPosition) -> Void,
-                onDismiss: @escaping () -> Void) {
+                onDismiss: @escaping () -> Void, onStatus: @escaping (Bool) -> Void) {
         loadViewIfNeeded()
         self.allowDismiss = canDismiss
         self.reduced = reduced
         self.onHeight = onHeight
         self.onPosition = onPosition
         self.onDismiss = onDismiss
+        self.onStatus = onStatus
         compactHost.rootView = compact
         fullHost.rootView = full
         if state != position {
@@ -185,6 +189,14 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
         compactHost.view.accessibilityElementsHidden = fullDominates
         scroll.accessibilityElementsHidden = !fullDominates
         card.accessibilityViewIsModal = h >= viewHeight-1
+        let underStatus = viewHeight-h < max(1,safeInsets.top*0.22)
+        if statusIsPaper != underStatus {
+            statusIsPaper = underStatus
+            DispatchQueue.main.async { [weak self] in
+                guard let self, self.statusIsPaper == underStatus else { return }
+                self.onStatus(underStatus)
+            }
+        }
         onHeight(h)
     }
 
@@ -227,6 +239,11 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
         link = nil
         animation = nil
         onHeight(0)
+        if statusIsPaper {
+            statusIsPaper = false
+            let clear = onStatus
+            DispatchQueue.main.async { clear(false) }
+        }
     }
 
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
