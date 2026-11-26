@@ -77,17 +77,16 @@ struct GlobeCamera: Codable, Hashable {
         let requested = old * change
         zoom = requested.clamped(to: Self.magnification)
         let unit = Double(min(size.width, size.height))
-        if unit > 0, zoom > 1 {
-            let origin = center(in: size)
+        if unit > 0 {
+            let origin = center(in:size)
             let ratio = zoom / old
-            let bound = (min(zoom, 4.2) - 1) * 0.29
-            let dx = Double(current.x - previous.x) + Double(previous.x - origin.x) * (1 - ratio)
-            let dy = Double(current.y - previous.y) + Double(previous.y - origin.y) * (1 - ratio)
-            offsetX = (offsetX + dx / unit).clamped(to: -bound...bound)
-            offsetY = (offsetY + dy / unit).clamped(to: -bound...bound)
-        } else {
-            offsetX = 0
-            offsetY = 0
+            offsetX += Double(current.x - previous.x + (previous.x - origin.x) * (1 - ratio)) / unit
+            offsetY += Double(current.y - previous.y + (previous.y - origin.y) * (1 - ratio)) / unit
+            // Keep a usable portion of the globe on-screen without snapping at 1×.
+            let horizontal = max(0.15, 0.475 * zoom + Double(size.width) / unit * 0.5 - 0.32)
+            let vertical = max(0.15, 0.475 * zoom + Double(size.height) / unit * 0.36 - 0.32)
+            offsetX = offsetX.clamped(to: -min(2,horizontal)...min(2,horizontal))
+            offsetY = offsetY.clamped(to: -min(2,vertical)...min(2,vertical))
         }
         return zoom != requested
     }
@@ -96,7 +95,7 @@ struct GlobeCamera: Codable, Hashable {
         let points = coordinates.filter { $0.count == 2 && $0.allSatisfy(\.isFinite) }
         var result = GlobeCamera()
         guard size.width > 0, size.height > 0, area.height > 0 else { return result }
-        result.verticalCenter = Double(area.midY / size.height).clamped(to: 0.19...0.6)
+        result.verticalCenter = Double(area.midY / size.height).clamped(to: 0.15...0.85)
         guard !points.isEmpty else { return result }
         var x = 0.0, y = 0.0, z = 0.0
         for p in points {
@@ -128,8 +127,99 @@ struct GlobeCamera: Codable, Hashable {
     }
 }
 
+
+struct GlobeProjection {
+    let size: CGSize
+    let origin: CGPoint
+    let radius: CGFloat
+    let rotation: SIMD4<Float>
+
+    init(camera: GlobeCamera, size: CGSize) {
+        self.size = size
+        origin = camera.center(in:size)
+        radius = camera.radius(in:size)
+        rotation = SIMD4(Float(cos(camera.yaw)), Float(sin(camera.yaw)),
+                         Float(cos(camera.tilt)), Float(sin(camera.tilt)))
+    }
+
+    static func vector(_ point: CGPoint) -> SIMD3<Float> {
+        vector(longitude:Double(point.x)*0.36 - 180, latitude:90 - Double(point.y)*0.36)
+    }
+
+    static func vector(longitude: Double, latitude: Double) -> SIMD3<Float> {
+        let lon = longitude * .pi / 180, lat = latitude * .pi / 180
+        return SIMD3(Float(cos(lat)*sin(lon)), Float(sin(lat)), Float(cos(lat)*cos(lon)))
+    }
+
+    func rotate(_ point: SIMD3<Float>) -> SIMD3<Float> {
+        let z = -point.x * rotation.y + point.z * rotation.x
+        return SIMD3(point.x * rotation.x + point.z * rotation.y,
+                     point.y * rotation.z - z * rotation.w,
+                     point.y * rotation.w + z * rotation.z)
+    }
+
+    func point(_ view: SIMD3<Float>) -> CGPoint {
+        CGPoint(x:origin.x + CGFloat(view.x)*radius,y:origin.y - CGFloat(view.y)*radius)
+    }
+
+    func project(_ world: SIMD3<Float>) -> (point: CGPoint, depth: Float)? {
+        let view = rotate(world)
+        return view.z > 0 ? (point(view),view.z) : nil
+    }
+}
+
 @MainActor
 final class GlobeViewport: ObservableObject {
-    @Published var camera: GlobeCamera
-    init(_ camera: GlobeCamera) { self.camera = camera }
+    // Changes on the display link intentionally do not emit objectWillChange.
+    private(set) var camera: GlobeCamera
+    private(set) var top: CGFloat = 0
+    private var bottom: CGFloat = 0
+    private var chromeBottom: CGFloat = 0
+    var onChange: ((GlobeCamera?, Bool) -> Void)?
+
+    init(_ camera: GlobeCamera) {
+        self.camera = camera
+        self.camera.verticalCenter = GlobeCamera().verticalCenter
+    }
+
+    func move(to camera: GlobeCamera, animated: Bool = true) {
+        if let onChange { onChange(camera,animated) }
+        else { self.camera = camera }
+    }
+
+    func present(_ camera: GlobeCamera) { self.camera = camera }
+
+    func protect(top: CGFloat? = nil, bottom: CGFloat? = nil, chromeBottom: CGFloat? = nil) {
+        let newTop = top ?? self.top, newBottom = bottom ?? self.bottom
+        let newChrome = chromeBottom ?? self.chromeBottom
+        guard abs(newTop-self.top) > 0.1 || abs(newBottom-self.bottom) > 0.1 || abs(newChrome-self.chromeBottom) > 0.1 else { return }
+        self.top = newTop
+        self.bottom = newBottom
+        self.chromeBottom = newChrome
+        onChange?(nil,false)
+    }
+
+    func aperture(in size: CGSize) -> CGRect {
+        let upper = min(top, size.height)
+        return CGRect(x:0,y:upper,width:size.width,height:max(0,size.height-upper-max(bottom,chromeBottom)))
+    }
+
+    func display(_ camera: GlobeCamera, in size: CGSize) -> GlobeCamera {
+        guard size.height > 0 else { return camera }
+        let space = aperture(in:size)
+        let usableHeight = max(min(size.height * 0.27, size.width * 0.62),space.height)
+        let center = (space.minY + usableHeight * 0.5) / size.height
+        var result = camera
+        let delta = Double(center) - GlobeCamera().verticalCenter
+        result.verticalCenter = (camera.verticalCenter + delta).clamped(to:0.12...0.88)
+        return result
+    }
+
+    func fit(_ coordinates: [[Double]], in size: CGSize, animated: Bool = true) {
+        let space = aperture(in:size)
+        guard space.height > 75 else { return }
+        var target = GlobeCamera.fitting(coordinates,in:size,visible:space)
+        target.verticalCenter = GlobeCamera().verticalCenter
+        move(to:target,animated:animated)
+    }
 }

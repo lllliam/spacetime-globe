@@ -40,10 +40,18 @@ struct RegionShape {
     }
 }
 
+struct BorderSegment {
+    let first: SIMD4<Float>
+    let second: SIMD4<Float>
+}
+
 struct PaintedAtlas {
     let shapes: [RegionShape]
     let image: CGImage
     let labelAnchors: [[CGPoint]]
+    let borders: [BorderSegment]
+    let regionIDs: [String: Int]
+    let generation = UUID()
 
     func pick(at point: CGPoint) -> MapRegion? {
         picks(at: point).first
@@ -175,7 +183,7 @@ struct GlobeAtlas {
 
     func paint(layer: GlobeLayer, year: Int, highResolution: Bool = false) throws -> PaintedAtlas {
         let shapes = try shapes(layer:layer, year:year)
-        let width = shapes.isEmpty ? 2 : (highResolution ? 4096 : 2560), height = width / 2
+        let width = shapes.isEmpty ? 2 : 2048, height = width / 2
         guard let image = CGContext(data:nil, width:width, height:height, bitsPerComponent:8,
                                     bytesPerRow:width*4, space:CGColorSpaceCreateDeviceRGB(),
                                     bitmapInfo:CGImageAlphaInfo.premultipliedLast.rawValue) else {
@@ -183,14 +191,39 @@ struct GlobeAtlas {
         }
         image.translateBy(x:0, y:CGFloat(height))
         image.scaleBy(x:CGFloat(width)/1000, y:-CGFloat(height)/500)
-        image.setLineJoin(.round)
+        image.setAllowsAntialiasing(false)
+        var ids: [String: Int] = [:]
+        var borders: [BorderSegment] = []
         for shape in shapes {
             try Task.checkCancellation()
+            let id = ids[shape.region.id] ?? (ids.count + 1)
+            ids[shape.region.id] = id
             image.addPath(shape.path)
-            image.setFillColor(red:0.56, green:0.47, blue:0.26, alpha:shape.region.historical ? 0.11 : 0.02)
-            image.setStrokeColor(red:0.88,green:0.77,blue:0.56,alpha:0.70)
-            image.setLineWidth(0.31)
-            image.drawPath(using:.eoFillStroke)
+            image.setFillColor(red:CGFloat(id & 255)/255,green:CGFloat((id >> 8) & 255)/255,
+                               blue:shape.region.historical ? 1 : 0.25, alpha:1)
+            image.fillPath(using:.evenOdd)
+
+            // Subdivide in the source projection before bending onto the sphere.
+            // The vertices sample the original edges and never alter the geographic data.
+            for ring in shape.rings {
+                guard var previous = ring.last else { continue }
+                for point in ring {
+                    let steps = max(1, Int(ceil(hypot(point.x - previous.x,point.y - previous.y) / 7)))
+                    var a = GlobeProjection.vector(previous)
+                    for step in 1...steps {
+                        let t = CGFloat(step) / CGFloat(steps)
+                        let sample = CGPoint(x:previous.x + (point.x - previous.x)*t,
+                                             y:previous.y + (point.y - previous.y)*t)
+                        let b = GlobeProjection.vector(sample)
+                        if a != b {
+                            borders.append(BorderSegment(first:SIMD4(a.x,a.y,a.z,Float(id)),
+                                                         second:SIMD4(b.x,b.y,b.z,0)))
+                        }
+                        a = b
+                    }
+                    previous = point
+                }
+            }
         }
         guard let result = image.makeImage() else { throw FormatError.invalidAtlas }
         let labelAnchors = try shapes.map { shape in
@@ -201,7 +234,7 @@ struct GlobeAtlas {
                 }?.region.id == shape.region.id
             }
         }
-        return PaintedAtlas(shapes:shapes,image:result,labelAnchors:labelAnchors)
+        return PaintedAtlas(shapes:shapes,image:result,labelAnchors:labelAnchors,borders:borders,regionIDs:ids)
     }
 }
 
@@ -217,7 +250,6 @@ actor MapCache {
     private struct CacheKey: Equatable {
         let layer: GlobeLayer
         let year: Int
-        let detail: Bool
     }
     let atlas: GlobeAtlas
     private var recent: [(CacheKey, PaintedAtlas)] = []
@@ -227,21 +259,24 @@ actor MapCache {
     func load(_ request: AtlasKey) throws -> PaintedAtlas {
         try Task.checkCancellation()
         let layer = atlas.index.displayLayer(request.layer, year:request.year)
-        let key = CacheKey(layer:layer, year:layer == .timeline ? request.year : 0, detail:request.detail)
+        let key = CacheKey(layer:layer, year:layer == .timeline ? request.year : 0)
         if let index = recent.firstIndex(where: { $0.0 == key }) {
             let hit = recent.remove(at:index)
             recent.append(hit)
             return hit.1
         }
-        let result = try atlas.paint(layer:layer, year:request.year, highResolution:request.detail)
+        let result = try atlas.paint(layer:layer, year:request.year)
         try Task.checkCancellation()
         recent.append((key,result))
-        var bytes = recent.reduce(0) { $0 + $1.1.image.bytesPerRow * $1.1.image.height }
+        var bytes = recent.reduce(0) { $0 + cost($1.1) }
         while bytes > 56 * 1024 * 1024 && recent.count > 1 {
-            let oldest = recent.removeFirst().1.image
-            bytes -= oldest.bytesPerRow * oldest.height
+            bytes -= cost(recent.removeFirst().1)
         }
         return result
+    }
+
+    private func cost(_ map: PaintedAtlas) -> Int {
+        map.image.bytesPerRow * map.image.height + map.borders.count * MemoryLayout<BorderSegment>.stride
     }
 }
 

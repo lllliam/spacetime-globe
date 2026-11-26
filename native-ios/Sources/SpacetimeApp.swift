@@ -75,6 +75,12 @@ private struct JourneyRoot: View {
         _session = StateObject(wrappedValue:SessionStore(archive:content.archive,index:content.index))
     }
 
+    private var colorScheme: ColorScheme {
+        if let observation = session.observe { return observation.drawer == .full ? .light : .dark }
+        if session.reading != nil { return session.preferences.paper == .night ? .dark : .light }
+        return session.explore.selected != nil && session.explore.drawer == .full ? .light : .dark
+    }
+
     var body: some View {
         ZStack {
             if let reading = session.reading {
@@ -90,7 +96,7 @@ private struct JourneyRoot: View {
                     .transition(.opacity)
             }
         }
-        .preferredColorScheme(session.observe != nil || session.reading == nil || session.preferences.paper == .night ? .dark : .light)
+        .preferredColorScheme(colorScheme)
         .sheet(item:$session.panel) { panel in
             CompanionView(content:content,session:session,kind:panel)
         }

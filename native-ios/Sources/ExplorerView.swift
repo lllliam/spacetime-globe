@@ -12,6 +12,7 @@ struct ExplorerView: View {
     @State private var picked: MapRegion?
     @State private var coincident: [MapRegion] = []
     @State private var yearEditor = false
+    @State private var panelDismissal = 0
     @State private var pendingJump: String?
 
     init(content: AppContent,session: SessionStore) {
@@ -22,34 +23,25 @@ struct ExplorerView: View {
     }
 
     var body: some View {
-        GeometryReader { geometry in
-            let bottom = bottomInset(geometry.size.height)
-            ZStack(alignment:.bottom) {
-                NativeGlobe(cache:content.map,resources:content.resources,request:atlasRequest,viewport:viewport,
-                            showNames:session.preferences.showNames,selected:picked?.id,
-                            protectedTop:100,protectedBottom:bottom + geometry.safeAreaInsets.bottom,
-                            haptics:session.preferences.haptics,onApplied:apply,onRegions:select,onSettled:saveCamera)
+        ZStack(alignment:.top) {
+            NativeGlobe(cache:content.map,resources:content.resources,request:atlasRequest,viewport:viewport,
+                        showNames:session.preferences.showNames,selected:picked?.id,
+                        haptics:session.preferences.haptics,onApplied:apply,onRegions:select,onSettled:saveCamera)
+                .ignoresSafeArea()
+            VStack(spacing:0) {
+                header.mapChrome(top:true,viewport:viewport)
+                Spacer(minLength:0)
+                if picked == nil { footer.mapChrome(top:false,viewport:viewport) }
+            }
+            .accessibilityHidden(picked != nil && session.explore.drawer == .full)
+            if let picked {
+                MapPanel(position:session.explore.drawer,viewport:viewport,canDismiss:true,dismissal:panelDismissal,
+                         onPosition:{ session.explore.drawer = $0 }, onDismiss:{ select([]) },
+                         compact:{ regionSummary(picked) }, full:{ regionFull(picked) })
                     .ignoresSafeArea()
-                VStack(spacing:0) {
-                    header
-                    Spacer(minLength:8)
-                    if let picked {
-                        MapDrawer(position:$session.explore.drawer, available:geometry.size.height, title:picked.name,
-                                  subtitle:picked.dates, trailing:{
-                            IconAction(icon:"xmark",label:"关闭疆域摘要",tint:Design.quiet) { select([]) }
-                                .accessibilityIdentifier("close-region")
-                        }, details:{
-                            RegionDetails(region:picked,year:applied?.year ?? requested,coincident:coincident,content:content,
-                                          onOpen:open,onSwitch:chooseDirectly,onSources:{ session.panel = .sources })
-                        })
-                        .accessibilityIdentifier("region-drawer")
-                        .transition(.move(edge:.bottom).combined(with:.opacity))
-                    } else {
-                        footer
-                    }
-                }
             }
         }
+        .environment(\.colorScheme,.dark)
         .background(Design.space.ignoresSafeArea())
         .sheet(isPresented:$yearEditor) {
             YearChooser(initial:preview ?? session.explore.year,scale:$session.explore.scale) { year in
@@ -63,12 +55,11 @@ struct ExplorerView: View {
         }
         .onAppear { followJump(session.jump) }
         .onChange(of:session.jump) { followJump($0) }
-        .onChange(of:session.explore.drawer) { _ in reframe(); session.scheduleSave() }
+        .onChange(of:session.explore.drawer) { _ in session.scheduleSave() }
         .onChange(of:session.explore.layer) { _ in
             picked = nil
             coincident = []
             session.explore.selected = nil
-            reframe()
             session.scheduleSave()
         }
         .onChange(of:session.explore.scale) { _ in session.scheduleSave() }
@@ -156,10 +147,6 @@ struct ExplorerView: View {
                 .frame(height:55)
         }
         .padding(.horizontal,15).padding(.bottom,5)
-        .background {
-            LinearGradient(colors:[.clear,Design.space.opacity(0.86),Design.space],startPoint:.top,endPoint:.bottom)
-                .ignoresSafeArea(edges:.bottom).allowsHitTesting(false)
-        }
     }
 
     private func commit(_ target: Int,feedback: Bool) {
@@ -179,24 +166,23 @@ struct ExplorerView: View {
         appliedMap = map
         if let pendingJump, let shape = map.shapes.first(where:{ $0.region.id == pendingJump }) {
             self.pendingJump = nil
-            viewport.camera.center(longitude:Double(shape.center.x)*0.36-180,latitude:90-Double(shape.center.y)*0.36,zoom:2)
-            saveCamera(viewport.camera)
+            var target = viewport.camera
+            target.center(longitude:Double(shape.center.x)*0.36-180,latitude:90-Double(shape.center.y)*0.36,zoom:2)
+            viewport.move(to:target)
             chooseDirectly(shape.region)
         } else if let current = session.explore.selected {
             let selection = map.shapes.first { $0.region.id == current }?.region
             picked = selection
             if changed { coincident = [] }
-            if selection == nil { session.explore.selected = nil; reframe(); session.scheduleSave() }
-            else { reframe() }
+            if selection == nil { session.explore.selected = nil; session.scheduleSave() }
         }
     }
 
     private func select(_ regions: [MapRegion]) {
         if regions.isEmpty {
-            withAnimation(Design.motion(reduceMotion)) { picked = nil }
+            picked = nil
             coincident = []
             session.explore.selected = nil
-            reframe()
             session.scheduleSave()
         } else if let first = regions.first {
             coincident = regions
@@ -206,10 +192,9 @@ struct ExplorerView: View {
 
     private func chooseDirectly(_ region: MapRegion) {
         let different = picked?.id != region.id
-        if picked == nil { session.explore.drawer = .summary }
+        if different { session.explore.drawer = .compact }
         session.explore.selected = region.id
-        withAnimation(Design.motion(reduceMotion)) { picked = region }
-        reframe()
+        picked = region
         if different && session.preferences.haptics { GlobeHaptics.selection() }
         session.scheduleSave()
     }
@@ -230,32 +215,67 @@ struct ExplorerView: View {
         session.open(ReadingNode(volume:binding.volume,chapter:binding.chapter,entryYear:applied?.year ?? requested))
     }
 
-    private func reframe() {
-        if picked == nil { viewport.camera.verticalCenter = 0.48 }
-        else {
-            switch session.explore.drawer {
-            case .collapsed: viewport.camera.verticalCenter = 0.45
-            case .summary: viewport.camera.verticalCenter = 0.40
-            case .expanded: viewport.camera.verticalCenter = 0.31
-            }
-        }
-    }
-
-    private func resetView() { viewport.camera = GlobeCamera(); reframe(); saveCamera(viewport.camera) }
+    private func resetView() { viewport.move(to:GlobeCamera()) }
 
     private func saveCamera(_ view: GlobeCamera) {
-        var copy = view
-        copy.verticalCenter = 0.48
-        session.setCamera(copy)
+        session.setCamera(view)
     }
 
-    private func bottomInset(_ height: CGFloat) -> CGFloat {
-        guard picked != nil else { return 115 }
-        switch session.explore.drawer {
-        case .collapsed: return 84
-        case .summary: return min(232,height * 0.31) + 12
-        case .expanded: return min(height - 112,height * 0.62) + 12
+    private func regionSummary(_ region: MapRegion) -> some View {
+        let year = applied?.year ?? requested
+        let volume = content.index.bindings(region.id,in:year).first { $0.relation == "primary" }
+        return VStack(alignment:.leading,spacing:8) {
+            SheetHandle()
+            HStack(spacing:8) {
+                VStack(alignment:.leading,spacing:2) {
+                    Text(region.name).font(.system(.title3,design:.serif,weight:.semibold)).lineLimit(2)
+                    Text(region.dates).font(.caption).foregroundStyle(Design.quiet).lineLimit(1)
+                }
+                Spacer(minLength:4)
+                IconAction(icon:"chevron.up",label:"展开主体详情",tint:Design.quiet) {
+                    session.explore.drawer = .full
+                }
+                .accessibilityIdentifier("expand-region")
+                closeRegion
+            }
+            if let volume, let work = content.archive.volume(volume.volume) {
+                PaperAction(title:work.title,symbol:"book",prominent:true) { open(volume) }
+                    .accessibilityIdentifier("open-region-book")
+            } else if let summary = region.summary {
+                Text(summary).font(.subheadline).lineLimit(2)
+            }
         }
+        .padding(.horizontal,Design.inset).padding(.bottom,10)
+        .foregroundStyle(Design.ink)
+    }
+
+    private func regionFull(_ region: MapRegion) -> some View {
+        VStack(alignment:.leading,spacing:17) {
+            SheetHandle()
+            HStack(spacing:8) {
+                VStack(alignment:.leading,spacing:5) {
+                    Text(region.name).font(.system(.largeTitle,design:.serif,weight:.semibold))
+                    Text(region.dates).font(.subheadline).foregroundStyle(Design.quiet)
+                }
+                Spacer(minLength:4)
+                IconAction(icon:"chevron.down",label:"返回主体摘要",tint:Design.quiet) {
+                    session.explore.drawer = .compact
+                }
+                .accessibilityIdentifier("compact-region")
+                closeRegion
+            }
+            Divider()
+            RegionDetails(region:region,year:applied?.year ?? requested,coincident:coincident,content:content,
+                          onOpen:open,onSwitch:chooseDirectly,onSources:{ session.panel = .sources })
+        }
+        .frame(maxWidth:.infinity,alignment:.leading)
+        .padding(.horizontal,Design.inset).padding(.bottom,24)
+        .foregroundStyle(Design.ink)
+    }
+
+    private var closeRegion: some View {
+        IconAction(icon:"xmark",label:"关闭主体详情",tint:Design.quiet) { panelDismissal += 1 }
+            .accessibilityIdentifier("close-region")
     }
 }
 

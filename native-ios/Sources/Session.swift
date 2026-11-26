@@ -14,7 +14,16 @@ enum TimelineScale: Int, CaseIterable, Codable, Identifiable {
 }
 
 enum DrawerPosition: Int, CaseIterable, Codable, Equatable {
-    case collapsed, summary, expanded
+    case compact = 1, full = 2
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        switch try container.decode(Int.self) {
+        case 0, 1: self = .compact
+        case 2: self = .full
+        default: throw DecodingError.dataCorruptedError(in:container,debugDescription:"Unknown map drawer position")
+        }
+    }
 }
 
 enum ReaderPaper: String, CaseIterable, Codable, Identifiable {
@@ -54,7 +63,7 @@ struct ExploreSession: Codable {
     var layer = GlobeLayer.timeline
     var camera = GlobeCamera()
     var selected: String?
-    var drawer = DrawerPosition.summary
+    var drawer = DrawerPosition.compact
     var scale = TimelineScale.year
 }
 
@@ -131,7 +140,7 @@ struct ObservationSession: Equatable {
     let origin: Origin
     var stage: String?
     var selectedPlace: String?
-    var drawer = DrawerPosition.summary
+    var drawer = DrawerPosition.compact
 
     var returnTitle: String {
         switch origin {

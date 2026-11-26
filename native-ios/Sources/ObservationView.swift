@@ -9,7 +9,6 @@ struct ObservationView: View {
     @State private var fitted = false
     @State private var applied: AtlasKey?
     @State private var mapRegion: MapRegion?
-    @Environment(\.accessibilityReduceMotion) private var reduced
 
     private var card: ObservationCard? {
         switch observation.subject {
@@ -45,65 +44,103 @@ struct ObservationView: View {
     private func experience(_ card: ObservationCard,frame: SceneFrame) -> some View {
         GeometryReader { geometry in
             let request = AtlasKey(layer:card.natural || !content.atlas.hasHistory ? .terrain : .timeline,year:frame.year)
-            let bottom = drawerHeight(geometry.size.height)
-            let full = CGSize(width:geometry.size.width,height:geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom)
-            let area = viewingArea(full,bottom:bottom + geometry.safeAreaInsets.bottom)
-            let ready = applied?.year == frame.year && applied?.layer == request.layer
-            ZStack {
+            let size = CGSize(width:geometry.size.width+geometry.safeAreaInsets.leading+geometry.safeAreaInsets.trailing,
+                              height:geometry.size.height+geometry.safeAreaInsets.top+geometry.safeAreaInsets.bottom)
+            let ready = applied == request
+            ZStack(alignment:.top) {
                 NativeGlobe(cache:content.map,resources:content.resources,request:request,viewport:viewport,showNames:false,
                             selected:mapRegion?.id,
                             marks:GlobeMarks(places:frame.places,routes:frame.routes,focusPolities:frame.focusPolities,
-                                             selectedPlace:observation.selectedPlace),
-                            protectedTop:110,protectedBottom:bottom + geometry.safeAreaInsets.bottom,
+                                             selectedPlace:observation.selectedPlace),sceneKey:frame.id,
                             showPendingArt:false,haptics:session.preferences.haptics,
-                            onApplied:{ key,_ in applied = key },
-                            onRegions:{ mapRegion = $0.first },onPlace:{ selectPlace($0,frame:frame,size:full,area:area) })
+                            onApplied:{ key,_ in
+                                applied = key
+                                guard !fitted else { return }
+                                fitted = true
+                                fit(frame,in:size,animated:false)
+                            },
+                            onRegions:{ mapRegion = $0.first },onPlace:{ selectPlace($0,frame:frame,size:size) })
                     .ignoresSafeArea()
-                VStack(spacing:0) {
-                    header(frame,ready:ready)
-                    Spacer(minLength:0)
-                    MapDrawer(position:drawer,available:geometry.size.height,title:card.title,
-                              subtitle:frame.title == card.title ? nil : frame.title,trailing:{
-                        IconAction(icon:observation.drawer == .expanded ? "chevron.down" : "chevron.up",
-                                   label:observation.drawer == .expanded ? "收起现场说明" : "展开现场说明",tint:Design.quiet) {
-                            withAnimation(Design.motion(reduced)) {
-                                session.updateObservation(drawer:observation.drawer == .expanded ? .collapsed : .expanded)
-                            }
-                        }
-                    },details:{
-                        stageControl(card,frame:frame)
-                        if ready {
-                            details(card,frame:frame,size:full,area:area)
-                        } else {
-                            ProgressView("正在读取观察底图").tint(Design.vermilion).font(.footnote)
-                        }
-                    })
-                    .accessibilityIdentifier("observation-drawer")
-                }
-            }
-            .onAppear {
-                guard !fitted else { return }
-                viewport.camera = GlobeCamera.fitting(frame.coordinates,in:full,visible:area)
-                fitted = true
-                if let selected = observation.selectedPlace { selectPlace(selected,frame:frame,size:full,area:area,feedback:false) }
+                header(frame,ready:ready)
+                    .mapChrome(top:true,viewport:viewport)
+                    .accessibilityHidden(observation.drawer == .full)
+                MapPanel(position:observation.drawer,viewport:viewport,
+                         onPosition:{ session.updateObservation(drawer:$0) },
+                         compact:{ observationSummary(card,frame:frame) },
+                         full:{ observationFull(card,frame:frame,size:size,ready:ready) })
+                    .ignoresSafeArea()
             }
             .onChange(of:frame.id) { _ in
                 mapRegion = nil
-                let positions = frame.coordinates.compactMap {
-                    viewport.camera.project(longitude:$0[0],latitude:$0[1],size:full)
+                let area = viewport.aperture(in:size)
+                let current = viewport.display(viewport.camera,in:size)
+                let visible = frame.coordinates.compactMap {
+                    current.project(longitude:$0[0],latitude:$0[1],size:size)
+                }.filter { area.contains($0) }.count
+                if !frame.coordinates.isEmpty && visible < max(1,frame.coordinates.count / 2) {
+                    fit(frame,in:size,animated:true)
                 }
-                let visible = positions.filter(area.contains).count
-                if !frame.coordinates.isEmpty && visible < max(1,positions.count / 2) {
-                    viewport.camera = GlobeCamera.fitting(frame.coordinates,in:full,visible:area)
-                }
-            }
-            .onChange(of:observation.drawer) { _ in
-                viewport.camera.verticalCenter = Double(area.midY/full.height).clamped(to:0.19...0.6)
             }
         }
+        .environment(\.colorScheme,.dark)
         .background(Design.space.ignoresSafeArea())
         .overlay(alignment:.leading) {
-            EdgeReturn { session.endObservation() }.frame(width:15).accessibilityHidden(true)
+            if observation.drawer == .compact {
+                EdgeReturn { session.endObservation() }.frame(width:15).accessibilityHidden(true)
+            }
+        }
+    }
+
+    private func fit(_ frame: SceneFrame,in size: CGSize,animated: Bool) {
+        let points = frame.coordinates
+        viewport.fit(points,in:size,animated:animated)
+    }
+
+    private func observationSummary(_ card: ObservationCard,frame: SceneFrame) -> some View {
+        VStack(alignment:.leading,spacing:7) {
+            SheetHandle()
+            panelHeading(card,frame:frame,full:false)
+            if let question = card.question ?? frame.note ?? card.note {
+                Text(question).font(.subheadline).lineLimit(2)
+            }
+            stageControl(card,frame:frame)
+        }
+        .frame(maxWidth:.infinity,alignment:.leading)
+        .padding(.horizontal,Design.inset).padding(.bottom,10).foregroundStyle(Design.ink)
+    }
+
+    private func observationFull(_ card: ObservationCard,frame: SceneFrame,size: CGSize,ready: Bool) -> some View {
+        VStack(alignment:.leading,spacing:16) {
+            SheetHandle()
+            panelHeading(card,frame:frame,full:true)
+            stageControl(card,frame:frame)
+            Divider()
+            if ready { details(card,frame:frame,size:size) }
+            else { ProgressView("正在读取观察底图").tint(Design.vermilion).font(.footnote) }
+        }
+        .frame(maxWidth:.infinity,alignment:.leading)
+        .padding(.horizontal,Design.inset).padding(.bottom,24).foregroundStyle(Design.ink)
+    }
+
+    private func panelHeading(_ card: ObservationCard,frame: SceneFrame,full: Bool) -> some View {
+        HStack(spacing:8) {
+            VStack(alignment:.leading,spacing:3) {
+                Text(card.title).font(.system(full ? .title : .title3,design:.serif,weight:.semibold))
+                    .lineLimit(full ? nil : 2)
+                if frame.title != card.title {
+                    Text(frame.title).font(.caption).foregroundStyle(Design.quiet).lineLimit(full ? nil : 1)
+                }
+            }
+            Spacer(minLength:4)
+            IconAction(icon:full ? "chevron.down" : "chevron.up",
+                       label:full ? "返回现场摘要" : "展开现场说明",tint:Design.quiet) {
+                session.updateObservation(drawer:full ? .compact : .full)
+            }
+            .accessibilityIdentifier(full ? "compact-observation" : "expand-observation")
+            if full {
+                IconAction(icon:"xmark",label:observation.returnTitle,tint:Design.quiet) { session.endObservation() }
+                    .accessibilityIdentifier("return-observation-full")
+            }
         }
     }
 
@@ -151,7 +188,7 @@ struct ObservationView: View {
         }
     }
 
-    @ViewBuilder private func details(_ card: ObservationCard,frame: SceneFrame,size: CGSize,area: CGRect) -> some View {
+    @ViewBuilder private func details(_ card: ObservationCard,frame: SceneFrame,size: CGSize) -> some View {
         if let question = card.question { Text(question).font(.headline) }
         if let note = frame.note ?? card.note { Text(note).font(.subheadline).lineSpacing(4) }
         if let region = mapRegion { Text(region.name + " · " + region.dates).font(.footnote).foregroundStyle(Design.quiet) }
@@ -166,21 +203,19 @@ struct ObservationView: View {
                 }
             }
         }
-        if observation.drawer == .expanded {
-            places(frame,size:size,area:area)
-            if let scene = card.scene { sceneSources(scene,frame:frame) }
-            legend(card,frame:frame)
-            if let limit = card.limit { Text(limit).font(.footnote).foregroundStyle(Design.quiet) }
-        }
+        places(frame,size:size)
+        if let scene = card.scene { sceneSources(scene,frame:frame) }
+        legend(card,frame:frame)
+        if let limit = card.limit { Text(limit).font(.footnote).foregroundStyle(Design.quiet) }
     }
 
-    @ViewBuilder private func places(_ frame: SceneFrame,size: CGSize,area: CGRect) -> some View {
+    @ViewBuilder private func places(_ frame: SceneFrame,size: CGSize) -> some View {
         if !frame.places.isEmpty {
             Divider()
             Text("地点").font(.headline)
             ForEach(frame.places) { place in
                 PaperAction(title:place.name,symbol:place.id == observation.selectedPlace ? "mappin.circle.fill" : "mappin") {
-                    selectPlace(place.id,frame:frame,size:size,area:area)
+                    selectPlace(place.id,frame:frame,size:size)
                 }
                 if let role = place.role { Text(role).font(.footnote).foregroundStyle(Design.quiet) }
                 Text(place.precisionText).font(.caption).foregroundStyle(Design.quiet)
@@ -247,33 +282,19 @@ struct ObservationView: View {
         }
     }
 
-    private var drawer: Binding<DrawerPosition> {
-        Binding(get:{ observation.drawer },set:{ session.updateObservation(drawer:$0) })
-    }
-
-    private func selectPlace(_ id: String,frame: SceneFrame,size: CGSize,area: CGRect,feedback: Bool = true) {
+    private func selectPlace(_ id: String,frame: SceneFrame,size: CGSize,feedback: Bool = true) {
         guard let place = frame.places.first(where:{ $0.id == id }) else { return }
         session.updateObservation(place:id)
-        let details = viewport.camera.project(longitude:place.lon,latitude:place.lat,size:size)
-        if let point = details, area.insetBy(dx:32,dy:28).contains(point) {
-            // The existing viewpoint preserves the surroundings of a visible point.
-        } else {
-            viewport.camera.center(longitude:place.lon,latitude:place.lat,zoom:max(1.65,viewport.camera.zoom))
-            viewport.camera.verticalCenter = Double(area.midY/size.height).clamped(to:0.19...0.60)
+        let area = viewport.aperture(in:size)
+        let current = viewport.display(viewport.camera,in:size)
+        let point = current.project(longitude:place.lon,latitude:place.lat,size:size)
+        if observation.drawer == .full { session.updateObservation(drawer:.compact) }
+        if point.map({ area.insetBy(dx:32,dy:28).contains($0) }) != true {
+            var target = viewport.camera
+            target.center(longitude:place.lon,latitude:place.lat,zoom:max(1.65,target.zoom))
+            viewport.move(to:target)
         }
         if feedback && session.preferences.haptics && id != observation.selectedPlace { GlobeHaptics.selection() }
-    }
-
-    private func drawerHeight(_ height: CGFloat) -> CGFloat {
-        switch observation.drawer {
-        case .collapsed: return 84
-        case .summary: return min(232,height*0.31)
-        case .expanded: return min(height-112,height*0.62)
-        }
-    }
-
-    private func viewingArea(_ size: CGSize,bottom: CGFloat) -> CGRect {
-        CGRect(x:13,y:104,width:max(0,size.width-26),height:max(45,size.height-bottom-110))
     }
 
     private func distance(_ a: ScenePlace,_ b: ScenePlace) -> Int {

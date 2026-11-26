@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 NAME = "SpacetimeGlobe"
 PROJECT = ROOT / f"{NAME}.xcodeproj"
 BUNDLE = "io.github.lllliam.spacetimeglobe.native"
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 OBJECTS = {}
 
 
@@ -78,6 +78,7 @@ def prepare():
         "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
         "LSRequiresIPhoneOS": True,
         "UILaunchScreen": {},
+        "CADisableMinimumFrameDurationOnPhone": True,
         "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"],
     }
     with (PROJECT / "Info.plist").open("wb") as stream:
@@ -98,7 +99,7 @@ def prepare():
         "PRODUCT_NAME": NAME,
         "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE,
         "MARKETING_VERSION": VERSION,
-        "CURRENT_PROJECT_VERSION": "3",
+        "CURRENT_PROJECT_VERSION": "4",
         "GENERATE_INFOPLIST_FILE": "NO",
         "INFOPLIST_FILE": f"{PROJECT.name}/Info.plist",
         "TARGETED_DEVICE_FAMILY": "1",

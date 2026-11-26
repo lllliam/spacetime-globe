@@ -60,6 +60,18 @@ enum Smoke {
         let camera = GlobeCamera.fitting([[179,44],[-179,46]],in:view,visible:frame)
         precondition(camera.isValid && camera.zoom > 3)
         precondition(camera.project(longitude:179,latitude:44,size:view).map(frame.contains) == true)
+        precondition(!historical.borders.isEmpty && historical.regionIDs["polity:Ming Dynasty"] != nil)
+        var pinched = GlobeCamera()
+        let finger = CGPoint(x:215,y:385)
+        let next = CGPoint(x:233,y:401)
+        let anchor = pinched.unproject(finger,size:view)!
+        pinched.magnify(0.90,from:finger,to:next,size:view)
+        let screen = pinched.project(anchor,size:view)!
+        precondition(hypot(screen.x-next.x,screen.y-next.y) < 0.05)
+        let decoder = JSONDecoder()
+        let legacyClosed = try decoder.decode(DrawerPosition.self,from:Data("0".utf8))
+        let legacyExpanded = try decoder.decode(DrawerPosition.self,from:Data("2".utf8))
+        precondition(legacyClosed == .compact && legacyExpanded == .full)
         try migration(history)
         print("Offline chapters, source identities, event deduplication, map picking, search, chronology, framing and legacy persistence passed.")
     }
