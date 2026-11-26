@@ -79,11 +79,17 @@ jobs:
           simulator_package="$(mktemp -d /tmp/spacetime-simulator.XXXXXX)"
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
             -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
-            CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGN_IDENTITY=- \
+            -arch arm64 CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGNING_ALLOWED=NO \
             build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
-          simulator_app="$simulator_package/SpacetimeGlobe.app"
+          simulator_app="$simulator_package/Test/SpacetimeGlobe.app"
+          mkdir "$simulator_package/Test"
+          ditto "$RUNNER_TEMP/native-device/Build/Products/Release-iphoneos/SpacetimeGlobe.app" "$simulator_app"
+          cp "$simulator_package/SpacetimeGlobe.app/SpacetimeGlobe" "$simulator_app/SpacetimeGlobe"
+          /usr/libexec/PlistBuddy -c 'Set :CFBundleSupportedPlatforms:0 iPhoneSimulator' "$simulator_app/Info.plist"
+          /usr/libexec/PlistBuddy -c 'Set DTPlatformName iphonesimulator' "$simulator_app/Info.plist"
           bundle_id="$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$simulator_app/Info.plist")"
           [ "$bundle_id" = io.github.lllliam.spacetimeglobe.native ]
+          codesign --force --sign - --timestamp=none "$simulator_app"
           codesign --verify --strict "$simulator_app"
           echo "Booting $simulator"
           xcrun simctl bootstatus "$simulator" -b
