@@ -11,6 +11,8 @@ struct GlobeCamera: Codable, Hashable {
     var offsetY = 0.0
 
     static let magnification = 0.85...7.0
+    static let globalZoom = 1.06
+    var isGlobal: Bool { zoom <= Self.globalZoom }
 
     var isValid: Bool {
         [yaw, tilt, zoom, verticalCenter, offsetX, offsetY].allSatisfy(\.isFinite) &&
@@ -82,13 +84,40 @@ struct GlobeCamera: Codable, Hashable {
             let ratio = zoom / old
             offsetX += Double(current.x - previous.x + (previous.x - origin.x) * (1 - ratio)) / unit
             offsetY += Double(current.y - previous.y + (previous.y - origin.y) * (1 - ratio)) / unit
-            // Keep a usable portion of the globe on-screen without snapping at 1×.
-            let horizontal = max(0.15, 0.475 * zoom + Double(size.width) / unit * 0.5 - 0.32)
-            let vertical = max(0.15, 0.475 * zoom + Double(size.height) / unit * 0.36 - 0.32)
-            offsetX = offsetX.clamped(to: -min(2,horizontal)...min(2,horizontal))
-            offsetY = offsetY.clamped(to: -min(2,vertical)...min(2,vertical))
+            // Bound unresisted gesture input independently of what is shown on-screen.
+            offsetX = offsetX.clamped(to:-3...3)
+            offsetY = offsetY.clamped(to:-3...3)
         }
         return zoom != requested
+    }
+
+    func normalized() -> GlobeCamera {
+        guard isValid else { return GlobeCamera() }
+        var camera = limited(to:.zero,in:.zero)
+        camera.verticalCenter = GlobeCamera().verticalCenter
+        return camera
+    }
+
+    func limited(to size: CGSize, in aperture: CGRect, elastic: Bool = false) -> GlobeCamera {
+        let unit = Double(min(size.width,size.height))
+        let freedom = smoothstep(Self.globalZoom,2.45,zoom)
+        let naturalLimit = min(2,0.48 + (zoom - Self.globalZoom)*0.28) * freedom
+        let padding = unit * 0.23
+        let radius = radius(in:size)
+        let margin = elastic ? 0.12 * smoothstep(0.94,1.20,zoom) : 0
+        let hasAperture = unit > 0 && aperture.height > 0
+        let xLimit = hasAperture ? min(naturalLimit,max(0,(radius+aperture.width/2-padding)/unit)) : naturalLimit
+        let yLimit = hasAperture ? min(naturalLimit,max(0,(radius+aperture.height/2-padding)/unit)) : naturalLimit
+
+        func resist(_ value: Double, at limit: Double) -> Double {
+            let overflow = max(0,abs(value)-limit)
+            let length = min(abs(value),limit) + (margin > 0 ? margin*overflow/(margin+overflow) : 0)
+            return value < 0 ? -length : length
+        }
+        var camera = self
+        camera.offsetX = resist(offsetX,at:xLimit)
+        camera.offsetY = resist(offsetY,at:yLimit)
+        return camera
     }
 
     static func fitting(_ coordinates: [[Double]], in size: CGSize, visible area: CGRect) -> GlobeCamera {
@@ -127,6 +156,19 @@ struct GlobeCamera: Codable, Hashable {
     }
 }
 
+
+private func smoothstep(_ from: Double, _ to: Double, _ value: Double) -> Double {
+    let fraction = ((value-from)/(to-from)).clamped(to:0...1)
+    return fraction*fraction*(3-2*fraction)
+}
+
+enum GlobeIdleMotion {
+    static let delay = 6.5
+
+    static func yawDelta(elapsed: Double, eligibleFor duration: Double) -> Double {
+        -0.04 * elapsed * smoothstep(delay,delay+1.35,duration)
+    }
+}
 
 struct GlobeProjection {
     let size: CGSize
@@ -170,6 +212,8 @@ struct GlobeProjection {
 
 @MainActor
 final class GlobeViewport: ObservableObject {
+    enum IdleBlock: Hashable { case timeline, menu }
+
     // Changes on the display link intentionally do not emit objectWillChange.
     private(set) var camera: GlobeCamera
     private(set) var top: CGFloat = 0
@@ -178,18 +222,25 @@ final class GlobeViewport: ObservableObject {
     private var touching = false
     private var touchesEndedAt = -Double.infinity
     var onChange: ((GlobeCamera?, Bool) -> Void)?
+    var onIdleChange: (() -> Void)?
+    private var idleBlocks: Set<IdleBlock> = []
+    var permitsIdle: Bool { idleBlocks.isEmpty }
 
     init(_ camera: GlobeCamera) {
-        self.camera = camera
-        self.camera.verticalCenter = GlobeCamera().verticalCenter
+        self.camera = camera.normalized()
     }
 
     func move(to camera: GlobeCamera, animated: Bool = true) {
         if let onChange { onChange(camera,animated) }
-        else { self.camera = camera }
+        else { self.camera = camera.normalized() }
     }
 
-    func present(_ camera: GlobeCamera) { self.camera = camera }
+    func present(_ camera: GlobeCamera) { self.camera = camera.normalized() }
+
+    func setIdleBlock(_ source: IdleBlock, active: Bool) {
+        let changed = active ? idleBlocks.insert(source).inserted : idleBlocks.remove(source) != nil
+        if changed { onIdleChange?() }
+    }
 
     func setMapTouch(_ isDown: Bool) {
         guard touching != isDown else { return }
@@ -217,15 +268,22 @@ final class GlobeViewport: ObservableObject {
         return CGRect(x:0,y:upper,width:size.width,height:max(0,size.height-upper-max(bottom,chromeBottom)))
     }
 
-    func display(_ camera: GlobeCamera, in size: CGSize) -> GlobeCamera {
-        guard size.height > 0 else { return camera }
+    func composedAperture(in size: CGSize) -> CGRect {
         let space = aperture(in:size)
         let usableHeight = max(min(size.height * 0.27, size.width * 0.62),space.height)
-        let center = (space.minY + usableHeight * 0.5) / size.height
+        return CGRect(x:space.minX,y:space.minY,width:space.width,height:usableHeight)
+    }
+
+    func display(_ camera: GlobeCamera, in size: CGSize) -> GlobeCamera {
+        guard size.height > 0 else { return camera }
+        let area = composedAperture(in:size)
         var result = camera
-        let delta = Double(center) - GlobeCamera().verticalCenter
-        result.verticalCenter = (camera.verticalCenter + delta).clamped(to:0.12...0.88)
+        result.verticalCenter = Double(area.midY/size.height).clamped(to:0...1)
         return result
+    }
+
+    func limit(_ camera: GlobeCamera, in size: CGSize, elastic: Bool = false) -> GlobeCamera {
+        camera.limited(to:size,in:composedAperture(in:size),elastic:elastic)
     }
 
     func fit(_ coordinates: [[Double]], in size: CGSize, animated: Bool = true) {

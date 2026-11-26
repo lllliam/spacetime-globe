@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ExplorerView: View {
     let content: AppContent
@@ -28,7 +29,8 @@ struct ExplorerView: View {
             NativeGlobe(cache:content.map,resources:content.resources,request:atlasRequest,viewport:viewport,
                         showNames:session.preferences.showNames,selected:picked?.id,
                         marks:GlobeMarks(explorationSites:sites),
-                        haptics:session.preferences.haptics,onApplied:apply,onRegions:select,
+                        haptics:session.preferences.haptics,allowsIdleRotation:allowsIdleRotation,
+                        onApplied:apply,onRegions:select,
                         onPlace:{ id in
                             guard let site = sites.first(where:{ $0.id == id }) else { return }
                             if session.preferences.haptics { GlobeHaptics.selection() }
@@ -74,6 +76,11 @@ struct ExplorerView: View {
         .onDisappear { saveCamera(viewport.camera) }
     }
 
+    private var allowsIdleRotation: Bool {
+        session.explore.selected == nil && picked == nil && !yearEditor && session.panel == nil &&
+            preview == nil && pendingJump == nil && applied == atlasRequest
+    }
+
     private var atlasRequest: AtlasKey {
         let layer = content.atlas.hasHistory || session.explore.layer != .timeline ? session.explore.layer : .terrain
         return AtlasKey(layer:layer,year:requested)
@@ -100,29 +107,35 @@ struct ExplorerView: View {
             .accessibilityValue(eraYear(preview ?? session.explore.year) + " 年")
             .accessibilityIdentifier("choose-year")
             Spacer(minLength:0)
-            Menu {
-                Button { session.panel = .library } label: { Label("历史书目",systemImage:"books.vertical") }
-                if let recent = session.lastRead {
-                    Button { session.open(ReadingNode(volume:recent.volume,chapter:recent.chapter)) } label: {
-                        Label("继续阅读",systemImage:"bookmark")
-                    }
-                }
-                Picker("地图图层",selection:$session.explore.layer) {
-                    ForEach(GlobeLayer.allCases) { Text($0.label).tag($0) }
-                }
-                Toggle("显示地名",isOn:$session.preferences.showNames)
-                Button { resetView() } label: { Label("复位视角",systemImage:"globe") }
-                Button { session.panel = .options } label: { Label("设置与关于",systemImage:"gearshape") }
-            } label: {
-                Image(systemName:"ellipsis").font(.system(size:22,weight:.semibold))
-                    .frame(width:44,height:44).contentShape(Rectangle())
-            }
-            .accessibilityLabel("探索选项")
-            .accessibilityIdentifier("explore-options")
+            ExplorerOptionsButton(menu:optionsMenu,viewport:viewport)
+                .frame(width:44,height:44)
         }
         .foregroundStyle(.white)
         .padding(.horizontal,Design.inset)
         .padding(.top,5)
+    }
+
+    private var optionsMenu: UIMenu {
+        var actions: [UIMenuElement] = [
+            UIAction(title:"历史书目",image:UIImage(systemName:"books.vertical")) { _ in session.panel = .library }
+        ]
+        if let recent = session.lastRead {
+            actions.append(UIAction(title:"继续阅读",image:UIImage(systemName:"bookmark")) { _ in
+                session.open(ReadingNode(volume:recent.volume,chapter:recent.chapter))
+            })
+        }
+        let layers = GlobeLayer.allCases.map { layer in
+            UIAction(title:layer.label,state:session.explore.layer == layer ? .on : .off) { _ in
+                session.explore.layer = layer
+            }
+        }
+        actions.append(UIMenu(title:"地图图层",options:.singleSelection,children:layers))
+        actions.append(UIAction(title:"显示地名",state:session.preferences.showNames ? .on : .off) { _ in
+            session.preferences.showNames.toggle()
+        })
+        actions.append(UIAction(title:"复位视角",image:UIImage(systemName:"globe")) { _ in resetView() })
+        actions.append(UIAction(title:"设置与关于",image:UIImage(systemName:"gearshape")) { _ in session.panel = .options })
+        return UIMenu(children:actions)
     }
 
     private var mapCaption: String {
@@ -152,6 +165,7 @@ struct ExplorerView: View {
             HistoryTimeline(year:session.explore.year,scale:session.explore.scale,hasEvent:content.archive.hasEventStarting,
                             haptics:session.preferences.haptics,reduceMotion:reduceMotion,
                             allowsTouch:{ viewport.permitsTimelineTouch },
+                            onTracking:{ viewport.setIdleBlock(.timeline,active:$0) },
                             onPreview:{ preview = $0 },
                             onCancel:{ preview = nil; requested = session.explore.year },
                             onCommit:{ commit($0,feedback:false) })
@@ -377,4 +391,49 @@ private struct YearChooser: View {
     }
 
     private func finish(_ year: Int) { apply(year); dismiss() }
+}
+
+private struct ExplorerOptionsButton: UIViewRepresentable {
+    let menu: UIMenu
+    let viewport: GlobeViewport
+
+    func makeUIView(context: Context) -> Button {
+        let button = Button(type:.system)
+        button.setImage(UIImage(systemName:"ellipsis",withConfiguration:UIImage.SymbolConfiguration(pointSize:22,weight:.semibold)),
+                        for:.normal)
+        button.tintColor = .white
+        button.showsMenuAsPrimaryAction = true
+        button.accessibilityLabel = "探索选项"
+        button.accessibilityIdentifier = "explore-options"
+        return button
+    }
+
+    func updateUIView(_ button: Button, context: Context) {
+        button.viewport = viewport
+        button.menu = menu
+    }
+
+    static func dismantleUIView(_ button: Button, coordinator: ()) {
+        button.viewport?.setIdleBlock(.menu,active:false)
+    }
+
+    final class Button: UIButton {
+        weak var viewport: GlobeViewport?
+
+        override func contextMenuInteraction(_ interaction: UIContextMenuInteraction,
+                                             willDisplayMenuFor configuration: UIContextMenuConfiguration,
+                                             animator: (any UIContextMenuInteractionAnimating)?) {
+            super.contextMenuInteraction(interaction,willDisplayMenuFor:configuration,animator:animator)
+            viewport?.setIdleBlock(.menu,active:true)
+        }
+
+        override func contextMenuInteraction(_ interaction: UIContextMenuInteraction,
+                                             willEndFor configuration: UIContextMenuConfiguration,
+                                             animator: (any UIContextMenuInteractionAnimating)?) {
+            super.contextMenuInteraction(interaction,willEndFor:configuration,animator:animator)
+            if let animator {
+                animator.addCompletion { [weak self] in self?.viewport?.setIdleBlock(.menu,active:false) }
+            } else { viewport?.setIdleBlock(.menu,active:false) }
+        }
+    }
 }

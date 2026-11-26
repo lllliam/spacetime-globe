@@ -73,6 +73,34 @@ enum Smoke {
         pinched.magnify(0.90,from:finger,to:next,size:view)
         let screen = pinched.project(anchor,size:view)!
         precondition(hypot(screen.x-next.x,screen.y-next.y) < 0.05)
+        var displaced = GlobeCamera()
+        displaced.yaw = 2.29
+        displaced.tilt = -0.34
+        displaced.offsetX = 0.8
+        displaced.offsetY = -0.6
+        let restoredGlobe = displaced.normalized()
+        precondition(restoredGlobe.offsetX == 0 && restoredGlobe.offsetY == 0)
+        precondition(restoredGlobe.yaw == displaced.yaw && restoredGlobe.tilt == displaced.tilt)
+        let viewport = GlobeViewport(displaced)
+        viewport.protect(top:105,bottom:218)
+        let visible = viewport.aperture(in:view)
+        precondition(abs(viewport.display(restoredGlobe,in:view).center(in:view).y-visible.midY) < 0.01)
+        let offsets = stride(from:1.0,through:3.0,by:0.01).map { zoom in
+            var camera = displaced
+            camera.zoom = zoom
+            return viewport.limit(camera,in:view).offsetX
+        }
+        precondition(offsets.first == 0 && offsets.last == displaced.offsetX)
+        precondition(zip(offsets,offsets.dropFirst()).allSatisfy { prior,next in
+            next >= prior && next-prior < 0.02
+        })
+        let elastic = viewport.limit(displaced,in:view,elastic:true)
+        precondition(elastic.offsetX > 0 && elastic.offsetX < 0.05)
+        precondition(viewport.limit(elastic,in:view).offsetX == 0)
+        precondition(GlobeIdleMotion.yawDelta(elapsed:1,eligibleFor:6.4) == 0)
+        let ramp = GlobeIdleMotion.yawDelta(elapsed:1,eligibleFor:7.1)
+        precondition(-0.04 < ramp && ramp < 0)
+        precondition(GlobeIdleMotion.yawDelta(elapsed:1,eligibleFor:8.5) == -0.04)
         let decoder = JSONDecoder()
         let legacyClosed = try decoder.decode(DrawerPosition.self,from:Data("0".utf8))
         let legacyExpanded = try decoder.decode(DrawerPosition.self,from:Data("2".utf8))

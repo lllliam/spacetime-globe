@@ -1,5 +1,6 @@
 import MetalKit
 import UIKit
+import UIKit.UIGestureRecognizerSubclass
 
 private struct GlobeUniforms {
     var centerRadiusZoom: SIMD4<Float>
@@ -182,6 +183,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         let active: Bool
         let reduced: Bool
         let interactive: Bool
+        let allowsIdleRotation: Bool
         let boundaryFeedback: () -> Void
         let settled: (GlobeCamera) -> Void
         let regions: ([MapRegion]) -> Void
@@ -213,6 +215,11 @@ final class GlobeSurface: UIView, MTKViewDelegate {
     private lazy var annotations = GlobeAnnotations(in:metal.layer)
     private var configuration: Configuration?
     private var current = GlobeCamera()
+    private var pinchProposal: GlobeCamera?
+    private var idleSince: Double?
+    private var idleWake: DispatchWorkItem?
+    private var spinning = false
+    private lazy var windowTouches = WindowTouches { [weak self] _ in self?.refreshIdle() }
     private var flight: Flight?
     private var velocity = CGPoint.zero
     private var motionTime = 0.0
@@ -265,7 +272,10 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         configuration = value
         if previous?.viewport !== value.viewport {
             previous?.viewport.onChange = nil
+            previous?.viewport.onIdleChange = nil
+            interruptIdle()
             current = value.viewport.camera
+            value.viewport.onIdleChange = { [weak self] in self?.refreshIdle() }
             value.viewport.onChange = { [weak self] target,animated in
                 guard let self else { return }
                 if let target { self.move(to:target,animated:animated) }
@@ -291,40 +301,100 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             pendingTap = nil
             lastTap = nil
         }
+        observeTouches()
+        refreshIdle()
         requestFrame()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         metal.frame = bounds
+        refreshIdle()
         requestFrame()
     }
 
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        if window != nil { requestFrame() }
-        else { suspend() }
+        observeTouches()
+        if window != nil {
+            refreshIdle()
+            requestFrame()
+        } else { suspend() }
     }
 
     func detach() {
         suspend()
         configuration?.viewport.onChange = nil
+        configuration?.viewport.onIdleChange = nil
         configuration = nil
+        interruptIdle()
+        observeTouches()
         link?.invalidate()
         link = nil
     }
 
     private func suspend() {
+        interruptIdle()
         flight = nil
         velocity = .zero
         contacts.removeAll()
         touchOrder.removeAll()
+        pinchProposal = nil
         configuration?.viewport.setMapTouch(false)
         pendingTap?.cancel()
         pendingTap = nil
         lastTap = nil
+        if let viewport = configuration?.viewport { current = viewport.limit(current,in:bounds.size) }
         finishMotion()
         link?.isPaused = true
+    }
+
+    private var maySpin: Bool {
+        guard let config = configuration, config.active, config.interactive, config.allowsIdleRotation,
+              !config.reduced, config.viewport.permitsIdle, config.assets != nil, window != nil,
+              current.isGlobal, contacts.isEmpty, !windowTouches.isDown,
+              flight == nil, velocity == .zero, pendingTap == nil else { return false }
+        return config.viewport.aperture(in:bounds.size).height > 32
+    }
+
+    private func observeTouches() {
+        let target = configuration?.allowsIdleRotation == true ? window : nil
+        guard windowTouches.view !== target else { return }
+        windowTouches.view?.removeGestureRecognizer(windowTouches)
+        if let target { target.addGestureRecognizer(windowTouches) }
+    }
+
+    private func interruptIdle() {
+        idleSince = nil
+        idleWake?.cancel()
+        idleWake = nil
+        if spinning {
+            spinning = false
+            updateFrameRate()
+            let camera = current.normalized()
+            configuration?.viewport.present(camera)
+        }
+    }
+
+    private func refreshIdle() {
+        guard maySpin else { interruptIdle(); return }
+        guard idleSince == nil else { return }
+        let since = CACurrentMediaTime()
+        idleSince = since
+        let wake = DispatchWorkItem { [weak self] in
+            guard let self, self.idleSince == since, self.maySpin else { return }
+            self.idleWake = nil
+            self.requestFrame()
+        }
+        idleWake = wake
+        DispatchQueue.main.asyncAfter(deadline:.now()+GlobeIdleMotion.delay,execute:wake)
+    }
+
+    private func updateFrameRate() {
+        let upper = Float(window?.screen.maximumFramesPerSecond ?? 60)
+        let preferred = min(spinning ? 30 : upper,upper)
+        link?.preferredFrameRateRange = CAFrameRateRange(minimum:min(preferred,60),
+                                                         maximum:spinning ? preferred : upper,preferred:preferred)
     }
 
     private func requestFrame() {
@@ -332,10 +402,9 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         guard configuration?.active == true, window != nil else { return }
         if link == nil {
             let newLink = CADisplayLink(target:self,selector:#selector(tick(_:)))
-            let upper = Float(window?.screen.maximumFramesPerSecond ?? 60)
-            newLink.preferredFrameRateRange = CAFrameRateRange(minimum:min(60,upper),maximum:upper,preferred:upper)
-            newLink.add(to:.main,forMode:.common)
             link = newLink
+            updateFrameRate()
+            newLink.add(to:.main,forMode:.common)
         }
         link?.isPaused = false
     }
@@ -356,11 +425,17 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             if hypot(velocity.x,velocity.y) < 12 { velocity = .zero; finishMotion() }
             redraw = true
         }
+        if let since = idleSince, sender.targetTimestamp-since >= GlobeIdleMotion.delay, maySpin {
+            if !spinning { spinning = true; updateFrameRate() }
+            current.yaw = (current.yaw + GlobeIdleMotion.yawDelta(elapsed:elapsed,eligibleFor:sender.targetTimestamp-since))
+                .truncatingRemainder(dividingBy:2 * .pi)
+            redraw = true
+        }
         if redraw {
             redraw = false
             metal.draw()
         }
-        if !redraw && flight == nil && velocity == .zero { sender.isPaused = true }
+        if !redraw && flight == nil && velocity == .zero && !spinning { sender.isPaused = true }
     }
 
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) { requestFrame() }
@@ -385,11 +460,13 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         presented = Frame(camera:camera,projection:projection,aperture:aperture,atlas:config.data,sceneKey:config.sceneKey)
     }
 
-    private func move(to target: GlobeCamera, animated: Bool) {
+    private func move(to proposed: GlobeCamera, animated: Bool, duration: Double = 0.39) {
+        interruptIdle()
+        let target = (configuration?.viewport.limit(proposed,in:bounds.size) ?? proposed).normalized()
         velocity = .zero
         needsSettlement = true
         if animated && configuration?.reduced != true && window != nil {
-            flight = Flight(start:current,target:target,time:CACurrentMediaTime(),duration:0.39)
+            flight = Flight(start:current,target:target,time:CACurrentMediaTime(),duration:duration)
         } else {
             flight = nil
             current = target
@@ -412,21 +489,32 @@ final class GlobeSurface: UIView, MTKViewDelegate {
     }
 
     private func finishMotion() {
-        guard needsSettlement else { return }
-        needsSettlement = false
-        configuration?.viewport.present(current)
-        configuration?.settled(current)
+        if needsSettlement {
+            needsSettlement = false
+            let stable = (configuration?.viewport.limit(current,in:bounds.size) ?? current).normalized()
+            configuration?.viewport.present(stable)
+            configuration?.settled(stable)
+        }
+        refreshIdle()
+    }
+
+    private func settleAfterContact() {
+        guard let viewport = configuration?.viewport else { return }
+        let target = viewport.limit(current,in:bounds.size)
+        if target.offsetX != current.offsetX || target.offsetY != current.offsetY {
+            move(to:target,animated:true,duration:0.27)
+        } else { finishMotion() }
     }
 
     private func stabilize() {
         if flight != nil || velocity != .zero {
             flight = nil
             velocity = .zero
-            finishMotion()
         }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        interruptIdle()
         stabilize()
         if contacts.isEmpty {
             configuration?.viewport.setMapTouch(true)
@@ -470,10 +558,11 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             let distance = hypot(before[0].x-before[1].x,before[0].y-before[1].y)
             let changed = hypot(after[0].x-after[1].x,after[0].y-after[1].y)
             guard changed > 3, distance > 3 else { return }
-            var camera = config.viewport.display(current,in:bounds.size)
+            var camera = config.viewport.display(pinchProposal ?? current,in:bounds.size)
             let limited = camera.magnify(changed/distance,from:previous,to:next,size:bounds.size)
             camera.verticalCenter = current.verticalCenter
-            current = camera
+            pinchProposal = camera
+            current = config.viewport.limit(camera,in:bounds.size,elastic:true)
             if limited && !limitFeedback { config.boundaryFeedback() }
             limitFeedback = limited
             velocity = .zero
@@ -492,7 +581,8 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         if contacts.isEmpty {
             configuration?.viewport.setMapTouch(false)
             if time-lastSample > 0.095 || multiTouch || !didMove || configuration?.reduced == true { velocity = .zero }
-            if velocity == .zero { finishMotion() }
+            pinchProposal = nil
+            if velocity == .zero { settleAfterContact() }
             else { motionTime = CACurrentMediaTime(); requestFrame() }
         } else {
             updateTouchBaseline(event)
@@ -505,11 +595,12 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         multiTouch = true
         clearTap()
         updateTouchBaseline(event)
-        finishMotion()
+        if contacts.isEmpty { settleAfterContact() }
     }
 
     private func updateTouchBaseline(_ event: UIEvent?) {
         lastSample = event?.timestamp ?? CACurrentMediaTime()
+        pinchProposal = nil
         velocity = .zero
     }
 
@@ -551,6 +642,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             self.lastTap = nil
             self.pendingTap = nil
             self.pick(point)
+            self.refreshIdle()
         }
         pendingTap = tap
         DispatchQueue.main.asyncAfter(deadline:.now()+0.23,execute:tap)
@@ -579,5 +671,47 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         if target.magnify(change,from:origin,to:origin,size:size) { configuration?.boundaryFeedback() }
         move(to:target,animated:true)
         return true
+    }
+}
+
+/// Watches touches anywhere in the window without winning a gesture or cancelling a control.
+private final class WindowTouches: UIGestureRecognizer {
+    private var count = 0
+    private let changed: (Bool) -> Void
+
+    var isDown: Bool { count > 0 }
+
+    init(changed: @escaping (Bool) -> Void) {
+        self.changed = changed
+        super.init(target:nil,action:nil)
+        cancelsTouchesInView = false
+        delaysTouchesBegan = false
+        delaysTouchesEnded = false
+    }
+
+    override func canPrevent(_ preventedGestureRecognizer: UIGestureRecognizer) -> Bool { false }
+    override func canBePrevented(by preventingGestureRecognizer: UIGestureRecognizer) -> Bool { false }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        let first = count == 0
+        count += touches.count
+        if first { changed(true) }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) { end(touches.count) }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) { end(touches.count) }
+
+    override func reset() {
+        if count > 0 { count = 0; changed(false) }
+        super.reset()
+    }
+
+    private func end(_ removed: Int) {
+        guard count > 0 else { return }
+        count = max(0,count-removed)
+        if count == 0 {
+            state = .failed
+            changed(false)
+        }
     }
 }

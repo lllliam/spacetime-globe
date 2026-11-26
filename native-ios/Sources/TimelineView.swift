@@ -8,6 +8,7 @@ struct HistoryTimeline: UIViewRepresentable {
     let haptics: Bool
     let reduceMotion: Bool
     let allowsTouch: () -> Bool
+    let onTracking: (Bool) -> Void
     let onPreview: (Int) -> Void
     let onCancel: () -> Void
     let onCommit: (Int) -> Void
@@ -22,6 +23,10 @@ struct HistoryTimeline: UIViewRepresentable {
 
     func updateUIView(_ control: TimelineControl, context: Context) {
         context.coordinator.update(self)
+    }
+
+    static func dismantleUIView(_ view: TimelineControl, coordinator: Controller) {
+        coordinator.input.onTracking(false)
     }
 
     final class Controller: NSObject, UIScrollViewDelegate {
@@ -89,6 +94,7 @@ struct HistoryTimeline: UIViewRepresentable {
         }
 
         func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+            input.onTracking(true)
             scaleDuringDrag = input.scale
             committed = false
             interrupted = !input.allowsTouch()
@@ -155,6 +161,7 @@ struct HistoryTimeline: UIViewRepresentable {
             control.accessibilityValue = eraYear(value) + " 年"
             if cancelled { input.onCancel() }
             else { input.onCommit(value) }
+            input.onTracking(false)
         }
 
         @objc private func tap(_ recognizer: UITapGestureRecognizer) {

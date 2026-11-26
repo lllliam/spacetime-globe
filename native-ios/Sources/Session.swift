@@ -207,7 +207,7 @@ final class SessionStore: ObservableObject {
         let recovered = saved ?? Self.migrate(defaults)
         var exploration = recovered.explore
         if !Chronology.accepts(exploration.year) { exploration.year = 1500 }
-        if !exploration.camera.isValid { exploration.camera = GlobeCamera() }
+        exploration.camera = exploration.camera.normalized()
         explore = exploration
         preferences = recovered.preferences
         progress = recovered.progress
@@ -368,8 +368,10 @@ final class SessionStore: ObservableObject {
         save()
     }
 
-    func setCamera(_ camera: GlobeCamera) {
-        guard camera.isValid, explore.camera != camera else { return }
+    func setCamera(_ value: GlobeCamera) {
+        guard value.isValid else { return }
+        let camera = value.normalized()
+        guard explore.camera != camera else { return }
         explore.camera = camera
         scheduleSave()
     }

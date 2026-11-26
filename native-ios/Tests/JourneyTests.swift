@@ -15,6 +15,8 @@ final class JourneyTests: XCTestCase {
         let globe = app.descendants(matching:.any)["history-globe"].firstMatch
         XCTAssertTrue(globe.waitForExistence(timeout:8))
         capture("01-global",app)
+        RunLoop.current.run(until:Date().addingTimeInterval(8.5))
+        capture("01b-idle",app)
         globe.pinch(withScale:2.3,velocity:1.5)
         capture("02-regional",app)
         globe.pinch(withScale:2.1,velocity:1.5)
@@ -25,6 +27,8 @@ final class JourneyTests: XCTestCase {
         northStart.press(forDuration:0.05,thenDragTo:northEnd)
         XCTAssertTrue(choose.isHittable)
         capture("03b-north",app)
+        globe.pinch(withScale:0.40,velocity:-1.25)
+        capture("03c-global-return",app)
         XCTAssertEqual(choose.value as? String,"1499 年")
         app.buttons["explore-options"].tap()
         app.buttons["复位视角"].tap()
