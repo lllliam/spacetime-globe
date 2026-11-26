@@ -405,6 +405,70 @@
       },
       "target": {
         "bookId": "han",
+        "chapterId": "mobei-and-han-xiongnu-diplomacy"
+      },
+      "range": {
+        "from": -119,
+        "to": -90
+      },
+      "relation": "related",
+      "scope": "从匈奴的同期底图接读会战、王庭变动及使节往来。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xiongnu"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "huo-qubing-and-hunxie-surrender"
+      },
+      "range": {
+        "from": -121,
+        "to": -120
+      },
+      "relation": "related",
+      "scope": "从匈奴同期图读西方诸王与单于关系、战事及降众处置。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xiongnu"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-mayi-to-shuofang"
+      },
+      "range": {
+        "from": -133,
+        "to": -124
+      },
+      "relation": "related",
+      "scope": "从匈奴的同期概略图读军臣单于退出马邑、边市及河套战事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-hetao-plain"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Xiongnu"
+      },
+      "target": {
+        "bookId": "han",
         "chapterId": "baideng-and-han-xiongnu-negotiation"
       },
       "range": {
@@ -2561,6 +2625,287 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-late-reign-luntai-and-succession"
+      },
+      "range": {
+        "from": -91,
+        "to": -87
+      },
+      "relation": "related",
+      "scope": "从武帝晚年的地图入口读储位危机、轮台诏和昭帝继位。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-fiscal-transport-and-markets"
+      },
+      "range": {
+        "from": -115,
+        "to": -81
+      },
+      "relation": "related",
+      "scope": "从汉的底图读财产申报、均输转运与京师平准。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-five-zhu-and-central-mints"
+      },
+      "range": {
+        "from": -116,
+        "to": -113
+      },
+      "relation": "related",
+      "scope": "从同期汉图读五铢作坊至上林专铸，地方铸钱读前段。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-zhaolun-mint"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-salt-and-iron-offices"
+      },
+      "range": {
+        "from": -117,
+        "to": -81
+      },
+      "relation": "related",
+      "scope": "从同期汉图读盐铁设置与古荥工场。工场分期另查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-guxing-ironworks"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "hexi-xuanquan-and-juyan-records"
+      },
+      "range": {
+        "from": -111,
+        "to": -60
+      },
+      "relation": "related",
+      "scope": "从汉的底图进入驿置、戍守记录及宣帝时都护。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-xuanquan-and-juyan"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "hexi-four-commanderies-and-passes"
+      },
+      "range": {
+        "from": -120,
+        "to": -88
+      },
+      "relation": "related",
+      "scope": "从汉的同期图进入河西四郡的多种建置口径，读章另辨各郡实际沿革。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-hexi-corridor"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "zhang-qian-wusun-and-deputies"
+      },
+      "range": {
+        "from": -118,
+        "to": -101
+      },
+      "relation": "related",
+      "scope": "从汉图接读使乌孙、出派副使及后来对大宛用兵。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-ili-and-ferghana"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "mobei-and-han-xiongnu-diplomacy"
+      },
+      "range": {
+        "from": -119,
+        "to": -90
+      },
+      "relation": "related",
+      "scope": "从同期汉图读漠北战事之后的议和、扣使及再战。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "huo-qubing-and-hunxie-surrender"
+      },
+      "range": {
+        "from": -121,
+        "to": -120
+      },
+      "relation": "related",
+      "scope": "从汉的底图进入河西两次出兵和接降，具体战场各自考证。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-enfeoffment-and-marquisates"
+      },
+      "range": {
+        "from": -127,
+        "to": -112
+      },
+      "relation": "related",
+      "scope": "从同期汉图读诸王分邑及王子侯表，各侯国的边界与实辖按当地研究。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-mayi-to-shuofang"
+      },
+      "range": {
+        "from": -134,
+        "to": -124
+      },
+      "relation": "related",
+      "scope": "从同期汉图比较马邑、河套与朔方置郡，地区范围另查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-hetao-plain"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "zhang-qian-first-mission"
+      },
+      "range": {
+        "from": -138,
+        "to": -126
+      },
+      "relation": "related",
+      "scope": "从同期汉图读张骞首使及汉中的墓葬参照。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-zhang-qian-chenggu"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wudi-accession-and-jianyuan"
+      },
+      "range": {
+        "from": -141,
+        "to": -124
+      },
+      "relation": "related",
+      "scope": "从同期汉图读即位、建元政令及茂陵迁徙。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wudi-changan-maoling"
     },
     {
       "map": {

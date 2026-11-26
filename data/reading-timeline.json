@@ -7646,5 +7646,1605 @@
       "scope": "核对年份口径、材料能支持的范围及读章关联。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-wudi-changan-maoling-landscape": {
+    "title": "武帝早期的长安与茂陵",
+    "date": "公元前 141—前 124 年 · 即位至置博士弟子",
+    "start": -141,
+    "end": -124,
+    "context": true,
+    "summary": "从西汉宫城看向茂陵一带，比较朝廷、陵园和陵邑三种空间。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "建元二年初置茂陵邑，随后还有人口迁入与陵园使用。图上用于区域参照。",
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "maoling-site-geography",
+            "locator": "历史文化遗存及茂陵条",
+            "note": "可作今兴平茂陵一带地理参照"
+          },
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "unesco-han-corridor",
+        "title": "联合国教科文组织长安—天山廊道遗产地图",
+        "url": "https://whc.unesco.org/en/list/1442/maps/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "maoling-site-geography",
+        "title": "《陕西省志·建设志》茂陵等遗址资料",
+        "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zhang-qian-first-mission-context": {
+    "title": "张骞首使及汉中、长安背景",
+    "date": "约公元前 138—前 126 年 · 张骞首使的常用系年",
+    "start": -138,
+    "end": -126,
+    "context": true,
+    "summary": "对读张骞墓和未央宫，辨认使者的汉中背景与朝廷所在。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "往返年次采用一种常用系年。墓葬和宫址是区域参照，出使所经另读本传。",
+        "refs": [
+          {
+            "sourceId": "hanshu-zhang-qian",
+            "locator": "张骞首使、返汉报告及使乌孙条",
+            "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+          },
+          {
+            "sourceId": "zhang-qian-first-dating",
+            "locator": "张骞生平与两次出使词条",
+            "note": "提供两次出使与相关年代的参照"
+          },
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-zhang-qian",
+        "title": "《汉书·张骞李广利传》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zhang-qian-first-dating",
+        "title": "陕西师范大学历史文化名城网《张骞》",
+        "url": "https://lishiwenhua.snnu.edu.cn/info/1901/19231.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "unesco-han-corridor",
+        "title": "联合国教科文组织长安—天山廊道遗产地图",
+        "url": "https://whc.unesco.org/en/list/1442/maps/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-mayi-and-hetao-frontier-context": {
+    "title": "马邑与河套的边地地理",
+    "date": "公元前 134—前 124 年 · 和亲余波、马邑与河套",
+    "start": -134,
+    "end": -124,
+    "context": true,
+    "summary": "晋北和河套是相距较远的两处边地环境，可对照马邑之谋和朔方建置。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "地名用于区分事件区域，关口、河道与具体战线按各自材料查证。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "han-northern-place-references",
+            "locator": "朔州马邑沿革",
+            "note": "提供马邑在朔州附近的地域参照"
+          },
+          {
+            "sourceId": "hetao-geography",
+            "locator": "黄河河曲、阴山南麓及河套平原",
+            "note": "说明河曲、河套平原与北侧阴山的相对位置"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "han-northern-place-references",
+        "title": "香港中文大学《汉语多功能字库》历史地名资料",
+        "url": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/chinaPlaces.php?pid=040950000",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hetao-geography",
+        "title": "中国科学院地理资源所《河套平原》",
+        "url": "https://igsnrr.cas.cn/cbkx/kpyd/zgdl/cndm/202009/t20200910_5692358.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zhang-qian-wusun-mission-context": {
+    "title": "乌孙与大宛所在的大区域",
+    "date": "约公元前 119—前 115 年 · 张骞出使乌孙常用系年",
+    "start": -119,
+    "end": -115,
+    "context": true,
+    "summary": "以天山西部和费尔干纳盆地比较乌孙、使团和副使所涉的地域。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "二使年次来自编年考订，两个点用于远近和地形比较，不标王庭和行程。",
+        "refs": [
+          {
+            "sourceId": "hanshu-zhang-qian",
+            "locator": "张骞首使、返汉报告及使乌孙条",
+            "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+          },
+          {
+            "sourceId": "zhang-qian-mission-chronology",
+            "locator": "第八节，出使乌孙往返年代与路线",
+            "note": "二使前119年启程、前115年归来是常用系年，作者讨论能否据传世材料精确编年"
+          },
+          {
+            "sourceId": "ili-valley-geography",
+            "locator": "伊犁河谷与天山区域",
+            "note": "用于天山西部伊犁河谷方位参照"
+          },
+          {
+            "sourceId": "unesco-ferghana-corridor",
+            "locator": "费尔干纳盆地、锡尔河与廊道概况",
+            "note": "可核对该盆地的地形与大区域方位"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-zhang-qian",
+        "title": "《汉书·张骞李广利传》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zhang-qian-mission-chronology",
+        "title": "中国人民大学清史研究所转载张骞西使考订",
+        "url": "https://iqh.ruc.edu.cn/old/zglsdlyj/lsdl_lzjj/xqzmddlyj/dded866f7c324445a702a1994a308e2b.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "ili-valley-geography",
+        "title": "中国科学院新疆生态与地理研究所伊犁河流域观测站",
+        "url": "https://www.egi.cas.cn/ywgcz2020/zgkxyylhlystxtyjz/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "unesco-ferghana-corridor",
+        "title": "联合国教科文组织费尔干纳—锡尔河廊道预备名录",
+        "url": "https://whc.unesco.org/en/tentativelists/6793",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-hexi-commandery-development": {
+    "title": "河西分郡与西端关塞",
+    "date": "约公元前 121—前 88 年 · 河西由战事到郡县的阅读区间",
+    "start": -121,
+    "end": -88,
+    "context": true,
+    "summary": "河西置郡分阶段，关塞、邮驿材料提供制度落地的地理线索。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "起止是阅读区间。史书对各郡开置有不同年次，遗址使用阶段另证。",
+        "refs": [
+          {
+            "sourceId": "hanshu-hexi-annals",
+            "locator": "元狩二年秋及元鼎六年秋",
+            "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+          },
+          {
+            "sourceId": "hanshu-hexi-geography",
+            "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+            "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+          },
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "xuanquan-travel-expenses",
+            "locator": "元康五年正月费用簿、展品说明",
+            "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-hexi-annals",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-hexi-geography",
+        "title": "《汉书·地理志》河西及北边郡条",
+        "url": "https://www.wenlinshe.com/chapter/zhongguolishi/han-shu/juan-er-shi-ba-di-li-zhi-di-ba.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "unesco-han-corridor",
+        "title": "联合国教科文组织长安—天山廊道遗产地图",
+        "url": "https://whc.unesco.org/en/list/1442/maps/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xuanquan-travel-expenses",
+        "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+        "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-hexiwritten-post-and-garrison": {
+    "title": "悬泉置、居延与边地文书",
+    "date": "公元前 111—前 60 年 · 河西行政及稍后简牍参照",
+    "start": -111,
+    "end": -60,
+    "context": true,
+    "summary": "费用簿和请粮名籍分别记录驿站接待与戍卒给养。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 61 年的费用簿是宣帝材料。居延名籍、遗址的年代按各自著录辨认。",
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "xuanquan-travel-expenses",
+            "locator": "元康五年正月费用簿、展品说明",
+            "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+          },
+          {
+            "sourceId": "as-ihp-juyan-grain-roll",
+            "locator": "第廿三部卒十二月廪名，二十三至二十九燧及箕山亭",
+            "note": "名籍可见列名者、单位和口粮申请资料"
+          },
+          {
+            "sourceId": "juyan-frontier-locations",
+            "locator": "甲渠候官、甲渠障和额济纳格局段",
+            "note": "提供额济纳河一带甲渠候官的遗址参照"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "unesco-han-corridor",
+        "title": "联合国教科文组织长安—天山廊道遗产地图",
+        "url": "https://whc.unesco.org/en/list/1442/maps/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xuanquan-travel-expenses",
+        "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+        "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "as-ihp-juyan-grain-roll",
+        "title": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+        "url": "https://museum.sinica.edu.tw/collection/20/item/1029/"
+      },
+      {
+        "id": "juyan-frontier-locations",
+        "title": "甘肃地方志《军事志》居延防务",
+        "url": "https://gsdfszw.org.cn/gssz/dyl/dsjjszs/201612/P020170214612523218022.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-salt-iron-workshop-context": {
+    "title": "盐铁官营与古荥冶铁遗址",
+    "date": "约公元前 119—前 81 年 · 盐铁官营的建立与昭帝朝讨论",
+    "start": -119,
+    "end": -81,
+    "context": true,
+    "summary": "在古荥观察荥阳故城西侧的冶铁遗存，同时读西汉官营政策。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "区间是制度与辩论的阅读时段。工场炉址和政策颁行时间分别断代。",
+        "refs": [
+          {
+            "sourceId": "guxing-ironworks",
+            "locator": "古荥镇、荥阳故城外、1976年发掘冶铁炉段",
+            "note": "给出故城和大型冶铁遗存的相对位置及大致年代"
+          },
+          {
+            "sourceId": "shiji-pingzhun-salt-iron",
+            "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+            "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+          },
+          {
+            "sourceId": "hanshu-zhao-salt-debate",
+            "locator": "始元六年问民疾苦与罢榷酤",
+            "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "guxing-ironworks",
+        "title": "古荥汉代冶铁遗址博物馆的考古介绍",
+        "url": "https://www.zhengzhou.gov.cn/view22/6631970.jhtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-pingzhun-salt-iron",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-zhao-salt-debate",
+        "title": "《汉书·昭帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷007",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-five-zhu-foundry-context": {
+    "title": "从五铢钱铜范到兆伦遗址",
+    "date": "公元前 118—前 113 年 · 郡国五铢至上林专铸",
+    "start": -118,
+    "end": -113,
+    "context": true,
+    "summary": "用长安西郊作坊和地方铜范比较两类铸钱证据。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 113 年采用通行专铸系年，遗址出土钱范有汉、新不同阶段。",
+        "refs": [
+          {
+            "sourceId": "shiji-pingzhun-coin",
+            "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+            "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+          },
+          {
+            "sourceId": "cnm-five-zhu-mould",
+            "locator": "实物影像及地方铸造说明",
+            "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+          },
+          {
+            "sourceId": "zhaolun-mint-archaeology",
+            "locator": "张剑锋报告、出土五铢和新莽钱范、遗址位置",
+            "note": "记今鄠邑一带兆伦遗址多期铸作遗物"
+          },
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-pingzhun-coin",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "cnm-five-zhu-mould",
+        "title": "中国国家博物馆藏五铢钱铜范",
+        "url": "https://www.chnmuseum.cn/zp/zpml/201812/t20181218_25608.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zhaolun-mint-archaeology",
+        "title": "沣西新城文物部门公布兆伦铸钱遗址考古收获",
+        "url": "https://fxxc.xixianxinqu.gov.cn/xwzx/fxyw/618e94adf8fd1c0bdc67f7d4.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "unesco-han-corridor",
+        "title": "联合国教科文组织长安—天山廊道遗产地图",
+        "url": "https://whc.unesco.org/en/list/1442/maps/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-ferghana-war-context": {
+    "title": "汉军两次出兵大宛",
+    "date": "约公元前 104—前 101 年 · 太初年间对大宛用兵",
+    "start": -104,
+    "end": -101,
+    "context": true,
+    "summary": "从费尔干纳盆地的地形进入对大宛的两次远征。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "用于阅读太初年间的经过。李广利的行军线、古城地望及传世军额分别考证。",
+        "refs": [
+          {
+            "sourceId": "shiji-dayuan-accounts",
+            "locator": "张骞出使、所见所闻及李广利攻大宛",
+            "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+          },
+          {
+            "sourceId": "hanshu-zhang-qian",
+            "locator": "张骞首使、返汉报告及使乌孙条",
+            "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+          },
+          {
+            "sourceId": "unesco-ferghana-corridor",
+            "locator": "费尔干纳盆地、锡尔河与廊道概况",
+            "note": "可核对该盆地的地形与大区域方位"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-dayuan-accounts",
+        "title": "《史记·大宛列传》",
+        "url": "https://ctext.org/shiji/da-wan-lie-zhuan/zhs",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-zhang-qian",
+        "title": "《汉书·张骞李广利传》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "unesco-ferghana-corridor",
+        "title": "联合国教科文组织费尔干纳—锡尔河廊道预备名录",
+        "url": "https://whc.unesco.org/en/tentativelists/6793",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-jianyuan-first-year": {
+    "title": "建元元年记征举贤良",
+    "date": "公元前 140 年 · 建元元年",
+    "start": -140,
+    "end": -140,
+    "summary": "武帝即位后，《武帝纪》另记建元元年征举贤良。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 141 年即位沿用既有年条。此年是次年纪年，察举孝廉另有记载。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-zhao-wan-falls": {
+    "title": "赵绾、王臧下狱，窦婴田蚡免职",
+    "date": "公元前 139 年 · 建元二年",
+    "start": -139,
+    "end": -139,
+    "summary": "赵绾因向太皇太后奏事问题获罪，王臧同下狱。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "以《武帝纪》建元二年条为据，和经学相关举措分年读。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-five-classics-erudites": {
+    "title": "《武帝纪》记置五经博士",
+    "date": "公元前 136 年 · 建元五年",
+    "start": -136,
+    "end": -136,
+    "summary": "本纪在建元五年记置五经博士。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "博士弟子员设立见元朔五年。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-recommends-xiaolian": {
+    "title": "朝廷令郡国举孝廉",
+    "date": "公元前 134 年 · 元光元年",
+    "start": -134,
+    "end": -134,
+    "summary": "本纪记初令郡国举孝廉各一人。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按元光元年年次收录，地方推荐与随后任用分别考证。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-mayi-ambush-fails": {
+    "title": "马邑伏击未成",
+    "date": "公元前 133 年 · 元光二年",
+    "start": -133,
+    "end": -133,
+    "summary": "军臣单于得知汉有伏兵撤回，双方未按汉方计划交战。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《匈奴列传》另记后续和亲与边市。各处行动地望按地区核实。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-xiongnu-han-campaigns",
+            "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+            "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-xiongnu-han-campaigns",
+        "title": "《史记》卷一百一十《匈奴列传》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-four-commanders-ride-north": {
+    "title": "卫青等四将分路出兵",
+    "date": "公元前 129 年 · 元光六年",
+    "start": -129,
+    "end": -129,
+    "summary": "前 129 年卫青自上谷出兵，另三将也各率一路，结果不同。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按元光六年。所报斩获与各路实地应分开核查。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-wei-huo",
+            "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+            "note": "与本纪对读战事阶段、诸将分路与降众安置"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-wei-huo",
+        "title": "《史记·卫将军骠骑列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷111",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-princely-grants-decree": {
+    "title": "诸侯王请给子弟分邑，天子审定",
+    "date": "公元前 127 年 · 元朔二年",
+    "start": -127,
+    "end": -127,
+    "summary": "本纪记梁王、城阳王获准分邑，随后申明请封、审览和授列位。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "诏令说明程序。谁受封、何时免侯按《王子侯表》再看。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-enfeoffment",
+            "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+            "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+          },
+          {
+            "sourceId": "shiji-zhufu-yan",
+            "locator": "主父偃进说、齐国终局及齐相之狱",
+            "note": "记主父偃建议分封王室支子及另案齐王绝嗣"
+          },
+          {
+            "sourceId": "hanshu-princes-marquis-table",
+            "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+            "note": "按王系和侯名逐条记录封授与免除"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-enfeoffment",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhufu-yan",
+        "title": "《史记·平津侯主父列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷112#主父偃",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-princes-marquis-table",
+        "title": "《汉书·王子侯表》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷015",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-shuofang-and-wuyuan-founded": {
+    "title": "汉在河南地置朔方、五原",
+    "date": "公元前 127 年 · 元朔二年",
+    "start": -127,
+    "end": -127,
+    "summary": "卫青等出击后，朝廷在黄河河曲相关地区设朔方与五原。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "置郡、募民与筑城分别有记载，五原还有秦九原郡沿革。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-wei-huo",
+            "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+            "note": "与本纪对读战事阶段、诸将分路与降众安置"
+          },
+          {
+            "sourceId": "hanshu-hexi-geography",
+            "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+            "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-wei-huo",
+        "title": "《史记·卫将军骠骑列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷111",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-hexi-geography",
+        "title": "《汉书·地理志》河西及北边郡条",
+        "url": "https://www.wenlinshe.com/chapter/zhongguolishi/han-shu/juan-er-shi-ba-di-li-zhi-di-ba.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-fortifies-shuofang": {
+    "title": "《武帝纪》记筑朔方城",
+    "date": "公元前 126 年 · 元朔三年",
+    "start": -126,
+    "end": -126,
+    "summary": "前一年置郡募民，本年又有筑朔方城记载。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条年次用于读工事见于本纪，城址与辖境分别考。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-erudite-students-quota": {
+    "title": "公孙弘请置博士弟子员",
+    "date": "公元前 124 年 · 元朔五年",
+    "start": -124,
+    "end": -124,
+    "summary": "《武帝纪》记博士弟子员的建议及扩大学习。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条与置五经博士及令郡国举孝廉相互参照。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-early",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-hexi-spring-summer-campaigns": {
+    "title": "霍去病先后两次出兵河西",
+    "date": "公元前 121 年 · 元狩二年春夏",
+    "start": -121,
+    "end": -121,
+    "summary": "本纪及列传分春、夏记两次出兵。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "合列同年两季，战果数、各部位置另按不同篇目考证。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-wei-huo",
+            "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+            "note": "与本纪对读战事阶段、诸将分路与降众安置"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-wei-huo",
+        "title": "《史记·卫将军骠骑列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷111",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-hunxie-surrenders-to-han": {
+    "title": "浑邪王率众降汉",
+    "date": "公元前 121 年 · 元狩二年秋",
+    "start": -121,
+    "end": -121,
+    "summary": "浑邪王杀休屠王后率其众归汉，朝廷安排接降。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条定于前 121 年秋。降众数量和各郡设置时间按材料另读。",
+        "refs": [
+          {
+            "sourceId": "hanshu-hexi-annals",
+            "locator": "元狩二年秋及元鼎六年秋",
+            "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+          },
+          {
+            "sourceId": "shiji-xiongnu-han-campaigns",
+            "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+            "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-hexi-annals",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-xiongnu-han-campaigns",
+        "title": "《史记》卷一百一十《匈奴列传》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-mobei-campaign": {
+    "title": "卫青、霍去病分路出漠北",
+    "date": "公元前 119 年 · 元狩四年",
+    "start": -119,
+    "end": -119,
+    "summary": "卫青一路对伊稚斜单于，霍去病一路对左贤王部。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "各路地望与军数另考，战后和亲交涉继续见于传世记载。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-xiongnu-han-campaigns",
+            "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+            "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-xiongnu-han-campaigns",
+        "title": "《史记》卷一百一十《匈奴列传》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-first-suanmin-tax": {
+    "title": "《武帝纪》记初算缗钱",
+    "date": "公元前 119 年 · 元狩四年",
+    "start": -119,
+    "end": -119,
+    "summary": "本纪在元狩四年记初算缗。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "将财产申报、告发与没入的后续分开读。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-pingzhun-transport",
+            "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+            "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-pingzhun-transport",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-first-five-zhu-cast": {
+    "title": "郡国开始铸行五铢",
+    "date": "公元前 118 年 · 元狩五年",
+    "start": -118,
+    "end": -118,
+    "summary": "本纪记改行五铢，《平准书》写诸郡国铸。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 118 年作为改行节点。赤仄和上林专铸属于后续环节。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          },
+          {
+            "sourceId": "shiji-pingzhun-coin",
+            "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+            "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-northern-wars",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-pingzhun-coin",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-first-central-five-zhu": {
+    "title": "铸钱权收归上林三官",
+    "date": "公元前 113 年 · 元鼎四年 · 常用系年",
+    "start": -113,
+    "end": -113,
+    "summary": "《平准书》在废赤仄后记禁郡国铸、令上林三官专铸。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 113 年用国博的制度系年。各地旧币退出和实物年代另证。",
+        "refs": [
+          {
+            "sourceId": "shiji-pingzhun-coin",
+            "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+            "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+          },
+          {
+            "sourceId": "cnm-five-zhu-mould",
+            "locator": "实物影像及地方铸造说明",
+            "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-pingzhun-coin",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "cnm-five-zhu-mould",
+        "title": "中国国家博物馆藏五铢钱铜范",
+        "url": "https://www.chnmuseum.cn/zp/zpml/201812/t20181218_25608.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-marquisates-lost-over-offerings": {
+    "title": "列侯因酎金不合规定被夺爵",
+    "date": "公元前 112 年 · 元鼎五年",
+    "start": -112,
+    "end": -112,
+    "summary": "《武帝纪》记百余列侯失爵，侯表另有个人记录。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "夺爵属宗庙酎祭相关处分，与此前申请分邑为不同程序。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-enfeoffment",
+            "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+            "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+          },
+          {
+            "sourceId": "hanshu-princes-marquis-table",
+            "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+            "note": "按王系和侯名逐条记录封授与免除"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-enfeoffment",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-princes-marquis-table",
+        "title": "《汉书·王子侯表》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷015",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-annals-zhangye-dunhuang-division": {
+    "title": "《武帝纪》记分置张掖、敦煌",
+    "date": "公元前 111 年 · 元鼎六年 · 《武帝纪》口径",
+    "start": -111,
+    "end": -111,
+    "summary": "本纪在元鼎六年记分武威、酒泉地置张掖、敦煌。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《地理志》各郡的开置年次有异。本条保留纪的记载口径。",
+        "refs": [
+          {
+            "sourceId": "hanshu-hexi-annals",
+            "locator": "元狩二年秋及元鼎六年秋",
+            "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+          },
+          {
+            "sourceId": "hanshu-hexi-geography",
+            "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+            "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-hexi-annals",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-hexi-geography",
+        "title": "《汉书·地理志》河西及北边郡条",
+        "url": "https://www.wenlinshe.com/chapter/zhongguolishi/han-shu/juan-er-shi-ba-di-li-zhi-di-ba.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-pingzhun-and-junshu": {
+    "title": "桑弘羊推行均输与京师平准",
+    "date": "公元前 110 年 · 元封元年 · 《平准书》口径",
+    "start": -110,
+    "end": -110,
+    "summary": "《平准书》记桑弘羊领大农，布置均输并在京师设平准。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条取元封元年的章法，早期均输已有相关安排。",
+        "refs": [
+          {
+            "sourceId": "shiji-pingzhun-transport",
+            "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+            "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+          },
+          {
+            "sourceId": "hanshu-food-money",
+            "locator": "铸制、盐铁、昭帝朝议诸条",
+            "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-pingzhun-transport",
+        "title": "《史记·平准书》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷030",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-food-money",
+        "title": "《汉书·食货志下》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷024下",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-wugu-and-liu-ju": {
+    "title": "巫蛊案扩大，太子刘据兵败身亡",
+    "date": "公元前 91 年 · 征和二年",
+    "start": -91,
+    "end": -91,
+    "summary": "《武帝纪》记太子刘据起兵、失败与死亡。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "取征和二年。具体争端和人物须对读本纪及传记。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-late",
+            "locator": "征和二、三年及后元二年",
+            "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-late",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-li-guangli-surrenders-to-xiongnu": {
+    "title": "李广利出击匈奴而败",
+    "date": "公元前 90 年 · 征和三年",
+    "start": -90,
+    "end": -90,
+    "summary": "征和三年李广利出兵，兵败后降匈奴。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条和前 119 年漠北会战分别定位。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-late",
+            "locator": "征和二、三年及后元二年",
+            "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+          },
+          {
+            "sourceId": "hanshu-luntai-edict",
+            "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+            "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-late",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-luntai-edict",
+        "title": "《资治通鉴·汉纪十四》所录轮台之议与诏",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷022",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-wudi-rejects-luntai-colonies": {
+    "title": "武帝不准向轮台推进屯田",
+    "date": "公元前 89 年 · 征和四年 · 通行系年",
+    "start": -89,
+    "end": -89,
+    "summary": "《西域传》收录武帝对加赋、远途军粮与轮台屯田的答诏。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "诏书针对所议方案，也谈到备边和养马。",
+        "refs": [
+          {
+            "sourceId": "hanshu-luntai-edict",
+            "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+            "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-luntai-edict",
+        "title": "《资治通鉴·汉纪十四》所录轮台之议与诏",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷022",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zhao-succeeds-wu": {
+    "title": "武帝去世，刘弗陵即位",
+    "date": "公元前 87 年 · 武帝后元二年",
+    "start": -87,
+    "end": -87,
+    "summary": "《武帝纪》与《昭帝纪》记武帝去世和昭帝即位。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这里为交接节点，昭帝的朝政和制度随后另行建设。",
+        "refs": [
+          {
+            "sourceId": "hanshu-wu-late",
+            "locator": "征和二、三年及后元二年",
+            "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+          },
+          {
+            "sourceId": "hanshu-zhao-salt-debate",
+            "locator": "始元六年问民疾苦与罢榷酤",
+            "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-wu-late",
+        "title": "《汉书·武帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-zhao-salt-debate",
+        "title": "《汉书·昭帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷007",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zhao-debates-salt-iron-and-wine": {
+    "title": "昭帝朝议盐铁，当年罢酒榷",
+    "date": "公元前 81 年 · 昭帝始元六年",
+    "start": -81,
+    "end": -81,
+    "summary": "朝廷问民疾苦，盐铁等进入讨论，当年明确记载罢榷酤。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "朝议范围和最后生效的措施分别读。",
+        "refs": [
+          {
+            "sourceId": "hanshu-zhao-salt-debate",
+            "locator": "始元六年问民疾苦与罢榷酤",
+            "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+          },
+          {
+            "sourceId": "hanshu-food-money",
+            "locator": "铸制、盐铁、昭帝朝议诸条",
+            "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-zhao-salt-debate",
+        "title": "《汉书·昭帝纪》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hanshu-food-money",
+        "title": "《汉书·食货志下》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷024下",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-xuanquan-chang-hui-expenses": {
+    "title": "悬泉置登记常惠一行接待开支",
+    "date": "公元前 61 年 · 宣帝元康五年 · 简牍纪年",
+    "start": -61,
+    "end": -61,
+    "summary": "出土费用簿逐笔记录悬泉置为常惠一行提供物品的经费。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按简牍年次。是较晚的地方实例，不能倒推张骞出使。",
+        "refs": [
+          {
+            "sourceId": "xuanquan-travel-expenses",
+            "locator": "元康五年正月费用簿、展品说明",
+            "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "xuanquan-travel-expenses",
+        "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+        "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zheng-ji-protects-both-routes": {
+    "title": "郑吉兼护南北道，称西域都护",
+    "date": "公元前 60 年 · 宣帝神爵二年",
+    "start": -60,
+    "end": -60,
+    "summary": "日逐王归降后，郑吉兼护北道，都护由此得名。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《西域传》的职掌与各方实际管辖，按机构和年份区分。",
+        "refs": [
+          {
+            "sourceId": "hanshu-xiyu-administration",
+            "locator": "序、两关以西亭障屯田、鄯善等段",
+            "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hanshu-xiyu-administration",
+        "title": "《汉书·西域传上》",
+        "url": "https://zh.wikisource.org/wiki/漢書/卷096上",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

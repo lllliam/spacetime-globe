@@ -3,7 +3,7 @@
   "title": "汉朝",
   "from": -206,
   "to": 220,
-  "summary": "从楚汉交替到西汉早期，先看郡国和朝廷的政治安排，再用张家山法律简、各地考古与传世政令读地方行政、边地交涉及文景时期。此后四百年，两汉从长安一路向西凿穿河西走廊、对接中亚丝路，又在王莽改制与东汉洛阳中兴的起伏里，定型了儒法合流的官僚体制与延续两千年的“汉人”文化底座。",
+  "summary": "从楚汉之际读到西汉郡国、法律简和文景政令，再沿武帝时期的使者、边地和财政制度看长安与各地的联系。王莽改制与东汉诸章接续呈现两汉政权的变化。",
   "sources": [
     {
       "title": "大都会艺术博物馆：汉朝",
@@ -312,6 +312,222 @@
       "id": "plutarch-pydna",
       "title": "普鲁塔克《埃米利乌斯·保卢斯传》",
       "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Aemilius%2A.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-wu-early",
+      "title": "《汉书·武帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-wu-enfeoffment",
+      "title": "《汉书·武帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-zhufu-yan",
+      "title": "《史记·平津侯主父列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷112#主父偃",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-princes-marquis-table",
+      "title": "《汉书·王子侯表》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷015",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-wu-northern-wars",
+      "title": "《汉书·武帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-wei-huo",
+      "title": "《史记·卫将军骠骑列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷111",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-zhang-qian",
+      "title": "《汉书·张骞李广利传》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-dayuan-accounts",
+      "title": "《史记·大宛列传》",
+      "url": "https://ctext.org/shiji/da-wan-lie-zhuan/zhs",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhang-qian-mission-chronology",
+      "title": "中国人民大学清史研究所转载张骞西使考订",
+      "url": "https://iqh.ruc.edu.cn/old/zglsdlyj/lsdl_lzjj/xqzmddlyj/dded866f7c324445a702a1994a308e2b.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-wusun",
+      "title": "《汉书·西域传下》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷096下",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-hexi-annals",
+      "title": "《汉书·武帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-hexi-geography",
+      "title": "《汉书·地理志》河西及北边郡条",
+      "url": "https://www.wenlinshe.com/chapter/zhongguolishi/han-shu/juan-er-shi-ba-di-li-zhi-di-ba.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-xiyu-administration",
+      "title": "《汉书·西域传上》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷096上",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hexi-commandery-research",
+      "title": "李炳泉《西汉河西四郡的始置年代及疆域变迁》",
+      "url": "https://dylc.cbpt.cnki.net/portal/journal/portal/client/paper/fe0af49a73c42d9512d24a1f7f43fb2f",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "unesco-han-corridor",
+      "title": "联合国教科文组织长安—天山廊道遗产地图",
+      "url": "https://whc.unesco.org/en/list/1442/maps/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "unesco-han-route-context",
+      "title": "联合国教科文组织长安—天山廊道档案",
+      "url": "https://whc.unesco.org/en/list/1442/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "xuanquan-travel-expenses",
+      "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+      "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "juyan-grain-transcripts",
+      "title": "中研院史语所《居延汉简甲乙篇》影像及释文",
+      "url": "https://w9.ihp.sinica.edu.tw/wenwu/posts/318",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "juyan-frontier-locations",
+      "title": "甘肃地方志《军事志》居延防务",
+      "url": "https://gsdfszw.org.cn/gssz/dyl/dsjjszs/201612/P020170214612523218022.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-pingzhun-salt-iron",
+      "title": "《史记·平准书》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷030",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-pingzhun-coin",
+      "title": "《史记·平准书》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷030",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-pingzhun-transport",
+      "title": "《史记·平准书》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷030",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-food-money",
+      "title": "《汉书·食货志下》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷024下",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "cnm-five-zhu-mould",
+      "title": "中国国家博物馆藏五铢钱铜范",
+      "url": "https://www.chnmuseum.cn/zp/zpml/201812/t20181218_25608.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "cnm-five-zhu-coins",
+      "title": "中国国家博物馆藏五铢铜钱",
+      "url": "https://www.chnmuseum.cn/zp/zpml/hb/201812/t20181218_26289.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhaolun-mint-archaeology",
+      "title": "沣西新城文物部门公布兆伦铸钱遗址考古收获",
+      "url": "https://fxxc.xixianxinqu.gov.cn/xwzx/fxyw/618e94adf8fd1c0bdc67f7d4.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "guxing-ironworks",
+      "title": "古荥汉代冶铁遗址博物馆的考古介绍",
+      "url": "https://www.zhengzhou.gov.cn/view22/6631970.jhtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-wu-late",
+      "title": "《汉书·武帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-luntai-edict",
+      "title": "《资治通鉴·汉纪十四》所录轮台之议与诏",
+      "url": "https://zh.wikisource.org/wiki/資治通鑑/卷022",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-zhao-salt-debate",
+      "title": "《汉书·昭帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷007",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "berkeley-ptolemy-eight-decrees",
+      "title": "加州大学伯克利分校班克罗夫特图书馆藏《托勒密八世诸诏》P.Tebt. I 5",
+      "url": "https://papyri.info/current/2938",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hetao-geography",
+      "title": "中国科学院地理资源所《河套平原》",
+      "url": "https://igsnrr.cas.cn/cbkx/kpyd/zgdl/cndm/202009/t20200910_5692358.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "unesco-ferghana-corridor",
+      "title": "联合国教科文组织费尔干纳—锡尔河廊道预备名录",
+      "url": "https://whc.unesco.org/en/tentativelists/6793",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "ili-valley-geography",
+      "title": "中国科学院新疆生态与地理研究所伊犁河流域观测站",
+      "url": "https://www.egi.cas.cn/ywgcz2020/zgkxyylhlystxtyjz/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhang-qian-first-dating",
+      "title": "陕西师范大学历史文化名城网《张骞》",
+      "url": "https://lishiwenhua.snnu.edu.cn/info/1901/19231.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "maoling-site-geography",
+      "title": "《陕西省志·建设志》茂陵等遗址资料",
+      "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -2588,44 +2804,76 @@
     },
     {
       "id": "wudi",
-      "title": "汉武帝：大漠战火、丝路与盐铁账本",
-      "from": -140,
+      "title": "汉武帝时期，从朝廷改制到边地与财政",
+      "from": -141,
       "to": -49,
-      "summary": "汉武帝终结和亲，靠卫青、霍去病打通河西走廊、张骞凿空西域，同时以盐铁官营、推恩令与独尊儒术彻底改造帝国的财政与官僚机器。",
-      "spatialThesis": "为了切断匈奴与西部羌人的联系，汉军沿祁连山北麓打通狭长的河西走廊并连缀烽燧长城，无意间替欧亚大陆东端撕开了一条直通中亚与地中海的陆上商道。",
+      "summary": "从建元朝政和推恩分邑进入张骞出使、汉匈战事与河西分置，再沿盐铁机构和铸钱作坊读财政措施，接至昭宣时期。",
+      "spatialThesis": "观察长安、河套、河西与天山一带的不同地形，并按年份读各政权、使节和边地设施实际发生的变化。",
       "paragraphs": [
         {
-          "heading": "从马邑之谋到漠北决战",
-          "text": "前 133 年马邑设伏未成，《史记》记载双方此后中断和亲，边境仍有贸易。卫青和霍去病先后参与对匈奴的多次战事，河套与河西的战事发生在不同年份。前 119 年，两军越过大漠。史书所称漠南没有单于王庭，指一段时期内王庭的变化，随后两方仍有交涉和边境冲突。",
+          "id": "p-01",
+          "heading": "马邑、河套与漠北各有年次",
+          "text": "前 133 年马邑之谋未成。《史记》记和亲中断，边市继续。前 127 年史书记在新取得的河南地置朔方、五原，前 121 年河西有两次出兵及浑邪王归降，前 119 年两军越过大漠。此后仍见双方遣使、议和及重新交兵。",
           "refs": [
             {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
               "sourceId": "shiji-xiongnu-han-campaigns",
-              "locator": "马邑事件、河西与漠北战事以及后续往来诸段",
-              "note": "依次记马邑未战、和亲中断、河西和漠北出兵及随后仍有往来。"
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
             }
-          ],
-          "id": "p-01"
+          ]
         },
         {
-          "text": "打下地盘必须守得住。朝廷立刻在河西走廊设立武威、张掖、酒泉、敦煌四郡，大规模迁徙内地农户实边屯田，把夯土长城与烽火台一直延伸到玉门关与阳关。中原王朝第一次把直接行政边界牢牢楔进了内陆亚洲腹地。",
+          "id": "p-02",
+          "heading": "河西四郡逐段建立",
+          "text": "浑邪王归降、分置郡县、迁民和修筑亭障依次发生。《武帝纪》与《地理志》采用不同的开置年次。《西域传》则记先置酒泉、再分诸郡。由河西走廊的相对位置进入放在不同年段的遗址和文书。",
           "refs": [
-            "source-01",
-            "source-03",
-            "source-04"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            },
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ]
         },
         {
-          "heading": "张骞凿空与西域都护府",
-          "text": "就在战火将起前，郎官张骞奉命自长安西行寻找大月氏夹击匈奴，途中遭匈奴扣留十余年仍持汉节不失，最终带回大宛、康居、安息（波斯）乃至身毒（印度）的详实见闻。此后汉使与商队络绎不绝，大宛汗血马、葡萄、苜蓿、胡桃与乐器传入中原，中国丝绸则一路西抵罗马。",
+          "id": "p-03",
+          "heading": "张骞首使月氏，再使乌孙",
+          "text": "首使原为联络大月氏，回报含亲历和转闻。再使时张骞向乌孙转达汉廷提议，另派副使往大宛、康居等国。几方的往来各有目的，列传没有提供可画成一条确定行程的完整地理记录。",
           "refs": [
-            "source-02",
-            "source-03"
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "hanshu-wusun",
+              "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+              "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            }
           ],
           "callout": {
             "label": "史料 · 居延汉简",
             "title": "一份十二月领粮名册",
-            "text": "这组居延汉简是第廿三部申请十二月口粮时留下的名籍，登记了二十三至二十九燧和箕山亭的戍卒。名册上的姓名、身份和所属地点，能说明当时哪些人员由这个单位向官府申请粮食。名籍与实发账要结合阅读。",
+            "text": "居延一份十二月廪名籍列出第廿三部若干烽燧与亭的戍卒。它用于说明边塞按单位请粮。简牍的年代及口粮实发情况，须对照出土记录和其他账册。",
             "id": "aside-03",
             "refs": [
               {
@@ -2634,56 +2882,1843 @@
                 "note": "官府粮食申请的名籍列出身份和隶属，多处烽燧与亭并列。"
               }
             ]
-          },
-          "id": "p-03"
+          }
         },
         {
-          "text": "公元前 60 年汉宣帝在乌垒城设立西域都护府，统辖天山南北三十六国，丝绸之路由此进入有驻军保护、有驿站补给的制度化时代。",
+          "id": "p-04",
+          "heading": "武帝以后，宣帝时又设都护",
+          "text": "悬泉账册属于宣帝时代，可用来观察骑乘、过宿和接待所需行政支出。前 60 年郑吉兼护北道，西域都护由此得名。郡县、使者校尉与都护有不同的职掌和地域条件。",
           "refs": [
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-04"
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            },
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ]
         },
         {
-          "heading": "盐铁官营与帝国的财政阵痛",
-          "text": "连年大漠远征吞噬了惊人财力：一次十万骑兵出塞，光运送粮草就需要数十万民夫随行，文景七十年的积蓄很快见底。武帝起用精于算计的桑弘羊，收回地方铸币权统一发行五铢钱，将盐、铁、酒收归国家专卖，并推行均输平准与算缗告缗打击富商，强行把民间财富抽进战时国库。",
+          "id": "p-05",
+          "heading": "盐铁、五铢与市场调运",
+          "text": "大农接管盐铁收益，地方逐步置官。前 118 年郡国铸五铢，后来收归上林三官专铸。算缗、均输与平准处理财产申报、地方转输和京师收储卖买，各有实施过程。用铜范、炉址、传世制度与地方记录互相对读。",
           "refs": [
-            "source-01",
-            "source-04"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            },
+            {
+              "sourceId": "cnm-five-zhu-mould",
+              "locator": "实物影像及地方铸造说明",
+              "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ]
         },
         {
-          "text": "对内，武帝用主父偃“推恩令”让诸侯王分封所有子弟，不费一兵一卒便将大国拆碎；又采纳董仲舒建议在长安设太学、立五经博士、推行察举孝廉。战火虽令晚年天下户口减半、武帝被迫下《轮台罪己诏》转向休养，但儒生治国与中央财权体系却从此定型。",
+          "id": "p-06",
+          "heading": "从建元、推恩读到交接",
+          "text": "前 141 年即位，次年为建元元年。前 127 年诏载诸王申请分邑的办法，实际受封和后来免侯见于侯表。武帝末年发生储位危机，并拒绝向轮台继续推进屯田的建议。前 87 年昭帝继位，稍后朝廷再议盐铁等事。",
           "refs": [
-            "source-01",
-            "source-04"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            },
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            },
+            {
+              "sourceId": "hanshu-princes-marquis-table",
+              "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+              "note": "按王系和侯名逐条记录封授与免除"
+            },
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-luntai-edict",
+              "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+              "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+            },
+            {
+              "sourceId": "hanshu-zhao-salt-debate",
+              "locator": "始元六年问民疾苦与罢榷酤",
+              "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+            }
+          ]
         }
       ],
       "sceneRefs": [
         {
           "id": "han-silk-road-west",
-          "afterBlockId": "p-02"
+          "afterBlockId": "p-02",
+          "stageId": "stage-02"
         }
       ],
       "contemporaries": [
         {
-          "book": "egypt",
-          "year": -100,
-          "label": "尼罗河流域的托勒密埃及",
-          "note": "汉武帝经营河西与西域的时代，埃及仍由托勒密王朝统治并参与地中海贸易网络。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "egypt",
+          "chapter": "late-period-ptolemy",
+          "year": -118,
+          "relation": "contemporary",
+          "label": "同期 · 埃及纸草中的赦免和税欠",
+          "note": "前 118 年，汉改行五铢。同年埃及的纸草文书记下托勒密八世与两位王后的敕令，其中包括有条件的赦免与免除若干税欠。",
+          "display": "前 118 年，汉改行五铢。同年埃及的纸草文书记下托勒密八世与两位王后的敕令，其中包括有条件的赦免与免除若干税欠。",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "berkeley-ptolemy-eight-decrees",
+              "locator": "纸草卷第1至13行及税欠条，HGV定年与APIS藏品介绍",
+              "note": "前118年托勒密八世与两位王后的敕令载特定赦免与税欠处置"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对元狩五年、埃及纸草定年和目标章节时段。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "dateLabel": "公元前 141—前 49 年 · 武帝在位及西汉西域制度后续",
+      "related": [
+        {
+          "id": "read-wudi-jianyuan",
+          "book": "han",
+          "chapter": "wudi-accession-and-jianyuan",
+          "label": "细读 · 武帝即位与建元朝政",
+          "display": "从景帝末年接到武帝新朝，分年看选官举措。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-wudi-enfeoffment",
+          "book": "han",
+          "chapter": "wudi-enfeoffment-and-marquisates",
+          "label": "细读 · 推恩与侯国",
+          "display": "从诸侯申请读到侯表的一次封、一次免。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            },
+            {
+              "sourceId": "hanshu-princes-marquis-table",
+              "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+              "note": "按王系和侯名逐条记录封授与免除"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-zhang-qian-missions",
+          "book": "han",
+          "chapter": "zhang-qian-first-mission",
+          "label": "细读 · 张骞首使",
+          "display": "分别看月氏的回应、张骞亲历和转述。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-hexi-order",
+          "book": "han",
+          "chapter": "hexi-four-commanderies-and-passes",
+          "label": "细读 · 河西郡县与关塞",
+          "display": "将本纪、地理志的不同编年放在一起阅读。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-wudi-coins",
+          "book": "han",
+          "chapter": "wudi-five-zhu-and-central-mints",
+          "label": "细读 · 五铢和上林作坊",
+          "display": "从地方铜范读到上林三官专铸。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "cnm-five-zhu-mould",
+              "locator": "实物影像及地方铸造说明",
+              "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+            },
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-wudi-salt-iron",
+          "book": "han",
+          "chapter": "wudi-salt-and-iron-offices",
+          "label": "细读 · 盐铁怎么办",
+          "display": "看大农、盐铁官与地方工场各自的证据。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "guxing-ironworks",
+              "locator": "古荥镇、荥阳故城外、1976年发掘冶铁炉段",
+              "note": "给出故城和大型冶铁遗存的相对位置及大致年代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wudi-accession-and-jianyuan",
+      "from": -141,
+      "to": -124,
+      "dateLabel": "公元前 141—前 124 年 · 即位至置博士弟子",
+      "title": "从即位到建元，早期朝政怎样展开",
+      "summary": "武帝即位后，选官、朝议与经学的改变分几步展开，牵涉已有的权力安排。",
+      "spatialThesis": "长安是诏令与朝议所在，推荐人才却来自郡守、王国相及不同层级的官员。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "前 141 年即位，前 140 年为建元元年",
+          "text": "景帝后元三年正月去世，太子刘彻随即即位。《汉书》在这一条之后另起建元元年。读本卷年表，可在前 141 年接景帝的末年，到前 140 年再进入《武帝纪》的建元年次。窦氏尊为太皇太后，王氏尊为皇太后，宫廷的旧有关系也进入新朝。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "赵绾试图改变奏事程序",
+          "text": "建元元年，朝廷征举贤良。丞相卫绾另请求罢去此次所举中研习申不害、商鞅等人学说的人员。次年御史大夫赵绾提出不再向太皇太后奏事，赵绾、王臧入狱并死，窦婴、田蚡免职。读这两年可以看到，征举标准与宫廷奏事权是两件先后发生的事。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "从博士到弟子，从地方荐举到朝廷察选",
+          "text": "《汉书》将置五经博士列在建元五年（前 136 年），令郡国举孝廉列在元光元年（前 134 年），置博士弟子员又见于元朔五年（前 124 年）。博士是官职，博士弟子有员额，孝廉则由郡国向上推荐。各项措施实施有先后，选官渠道也仍然多样。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "把宫廷与陵邑放在一张图上",
+          "text": "建元二年记初置茂陵邑，次年记朝廷给迁徙者钱田，元朔二年又有徙各郡国豪杰、富户的诏命。陵墓、陵邑和居住其中的迁入户可分别追查。长安的朝廷可以通过这类迁徙重新安排关中人口，诏书也让人看见中央与地方之间具体要搬动的是哪些家庭。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            },
+            {
+              "sourceId": "shiji-zhufu-yan",
+              "locator": "主父偃进说、齐国终局及齐相之狱",
+              "note": "记主父偃建议分封王室支子及另案齐王绝嗣"
+            },
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "maoling-site-geography",
+              "locator": "历史文化遗存及茂陵条",
+              "note": "可作今兴平茂陵一带地理参照"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wudi-kingdom-case",
+          "book": "han",
+          "chapter": "wudi-enfeoffment-and-marquisates",
+          "label": "接读 · 王国如何请分邑",
+          "display": "从建元走到元朔的诸侯请封。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            },
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "han-changan-and-maoling",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "长安",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "茂陵邑",
+              "placeId": "maoling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhang-qian-first-mission",
+      "from": -138,
+      "to": -126,
+      "dateLabel": "约公元前 138—前 126 年 · 张骞首使的常用系年",
+      "title": "张骞首使，从求月氏到带回地理报告",
+      "summary": "汉方原为与大月氏联合而派使，月氏有自己的选择，出使回报另有意料之外的信息。",
+      "spatialThesis": "传世文本提供若干到访对象及先后线索。由城固张骞墓、长安与中亚区域切换可读尺度。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "招募使者的初衷",
+          "text": "《汉书》说张骞为汉中人，建元中任郎，朝廷听闻大月氏曾被匈奴击破，于是招募使者寻求联络。张骞和堂邑父出陇西，经过匈奴控制之地时被扣。建元中是本传说法，本文用前 138 年和前 126 年标示常见往返系年。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            },
+            {
+              "sourceId": "zhang-qian-first-dating",
+              "locator": "张骞生平与两次出使词条",
+              "note": "提供两次出使与相关年代的参照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "经过大宛、康居，到达月氏",
+          "text": "传记叙张骞逃出后到大宛，由大宛送至康居，再抵大月氏。月氏已在妫水一带建立新的生活与统治条件，传记说他们无意再与汉夹击匈奴。会盟未成，张骞返程又一度被扣。本传把堂邑父能在途中获取食物也记了下来。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "报告怎样区分亲历与转闻",
+          "text": "《汉书》把张骞亲到的大宛、大月氏、大夏、康居与旁近数国的听闻分开。张骞由大夏见到蜀地物品，追问来源，得到从身毒转售的说法。物品与转述说明间接贸易已有踪迹，路线、转运次数和参与者需要别的材料。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "发掘与遗产怎样帮助定位",
+          "text": "今城固张骞墓是纪念和埋葬遗址，长安未央宫遗址可帮助理解汉廷所在。将两地放到图上，可以从汉中的人物背景读到关中的决策，再回到史书记载的出陇西。地图保留的是可复核的遗址点，不把它们串成张骞首使行程。",
+          "refs": [
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-second-zhang-qian-mission",
+          "book": "han",
+          "chapter": "zhang-qian-wusun-and-deputies",
+          "label": "接读 · 使乌孙和副使",
+          "display": "对照两个使团的任务及对方的回应。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "hanshu-wusun",
+              "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+              "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "zhang-qian-tomb-and-han-changan",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "城固张骞墓",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "长安未央宫遗址",
+              "placeId": "palace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-mayi-to-shuofang",
+      "from": -134,
+      "to": -124,
+      "dateLabel": "公元前 134—前 124 年 · 和亲余波、马邑与河套",
+      "title": "马邑事变后，边市、战争和朔方如何并存",
+      "summary": "从马邑伏兵未成读到双方互攻、取得河套部分地区与朔方置郡。",
+      "spatialThesis": "晋北马邑、河套北缘和黄河河曲涉及不同冲突，地图用区域参照把它们分开。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "伏兵未能交战",
+          "text": "元光二年（前 133 年），汉廷试图在马邑设伏。军臣单于行进途中得知有伏兵，撤回塞外，伏军未取得计划中的战果。马邑通用地望可参照今朔州一带，《史记》中的塞口、扎营处和行军线还有辨认余地。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "han-northern-place-references",
+              "locator": "朔州马邑沿革",
+              "note": "提供马邑在朔州附近的地域参照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "和亲中断，关市继续",
+          "text": "《匈奴列传》把马邑之后的和亲中断和边市活动写在同段。匈奴入塞掠夺的记录增多，依然有贸易需求和往来。把王庭与汉廷的协议、边地贸易和军队活动分开，就能理解战争与交易为何可以见于同一年段。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "从上谷数路出兵到收取河南地",
+          "text": "元光六年（前 129 年）汉从上谷等地分派四将，结果并不相同。元朔二年再派卫青、李息出云中，史书称取得河南地，随后设朔方、五原。这里的河南地应结合黄河河曲和河套阅读。《地理志》另记五原沿秦九原郡更名，朔方与五原的建置沿革有别。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-wei-huo",
+              "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+              "note": "与本纪对读战事阶段、诸将分路与降众安置"
+            },
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "设郡之后，还要有人城筑和守备",
+          "text": "本纪在前 127 年另记招募迁民，次年记筑朔方城。人口迁徙、城防工事和辖地变化留下不同的材料。河套可从黄河水系观察田地与转运条件，后续汉匈交兵及各郡实控仍随年份而变。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "hetao-geography",
+              "locator": "黄河河曲、阴山南麓及河套平原",
+              "note": "说明河曲、河套平原与北侧阴山的相对位置"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wudi-hexi-battles",
+          "book": "han",
+          "chapter": "huo-qubing-and-hunxie-surrender",
+          "label": "接读 · 河西战事",
+          "display": "对读河套与河西的不同战事和战后安排。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-wei-huo",
+              "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+              "note": "与本纪对读战事阶段、诸将分路与降众安置"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "hetao-and-shanxi-mayi",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "黄河河曲",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-01",
+              "text": "今朔州一带",
+              "placeId": "mayi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-enfeoffment-and-marquisates",
+      "from": -127,
+      "to": -112,
+      "dateLabel": "公元前 127—前 112 年 · 推恩、分封与侯国的变化",
+      "title": "推恩令怎样落实到一份封侯记录",
+      "summary": "从梁王和城阳王的请封、王子侯表中的个案读王国如何分出侯邑。",
+      "spatialThesis": "王国、封出之邑及其后来所属要按不同年份看。侯表提供人名与封邑，郡国地理另据相应时期。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "梁王和城阳王先请分邑",
+          "text": "前 127 年，《武帝纪》以梁王、城阳王愿以邑分弟为由，记朝廷准许其请，随后申明诸侯王有此类请求，皇帝将亲自审览并授列位。这里可以读到诸侯申请与天子授封的程序。诏令未列每个王国须分几邑、何时分尽。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "主父偃为何提出这个办法",
+          "text": "《史记》载主父偃追举晁错削藩引起的反抗，建议允许王的子弟受封为侯，王室支子有份，王国也会逐步分出土地。景帝时已经调整王国官制，武帝时期又动到王室后嗣的封授。王位仍有承继，列侯的封邑和王国的地位有别。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhufu-yan",
+              "locator": "主父偃进说、齐国终局及齐相之狱",
+              "note": "记主父偃建议分封王室支子及另案齐王绝嗣"
+            },
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "从柳宿侯表的一行看封、嗣与免",
+          "text": "《汉书·王子侯表》列柳宿侯盖为中山靖王之子，先记封授，再记侯盖去世，元狩三年侯苏承袭，元鼎五年侯苏因酎金不合规定而免侯。读表可以看到同一侯邑怎样出现、传承和撤去。",
+          "refs": [
+            {
+              "sourceId": "hanshu-princes-marquis-table",
+              "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+              "note": "按王系和侯名逐条记录封授与免除"
+            },
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "王国变动还有其他程序",
+          "text": "齐王死而无后、国除为郡的记载伴随主父偃任齐相案，和梁、城阳请封使用不同程序。元狩六年，武帝又立三位皇子为齐、燕、广陵王。要沿地图读懂某国，先查该年有谁为王，再看其下哪些侯邑已分出、哪些爵位被撤，现存记录仍有空缺。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhufu-yan",
+              "locator": "主父偃进说、齐国终局及齐相之狱",
+              "note": "记主父偃建议分封王室支子及另案齐王绝嗣"
+            },
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            },
+            {
+              "sourceId": "hanshu-princes-marquis-table",
+              "locator": "孝景系王子侯表，柳宿夷侯盖、侯苏及相邻中山和长沙封侯各条",
+              "note": "按王系和侯名逐条记录封授与免除"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-jing-kingdom-offices",
+          "book": "han",
+          "chapter": "seven-kingdoms-revolt-and-liang",
+          "label": "回读 · 景帝时王国改官",
+          "display": "王国官署与子弟列侯属于不同层面的变化。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-enfeoffment",
+              "locator": "元朔二年正月梁、城阳分邑诏，元狩六年立三王，元鼎五年酎金",
+              "note": "记诸侯请分邑的诏令、后来另立诸王及酎祭夺爵"
+            },
+            {
+              "sourceId": "shiji-zhufu-yan",
+              "locator": "主父偃进说、齐国终局及齐相之狱",
+              "note": "记主父偃建议分封王室支子及另案齐王绝嗣"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "huo-qubing-and-hunxie-surrender",
+      "from": -121,
+      "to": -120,
+      "dateLabel": "公元前 121—前 120 年 · 河西战事和降众处置",
+      "title": "河西两次出兵之后，浑邪王如何降汉",
+      "summary": "分别读元狩二年春夏两次出兵、秋季接降，以及降众安置。",
+      "spatialThesis": "河西位于祁连山和北侧山地、荒漠之间。史书所载多路远程行动的各个地点仍须分头考证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "春、夏两次出兵",
+          "text": "《武帝纪》和两篇《史记》分记霍去病元狩二年春出陇西，夏再与诸将出兵。各书所记分行、战果数字和行动细节须对照。今天可用走廊及山地地形理解大尺度的方位，焉支、祁连等历史名称也须分别查地望。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-wei-huo",
+              "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+              "note": "与本纪对读战事阶段、诸将分路与降众安置"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "休屠王与浑邪王的不同结局",
+          "text": "《史记》说单于因西部损失欲处罚两王，两王起意降汉。休屠王最后为浑邪王所杀，浑邪王率其众归汉，由汉廷派霍去病往迎。史书所列实计和号称人数有别，地图只呈现事件所在的大区域。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "shiji-wei-huo",
+              "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+              "note": "与本纪对读战事阶段、诸将分路与降众安置"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "降众、属国与沿边郡县",
+          "text": "《武帝纪》说朝廷设五属国安置降众。属国及降众的活动须随不同地方辨认。列传另写西部受侵有所减少，次年右北平、定襄仍有匈奴兵入境。降众数和安置地不能直接用来界定河西郡县。",
+          "refs": [
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从河西战事接到置郡问题",
+          "text": "本纪在归降后紧接武威、酒泉的记载，《西域传》叙初置酒泉而后分设其他郡。把本年的战事和降众接收放在前 121 年，把四郡最早可考的行政、移民与城塞材料另作一章。",
+          "refs": [
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-after-hunxie-surrender",
+          "book": "han",
+          "chapter": "hexi-four-commanderies-and-passes",
+          "label": "接读 · 河西建置的不同年次",
+          "display": "从接纳降众到分郡、置塞、迁民。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-mobei-after-hexi",
+          "book": "han",
+          "chapter": "mobei-and-han-xiongnu-diplomacy",
+          "label": "接读 · 漠北战事与交涉",
+          "display": "分别读前 119 年战事和后来扣使、求和。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mobei-and-han-xiongnu-diplomacy",
+      "from": -119,
+      "to": -90,
+      "dateLabel": "公元前 119—前 90 年 · 漠北战事及后来汉匈交涉",
+      "title": "漠北战后，单于为何仍派使议和",
+      "summary": "沿卫青、霍去病两军记载读会战和补给，再看从扣使、求和到重新交战的过程。",
+      "spatialThesis": "出塞点与漠北所至各须辨认。可以按大漠南北和相对地势观察王庭活动的变化。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "两军出塞，遭遇不同对手",
+          "text": "元狩四年，卫青从定襄方向出兵，与伊稚斜单于交战，单于脱离战场。霍去病一路从代出塞，与左贤王部交战。两军的战事、记功地点和后勤负担各有记载。不同史料的里程、兵额与斩获数不合并为一个精确总数。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "shiji-wei-huo",
+              "locator": "卫青取河南地，霍去病元狩二年春夏及浑邪归降",
+              "note": "与本纪对读战事阶段、诸将分路与降众安置"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "向北退避与短期停战",
+          "text": "《史记》称其后漠南无王庭，也记汉方战马损失、难以继续大举出兵。王庭位置的变动有自己的时段，边地仍有不同部众。匈奴带来和亲诉求，汉廷希望单于接受外臣地位，任敞因此遭扣留。双方一度以相互扣使应对。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "乌维时期的谈判使者有进有退",
+          "text": "传世史书随后记武帝巡边时遣郭吉见单于，被留于匈奴。王乌入见单于，双方又谈及派太子为质。使节礼仪、入见条件和称臣要求是交涉的具体障碍，前 119 年之后的关系并未固定下来。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "军臣、伊稚斜、乌维诸单于及后续条",
+              "note": "记马邑后贸易、匈奴诸王的行动、漠北战后请和与扣使"
+            },
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "战局重新变化",
+          "text": "武帝晚年史书仍载汉匈交战。征和三年，李广利率军出塞，后兵败降匈奴。把此事连到武帝末年的边地供给讨论，可以让读者看到不同年份的兵员、马匹和运输条件持续左右选择。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-luntai-edict",
+              "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+              "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-late-border-wars",
+          "book": "han",
+          "chapter": "wudi-late-reign-luntai-and-succession",
+          "label": "接读 · 武帝晚年北边",
+          "display": "看征和年间再战及其后不准轮台屯田。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-luntai-edict",
+              "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+              "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhang-qian-wusun-and-deputies",
+      "from": -119,
+      "to": -101,
+      "dateLabel": "约公元前 119—前 101 年 · 使乌孙及后续对大宛用兵",
+      "title": "张骞再使乌孙，副使为何另往诸国",
+      "summary": "从劝迁、回使与婚盟读乌孙的选择，再对照费尔干纳方向使者与军队的差别。",
+      "spatialThesis": "乌孙活动区域与大宛所在的费尔干纳可作地理参照，各方往来分多次、走多路。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "出使日期以区间表示",
+          "text": "《汉书》在张骞参与前 121 年北边作战和失侯之后，叙其建言出使乌孙，本传写过官职、使团和副使，却未逐项写明出发及返汉哪一年。常用考订以前 119 年至前 115 年作阅读区间，确年仍有讨论。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "zhang-qian-mission-chronology",
+              "locator": "第八节，出使乌孙往返年代与路线",
+              "note": "二使前119年启程、前115年归来是常用系年，作者讨论能否据传世材料精确编年"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "乌孙统治层为什么没有立即答允",
+          "text": "张骞建议招乌孙东归，并提出联姻以改变匈奴西侧关系。乌孙昆莫没有作出同意东迁的决定，《西域传》还写到当地人对汉远、匈奴近的顾虑和内部意见。乌孙遣向导并派使者来察看汉地，汉乌孙后来另有婚盟。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "hanshu-wusun",
+              "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+              "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "副使的目的地不能算成张骞亲历",
+          "text": "张骞派副使分赴大宛、康居、月氏、大夏等地，两书所列目的地有出入。天山一带和费尔干纳盆地是读乌孙及大宛的区域参照，具体王庭及路线仍待凭各地证据查明。一次分派也不代表后续所有使团走同一路。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            },
+            {
+              "sourceId": "unesco-han-route-context",
+              "locator": "天山、河西、绿洲与交通网络概要",
+              "note": "不同区域地形及多时期的陆路交流网络"
+            },
+            {
+              "sourceId": "unesco-ferghana-corridor",
+              "locator": "费尔干纳盆地、锡尔河与廊道概况",
+              "note": "可核对该盆地的地形与大区域方位"
+            },
+            {
+              "sourceId": "ili-valley-geography",
+              "locator": "伊犁河谷与天山区域",
+              "note": "用于天山西部伊犁河谷方位参照"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从使者往来到大宛战争",
+          "text": "武帝后来为马匹供应和此前使者冲突发兵大宛。李广利的两次远征可从太初年间连读，后一次取得马匹并促成当地另立王的安排。《史记》《汉书》用语反映汉方叙述，远征也不等于把大宛常设为汉的郡县。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-central-asian-powers",
+          "book": "central-asia-silk-road",
+          "chapter": "xiongnu-kushan-oasis-crossroads",
+          "label": "对读 · 匈奴、月氏与中亚绿洲",
+          "display": "在中亚地区卷对读不同时段的政治主体及交通。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-dayuan-accounts",
+              "locator": "张骞出使、所见所闻及李广利攻大宛",
+              "note": "记大宛、月氏、康居、大夏及出派副使，与《汉书》参校"
+            },
+            {
+              "sourceId": "hanshu-wusun",
+              "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+              "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "ili-and-ferghana-valleys",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "天山一带",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "费尔干纳盆地",
+              "placeId": "ferghana"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hexi-four-commanderies-and-passes",
+      "from": -121,
+      "to": -88,
+      "dateLabel": "约公元前 121—前 88 年 · 河西由战事到郡县的阅读区间",
+      "title": "河西四郡是怎样陆续建立的",
+      "summary": "同看本纪、地理志和西域传，区分起初设官、郡界分合、迁民与边塞设施。",
+      "spatialThesis": "沿祁连山北麓，用今天武威、张掖、酒泉与敦煌的区域方位读河西。郡治与郡界需要分别考证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "本纪的两条记录",
+          "text": "《武帝纪》在前 121 年秋记浑邪王降汉后以其地为武威、酒泉郡；在前 111 年秋另记分武威、酒泉地置张掖、敦煌，徙民充实。年表前 111 年条目沿用本纪口径并注明来源，使读者能找到原来的两条记录。",
+          "refs": [
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "地理志为什么要另看",
+          "text": "《地理志》在酒泉、张掖条系太初元年，在武威条系太初四年，在敦煌条系武帝后元年。和本纪并读，可以追问早期设署、分置、改治或后来的正式记载是否指不同环节。现代研究根据传世文献和出土简牍提出过不同的分期复原。把这些年次合并为一个全无异议的年份会掩去真正要考证的事情。",
+          "refs": [
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            },
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hexi-commandery-research",
+              "locator": "论文摘要中的分期与疆域调整",
+              "note": "结合传世史料与简牍提出分段置郡及反复调整的解释"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "由走廊东端读到西端",
+          "text": "武威一带靠近走廊东段，张掖所在的黑河绿洲可接向北的居延，酒泉、敦煌位于更西。使用这些名字时还要留意《地理志》中有张掖郡，也有武威郡之下名为张掖的县。今天的同名城市以方位帮助阅读，汉代的郡治、郡辖县与边界须从相合的材料检查。",
+          "refs": [
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            },
+            {
+              "sourceId": "unesco-han-route-context",
+              "locator": "天山、河西、绿洲与交通网络概要",
+              "note": "不同区域地形及多时期的陆路交流网络"
+            },
+            {
+              "sourceId": "hexi-commandery-research",
+              "locator": "论文摘要中的分期与疆域调整",
+              "note": "结合传世史料与简牍提出分段置郡及反复调整的解释"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "关塞与郡县建设有各自的时间",
+          "text": "《西域传》说先筑令居以西、初置酒泉，随后徙民、再分郡，到后来据两关，并有亭障屯田。玉门关遗址和敦煌以东的悬泉置可相互参照，看走廊向西的交通条件和行政节点。两处遗存有不同使用阶段，不能搬到前 121 年当成同年新建的设施。",
+          "refs": [
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            },
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-hexi-archival-operations",
+          "book": "han",
+          "chapter": "hexi-xuanquan-and-juyan-records",
+          "label": "接读 · 驿站经费与戍卒名籍",
+          "display": "从建置年次进入后来的在地文书。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            },
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            },
+            {
+              "sourceId": "as-ihp-juyan-grain-roll",
+              "locator": "第廿三部卒十二月廪名，二十三至二十九燧及箕山亭",
+              "note": "名籍可见列名者、单位和口粮申请资料"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "hexi-xuanquan-and-yumen-pass",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "悬泉置",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "玉门关遗址",
+              "placeId": "yumen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-five-zhu-and-central-mints",
+      "from": -140,
+      "to": -113,
+      "dateLabel": "公元前 140—前 113 年 · 建元钱制到上林三官专铸",
+      "title": "五铢钱先由谁铸，后来为什么要专铸",
+      "summary": "沿三铢、半两、郡国五铢到上林专铸，再用铜范与作坊遗物检视差别。",
+      "spatialThesis": "把长安周边铸钱作坊与朝廷所在地放在同一图上，地方钱范则是另一种生产证据。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "从三铢、半两到郡国五铢",
+          "text": "《武帝纪》记建元元年行三铢，五年复行半两，至元狩五年（前 118 年）记罢半两、行五铢。《平准书》明确说有司请令诸郡国铸造，并议钱郭以减少取铜。五铢是钱文与法定重量名目，实物重量、成色和磨损都要按具体钱币检查。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            },
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            },
+            {
+              "sourceId": "cnm-five-zhu-coins",
+              "locator": "藏品图像、文字和钱制说明",
+              "note": "实物可见圆形方孔、五铢钱文，说明所收钱币的形制"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "赤仄钱与专铸之间是两个步骤",
+          "text": "《平准书》在郡国铸钱之后写钟官所铸赤仄钱，记其折算和官府规程，随后又记废赤仄，禁郡国铸，上林三官专铸，旧钱销毁并输铜。前 113 年采用国博说明的常用系年。从前 118 年到这一步，中间还有另一种尝试。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            },
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            },
+            {
+              "sourceId": "cnm-five-zhu-mould",
+              "locator": "实物影像及地方铸造说明",
+              "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "同一面钱文，要对照两类物证",
+          "text": "国博藏五铢钱铜范的著录把它与专铸前的地方铸钱相联。长安以西的兆伦铸钱遗址出土五铢钱范，也出土新莽时的不同钱范。五铢钱形物、阳文或阴文钱范以及钱范的地层分别作证，串起来才能进一步判断一个铸造地点何时做过哪类钱。",
+          "refs": [
+            {
+              "sourceId": "cnm-five-zhu-mould",
+              "locator": "实物影像及地方铸造说明",
+              "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+            },
+            {
+              "sourceId": "cnm-five-zhu-coins",
+              "locator": "藏品图像、文字和钱制说明",
+              "note": "实物可见圆形方孔、五铢钱文，说明所收钱币的形制"
+            },
+            {
+              "sourceId": "zhaolun-mint-archaeology",
+              "locator": "张剑锋报告、出土五铢和新莽钱范、遗址位置",
+              "note": "记今鄠邑一带兆伦遗址多期铸作遗物"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "统一的是铸造与可用标准",
+          "text": "诏令要求通行三官钱，传世叙事也保留私铸和伪钱的处理。到一处具体市场，还要看钱币组合、地层和交易文书，判断旧钱如何退出、不同供给条件下人们能否换到新钱。政策颁布的年份和各地转换所需时间是两个问题。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            },
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-fiscal-differences",
+          "book": "han",
+          "chapter": "wudi-fiscal-transport-and-markets",
+          "label": "接读 · 铸币以外的筹款和转输",
+          "display": "区分铸钱、征财产和调货。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "han-zhaolun-mint-and-changan",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "兆伦铸钱遗址",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "长安以西",
+              "placeId": "palace"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-salt-and-iron-offices",
+      "from": -119,
+      "to": -81,
+      "dateLabel": "约公元前 119—前 81 年 · 盐铁官营的建立与昭帝朝讨论",
+      "title": "盐锅、铁炉和官署，怎样读盐铁官营",
+      "summary": "通过孔仅、东郭咸阳的奏议和古荥冶铁遗址，分别看官营制度的安排和生产现场。",
+      "spatialThesis": "盐场、水源、矿冶与运输分布不同。古荥的炉址能说明一处工场的规模和活动。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "谁出钱，谁出煮盐的器具",
+          "text": "《平准书》把盐铁丞孔仅、东郭咸阳的奏议放在连续用兵、财用紧张之后。议文说招募民人自备费用，官府供煮盐用具牢盆，并禁止未经许可的煮盐和铸铁。读奏议先辨劳作、器具与收益由谁负责，再分辨禁令作用于哪些生产活动。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "矿源不同，设官也不同",
+          "text": "议文又说不产铁的郡可设小铁官，隶于所在县。孔仅、东郭咸阳奉命循行，设官署并任用部分旧盐铁经营者。《地理志》所记郡县已有后来沿革，其中陇西郡同时列铁官和盐官，朔方沃野县单列盐官。古荥发掘出大型冶铁炉，荥阳故城与附近工场的距离可观察。炉址提供生产技术和地方地理证据，无法凭自身标明盐铁政策的具体颁行日期。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "guxing-ironworks",
+              "locator": "古荥镇、荥阳故城外、1976年发掘冶铁炉段",
+              "note": "给出故城和大型冶铁遗存的相对位置及大致年代"
+            },
+            {
+              "sourceId": "hanshu-hexi-geography",
+              "locator": "河西四郡、朔方、五原和陇西的开置、县目及盐铁官",
+              "note": "可读河西数郡不同的开置纪年，并见五原沿革与若干郡县的盐铁官"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "置于大农的财政理由与地方批评",
+          "text": "奏议把收入归大农，用于补助赋用。后来《平准书》写卜式认为某些郡国的官铁价高，器物难用，有的还强制买卖；同书别处记录官府所取盐铁、缗钱可供支出。两端是政策与反馈的材料，不足以换算全国共同的价格或总利润。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "昭帝朝再议，罢酒榷有明文",
+          "text": "前 81 年，朝廷问贤良文学民间疾苦，盐铁、酒榷和均输都进入讨论。《昭帝纪》明确写当年罢榷酤，《食货志》记桑弘羊以边防财用为由为制度辩护。盐铁官营此后尚有变化，武帝创设、昭帝朝辩论和各地工场的年代分别判断。",
+          "refs": [
+            {
+              "sourceId": "hanshu-zhao-salt-debate",
+              "locator": "始元六年问民疾苦与罢榷酤",
+              "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+            },
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-transport-policy",
+          "book": "han",
+          "chapter": "wudi-fiscal-transport-and-markets",
+          "label": "接读 · 均输、平准及争议",
+          "display": "看地方官署和京师转运政策怎样相接。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "guxing-ironworks-and-xingyang",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "冶铁炉",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "荥阳故城",
+              "placeId": "xingyang"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-fiscal-transport-and-markets",
+      "from": -119,
+      "to": -81,
+      "dateLabel": "公元前 119—前 81 年 · 算缗、均输、平准与后续议论",
+      "title": "从算缗到平准，官府怎样筹钱调货",
+      "summary": "把财产申报、地方调运和京师买卖三个办法分开读。",
+      "spatialThesis": "郡国征收、途中转输和京师收储分处不同层级，距离及运费本身就是制度所要处理的问题。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "算缗与告缗在账里的不同位置",
+          "text": "《武帝纪》在元狩四年记初算缗钱。《平准书》写商贾等按规定申报财产，并写告发隐匿、不按规定申报者及后来的没入。申报与监督使用了不同程序。史书所报没入数量是叙述中的数字，不能看作一份尚存的全国税册。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "均输先要处理一笔不合算的运费",
+          "text": "《平准书》说各官各自采买相互争购，有的地方运送贡赋，货值甚至不抵运费。桑弘羊建议分部管郡国，在地方设均输、盐铁等官，按各地可取得的货物组织转输。重点看征什么、送到哪里和谁负担运输。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "平准设在京师",
+          "text": "元封元年相关记载又说在京师设平准，收地方输来的物品，价贵卖出、价贱买进。这个办法依赖仓储、行情和调拨。司马迁记录朝廷账面收支和卜式批评官吏经商，也因此留下了立场不同的材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            },
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "怎样读财政效果",
+          "text": "供边、救灾、官府采买和运输都有开支，制度运转还牵涉商人、工匠和农户。朝廷有无足用是一个问题，各地人买盐用铁及出钱出物的实际负担是另一个问题。昭帝时围绕这些制度的辩论，可以当作进一步阅读的入口。",
+          "refs": [
+            {
+              "sourceId": "hanshu-food-money",
+              "locator": "铸制、盐铁、昭帝朝议诸条",
+              "note": "保存五铢不同铸制、盐铁实施和昭帝朝讨论"
+            },
+            {
+              "sourceId": "hanshu-zhao-salt-debate",
+              "locator": "始元六年问民疾苦与罢榷酤",
+              "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+            },
+            {
+              "sourceId": "shiji-pingzhun-transport",
+              "locator": "算缗告缗、元封元年桑弘羊领大农与京师平准",
+              "note": "记录财产申报处罚、均输平准安排与朝廷收支说法"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wudi-late-reign-luntai-and-succession",
+      "from": -91,
+      "to": -87,
+      "dateLabel": "公元前 91—前 87 年 · 储位危机、轮台之议与交接",
+      "title": "武帝末年，从巫蛊之祸到轮台诏",
+      "summary": "把长安储位危机、北边战事、屯田争议和新君即位分别定位。",
+      "spatialThesis": "朝廷能在长安议边地增赋和屯田。轮台距离汉军已用据点较远，供给困难是诏书实际讨论的问题。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "征和二年的长安",
+          "text": "《武帝纪》记巫蛊案扩展到太子刘据起兵、兵败及其死。储位的变动属于宫廷和一系列案件，事件所在的长安及太子的最后所在要分段读。即位初年的宫廷政治和晚年储位危机都不能只用一道诏书解释。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "征和三年的北边战事",
+          "text": "次年李广利出兵而败，最后降匈奴。此事发生在前 90 年，晚于漠北会战近三十年。它与转运费、战马及后来轮台屯田讨论相接，给出了武帝晚年继续交兵、然后重新考虑供给方案的例子。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-luntai-edict",
+              "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+              "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "轮台诏拒绝哪项建议",
+          "text": "《西域传》载桑弘羊等提议向轮台推进屯田、设亭与增置守备，武帝答诏谈及加赋的困苦及远途乏食，未准所议。诏里仍有整饬边塞、养马和务农的安排。通常以前 89 年作为阅读节点，解释应以诏文的明确对象为限。",
+          "refs": [
+            {
+              "sourceId": "hanshu-luntai-edict",
+              "locator": "征和四年，桑弘羊等议田轮台，武帝答诏",
+              "note": "记要求加赋及向轮台屯田的建议被拒，并写仍须备边养马"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "昭帝继位后的政策讨论",
+          "text": "后元二年（前 87 年）武帝去世，刘弗陵继位。昭帝始元六年朝廷再议民间疾苦和盐铁等事。晚年诏令、昭帝朝议与政策实施横跨两朝。进入下一阶段，可继续看霍光辅政、昭宣交接以及此前边政在宣帝时怎样改变。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wu-late",
+              "locator": "征和二、三年及后元二年",
+              "note": "记巫蛊与太子刘据之死、李广利降匈奴和武帝去世"
+            },
+            {
+              "sourceId": "hanshu-zhao-salt-debate",
+              "locator": "始元六年问民疾苦与罢榷酤",
+              "note": "可独立核对前81年政策辩论和当年的罢酒榷记载"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hexi-xuanquan-and-juyan-records",
+      "from": -111,
+      "to": -60,
+      "dateLabel": "公元前 111—前 60 年 · 河西行政及稍后简牍参照",
+      "title": "悬泉置和居延，两种边地文书怎么办事",
+      "summary": "从驿站报销和戍卒领粮名籍读地方机构，再接到宣帝时的西域都护。",
+      "spatialThesis": "悬泉置在敦煌与瓜州之间，居延在黑河下游。一个驿站和一组边塞机构各有职责。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "朝廷往西派使，还要有人接待",
+          "text": "《西域传》写武帝时亭障逐步向西设置，屯田及使者校尉为往来提供支持。悬泉置遗址与居延边塞可分别读到接待、转运和戍守的具体事务。在同一张图上切换两处，能看出它们处理的交通和边防各有重心。",
+          "refs": [
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            },
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "juyan-frontier-locations",
+              "locator": "甲渠候官、甲渠障和额济纳格局段",
+              "note": "提供额济纳河一带甲渠候官的遗址参照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "驿站记录的是接待用了什么",
+          "text": "悬泉置出土的《过长罗侯费用簿》按笔记录元康五年（前 61 年）接待常惠一行的物品和支用。经费簿是宣帝时的行政记录，显示后来使者到达驿站后有人供给、登记、存档。张骞不在这份账里，他的出使年代和途中实际供给另由本传追查。",
+          "refs": [
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            },
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "边塞名籍记录请粮者及其单位",
+          "text": "中研院所藏一份第廿三部十二月廪名，列戍卒与所属处所，包括数座烽燧和一处亭。把编制里的名字、驻点和领粮申请放在一起，才能看到戍守同时是要按月维持的行政工作。请领与实际支出须对照不同账册。",
+          "refs": [
+            {
+              "sourceId": "as-ihp-juyan-grain-roll",
+              "locator": "第廿三部卒十二月廪名，二十三至二十九燧及箕山亭",
+              "note": "名籍可见列名者、单位和口粮申请资料"
+            },
+            {
+              "sourceId": "juyan-grain-transcripts",
+              "locator": "24.1A、24.2及同条说明",
+              "note": "居延材料保留戍卒的姓名和机构，也见第廿三部十二月廪名"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "武帝经营之后，还有宣帝时的制度变化",
+          "text": "《西域传》记宣帝神爵二年（前 60 年）日逐王降汉，郑吉兼护北道，都护由此得名，治乌垒城。这是晚于武帝的制度安排。都护涉及校尉、屯田和与西域各政权交涉，行文所列权限也不能直接解释为汉把天山南北各地一律改为郡县。",
+          "refs": [
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "hexi-xuanquan-and-juyan-archives",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "悬泉置遗址",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-01",
+              "text": "居延边塞",
+              "placeId": "juyan"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "interregnum",
@@ -2895,6 +4930,14 @@
     "nanyue-panyu-and-shixiongshan-sites",
     "han-jiangcun-baling-landscape",
     "han-yangling-imperial-cemetery",
-    "han-liang-suiyang-and-mangdang-sites"
+    "han-liang-suiyang-and-mangdang-sites",
+    "wudi-changan-maoling",
+    "wudi-zhang-qian-chenggu",
+    "wudi-hetao-plain",
+    "wudi-ili-and-ferghana",
+    "wudi-hexi-corridor",
+    "han-xuanquan-and-juyan",
+    "han-guxing-ironworks",
+    "han-zhaolun-mint"
   ]
 }

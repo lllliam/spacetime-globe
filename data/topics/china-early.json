@@ -5530,6 +5530,845 @@
         "scope": "遗址或区域位置、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "han-changan-and-maoling",
+      "year": -139,
+      "date": "公元前 141—前 124 年 · 即位至置博士弟子",
+      "title": "未央宫与茂陵一带",
+      "summary": "朝廷、陵墓和迁入户所在的陵邑在关中各占什么位置？",
+      "place": {
+        "label": "汉长安城未央宫一带 · 西汉宫城参照",
+        "lon": 108.857,
+        "lat": 34.304
+      },
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "maoling-site-geography",
+          "title": "《陕西省志·建设志》茂陵等遗址资料",
+          "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-wu-early",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "对照汉长安城未央宫遗址和兴平茂陵一带的地形，追读茂陵邑初置与后来迁民的纪年。",
+          "refs": [
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "maoling-site-geography",
+              "locator": "历史文化遗存及茂陵条",
+              "note": "可作今兴平茂陵一带地理参照"
+            },
+            {
+              "sourceId": "hanshu-wu-early",
+              "locator": "开篇、建元元至六年、元光元年、元朔五年",
+              "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wudi-changan-maoling-landscape",
+        "title": "未央宫与茂陵一带",
+        "summary": "朝廷、陵墓和迁入户所在的陵邑在关中各占什么位置？",
+        "places": [
+          {
+            "id": "maoling",
+            "name": "兴平茂陵一带",
+            "role": "武帝陵园与陵邑研究的区域参照",
+            "lon": 108.58,
+            "lat": 34.34
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "maoling-site-geography",
+            "locator": "历史文化遗存及茂陵条",
+            "note": "可作今兴平茂陵一带地理参照"
+          },
+          {
+            "sourceId": "hanshu-wu-early",
+            "locator": "开篇、建元元至六年、元光元年、元朔五年",
+            "note": "记即位、建元、赵绾王臧案、五经博士、推举孝廉、博士弟子等不同年份的措施"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhang-qian-tomb-and-han-changan",
+      "year": -138,
+      "date": "约公元前 138—前 126 年 · 张骞首使的常用系年",
+      "title": "城固张骞墓与未央宫",
+      "summary": "司马迁、班固说的汉中人和派遣使者的朝廷在什么地方？",
+      "place": {
+        "label": "汉中城固张骞墓一带 · 墓葬与人物籍贯的区域参照",
+        "lon": 107.291,
+        "lat": 33.159
+      },
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-zhang-qian",
+          "title": "《汉书·张骞李广利传》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhang-qian-first-dating",
+          "title": "陕西师范大学历史文化名城网《张骞》",
+          "url": "https://lishiwenhua.snnu.edu.cn/info/1901/19231.htm",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "对照秦岭以南的城固和关中汉长安城，理解张骞的籍贯和奉使背后的朝廷。",
+          "refs": [
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "zhang-qian-first-dating",
+              "locator": "张骞生平与两次出使词条",
+              "note": "提供两次出使与相关年代的参照"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-zhang-qian-first-mission-context",
+        "title": "城固张骞墓与未央宫",
+        "summary": "司马迁、班固说的汉中人和派遣使者的朝廷在什么地方？",
+        "places": [
+          {
+            "id": "palace",
+            "name": "汉长安城未央宫一带",
+            "role": "西汉宫城参照",
+            "lon": 108.857,
+            "lat": 34.304
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "hanshu-zhang-qian",
+            "locator": "张骞首使、返汉报告及使乌孙条",
+            "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+          },
+          {
+            "sourceId": "zhang-qian-first-dating",
+            "locator": "张骞生平与两次出使词条",
+            "note": "提供两次出使与相关年代的参照"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hetao-and-shanxi-mayi",
+      "year": -127,
+      "date": "公元前 134—前 124 年 · 和亲余波、马邑与河套",
+      "title": "河套平原和晋北马邑",
+      "summary": "马邑之谋和朔方、五原置郡各涉及什么样的地形？",
+      "place": {
+        "label": "黄河北缘河套平原一带 · 阴山以南的黄河平原参照",
+        "lon": 107.42,
+        "lat": 40.77
+      },
+      "sources": [
+        {
+          "id": "hetao-geography",
+          "title": "中国科学院地理资源所《河套平原》",
+          "url": "https://igsnrr.cas.cn/cbkx/kpyd/zgdl/cndm/202009/t20200910_5692358.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "han-northern-place-references",
+          "title": "香港中文大学《汉语多功能字库》历史地名资料",
+          "url": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/chinaPlaces.php?pid=040950000",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-wu-northern-wars",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从黄河河曲和阴山南麓切换到朔州一带，比较河套与晋北的相对位置。",
+          "refs": [
+            {
+              "sourceId": "hetao-geography",
+              "locator": "黄河河曲、阴山南麓及河套平原",
+              "note": "说明河曲、河套平原与北侧阴山的相对位置"
+            },
+            {
+              "sourceId": "han-northern-place-references",
+              "locator": "朔州马邑沿革",
+              "note": "提供马邑在朔州附近的地域参照"
+            },
+            {
+              "sourceId": "hanshu-wu-northern-wars",
+              "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+              "note": "依年记马邑、河套、河西、漠北及后续巡边"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-mayi-and-hetao-frontier-context",
+        "title": "河套平原和晋北马邑",
+        "summary": "马邑之谋和朔方、五原置郡各涉及什么样的地形？",
+        "places": [
+          {
+            "id": "mayi",
+            "name": "今朔州一带",
+            "role": "汉代马邑的区域参照",
+            "lon": 112.51,
+            "lat": 39.36
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "hetao-geography",
+            "locator": "黄河河曲、阴山南麓及河套平原",
+            "note": "说明河曲、河套平原与北侧阴山的相对位置"
+          },
+          {
+            "sourceId": "han-northern-place-references",
+            "locator": "朔州马邑沿革",
+            "note": "提供马邑在朔州附近的地域参照"
+          },
+          {
+            "sourceId": "hanshu-wu-northern-wars",
+            "locator": "元光二、六年，元朔二至六年，元狩二及四年，元封元年",
+            "note": "依年记马邑、河套、河西、漠北及后续巡边"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "ili-and-ferghana-valleys",
+      "year": -119,
+      "date": "约公元前 119—前 115 年 · 张骞出使乌孙常用系年",
+      "title": "伊犁河谷与费尔干纳盆地",
+      "summary": "乌孙和大宛的证据为什么需要分两个地区看？",
+      "place": {
+        "label": "西天山伊犁河谷一带 · 乌孙相关材料的山间河谷参照",
+        "lon": 81.37,
+        "lat": 43.91
+      },
+      "sources": [
+        {
+          "id": "ili-valley-geography",
+          "title": "中国科学院新疆生态与地理研究所伊犁河流域观测站",
+          "url": "https://www.egi.cas.cn/ywgcz2020/zgkxyylhlystxtyjz/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "unesco-ferghana-corridor",
+          "title": "联合国教科文组织费尔干纳—锡尔河廊道预备名录",
+          "url": "https://whc.unesco.org/en/tentativelists/6793",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-zhang-qian",
+          "title": "《汉书·张骞李广利传》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-wusun",
+          "title": "《汉书·西域传下》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷096下",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从伊犁河谷切换到费尔干纳，在图上比较山脉、盆地和相对距离，再读张骞及其副使的分别活动。",
+          "refs": [
+            {
+              "sourceId": "ili-valley-geography",
+              "locator": "伊犁河谷与天山区域",
+              "note": "用于天山西部伊犁河谷方位参照"
+            },
+            {
+              "sourceId": "unesco-ferghana-corridor",
+              "locator": "费尔干纳盆地、锡尔河与廊道概况",
+              "note": "可核对该盆地的地形与大区域方位"
+            },
+            {
+              "sourceId": "hanshu-zhang-qian",
+              "locator": "张骞首使、返汉报告及使乌孙条",
+              "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+            },
+            {
+              "sourceId": "hanshu-wusun",
+              "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+              "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-zhang-qian-wusun-mission-context",
+        "title": "伊犁河谷与费尔干纳盆地",
+        "summary": "乌孙和大宛的证据为什么需要分两个地区看？",
+        "places": [
+          {
+            "id": "ferghana",
+            "name": "费尔干纳盆地一带",
+            "role": "大宛相关材料的盆地区域参照",
+            "lon": 71.41,
+            "lat": 40.58
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "ili-valley-geography",
+            "locator": "伊犁河谷与天山区域",
+            "note": "用于天山西部伊犁河谷方位参照"
+          },
+          {
+            "sourceId": "unesco-ferghana-corridor",
+            "locator": "费尔干纳盆地、锡尔河与廊道概况",
+            "note": "可核对该盆地的地形与大区域方位"
+          },
+          {
+            "sourceId": "hanshu-zhang-qian",
+            "locator": "张骞首使、返汉报告及使乌孙条",
+            "note": "区分本人所至与传闻，记月氏和乌孙各自回应"
+          },
+          {
+            "sourceId": "hanshu-wusun",
+            "locator": "乌孙、昆莫、诸位公主和乌孙使者相关段",
+            "note": "记乌孙统治层的顾虑、汉使往来及后续婚盟"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hexi-xuanquan-and-yumen-pass",
+      "year": -111,
+      "date": "约公元前 121—前 88 年 · 河西由战事到郡县的阅读区间",
+      "title": "悬泉置与玉门关遗址",
+      "summary": "关塞和邮驿在走廊西端各处于什么位置？",
+      "place": {
+        "label": "敦煌以东悬泉置遗址一带 · 西汉驿置所在参照区",
+        "lon": 95.329,
+        "lat": 40.265
+      },
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "xuanquan-travel-expenses",
+          "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+          "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-hexi-annals",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-xiyu-administration",
+          "title": "《汉书·西域传上》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷096上",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从敦煌以东的悬泉置切换到敦煌以西的玉门关，比较驿站和关塞所处的地形。",
+          "refs": [
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            },
+            {
+              "sourceId": "hanshu-hexi-annals",
+              "locator": "元狩二年秋及元鼎六年秋",
+              "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+            },
+            {
+              "sourceId": "hanshu-xiyu-administration",
+              "locator": "序、两关以西亭障屯田、鄯善等段",
+              "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-hexi-commandery-development",
+        "title": "悬泉置与玉门关遗址",
+        "summary": "关塞和邮驿在走廊西端各处于什么位置？",
+        "places": [
+          {
+            "id": "yumen",
+            "name": "玉门关遗址一带",
+            "role": "走廊西端关塞遗址参照",
+            "lon": 93.864,
+            "lat": 40.354
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "xuanquan-travel-expenses",
+            "locator": "元康五年正月费用簿、展品说明",
+            "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+          },
+          {
+            "sourceId": "hanshu-hexi-annals",
+            "locator": "元狩二年秋及元鼎六年秋",
+            "note": "将武威、酒泉列于浑邪归降后，将分置张掖、敦煌列于元鼎六年"
+          },
+          {
+            "sourceId": "hanshu-xiyu-administration",
+            "locator": "序、两关以西亭障屯田、鄯善等段",
+            "note": "列先置酒泉再分诸郡的次第，以及宣帝时郑吉并护南北道"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hexi-xuanquan-and-juyan-archives",
+      "year": -61,
+      "date": "公元前 111—前 60 年 · 河西行政及稍后简牍参照",
+      "title": "悬泉置与居延的边地文书",
+      "summary": "一册驿站花费和一条戍卒领粮名单为何出在不同地方？",
+      "place": {
+        "label": "敦煌以东悬泉置遗址一带 · 西汉驿置所在参照区",
+        "lon": 95.329,
+        "lat": 40.265
+      },
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "xuanquan-travel-expenses",
+          "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+          "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "as-ihp-juyan-grain-roll",
+          "title": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+          "url": "https://museum.sinica.edu.tw/collection/20/item/1029/"
+        },
+        {
+          "id": "juyan-frontier-locations",
+          "title": "甘肃地方志《军事志》居延防务",
+          "url": "https://gsdfszw.org.cn/gssz/dyl/dsjjszs/201612/P020170214612523218022.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从敦煌以东戈壁中的旧驿置切换到黑河下游的居延边塞区，比较供给文书及各自机构。",
+          "refs": [
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "xuanquan-travel-expenses",
+              "locator": "元康五年正月费用簿、展品说明",
+              "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+            },
+            {
+              "sourceId": "as-ihp-juyan-grain-roll",
+              "locator": "第廿三部卒十二月廪名，二十三至二十九燧及箕山亭",
+              "note": "名籍可见列名者、单位和口粮申请资料"
+            },
+            {
+              "sourceId": "juyan-frontier-locations",
+              "locator": "甲渠候官、甲渠障和额济纳格局段",
+              "note": "提供额济纳河一带甲渠候官的遗址参照"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-hexiwritten-post-and-garrison",
+        "title": "悬泉置与居延的边地文书",
+        "summary": "一册驿站花费和一条戍卒领粮名单为何出在不同地方？",
+        "places": [
+          {
+            "id": "juyan",
+            "name": "额济纳河下游居延边塞一带",
+            "role": "甲渠候官遗址所在区域",
+            "lon": 100.95,
+            "lat": 41.79
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "xuanquan-travel-expenses",
+            "locator": "元康五年正月费用簿、展品说明",
+            "note": "记敦煌境内驿站接待常惠一行所用物品和支出"
+          },
+          {
+            "sourceId": "as-ihp-juyan-grain-roll",
+            "locator": "第廿三部卒十二月廪名，二十三至二十九燧及箕山亭",
+            "note": "名籍可见列名者、单位和口粮申请资料"
+          },
+          {
+            "sourceId": "juyan-frontier-locations",
+            "locator": "甲渠候官、甲渠障和额济纳格局段",
+            "note": "提供额济纳河一带甲渠候官的遗址参照"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "guxing-ironworks-and-xingyang",
+      "year": -118,
+      "date": "约公元前 119—前 81 年 · 盐铁官营的建立与昭帝朝讨论",
+      "title": "荥阳故城与古荥铁炉",
+      "summary": "在图上怎样辨认冶铁作坊同城址的位置关系？",
+      "place": {
+        "label": "郑州古荥冶铁遗址区 · 荥阳故城外的冶铁遗址",
+        "lon": 113.534,
+        "lat": 34.875
+      },
+      "sources": [
+        {
+          "id": "guxing-ironworks",
+          "title": "古荥汉代冶铁遗址博物馆的考古介绍",
+          "url": "https://www.zhengzhou.gov.cn/view22/6631970.jhtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-pingzhun-salt-iron",
+          "title": "《史记·平准书》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷030",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在古荥镇一带比较故城、城西冶铁遗址及黄河南岸的地形，再读工场的发掘成果。",
+          "refs": [
+            {
+              "sourceId": "guxing-ironworks",
+              "locator": "古荥镇、荥阳故城外、1976年发掘冶铁炉段",
+              "note": "给出故城和大型冶铁遗存的相对位置及大致年代"
+            },
+            {
+              "sourceId": "shiji-pingzhun-salt-iron",
+              "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+              "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wudi-salt-iron-workshop-context",
+        "title": "荥阳故城与古荥铁炉",
+        "summary": "在图上怎样辨认冶铁作坊同城址的位置关系？",
+        "places": [
+          {
+            "id": "xingyang",
+            "name": "古荥镇荥阳故城参照区",
+            "role": "与工场相邻的城址区域",
+            "lon": 113.54,
+            "lat": 34.876
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "guxing-ironworks",
+            "locator": "古荥镇、荥阳故城外、1976年发掘冶铁炉段",
+            "note": "给出故城和大型冶铁遗存的相对位置及大致年代"
+          },
+          {
+            "sourceId": "shiji-pingzhun-salt-iron",
+            "locator": "元狩以后盐铁丞奏及元鼎间卜式批评",
+            "note": "记官供牢盆、招募煮盐、私铸私煮之禁及郡县设官"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-zhaolun-mint-and-changan",
+      "year": -113,
+      "date": "公元前 118—前 113 年 · 郡国五铢至上林专铸",
+      "title": "兆伦铸钱遗址与汉长安城",
+      "summary": "朝廷定钱法，长安以西的铸钱作坊留下了什么？",
+      "place": {
+        "label": "西安鄠邑兆伦遗址一带 · 汉代铸钱作坊遗址参照",
+        "lon": 108.667,
+        "lat": 34.2
+      },
+      "sources": [
+        {
+          "id": "zhaolun-mint-archaeology",
+          "title": "沣西新城文物部门公布兆伦铸钱遗址考古收获",
+          "url": "https://fxxc.xixianxinqu.gov.cn/xwzx/fxyw/618e94adf8fd1c0bdc67f7d4.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "cnm-five-zhu-mould",
+          "title": "中国国家博物馆藏五铢钱铜范",
+          "url": "https://www.chnmuseum.cn/zp/zpml/201812/t20181218_25608.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-pingzhun-coin",
+          "title": "《史记·平准书》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷030",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "由兆伦出土钱范所在的片区望向汉长安城，对照定规、铸造地点和钱范的年代。",
+          "refs": [
+            {
+              "sourceId": "zhaolun-mint-archaeology",
+              "locator": "张剑锋报告、出土五铢和新莽钱范、遗址位置",
+              "note": "记今鄠邑一带兆伦遗址多期铸作遗物"
+            },
+            {
+              "sourceId": "unesco-han-corridor",
+              "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+              "note": "给出现存遗址区域及坐标"
+            },
+            {
+              "sourceId": "cnm-five-zhu-mould",
+              "locator": "实物影像及地方铸造说明",
+              "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+            },
+            {
+              "sourceId": "shiji-pingzhun-coin",
+              "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+              "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wudi-five-zhu-foundry-context",
+        "title": "兆伦铸钱遗址与汉长安城",
+        "summary": "朝廷定钱法，长安以西的铸钱作坊留下了什么？",
+        "places": [
+          {
+            "id": "palace",
+            "name": "汉长安城未央宫一带",
+            "role": "西汉宫城参照",
+            "lon": 108.857,
+            "lat": 34.304
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zhaolun-mint-archaeology",
+            "locator": "张剑锋报告、出土五铢和新莽钱范、遗址位置",
+            "note": "记今鄠邑一带兆伦遗址多期铸作遗物"
+          },
+          {
+            "sourceId": "unesco-han-corridor",
+            "locator": "未央宫1442-001、悬泉置1442-021、玉门关1442-022、张骞墓1442-033",
+            "note": "给出现存遗址区域及坐标"
+          },
+          {
+            "sourceId": "cnm-five-zhu-mould",
+            "locator": "实物影像及地方铸造说明",
+            "note": "藏品作为地方铸造证据，馆方采用前113年专铸的纪年"
+          },
+          {
+            "sourceId": "shiji-pingzhun-coin",
+            "locator": "白金、五铢、赤仄钱及禁郡国铸段",
+            "note": "记郡国五铢、赤仄钱以及上林三官专铸的先后"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [

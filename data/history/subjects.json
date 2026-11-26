@@ -2831,6 +2831,333 @@
         "scope": "核对遗址区参照、阅读年代和证据范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "wudi-changan-maoling",
+      "type": "region",
+      "name": "汉长安城与兴平茂陵一带",
+      "aliases": [
+        "汉长安城",
+        "未央宫",
+        "茂陵",
+        "茂陵邑"
+      ],
+      "range": {
+        "from": -141,
+        "to": -124,
+        "dateLabel": "约公元前 141—前 124 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以建元到元朔的宫城和陵邑为阅读区间。相应墓葬及城址各有使用分期。",
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "maoling-site-geography",
+          "title": "《陕西省志·建设志》茂陵等遗址资料",
+          "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-wu-early",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wudi-zhang-qian-chenggu",
+      "type": "region",
+      "name": "城固张骞墓区域",
+      "aliases": [
+        "城固",
+        "汉中",
+        "张骞墓"
+      ],
+      "range": {
+        "from": -138,
+        "to": -126,
+        "dateLabel": "约公元前 138—前 126 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "按张骞首使的习用系年阅读其汉中背景。墓的年代独立。",
+      "sources": [
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-zhang-qian",
+          "title": "《汉书·张骞李广利传》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wudi-hetao-plain",
+      "type": "region",
+      "name": "河套平原与阴山南麓",
+      "aliases": [
+        "河套",
+        "阴山",
+        "朔方",
+        "五原",
+        "河南地"
+      ],
+      "range": {
+        "from": -134,
+        "to": -124,
+        "dateLabel": "约公元前 134—前 124 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "用黄河河曲参照元光、元朔间相关地方。各郡范围与具体古城另考。",
+      "sources": [
+        {
+          "id": "hetao-geography",
+          "title": "中国科学院地理资源所《河套平原》",
+          "url": "https://igsnrr.cas.cn/cbkx/kpyd/zgdl/cndm/202009/t20200910_5692358.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-wu-northern-wars",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wudi-ili-and-ferghana",
+      "type": "region",
+      "name": "伊犁河谷和费尔干纳盆地",
+      "aliases": [
+        "伊犁",
+        "乌孙",
+        "费尔干纳",
+        "大宛"
+      ],
+      "range": {
+        "from": -119,
+        "to": -101,
+        "dateLabel": "约公元前 119—前 101 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "两处区域用于比较古国和使者所涉地形，具体城邑和古代疆域分别考证。",
+      "sources": [
+        {
+          "id": "ili-valley-geography",
+          "title": "中国科学院新疆生态与地理研究所伊犁河流域观测站",
+          "url": "https://www.egi.cas.cn/ywgcz2020/zgkxyylhlystxtyjz/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "unesco-ferghana-corridor",
+          "title": "联合国教科文组织费尔干纳—锡尔河廊道预备名录",
+          "url": "https://whc.unesco.org/en/tentativelists/6793",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-zhang-qian",
+          "title": "《汉书·张骞李广利传》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷061",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wudi-hexi-corridor",
+      "type": "region",
+      "name": "河西走廊与它的西端关塞",
+      "aliases": [
+        "河西",
+        "武威",
+        "张掖",
+        "酒泉",
+        "敦煌",
+        "玉门关"
+      ],
+      "range": {
+        "from": -121,
+        "to": -88,
+        "dateLabel": "约公元前 121—前 88 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "从河西战事读到设郡、徙民及关塞，不同史书所记始置年代分别保留。",
+      "sources": [
+        {
+          "id": "hanshu-hexi-annals",
+          "title": "《汉书·武帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷006#武帝",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-hexi-geography",
+          "title": "《汉书·地理志》河西及北边郡条",
+          "url": "https://www.wenlinshe.com/chapter/zhongguolishi/han-shu/juan-er-shi-ba-di-li-zhi-di-ba.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "unesco-han-corridor",
+          "title": "联合国教科文组织长安—天山廊道遗产地图",
+          "url": "https://whc.unesco.org/en/list/1442/maps/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-xuanquan-and-juyan",
+      "type": "region",
+      "name": "悬泉置与居延边塞",
+      "aliases": [
+        "悬泉置",
+        "效谷",
+        "居延",
+        "甲渠候官"
+      ],
+      "range": {
+        "from": -111,
+        "to": -60,
+        "dateLabel": "约公元前 111—前 60 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "作为西北边地驿站与戍守的材料参照。以两地简牍各自的纪年断代。",
+      "sources": [
+        {
+          "id": "xuanquan-travel-expenses",
+          "title": "甘肃省文物局所载悬泉置《过长罗侯费用簿》",
+          "url": "https://www.gswbj.gov.cn/a/2024/02/18/19691.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "as-ihp-juyan-grain-roll",
+          "title": "中研院历史语言研究所：《第廿三部卒十二月廪名》",
+          "url": "https://museum.sinica.edu.tw/collection/20/item/1029/"
+        },
+        {
+          "id": "juyan-frontier-locations",
+          "title": "甘肃地方志《军事志》居延防务",
+          "url": "https://gsdfszw.org.cn/gssz/dyl/dsjjszs/201612/P020170214612523218022.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-guxing-ironworks",
+      "type": "region",
+      "name": "郑州古荥与荥阳故城",
+      "aliases": [
+        "古荥",
+        "荥阳",
+        "古荥铁炉"
+      ],
+      "range": {
+        "from": -119,
+        "to": -81,
+        "dateLabel": "约公元前 119—前 81 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "用西汉盐铁制度的阅读区间进入故城西侧的冶铁遗址，炉址自身有不同阶段。",
+      "sources": [
+        {
+          "id": "guxing-ironworks",
+          "title": "古荥汉代冶铁遗址博物馆的考古介绍",
+          "url": "https://www.zhengzhou.gov.cn/view22/6631970.jhtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-pingzhun-salt-iron",
+          "title": "《史记·平准书》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷030",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-zhaolun-mint",
+      "type": "region",
+      "name": "长安西部兆伦铸钱遗址",
+      "aliases": [
+        "兆伦",
+        "鄠邑",
+        "上林三官",
+        "钟官",
+        "五铢钱"
+      ],
+      "range": {
+        "from": -118,
+        "to": -113,
+        "dateLabel": "约公元前 118—前 113 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以五铢初行至上林专铸的阅读年段进入铸钱材料，多期钱范分别断代。",
+      "sources": [
+        {
+          "id": "zhaolun-mint-archaeology",
+          "title": "沣西新城文物部门公布兆伦铸钱遗址考古收获",
+          "url": "https://fxxc.xixianxinqu.gov.cn/xwzx/fxyw/618e94adf8fd1c0bdc67f7d4.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "cnm-five-zhu-mould",
+          "title": "中国国家博物馆藏五铢钱铜范",
+          "url": "https://www.chnmuseum.cn/zp/zpml/201812/t20181218_25608.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-pingzhun-coin",
+          "title": "《史记·平准书》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷030",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区域、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {
