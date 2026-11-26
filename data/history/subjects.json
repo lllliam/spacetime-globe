@@ -663,6 +663,237 @@
         "scope": "城址的地形差异及对照时段。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "pingtan-neolithic-sites",
+      "type": "region",
+      "name": "平潭史前遗址群",
+      "aliases": [
+        "壳丘头",
+        "西营",
+        "东花丘",
+        "龟山"
+      ],
+      "range": {
+        "from": -5350,
+        "to": -1550,
+        "dateLabel": "约公元前 5350—前 1550 年 · 平潭遗址选读",
+        "approximate": true
+      },
+      "scope": "福建平潭岛沿海坡地的多处考古遗址，年代覆盖本章选取的西营、壳丘头和较晚遗存。",
+      "sources": [
+        {
+          "id": "pingtan-fieldwork",
+          "title": "周振宇等：平潭壳丘头遗址群发掘成果",
+          "url": "https://www.fjdaily.com/app/content/2024-03/14/content_2407912.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pingtan-reserve",
+          "title": "福建省人民政府：壳丘头遗址群保护范围",
+          "url": "https://www.fj.gov.cn/zwgk/zxwj/szfwj/202503/t20250331_6789454.htm",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "hongshan-culture",
+      "type": "civilization",
+      "name": "红山文化",
+      "aliases": [
+        "牛河梁",
+        "红山后",
+        "魏家窝铺"
+      ],
+      "range": {
+        "from": -4500,
+        "to": -3000,
+        "dateLabel": "约公元前 4500—前 3000 年",
+        "approximate": true
+      },
+      "scope": "辽西与西辽河流域的考古文化，本条以牛河梁、红山后和魏家窝铺为例。",
+      "sources": [
+        {
+          "id": "hongshan-field-survey",
+          "title": "辽宁省文物考古研究所等：2014 年牛河梁系统性区域调查",
+          "url": "https://kg.lsxy.ruc.edu.cn/images/2020-05/ffe50380f5214289bb6d0aa5d1f08dbd.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hongshan-site-record",
+          "title": "红山文化遗址三处组成区资料",
+          "url": "https://whc.unesco.org/en/tentativelists/5804/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qujialing-culture",
+      "type": "civilization",
+      "name": "屈家岭文化",
+      "aliases": [
+        "屈家岭",
+        "熊家岭水坝",
+        "郑畈水坝"
+      ],
+      "range": {
+        "from": -3150,
+        "to": -2550,
+        "dateLabel": "约公元前 3150—前 2550 年",
+        "approximate": true
+      },
+      "scope": "江汉地区的考古文化，着重呈现荆门屈家岭遗址的营建、食物与水利遗存。",
+      "sources": [
+        {
+          "id": "qujialing-food",
+          "title": "屈家岭遗址新石器时代食用植物淀粉研究",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9623322/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qujialing-water",
+          "title": "湖北省文物考古研究院：屈家岭水利遗址发掘成果",
+          "url": "https://www.hbkgy.com/yjy_mtbd/p/9438.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shijiahe-excavations",
+          "title": "戴伟：石家河新石器时代遗址群",
+          "url": "https://archaeology.pku.edu.cn/info/1030/3480.htm",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "shijiahe-settlement-complex",
+      "type": "civilization",
+      "name": "石家河聚落群",
+      "aliases": [
+        "石家河",
+        "谭家岭",
+        "三房湾",
+        "肖家屋脊"
+      ],
+      "range": {
+        "from": -2850,
+        "to": -2050,
+        "dateLabel": "约公元前 2850—前 2050 年 · 城址及后续阶段选读",
+        "approximate": true
+      },
+      "scope": "湖北天门江汉平原北缘的遗址群，所列区间聚焦大城及后续手工业阶段。",
+      "sources": [
+        {
+          "id": "shijiahe-excavations",
+          "title": "戴伟：石家河新石器时代遗址群",
+          "url": "https://archaeology.pku.edu.cn/info/1030/3480.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shijiahe-town",
+          "title": "湖北省文物考古研究所：石家河遗址的聚落演变",
+          "url": "https://www.tianmen.gov.cn/zjtm/rwls/wwkg/202011/t20201118_3036241.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "jianghan-town-map",
+          "title": "单思伟等：从走马岭看长江中游史前城址",
+          "url": "https://doi.org/10.1016/j.ara.2021.100285",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "taiwan-neolithic-farming-sites",
+      "type": "region",
+      "name": "台湾早期新石器时代农作遗址",
+      "aliases": [
+        "大坌坑",
+        "南关里东",
+        "大龙峒",
+        "植物园遗址"
+      ],
+      "range": {
+        "from": -2850,
+        "to": -2250,
+        "dateLabel": "约公元前 2850—前 2250 年 · 早期农作遗址选读",
+        "approximate": true
+      },
+      "scope": "台湾不同地区的新石器时代遗址。所列区间用于比较早期稻粟栽培的考古证据。",
+      "sources": [
+        {
+          "id": "taiwan-crop-dating",
+          "title": "台湾新石器时代早期稻与粟的直接测年",
+          "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.962073/full",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "nanguanlidong-site",
+          "title": "南关里东及右先方遗址登记资料",
+          "url": "https://tcmb.culture.tw/zh-tw/detail?id=20091019000002&indexCode=BOCH_CountryCulture_21&latlon=23.11667%2C120.2811%2C1%2C29090",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "haidai-longshan-sites",
+      "type": "region",
+      "name": "海岱龙山聚落",
+      "aliases": [
+        "两城镇",
+        "尧王城",
+        "鲁东南龙山"
+      ],
+      "range": {
+        "from": -2600,
+        "to": -1900,
+        "dateLabel": "约公元前 2600—前 1900 年",
+        "approximate": true
+      },
+      "scope": "海岱地区中的鲁东南日照一带，按区域调查呈现两处中心和周边聚落。",
+      "sources": [
+        {
+          "id": "rizhao-settlement-survey",
+          "title": "Underhill 等：鲁东南系统考古调查与聚落格局变化",
+          "url": "https://doi.org/10.1016/j.jaa.2006.11.002",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yaowang-fieldwork",
+          "title": "山东日照尧王城遗址的发掘",
+          "url": "https://read01.com/3D73O.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "考古身份、分期口径与遗址区。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

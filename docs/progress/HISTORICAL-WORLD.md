@@ -30,6 +30,8 @@
 
 中国第二批补入陶寺和中原龙山城址、考古年代背景与观察入口，记录新增对象和两处书卷条目的修订。原存量审校分母沿用。[陶寺与中原龙山批次](historical-world/batches/03-china-taosi-and-longshan.json)
 
+中国第三批合并补入江汉、辽西、海岱、平潭与台湾的六章、六条考古年代背景及四个观察现场。[史前多区域批次](historical-world/batches/04-china-prehistoric-regions.json)
+
 ## 最小复现
 
 使用 `git archive 2d8233b data tools src package.json` 和 `git archive acb675d data tools src package.json` 分别解出两个基线。运行 `node tools/verify-historical-world.mjs <暂存稿目录> <原生接收稿目录>`。批次录入后加 `--write` 更新现行快照。运行 `node tools/verify-content.mjs` 检查内容引用，原生打包使用 `node native-ios/prepare-data.mjs` 编译离线数据。

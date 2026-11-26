@@ -409,5 +409,297 @@
       "scope": "城址对照时段、地理背景及遗迹用途。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-pingtan-coastal-lifeways": {
+    "title": "平潭史前聚落与海岸生活",
+    "date": "约公元前 5350—前 1550 年 · 平潭遗址选读",
+    "start": -5350,
+    "end": -1550,
+    "context": true,
+    "summary": "在西营、壳丘头和东花丘等遗址，沿贝壳堆、柱洞和陶器读出海岸聚落的生计与变化。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "展示区间从西营较早遗存延伸至东花丘所代表的新石器时代末段。各地点形成和使用的时间有别，所列年份是对照范围。",
+        "refs": [
+          {
+            "sourceId": "pingtan-fieldwork",
+            "locator": "遗址位置图，考古发掘收获一、二，图 2–8",
+            "note": "西营、壳丘头、东花丘及龟山的陶器分段与功能区，壳丘头、富国墩及大坌坑的器物比较"
+          },
+          {
+            "sourceId": "pingtan-reserve",
+            "locator": "附件第 1 行，苏平镇山显美、榕山、上攀与所在山脊",
+            "note": "平潭北部遗址区的现代方位参照"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "pingtan-fieldwork",
+        "title": "周振宇等：平潭壳丘头遗址群发掘成果",
+        "url": "https://www.fjdaily.com/app/content/2024-03/14/content_2407912.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "pingtan-reserve",
+        "title": "福建省人民政府：壳丘头遗址群保护范围",
+        "url": "https://www.fj.gov.cn/zwgk/zxwj/szfwj/202503/t20250331_6789454.htm",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-hongshan-ritual-and-households": {
+    "title": "辽西红山文化与牛河梁",
+    "date": "约公元前 4500—前 3000 年",
+    "start": -4500,
+    "end": -3000,
+    "context": true,
+    "summary": "由牛河梁的积石冢和泥塑，转向红山后与魏家窝铺的居住遗迹，理解不同遗址的用途。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这里采用区域调查对红山文化的约数。牛河梁礼仪与墓葬遗迹多见于较晚阶段，居址和各处设施另有自身分期。",
+        "refs": [
+          {
+            "sourceId": "hongshan-field-survey",
+            "locator": "《华夏考古》2015 年第 3 期，第 4–7 页、图 2",
+            "note": "红山分期约数，地表陶片采集方法及各遗迹地点周边的分布"
+          },
+          {
+            "sourceId": "hongshan-site-record",
+            "locator": "Description 与 I–III，遗址位置、牛河梁建筑、红山后及魏家窝铺房址",
+            "note": "牛河梁较晚的祭祀和墓葬设施、魏家窝铺和红山后的居址以及三处概略坐标"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "hongshan-field-survey",
+        "title": "辽宁省文物考古研究所等：2014 年牛河梁系统性区域调查",
+        "url": "https://kg.lsxy.ruc.edu.cn/images/2020-05/ffe50380f5214289bb6d0aa5d1f08dbd.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "hongshan-site-record",
+        "title": "红山文化遗址三处组成区资料",
+        "url": "https://whc.unesco.org/en/tentativelists/5804/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qujialing-water-and-food": {
+    "title": "屈家岭聚落与早期水利",
+    "date": "约公元前 3150—前 2550 年",
+    "start": -3150,
+    "end": -2550,
+    "context": true,
+    "summary": "从熊家岭早晚两期坝体和郑畈的地形入手，再回到江汉平原的植物遗存与日常食物。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "显示屈家岭文化的约略时段。早期坝与油子岭晚期到屈家岭早期之间的地层相联系，工程阶段各有自己的时间范围。",
+        "refs": [
+          {
+            "sourceId": "qujialing-food",
+            "locator": "Study site、图 1–2、Results 与 Discussion",
+            "note": "屈家岭遗址经油子岭、屈家岭至石家河等地层，遗址位置，器具残留显示多种植物利用"
+          },
+          {
+            "sourceId": "qujialing-water",
+            "locator": "‘发现多组水利系统’段、熊家岭与郑畈示意图及剖面",
+            "note": "熊家岭早晚坝、蓄水区、溢洪道，郑畈与熊家岭早期坝的比较"
+          },
+          {
+            "sourceId": "shijiahe-excavations",
+            "locator": "石家河新石器时代遗址群一节，地理、区域调查、分期和各地点发掘",
+            "note": "油子岭晚期谭家岭城、石家河城壕、多地点功能和肖家屋脊阶段的遗存"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qujialing-food",
+        "title": "屈家岭遗址新石器时代食用植物淀粉研究",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9623322/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qujialing-water",
+        "title": "湖北省文物考古研究院：屈家岭水利遗址发掘成果",
+        "url": "https://www.hbkgy.com/yjy_mtbd/p/9438.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shijiahe-excavations",
+        "title": "戴伟：石家河新石器时代遗址群",
+        "url": "https://archaeology.pku.edu.cn/info/1030/3480.htm",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-shijiahe-town-and-workshops": {
+    "title": "石家河城址与手工业",
+    "date": "约公元前 2850—前 2050 年 · 城址及后续阶段选读",
+    "start": -2850,
+    "end": -2050,
+    "context": true,
+    "summary": "从谭家岭早城、石家河大城到三房湾窑场与后期瓮棺，观察城址变化中持续的生产活动。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "区间覆盖石家河大城发展及后续肖家屋脊阶段的选读范围。谭家岭较早的城址还可上溯到油子岭晚期。",
+        "refs": [
+          {
+            "sourceId": "shijiahe-excavations",
+            "locator": "石家河新石器时代遗址群一节，地理、区域调查、分期和各地点发掘",
+            "note": "油子岭晚期谭家岭城、石家河城壕、多地点功能和肖家屋脊阶段的遗存"
+          },
+          {
+            "sourceId": "shijiahe-town",
+            "locator": "谭家岭、三房湾及肖家屋脊阶段各段",
+            "note": "较早谭家岭城、后来较大石家河城、制陶窑场、后段瓮棺及玉料加工线索"
+          },
+          {
+            "sourceId": "jianghan-town-map",
+            "locator": "表 1 中 Shijiahe 行",
+            "note": "江汉地区围壕城址的分布和石家河古城的经纬参照"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shijiahe-excavations",
+        "title": "戴伟：石家河新石器时代遗址群",
+        "url": "https://archaeology.pku.edu.cn/info/1030/3480.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shijiahe-town",
+        "title": "湖北省文物考古研究所：石家河遗址的聚落演变",
+        "url": "https://www.tianmen.gov.cn/zjtm/rwls/wwkg/202011/t20201118_3036241.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "jianghan-town-map",
+        "title": "单思伟等：从走马岭看长江中游史前城址",
+        "url": "https://doi.org/10.1016/j.ara.2021.100285",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-taiwan-neolithic-farming": {
+    "title": "台湾早期稻粟种植",
+    "date": "约公元前 2850—前 2250 年 · 早期农作遗址选读",
+    "start": -2850,
+    "end": -2250,
+    "context": true,
+    "summary": "在大坌坑、南关里东与台北的测年研究之间，追踪陶器、觅食和稻粟栽培的证据。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "所列时段是已引测年研究的农作与聚落对照窗。不同地点和样品的年代范围不同，种植出现的早限仍会随材料更新。",
+        "refs": [
+          {
+            "sourceId": "taiwan-crop-dating",
+            "locator": "Results、Chronology、The Important Role of Millets、图 3 与图 10",
+            "note": "植物园、大龙峒直接测年，安和年代估计，南关里东与北部遗址的作物种类比较"
+          },
+          {
+            "sourceId": "nanguanlidong-site",
+            "locator": "南关里东遗址位置、指定理由和地图参照",
+            "note": "南关里东在台南平原的遗址参照位置与考古价值"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "taiwan-crop-dating",
+        "title": "台湾新石器时代早期稻与粟的直接测年",
+        "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.962073/full",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "nanguanlidong-site",
+        "title": "南关里东及右先方遗址登记资料",
+        "url": "https://tcmb.culture.tw/zh-tw/detail?id=20091019000002&indexCode=BOCH_CountryCulture_21&latlon=23.11667%2C120.2811%2C1%2C29090",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-haidai-longshan-centres": {
+    "title": "海岱龙山聚落与手工业",
+    "date": "约公元前 2600—前 1900 年",
+    "start": -2600,
+    "end": -1900,
+    "context": true,
+    "summary": "从日照地区的系统调查辨认两城镇、尧王城与周围聚落，再看石器怎样在遗址里留下生产痕迹。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "约前 2600—前 1900 年为鲁东南调查采用的龙山分期。早、中、晚期可识别的地表材料并不均匀。",
+        "refs": [
+          {
+            "sourceId": "rizhao-settlement-survey",
+            "locator": "Longshan period、图 3–4、表 2–4",
+            "note": "日照调查的龙山年代约数，两城镇、尧王城两处主要中心及按遗址面积划分的等级"
+          },
+          {
+            "sourceId": "yaowang-fieldwork",
+            "locator": "一、工作概况；二、主要收获，第 1 节城墙及环壕",
+            "note": "尧王城遗址的参考坐标，内城北部的墙基和壕沟发掘"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "rizhao-settlement-survey",
+        "title": "Underhill 等：鲁东南系统考古调查与聚落格局变化",
+        "url": "https://doi.org/10.1016/j.jaa.2006.11.002",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yaowang-fieldwork",
+        "title": "山东日照尧王城遗址的发掘",
+        "url": "https://read01.com/3D73O.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "区间解释、区域参照及正文入口。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }
