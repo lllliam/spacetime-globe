@@ -163,7 +163,7 @@ private func smoothstep(_ from: Double, _ to: Double, _ value: Double) -> Double
 }
 
 enum GlobeIdleMotion {
-    static let delay = 6.5
+    static let delay = 1.0
     static let speedRange = 0.5...2.0
     static let defaultSpeed = 1.0
 

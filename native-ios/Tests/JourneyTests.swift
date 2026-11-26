@@ -19,7 +19,7 @@ final class JourneyTests: XCTestCase {
         app.buttons["复位视角"].tap()
         RunLoop.current.run(until:Date().addingTimeInterval(1))
         let reset = globePixels(app)
-        RunLoop.current.run(until:Date().addingTimeInterval(9))
+        RunLoop.current.run(until:Date().addingTimeInterval(3))
         let idle = globePixels(app)
         XCTAssertEqual(reset.count,idle.count)
         let difference = zip(reset,idle).reduce(0.0) { $0 + abs(Double($1.0)-Double($1.1)) }
