@@ -18,7 +18,7 @@ fragment float4 globeFragment(float4 position [[position]],
                               texture2d<float> clouds [[texture(2)]],
                               texture2d<float> terrain [[texture(3)]]) {
     constexpr sampler globeSampler(coord::normalized, s_address::repeat, t_address::clamp_to_edge, filter::linear);
-    const float3 background(0.044, 0.063, 0.085);
+    const float3 background(0.0392, 0.0627, 0.0863);
     float2 xy = (position.xy - camera.centerRadiusZoom.xy) / camera.centerRadiusZoom.z;
     xy.y = -xy.y;
     const float d = length(xy);
@@ -38,7 +38,7 @@ fragment float4 globeFragment(float4 position [[position]],
     const float zoom = camera.centerRadiusZoom.w;
     color *= 1.0 + dot(gradients, float2(-0.30, 0.28)) * relief.b * smoothstep(1.25, 2.8, zoom);
     const float4 cloud = clouds.sample(globeSampler, uv);
-    color = mix(color, float3(0.70, 0.77, 0.80), cloud.a * cloud.r * (0.38 - 0.30 * smoothstep(1, 2, zoom)));
+    color = mix(color, float3(0.70, 0.77, 0.80), cloud.a * cloud.r * (0.26 - 0.22 * smoothstep(1, 2, zoom)));
     color *= 0.73 + 0.29 * clamp(dot(float3(xy, z), float3(-0.30, 0.37, 0.88)), 0.0, 1.0);
     color += float3(0.12, 0.20, 0.27) * pow(1.0 - z, 4.0);
     const float4 border = overlay.sample(globeSampler, uv);

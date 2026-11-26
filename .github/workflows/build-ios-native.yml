@@ -32,7 +32,7 @@ jobs:
           python3 native-ios/prepare-project.py
       - name: Test native data decoding and map selection
         run: |
-          swiftc -O native-ios/Sources/HistoryData.swift native-ios/Sources/Atlas.swift native-ios/Smoke.swift -o "$RUNNER_TEMP/native-smoke"
+          swiftc native-ios/Sources/{HistoryData,Atlas,GlobeCamera,Search,Session}.swift native-ios/Smoke.swift -o "$RUNNER_TEMP/native-smoke"
           "$RUNNER_TEMP/native-smoke" native-ios/OfflineData
       - name: Build for physical iPhones
         run: |
@@ -50,7 +50,7 @@ jobs:
           [ "$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")" = io.github.lllliam.spacetimeglobe.native ]
           [ "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$app/Info.plist")" = 16.0 ]
           "$RUNNER_TEMP/native-smoke" native-ios/OfflineData "$app"
-          for file in native-ios/OfflineData/*; do cmp "$file" "$app/OfflineData/$(basename "$file")"; done
+          diff -qr native-ios/OfflineData "$app/OfflineData"
           ! find "$app" -iname '*.html' -print -quit | grep .
           ! xcrun otool -L "$app/SpacetimeGlobe" | grep WebKit.framework
           mkdir -p "$RUNNER_TEMP/native-package/Payload" native-ios/dist

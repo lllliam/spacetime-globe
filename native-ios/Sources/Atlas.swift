@@ -6,25 +6,37 @@ struct RegionShape {
     let path: CGPath
     let bounds: CGRect
     let center: CGPoint
+    let rings: [[CGPoint]]
+    let anchors: [CGPoint]
 
     var area: CGFloat { bounds.width * bounds.height }
 
     init?(region: MapRegion, rings: [[CGPoint]]) {
         let path = CGMutablePath()
-        var largest = CGRect.zero
+        var frames: [CGRect] = []
         for points in rings where points.count >= 3 {
             let ring = CGMutablePath()
             ring.addLines(between: points)
             ring.closeSubpath()
             path.addPath(ring)
             let frame = ring.boundingBox
-            if frame.width * frame.height > largest.width * largest.height { largest = frame }
+            frames.append(frame)
         }
         guard !path.isEmpty else { return nil }
         self.region = region
         self.path = path
+        self.rings = rings
         bounds = path.boundingBox
-        center = CGPoint(x: largest.midX, y: largest.midY)
+        let ordered = frames.sorted { $0.width * $0.height > $1.width * $1.height }
+        var labels: [CGPoint] = []
+        for frame in ordered.prefix(4) {
+            for pair in [(0.5,0.5),(0.35,0.5),(0.65,0.5),(0.5,0.35),(0.5,0.65),(0.35,0.35),(0.65,0.65)] {
+                let point = CGPoint(x:frame.minX + frame.width * pair.0, y:frame.minY + frame.height * pair.1)
+                if path.contains(point, using:.evenOdd) { labels.append(point) }
+            }
+        }
+        anchors = labels
+        center = labels.first ?? CGPoint(x:path.boundingBox.midX, y:path.boundingBox.midY)
     }
 }
 
@@ -33,9 +45,14 @@ struct PaintedAtlas {
     let image: CGImage
 
     func pick(at point: CGPoint) -> MapRegion? {
-        shapes.reversed().first {
+        picks(at: point).first
+    }
+
+    func picks(at point: CGPoint) -> [MapRegion] {
+        var seen = Set<String>()
+        return shapes.reversed().filter {
             $0.bounds.contains(point) && $0.path.contains(point, using: .evenOdd)
-        }?.region
+        }.map(\.region).filter { seen.insert($0.id).inserted }
     }
 }
 
@@ -55,8 +72,25 @@ struct GlobeAtlas {
     private let offsets: [Int]
     private let countries: [RegionShape]
 
-    init(index: AtlasIndex, polygons: Data) throws {
+    init(index: AtlasIndex, polygons: Data?) throws {
         self.index = index
+        countries = index.countries.compactMap { country in
+            let key = "country:" + country.id
+            let subject = index.subjects[key]
+            let region = MapRegion(id:key, name:country.name, subjectId:subject?.id, dates:"现代参考边界",
+                                   coverage:nil, summary:subject?.summary, note:subject?.scope, historical:false)
+            let rings = country.rings.map { ring in
+                ring.compactMap { $0.count == 2 ? CGPoint(x:$0[0], y:$0[1]) : nil }
+            }
+            return RegionShape(region:region, rings:rings)
+        }.sorted { $0.area > $1.area }
+        guard let polygons else {
+            data = Data()
+            entities = []
+            slices = []
+            offsets = []
+            return
+        }
         data = polygons
         var reader = BinaryCursor(data: polygons, offset: 0, end: polygons.count)
         guard try reader.string(length: 4) == "SGP1" else { throw FormatError.invalidAtlas }
@@ -77,10 +111,10 @@ struct GlobeAtlas {
                 continue
             }
             let key = "polity:" + name, subject = index.subjects[key]
-            let dates = subject?.dateLabel ?? subject?.from.map { yearRange($0, subject?.to) }
-                ?? "底图记录 " + yearRange(start,end)
-            list.append(MapRegion(id:key, name:subject?.name ?? index.names[name] ?? name,
-                                  dates:dates, note:subject?.scope, historical:true))
+            let dates = subject?.dateLabel ?? subject?.from.map { yearRange($0, subject?.to) } ?? "实际存续年代待核"
+            list.append(MapRegion(id:key, name:subject?.name ?? index.names[name] ?? name, subjectId:subject?.id,
+                                  dates:dates, coverage:yearRange(start,end), summary:subject?.summary,
+                                  note:subject?.scope, historical:true))
         }
         entities = list
         reader = BinaryCursor(data: polygons, offset: sliceStart, end: pathIndex)
@@ -96,25 +130,25 @@ struct GlobeAtlas {
             throw FormatError.invalidAtlas
         }
         offsets = positions
-        countries = index.countries.compactMap { country in
-            let key = "country:" + country.id
-            let region = MapRegion(id:key, name:country.name, dates:"现代参考边界", note:index.subjects[key]?.scope, historical:false)
-            let rings = country.rings.map { ring in
-                ring.compactMap { $0.count == 2 ? CGPoint(x:$0[0], y:$0[1]) : nil }
-            }
-            return RegionShape(region:region, rings:rings)
-        }.sorted { $0.area > $1.area }
+    }
+
+    var hasHistory: Bool { !slices.isEmpty }
+
+    func year(for id: String, near year: Int) -> Int? {
+        guard let entry = entities.firstIndex(where: { $0?.id == id }) else { return nil }
+        return slices.filter { $0.entity == entry }.map {
+            year.clamped(to: $0.from...$0.to)
+        }.filter(Chronology.accepts).min { abs($0 - year) < abs($1 - year) }
     }
 
     func shapes(layer: GlobeLayer, year: Int) throws -> [RegionShape] {
-        switch layer {
+        switch index.displayLayer(layer, year:year) {
         case .terrain: return []
         case .countries: return countries
         case .timeline:
-            if year > index.coverage.to { return countries }
-            if year < index.coverage.from { return [] }
             return try slices.compactMap { slice -> RegionShape? in
                 guard slice.from <= year, year <= slice.to, let region = entities[slice.entity] else { return nil }
+                try Task.checkCancellation()
                 return try RegionShape(region:region, rings:path(slice.path))
             }.sorted { $0.area > $1.area }
         }
@@ -138,9 +172,9 @@ struct GlobeAtlas {
         }
     }
 
-    func paint(layer: GlobeLayer, year: Int, selected: String? = nil) throws -> PaintedAtlas {
+    func paint(layer: GlobeLayer, year: Int, highResolution: Bool = false) throws -> PaintedAtlas {
         let shapes = try shapes(layer:layer, year:year)
-        let width = 3072, height = 1536
+        let width = shapes.isEmpty ? 2 : (highResolution ? 4096 : 2560), height = width / 2
         guard let image = CGContext(data:nil, width:width, height:height, bitsPerComponent:8,
                                     bytesPerRow:width*4, space:CGColorSpaceCreateDeviceRGB(),
                                     bitmapInfo:CGImageAlphaInfo.premultipliedLast.rawValue) else {
@@ -150,16 +184,55 @@ struct GlobeAtlas {
         image.scaleBy(x:CGFloat(width)/1000, y:-CGFloat(height)/500)
         image.setLineJoin(.round)
         for shape in shapes {
+            try Task.checkCancellation()
             image.addPath(shape.path)
-            let chosen = shape.region.id == selected
-            image.setFillColor(red:0.56, green:0.47, blue:0.26,
-                               alpha:chosen ? 0.27 : shape.region.historical ? 0.12 : 0.02)
-            image.setStrokeColor(red:0.88,green:0.77,blue:0.56,alpha:chosen ? 1 : 0.58)
-            image.setLineWidth(chosen ? 0.85 : 0.37)
+            image.setFillColor(red:0.56, green:0.47, blue:0.26, alpha:shape.region.historical ? 0.11 : 0.02)
+            image.setStrokeColor(red:0.88,green:0.77,blue:0.56,alpha:0.70)
+            image.setLineWidth(0.31)
             image.drawPath(using:.eoFillStroke)
         }
         guard let result = image.makeImage() else { throw FormatError.invalidAtlas }
         return PaintedAtlas(shapes:shapes, image:result)
+    }
+}
+
+struct AtlasKey: Hashable {
+    let layer: GlobeLayer
+    let year: Int
+    var detail = false
+
+    var geometryYear: Int { layer == .timeline ? year : 0 }
+}
+
+actor MapCache {
+    private struct CacheKey: Equatable {
+        let layer: GlobeLayer
+        let year: Int
+        let detail: Bool
+    }
+    let atlas: GlobeAtlas
+    private var recent: [(CacheKey, PaintedAtlas)] = []
+
+    init(_ atlas: GlobeAtlas) { self.atlas = atlas }
+
+    func load(_ request: AtlasKey) throws -> PaintedAtlas {
+        try Task.checkCancellation()
+        let layer = atlas.index.displayLayer(request.layer, year:request.year)
+        let key = CacheKey(layer:layer, year:layer == .timeline ? request.year : 0, detail:request.detail)
+        if let index = recent.firstIndex(where: { $0.0 == key }) {
+            let hit = recent.remove(at:index)
+            recent.append(hit)
+            return hit.1
+        }
+        let result = try atlas.paint(layer:layer, year:request.year, highResolution:request.detail)
+        try Task.checkCancellation()
+        recent.append((key,result))
+        var bytes = recent.reduce(0) { $0 + $1.1.image.bytesPerRow * $1.1.image.height }
+        while bytes > 56 * 1024 * 1024 && recent.count > 1 {
+            let oldest = recent.removeFirst().1.image
+            bytes -= oldest.bytesPerRow * oldest.height
+        }
+        return result
     }
 }
 
