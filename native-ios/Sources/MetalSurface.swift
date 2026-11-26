@@ -267,6 +267,14 @@ final class GlobeSurface: UIView, MTKViewDelegate {
 
     required init?(coder: NSCoder) { nil }
 
+    override var accessibilityFrame: CGRect {
+        get {
+            guard let viewport = configuration?.viewport, window != nil else { return super.accessibilityFrame }
+            return UIAccessibility.convertToScreenCoordinates(viewport.aperture(in:bounds.size),in:self)
+        }
+        set { super.accessibilityFrame = newValue }
+    }
+
     func configure(_ value: Configuration) {
         let previous = configuration
         configuration = value
