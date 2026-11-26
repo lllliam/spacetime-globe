@@ -24,7 +24,7 @@ struct HistoryTimeline: UIViewRepresentable {
 /// The date at the cursor lives in chronological index space. Scale controls only its projection.
 @MainActor
 final class TimelineControl: UIView {
-    private enum Gesture { case waiting, drag, pinch, ignored }
+    private enum Gesture { case waiting, drag, pinch, resumeDrag, ignored }
     private struct Zoom {
         let distance: CGFloat
         let step: Double
@@ -244,7 +244,11 @@ final class TimelineControl: UIView {
             step = TimelineScale.zoomedStep(zoom.step,by:Double(distance/zoom.distance))
             setNeedsDisplay()
         } else if contacts.count == 1, let before, let id = order.first, let after = contacts[id] {
-            if mode == .waiting && hypot(after.x-touchOrigin.x,after.y-touchOrigin.y) > 6 {
+            if mode == .resumeDrag {
+                guard hypot(after.x-touchOrigin.x,after.y-touchOrigin.y) > 6 else { return }
+                mode = .drag
+                return
+            } else if mode == .waiting && hypot(after.x-touchOrigin.x,after.y-touchOrigin.y) > 6 {
                 hold?.cancel()
                 hold = nil
                 mode = .drag
@@ -276,7 +280,8 @@ final class TimelineControl: UIView {
         }
         if contacts.count == 1 && mode == .pinch {
             finishPinch()
-            mode = .drag
+            mode = .resumeDrag
+            touchOrigin = order.first.flatMap { contacts[$0] } ?? .zero
             velocity = 0
             sampleTime = event?.timestamp ?? CACurrentMediaTime()
             return
@@ -297,7 +302,7 @@ final class TimelineControl: UIView {
             commit(position.year)
         case .pinch:
             finishPinch()
-        case .ignored:
+        case .resumeDrag, .ignored:
             break
         }
         if step != Double(selectedScale.rawValue) && snap == nil { animateScale(to:selectedScale) }
@@ -468,28 +473,28 @@ final class TimelineControl: UIView {
 
     private func drawEvents(in ctx: CGContext) {
         guard let indices = input?.eventIndices else { return }
+        // Bin in chronological space so clusters pan naturally with the scale.
+        let yearsPerBin = max(1,ceil(13/pointsPerYear))
         var total = 0
-        var start: CGFloat = 0
-        var sum: CGFloat = 0
+        var center: Double?
         func dot() {
-            guard total > 0 else { return }
-            let cx = sum/CGFloat(total)
+            guard let center, total > 0 else { return }
+            let cx = x(center)
             let radius: CGFloat = total == 1 ? 1.65 : (total < 6 ? 2.25 : 3)
             ctx.fillEllipse(in:CGRect(x:cx-radius,y:8-radius,width:2*radius,height:2*radius))
         }
         ctx.setFillColor(UIColor(red:0.86,green:0.73,blue:0.49,alpha:0.9).cgColor)
         for index in indices {
-            let point = x(Double(index))
+            let bin = (Double(index)/yearsPerBin).rounded()*yearsPerBin
+            let point = x(bin)
             if point < -6 { continue }
             if point > bounds.width+6 { break }
-            if total > 0 && point-start >= 13 {
+            if center != bin {
                 dot()
                 total = 0
-                sum = 0
+                center = bin
             }
-            if total == 0 { start = point }
             total += 1
-            sum += point
         }
         dot()
     }
