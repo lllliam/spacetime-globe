@@ -2226,6 +2226,322 @@
         "scope": "核对遗址区参照、阅读年代和证据范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "qin-xianyang-palace-site",
+      "type": "region",
+      "name": "渭河北岸秦咸阳城遗址区",
+      "aliases": [
+        "秦都咸阳",
+        "秦咸阳城",
+        "秦咸阳宫"
+      ],
+      "range": {
+        "from": -221,
+        "to": -207,
+        "dateLabel": "约公元前 221—前 207 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "发掘与勘探提供都邑区域参照，秦都范围及渭南工程分别查证。",
+      "sources": [
+        {
+          "id": "qin-xianyang-palace-area",
+          "title": "西咸新区《秦咸阳城咸阳宫国家考古遗址公园》",
+          "url": "https://www.xixianxinqu.gov.cn/zwgk/fdzdgknr/qtgk/1934439246065164290.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qin-chronology",
+          "title": "《史记》卷六《秦始皇本纪》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-liye-qianling-site",
+      "type": "region",
+      "name": "洞庭郡迁陵县的里耶遗址区",
+      "aliases": [
+        "里耶",
+        "迁陵县",
+        "里耶秦简",
+        "一号井"
+      ],
+      "range": {
+        "from": -222,
+        "to": -208,
+        "dateLabel": "约公元前 222—前 208 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以一号井、北城壕文书的出土地为参照。所见纪年自秦帝国建立前一年起，洞庭郡范围另行考证。",
+      "sources": [
+        {
+          "id": "liye-qin-archive",
+          "title": "国家档案局《里耶秦简申报书》",
+          "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/2ff404ba00dc424ba385e7e754fa890d.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liye-dongting-and-counties",
+          "title": "王朔《以里耶简深化南楚地区秦制化进程研究》",
+          "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202301/t20230105_5578129.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liye-dongting-geography",
+          "title": "游逸飞《里耶秦简所见的洞庭郡》",
+          "url": "https://www.cuhk.edu.hk/ics/journal/articles/v61p029.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-yunmeng-shuihudi-zhengjiahu",
+      "type": "region",
+      "name": "云梦睡虎地与郑家湖墓区",
+      "aliases": [
+        "睡虎地",
+        "云梦秦简",
+        "郑家湖",
+        "楚王城"
+      ],
+      "range": {
+        "from": -221,
+        "to": -215,
+        "dateLabel": "约公元前 221—前 215 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "对照云梦两个区域的墓葬和材料，睡虎地有早于帝国成立的南郡文书。",
+      "sources": [
+        {
+          "id": "shuihudi-nlc-manuscripts",
+          "title": "国家图书馆《第一批国家珍贵古籍名录》",
+          "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-nan-commandery-letter",
+          "title": "董家宁《“南郡守腾文书”所见秦法与秦政》",
+          "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202205/t20220509_5407301.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yunmeng-zhengjiahu-report",
+          "title": "湖北省文化和旅游厅《专家解读：湖北云梦郑家湖墓地》",
+          "url": "https://wlt.hubei.gov.cn/bmdt/xydt/202203/t20220318_4047667.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-ziwuling-road-survey-area",
+      "type": "region",
+      "name": "子午岭秦直道调查区域",
+      "aliases": [
+        "秦直道",
+        "子午岭",
+        "富县",
+        "甘泉"
+      ],
+      "range": {
+        "from": -215,
+        "to": -210,
+        "dateLabel": "约公元前 215—前 210 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以考古人员曾踏查的秦直道地段为阅读参照，已知路段和传世全线不同。",
+      "sources": [
+        {
+          "id": "qin-straight-road-fieldwork",
+          "title": "秦直道发掘者肖健一的富县、甘泉调查资料",
+          "url": "https://www.xinhuanet.com/politics/2015-10/14/c_1116823112.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-ganquan-road-research",
+          "title": "陕西师范大学档案馆《史念海教授对秦直道研究的贡献》",
+          "url": "https://archives.snnu.edu.cn/info/2294/14665.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-meng-tian",
+          "title": "《史记·蒙恬列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷088",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-lingqu-xingan-water-divide",
+      "type": "region",
+      "name": "兴安灵渠与湘漓交界区域",
+      "aliases": [
+        "灵渠",
+        "兴安",
+        "湘江",
+        "漓江"
+      ],
+      "range": {
+        "from": -214,
+        "to": -210,
+        "dateLabel": "约公元前 214—前 210 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以两水系分水附近的现存遗产定位，古渠施工时段和后世设施应各自分期。",
+      "sources": [
+        {
+          "id": "lingqu-water-divide",
+          "title": "生态环境部《广西壮族自治区桂林市灵渠》",
+          "url": "https://www.mee.gov.cn/home/ztbd/2023/mlhh2/yxal3/gx/202510/t20251011_1129181.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qin-chronology",
+          "title": "《史记》卷六《秦始皇本纪》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-late-julu-pingxiang-area",
+      "type": "region",
+      "name": "冀南古巨鹿参照区",
+      "aliases": [
+        "古巨鹿",
+        "平乡",
+        "钜鹿",
+        "巨鹿之战"
+      ],
+      "range": {
+        "from": -208,
+        "to": -207,
+        "dateLabel": "约公元前 208—前 207 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以冀南平乡一带作古地名参照，秦末的交战点及现代同名地区另查。",
+      "sources": [
+        {
+          "id": "julu-qin-han-geography",
+          "title": "《河北通志稿》卷四古县考",
+          "url": "https://www.shidianguji.com/book/LG2HBTZG/chapter/1ly0ku3jiq32z",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiang-yu",
+          "title": "《史记·项羽本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷007",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qin-chu-months",
+          "title": "《史记·秦楚之际月表》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷016",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-han-pengcheng-area",
+      "type": "region",
+      "name": "今徐州老城的彭城区域",
+      "aliases": [
+        "彭城",
+        "徐州老城",
+        "西楚都城"
+      ],
+      "range": {
+        "from": -206,
+        "to": -202,
+        "dateLabel": "约公元前 206—前 202 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "用叠压多期城市的徐州老城区参照彭城，战场年代与遗址各层另查。",
+      "sources": [
+        {
+          "id": "pengcheng-xuzhou-excavation",
+          "title": "徐州博物馆《徐州文庙街区地下城遗址考古发掘与收获》",
+          "url": "https://www.hunantoday.cn/news/xhn/202211/15023569.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiang-yu",
+          "title": "《史记·项羽本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷007",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-han-guangwu-area",
+      "type": "region",
+      "name": "荥阳广武河岸台地区",
+      "aliases": [
+        "荥阳",
+        "广武",
+        "汉霸二王城",
+        "楚汉广武"
+      ],
+      "range": {
+        "from": -205,
+        "to": -203,
+        "dateLabel": "约公元前 205—前 203 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以广武台地与城址区域读楚汉交战背景，营寨和各段城墙的具体年代尚须考证。",
+      "sources": [
+        {
+          "id": "guangwu-xingyang-sites",
+          "title": "郑州市文物局《汉霸二王城》",
+          "url": "https://wwj.zhengzhou.gov.cn/country/3176145.jhtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiang-yu",
+          "title": "《史记·项羽本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷007",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对区域参照及文献、考古的时间和空间范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

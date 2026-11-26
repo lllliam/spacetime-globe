@@ -3,7 +3,7 @@
   "title": "汉朝",
   "from": -206,
   "to": 220,
-  "summary": "刘邦凭关中粮道击败项羽，接过秦朝郡县骨架却改用休养生息的弹性治理，让大一统第一次真正扎下根来。此后四百年，两汉从长安一路向西凿穿河西走廊、对接中亚丝路，又在王莽改制与东汉洛阳中兴的起伏里，定型了儒法合流的官僚体制与延续两千年的“汉人”文化底座。",
+  "summary": "刘邦在楚汉战争后称帝，汉初郡县与诸侯王国并存，治理方式随后不断调整。此后四百年，两汉从长安一路向西凿穿河西走廊、对接中亚丝路，又在王莽改制与东汉洛阳中兴的起伏里，定型了儒法合流的官僚体制与延续两千年的“汉人”文化底座。",
   "sources": [
     {
       "title": "大都会艺术博物馆：汉朝",
@@ -79,35 +79,379 @@
       "id": "hanshu-wang-mang-food-shortage",
       "title": "《汉书》卷二十四上《食货志》",
       "url": "https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7024%E4%B8%8A"
+    },
+    {
+      "id": "shiji-gaozu-early",
+      "title": "《史记·高祖本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷008",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-xiang-yu",
+      "title": "《史记·项羽本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷007",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-qin-chu-months",
+      "title": "《史记·秦楚之际月表》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷016",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-xiao-he-records",
+      "title": "《史记·萧相国世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷053",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pengcheng-xuzhou-excavation",
+      "title": "徐州博物馆《徐州文庙街区地下城遗址考古发掘与收获》",
+      "url": "https://www.hunantoday.cn/news/xhn/202211/15023569.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "guangwu-xingyang-sites",
+      "title": "郑州市文物局《汉霸二王城》",
+      "url": "https://wwj.zhengzhou.gov.cn/country/3176145.jhtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-nanyue-qin",
+      "title": "《史记·南越列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷113",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-nanyue-panyu-archaeology",
+      "title": "南越王博物院《南越国宫署遗址》",
+      "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+      "checkedAt": "2026-11-26"
     }
   ],
   "chapters": [
+    {
+      "id": "post-qin-enfeoffment-and-hanzhong",
+      "from": -206,
+      "to": -205,
+      "dateLabel": "公元前 206—前 205 年 · 秦亡后的分封与再战",
+      "title": "分封以后，汉王如何从汉中回到关中",
+      "summary": "读项羽的分封、汉王的驻地、三秦以及其他地区对新安排的反应。",
+      "spatialThesis": "汉中南郑、关中与彭城分属不同地理区。分封名号提供政治结构，各地实际范围依材料判断。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "秦廷终结后出现许多新的王国",
+          "text": "《项羽本纪》记项羽在前 206 年重新安排诸王，自号西楚霸王，居彭城。刘邦封汉王，王巴、蜀、汉中，都南郑。原秦将章邯、司马欣、董翳分别受封。分封名录是对政治安排的记载，不能等同逐地上任。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "关中并没有因此稳定",
+          "text": "《高祖本纪》记刘邦回军从故道一线出，袭雍王章邯，由此在关中取得新的控制；《项羽本纪》则从楚的处境说明汉军东进。后世熟悉的栈道故事不能替代书中可核的地名和事件，具体路线另待证据。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "齐地和赵地也有自己的争夺",
+          "text": "《项羽本纪》记田荣抗拒在齐地的分封和陈余在赵地争夺，迫使楚重新分配应对。刘邦取得关中也发生在这个环境里。前 206 年以后的态势由几条地方变化交织，不能只按楚汉两位首领来划分。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "帐册、粮食和人员怎样成为后方资源",
+          "text": "《萧相国世家》将接收秦图书和留守关中接写，记萧何办理供给、人事和输送兵员。粮从哪里来、由谁调运，各段材料不等量齐全。它可以用来追问政权更替中哪些地方管理被接续、哪些已经调整。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "入咸阳收取律令图书、楚汉战争留守关中",
+              "note": "本篇写萧何接收秦档并在战争时期掌后方行政"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "continue-to-chu-han-war",
+          "book": "han",
+          "chapter": "chu-han-war-and-imperial-accession",
+          "label": "接读 · 彭城至汉王称帝",
+          "display": "把分封松动后的楚汉交战和地方政权放回年表。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chu-han-war-and-imperial-accession",
+      "from": -205,
+      "to": -202,
+      "dateLabel": "公元前 205—前 202 年 · 由彭城战局至汉王称帝",
+      "title": "彭城、荥阳、垓下与汉朝建立",
+      "summary": "沿战局转折读各个地区的政治与军事关系，区分击败项羽、刘邦即位及其后迁都。",
+      "spatialThesis": "彭城与荥阳、成皋分属不同地区。垓下、乌江、定陶附近的即位地点和后来的都城，也要各按本身证据定位。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "彭城之败以后为什么还有战争",
+          "text": "前 205 年刘邦率军进入彭城，项羽还击，汉军大败。秦楚月表和两篇本纪把这场交战放在汉二年。其后双方陆续在荥阳、成皋相持，关中供给、其他诸侯和地方力量仍影响战局。今徐州老城的彭城区域存不同年代的城市材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "入咸阳收取律令图书、楚汉战争留守关中",
+              "note": "本篇写萧何接收秦档并在战争时期掌后方行政"
+            },
+            {
+              "sourceId": "pengcheng-xuzhou-excavation",
+              "locator": "徐州老城层位和秦汉相关遗存",
+              "note": "现代徐州老城为多期城市叠压，可作彭城区域参照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "荥阳、成皋和其它地区相互牵动",
+          "text": "两篇本纪从不同视角记荥阳、成皋一带的失守和争夺。北面赵、齐等地的活动也改变结盟和用兵。传世著名的鸿沟议和发生在后期，短暂安排与之后继续交战分开书写。荥阳广武一带可观察黄河岸边台地和城址，不能直接还原当年两军布置。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "guangwu-xingyang-sites",
+              "locator": "荥阳广武镇两城址、黄河和沟壑",
+              "note": "广武可观察黄河沿岸台地及城址区域"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "垓下败局和项羽之死是前后两件事",
+          "text": "《项羽本纪》先写垓下被围，后写项羽南走及乌江结局，采用通行年序列于前 202 年。《高祖本纪》着重记录诸侯合军与汉的胜利。地方遗存与具体战场仍需独立考证，相关传世对白不视为现场实录。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "汉王何时成为皇帝",
+          "text": "汉王受诸侯等推尊，前 202 年在《高祖本纪》所称的汜水之阳即皇帝位，随后还有定都与迁居的先后。汉王纪年从前 206 年起算，称帝在第五年。早期地方既有郡县也有诸侯王国，之后各地法令和政策仍会调整。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        },
+        {
+          "id": "p-05",
+          "heading": "南海郡的地方进程也在继续",
+          "text": "《南越列传》将赵佗接替任嚣、立足南海及其后建立南越写在秦亡前后的变化中。番禺宫署下叠压不同阶段遗迹。关东在争夺旧秦领土，岭南的政权重组另有自己的时序。",
+          "refs": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            },
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "广州城区历代叠压的秦层和南越王宫遗存",
+              "note": "今广州老城区的遗址区见秦、南越国等不同时代堆积"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "continue-to-western-han",
+          "book": "han",
+          "chapter": "western-han",
+          "label": "接读 · 西汉初年",
+          "display": "从汉王称帝、徙都和初年郡国并存接入西汉前段。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "pengcheng-and-guangwu-terrain",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "今徐州老城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "荥阳广武一带",
+              "placeId": "guangwu"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "western-han",
       "title": "从楚汉相争到文景休养",
       "from": -206,
       "to": -141,
-      "summary": "刘邦依托关中萧何转运粮草击败项羽，在白登之围的屈辱与郡国并行的妥协中休养生息七十年，最终借平定七国之乱坐实中央集权。",
-      "spatialThesis": "秦亡教训让汉初放弃“强推全国郡县”的硬着陆：长安牢牢攥住关中、巴蜀与中原西半壁，把东方齐楚吴梁暂交诸侯王治理，再用半个世纪的时间和财力慢慢消化收权。",
+      "summary": "从楚汉相争后的治理读到郡国并存、白登和早期政令调整，再接文景与七国之乱。",
+      "spatialThesis": "关中是汉初朝廷长期所在的区域，关东有多个诸侯王国。郡、国设置与后续变化可与楚汉之际的分封对读。",
       "paragraphs": [
         {
-          "heading": "暗度陈仓与关中粮道",
-          "text": "公元前 206 年项羽分封十八诸侯，把刘邦压进秦岭南麓的汉中盆地。但仅过数月，韩信便助刘邦明修栈道、暗度陈仓夺回关中。此后四年在荥阳、成皋一线，刘邦屡战屡败却总能卷土重来，真正的胜负手并不在阵前勇武，而在后方萧何坐镇关中、源源不断经渭水与黄河运往前线的粮食与新兵。",
+          "id": "p-01",
+          "heading": "从楚汉交战进入汉初的地方治理",
+          "text": "前 206 年项羽安排分封，刘邦先以汉王名义进入汉中，后来回军关中。楚汉战争期间，《萧相国世家》称萧何在关中办理政务及输送所需。各地动员和粮食来源须分段核对，战事详情见前两章。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "入咸阳收取律令图书、楚汉战争留守关中",
+              "note": "本篇写萧何接收秦档并在战争时期掌后方行政"
+            }
+          ]
         },
         {
-          "text": "公元前 202 年垓下之战项羽自刎，刘邦称帝定都长安。摆在新朝面前的却是一个人口锐减、田野荒芜的烂摊子：史书记载当时天子连四匹毛色相同的拉车马都凑不齐，将相只能乘牛车上朝。而在北方草原，冒顿单于刚统一匈奴，控弦之士数十万，成为长安头顶最直接的威胁。",
+          "id": "p-02",
+          "heading": "称帝、迁都和钱粮困难先后出现",
+          "text": "通行编年将刘邦称帝放在前 202 年。高祖本纪称帝后先都洛阳，后来移入关中。汉初经济情形及与匈奴的关系还要结合其他时期的史料，不能全部归到垓下战事之后的同一日。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
         },
         {
           "heading": "白登之围与黄老无为",
@@ -488,5 +832,9 @@
       "kind": "narrative",
       "spatialThesisId": "spatial-thesis"
     }
+  ],
+  "subjectIds": [
+    "chu-han-pengcheng-area",
+    "chu-han-guangwu-area"
   ]
 }

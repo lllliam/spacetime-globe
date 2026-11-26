@@ -4860,5 +4860,1254 @@
       "scope": "核对年份口径、材料能支持的范围及读章关联。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-qin-county-archive-landscape": {
+    "title": "里耶县廷档案与睡虎地秦简",
+    "date": "公元前 221—前 208 年 · 迁陵县在秦朝的档案时段",
+    "start": -221,
+    "end": -208,
+    "context": true,
+    "summary": "湖南里耶留下迁陵官府的公文，湖北睡虎地有随葬的法律抄本。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "两处相隔较远，出土单位和文本用途各异。阅读区间属于秦朝，部分文书、抄本的原始内容还早于称帝。",
+        "refs": [
+          {
+            "sourceId": "liye-qin-archive",
+            "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+            "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+          },
+          {
+            "sourceId": "shuihudi-nlc-manuscripts",
+            "locator": "编号00035至00037，封诊式、法律答问、效律",
+            "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+          },
+          {
+            "sourceId": "shuihudi-nan-commandery-letter",
+            "locator": "秦王政二十年纪年、文书首段和要求明布段",
+            "note": "南郡守向县道发布传布法令的要求，文书早于前221年，后随葬于云梦"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "liye-qin-archive",
+        "title": "国家档案局《里耶秦简申报书》",
+        "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/2ff404ba00dc424ba385e7e754fa890d.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shuihudi-nlc-manuscripts",
+        "title": "国家图书馆《第一批国家珍贵古籍名录》",
+        "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shuihudi-nan-commandery-letter",
+        "title": "董家宁《“南郡守腾文书”所见秦法与秦政》",
+        "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202205/t20220509_5407301.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-yunmeng-two-cemeteries": {
+    "title": "云梦睡虎地与郑家湖墓地",
+    "date": "公元前 221—前 215 年 · 统一初期读法，兼及较早南郡文书",
+    "start": -221,
+    "end": -215,
+    "context": true,
+    "summary": "睡虎地和郑家湖位于云梦，出土线索各自成组。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "年份供读统一初期法制和旧有地方背景。墓地分期与随葬条文中的原始写作年代需区分。",
+        "refs": [
+          {
+            "sourceId": "yunmeng-zhengjiahu-report",
+            "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+            "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+          },
+          {
+            "sourceId": "shuihudi-qin-laws",
+            "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+            "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "yunmeng-zhengjiahu-report",
+        "title": "湖北省文化和旅游厅《专家解读：湖北云梦郑家湖墓地》",
+        "url": "https://wlt.hubei.gov.cn/bmdt/xydt/202203/t20220318_4047667.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shuihudi-qin-laws",
+        "title": "湖北省博物馆《睡虎地秦简〈秦律十八种〉》",
+        "url": "https://www.hbww.org.cn/zhujian/p/5370.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-xianyang-epang-landscape": {
+    "title": "秦咸阳城与阿房宫前殿",
+    "date": "公元前 215—前 210 年 · 关中都邑与工程背景",
+    "start": -215,
+    "end": -210,
+    "context": true,
+    "summary": "渭河北岸秦咸阳城遗址和渭南阿房宫前殿有不同发掘单位。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本纪分记都城和后来的宫室工程，考古所见有建筑基址与夯土施工遗存，不能由一处基址定位全部秦宫。",
+        "refs": [
+          {
+            "sourceId": "qin-xianyang-palace-area",
+            "locator": "咸阳宫建筑基址与遗址公园",
+            "note": "秦都遗址区保存宫殿建筑基址，可以同渭南工程比较"
+          },
+          {
+            "sourceId": "xian-epang-excavation-2025",
+            "locator": "前殿夯土台基、2002至2004年和2025年发掘",
+            "note": "前殿有大型台基和分期施工证据，考古区分营建阶段"
+          },
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qin-xianyang-palace-area",
+        "title": "西咸新区《秦咸阳城咸阳宫国家考古遗址公园》",
+        "url": "https://www.xixianxinqu.gov.cn/zwgk/fdzdgknr/qtgk/1934439246065164290.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xian-epang-excavation-2025",
+        "title": "西安市文物局：2025 年阿房宫遗址联合考古通报",
+        "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html"
+      },
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-straight-road-landscape": {
+    "title": "子午岭调查区与古甘泉",
+    "date": "公元前 215—前 210 年 · 北方行动和道路营建",
+    "start": -215,
+    "end": -210,
+    "context": true,
+    "summary": "现有秦直道调查涉及子午岭部分区段，可同传世甘泉地望对照。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "两处只用来读区域地形与文献位置。已调查路段和全线古道是不同层次的证据。",
+        "refs": [
+          {
+            "sourceId": "qin-straight-road-fieldwork",
+            "locator": "富县、甘泉调查、地面勘探与路段编绘",
+            "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+          },
+          {
+            "sourceId": "qin-ganquan-road-research",
+            "locator": "淳化梁武帝村甘泉山与富县西子午岭段",
+            "note": "据史念海的秦直道调查说明甘泉南端和已知部分山区地段"
+          },
+          {
+            "sourceId": "shiji-meng-tian",
+            "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+            "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qin-straight-road-fieldwork",
+        "title": "秦直道发掘者肖健一的富县、甘泉调查资料",
+        "url": "https://www.xinhuanet.com/politics/2015-10/14/c_1116823112.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qin-ganquan-road-research",
+        "title": "陕西师范大学档案馆《史念海教授对秦直道研究的贡献》",
+        "url": "https://archives.snnu.edu.cn/info/2294/14665.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-meng-tian",
+        "title": "《史记·蒙恬列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷088",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-lingqu-panyu-landscape": {
+    "title": "兴安灵渠与番禺区域",
+    "date": "公元前 214—前 210 年 · 岭南建置与水系参照",
+    "start": -214,
+    "end": -210,
+    "context": true,
+    "summary": "灵渠可用来观察分水地形，番禺有不同时期的城市遗存。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "两点是读秦岭南建置的区域参照。南越国宫苑在秦之后，现代遗产设施与秦代渠线也各有分期。",
+        "refs": [
+          {
+            "sourceId": "lingqu-water-divide",
+            "locator": "兴安地望、湘漓连接与传统断代",
+            "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+          },
+          {
+            "sourceId": "qin-nanyue-panyu-archaeology",
+            "locator": "广州城区历代叠压的秦层和南越王宫遗存",
+            "note": "今广州老城区的遗址区见秦、南越国等不同时代堆积"
+          },
+          {
+            "sourceId": "shiji-nanyue-qin",
+            "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+            "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "lingqu-water-divide",
+        "title": "生态环境部《广西壮族自治区桂林市灵渠》",
+        "url": "https://www.mee.gov.cn/home/ztbd/2023/mlhh2/yxal3/gx/202510/t20251011_1129181.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qin-nanyue-panyu-archaeology",
+        "title": "南越王博物院《南越国宫署遗址》",
+        "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-nanyue-qin",
+        "title": "《史记·南越列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷113",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-julu-guanzhong-late-qin-geography": {
+    "title": "古巨鹿与秦末关中的地理背景",
+    "date": "公元前 208—前 206 年 · 诸军行动与秦王投降",
+    "start": -208,
+    "end": -206,
+    "context": true,
+    "summary": "巨鹿之战与入关分处不同地区，时序部分并行。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "用冀南和关中两个区域读两条史事。秦汉古地名、战场与受降点仍须分别考证。",
+        "refs": [
+          {
+            "sourceId": "julu-qin-han-geography",
+            "locator": "巨鹿、平乡建置相关引文",
+            "note": "秦汉以来巨鹿县地望与今平乡附近有关，后世还有县治迁移"
+          },
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "julu-qin-han-geography",
+        "title": "《河北通志稿》卷四古县考",
+        "url": "https://www.shidianguji.com/book/LG2HBTZG/chapter/1ly0ku3jiq32z",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-pengcheng-guangwu-landscape": {
+    "title": "彭城与荥阳广武",
+    "date": "公元前 205—前 203 年 · 楚汉战事地域背景",
+    "start": -205,
+    "end": -203,
+    "context": true,
+    "summary": "徐州老城与黄河边广武各有地理和遗址材料。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这里对照彭城战局与其后荥阳、成皋一带争夺，城址研究与具体交战地点分别查证。",
+        "refs": [
+          {
+            "sourceId": "pengcheng-xuzhou-excavation",
+            "locator": "徐州老城层位和秦汉相关遗存",
+            "note": "现代徐州老城为多期城市叠压，可作彭城区域参照"
+          },
+          {
+            "sourceId": "guangwu-xingyang-sites",
+            "locator": "荥阳广武镇两城址、黄河和沟壑",
+            "note": "广武可观察黄河沿岸台地及城址区域"
+          },
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "pengcheng-xuzhou-excavation",
+        "title": "徐州博物馆《徐州文庙街区地下城遗址考古发掘与收获》",
+        "url": "https://www.hunantoday.cn/news/xhn/202211/15023569.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "guangwu-xingyang-sites",
+        "title": "郑州市文物局《汉霸二王城》",
+        "url": "https://wwj.zhengzhou.gov.cn/country/3176145.jhtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-first-emperor-and-commandery-order": {
+    "title": "秦议皇帝称号与三十六郡",
+    "date": "公元前 221 年 · 秦王政二十六年",
+    "start": -221,
+    "end": -221,
+    "summary": "《秦始皇本纪》同年记称帝、封建与郡县之议及三十六郡。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "洞庭郡在更早纪年的简牍已经出现，初设、增置与改名各须史料。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "liye-dongting-and-counties",
+            "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+            "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "liye-dongting-and-counties",
+        "title": "王朔《以里耶简深化南楚地区秦制化进程研究》",
+        "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202301/t20230105_5578129.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-metrology-edict": {
+    "title": "秦始皇度量衡诏见于诏版",
+    "date": "公元前 221 年 · 诏版初刻纪年",
+    "start": -221,
+    "end": -221,
+    "summary": "国家博物馆所藏诏版正面记秦王政二十六年统一度量衡的命令。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "制器刻文可与县里核定、调送标准器的木牍对照。二世加刻另有纪年。",
+        "refs": [
+          {
+            "sourceId": "qin-double-edict-plate",
+            "locator": "前221年正刻、前209年加刻、器物载体",
+            "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+          },
+          {
+            "sourceId": "liye-scale-standard",
+            "locator": "简8-109与8-386缀合释文，铁权、蓬与迁陵相关段",
+            "note": "秦王政二十五年已有地方传递铁权、厘定尺度的操作线索"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qin-double-edict-plate",
+        "title": "中国国家博物馆《秦始皇、秦二世双诏版》",
+        "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247416.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "liye-scale-standard",
+        "title": "庄小霞《里耶秦简所见秦统一衡制新证》",
+        "url": "https://dflt.qdu.edu.cn/__local/4/34/17/F439DE9D3F9A6F95ECEE53CC24E_34FC3AE7_181C2F.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qianling-household-document": {
+    "title": "迁陵启陵乡的户籍文书",
+    "date": "公元前 221 年 · 秦始皇二十六年简文",
+    "start": -221,
+    "end": -221,
+    "summary": "里耶秦简16-9显示启陵乡已掌握部分人户资料，尚有信息待补。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这个年份对应一件有纪年的县乡行政记录，北城壕分栏户籍各自另行断代。",
+        "refs": [
+          {
+            "sourceId": "liye-dongting-and-counties",
+            "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+            "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+          },
+          {
+            "sourceId": "liye-register-k27",
+            "locator": "北城壕K11、1号简K27五栏释文",
+            "note": "同一户籍条记户主、妻、子女和称臣的成员，资料出自北城壕"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "liye-dongting-and-counties",
+        "title": "王朔《以里耶简深化南楚地区秦制化进程研究》",
+        "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202301/t20230105_5578129.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "liye-register-k27",
+        "title": "王子今《试说里耶户籍简所见“小上造”、“小女子”》",
+        "url": "https://www.ctwx.tsinghua.edu.cn/__local/9/6C/2C/F7EB2D1CE6D1DD3626A9D75153F_E201F579_A91C4.pdf?e=.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-constructs-imperial-roads": {
+    "title": "秦治驰道的本纪记事",
+    "date": "公元前 220 年 · 秦始皇二十七年",
+    "start": -220,
+    "end": -220,
+    "summary": "《秦始皇本纪》在二十七年记治驰道。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "年次对应传世记事。秦直道的修建与已调查路段另有材料。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "qin-straight-road-fieldwork",
+            "locator": "富县、甘泉调查、地面勘探与路段编绘",
+            "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "qin-straight-road-fieldwork",
+        "title": "秦直道发掘者肖健一的富县、甘泉调查资料",
+        "url": "https://www.xinhuanet.com/politics/2015-10/14/c_1116823112.htm",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-langya-inscription": {
+    "title": "秦始皇巡行与琅琊刻石",
+    "date": "公元前 219 年 · 秦始皇二十八年",
+    "start": -219,
+    "end": -219,
+    "summary": "本纪记东巡、泰山封禅和琅琊立石。现存刻石有从行者题名及二世补刻。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "初刻、补刻与传世全文按各自证据辨认。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "national-museum-langya-inscription",
+            "locator": "始皇二十八年初刻与二世元年补刻说明",
+            "note": "琅琊刻石残存秦始皇从行者题名与秦二世补刻"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "national-museum-langya-inscription",
+        "title": "中国国家博物馆：琅琊刻石",
+        "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202010/t20201028_247940.shtml"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-meng-tian-northern-campaign": {
+    "title": "秦命蒙恬在北方用兵",
+    "date": "公元前 215 年 · 秦始皇三十二年",
+    "start": -215,
+    "end": -215,
+    "summary": "本纪记秦命蒙恬北击，后续年次记河套边地的设防与建置。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用三十二年换算。传世兵数与不同年代墙段需另有证据。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "shiji-meng-tian",
+            "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+            "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "shiji-meng-tian",
+        "title": "《史记·蒙恬列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷088",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-establishes-lingnan-commandery-names": {
+    "title": "秦在岭南设置南海等郡见于纪事",
+    "date": "公元前 214 年 · 秦始皇三十三年",
+    "start": -214,
+    "end": -214,
+    "summary": "《秦始皇本纪》列桂林、象郡、南海，南越列传另见秦时地方官。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "纪年对应传世本纪的建置条，灵渠古段与各郡边界分别查证。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "shiji-nanyue-qin",
+            "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+            "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+          },
+          {
+            "sourceId": "lingqu-water-divide",
+            "locator": "兴安地望、湘漓连接与传统断代",
+            "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "shiji-nanyue-qin",
+        "title": "《史记·南越列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷113",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "lingqu-water-divide",
+        "title": "生态环境部《广西壮族自治区桂林市灵渠》",
+        "url": "https://www.mee.gov.cn/home/ztbd/2023/mlhh2/yxal3/gx/202510/t20251011_1129181.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-book-restriction-order": {
+    "title": "李斯建议限制部分私藏书籍",
+    "date": "公元前 213 年 · 秦始皇三十四年",
+    "start": -213,
+    "end": -213,
+    "summary": "本纪记李斯上议，涉及诸侯史、《诗》《书》和百家，并列若干豁免。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "次年查办诸生另记，不能把两类举措、实施范围和身份合在一日。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-epang-works": {
+    "title": "秦营建阿房宫前殿",
+    "date": "公元前 212 年 · 秦始皇三十五年",
+    "start": -212,
+    "end": -212,
+    "summary": "本纪记在渭南营建宫室，考古见前殿大型夯土台基。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用本纪年次，前殿施工、停续与建筑完工的证据分别核对。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "xian-epang-excavation-2025",
+            "locator": "前殿夯土台基、2002至2004年和2025年发掘",
+            "note": "前殿有大型台基和分期施工证据，考古区分营建阶段"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "xian-epang-excavation-2025",
+        "title": "西安市文物局：2025 年阿房宫遗址联合考古通报",
+        "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-first-emperor-dies-at-shaqiu": {
+    "title": "秦始皇病逝，胡亥继位",
+    "date": "公元前 210 年 · 秦始皇三十七年",
+    "start": -210,
+    "end": -210,
+    "summary": "本纪记始皇在沙丘去世，胡亥继掌秦廷。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《史记》与《赵正书》对继位过程有分歧，暂无可核验的秦廷原始交接文书。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          },
+          {
+            "sourceId": "pku-zhao-zheng-account",
+            "locator": "《赵正书》段，继承与赵高死亡的不同记法",
+            "note": "汉代竹书有秦始皇认可胡亥继位的叙事，与《史记》不同"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-chronology",
+        "title": "《史记》卷六《秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+      },
+      {
+        "id": "pku-zhao-zheng-account",
+        "title": "北京大学《北京大学藏西汉竹书》第壹、叁、伍卷出版说明",
+        "url": "https://news.pku.edu.cn/info/7921/2959971.htm",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-second-edict-metrology": {
+    "title": "二世诏加刻在度量衡诏版",
+    "date": "公元前 209 年 · 秦二世元年加刻",
+    "start": -209,
+    "end": -209,
+    "summary": "双诏版留下秦二世元年的续刻，另有始皇时的初刻。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本年对应文字所载加刻政令，器物制作和后来的出土另有时点。",
+        "refs": [
+          {
+            "sourceId": "qin-double-edict-plate",
+            "locator": "前221年正刻、前209年加刻、器物载体",
+            "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qin-double-edict-plate",
+        "title": "中国国家博物馆《秦始皇、秦二世双诏版》",
+        "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247416.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-dazexiang-uprising-and-zhang-chu": {
+    "title": "陈胜、吴广在大泽乡起事",
+    "date": "公元前 209 年 · 秦二世元年",
+    "start": -209,
+    "end": -209,
+    "summary": "《陈涉世家》记大泽乡起事，之后陈胜进入陈县组织张楚。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "失期的史书记事与部分徭役条文应按不同语境理解。",
+        "refs": [
+          {
+            "sourceId": "shiji-chen-she",
+            "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+            "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+          },
+          {
+            "sourceId": "shuihudi-labor-law",
+            "locator": "御中发征、按失期日数处理及水雨除兴段",
+            "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-chen-she",
+        "title": "《史记·陈涉世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷048",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shuihudi-labor-law",
+        "title": "睡虎地秦简《徭律》释文",
+        "url": "https://zh.wikisource.org/wiki/睡虎地秦簡/徭律",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-battle-near-julu-qin": {
+    "title": "巨鹿交战与赵地解围",
+    "date": "公元前 207 年 · 秦二世三年",
+    "start": -207,
+    "end": -207,
+    "summary": "《项羽本纪》记楚军与围赵秦军交战，此后章邯仍在活动。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用巨鹿主要战事的通行年份。章邯后来请降和关中秦王投降是另两件事。",
+        "refs": [
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          },
+          {
+            "sourceId": "tongjian-qin-end",
+            "locator": "秦二世二、三年条",
+            "note": "将巨鹿、二世之死、子婴立为秦王和关内战事编在秦纪末年"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "tongjian-qin-end",
+        "title": "《资治通鉴》卷八《秦纪三》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷008",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-ziying-surrenders-to-liu-bang": {
+    "title": "子婴向刘邦军归降",
+    "date": "公元前 207 年末 · 汉元年十月换算",
+    "start": -207,
+    "end": -207,
+    "summary": "《高祖本纪》记刘邦军至霸上，秦王子婴在轵道旁投降。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "汉元年以十月为岁首，这个月换算落在前 207 年末；前 206 年分封另列。",
+        "refs": [
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          },
+          {
+            "sourceId": "qin-han-calendar-reconstruction",
+            "locator": "秦二世三年及汉高祖元年各月朔表",
+            "note": "秦汉历表以十月为岁首，并可同公元前年份对照"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qin-han-calendar-reconstruction",
+        "title": "爱媛大学机构库《秦代末期から前漢初期の暦》",
+        "url": "https://ehime-u.repo.nii.ac.jp/record/2287/files/AN10579404_2003_15-1.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-xiang-yu-enfeoffs-kings": {
+    "title": "项羽分封诸王，刘邦成为汉王",
+    "date": "公元前 206 年 · 汉元年分封",
+    "start": -206,
+    "end": -206,
+    "summary": "项羽以彭城为中心，刘邦为汉王，巴、蜀、汉中为其封地。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "封王名录与各地实际控制分别判断，汉王以前 206 年作为开端。",
+        "refs": [
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-chu-han-pengcheng-battle": {
+    "title": "彭城之战，汉军失利",
+    "date": "公元前 205 年 · 汉二年",
+    "start": -205,
+    "end": -205,
+    "summary": "刘邦进入彭城后，项羽军还击，汉军战败。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用汉二年主要战事的换算。遗址区域用来辨认城市，战场位置需另查。",
+        "refs": [
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-chu-han-gaixia": {
+    "title": "垓下战局与西楚败亡",
+    "date": "公元前 202 年 · 汉五年通行纪年",
+    "start": -202,
+    "end": -202,
+    "summary": "传世本纪记汉与诸侯会兵击败项羽，项羽随后死亡。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "垓下与乌江分别阅读。采用汉五年末段战事的通行年份标示，战场地望另查。",
+        "refs": [
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-xiang-yu",
+        "title": "《史记·项羽本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷007",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-liu-bang-takes-imperial-title": {
+    "title": "刘邦成为皇帝",
+    "date": "公元前 202 年 · 汉五年",
+    "start": -202,
+    "end": -202,
+    "summary": "《高祖本纪》记刘邦受推举即皇帝位，随后还有诸王调整和迁都。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本年对应称帝，汉王纪年、诸侯归属和地方制度变化各有自己的时间。",
+        "refs": [
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          },
+          {
+            "sourceId": "shiji-qin-chu-months",
+            "locator": "秦二世三年及汉元年至五年各月",
+            "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-gaozu-early",
+        "title": "《史记·高祖本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷008",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-chu-months",
+        "title": "《史记·秦楚之际月表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷016",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qianling-granary-checks-receipts": {
+    "title": "迁陵仓曹核计仓粮出入",
+    "date": "公元前 217 年 · 秦始皇三十年仓曹简文",
+    "start": -217,
+    "end": -217,
+    "summary": "里耶简8-776记迁陵仓曹核计四月至九月的禾稼出入券。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这个纪年对应一件县仓实际的核计记录。睡虎地《仓律》的造籍要求提供制度对照，地方所收数量另查。",
+        "refs": [
+          {
+            "sourceId": "liye-granary-accounts",
+            "locator": "睡虎地仓律简28、里耶8-1246和8-776释文及说明",
+            "note": "睡虎地仓律要求有关谷物及刍稿入仓后造籍，里耶迁陵见追查租额记录和按时段核计出入券。"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "liye-granary-accounts",
+        "title": "代国玺《秦及汉初田租征收和计量问题新探》",
+        "url": "https://www.rdfybk.com/qw/DownPdf?id=835816",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对始皇三十年换算、简文事项与读章。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

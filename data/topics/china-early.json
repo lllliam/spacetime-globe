@@ -4000,6 +4000,729 @@
         "scope": "遗址或区域位置、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "liye-and-shuihudi-manuscript-contexts",
+      "year": -217,
+      "date": "公元前 221—前 208 年 · 迁陵县在秦朝的档案时段",
+      "title": "里耶县廷和云梦随葬简牍",
+      "summary": "同为秦简，两地为什么留下不同内容？",
+      "place": {
+        "label": "湖南龙山里耶古城 · 迁陵县档案出土区域",
+        "lon": 109.27,
+        "lat": 28.78
+      },
+      "sources": [
+        {
+          "id": "liye-qin-archive",
+          "title": "国家档案局《里耶秦简申报书》",
+          "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/2ff404ba00dc424ba385e7e754fa890d.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-nlc-manuscripts",
+          "title": "国家图书馆《第一批国家珍贵古籍名录》",
+          "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-nan-commandery-letter",
+          "title": "董家宁《“南郡守腾文书”所见秦法与秦政》",
+          "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202205/t20220509_5407301.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yunmeng-zhengjiahu-report",
+          "title": "湖北省文化和旅游厅《专家解读：湖北云梦郑家湖墓地》",
+          "url": "https://wlt.hubei.gov.cn/bmdt/xydt/202203/t20220318_4047667.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "看里耶古城行政档案的出土地，再观察云梦附近的秦墓区域。文书的内容和保存方式各有地理背景。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            },
+            {
+              "sourceId": "shuihudi-nan-commandery-letter",
+              "locator": "秦王政二十年纪年、文书首段和要求明布段",
+              "note": "南郡守向县道发布传布法令的要求，文书早于前221年，后随葬于云梦"
+            },
+            {
+              "sourceId": "yunmeng-zhengjiahu-report",
+              "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+              "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qin-county-archive-landscape",
+        "title": "里耶县廷和云梦随葬简牍",
+        "summary": "同为秦简，两地为什么留下不同内容？",
+        "places": [
+          {
+            "id": "shuihudi",
+            "name": "湖北云梦睡虎地一带",
+            "role": "秦墓随葬简牍出土区域",
+            "lon": 113.75,
+            "lat": 31.02
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "liye-qin-archive",
+            "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+            "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+          },
+          {
+            "sourceId": "shuihudi-nlc-manuscripts",
+            "locator": "编号00035至00037，封诊式、法律答问、效律",
+            "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+          },
+          {
+            "sourceId": "shuihudi-nan-commandery-letter",
+            "locator": "秦王政二十年纪年、文书首段和要求明布段",
+            "note": "南郡守向县道发布传布法令的要求，文书早于前221年，后随葬于云梦"
+          },
+          {
+            "sourceId": "yunmeng-zhengjiahu-report",
+            "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+            "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "shuihudi-and-zhengjiahu-cemeteries",
+      "year": -217,
+      "date": "公元前 221—前 215 年 · 统一初期读法，兼及较早南郡文书",
+      "title": "云梦睡虎地与郑家湖",
+      "summary": "相邻墓地能为战国末和秦汉地方史提供哪几类证据？",
+      "place": {
+        "label": "湖北云梦睡虎地一带 · 秦墓随葬简牍出土区域",
+        "lon": 113.75,
+        "lat": 31.02
+      },
+      "sources": [
+        {
+          "id": "yunmeng-zhengjiahu-report",
+          "title": "湖北省文化和旅游厅《专家解读：湖北云梦郑家湖墓地》",
+          "url": "https://wlt.hubei.gov.cn/bmdt/xydt/202203/t20220318_4047667.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-qin-laws",
+          "title": "湖北省博物馆《睡虎地秦简〈秦律十八种〉》",
+          "url": "https://www.hbww.org.cn/zhujian/p/5370.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-nlc-manuscripts",
+          "title": "国家图书馆《第一批国家珍贵古籍名录》",
+          "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在睡虎地和郑家湖两片墓区之间观察楚王城周围的地形与出土环境。",
+          "refs": [
+            {
+              "sourceId": "yunmeng-zhengjiahu-report",
+              "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+              "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+            },
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-yunmeng-two-cemeteries",
+        "title": "云梦睡虎地与郑家湖",
+        "summary": "相邻墓地能为战国末和秦汉地方史提供哪几类证据？",
+        "places": [
+          {
+            "id": "zhengjiahu",
+            "name": "云梦郑家湖一带",
+            "role": "楚王城东南的墓区参照",
+            "lon": 113.77,
+            "lat": 31
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "yunmeng-zhengjiahu-report",
+            "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+            "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+          },
+          {
+            "sourceId": "shuihudi-qin-laws",
+            "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+            "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+          },
+          {
+            "sourceId": "shuihudi-nlc-manuscripts",
+            "locator": "编号00035至00037，封诊式、法律答问、效律",
+            "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-xianyang-and-epang-sites",
+      "year": -212,
+      "date": "公元前 215—前 210 年 · 关中都邑与工程背景",
+      "title": "渭河北岸的秦都与渭南阿房前殿",
+      "summary": "渭河两侧的宫室遗址保留了哪几类营建线索？",
+      "place": {
+        "label": "渭河北岸秦咸阳城 · 秦都遗址区参照",
+        "lon": 108.858,
+        "lat": 34.414
+      },
+      "sources": [
+        {
+          "id": "qin-xianyang-palace-area",
+          "title": "西咸新区《秦咸阳城咸阳宫国家考古遗址公园》",
+          "url": "https://www.xixianxinqu.gov.cn/zwgk/fdzdgknr/qtgk/1934439246065164290.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "xian-epang-excavation-2025",
+          "title": "西安市文物局：2025 年阿房宫遗址联合考古通报",
+          "url": "https://wwj.xa.gov.cn/xwzx/wbzx/2005535230505029634.html"
+        },
+        {
+          "id": "shiji-qin-chronology",
+          "title": "《史记》卷六《秦始皇本纪》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7006"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "以秦咸阳城宫殿遗存与阿房宫前殿夯土台基为两个区域参照，结合各自发掘报告阅读。",
+          "refs": [
+            {
+              "sourceId": "qin-xianyang-palace-area",
+              "locator": "咸阳宫建筑基址与遗址公园",
+              "note": "秦都遗址区保存宫殿建筑基址，可以同渭南工程比较"
+            },
+            {
+              "sourceId": "xian-epang-excavation-2025",
+              "locator": "前殿夯土台基、2002至2004年和2025年发掘",
+              "note": "前殿有大型台基和分期施工证据，考古区分营建阶段"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qin-xianyang-epang-landscape",
+        "title": "渭河北岸的秦都与渭南阿房前殿",
+        "summary": "渭河两侧的宫室遗址保留了哪几类营建线索？",
+        "places": [
+          {
+            "id": "epang",
+            "name": "渭南阿房宫前殿一带",
+            "role": "前殿夯土台基区域参照",
+            "lon": 108.81,
+            "lat": 34.25
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "qin-xianyang-palace-area",
+            "locator": "咸阳宫建筑基址与遗址公园",
+            "note": "秦都遗址区保存宫殿建筑基址，可以同渭南工程比较"
+          },
+          {
+            "sourceId": "xian-epang-excavation-2025",
+            "locator": "前殿夯土台基、2002至2004年和2025年发掘",
+            "note": "前殿有大型台基和分期施工证据，考古区分营建阶段"
+          },
+          {
+            "sourceId": "shiji-qin-chronology",
+            "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+            "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-straight-road-and-ganquan-areas",
+      "year": -212,
+      "date": "公元前 215—前 210 年 · 北方行动和道路营建",
+      "title": "直道调查区和甘泉",
+      "summary": "沿山地通道研究秦直道，可以从哪里开始？",
+      "place": {
+        "label": "陕北富县西部子午岭 · 秦直道踏查区域参照",
+        "lon": 108.79,
+        "lat": 36.05
+      },
+      "sources": [
+        {
+          "id": "qin-straight-road-fieldwork",
+          "title": "秦直道发掘者肖健一的富县、甘泉调查资料",
+          "url": "https://www.xinhuanet.com/politics/2015-10/14/c_1116823112.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-ganquan-road-research",
+          "title": "陕西师范大学档案馆《史念海教授对秦直道研究的贡献》",
+          "url": "https://archives.snnu.edu.cn/info/2294/14665.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-meng-tian",
+          "title": "《史记·蒙恬列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷088",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从陕北子午岭到淳化甘泉附近辨认山脊与沟谷。实地踏查的路段用各自报告阅读。",
+          "refs": [
+            {
+              "sourceId": "qin-straight-road-fieldwork",
+              "locator": "富县、甘泉调查、地面勘探与路段编绘",
+              "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+            },
+            {
+              "sourceId": "qin-ganquan-road-research",
+              "locator": "淳化梁武帝村甘泉山与富县西子午岭段",
+              "note": "据史念海的秦直道调查说明甘泉南端和已知部分山区地段"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qin-straight-road-landscape",
+        "title": "直道调查区和甘泉",
+        "summary": "沿山地通道研究秦直道，可以从哪里开始？",
+        "places": [
+          {
+            "id": "ganquan",
+            "name": "今淳化北部甘泉山一带",
+            "role": "直道南段文献地理参照",
+            "lon": 108.54,
+            "lat": 35.02
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "qin-straight-road-fieldwork",
+            "locator": "富县、甘泉调查、地面勘探与路段编绘",
+            "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+          },
+          {
+            "sourceId": "qin-ganquan-road-research",
+            "locator": "淳化梁武帝村甘泉山与富县西子午岭段",
+            "note": "据史念海的秦直道调查说明甘泉南端和已知部分山区地段"
+          },
+          {
+            "sourceId": "shiji-meng-tian",
+            "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+            "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "lingqu-and-panyu-region",
+      "year": -214,
+      "date": "公元前 214—前 210 年 · 岭南建置与水系参照",
+      "title": "兴安分水与番禺地区",
+      "summary": "岭南建置在怎样的水系与地理环境中发生？",
+      "place": {
+        "label": "广西兴安灵渠 · 湘漓分水与人工引水区域参照",
+        "lon": 110.69,
+        "lat": 25.6
+      },
+      "sources": [
+        {
+          "id": "lingqu-water-divide",
+          "title": "生态环境部《广西壮族自治区桂林市灵渠》",
+          "url": "https://www.mee.gov.cn/home/ztbd/2023/mlhh2/yxal3/gx/202510/t20251011_1129181.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-nanyue-panyu-archaeology",
+          "title": "南越王博物院《南越国宫署遗址》",
+          "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-nanyue-qin",
+          "title": "《史记·南越列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷113",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "先看兴安同两水系的关系，再到珠江下游番禺地区观察地形，区分引水工程和地方都邑两种材料。",
+          "refs": [
+            {
+              "sourceId": "lingqu-water-divide",
+              "locator": "兴安地望、湘漓连接与传统断代",
+              "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+            },
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "广州城区历代叠压的秦层和南越王宫遗存",
+              "note": "今广州老城区的遗址区见秦、南越国等不同时代堆积"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qin-lingqu-panyu-landscape",
+        "title": "兴安分水与番禺地区",
+        "summary": "岭南建置在怎样的水系与地理环境中发生？",
+        "places": [
+          {
+            "id": "panyu",
+            "name": "今广州老城区",
+            "role": "番禺与后续南越遗址的区域参照",
+            "lon": 113.27,
+            "lat": 23.13
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "lingqu-water-divide",
+            "locator": "兴安地望、湘漓连接与传统断代",
+            "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+          },
+          {
+            "sourceId": "qin-nanyue-panyu-archaeology",
+            "locator": "广州城区历代叠压的秦层和南越王宫遗存",
+            "note": "今广州老城区的遗址区见秦、南越国等不同时代堆积"
+          },
+          {
+            "sourceId": "shiji-nanyue-qin",
+            "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+            "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "julu-and-guanzhong-two-theaters",
+      "year": -207,
+      "date": "公元前 208—前 206 年 · 诸军行动与秦王投降",
+      "title": "秦末的巨鹿与关中",
+      "summary": "秦廷最后面对的两路战事相距多远？",
+      "place": {
+        "label": "冀南平乡一带 · 古巨鹿的区域参照",
+        "lon": 114.97,
+        "lat": 37.03
+      },
+      "sources": [
+        {
+          "id": "julu-qin-han-geography",
+          "title": "《河北通志稿》卷四古县考",
+          "url": "https://www.shidianguji.com/book/LG2HBTZG/chapter/1ly0ku3jiq32z",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiang-yu",
+          "title": "《史记·项羽本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷007",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-gaozu-early",
+          "title": "《史记·高祖本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷008",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从冀南一带到灞河附近观察两处区域的地形，结合本纪分别读巨鹿之战和刘邦入关。",
+          "refs": [
+            {
+              "sourceId": "julu-qin-han-geography",
+              "locator": "巨鹿、平乡建置相关引文",
+              "note": "秦汉以来巨鹿县地望与今平乡附近有关，后世还有县治迁移"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-julu-guanzhong-late-qin-geography",
+        "title": "秦末的巨鹿与关中",
+        "summary": "秦廷最后面对的两路战事相距多远？",
+        "places": [
+          {
+            "id": "guanzhong",
+            "name": "西安东部灞河一带",
+            "role": "渭南关中地理参照",
+            "lon": 109.08,
+            "lat": 34.3
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "julu-qin-han-geography",
+            "locator": "巨鹿、平乡建置相关引文",
+            "note": "秦汉以来巨鹿县地望与今平乡附近有关，后世还有县治迁移"
+          },
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "pengcheng-and-guangwu-terrain",
+      "year": -205,
+      "date": "公元前 205—前 203 年 · 楚汉战事地域背景",
+      "title": "彭城老城与广武台地",
+      "summary": "楚汉战争先后涉及怎样的城市和河岸地形？",
+      "place": {
+        "label": "今徐州老城一带 · 古彭城区域参照",
+        "lon": 117.19,
+        "lat": 34.26
+      },
+      "sources": [
+        {
+          "id": "pengcheng-xuzhou-excavation",
+          "title": "徐州博物馆《徐州文庙街区地下城遗址考古发掘与收获》",
+          "url": "https://www.hunantoday.cn/news/xhn/202211/15023569.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "guangwu-xingyang-sites",
+          "title": "郑州市文物局《汉霸二王城》",
+          "url": "https://wwj.zhengzhou.gov.cn/country/3176145.jhtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiang-yu",
+          "title": "《史记·项羽本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷007",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-gaozu-early",
+          "title": "《史记·高祖本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷008",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "徐州老城分布多期堆积，荥阳广武在黄河一带见城址与台地。对照两处可理解战事发生在不同环境中。",
+          "refs": [
+            {
+              "sourceId": "pengcheng-xuzhou-excavation",
+              "locator": "徐州老城层位和秦汉相关遗存",
+              "note": "现代徐州老城为多期城市叠压，可作彭城区域参照"
+            },
+            {
+              "sourceId": "guangwu-xingyang-sites",
+              "locator": "荥阳广武镇两城址、黄河和沟壑",
+              "note": "广武可观察黄河沿岸台地及城址区域"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-pengcheng-guangwu-landscape",
+        "title": "彭城老城与广武台地",
+        "summary": "楚汉战争先后涉及怎样的城市和河岸地形？",
+        "places": [
+          {
+            "id": "guangwu",
+            "name": "荥阳广武一带",
+            "role": "河岸台地与城址区参照",
+            "lon": 113.41,
+            "lat": 34.96
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "pengcheng-xuzhou-excavation",
+            "locator": "徐州老城层位和秦汉相关遗存",
+            "note": "现代徐州老城为多期城市叠压，可作彭城区域参照"
+          },
+          {
+            "sourceId": "guangwu-xingyang-sites",
+            "locator": "荥阳广武镇两城址、黄河和沟壑",
+            "note": "广武可观察黄河沿岸台地及城址区域"
+          },
+          {
+            "sourceId": "shiji-xiang-yu",
+            "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+            "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+            "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [

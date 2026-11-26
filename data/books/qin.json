@@ -3,7 +3,7 @@
   "title": "秦朝",
   "from": -221,
   "to": -206,
-  "summary": "秦兼并六国后建立以郡县为主的行政体系，推行文字和度量衡等规范。驰道、巡行刻石和大型工程留下不同的材料。秦末发生多地反抗和军事交战，子婴投降后政权结束。",
+  "summary": "由称帝、置郡读到里耶县廷和睡虎地法律抄本，理解秦的政令怎样落实到文书、户籍与账册。再看南北边地、皇位继承与秦末多地的政治变动。",
   "sources": [
     {
       "title": "大英百科全书《秦朝历史与制度》",
@@ -39,61 +39,320 @@
       "id": "wang-wei-archaeology-review",
       "title": "王巍：百年考古、成就辉煌",
       "url": "https://www.nopss.gov.cn/n1/2021/1101/c219544-32270305.html"
+    },
+    {
+      "id": "qin-double-edict-plate",
+      "title": "中国国家博物馆《秦始皇、秦二世双诏版》",
+      "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247416.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-qin-archive",
+      "title": "国家档案局《里耶秦简申报书》",
+      "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/2ff404ba00dc424ba385e7e754fa890d.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-dongting-and-counties",
+      "title": "王朔《以里耶简深化南楚地区秦制化进程研究》",
+      "url": "https://www.cssn.cn/kgxc/kgxc_kgxl/202301/t20230105_5578129.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-dongting-geography",
+      "title": "游逸飞《里耶秦简所见的洞庭郡》",
+      "url": "https://www.cuhk.edu.hk/ics/journal/articles/v61p029.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-yiling-document-process",
+      "title": "张显成、唐强《通过里耶秦简“义陵用度简”的复原看秦代官文书的生成、传递和存档》",
+      "url": "https://wxs.swu.edu.cn/info/1025/1455.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-stores-transfers",
+      "title": "张以静《秦代物资付受制度研究》",
+      "url": "https://ccj.pku.edu.cn/Article/info?aid=360234911",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-register-k27",
+      "title": "王子今《试说里耶户籍简所见“小上造”、“小女子”》",
+      "url": "https://www.ctwx.tsinghua.edu.cn/__local/9/6C/2C/F7EB2D1CE6D1DD3626A9D75153F_E201F579_A91C4.pdf?e=.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-scale-standard",
+      "title": "庄小霞《里耶秦简所见秦统一衡制新证》",
+      "url": "https://dflt.qdu.edu.cn/__local/4/34/17/F439DE9D3F9A6F95ECEE53CC24E_34FC3AE7_181C2F.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shuihudi-qin-laws",
+      "title": "湖北省博物馆《睡虎地秦简〈秦律十八种〉》",
+      "url": "https://www.hbww.org.cn/zhujian/p/5370.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shuihudi-nlc-manuscripts",
+      "title": "国家图书馆《第一批国家珍贵古籍名录》",
+      "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shuihudi-nan-commandery-letter",
+      "title": "董家宁《“南郡守腾文书”所见秦法与秦政》",
+      "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202205/t20220509_5407301.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shuihudi-labor-law",
+      "title": "睡虎地秦简《徭律》释文",
+      "url": "https://zh.wikisource.org/wiki/睡虎地秦簡/徭律",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yunmeng-zhengjiahu-report",
+      "title": "湖北省文化和旅游厅《专家解读：湖北云梦郑家湖墓地》",
+      "url": "https://wlt.hubei.gov.cn/bmdt/xydt/202203/t20220318_4047667.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pku-zhao-zheng-account",
+      "title": "北京大学《北京大学藏西汉竹书》第壹、叁、伍卷出版说明",
+      "url": "https://news.pku.edu.cn/info/7921/2959971.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-meng-tian",
+      "title": "《史记·蒙恬列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷088",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-straight-road-fieldwork",
+      "title": "秦直道发掘者肖健一的富县、甘泉调查资料",
+      "url": "https://www.xinhuanet.com/politics/2015-10/14/c_1116823112.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-nanyue-qin",
+      "title": "《史记·南越列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷113",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "lingqu-water-divide",
+      "title": "生态环境部《广西壮族自治区桂林市灵渠》",
+      "url": "https://www.mee.gov.cn/home/ztbd/2023/mlhh2/yxal3/gx/202510/t20251011_1129181.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-xianyang-palace-area",
+      "title": "西咸新区《秦咸阳城咸阳宫国家考古遗址公园》",
+      "url": "https://www.xixianxinqu.gov.cn/zwgk/fdzdgknr/qtgk/1934439246065164290.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-chen-she",
+      "title": "《史记·陈涉世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷048",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-xiang-yu",
+      "title": "《史记·项羽本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷007",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-gaozu-early",
+      "title": "《史记·高祖本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷008",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-qin-chu-months",
+      "title": "《史记·秦楚之际月表》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷016",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-xiao-he-records",
+      "title": "《史记·萧相国世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷053",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "tongjian-qin-end",
+      "title": "《资治通鉴》卷八《秦纪三》",
+      "url": "https://zh.wikisource.org/wiki/資治通鑑/卷008",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-han-calendar-reconstruction",
+      "title": "爱媛大学机构库《秦代末期から前漢初期の暦》",
+      "url": "https://ehime-u.repo.nii.ac.jp/record/2287/files/AN10579404_2003_15-1.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-nanyue-panyu-archaeology",
+      "title": "南越王博物院《南越国宫署遗址》",
+      "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-ganquan-road-research",
+      "title": "陕西师范大学档案馆《史念海教授对秦直道研究的贡献》",
+      "url": "https://archives.snnu.edu.cn/info/2294/14665.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "julu-qin-han-geography",
+      "title": "《河北通志稿》卷四古县考",
+      "url": "https://www.shidianguji.com/book/LG2HBTZG/chapter/1ly0ku3jiq32z",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pengcheng-xuzhou-excavation",
+      "title": "徐州博物馆《徐州文庙街区地下城遗址考古发掘与收获》",
+      "url": "https://www.hunantoday.cn/news/xhn/202211/15023569.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "guangwu-xingyang-sites",
+      "title": "郑州市文物局《汉霸二王城》",
+      "url": "https://wwj.zhengzhou.gov.cn/country/3176145.jhtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "polybius-raphia",
+      "title": "波利比乌斯《历史》第五卷",
+      "url": "https://penelope.uchicago.edu/Thayer/e/roman/texts/polybius/5%2A.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-granary-accounts",
+      "title": "代国玺《秦及汉初田租征收和计量问题新探》",
+      "url": "https://www.rdfybk.com/qw/DownPdf?id=835816",
+      "checkedAt": "2026-11-26"
     }
   ],
   "chapters": [
     {
       "id": "first-emperor-system",
-      "title": "皇帝制度、废封立郡与书同文车同轨",
+      "title": "称帝、置郡与秦的政令",
       "from": -221,
       "to": -215,
-      "summary": "嬴政自称“始皇帝”，力排众议废除分封、在全国推行郡县制与三公九卿制，并强力统一文字、货币、度量衡与驰道轨距，奠定两千年帝国制度基石。",
+      "summary": "对读始皇称号、郡县廷议与实物刻铭，再以迁陵县考察地方如何落实政令。",
       "spatialThesis": "秦在并六国后以咸阳为都，在各郡设置官吏，修筑由都城通向各地的驰道。可对照郡县遗址、道路遗迹及本纪，观察行政和交通怎样联系。",
       "paragraphs": [
         {
-          "heading": "“始皇帝”与三公九卿中枢",
-          "text": "公元前 221 年统一天下的那一刻，嬴政觉得过去商周的“王”号已配不上自己的功业，遂兼采传说中“三皇五帝”之号，自称“始皇帝”，并规定“朕”为皇帝专称、废除谥法，盼望大秦江山“二世三世至于万世”。在咸阳中枢，他设立丞相掌行政、太尉掌军事、御史大夫掌监察，互不统属而共对皇帝负责。",
+          "id": "p-01",
+          "heading": "兼并齐以后，秦王议定皇帝称号",
+          "text": "《秦始皇本纪》将议号记在前 221 年，载秦王采用皇帝称号、废除议谥，以始皇帝自称。秦前期已有丞相、廷尉等官名。后世习称的三公九卿可作制度史概括，不能据此推定这一年一次设齐全部官署。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            }
+          ]
         },
         {
-          "heading": "廷议大辩论：废分封，行郡县",
-          "text": "刚灭六国时，丞相王绾等大臣主张沿袭周制，把偏远的燕、齐、楚旧地分封给皇子镇守。唯有廷尉李斯力排众议，一针见血指出正是周朝分封导致后来诸侯如仇敌般混战数百年。秦始皇果断拍板：“天下共苦战斗不休，以有侯王！”全国随即划分为三十六郡（后增至四十余郡），郡守县令全部由朝廷直接任免调动，不得世袭。",
+          "id": "p-02",
+          "heading": "廷议、三十六郡与地方建置",
+          "text": "本纪记王绾等议诸子封王，廷尉李斯主张沿用郡县，随后记三十六郡和守、尉、监。里耶简中洞庭郡守的公文已有前 222 年纪年。秦朝建制继承并扩展战国的制度，具体郡目和更名不能只靠一个总数复原。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ]
         },
         {
-          "heading": "书同文：维系中华不裂的超级黏合剂",
-          "text": "战国数百年分裂，导致各国文字写法迥异、货币形状五花八门、车轮间距互不兼容。秦始皇命李斯以秦国篆文为蓝本整理出规范的“小篆”推行全国，同时官方文书广泛使用更加简便的“隶书”。这一举措意义之深远超越任何一场胜仗：此后哪怕方言千差万别、政权分分合合，统一的汉字始终牢牢锁住了中华文明的共同体意识。",
+          "id": "p-03",
+          "heading": "刻诏与写公文的字体用法",
+          "text": "本纪记书同文字，现存金属诏版上见小篆，里耶县廷则留下日常墨书。这些材料的书写目的和载体不同。地域字形、用字的调整需要按实际文书比较，不能由一项命令推断各地同日改用一种字形。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 湖南里耶秦简与湖北睡虎地秦简",
-            "title": "精密到令人窒息的基层文书机器",
-            "text": "2002 年出土的三万余枚湖南里耶秦简，记录了湘西偏远小县“迁陵县”的日常公文——从每笔粮食收支、官吏考勤到邮传精确到时辰的签收记录，无一不在印证秦朝郡县制惊人的行政穿透力。",
+            "label": "出土材料 · 里耶与睡虎地",
+            "title": "县廷存档与随葬抄本",
+            "text": "里耶保留县廷收发的实际公文。云梦睡虎地保存随葬法律、文书抄本等。办事记录和规范并读，才能追踪政令怎样在郡县执行。",
             "id": "aside-03"
-          },
-          "id": "p-03"
+          }
         },
         {
-          "heading": "半两钱、统一度量衡与天下驰道",
-          "text": "经济与空间同步一体化。朝廷废除六国刀币、布币、蚁鼻钱，一律改铸外圆内方的“秦半两”铜钱；以商鞅方升为基准颁布全国统一的尺、斗、斤标准，每件官造衡器上皆刻始皇诏书。与此同时，数以十万计民夫以咸阳为中心修筑宽五十步、夹道植松的帝国高速公路网——“驰道”，并统一车轴轨距。",
+          "id": "p-04",
+          "heading": "度量衡的命令怎样成为实物",
+          "text": "本纪同时记度量衡与车轨等制度。出土诏版和地方铁权简展示两类做法，前者宣示标准，后者记录地方传递、复核和交付。驰道营建另见本纪，地图位置可比较区域材料，具体路段及尺度逐一看证据。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-04"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            },
+            {
+              "sourceId": "liye-scale-standard",
+              "locator": "简8-109与8-386缀合释文，铁权、蓬与迁陵相关段",
+              "note": "秦王政二十五年已有地方传递铁权、厘定尺度的操作线索"
+            }
+          ]
         },
         {
-          "text": "为了彻底拔除六国复辟根基，秦始皇下令收缴天下民间兵器运往咸阳销毁，铸成十二尊巨型铜人立于宫前；又强迁全国十二万户豪富贵族集中居住在咸阳周边，以便朝廷就近监控。",
+          "id": "p-05",
+          "heading": "迁人、收兵与秦都空间",
+          "text": "本纪同年记把兵器集中咸阳并铸器，也记迁徙各地豪富。传世记述保留役使和迁居的命令与数量，各地原有居民、迁入者和实际执行范围仍需独立材料。秦咸阳城有宫殿遗址，不能由一处台基直接估算迁居人数。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "qin-xianyang-palace-area",
+              "locator": "咸阳宫建筑基址与遗址公园",
+              "note": "秦都遗址区保存宫殿建筑基址，可以同渭南工程比较"
+            }
+          ]
         },
         {
           "text": "《史记》记载，秦始皇曾在泰山举行封禅。前 219 年，他在琅琊立石，刻文宣示皇帝的功业与制度。今存残石有秦始皇随行者的题名，也有秦二世后来的补刻。前 218 年秦始皇在博浪沙遇袭，《留侯世家》记载张良邀同伙参与，击中的是副车。",
@@ -119,14 +378,30 @@
       ],
       "contemporaries": [
         {
-          "book": "greece-macedon",
-          "year": -218,
-          "label": "地中海的希腊化王国",
-          "note": "秦完成中国统一时，托勒密埃及与塞琉古等希腊化王国仍活跃于东地中海和西亚，各自面对大片领土的治理问题。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "greece-macedon",
+          "chapter": "hellenistic-rome",
+          "year": -217,
+          "relation": "contemporary",
+          "label": "同期 · 托勒密与塞琉古在拉菲亚交战",
+          "note": "前 217 年，托勒密四世与安条克三世在拉菲亚交战。秦朝同一时期的传世本纪和地方简牍提供东亚的史事材料，两端以各自的政治背景阅读。",
+          "display": "前 217 年，托勒密四世与安条克三世在拉菲亚交战。秦朝同一时期的传世本纪和地方简牍提供东亚的史事材料，两端以各自的政治背景阅读。",
+          "evidence": [
+            {
+              "sourceId": "polybius-raphia",
+              "locator": "第80至87节，拉菲亚与两国战局",
+              "note": "托勒密四世和安条克三世争夺柯里叙利亚并在拉菲亚交战"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对拉菲亚通行年代、目标章覆盖与秦地方文书时段。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
@@ -137,49 +412,732 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "read-dongting-and-qianling",
+          "book": "qin",
+          "chapter": "dongting-qin-county-government",
+          "label": "接读 · 从置郡到迁陵县",
+          "display": "读洞庭郡下行公文及实际地方建置。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-weights-and-stores",
+          "book": "qin",
+          "chapter": "qin-weights-stores-and-audits",
+          "label": "细读 · 地方度量衡如何到位",
+          "display": "从刻铭进入里耶地方转发和校计。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            },
+            {
+              "sourceId": "liye-scale-standard",
+              "locator": "简8-109与8-386缀合释文，铁权、蓬与迁陵相关段",
+              "note": "秦王政二十五年已有地方传递铁权、厘定尺度的操作线索"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dongting-qin-county-government",
+      "from": -221,
+      "to": -208,
+      "dateLabel": "公元前 221—前 208 年 · 迁陵县在秦朝的档案时段",
+      "title": "洞庭郡下的迁陵县，郡、县、乡怎样分工",
+      "summary": "从开国本纪转入迁陵县官府自己的木牍，观察地方建置、缺员和逐层上报。",
+      "spatialThesis": "湖南里耶古城是迁陵县文书的出土地。洞庭郡各县和郡治位置须结合不同材料判断。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "始皇二十六年的郡县记录如何核对",
+          "text": "《秦始皇本纪》在前 221 年记三十六郡及守、尉、监。里耶简7-1已经在秦王政二十五年，即前 222 年，记洞庭郡守发文；简8-757又把这一年同迁陵为县联系起来。此地的建置早于称帝。对初置、后来增设和改名，仍需分别断代。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "从一号井读县，看地方实际怎样办事",
+          "text": "里耶古城一号井所见多为官府木简牍。县廷接收郡下行文书，也向属乡发令，或同其他县往来。洞庭郡发文中列有一些属县；收文名单能提供行政从属线索，文书所到各县不等于郡的全部边界。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            },
+            {
+              "sourceId": "liye-dongting-geography",
+              "locator": "关于郡治的讨论及表三封检、邮书释读",
+              "note": "通过官文书收寄信息讨论洞庭郡所辖县和郡治的线索"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "郡县联络也会遇到具体问题",
+          "text": "简8-769记上级要求报告两类鱼，迁陵县廷再向下询问，乡吏作答。这件地方特产的事务要经过几道回复。另一批档案记录吏员缺额，说明实际办理还受当地人手和消息条件影响。",
+          "refs": [
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "最晚纪年只能说明现存档案",
+          "text": "已见里耶档案延至二世二年，通行换算为前 208 年。这个时间是当前材料的晚端。县廷何时停止运作、木牍何时入井、南楚各县如何过渡到其他政权，都要另查。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-qianling-letters",
+          "book": "qin",
+          "chapter": "liye-county-mail-and-records",
+          "label": "接读 · 公文在乡县间走一趟",
+          "display": "看除邮人文书怎样请示、批复与留存。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "liye-and-shuihudi-manuscript-contexts",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "里耶古城一号井",
+              "placeId": "main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liye-county-mail-and-records",
+      "from": -221,
+      "to": -208,
+      "dateLabel": "公元前 221—前 208 年 · 秦朝时期的地方公文",
+      "title": "一份公文怎样从启陵乡走到县廷再回来",
+      "summary": "沿里耶除邮人简和官府催件，读请示、批转、送达和存档四种痕迹。",
+      "spatialThesis": "里耶保留文件一端的记录。收寄地名和传递时限可讨论，现代道路不能代入。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "启陵乡提出两项任用",
+          "text": "简8-157记录启陵乡请求任用邮人和里典。简上保留县丞、县尉的处理语句，又把意见转回启陵乡。乡负责提出人选，县廷要核对职缺与任用依据。把一枚简上的字按先后读，就能看见这项小事分几步办。",
+          "refs": [
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "读到批转还要辨认文书形态",
+          "text": "同一木牍可能有原书、批语和收文时间等多种书写痕迹。对8-157，研究者同意它反映乡县往返，却对哪一份作为原件留下、送出何种抄件有不同复原。可以确认的程序和对存档形态的推定各有证据。",
+          "refs": [
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "同一事项也可能反复催办",
+          "text": "另一组义陵用度简显示县库请求交付用物，牵涉县廷转发，并多次催问。送出的请求、追加的催件、收到后的批语是不同动作。它们留下不同笔迹和日期，足以看出公文抵达之后仍要有人接手。",
+          "refs": [
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            },
+            {
+              "sourceId": "liye-stores-transfers",
+              "locator": "义陵调库县用文书的摘要与流转顺序",
+              "note": "释读义陵、迁陵两县县库及县丞之间的物资付受和文书传递"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "为什么邮书并不等于一张线路图",
+          "text": "封检和邮书保留发送方、送达地和传递办法。某些字样究竟指郡治还是郡内目的地，仍有不同释读。迁陵县廷存下了许多到达这一节点的文书，前后各段还须靠其他地点的材料补齐。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "liye-dongting-geography",
+              "locator": "关于郡治的讨论及表三封检、邮书释读",
+              "note": "通过官文书收寄信息讨论洞庭郡所辖县和郡治的线索"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-qianling-registers",
+          "book": "qin",
+          "chapter": "liye-registers-and-service",
+          "label": "接读 · 人户怎样登记",
+          "display": "对照乡县办件和北城壕出土的分户名册。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "北城壕K11、1号简K27五栏释文",
+              "note": "同一户籍条记户主、妻、子女和称臣的成员，资料出自北城壕"
+            },
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "liye-registers-and-service",
+      "from": -221,
+      "to": -208,
+      "dateLabel": "公元前 221—前 208 年 · 户籍、乡里和徭役",
+      "title": "户籍编到一户，徭役要看怎样征发",
+      "summary": "从北城壕户籍的一户人家，读县廷怎样登记人、编乡里，并与睡虎地征发条文相对照。",
+      "spatialThesis": "里耶北城壕和一号井出土性质不同。云梦睡虎地的律文来自另一处墓葬。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "北城壕的一户人家",
+          "text": "里耶K27按栏写户主、妻、子女和记为臣的一人，还留下爵称或身份用字。记录允许比较各栏怎样安排，却无法知道这户平常怎样分工。一号井公文与北城壕所见户籍应按各自出土单位解释。",
+          "refs": [
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "北城壕K11、1号简K27五栏释文",
+              "note": "同一户籍条记户主、妻、子女和称臣的成员，资料出自北城壕"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "从一户到乡里的行政名册",
+          "text": "一册可以按户记姓名和亲属关系，另有简牍用来汇总户口或补充年龄、身份。简16-9反映启陵乡已有一些户的资料，但还有信息待补。县廷的底册不是一次填写完毕，传递、校对和变动都在文书上留下线索。",
+          "refs": [
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            },
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "北城壕K11、1号简K27五栏释文",
+              "note": "同一户籍条记户主、妻、子女和称臣的成员，资料出自北城壕"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "律令规定的是哪一类征发",
+          "text": "《徭律》有发征、按逾期日数处分以及水雨情况下停征的条文。负责名册、查验到期和报告异常，是地方办役的不同步骤。条文的适用事项与官吏责任仍依释读区别，后来的渔阳戍役要另看史料。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "人在县廷眼中有什么身份",
+          "text": "户籍留下官府需要的分类，不能抹去居民此前所处的地方社会。简文里的荆、爵称和户内身份依语境解释。把一户的分类和多处墓葬、人名、地方文本对读，才能追问秦的管理怎样进入原有社区。",
+          "refs": [
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "北城壕K11、1号简K27五栏释文",
+              "note": "同一户籍条记户主、妻、子女和称臣的成员，资料出自北城壕"
+            },
+            {
+              "sourceId": "yunmeng-zhengjiahu-report",
+              "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+              "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-yunmeng-laws",
+          "book": "qin",
+          "chapter": "shuihudi-law-and-nan-commandery",
+          "label": "接读 · 睡虎地的秦法",
+          "display": "核对文书规范、赋役用语和出土地。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "qin-weights-stores-and-audits",
+      "from": -221,
+      "to": -209,
+      "dateLabel": "公元前 221—前 209 年 · 标准、仓库与文书",
+      "title": "度量衡诏书到县里，怎样变成可以核对的数",
+      "summary": "并看金属诏版、县库交接文书和睡虎地所藏仓计法律，观察标准怎样进入地方操作。",
+      "spatialThesis": "朝廷颁布的标准、洞庭郡内的器物调发与云梦随葬条文属于不同层次。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "一块诏版上有两个年次",
+          "text": "国家博物馆的青铜双诏版保存前 221 年始皇诏和前 209 年二世加刻。前一组文字要求统一不一致的度量衡，后一组还要求标明承续。两次刻文说明命令的发布和确认。里耶等地的墨书档案与诏版小篆有不同载体和用途。",
+          "refs": [
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "地方收到标准器的过程",
+          "text": "庄小霞据里耶8-109与8-386两简释读秦王政二十五年的铁权流转，认为标准器经地方确认后再交迁陵。这条记录早于称帝，显示尺度的落实要有人传送器物、复核和留文。其他县怎么做，还需各自档案。",
+          "refs": [
+            {
+              "sourceId": "liye-scale-standard",
+              "locator": "简8-109与8-386缀合释文，铁权、蓬与迁陵相关段",
+              "note": "秦王政二十五年已有地方传递铁权、厘定尺度的操作线索"
+            },
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "跨县调物同时要走两条线",
+          "text": "义陵县库到迁陵县库之间，涉及两县县丞批转和物资交付。出土文书主要让人追踪何人发文、谁收到、何时催问。实物是否同日到达、事后如何验收，还需看回执和另外的簿册。",
+          "refs": [
+            {
+              "sourceId": "liye-stores-transfers",
+              "locator": "义陵调库县用文书的摘要与流转顺序",
+              "note": "释读义陵、迁陵两县县库及县丞之间的物资付受和文书传递"
+            },
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "仓律、效律与实际账簿有不同作用",
+          "text": "睡虎地有《仓律》和《效律》等材料，提供官府管理仓储、器物和校核的规范背景。里耶另存仓储钱粮等档案，它们是在县里办理事务留下的。制度规定与实际账面可以对读，后者仍有缺简和不齐的记录。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        },
+        {
+          "id": "p-05",
+          "heading": "迁陵仓曹怎样核对出入",
+          "text": "睡虎地《仓律》写入仓后要立储藏名册并上报。里耶简8-776记录迁陵仓曹核计秦始皇三十年四月至九月的禾稼出入券，简8-1246又涉及县丞讯问租额记录有误。对照下来，可看出入仓登记、定期汇计和发现错误后追查是几项不同工作。",
+          "refs": [
+            {
+              "sourceId": "liye-granary-accounts",
+              "locator": "睡虎地仓律简28、里耶8-1246和8-776释文及说明",
+              "note": "睡虎地仓律要求有关谷物及刍稿入仓后造籍，里耶迁陵见追查租额记录和按时段核计出入券。"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-qianling-counties",
+          "book": "qin",
+          "chapter": "dongting-qin-county-government",
+          "label": "回读 · 洞庭郡与迁陵县",
+          "display": "把标准器流转放回地方行政层级。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "liye-dongting-and-counties",
+              "locator": "简7-1、8-757、8-159、9-713、8-769、9-567及16-9",
+              "note": "洞庭郡与迁陵县的早期纪年、传书对象、属乡与人户资料、县吏缺额和地方上报"
+            },
+            {
+              "sourceId": "liye-scale-standard",
+              "locator": "简8-109与8-386缀合释文，铁权、蓬与迁陵相关段",
+              "note": "秦王政二十五年已有地方传递铁权、厘定尺度的操作线索"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "shuihudi-law-and-nan-commandery",
+      "from": -221,
+      "to": -215,
+      "dateLabel": "公元前 221—前 215 年 · 统一初期读法，兼及较早南郡文书",
+      "title": "睡虎地的秦律、南郡文书和县里办案",
+      "summary": "用云梦秦墓的随葬文献看看规范、转发命令及示范文书分别如何使用。",
+      "spatialThesis": "云梦睡虎地是出土地。南郡守发文与墓葬不是同一行政场所，里耶也有自己的档案位置。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "一座墓里为什么有几类竹简",
+          "text": "湖北云梦睡虎地11号秦墓出土多类简文。《秦律十八种》保存田、仓、置吏等法律摘录，《法律答问》以问答处理适用问题，《封诊式》还保存治狱文书样式和示例。作为随葬抄本，它们能说明墓主相关的知识和书写，不能一概当成已办案件。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            },
+            {
+              "sourceId": "yunmeng-zhengjiahu-report",
+              "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+              "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "南郡守怎样让县道收到法令",
+          "text": "整理本常把南郡守腾文书列入《语书》。文书记秦王政二十年，通常折合前 227 年，交代向县道发布并让吏民知道有关法令。文中抱怨有令不行，也让读者看到传达与遵行之间存在距离。篇名归属和腾的身份均有讨论。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-nan-commandery-letter",
+              "locator": "秦王政二十年纪年、文书首段和要求明布段",
+              "note": "南郡守向县道发布传布法令的要求，文书早于前221年，后随葬于云梦"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "墓中抄写与县廷存档各有什么用途",
+          "text": "睡虎地简可以读条文、解释和示例，里耶简可以追踪任人、催件、收发和登记。即便两边都涉及政令，也要分别辨别某页写的是规范、抄录的范例，还是一次办事记录。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "liye-yiling-document-process",
+              "locator": "义陵用度简图示、四次追书及注26除邮人简8-157",
+              "note": "依据文本、笔迹、收文和批转痕迹解释县际文书与乡县往返"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "云梦还有另一处不同墓地",
+          "text": "睡虎地与郑家湖在云梦同一地区，周围还有楚王城城址。郑家湖墓地材料呈现战国晚期至秦汉过渡的丧葬变化，帮助观察相邻人群的地方生活。两处各有自身用途和年代，不能用一处全部替代另一处。",
+          "refs": [
+            {
+              "sourceId": "yunmeng-zhengjiahu-report",
+              "locator": "楚王城东南郊、睡虎地和郑家湖的相对位置及墓地分期",
+              "note": "云梦两处墓地及城址分布，郑家湖墓地包含战国晚期至秦汉过渡材料"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "compare-late-qin-service",
+          "book": "qin",
+          "chapter": "dazexiang-and-zhang-chu",
+          "label": "接读 · 秦末史书里的戍役",
+          "display": "以徭律对读大泽乡叙事的适用范围。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            },
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "liye-and-shuihudi-manuscript-contexts",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "里耶简",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "睡虎地简",
+              "placeId": "shuihudi"
+            }
+          ]
+        },
+        {
+          "id": "shuihudi-and-zhengjiahu-cemeteries",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "湖北云梦睡虎地",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "郑家湖墓地",
+              "placeId": "zhengjiahu"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "great-wall-mega-projects",
-      "title": "北筑长城、南开灵渠与秦律高压",
-      "from": -214,
+      "title": "秦的南北边地、宫室工程与晚年政令",
+      "from": -215,
       "to": -210,
-      "summary": "秦始皇派蒙恬北击匈奴、连接万里长城，派屠睢与任嚣开凿灵渠平定岭南百越，但同时大兴阿房宫与骊山陵、焚书坑儒，把帝国人力与财力彻底推向了崩溃临界点。",
-      "spatialThesis": "北面万里长城划定了农耕与游牧的万年生态分界线，南面灵渠打通长江与珠江两大水系把广东广西永久并入中国版图——秦朝在十五年间一次性勾勒出中原王朝的南北基本边疆。",
+      "summary": "从北方边塞与道路、岭南建置和灵渠地形，接读秦廷晚年的工程与书籍政策。",
+      "spatialThesis": "河套、岭南和关中各有地理与考古材料。边塞、道路、渠线、城址和实际管辖要按年代分别追查。",
       "paragraphs": [
         {
-          "heading": "蒙恬北伐与万里长城连线",
-          "text": "统一中原后，北方草原上日益强盛的游牧部族匈奴成为头号边患。公元前 215 年，秦始皇派大将蒙恬率三十万大军北击匈奴，收复河套沃土并设九原郡。为永久隔绝骑兵南下，秦廷把战国时期秦、赵、燕三国旧长城修缮连接，西起临洮、东至辽东，筑起延绵万余里的国防奇观；同时修筑从咸阳直达九原的“秦直道”，七百公里军用大道三天三夜即可飞骑直达。",
+          "id": "p-01",
+          "heading": "北方用兵、设防和道路",
+          "text": "秦本纪先记蒙恬北击，后载设防和交通营建。《蒙恬列传》对九原至甘泉有较长叙述，子午岭的实地调查证明部分路段。战国以来各墙段、秦朝所用道路和人的来往，不能归入一条固定疆界。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            },
+            {
+              "sourceId": "qin-straight-road-fieldwork",
+              "locator": "富县、甘泉调查、地面勘探与路段编绘",
+              "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+            }
+          ]
         },
         {
-          "heading": "开凿灵渠：把岭南永久焊接进中国版图",
-          "text": "在南线，面对五岭阻隔与百越部落的顽强游击，五十万秦军一度粮道断绝、损失惨重。秦始皇命监御史禄在广西兴安开凿“灵渠”，以精妙的分水铧嘴与三十六座陡门（船闸雏形），硬生生把流向长江的湘江与流向珠江的漓江人工连通。粮船顺水南下，秦军随即平定岭南，设立南海、桂林、象郡三郡，广州（番禺）从此进入中华大一统版图。",
+          "id": "p-02",
+          "heading": "兴安灵渠与岭南置郡",
+          "text": "本纪记始皇三十三年置桂林、象郡、南海。《南越列传》保留秦在岭南的职官叙述。兴安灵渠可观察湘漓连通的地形，当年的工程、职官控制范围和后来修建的具体设施分开查证。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            },
+            {
+              "sourceId": "lingqu-water-divide",
+              "locator": "兴安地望、湘漓连接与传统断代",
+              "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 公元前 214 年广西兴安灵渠",
-            "title": "一渠沟通长江与珠江",
-            "text": "灵渠全长虽仅三十余公里，却彻底打通了中原通往南海的“水陆黄金大动脉”。五十万秦军与大批中原移民留守岭南与越人通婚融合，奠定了后世岭南文化的深厚根基。",
+            "label": "地理参照 · 广西兴安",
+            "title": "湘江和漓江的分水地形",
+            "text": "两条河分属不同水系，灵渠显示如何利用兴安的地形连通它们。现存工程是在多个时期不断维修的结果。",
             "id": "aside-02"
-          },
-          "id": "p-02"
+          }
         },
         {
-          "heading": "焚书坑儒：思想一统的极端代价",
-          "text": "在空间与制度全面统一之后，秦始皇无法容忍儒生与方士援引三代旧制非议郡县新政。公元前 213 年，他采纳李斯建议下令“焚书”，除秦史、医药、卜筮、种树等实用书籍外，民间所藏《诗》《书》与百家语一律限期烧毁；次年又因方士卢生、侯生求仙逃亡并背后议论暴政，怒而在咸阳活埋四百六十余名方士儒生，在后世士林心中留下难以愈合的裂痕。",
+          "id": "p-03",
+          "heading": "前 213 年禁书与次年的查办分别记载",
+          "text": "本纪将李斯建议禁止部分私藏、私议书籍系在前 213 年，保留若干书目与身份的豁免；次年记始皇命御史追查并处置诸生。被处罚者的身份、人数和执行情况仍须按本纪与其他材料考证。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-03"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            }
+          ]
         },
         {
-          "heading": "阿房宫、骊山陵与透支的国力",
-          "text": "《史记》把阿房宫营建和骊山陵的役作分别记录。秦始皇去世时，阿房宫工程尚未完成，秦二世一度恢复施工。西安的考古报告记录了前殿夯土台基和施工地层，可与文献对照。宫殿基址能说明工程规模，无法直接换算役夫比例或全国人口。",
+          "heading": "阿房宫与骊山役作各有证据",
+          "text": "《史记》把阿房宫营建和骊山陵的役作分别记录。秦始皇去世时，阿房宫工程尚未完成，秦二世一度恢复施工。西安的考古报告记录了前殿夯土台基和施工地层，可与文献对照。宫殿基址能说明工程规模，无法直接换算役夫比例或全国人口。 渭河北岸的秦咸阳城保存宫殿遗址，和渭南前殿属于不同的发掘区域。",
           "refs": [
             {
               "sourceId": "shiji-qin-chronology",
@@ -195,24 +1153,58 @@
               "sourceId": "wang-wei-archaeology-review",
               "locator": "先秦诸侯国考古、秦郡县与驰道、南北朝及隋唐考古各段",
               "note": "按遗址、墓葬和器物梳理各时期政治与交流的考古材料。"
+            },
+            {
+              "sourceId": "qin-xianyang-palace-area",
+              "locator": "咸阳宫建筑基址与遗址公园",
+              "note": "秦都遗址区保存宫殿建筑基址，可以同渭南工程比较"
             }
           ],
           "id": "p-04"
         },
         {
-          "heading": "严刑峻法的双刃剑",
-          "text": "更致命的是，秦朝把战国时期专为应急征战设计的严酷军法，原封不动照搬到了和平治国时期。连坐举报、轻罪重罚、肉刑遍地，仅一条“失期，法皆斩”便把无数普通戍卒逼上了横竖都是死的绝路。",
+          "id": "p-05",
+          "heading": "秦律的处罚须按所涉案件读",
+          "text": "睡虎地法律有田、仓等行政规范，也有问答、治狱材料及徭役条文。一次发征的逾期规定不能推及所有戍役。秦末服役和反抗的关系应结合具体史事与当地档案讨论。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "shuihudi-qin-laws",
+              "locator": "201枚简及《田律》《仓律》《置吏律》等篇说明",
+              "note": "云梦睡虎地所出法律摘录涉及农田、仓储和官吏事务"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "三种材料出自湖北云梦睡虎地11号秦墓"
+            },
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            },
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            }
+          ]
         },
         {
-          "text": "公元前 210 年，五度东巡并一心寻访蓬莱长生不老药的秦始皇，在返程途中的河北沙丘平台骤然病逝，终年五十岁。这位用钢铁意志强行拧合天下的巨擘一倒下，高压锅炉的最后一道安全阀也随之失灵。",
+          "id": "p-06",
+          "heading": "始皇病逝引出继承冲突",
+          "text": "《秦始皇本纪》将始皇在沙丘病逝系于三十七年，即前 210 年。关于胡亥以何种方式继位，《史记》和西汉竹书《赵正书》叙述不一。专题将两篇分别列证。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "pku-zhao-zheng-account",
+              "locator": "《赵正书》段，继承与赵高死亡的不同记法",
+              "note": "汉代竹书有秦始皇认可胡亥继位的叙事，与《史记》不同"
+            }
+          ]
         }
       ],
       "contemporaries": [
@@ -229,95 +1221,945 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "read-north-frontier",
+          "book": "qin",
+          "chapter": "qin-northern-frontier-and-straight-road",
+          "label": "细读 · 北方道路与边地",
+          "display": "按文献和已调查的路段分别阅读。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            },
+            {
+              "sourceId": "qin-straight-road-fieldwork",
+              "locator": "富县、甘泉调查、地面勘探与路段编绘",
+              "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-lingnan",
+          "book": "qin",
+          "chapter": "qin-lingqu-and-lingnan-counties",
+          "label": "细读 · 灵渠与岭南郡县",
+          "display": "从兴安水系观察岭南建置的地理背景。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "lingqu-water-divide",
+              "locator": "兴安地望、湘漓连接与传统断代",
+              "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "qin-xianyang-and-epang-sites",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "秦咸阳城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "前殿夯土台基",
+              "placeId": "epang"
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "dazexiang-chu-han",
-      "title": "沙丘之变、大泽乡烽火与暴秦速亡",
-      "from": -209,
-      "to": -206,
-      "summary": "赵高与李斯篡改遗诏立胡亥为二世，诛杀扶苏与蒙恬；公元前 209 年陈胜吴广在大泽乡揭竿而起，项羽巨鹿破釜沉舟、刘邦率先入关，大秦帝国在十五年处戛然而止。",
-      "spatialThesis": "秦朝苦心经营的关东三十六郡本无世袭诸侯，但在高压失控后，楚、齐、赵、燕旧贵族与底层黔首在数月内同时揭竿，函谷关外的帝国控制网瞬间土崩瓦解。",
+      "id": "qin-northern-frontier-and-straight-road",
+      "from": -215,
+      "to": -210,
+      "dateLabel": "公元前 215—前 210 年 · 北方行动和道路营建",
+      "title": "从河套与边塞读秦直道",
+      "summary": "区分秦北方用兵、设防和道路营建，也看路段考古如何核对传世地名。",
+      "spatialThesis": "河套周边、甘泉地区和陕北子午岭是不同的地域参照，实地发掘只覆盖路网的若干区段。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
       "paragraphs": [
         {
-          "heading": "沙丘密谋与胡亥登基",
-          "text": "秦始皇临终前原本留有遗诏，命长子扶苏把北方三十万边防军交给蒙恬，速回咸阳奔丧继位。然而随行的中车府令赵高深知扶苏素来厌恶自己，遂游说昏庸的幼子胡亥，并威逼利诱丞相李斯合谋篡改遗诏。一封伪诏飞赴上郡，仁厚守礼的扶苏竟遵诏自杀，忠臣蒙恬被囚死。",
+          "id": "p-01",
+          "heading": "北方行动分属几个年次",
+          "text": "《秦始皇本纪》在三十二年记蒙恬北击，次年再记河南地的设置和边防。河南在这里是黄河河套以南一带的古称。该区秦和北方人群的关系随政治与军事行动变化，地图按地形位置阅读。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            }
+          ]
         },
         {
-          "text": "即位后的秦二世胡亥毫无治国之能，却把暴政推向疯狂：不仅屠戮二十余位兄弟姐妹与开国重臣，还变本加厉加重赋税继续修筑阿房宫。公元前 208 年，连当年帮赵高篡位的李斯也被腰斩咸阳，“指鹿为马”的荒诞戏码上演于朝堂之上，帝国中枢彻底失智。",
+          "id": "p-02",
+          "heading": "边塞和道路分别有什么材料",
+          "text": "《蒙恬列传》把边塞营建和从九原到甘泉的道路都置于蒙恬事迹中。传世叙事有兵数和里程，不能把所有战国、秦和汉代墙体合成同一时点的一条线。道路也需分别求起讫段和使用年代。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            },
+            {
+              "sourceId": "qin-straight-road-fieldwork",
+              "locator": "富县、甘泉调查、地面勘探与路段编绘",
+              "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+            }
+          ]
         },
         {
-          "heading": "大泽乡一场大雨点燃全国烽火",
-          "text": "公元前 209 年七月，九百名贫苦农民被征发前往渔阳戍边，行至安徽宿州大泽乡时连遇暴雨、道路冲毁，眼看必然误期。按照秦律，误期者一律处斩。屯长陈胜、吴广看透绝境，高喊出一句震彻两千年的呐喊——“王侯将相宁有种乎！”斩木为兵、揭竿而起，迅速建立“张楚”政权。",
+          "id": "p-03",
+          "heading": "调查能把哪几段放到图上",
+          "text": "考古人员在富县、甘泉一带踏查子午岭地表线索，结合勘探辨认直道遗迹。地图可放下这一片调查区域，和今淳化甘泉地区作方位对照。传世起讫地名、具体遗迹以及后代继续使用的部分分别查证。",
           "refs": [
-            "source-01"
-          ],
-          "callout": {
-            "label": "历史现场 · 公元前 209 年安徽大泽乡",
-            "title": "中国史上首次大规模平民起义",
-            "text": "陈胜吴广虽在半年后兵败遇害，却像一根火柴瞬间点燃了六国旧地积压十余年的干柴——从沛县亭长刘邦到江东楚将之后项梁项羽，天下苦秦久矣的各方豪杰蜂拥而起。",
-            "id": "aside-03"
-          },
-          "id": "p-03"
+            {
+              "sourceId": "qin-straight-road-fieldwork",
+              "locator": "富县、甘泉调查、地面勘探与路段编绘",
+              "note": "确认子午岭一带有经过实地踏查、勘探的直道路段"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            }
+          ]
         },
         {
-          "heading": "巨鹿破釜沉舟：秦军主力的葬身之地",
-          "text": "危局中，秦少府章邯临危受命，赦免骊山数十万刑徒组成劲旅，一度接连击败陈胜、斩杀项梁、把赵军死死围在河北巨鹿。前来救援的十余路诸侯联军个个作壁上观、不敢出战。此时年仅二十六岁的项羽毅然渡过漳水，下令凿沉渡船、砸破饭锅、烧毁营帐，只带三日干粮率楚军九战九捷，彻底歼灭秦军最后精锐主力。",
+          "id": "p-04",
+          "heading": "为何不按兵数推定边疆范围",
+          "text": "修路、驻守和县里移民在本纪里可以分别找到记事。兵数和传世用语只能说明作者着重叙述的行动。各处实际居住、往来和秦能长期管理的范围，仍需要结合当地考古和文书。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-04"
-        },
-        {
-          "heading": "刘邦“约法三章”与子婴素车降汉",
-          "text": "正当项羽在河北与秦军主力浴血死磕时，另一路起义军领袖刘邦采纳张良谋略，避开重兵把守的函谷关，绕道南阳武关奇袭关中。公元前 206 年十月，刘邦兵临咸阳霸上，即位仅四十六天的秦王子婴系颈以组、驾白马素车奉上传国玉玺出降。",
-          "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
-        },
-        {
-          "text": "刘邦秋毫无犯、废除苛刻秦律、与关中父老“约法三章”，萧何则第一时间冲进丞相府抢收全国户籍图册与律令档案。不久后项羽入关火烧咸阳宫、分封十八路诸侯引发四年楚汉争霸，直至刘邦垓下胜出建立大汉。秦朝虽如流星般十五年速亡，但“汉承秦制”，它亲手锻造的大一统帝国框架，却真正开启了此后两千年的中华帝国正轨。",
-          "refs": [
-            "source-01"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            }
+          ]
         }
       ],
       "related": [
         {
-          "book": "han",
-          "label": "汉朝如何在秦制基础上“霸王道杂之”，把帝国推向四百年长治久安",
-          "id": "reading-01",
+          "id": "read-shaqiu-succession",
+          "book": "qin",
+          "chapter": "shaqiu-and-qin-second-emperor",
+          "label": "接读 · 继承政局",
+          "display": "蒙恬与扶苏后来命运见秦廷继承记事。",
           "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "qin-straight-road-and-ganquan-areas",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "富县",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "今淳化甘泉地区",
+              "placeId": "ganquan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qin-lingqu-and-lingnan-counties",
+      "from": -214,
+      "to": -210,
+      "dateLabel": "公元前 214—前 210 年 · 岭南建置与水系参照",
+      "title": "灵渠两边的水流与岭南郡县",
+      "summary": "分别看开渠与设置南方郡县的证据，再从龙川一处县职读秦末以后地方变化。",
+      "spatialThesis": "广西兴安灵渠连通湘江和漓江流域。南海、桂林、象郡的范围需另查，不能按现代省界放置。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "本纪如何记录岭南郡县",
+          "text": "《秦始皇本纪》在三十三年记秦取陆梁地并置桂林、象郡、南海。三郡名与层级是史书记载，实际控制范围、各地设置先后和象郡地望仍须分项考证。传世文献中的越也不能当作一个统一政权。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "兴安为什么能连湘江和漓江",
+          "text": "兴安附近两水系相近，湘江向北进入长江流域，漓江经桂江接入珠江水系。灵渠作为遗存可读分水和人工引水的地形。现存渠首与设施历经维护，不能把今天每一处构筑物直接定为前 214 年。",
+          "refs": [
+            {
+              "sourceId": "lingqu-water-divide",
+              "locator": "兴安地望、湘漓连接与传统断代",
+              "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "秦末才出现的南海地方行动",
+          "text": "《南越列传》记赵佗先任南海郡龙川令，秦末在任嚣去世后接掌南海，并另有建政。这让读者看到县官的任职以及后来地方政治的变化。今广州番禺一带保存秦和南越国等不同地层，各区时序和考古单位须分别核对。",
+          "refs": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            },
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "广州城区历代叠压的秦层和南越王宫遗存",
+              "note": "今广州老城区的遗址区见秦、南越国等不同时代堆积"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从洞庭郡回看岭南证据差异",
+          "text": "洞庭郡和迁陵县有原地出土的行政文书，岭南这里主要根据本纪、列传和水利遗存阅读。两处都是秦向南行政扩展的例子，文书保存情况不同，不能拿迁陵县的办事流程填补岭南各县的空白。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            },
+            {
+              "sourceId": "lingqu-water-divide",
+              "locator": "兴安地望、湘漓连接与传统断代",
+              "note": "灵渠在广西兴安沟通湘江和漓江流域，保存可观察的水利地形"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-dongting",
+          "book": "qin",
+          "chapter": "dongting-qin-county-government",
+          "label": "对读 · 同期南方的地方县廷",
+          "display": "比较洞庭材料与岭南的证据种类。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "赵佗初任龙川令、任嚣死与秦末南越建政段",
+              "note": "记录岭南置南海、桂林、象郡，南海辖龙川的传世材料，及秦末当地政治变化"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "lingqu-and-panyu-region",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "兴安",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "今广州番禺一带",
+              "placeId": "panyu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shaqiu-and-qin-second-emperor",
+      "from": -210,
+      "to": -208,
+      "dateLabel": "公元前 210—前 208 年 · 沙丘与继承政局",
+      "title": "沙丘之后谁接掌秦廷",
+      "summary": "比较《史记》和《赵正书》的继位记法，再读继承后的官府与档案。",
+      "spatialThesis": "沙丘为传世纪事中的病逝地名，秦都咸阳与上郡属于不同地点。行程与诏书传递不据叙事复原。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "前 210 年发生了什么",
+          "text": "《秦始皇本纪》记始皇出巡途中病逝于沙丘，胡亥随后即位。《蒙恬列传》也把继承同扶苏、蒙恬的结局写在一起。关于过程，现存的是后出的历史叙述，失传文书只能据文本所述分别讨论。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-meng-tian",
+              "locator": "蒙恬生平、河南地、修长城和九原至甘泉段",
+              "note": "记河套南缘军事行动、修筑边塞及九原通甘泉"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "两份汉代叙事如何解释继位",
+          "text": "《史记》叙赵高、李斯等改换命令拥立胡亥。《赵正书》则保存始皇临终认可胡亥的说法。北京大学整理的竹书有自己的叙事取舍，收藏来源缺乏可核的考古出土情境。两条材料的差别可以看到，秦廷原始交接文件尚无从对证。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "pku-zhao-zheng-account",
+              "locator": "《赵正书》段，继承与赵高死亡的不同记法",
+              "note": "汉代竹书有秦始皇认可胡亥继位的叙事，与《史记》不同"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "二世初年继续发文与工程",
+          "text": "本纪记二世重开阿房宫工程。国家博物馆所藏双诏版另有二世元年的加刻，可以与始皇的度量衡诏对读。首都政治变动、工程和原有制度的延续分别留下不同材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "xian-epang-excavation-2025",
+              "locator": "前殿夯土台基、2002至2004年和2025年发掘",
+              "note": "前殿有大型台基和分期施工证据，考古区分营建阶段"
+            },
+            {
+              "sourceId": "qin-double-edict-plate",
+              "locator": "前221年正刻、前209年加刻、器物载体",
+              "note": "初刻及追刻分别提供秦始皇与秦二世度量衡政令的信息"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "地方政府并没有同时停止办事",
+          "text": "始皇去世后，迁陵县仍留有秦二世年间的档案。中央的人事冲突与当地公文存续可以同时成立。最晚文书提示地方还在办理事务，不能据此定出各县何时结束秦代的行政。",
+          "refs": [
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-revolt-with-law",
+          "book": "qin",
+          "chapter": "dazexiang-and-zhang-chu",
+          "label": "接读 · 大泽乡与张楚",
+          "display": "从二世初年秦廷读到关东戍役与反抗。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dazexiang-and-zhang-chu",
+      "from": -209,
+      "to": -208,
+      "dateLabel": "公元前 209—前 208 年 · 大泽乡与张楚",
+      "title": "从大泽乡到陈县，张楚怎样形成",
+      "summary": "跟读陈胜、吴广和各地反秦者，并把戍役的传世说法同《徭律》的适用范围分开。",
+      "spatialThesis": "宿州一带为传统的大泽乡地域参照，陈县可从淮阳一带对读。戍役行程和运动扩展不按后世地名逐线绘制。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "史书把起事放在怎样的征发背景下",
+          "text": "《陈涉世家》记秦二世元年征人赴渔阳戍守，陈胜、吴广等在大泽乡遇雨。叙事把误期风险列为参与起事的原因。通行编年系于前 209 年，传记所给人数和对白仍是这一篇的记载。",
+          "refs": [
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "失期在两份材料里的语境不同",
+          "text": "《陈涉世家》用失期皆斩解释眼前处境。云梦《徭律》在御中发征条下分列逾期数日的不同处分，还提到水雨情况下停征。两条材料涉及不同的文本、年代和役务，不能从一条《徭律》推定渔阳戍卒的裁决，也不能把传记说法当成所有秦代徭役的规定。",
+          "refs": [
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            },
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "张楚在陈县成了另一个政治中心",
+          "text": "陈胜及同伴从起事队伍扩大为政治组织，进入陈县并建立张楚。列传记他们遣人向各地发展，也记武臣等另立。地方行动可能借用旧国名号，参与者的选择和控制范围随时变化。",
+          "refs": [
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "张楚受挫后，反秦力量还有多个来源",
+          "text": "传世材料记章邯所部反击，陈胜势力很快受挫。项梁、项羽在会稽一带行动，刘邦从沛起兵；赵、齐等地也有新的政治组织。各地发生有先后，需沿不同地区的记载继续读。",
+          "refs": [
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-julu-and-guanzhong",
+          "book": "qin",
+          "chapter": "julu-guanzhong-and-qin-surrender",
+          "label": "接读 · 赵地、关中两路战局",
+          "display": "陈胜势力受挫后，其它反秦力量继续行动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "julu-guanzhong-and-qin-surrender",
+      "from": -208,
+      "to": -206,
+      "dateLabel": "公元前 208—前 206 年 · 诸军行动与秦王投降",
+      "title": "巨鹿解围与刘邦入关，秦亡前的两条线",
+      "summary": "分清巨鹿交战、章邯后来请降、关中受降和项羽入关的时间。",
+      "spatialThesis": "巨鹿之战的古地名与今日县名要分辨，关中的霸上和咸阳也分别有地望。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "巨鹿的战事发生在赵地",
+          "text": "《项羽本纪》把项梁败亡、秦军围赵与楚军赴援接写。今冀南平乡一带可作古巨鹿的区域参照。常系于前 207 年的巨鹿交战使围城秦军失利，此后章邯仍继续行动，随后才向项羽请降。两件事分列，可避免把秦军的整个结局缩成一场战争。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "tongjian-qin-end",
+              "locator": "秦二世二、三年条",
+              "note": "将巨鹿、二世之死、子婴立为秦王和关内战事编在秦纪末年"
+            },
+            {
+              "sourceId": "julu-qin-han-geography",
+              "locator": "巨鹿、平乡建置相关引文",
+              "note": "秦汉以来巨鹿县地望与今平乡附近有关，后世还有县治迁移"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "刘邦从另一面进入关中",
+          "text": "《高祖本纪》记刘邦军西向军抵霸上，子婴在轵道旁投降，《秦始皇本纪》也把子婴降列为秦廷终局。秦王降后，刘邦在关中的安排和项羽后来入关又有新的争议。两处行动的时序重叠，应按各卷互校。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "前 207 年末与汉元年十月",
+          "text": "《高祖本纪》和《秦楚之际月表》把子婴投降放在汉元年十月。秦汉之际用十月为岁首，按公元前年份换算落在前 207 年末。这与惯用前 206 年概括秦汉交替有口径差别。年表另将前 206 年的项羽分封独立列出。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "qin-han-calendar-reconstruction",
+              "locator": "秦二世三年及汉高祖元年各月朔表",
+              "note": "秦汉历表以十月为岁首，并可同公元前年份对照"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "秦档案的去向在传世记忆中怎样出现",
+          "text": "《萧相国世家》写萧何进入咸阳后接收秦官府的律令图书，在后来的战争中留守关中。这是关于档案接收的传世记述。里耶一号井留下的是迁陵的地方实物，两者可说明档案层级和存留方式不同。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "入咸阳收取律令图书、楚汉战争留守关中",
+              "note": "本篇写萧何接收秦档并在战争时期掌后方行政"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-early-han-kingdom",
+          "book": "han",
+          "chapter": "post-qin-enfeoffment-and-hanzhong",
+          "label": "接读 · 分封以后与汉王入汉中",
+          "display": "从子婴投降，接续前 206 年诸王、楚与汉的变动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "julu-and-guanzhong-two-theaters",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "今冀南平乡一带",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "霸上",
+              "placeId": "guanzhong"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dazexiang-chu-han",
+      "title": "秦末各地反抗与子婴归降",
+      "from": -210,
+      "to": -206,
+      "summary": "由胡亥继位读到张楚、巨鹿、刘邦入关与子婴投降，再接续前 206 年的分封。",
+      "spatialThesis": "秦都关中、张楚陈县与巨鹿赵地是不同政治和地理节点，地方变化按时间和区域各自观察。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "关于沙丘继位为何有不同记载",
+          "text": "始皇在前 210 年病逝。胡亥继位见于两种材料，关于是否经始皇认可，《史记》与《赵正书》叙述不同。两者都是后出的传本，均未保存秦廷的可核验遗诏原件。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "pku-zhao-zheng-account",
+              "locator": "《赵正书》段，继承与赵高死亡的不同记法",
+              "note": "汉代竹书有秦始皇认可胡亥继位的叙事，与《史记》不同"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "二世朝与秦廷后期的人事变化",
+          "text": "本纪记二世续作阿房宫，也写李斯被杀和赵高在末期的活动。不同篇目对赵高最终如何被杀叙述有别。地方档案保存至二世二年，给秦末官府活动另一个观察角度。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "pku-zhao-zheng-account",
+              "locator": "《赵正书》段，继承与赵高死亡的不同记法",
+              "note": "汉代竹书有秦始皇认可胡亥继位的叙事，与《史记》不同"
+            },
+            {
+              "sourceId": "liye-qin-archive",
+              "locator": "馆藏来源、一号井及北城壕、已见纪年、主要档案类型",
+              "note": "湖南龙山里耶出土洞庭郡迁陵县文书，多数为木简牍，档案纪年约前222至前208"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "大泽乡起事与张楚",
+          "text": "《陈涉世家》记前 209 年戍役人员在大泽乡起事，并在陈县组织张楚。传记对失期的说法与睡虎地部分徭役条文语境不同。地方戍役的实际判罚不能用单一材料决定。",
+          "refs": [
+            {
+              "sourceId": "shiji-chen-she",
+              "locator": "二世元年发闾左戍渔阳、大泽乡集结、陈县张楚与事败",
+              "note": "记大泽乡和张楚、戍卒误期的叙事、反秦力量在各地发展"
+            },
+            {
+              "sourceId": "shuihudi-labor-law",
+              "locator": "御中发征、按失期日数处理及水雨除兴段",
+              "note": "一类徭役发征下有不同逾期处分和因水雨停征的表述"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            }
+          ],
+          "callout": {
+            "label": "传世记事 · 前 209 年大泽乡与陈县",
+            "title": "起事之后出现新的政治中心",
+            "text": "《陈涉世家》写陈胜一方进入陈县，建立张楚。赵、齐等地也先后组织力量，各地的起事与归附有不同的年次。",
+            "id": "aside-03"
+          }
+        },
+        {
+          "id": "p-04",
+          "heading": "巨鹿与章邯请降分属不同节点",
+          "text": "《项羽本纪》记赵地巨鹿的解围、围城秦军失利，以及后来章邯向项羽请降。此时刘邦一支从另一面向关中行进。两条线并读才能解释秦廷如何逐步失去军事支持。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
+        },
+        {
+          "id": "p-05",
+          "heading": "子婴归降与秦王政权终结",
+          "text": "刘邦军抵霸上，子婴在轵道旁投降，史书将此记在以十月为岁首的汉元年十月。换算到公元前纪年在前 207 年末，之后项羽入关，前 206 年另有诸王分封。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            },
+            {
+              "sourceId": "shiji-qin-chronology",
+              "locator": "始皇二十六至二十九、三十二至三十七年及二世相关纪事",
+              "note": "称帝、三十六郡议、标准、巡行与边地工程；继承、反秦与子婴投降"
+            },
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "qin-han-calendar-reconstruction",
+              "locator": "秦二世三年及汉高祖元年各月朔表",
+              "note": "秦汉历表以十月为岁首，并可同公元前年份对照"
+            }
+          ]
+        },
+        {
+          "id": "p-06",
+          "heading": "秦亡与汉帝国建立之间还有数年",
+          "text": "《萧相国世家》记萧何接收官府律令图书，秦政权的文书遗产有传世线索。秦亡以后各地出现诸王、楚与汉继续交战。汉卷接读义帝、诸王及刘邦称帝的过程。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "入咸阳收取律令图书、楚汉战争留守关中",
+              "note": "本篇写萧何接收秦档并在战争时期掌后方行政"
+            },
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "reading-01",
+          "book": "han",
+          "chapter": "post-qin-enfeoffment-and-hanzhong",
+          "label": "接读 · 分封以后与汉王入汉中",
+          "display": "从子婴投降，接续前 206 年诸王、楚与汉的变动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-qin-exits",
+          "book": "qin",
+          "chapter": "julu-guanzhong-and-qin-surrender",
+          "label": "细读 · 巨鹿与子婴投降",
+          "display": "按不同地点与月序读秦亡前的行动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-qin-chu-months",
+              "locator": "秦二世三年及汉元年至五年各月",
+              "note": "按月分列秦、楚、赵与汉的政局，可对读子婴降、分封和战争"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "contemporaries": [
         {
-          "book": "han",
-          "year": -206,
-          "label": "楚汉争霸拉开序幕",
-          "note": "子婴降汉后，刘邦与项羽在关中与中原展开长达四年的决战，最终开启大汉四百年基业。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "han",
+          "chapter": "post-qin-enfeoffment-and-hanzhong",
+          "label": "接读 · 分封以后与汉王入汉中",
+          "display": "从子婴投降，接续前 206 年诸王、楚与汉的变动。",
+          "relation": "context",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiang-yu",
+              "locator": "巨鹿、章邯降、入关、分封、彭城与垓下乌江各段",
+              "note": "巨鹿与入关的分头行动，项羽分封、楚汉交战与项羽结局"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "子婴投降、约法、汉王就国、彭城和称帝及徙都段",
+              "note": "记录刘邦进关受降、汉元年分封、楚汉战争和高祖即位迁都"
+            }
+          ],
           "audit": {
-            "status": "legacy"
-          }
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          },
+          "year": -206,
+          "note": "从子婴投降，接续前 206 年诸王、楚与汉的变动。"
         }
       ],
       "kind": "narrative",
       "spatialThesisId": "spatial-thesis"
     }
+  ],
+  "subjectIds": [
+    "qin-xianyang-palace-site",
+    "qin-liye-qianling-site",
+    "qin-yunmeng-shuihudi-zhengjiahu",
+    "qin-ziwuling-road-survey-area",
+    "qin-lingqu-xingan-water-divide",
+    "qin-late-julu-pingxiang-area"
   ]
 }

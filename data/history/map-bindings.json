@@ -2543,6 +2543,27 @@
     {
       "map": {
         "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "chu-han-war-and-imperial-accession"
+      },
+      "range": {
+        "from": -202,
+        "to": -202
+      },
+      "relation": "related",
+      "scope": "从汉帝国底图覆盖起年进入刘邦称帝及此前年份的楚汉战争。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Xin Dynasty"
       },
       "target": {
@@ -5754,7 +5775,263 @@
     {
       "map": {
         "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "dazexiang-and-zhang-chu"
+      },
+      "range": {
+        "from": -209,
+        "to": -209
+      },
+      "relation": "related",
+      "scope": "从二世元年的秦朝底图进入陈涉与张楚，地名方位另见正文。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "shaqiu-and-qin-second-emperor"
+      },
+      "range": {
+        "from": -210,
+        "to": -209
+      },
+      "relation": "related",
+      "scope": "从始皇末年和二世元年进读沙丘以后的异文与地方记录。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "liye-registers-and-service"
+      },
+      "range": {
+        "from": -211,
+        "to": -209
+      },
+      "relation": "related",
+      "scope": "从同期秦朝地图读里耶户籍、县乡行政与征发语境。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-liye-qianling-site"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "qin-weights-stores-and-audits"
+      },
+      "range": {
+        "from": -212,
+        "to": -209
+      },
+      "relation": "related",
+      "scope": "对读金属诏版、地方流转的铁权与县里的文书和仓储。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "great-wall-mega-projects"
+      },
+      "range": {
+        "from": -213,
+        "to": -210
+      },
+      "relation": "related",
+      "scope": "从关中地区读宫室营建与晚年政令，不以都邑图确定前殿完工状态。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-xianyang-palace-site"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "qin-lingqu-and-lingnan-counties"
+      },
+      "range": {
+        "from": -214,
+        "to": -210
+      },
+      "relation": "related",
+      "scope": "进入湘漓分水、岭南建置和南越考古，点位不代替秦郡边界。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-lingqu-xingan-water-divide"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "qin-northern-frontier-and-straight-road"
+      },
+      "range": {
+        "from": -215,
+        "to": -212
+      },
+      "relation": "related",
+      "scope": "从秦治下北方背景进入直道调查及边地纪事，实际道路与疆域不以底图线确定。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-ziwuling-road-survey-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "shuihudi-law-and-nan-commandery"
+      },
+      "range": {
+        "from": -216,
+        "to": -215
+      },
+      "relation": "related",
+      "scope": "以云梦区域定位出土的法律摘抄，南郡守文书有自身的较早纪年。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-yunmeng-shuihudi-zhengjiahu"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "dongting-qin-county-government"
+      },
+      "range": {
+        "from": -217,
+        "to": -209
+      },
+      "relation": "related",
+      "scope": "进入里耶所见迁陵县、洞庭郡和所属地方，不以底图复原郡界。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-liye-qianling-site"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin Dynasty"
+      },
+      "target": {
+        "bookId": "qin",
+        "chapterId": "first-emperor-system"
+      },
+      "range": {
+        "from": -218,
+        "to": -215
+      },
+      "relation": "related",
+      "scope": "从现有秦朝底图的较早覆盖年段读称帝与置郡，初年用年度史事进入。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-xianyang-palace-site"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Eighteen Kingdoms"
+      },
+      "target": {
+        "bookId": "qin"
+      },
+      "range": {
+        "from": -221,
+        "to": -206
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Eighteen Kingdoms"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "post-qin-enfeoffment-and-hanzhong"
+      },
+      "range": {
+        "from": -206,
+        "to": -205
+      },
+      "relation": "related",
+      "scope": "从分封时代底图读诸王与刘邦为汉王的沿革。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Chu"
       },
       "target": {
         "bookId": "qin"
@@ -5775,17 +6052,43 @@
         "key": "Western Chu"
       },
       "target": {
-        "bookId": "qin"
+        "bookId": "han",
+        "chapterId": "chu-han-war-and-imperial-accession"
       },
       "range": {
-        "from": -221,
-        "to": -206
+        "from": -205,
+        "to": -203
       },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "relation": "related",
+      "scope": "从西楚所覆盖年段进入彭城、荥阳及之后的争夺；前202年接皇帝即位年序。",
       "audit": {
-        "status": "legacy"
-      }
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "chu-han-guangwu-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Western Chu"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "post-qin-enfeoffment-and-hanzhong"
+      },
+      "range": {
+        "from": -206,
+        "to": -205
+      },
+      "relation": "related",
+      "scope": "从西楚底图读项羽分封及彭城，汉王与诸王实际控制范围需逐地考证。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "chu-han-pengcheng-area"
     },
     {
       "map": {
