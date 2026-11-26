@@ -7810,5 +7810,259 @@
         "checkedAt": "2026-11-26"
       }
     }
+  },
+  {
+    "id": "houma-niucun-and-covenant-site",
+    "topicEvent": "i-cn-houma-jin-covenants",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 510—前 386 年 · 阅读区间",
+      "question": "城市与埋藏盟书的地点怎样分布？",
+      "note": "牛村古城和盟誓遗存都在新田遗址群中，可以对照城址区和浍河附近台地。",
+      "limit": "两个点用于定位遗址片区。盟誓坑的平面、各组刻写时间和主盟者需逐项核对。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "niucun"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "houma-site-evidence",
+              "locator": "图三及侯马祭祀和盟誓材料表",
+              "note": "牛村古城及盟誓遗存分布，提供晋都新田遗址的空间参照"
+            },
+            {
+              "sourceId": "houma-tablets",
+              "locator": "盟书形制、坑内埋藏及张颔的赵鞅说",
+              "note": "朱书玉石片及对盟誓参与者和用途的一种解释"
+            }
+          ]
+        },
+        "niucun": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "houma-site-evidence",
+              "locator": "图三及侯马祭祀和盟誓材料表",
+              "note": "牛村古城及盟誓遗存分布，提供晋都新田遗址的空间参照"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "houma-site-evidence",
+          "locator": "图三及侯马祭祀和盟誓材料表",
+          "note": "牛村古城及盟誓遗存分布，提供晋都新田遗址的空间参照"
+        },
+        {
+          "sourceId": "houma-tablets",
+          "locator": "盟书形制、坑内埋藏及张颔的赵鞅说",
+          "note": "朱书玉石片及对盟誓参与者和用途的一种解释"
+        },
+        {
+          "sourceId": "houma-dating",
+          "locator": "第 13–15 页，旧说及分组断代",
+          "note": "侯马盟书的主盟人与年代有多种意见，作者以赵桓子假说推定若干类别的年代"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "区域参照的地图位置、对应材料和时间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "suizhou-zeng-cemetery-comparison",
+    "topicEvent": "i-cn-zeng-leigudun-cemetery",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 450—前 400 年 · 阅读区间",
+      "question": "相隔数百年的墓地，分别为曾国留下了什么？",
+      "note": "擂鼓墩见战国曾侯乙墓，叶家山有较早的曾侯墓，两处都在今随州一带。",
+      "limit": "地点以墓区参照。场景年份用于阅读战国镈铭，叶家山在这里是较早时期的对照。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "yejiashan"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "zeng-leigudun-context",
+              "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+              "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+            },
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            }
+          ]
+        },
+        "yejiashan": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "zeng-research-later",
+          "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+          "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+        },
+        {
+          "sourceId": "zeng-leigudun-context",
+          "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+          "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "区域参照的地图位置、对应材料和时间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "linzi-small-city-and-jixia-area",
+    "topicEvent": "i-cn-linzi-jixia-landscape",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 350—前 300 年 · 阅读区间",
+      "question": "文献里的稷下可以和城门外哪类材料对读？",
+      "note": "小城西门外发现战国夯土建筑群，可对照小城和西门外院落的位置。",
+      "limit": "地图定位小城和发掘区。稷下学宫是对遗址性质的推断，具体房屋用途及其使用者须另证。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "west-yard"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "小城分期及城外壕内营建夯土建筑群",
+              "note": "临淄小城与大城的相对位置、战国西门外院落及其解释"
+            }
+          ]
+        },
+        "west-yard": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "linzi-jixia-fieldwork",
+              "locator": "小城西门外夯土基址群、院落与地望比定段",
+              "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+            },
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "小城分期及城外壕内营建夯土建筑群",
+              "note": "临淄小城与大城的相对位置、战国西门外院落及其解释"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "linzi-city-phases",
+          "locator": "小城分期及城外壕内营建夯土建筑群",
+          "note": "临淄小城与大城的相对位置、战国西门外院落及其解释"
+        },
+        {
+          "sourceId": "linzi-jixia-fieldwork",
+          "locator": "小城西门外夯土基址群、院落与地望比定段",
+          "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+        },
+        {
+          "sourceId": "shiji-qi-jixia",
+          "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+          "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "区域参照的地图位置、对应材料和时间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "yueyang-and-qin-xianyang-sites",
+    "topicEvent": "i-cn-qin-yueyang-xianyang-landscape",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 383—前 338 年 · 阅读区间",
+      "question": "迁都史事与两个遗址区怎样对照？",
+      "note": "栎阳三号古城和渭河北岸秦咸阳保留多期都邑建筑的线索，点位用于比较关中地形和区域位置。",
+      "limit": "点位为遗址区参照。各期都邑边界、迁都行程与改制地点按相应材料判定。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "xianyang"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "qin-yueyang-fieldwork",
+              "locator": "三号古城核心区、建筑台基和散水陶管",
+              "note": "战国中期至西汉初期的建筑变化及排水等遗迹"
+            }
+          ]
+        },
+        "xianyang": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "qin-xianyang-city",
+              "locator": "秦都咸阳宫一至三号遗址的渭水位置、夯土台基和建筑说明",
+              "note": "渭河附近高台宫殿遗址的区域位置和建筑证据"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "qin-yueyang-fieldwork",
+          "locator": "三号古城核心区、建筑台基和散水陶管",
+          "note": "战国中期至西汉初期的建筑变化及排水等遗迹"
+        },
+        {
+          "sourceId": "qin-xianyang-city",
+          "locator": "秦都咸阳宫一至三号遗址的渭水位置、夯土台基和建筑说明",
+          "note": "渭河附近高台宫殿遗址的区域位置和建筑证据"
+        },
+        {
+          "sourceId": "qin-annals-reforms",
+          "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+          "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "区域参照的地图位置、对应材料和时间范围。",
+        "checkedAt": "2026-11-26"
+      }
+    }
   }
 ]

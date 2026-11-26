@@ -7266,6 +7266,28 @@
     {
       "map": {
         "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-shang-yang-and-standard-sheng"
+      },
+      "range": {
+        "from": -383,
+        "to": -338
+      },
+      "relation": "related",
+      "scope": "从秦国的时期底图进入栎阳、咸阳和商鞅方升。各处遗址按自身材料阅读。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-yueyang-xianyang-sites"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Chu"
       },
       "target": {
@@ -7279,6 +7301,27 @@
       "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
       "audit": {
         "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "wu-qi-appointments-in-chu"
+      },
+      "range": {
+        "from": -401,
+        "to": -381
+      },
+      "relation": "related",
+      "scope": "从早期战国楚的底图查吴起的官职调整及继承变局。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {
@@ -7348,6 +7391,28 @@
       },
       "target": {
         "bookId": "warring-states",
+        "chapterId": "tian-qi-and-jixia"
+      },
+      "range": {
+        "from": -386,
+        "to": -300
+      },
+      "relation": "related",
+      "scope": "从战国齐底图入口查田氏受命与后来的临淄遗址资料。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "tian-qi-linzi-jixia"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
         "chapterId": "qi-huan-and-early-alliances"
       },
       "range": {
@@ -7380,6 +7445,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Jin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "houma-covenant-tablets"
+      },
+      "range": {
+        "from": -510,
+        "to": -405
+      },
+      "relation": "related",
+      "scope": "从底图所覆盖的晚期晋年段进入侯马遗址与盟书，各组盟书年代另查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "jin-xintian-houma-sites"
     },
     {
       "map": {
@@ -7464,7 +7551,89 @@
     {
       "map": {
         "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "three-jin-and-jin-court"
+      },
+      "range": {
+        "from": -403,
+        "to": -349
+      },
+      "relation": "related",
+      "scope": "从战国赵的底图入口查三家列侯及《赵世家》对晋君去处的记载。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states"
+      },
+      "range": {
+        "from": -770,
+        "to": -221
+      },
+      "relation": "primary",
+      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "audit": {
+        "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "wei-wenhou-li-kui-and-grain"
+      },
+      "range": {
+        "from": -404,
+        "to": -395
+      },
+      "relation": "related",
+      "scope": "从魏的较早底图覆盖年段进入魏文侯时期的制度材料和安邑。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wei-anyi-yuwangcheng"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "three-jin-and-jin-court"
+      },
+      "range": {
+        "from": -403,
+        "to": -349
+      },
+      "relation": "related",
+      "scope": "从战国魏的底图入口查三家列侯及晋公室的后续记事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han"
       },
       "target": {
         "bookId": "warring-states"
@@ -7485,16 +7654,19 @@
         "key": "Han"
       },
       "target": {
-        "bookId": "warring-states"
+        "bookId": "warring-states",
+        "chapterId": "three-jin-and-jin-court"
       },
       "range": {
-        "from": -770,
-        "to": -221
+        "from": -403,
+        "to": -349
       },
-      "relation": "primary",
-      "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
+      "relation": "related",
+      "scope": "从战国韩的底图入口对读三家列侯、晋公室余地和韩灭郑。",
       "audit": {
-        "status": "legacy"
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {

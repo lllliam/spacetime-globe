@@ -1568,6 +1568,206 @@
         "scope": "核对区域的位置、所用年代与证据范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "jin-xintian-houma-sites",
+      "type": "region",
+      "name": "晋都新田的侯马遗址区",
+      "aliases": [
+        "侯马",
+        "晋都新田",
+        "牛村",
+        "侯马盟书"
+      ],
+      "range": {
+        "from": -510,
+        "to": -386,
+        "dateLabel": "约公元前 510—前 386 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以牛村城址区与秦村周边盟誓遗址为参照，以阅读时段呈现若干编年解释。",
+      "sources": [
+        {
+          "id": "houma-site-evidence",
+          "title": "孙庆伟《祭祀还是盟誓》",
+          "url": "https://fh.pku.edu.cn/docs/2018-11/20181114232506874873.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "houma-dating",
+          "title": "冯小红《从清华简〈系年〉看侯马盟书的年代》",
+          "url": "https://dept.hdc.edu.cn/u/cms/xb/201904/04170013v2k9.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "houma-tablets",
+          "title": "田建文等述侯马盟书发现与释读",
+          "url": "https://cssn.cn/kgxc/kgxc_kgsb/202207/t20220728_5431560.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zeng-leigudun-cemetery",
+      "type": "region",
+      "name": "随州擂鼓墩曾侯墓地",
+      "aliases": [
+        "擂鼓墩",
+        "曾侯乙墓",
+        "曾国"
+      ],
+      "range": {
+        "from": -450,
+        "to": -400,
+        "dateLabel": "约公元前 450—前 400 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以擂鼓墩墓区为中心，按器物与墓葬各自证据核对年代。",
+      "sources": [
+        {
+          "id": "zeng-research-later",
+          "title": "考古工作报告《曾国考古发现与历史研究》",
+          "url": "https://wlt.hubei.gov.cn/bmdt/mtjj/202601/t20260131_5867511.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zeng-leigudun-context",
+          "title": "吉开将人《曾侯乙墓出土戈、戟的研究》",
+          "url": "https://repository.dl.itc.u-tokyo.ac.jp/record/29598/files/KJ00004312391.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "wei-anyi-yuwangcheng",
+      "type": "region",
+      "name": "夏县禹王城与魏都安邑",
+      "aliases": [
+        "安邑",
+        "禹王城",
+        "夏县"
+      ],
+      "range": {
+        "from": -445,
+        "to": -395,
+        "dateLabel": "约公元前 445—前 395 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "用夏县的古城遗址作为早期魏国参照，各期大城、中城和作坊分期需详读。",
+      "sources": [
+        {
+          "id": "wei-anyi-archaeology",
+          "title": "故宫博物院资料《海内皆臣岁丰登熟毋饥人砖》",
+          "url": "https://www.dpm.org.cn/Uploads/File/pdf/26/b8/d9/26b8d92a1195aa30c6807bc6d30b56fa.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-wei-early",
+          "title": "《史记》卷四十四《魏世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷044",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "tian-qi-linzi-jixia",
+      "type": "region",
+      "name": "田齐临淄小城及西门外遗址区",
+      "aliases": [
+        "田齐",
+        "临淄",
+        "稷下学宫",
+        "齐国故城"
+      ],
+      "range": {
+        "from": -350,
+        "to": -300,
+        "dateLabel": "约公元前 350—前 300 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以齐故城小城和西门外战国院落为观察主体，具体建筑用途按文献和层位继续核查。",
+      "sources": [
+        {
+          "id": "linzi-city-phases",
+          "title": "徐团辉《齐国故城小城的独特布局》",
+          "url": "https://www.cssn.cn/skgz/bwyc/202310/t20231027_5693144.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "linzi-jixia-fieldwork",
+          "title": "发掘者董文斌等介绍齐故城小城西门外基址群",
+          "url": "https://news.iqilu.com/shandong/shandonggedi/20220301/5073400.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qi-jixia",
+          "title": "《史记》卷四十六《田敬仲完世家》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-yueyang-xianyang-sites",
+      "type": "region",
+      "name": "秦的栎阳与咸阳旧址",
+      "aliases": [
+        "秦国",
+        "栎阳",
+        "咸阳",
+        "秦咸阳宫"
+      ],
+      "range": {
+        "from": -383,
+        "to": -338,
+        "dateLabel": "约公元前 383—前 338 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "区域参照为栎阳三号古城和渭北秦咸阳遗址，实际都邑边界与施政范围按各自史料。",
+      "sources": [
+        {
+          "id": "qin-annals-reforms",
+          "title": "《史记》卷五《秦本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷005",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-yueyang-fieldwork",
+          "title": "刘瑞等介绍秦汉栎阳城发掘",
+          "url": "https://www.cssn.cn/skgz/bwyc/202303/t20230312_5602606.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-xianyang-city",
+          "title": "陕西省地方志《建设志》秦都咸阳宫遗址",
+          "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

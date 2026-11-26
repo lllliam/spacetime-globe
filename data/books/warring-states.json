@@ -3,7 +3,7 @@
   "title": "春秋与战国",
   "from": -770,
   "to": -221,
-  "summary": "从东周初年王室与诸侯的关系读到晋楚角力、江淮水路和吴越兴亡，再接列国变法。本卷以经传、出土文字与都邑遗存分别核对年代、地理和制度。",
+  "summary": "从东周王室、春秋诸侯关系读到晋楚角力、江淮水路与吴越兴亡，再看韩赵魏列侯、田氏掌齐和列国制度。经传、出土文字和都邑遗存各自标明证据范围。",
   "sources": [
     {
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
@@ -264,6 +264,102 @@
       "id": "herodotus-salamis",
       "title": "希罗多德《历史》卷八",
       "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Herodotus/8B*.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "houma-site-evidence",
+      "title": "孙庆伟《祭祀还是盟誓》",
+      "url": "https://fh.pku.edu.cn/docs/2018-11/20181114232506874873.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "houma-dating",
+      "title": "冯小红《从清华简〈系年〉看侯马盟书的年代》",
+      "url": "https://dept.hdc.edu.cn/u/cms/xb/201904/04170013v2k9.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "houma-tablets",
+      "title": "田建文等述侯马盟书发现与释读",
+      "url": "https://cssn.cn/kgxc/kgxc_kgsb/202207/t20220728_5431560.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-zhao-jin-remnants",
+      "title": "《史记》卷四十三《赵世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷043",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-wei-early",
+      "title": "《史记》卷四十四《魏世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷044",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "han-food-li-kui",
+      "title": "《汉书·食货志上》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷024上",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "jin-law-li-kui",
+      "title": "《晋书》卷三十《刑法志》",
+      "url": "https://zh.wikisource.org/wiki/晉書/卷030",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "wei-anyi-archaeology",
+      "title": "故宫博物院资料《海内皆臣岁丰登熟毋饥人砖》",
+      "url": "https://www.dpm.org.cn/Uploads/File/pdf/26/b8/d9/26b8d92a1195aa30c6807bc6d30b56fa.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "linzi-jixia-fieldwork",
+      "title": "发掘者董文斌等介绍齐故城小城西门外基址群",
+      "url": "https://news.iqilu.com/shandong/shandonggedi/20220301/5073400.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zeng-research-later",
+      "title": "考古工作报告《曾国考古发现与历史研究》",
+      "url": "https://wlt.hubei.gov.cn/bmdt/mtjj/202601/t20260131_5867511.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zeng-leigudun-context",
+      "title": "吉开将人《曾侯乙墓出土戈、戟的研究》",
+      "url": "https://repository.dl.itc.u-tokyo.ac.jp/record/29598/files/KJ00004312391.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-annals-reforms",
+      "title": "《史记》卷五《秦本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷005",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-standard-sheng",
+      "title": "上海博物馆《商鞅方升》",
+      "url": "https://www.shanghaimuseum.net/mu/show/202411/4335e32d-3cce-4602-955b-17ed7e0b9e59/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-yueyang-fieldwork",
+      "title": "刘瑞等介绍秦汉栎阳城发掘",
+      "url": "https://www.cssn.cn/skgz/bwyc/202303/t20230312_5602606.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qin-xianyang-city",
+      "title": "陕西省地方志《建设志》秦都咸阳宫遗址",
+      "url": "https://dfz.shaanxi.gov.cn/zslm/fzzlk/xbsxsz/szdylpdf/201404/P020240923623109161543.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "philip-coin-met",
+      "title": "大都会艺术博物馆《腓力二世银四德拉克马》",
+      "url": "https://www.metmuseum.org/art/collection/search/247145",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -1590,6 +1686,36 @@
             "scope": "核对承接范围、相关论断和阅读目标。",
             "checkedAt": "2026-11-26"
           }
+        },
+        {
+          "id": "toward-three-jin",
+          "book": "warring-states",
+          "chapter": "three-jin-and-jin-court",
+          "label": "接读 · 周命三家之后",
+          "display": "从前 403 年册命读到晋君余地与后来去处的不同记事。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            },
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵成侯十六年及赵肃侯元年，端氏与屯留",
+              "note": "记三晋承认之后仍有晋君居端氏及被迁屯留的传统"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
         }
       ]
     },
@@ -2266,33 +2392,867 @@
       ]
     },
     {
+      "id": "houma-covenant-tablets",
+      "from": -510,
+      "to": -386,
+      "dateLabel": "约公元前 510—前 386 年 · 阅读区间",
+      "title": "侯马盟书与晋国卿族",
+      "summary": "从盟书出土的坑和玉石片入手，了解晋国卿族如何维系效忠，并辨认有不同解释的纪年。",
+      "spatialThesis": "侯马新田有多个城址与盟誓遗存。牛村和盟誓区分别留下城市活动和埋藏誓书的证据。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "考古队看到埋在土坑里的文字",
+          "text": "山西侯马晋都新田遗址的盟誓区出土许多写有文字的玉石片。坑的组合、文字和共出的祭品，使研究者能够讨论盟誓如何举行。这是一批写给盟誓场合的文书。",
+          "refs": [
+            {
+              "sourceId": "houma-tablets",
+              "locator": "盟书形制、坑内埋藏及张颔的赵鞅说",
+              "note": "朱书玉石片及对盟誓参与者和用途的一种解释"
+            },
+            {
+              "sourceId": "houma-site-evidence",
+              "locator": "图三及侯马祭祀和盟誓材料表",
+              "note": "牛村古城及盟誓遗存分布，提供晋都新田遗址的空间参照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "盟誓怎么约束参与者",
+          "text": "盟书中有以效忠、结成政治关系或诅咒为内容的文字。承诺写在可以埋藏的材料上，也有可以辨认的对象。读一条盟书，要分别确认字形、文辞的类别和出土坑位，再问它涉及哪些人。",
+          "refs": [
+            {
+              "sourceId": "houma-tablets",
+              "locator": "盟书形制、坑内埋藏及张颔的赵鞅说",
+              "note": "朱书玉石片及对盟誓参与者和用途的一种解释"
+            },
+            {
+              "sourceId": "houma-dating",
+              "locator": "第 13–15 页，旧说及分组断代",
+              "note": "侯马盟书的主盟人与年代有多种意见，作者以赵桓子假说推定若干类别的年代"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "找到姓名仍不等于确定年份",
+          "text": "早期整理者张颔将部分盟誓联系到赵鞅。有研究根据《系年》和盟书人名，把另一些盟书解释为赵桓子主持，并给出更晚的断代。主盟者的身份与材料能否分组，是这些解释有别的原因。应用将盟书放在阅读区间中。",
+          "refs": [
+            {
+              "sourceId": "houma-tablets",
+              "locator": "盟书形制、坑内埋藏及张颔的赵鞅说",
+              "note": "朱书玉石片及对盟誓参与者和用途的一种解释"
+            },
+            {
+              "sourceId": "houma-dating",
+              "locator": "第 13–15 页，旧说及分组断代",
+              "note": "侯马盟书的主盟人与年代有多种意见，作者以赵桓子假说推定若干类别的年代"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "盟誓区和城址分别告诉我们什么",
+          "text": "新田遗址群包括牛村古城，也有另处的盟誓区。城址和盟书出土地给出了不同活动地点，让人看到晋国政治如何延伸至卿族的日常联系。两处遗址的平面范围和各坑年代需要按考古报告查考。",
+          "refs": [
+            {
+              "sourceId": "houma-site-evidence",
+              "locator": "图三及侯马祭祀和盟誓材料表",
+              "note": "牛村古城及盟誓遗存分布，提供晋都新田遗址的空间参照"
+            },
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-jin-partition",
+          "book": "warring-states",
+          "chapter": "three-jin-and-jin-court",
+          "label": "接读 · 晋卿与三家列侯",
+          "display": "从考古见到的卿族盟誓走到史书记载的土地与名位。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "houma-dating",
+              "locator": "第 13–15 页，旧说及分组断代",
+              "note": "侯马盟书的主盟人与年代有多种意见，作者以赵桓子假说推定若干类别的年代"
+            },
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "houma-niucun-and-covenant-site",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "牛村古城",
+              "placeId": "niucun"
+            },
+            {
+              "blockId": "p-04",
+              "text": "盟誓区",
+              "placeId": "main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zeng-leigudun-and-chu-bell",
+      "from": -450,
+      "to": -400,
+      "dateLabel": "约公元前 450—前 400 年 · 以镈铭前 433 年为锚",
+      "title": "曾侯乙墓的一件楚王镈",
+      "summary": "沿随州的两处曾国墓地从西周读到战国，看看一件有纪年、有来历的镈钟怎样进入墓葬。",
+      "spatialThesis": "叶家山和擂鼓墩分别给出西周与战国的地方证据。点位用于对照墓地，曾楚关系和疆域须看不同材料。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "随州的墓地跨过多个时代",
+          "text": "随州叶家山的早期曾侯墓与战国擂鼓墩曾侯乙墓相隔数百年。发掘者还据其他墓地的器铭补出一些世系环节。把几处发现排在各自年代里，才能观察曾国与周王室、楚国往来的变化。",
+          "refs": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            },
+            {
+              "sourceId": "zeng-leigudun-context",
+              "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+              "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "编钟中有一件写明楚王",
+          "text": "曾侯乙墓里有一件镈，铭文写楚王酓章为曾侯乙作宗彝，并写楚惠王王年。常用编年折成前 433 年。器主或定制者有不同名号，铭文因此保留了曾、楚之间的具体交往。",
+          "refs": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            },
+            {
+              "sourceId": "zeng-leigudun-context",
+              "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+              "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "铸造和下葬可以相隔一段时间",
+          "text": "这件镈在墓里出土，所刻年次却首先给出了作器线索。考古研究者结合器铭和墓葬讨论葬年，也有研究强调器物可能先作宗庙用器。由此可用前 433 年作为有据的年代参照，曾侯乙具体下葬时间仍待辨认。",
+          "refs": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            },
+            {
+              "sourceId": "zeng-leigudun-context",
+              "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+              "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "一件礼器的政治信息有边界",
+          "text": "楚王为曾侯制造礼器，可以和墓中其他材料一同观察两国的往来。两处墓地保留的是不同阶段的证据。要进一步知道楚在地方怎样行使权力，还需物资、官员、行政和城邑等更多材料。",
+          "refs": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            },
+            {
+              "sourceId": "zeng-leigudun-context",
+              "locator": "绪言，擂鼓墩一号墓位置与器铭断代",
+              "note": "擂鼓墩在今随州城西北，出土写有曾侯乙与楚王的器物，断代约前 433 年或稍晚"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-yejiashan",
+          "book": "shang-zhou",
+          "chapter": "zhao-campaign-jianghan",
+          "label": "回读 · 叶家山的早期曾国",
+          "display": "沿随州墓地的两个时段阅读曾国在江汉的活动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "跨卷墓地的区位和年代。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "suizhou-zeng-cemetery-comparison",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "擂鼓墩",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-01",
+              "text": "叶家山",
+              "placeId": "yejiashan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-jin-and-jin-court",
+      "from": -458,
+      "to": -349,
+      "dateLabel": "公元前 5 世纪中叶至前 349 年 · 多条编年线索",
+      "title": "韩赵魏列侯与晋公室的余地",
+      "summary": "把智氏败亡、周王命三家为诸侯、晋君余地的处分分开读，并对照前 376 年和前 349 年的不同记事。",
+      "spatialThesis": "新田、绛、曲沃、端氏、屯留出现在不同证据和时段。已有疆域底图只用于它所覆盖年份的阅读。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "有实力的卿族先取晋地",
+          "text": "《晋世家》写智氏与赵、韩、魏先分范氏、中行氏的土地；此后赵、韩、魏联手打败智氏，再分其地。决定地方权力变化的是这些接连发生的行动，晋名下仍有公室和部分城邑。",
+          "refs": [
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            },
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏昭子、魏桓子与魏文侯，安邑、列侯、魏所用人物",
+              "note": "从晋卿及安邑叙事到魏文侯用人、任西门豹守邺"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "前 403 年，周廷命三家为诸侯",
+          "text": "《资治通鉴》从周威烈王命魏斯、赵籍、韩虔为诸侯写起。《晋世家》也把受命记在晋烈公在位期间。周廷的承认改变三家名位，晋君在后续史料中仍然出现。",
+          "refs": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "前 376 年之后，记载仍有分岔",
+          "text": "《通鉴》在周安王二十六年，即前 376 年，记魏、韩、赵废晋君为家人而分其地；《晋世家》写晋静公二年分地、晋绝祀。《赵世家》却另列晋君居端氏与前 349 年迁屯留的记事。讨论晋国终结，须说明所说是公室失去领地、失去祭祀地位，还是晋君个人的去处。",
+          "refs": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-jin",
+              "locator": "顷公、定公至静公诸节",
+              "note": "晋六卿分地、智氏败亡、三家列侯和公室余地被分的记述"
+            },
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵成侯十六年及赵肃侯元年，端氏与屯留",
+              "note": "记三晋承认之后仍有晋君居端氏及被迁屯留的传统"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "周王承认成为比较线索",
+          "text": "韩、赵、魏的称号变化可与齐国田氏获得周命相对照。再往后，《通鉴》记韩灭郑并迁都；郑韩故城保存两国在同一地区先后活动的遗存。政权兼并的年次与城址持续使用是两条可相互参照的线索。",
+          "refs": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            },
+            {
+              "sourceId": "zheng-han-site",
+              "locator": "双洎河、黄水河交汇处及郑韩先后建都段",
+              "note": "郑韩故城的位置、多期遗存和都邑相继使用"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-tian-qi",
+          "book": "warring-states",
+          "chapter": "tian-qi-and-jixia",
+          "label": "接读 · 齐国田氏获承认",
+          "display": "对照两次不同的周廷授命及此前的用权变化。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wei-wenhou-li-kui-and-grain",
+      "from": -445,
+      "to": -395,
+      "dateLabel": "约公元前 5 世纪后段至前 395 年 · 阅读区间",
+      "title": "魏文侯时期的用人与谷价",
+      "summary": "从魏文侯延揽人物读到《汉书》中的尽地力和平籴，再辨认《法经》说出自哪一种文献。",
+      "spatialThesis": "夏县禹王城的大城被研究者比定为魏都安邑，作坊和城垣都有不同的层位。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "魏走出晋国卿族的旧位置",
+          "text": "《魏世家》将魏氏经营安邑写在早期晋卿的世代里，随后记魏文侯礼遇子夏等人，并任西门豹守邺。文侯任用的人承担不同任务，魏的制度变化也发生在不同地方。",
+          "refs": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏昭子、魏桓子与魏文侯，安邑、列侯、魏所用人物",
+              "note": "从晋卿及安邑叙事到魏文侯用人、任西门豹守邺"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "收粮与卖粮面对的是不同的年景",
+          "text": "《汉书·食货志》把尽地力之教与平籴之说归给李悝。其解释是丰年因谷价低而按年成收购，歉年则从所积谷物中粜出。篇中用假定家庭的收支解释粮价的影响，给出了政策理由。",
+          "refs": [
+            {
+              "sourceId": "han-food-li-kui",
+              "locator": "周室既衰之后，李悝尽地力及平籴一段",
+              "note": "用农家产销与丰歉解释谷物预购和出粜办法，归于李悝"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "《法经》篇目见于更晚的记载",
+          "text": "《晋书·刑法志》在追溯晋律所承受的秦汉旧律时，写李悝撰次诸国法，并列出盗、贼等律篇。这里保存了一条后世的传承叙述。战国魏国原本和具体实施情形尚须另外的材料。",
+          "refs": [
+            {
+              "sourceId": "jin-law-li-kui",
+              "locator": "晋律承秦汉旧律的论述，李悝撰次诸国法段",
+              "note": "追溯《法经》篇目及李悝与商君之间的法律传承说"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "安邑遗址能回答另一类问题",
+          "text": "山西夏县禹王城有多期遗存。大城与魏都安邑相联系，局部作坊有陶窑、水井等遗存。古城的使用、作坊活动和古书写到的粮政须分别确定年代，才能讨论政策如何进入地方社会。",
+          "refs": [
+            {
+              "sourceId": "wei-anyi-archaeology",
+              "locator": "相关的考古发现，夏县禹王城的大城、中城及作坊",
+              "note": "禹王城遗址的位置，大城与魏安邑的比定，部分遗存属于秦汉或战国中晚期"
+            },
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏昭子、魏桓子与魏文侯，安邑、列侯、魏所用人物",
+              "note": "从晋卿及安邑叙事到魏文侯用人、任西门豹守邺"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-chu-wu-qi",
+          "book": "warring-states",
+          "chapter": "wu-qi-appointments-in-chu",
+          "label": "接读 · 吴起从魏到楚",
+          "display": "沿同一传记比较吴起在魏、楚担任的不同职务。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tian-qi-and-jixia",
+      "from": -481,
+      "to": -300,
+      "dateLabel": "公元前 5 世纪晚段至前 300 年 · 上下两段对读",
+      "title": "田氏掌齐与临淄稷下",
+      "summary": "区分田氏掌政、周王承认田和、姜姓齐君仍有奉邑，再看稍晚的临淄建筑与游说者。",
+      "spatialThesis": "临淄故城的小城西门及城外院落提供战国齐国的空间线索，田氏受命地点须另考。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "先有朝政中的地位变化",
+          "text": "《田敬仲完世家》写田氏多人先后掌握政务。齐康公时期，田和已把康公迁到海上，留一城供其维持祭祀。司马迁记下了实际用权和维持旧君名位可以并存的时期。",
+          "refs": [
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "前 386 年，田和列为诸侯",
+          "text": "《通鉴》把周王命齐大夫田和为诸侯放在周安王十六年。此后《史记》仍另记姜姓齐康公去世、奉邑归田氏。用分开的年次读，可以避免把册命、旧君去世和都邑建设合写成一次交接。",
+          "refs": [
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            },
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "宣王时期的游说者留下另一类记载",
+          "text": "《史记》列举齐宣王礼遇的稷下人物，记录他们居住与议论政事的条件。文献写下了招揽与安置的方式，个别人的活动时间、活动场地和彼此关系要分别追查。",
+          "refs": [
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从小城西门到城外院落",
+          "text": "考古工作者在临淄齐故城小城西门外发现夯土建筑群，依据分期、位置和建筑等级提出与稷下学宫相关的解释。遗迹呈现院落组织和空间等级，哪一处曾供哪位游说者使用仍待证。",
+          "refs": [
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "小城分期及城外壕内营建夯土建筑群",
+              "note": "临淄小城与大城的相对位置、战国西门外院落及其解释"
+            },
+            {
+              "sourceId": "linzi-jixia-fieldwork",
+              "locator": "小城西门外夯土基址群、院落与地望比定段",
+              "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-linzi-walls",
+          "book": "warring-states",
+          "chapter": "linzi-walls-and-water",
+          "label": "回读 · 临淄大小城",
+          "display": "回看小城和西门外院落的地形关系。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "小城分期及城外壕内营建夯土建筑群",
+              "note": "临淄小城与大城的相对位置、战国西门外院落及其解释"
+            },
+            {
+              "sourceId": "linzi-jixia-fieldwork",
+              "locator": "小城西门外夯土基址群、院落与地望比定段",
+              "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "linzi-small-city-and-jixia-area",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "小城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "西门外",
+              "placeId": "west-yard"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wu-qi-appointments-in-chu",
+      "from": -401,
+      "to": -381,
+      "dateLabel": "公元前 5 世纪末至前 381 年 · 楚悼王时期背景",
+      "title": "吴起入楚与官职、俸养的调整",
+      "summary": "从魏国西河守到楚悼王任用讲起，核对史传中对楚国官职与宗室待遇的调整，观察支持关系何时改变。",
+      "spatialThesis": "史传将吴起同魏的西河和楚廷相联系。楚国各地的行政实践须依材料逐处核查。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "吴起先在魏国任职",
+          "text": "据《史记·孙子吴起列传》，魏文侯任吴起为西河守，魏武侯在位时吴起也曾任职；后来吴起离魏入楚。西河守、魏相与楚廷用人，在文献里属于不同职权和处境。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "调整什么，史传说得最清楚",
+          "text": "列传把吴起在楚所做的事概括为整顿法令、裁减非急需的官职、削减疏远宗室的待遇，并把资源用于作战人员。这些说法涉及官位和资源分配。现有段落没有给出完整的命令、执行地区或逐年财政数据。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "前 381 年的继承改变了处境",
+          "text": "《通鉴》把楚悼王去世录在周安王二十一年。《史记》记其死后部分宗室和大臣袭击吴起，新君又处罚涉事者。吴起的改革得以推动与王室支持有关，个别措施在后继政权下是否延续需要另外的材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            },
+            {
+              "sourceId": "tongjian-three-jin",
+              "locator": "周威烈王二十三年、周安王十六、二十一、二十六年、烈王元年",
+              "note": "命三家为诸侯、命田和为诸侯、楚悼王薨、废晋君分其地、韩灭郑"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-zeng-material",
+          "book": "warring-states",
+          "chapter": "zeng-leigudun-and-chu-bell",
+          "label": "回读 · 更早的楚与曾",
+          "display": "用时间较早的器铭补看楚廷与江汉其他政治主体的关系。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zeng-research-later",
+              "locator": "曾国世系、曾侯乙墓与镈钟铭文段",
+              "note": "历时多期的曾侯墓地、前 433 年镈钟及入葬不早于铭文年代的考证"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "qin-shang-yang-and-standard-sheng",
+      "from": -383,
+      "to": -338,
+      "dateLabel": "公元前 383—前 338 年 · 秦献公、孝公时期",
+      "title": "商鞅、秦的度量衡与两处都邑",
+      "summary": "从栎阳和咸阳的营建线索读秦孝公的政策，再以有纪年的方升对读史书里的制度记载。",
+      "spatialThesis": "栎阳三号古城与渭河北岸咸阳遗址是关中两处参照。制度的具体实施地点须由相应材料支持。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "入秦和改制各有自己的叙事位置",
+          "text": "《秦本纪》先写献公徙治栎阳，又把卫鞅来见孝公放在孝公元年求贤之后，再于孝公三年记用鞅法。《商君列传》把什伍、分户、耕织和军功奖赏放进一组叙事。书中的徙木写的是国都市南门，未在此写咸阳。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+              "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+            },
+            {
+              "sourceId": "shiji-shang-yang-reforms",
+              "locator": "公孙鞅入秦、国都市徙木、什伍、军功、迁咸阳、并聚置县及阡陌段",
+              "note": "传记把举措放入多个阶段，徙木只写国都市南门；与本纪县数不同"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "县、阡陌和迁都见于后续记事",
+          "text": "《秦本纪》于孝公十二年记营建咸阳、迁都、并聚为县及开阡陌，《秦本纪》记四十一县，《商君列传》记三十一县。列传又写从雍迁都，而本纪此前已写献公徙治栎阳。各篇的记载有分歧，哪些聚落实际被合并，须用地方材料核对。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+              "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+            },
+            {
+              "sourceId": "shiji-shang-yang-reforms",
+              "locator": "公孙鞅入秦、国都市徙木、什伍、军功、迁咸阳、并聚置县及阡陌段",
+              "note": "传记把举措放入多个阶段，徙木只写国都市南门；与本纪县数不同"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "前 344 年的方升有明确的铭文",
+          "text": "上海博物馆藏商鞅方升，一组刻铭记秦孝公十八年大良造鞅以十六又五分之一立方寸为一升，另提齐使来聘和重泉。一百多年后又加刻秦始皇二十六年诏文。同一件器物留有相隔一百多年的两次定制记录。各地何时开始采用这套容量标准，还需分别查验。",
+          "refs": [
+            {
+              "sourceId": "qin-standard-sheng",
+              "locator": "两组刻铭，秦孝公十八年、重泉和秦始皇二十六年",
+              "note": "前 344 年量器铭文规定单位容量，后一组属于前 221 年度量衡诏文"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "考古现场保留的是建筑与使用痕迹",
+          "text": "栎阳三号古城见多期建筑、散水与陶管，渭河北岸秦咸阳一带有高台建筑遗存。现场可比较两处城市与地形的关系。政策何时施行、在哪些地区落实，还要与更多有时间和地点的记录来对照。",
+          "refs": [
+            {
+              "sourceId": "qin-yueyang-fieldwork",
+              "locator": "三号古城核心区、建筑台基和散水陶管",
+              "note": "战国中期至西汉初期的建筑变化及排水等遗迹"
+            },
+            {
+              "sourceId": "qin-xianyang-city",
+              "locator": "秦都咸阳宫一至三号遗址的渭水位置、夯土台基和建筑说明",
+              "note": "渭河附近高台宫殿遗址的区域位置和建筑证据"
+            },
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+              "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-qin-imperial-standard",
+          "book": "qin",
+          "chapter": "first-emperor-system",
+          "label": "延伸 · 秦统一后的制度",
+          "display": "从秦孝公量器的本铭读到同器后来加刻的统一度量衡诏文，并进入秦朝书卷。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "qin-standard-sheng",
+              "locator": "两组刻铭，秦孝公十八年、重泉和秦始皇二十六年",
+              "note": "前 344 年量器铭文规定单位容量，后一组属于前 221 年度量衡诏文"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "前 344 年与前 221 年两组铭文的制度时段。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "contemporaries": [
+        {
+          "id": "philip-macedonian-coin",
+          "book": "greece-macedon",
+          "chapter": "macedon-alexander",
+          "year": -344,
+          "relation": "contemporary",
+          "label": "同期 · 秦方升与马其顿银币",
+          "display": "秦在前 344 年的方升铭文中规定容量；同一时期马其顿腓力二世发行银币。两种实物反映各自政权使用标准的不同场合。",
+          "note": "秦在前 344 年的方升铭文中规定容量；同一时期马其顿腓力二世发行银币。两种实物反映各自政权使用标准的不同场合。",
+          "evidence": [
+            {
+              "sourceId": "qin-standard-sheng",
+              "locator": "两组刻铭，秦孝公十八年、重泉和秦始皇二十六年",
+              "note": "前 344 年量器铭文规定单位容量，后一组属于前 221 年度量衡诏文"
+            },
+            {
+              "sourceId": "philip-coin-met",
+              "locator": "器物名称、材质和前 359—前 336 年的断代",
+              "note": "同一时期马其顿政治权力铸行银币的实物证据"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "实物日期交集、用途和同期阅读范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "yueyang-and-qin-xianyang-sites",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "栎阳三号古城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "秦咸阳一带",
+              "placeId": "xianyang"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "shang-yang-hundred-schools",
       "title": "商鞅变法、合纵连横与百家争鸣",
       "from": -402,
       "to": -260,
       "summary": "以吴起在楚国和商鞅在秦国的措施，了解列国怎样调整官职、户籍及奖赏。齐宣王礼遇稷下游说之士，留下另一类关于学术活动的记载。",
-      "spatialThesis": "当六国仍深陷关东平原的相互掣肘，偏居关中的秦国凭借函谷关天险进可攻退可守，借商鞅变法把人口、粮食与军功全部纳入国家直接掌控，彻底改写了东亚地缘天平。",
+      "spatialThesis": "战国前期的制度记录来自魏、楚、秦等处。安邑、临淄与关中两处秦都遗址提供地理参照，各地政令的执行仍需分别核对。",
       "paragraphs": [
         {
-          "heading": "李悝、吴起与商鞅：变法即生存",
-          "text": "进入战国，诸侯国从春秋初年的一百四十余个惨烈兼并至“战国七雄”。魏文侯最早任用李悝编纂《法经》、兴修水利称雄中原；楚悼王任用吴起裁撤冗贵、强兵一时。然而真正把变法推向极致的，是公元前 356 年入秦的卫国法家商鞅。",
+          "id": "p-01",
+          "heading": "魏、楚、秦的制度材料来自不同年代",
+          "text": "《汉书》把尽地力和平籴归给李悝，《晋书》追述《法经》传承，《史记》记吴起在楚调整官职和宗室待遇。把这些写法与秦的历时记事放在一起，可以逐项区分后世解释、政策叙述和实物证据。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "han-food-li-kui",
+              "locator": "周室既衰之后，李悝尽地力及平籴一段",
+              "note": "用农家产销与丰歉解释谷物预购和出粜办法，归于李悝"
+            },
+            {
+              "sourceId": "jin-law-li-kui",
+              "locator": "晋律承秦汉旧律的论述，李悝撰次诸国法段",
+              "note": "追溯《法经》篇目及李悝与商君之间的法律传承说"
+            },
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            }
+          ]
         },
         {
-          "text": "在秦孝公鼎力支持下，商鞅在咸阳南门“徙木立信”后大刀阔斧改革：废井田开阡陌、奖励耕织、推行二十等军功爵制（无论贵贱，斩获敌首即可授爵赐田，宗室无军功亦削籍）、全国推行县制与什伍连坐。短短二十年，原本被中原鄙视的西陲弱秦脱胎换骨，变成令六国胆寒的虎狼之师。",
+          "id": "p-02",
+          "heading": "秦的改革分成多个环节",
+          "text": "《秦本纪》把鞅来见孝公、用鞅法和较晚的迁都置县分开记录。《商君列传》另有什伍及赏罚的叙述，所记徙木未注明咸阳。前 344 年商鞅方升更提供了有纪年的计量标准材料。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+              "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+            },
+            {
+              "sourceId": "shiji-shang-yang-reforms",
+              "locator": "公孙鞅入秦、国都市徙木、什伍、军功、迁咸阳、并聚置县及阡陌段",
+              "note": "传记把举措放入多个阶段，徙木只写国都市南门；与本纪县数不同"
+            },
+            {
+              "sourceId": "qin-standard-sheng",
+              "locator": "两组刻铭，秦孝公十八年、重泉和秦始皇二十六年",
+              "note": "前 344 年量器铭文规定单位容量，后一组属于前 221 年度量衡诏文"
+            }
+          ]
         },
         {
-          "heading": "诸子蜂起：人类轴心时代的东方高峰",
-          "text": "乱世也是思想最自由的黄金时代。各国君主为了求贤富强纷纷礼贤下士，齐国在临淄设立“稷下学宫”，养士千人、任其自由辩论。儒家孟子大呼“民为贵，社稷次之，君为轻”，荀子主张隆礼重法；墨子奔走天下倡导“兼爱非攻”与科学逻辑；道家老子、庄子则超脱权谋，探寻自然无为与精神逍遥。",
+          "id": "p-03",
+          "heading": "齐廷给游说者怎样的条件",
+          "text": "《田敬仲完世家》把齐宣王与稷下人物相联系，记他们受到礼遇并参与议论。临淄小城西门外的建筑群可和这条记载对读。后续各家著述的成书、流传和人与人的交往仍需逐一查证。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            },
+            {
+              "sourceId": "linzi-jixia-fieldwork",
+              "locator": "小城西门外夯土基址群、院落与地望比定段",
+              "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+            }
           ],
           "callout": {
             "label": "史料 · 战国齐国稷下",
@@ -2306,8 +3266,7 @@
                 "note": "列举邹衍、淳于髡等人物，并描述任上大夫而不直接治理。"
               }
             ]
-          },
-          "id": "p-03"
+          }
         },
         {
           "heading": "法家韩非与《孙子》《孙膑兵法》",
@@ -2347,7 +3306,104 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "read-wei-reforms",
+          "book": "warring-states",
+          "chapter": "wei-wenhou-li-kui-and-grain",
+          "label": "细读 · 魏文侯、李悝与粮政",
+          "display": "比较《汉书》经济论述和《晋书》法律谱系。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "han-food-li-kui",
+              "locator": "周室既衰之后，李悝尽地力及平籴一段",
+              "note": "用农家产销与丰歉解释谷物预购和出粜办法，归于李悝"
+            },
+            {
+              "sourceId": "jin-law-li-kui",
+              "locator": "晋律承秦汉旧律的论述，李悝撰次诸国法段",
+              "note": "追溯《法经》篇目及李悝与商君之间的法律传承说"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-wu-qi-in-chu",
+          "book": "warring-states",
+          "chapter": "wu-qi-appointments-in-chu",
+          "label": "细读 · 吴起在楚",
+          "display": "沿史传查吴起的任用、官职资源调整和继承变局。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "吴起为魏西河守、离魏入楚、楚悼王任用及去世段",
+              "note": "由魏至楚、调整官职与宗室待遇、楚悼王去世后对吴起的反击"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-qin-standard",
+          "book": "warring-states",
+          "chapter": "qin-shang-yang-and-standard-sheng",
+          "label": "细读 · 商鞅方升与秦都",
+          "display": "从史书记载走到原器铭文和都邑考古。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "献公、孝公诸节，栎阳、鞅见孝公、孝公十二年咸阳与置县",
+              "note": "献公徙治栎阳，孝公三年用鞅法、十二年迁咸阳及并聚置县的记载"
+            },
+            {
+              "sourceId": "qin-standard-sheng",
+              "locator": "两组刻铭，秦孝公十八年、重泉和秦始皇二十六年",
+              "note": "前 344 年量器铭文规定单位容量，后一组属于前 221 年度量衡诏文"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-tian-qi-jixia",
+          "book": "warring-states",
+          "chapter": "tian-qi-and-jixia",
+          "label": "细读 · 田齐与临淄稷下",
+          "display": "依次核对田氏掌政、册命与较晚临淄院落材料。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-qi-jixia",
+              "locator": "田常、田齐太公、田齐桓公与齐宣王诸节",
+              "note": "田氏掌政、齐侯册命、康公奉邑及稷下人士待遇"
+            },
+            {
+              "sourceId": "linzi-jixia-fieldwork",
+              "locator": "小城西门外夯土基址群、院落与地望比定段",
+              "note": "考古定位战国高等级院落和基址群，发掘者与稷下学宫联系"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
     },
     {
       "id": "changping-unification",
@@ -2456,6 +3512,11 @@
     "lu-capital-at-qufu",
     "wu-sites-at-taihu",
     "yue-settlements-at-shaoxing",
-    "hangou-jianghuai-corridor"
+    "hangou-jianghuai-corridor",
+    "jin-xintian-houma-sites",
+    "zeng-leigudun-cemetery",
+    "wei-anyi-yuwangcheng",
+    "tian-qi-linzi-jixia",
+    "qin-yueyang-xianyang-sites"
   ]
 }
