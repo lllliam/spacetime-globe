@@ -92,18 +92,11 @@ jobs:
             -parallel-testing-enabled NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 225 \
             CODE_SIGN_IDENTITY=- ARCHS=arm64 test > "$RUNNER_TEMP/native-sim.log" 2>&1 || result=$?
           tail -n 215 "$RUNNER_TEMP/native-sim.log"
-          if [ "$result" = 0 ]; then
-            xcrun simctl launch "$simulator" io.github.lllliam.spacetimeglobe.native
-            sleep 4
-          fi
-          xcrun simctl io "$simulator" screenshot "$RUNNER_TEMP/native-simulator.png" || true
           exit "$result"
       - name: Upload native simulator evidence
         if: always() && (steps.simulator.outcome == 'success' || steps.simulator.outcome == 'failure')
         uses: actions/upload-artifact@v4
         with:
           name: SpacetimeGlobe-Native-Simulator
-          path: |
-            ${{ runner.temp }}/native-simulator.png
-            ${{ runner.temp }}/native-sim.log
+          path: ${{ runner.temp }}/native-sim.log
           retention-days: 14
