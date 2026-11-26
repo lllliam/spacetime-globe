@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct GlobeMarks {
     var places: [ScenePlace] = []
@@ -105,6 +106,9 @@ struct NativeGlobe: View {
             }
         }
         .onAppear { highResolution = viewport.camera.zoom > 2.8 }
+        .onChange(of:phase) { current in
+            if current != .active { onSettled(viewport.camera) }
+        }
     }
 
     private func settled(_ value: GlobeCamera) {

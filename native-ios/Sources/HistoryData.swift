@@ -210,7 +210,7 @@ struct Volume: Decodable, Identifiable {
     }
 }
 
-struct ReadingTarget: Decodable, Codable, Hashable, Identifiable {
+struct ReadingTarget: Codable, Hashable, Identifiable {
     let volume: String
     let chapter: String?
 

@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: '22'
       - name: Verify canonical content and prepare the native bundle
+        id: prepare
         run: |
           node tools/verify-content.mjs
           node build.mjs
@@ -35,6 +36,7 @@ jobs:
           swiftc native-ios/Sources/{HistoryData,Atlas,GlobeCamera,Search,Session}.swift native-ios/Smoke.swift -o "$RUNNER_TEMP/native-smoke"
           "$RUNNER_TEMP/native-smoke" native-ios/OfflineData
       - name: Build for physical iPhones
+        if: steps.prepare.outcome == 'success' && !cancelled()
         run: |
           set -o pipefail
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
