@@ -450,7 +450,7 @@ struct Archive {
         var sites: [Int:[MapSceneSite]] = [:]
         for scene in scenes where scene.status == "available" {
             for frame in scene.frames {
-                for place in frame.places where place.precision == "site" {
+                for place in frame.places where place.precision == "site" || place.precision == "approximate" {
                     let recorded = sites[frame.year,default:[]]
                     guard !recorded.contains(where:{
                         $0.place.name == place.name && $0.place.lat == place.lat && $0.place.lon == place.lon
