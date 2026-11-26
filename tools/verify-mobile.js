@@ -102,6 +102,37 @@ async function main() {
       ({year,yaw,tilt,zoom,panX,panY}))(window.__t.state)`);
     const location = (lon, lat, fallback) => js(`window.__t?.screenOf(${lon}*Math.PI/180,${lat}*Math.PI/180) || ${JSON.stringify(fallback)}`);
     assert.equal(await timelineVisible(), true);
+    const ming = await location(114, 34, { x:252, y:415 });
+    await touch('touchStart', ming);
+    await wait(380);
+    await touch('touchEnd');
+    await until(() => js(`document.querySelector('#sheet.peek')`),
+      'A stationary press released before the long-press menu must select the land');
+    assert.match(await js(`document.querySelector('#sheet-identity-name').textContent`), /明朝/);
+    await js(`window.zoomSamples = []; visualViewport.addEventListener('resize', () => zoomSamples.push(visualViewport.scale));`);
+    const pair = (spread) => [{id:1,x:201-spread,y:400}, {id:2,x:201+spread,y:400}];
+    await send('Input.dispatchTouchEvent', { type:'touchStart', touchPoints:pair(45) });
+    for (let spread = 50; spread <= 105; spread += 5) {
+      await send('Input.dispatchTouchEvent', { type:'touchMove', touchPoints:pair(spread) });
+      await wait(15);
+    }
+    await touch('touchEnd');
+    await wait(250);
+    assert.ok(await js(`visualViewport.scale === 1 && zoomSamples.every(scale => scale === 1) &&
+      document.querySelector('#sheet').classList.contains('peek')`), 'Pinching over the map scrim must leave the page and preview intact');
+    await tap({ x:201, y:400 });
+    await until(timelineVisible, 'A single tap on the map scrim must still dismiss the preview');
+    const beforeClose = await mapCamera();
+    await tap('#hud-view');
+    await tap('#view-close');
+    assert.equal(await js(`document.querySelector('#view-panel').hidden && document.activeElement.id === 'hud-view'`), true);
+    assert.deepEqual(await mapCamera(), beforeClose, 'Closing the chooser must preserve the camera');
+    await touch('touchStart', ming);
+    await wait(650);
+    await touch('touchEnd');
+    assert.equal(await js(`document.querySelector('#view-panel').hidden`), false, 'Continuing to hold must still open the chooser');
+    await tap('#view-close');
+    console.log('Stationary touch, map-scrim pinch and dismiss, and chooser close focus passed.');
     await tap('#hud-view');
     assert.equal(await js(`document.querySelector('#view-panel').hidden`), false);
     assert.equal(await timelineVisible(), false);
@@ -404,7 +435,9 @@ async function main() {
       Object.defineProperty(visualViewport, 'height', { value: 812, configurable: true });
       dispatchEvent(new Event('resize'));
     `);
-    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px'`),
+    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '812px' &&
+      document.documentElement.clientHeight === 874 &&
+      document.documentElement.style.getPropertyValue('--usable-safe-b') === '34px'`),
       'Standalone split viewport did not apply --app-height: 812px');
 
     const safeSurface = () => js(`(() => {
@@ -574,6 +607,25 @@ async function main() {
       await js(`document.querySelector('[data-reading-size="medium"]')?.click();__t.closeReader();`);
     }
     console.log('Long-title mobile reading navbar (393x852, 320x568) verified without clipping or overflow');
+
+    if (!await js(`document.querySelector('#overlay').hidden`)) await tap('#overlay-close');
+    await size(402, 874);
+    await tap('#year');
+    await js(`document.documentElement.style.setProperty('--safe-t', '0px');
+      document.documentElement.style.setProperty('--safe-b', '21px');
+      Object.defineProperty(visualViewport, 'height', { value:155, configurable:true });
+      dispatchEvent(new Event('resize'));`);
+    await until(() => js(`document.documentElement.style.getPropertyValue('--app-height') === '155px'`), 'Short keyboard viewport did not apply');
+    await send('Input.insertText', { text:'0' });
+    await tap('#year-form button[type="submit"]');
+    assert.ok(await js(`(() => {
+      const error = document.querySelector('#year-error');
+      const form = document.querySelector('#year-form').getBoundingClientRect();
+      const box = error.getBoundingClientRect();
+      return /没有公元 0 年/.test(error.textContent) && box.top >= form.top &&
+        box.bottom <= form.bottom + 1 && box.bottom <= visualViewport.height;
+    })()`), 'Invalid-year feedback must be visible above the simulated keyboard');
+    console.log('Invalid-year feedback fits a short landscape keyboard viewport.');
   } finally {
     ws?.close();
     proc.kill();

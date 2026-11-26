@@ -257,6 +257,42 @@ async function main() {
     assert.equal(display.ex.grid, true);
     assert.equal(await js("document.querySelector('#view-panel').hidden"), true);
 
+    await click('#hud-view');
+    await click('[data-view=history]');
+    await esc();
+    await setYear(1500);
+    await ready();
+    await until(async () => (await saved())?.explore.year === 1500, 'The initial year was not saved');
+    await js(`(() => {
+      const peer = document.createElement('iframe');
+      peer.id = 'session-peer';
+      peer.src = location.href;
+      peer.style.cssText = 'position:fixed;right:0;bottom:0;width:320px;height:570px';
+      document.body.append(peer);
+    })()`);
+    await until(() => js(`(() => {
+      const peer = document.querySelector('#session-peer').contentWindow;
+      return peer.__t?.polityLoaded && !peer.document.querySelector('#boot');
+    })()`), 'The second page did not finish loading');
+    await ming();
+    await click('[data-read-subject]');
+    await chapter('canal-labor');
+    await js("document.querySelector('#book-body').scrollTop=650");
+    const newest = await until(async () => {
+      const snapshot = await saved();
+      return snapshot?.read?.detail === 'canal-labor' && snapshot.read.position.top > 600 && snapshot;
+    }, 'The newer reading position was not saved');
+    await js(`(() => {
+      const peer = document.querySelector('#session-peer');
+      peer.contentWindow.dispatchEvent(new Event('pagehide'));
+      peer.remove();
+    })()`);
+    assert.deepEqual(await saved(), newest, 'Closing an older page must preserve the newer chapter and its reading progress');
+    await page.open(url);
+    assert.equal((await session()).detail, 'canal-labor');
+    assert.ok(Math.abs(await scroll() - newest.read.position.top) <= 3);
+    console.log('Closing a stale same-origin page preserved the latest chapter, position and per-book progress.');
+
     await page.send('Network.enable');
     await page.send('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:0,uploadThroughput:0});
     await page.open(offline);

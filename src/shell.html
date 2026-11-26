@@ -79,7 +79,10 @@
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
   </div>
-  <button type="button" id="reset-view">复位视角</button>
+  <div class="view-actions">
+    <button type="button" id="reset-view">复位视角</button>
+    <button type="button" id="view-close" aria-label="关闭地球视图">关闭</button>
+  </div>
   <p id="graphics-status" role="status" hidden>当前使用兼容地球渲染</p>
   <div id="offline-info" hidden>
     <span id="offline-status" role="status"></span>

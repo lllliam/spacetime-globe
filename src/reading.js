@@ -123,12 +123,14 @@ function openBook({ resume = false } = {}) {
   const focus = state.focus;
   const entity = focus && entityByKey(focus.layerId, focus.key, focus.id);
   if (!entity) return;
+  claimSession();
   const book = subjectBookForEntity(entity);
   const progress = resume ? savedSubjectProgress(book) : null;
   beginReading(entity, null, progress?.chapter, book, { resumePosition: progress?.position, resumeDisclosures: progress?.disclosures });
 }
 function beginReading(entity, topic, chapter, book = null, { source, entryYear = state.year, resumePosition, resumeDisclosures } = {}) {
   if (reading.active) return;
+  claimSession();
   rememberExplore();
   if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView(), readingMap: worldEvent.spec });
   const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
@@ -266,6 +268,7 @@ function connectionsMarkup(topic, item) {
 function followReadingTopic(topicId, chapterId, trigger) {
   const target = TOPICS.find((t) => t.id === topicId);
   if (!target) return;
+  claimSession();
   const saved = session.readingProgress('topic:' + target.id);
   const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
   const position = detail && saved?.chapter === detail ? saved.position : null;
@@ -274,6 +277,7 @@ function followReadingTopic(topicId, chapterId, trigger) {
 }
 function navigateReading(target, trigger) {
   if (!reading.active) return;
+  claimSession();
   rememberReading();
   const linkYear = Number(trigger?.dataset.relationYear);
   const year = isHistoryYear(linkYear) ? linkYear : reading.year;
@@ -364,6 +368,7 @@ function renderReading() {
 function openReadingDetail(id, position = null, { restart = false, sequence = false, disclosures = [] } = {}) {
   if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id)) return;
   if (reading.detail === id && !restart) return;
+  claimSession();
   rememberReading();
   if (reading.directory) session.backReading();
   const previous = session.readingProgress(readingKey());
@@ -390,6 +395,7 @@ function readingIndex() {
 }
 function readingGoBack() {
   if (!reading.active || closeTopNavigationPanel()) return;
+  claimSession();
   rememberReading();
   if (reading.trail.length && (reading.directory || reading.linkEntry || !reading.detail)) session.backReading();
   else if (reading.detail) {
@@ -406,6 +412,7 @@ function readingGoBack() {
 }
 function closeReader() {
   if (!reading.active || closeTopNavigationPanel()) return;
+  claimSession();
   rememberReading();
   const source = reading.source;
   session.exitRead();
@@ -526,6 +533,22 @@ readingExit.addEventListener('click', closeReader);
 readingDirectory.addEventListener('click', readingIndex);
 readingLibrary.addEventListener('click', () => followSubject({ library: true }));
 
+// Only input can claim a stale page for reading. Scroll events also fire when
+// a position is restored or the reader is resized.
+bookBody.addEventListener('wheel', claimSession, { passive: true });
+let readingTouchStarted = false;
+bookBody.addEventListener('touchstart', () => { readingTouchStarted = true; }, { passive: true });
+bookBody.addEventListener('touchmove', () => {
+  if (!readingTouchStarted) return;
+  readingTouchStarted = false;
+  claimSession();
+}, { passive: true });
+bookBody.addEventListener('keydown', event => {
+  if (['PageUp', 'PageDown', 'Home', 'End', 'ArrowUp', 'ArrowDown', ' '].includes(event.key)) claimSession();
+});
+bookBody.addEventListener('click', event => {
+  if (event.target.closest('summary')) claimSession();
+}, true);
 bookBody.addEventListener('scroll', () => {
   if (!reading.active || readerResizeFrame) return;
   if (readerSizeChanged()) { reflowReading(); return; }

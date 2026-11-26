@@ -5,7 +5,8 @@
   transition:opacity .38s cubic-bezier(.22,.82,.26,1);
 }
 #hud{
-  position:fixed;top:calc(var(--safe-t) + 14px);left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));z-index:9;
+  --hud-gap:14px;
+  position:fixed;top:calc(var(--safe-t) + var(--hud-gap));left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));z-index:9;
   display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:12px;
   padding:0;pointer-events:none;
   transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1);
@@ -42,8 +43,10 @@
 /* 轻量化深空磨砂年份直达条 */
 #year-form[hidden]{display:none}
 #year-form{
-  position:absolute;top:calc(100% + 10px);left:0;width:min(312px,calc(100vw - 36px));
-  max-height:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - 90px);overflow:auto;
+  --year-space:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - var(--hud-gap) - 8px);
+  --year-form-top:clamp(0px,calc(var(--year-space) - 124px),calc(100% + 10px));
+  position:absolute;top:var(--year-form-top);left:0;width:min(312px,calc(100vw - 36px));
+  max-height:calc(var(--year-space) - var(--year-form-top));overflow:auto;
   display:flex;flex-direction:column;gap:10px;padding:12px 13px 13px;z-index:14;pointer-events:auto;
   background:#121b24;color:#f0ebe0;
   border:1px solid rgba(255,255,255,.11);border-radius:16px;
@@ -226,7 +229,13 @@
 .view-switches [aria-checked="true"]:not(:disabled) i{background:rgba(181,63,41,.88)}
 .view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(14px);background:#fff9f2}
 
-#reset-view{width:100%;margin-top:3px}
+.view-actions{display:flex;align-items:center;gap:4px;margin-top:3px}
+#reset-view{flex:1;min-height:44px}
+#view-close{
+  min-width:44px;min-height:44px;padding:0 8px;border:0;border-radius:6px;
+  background:transparent;color:#f0ebe0;font:500 12px var(--font-sans);cursor:pointer;
+}
+#view-close:hover{background:rgba(224,178,115,.12)}
 #graphics-status{margin:7px 8px 0;color:#c4ccd5;font-size:12px}
 #offline-info{margin-top:7px;padding:7px 8px 0;border-top:1px solid rgba(255,255,255,.12);color:#c4ccd5;font-size:12px;line-height:1.5}
 #offline-retry{min-height:44px;border:0;background:transparent;padding:0;color:#f6e6cd;text-decoration:underline;display:block}
@@ -255,18 +264,18 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 #view-modes button:focus-visible{outline-offset:-2px}
 
 @media(min-width:720px){
-  #hud{top:calc(var(--safe-t) + 22px);left:max(28px,env(safe-area-inset-left,0px));right:max(28px,env(safe-area-inset-right,0px))}
+  #hud{--hud-gap:22px;left:max(28px,env(safe-area-inset-left,0px));right:max(28px,env(safe-area-inset-right,0px))}
   #year-num{font-size:34px}
   #view-panel{top:calc(var(--safe-t) + 68px);right:max(28px,env(safe-area-inset-right,0px))}
   #vernier{--vernier-rest:20px;width:min(420px,calc(100vw - max(80px,env(safe-area-inset-left,0px) + env(safe-area-inset-right,0px))))}
 }
 @media(max-width:520px){
-  #hud{top:calc(var(--safe-t) + 12px);left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px))}
+  #hud{--hud-gap:12px;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px))}
   #year-num{font-size:25px}
   #vernier{width:min(360px,calc(100vw - max(28px,env(safe-area-inset-left,0px) + env(safe-area-inset-right,0px))))}
 }
 @media(max-height:500px){
-  #hud{top:calc(var(--safe-t) + 8px)}
+  #hud{--hud-gap:8px}
   #year-num{font-size:22px}
   #vernier{--vernier-rest:8px}
 }

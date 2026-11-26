@@ -72,9 +72,20 @@ function createSession({ minYear, maxYear }) {
   let mode = 'Explore', explore = exploreState(), observe = null, lastRead = null;
   const read = readState();
   const progress = new Map();
+  function restoreSavedReading(value) {
+    if (value?.schemaVersion !== SESSION_SCHEMA) return;
+    lastRead = value.read && typeof value.read === 'object' ? readState(value.read) : null;
+    progress.clear();
+    if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
+      if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
+      const [key, item] = entry;
+      progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
+        disclosures: disclosures(item.disclosures) });
+    }
+  }
   return {
     get mode() { return mode; }, get explore() { return explore; }, get observe() { return observe; },
-    read, validYear, camera, position, frame, source,
+    read, validYear, camera, position, frame, source, restoreSavedReading,
     updateExplore(value) { if (mode === 'Explore') explore = exploreState(value); },
     enterRead(value) {
       if (mode === 'Read' || mode === 'Observe' && observe.origin !== 'Explore') return false;
@@ -138,13 +149,7 @@ function createSession({ minYear, maxYear }) {
     restore(value) {
       if (value?.schemaVersion !== SESSION_SCHEMA) return null;
       if (value.explore && typeof value.explore === 'object') explore = exploreState({ ...explore, ...value.explore });
-      lastRead = value.read && typeof value.read === 'object' ? readState(value.read) : null;
-      if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
-        if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
-        const [key, item] = entry;
-        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
-          disclosures: disclosures(item.disclosures) });
-      }
+      restoreSavedReading(value);
       const eventList = source(value.eventList);
       return { explore, read: value.mode === 'Read' ? lastRead : null,
         ...(value.mode==='Explore' && eventList.kind==='events' && eventList.year===explore.year && {eventList}) };
@@ -153,7 +158,20 @@ function createSession({ minYear, maxYear }) {
 }
 
 const session = createSession({ minYear: YMIN, maxYear: YMAX });
-let sessionReady = false, sessionWriteTimer = 0, lastSessionWrite = '';
+let sessionReady = false, sessionWriteTimer = 0;
+let storedSessionSnapshot = null, sessionBeforeAction = null;
+
+// A deliberate interaction can resume saving from this page using the latest
+// shared reading progress. Closing a page and reflowing its layout cannot.
+function claimSession() {
+  try {
+    const stored = localStorage.getItem(SESSION_KEY);
+    if (stored === storedSessionSnapshot) return;
+    try { session.restoreSavedReading(JSON.parse(stored)); } catch {}
+    storedSessionSnapshot = stored;
+    sessionBeforeAction = JSON.stringify(session.serialize());
+  } catch {}
+}
 
 function saveSession(immediate = false) {
   if (!sessionReady) return;
@@ -163,10 +181,13 @@ function saveSession(immediate = false) {
     return;
   }
   try {
+    const stored = localStorage.getItem(SESSION_KEY);
+    if (stored !== storedSessionSnapshot) return;
     const json = JSON.stringify(session.serialize());
-    if (json === lastSessionWrite) return;
+    if (json === stored || json === sessionBeforeAction) return;
     localStorage.setItem(SESSION_KEY, json);
-    lastSessionWrite = json;
+    storedSessionSnapshot = json;
+    sessionBeforeAction = null;
   } catch {}
 }
 
@@ -253,7 +274,10 @@ function summaryOffset(summary) {
 function restoreSession() {
   rememberExplore();
   let restored;
-  try { restored = session.restore(JSON.parse(localStorage.getItem(SESSION_KEY))); } catch {}
+  try {
+    storedSessionSnapshot = localStorage.getItem(SESSION_KEY);
+    restored = session.restore(JSON.parse(storedSessionSnapshot));
+  } catch {}
   if (restored) {
     restoreExploreView();
     if (restored.read) {

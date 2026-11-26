@@ -1794,6 +1794,7 @@ let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
+  if (session.mode === 'Explore') claimSession();
   exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
@@ -1803,7 +1804,7 @@ canvas.addEventListener('pointerdown', (e) => {
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   const dismissedYear = dismissYearFromGlobe();
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, t:performance.now(), moved:0, dismissedYear });
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, moved:0, dismissedYear });
   if (pointers.size === 1) {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
@@ -1867,7 +1868,8 @@ function endPointer(e) {
     if (snapToFit) zoomTo(1);
     else settlePan();
   }
-  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
+  // A completed hold already cleared the pointers when it opened the chooser.
+  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
@@ -1893,6 +1895,7 @@ canvas.addEventListener('lostpointercapture', endPointer);
 
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
+  if (session.mode === 'Explore') claimSession();
   zoomTo(clamp(state.zoom * Math.exp(-e.deltaY * 0.0016), 1, 6), e.clientX, e.clientY);
 }, { passive: false });
 
@@ -2103,6 +2106,7 @@ function sheetDragStart(e) {
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
   if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek') return;
+  claimSession();
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
   momentum.yaw = momentum.tilt = 0;
@@ -2221,7 +2225,10 @@ grabEl.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown') closeSheet();
   else enterSheetReading();
 });
-dimEl.addEventListener('click', () => closeSheet());
+dimEl.addEventListener('click', () => {
+  claimSession();
+  closeSheet();
+});
 
 /* 内容：档案头 + 书，一列到底 */
 function renderEntity() {
@@ -2397,7 +2404,10 @@ function syncSheetIdentity() {
   toc.toggleAttribute('data-read-subject', Boolean(entity));
   toc.textContent = book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
-el('sheet-close').addEventListener('click', () => closeSheet());
+el('sheet-close').addEventListener('click', () => {
+  claimSession();
+  closeSheet();
+});
 el('sheet-toc').addEventListener('click', () => {
   if (state.focus) openBook({ resume: true });
 });

@@ -85,6 +85,10 @@ yearForm.addEventListener('submit', (event) => {
   if (year === null) {
     yearError.textContent = '请输入' + yearLabel(YMIN) + '至 ' + yearLabel(YMAX) + '之间的年份。没有公元 0 年。';
     yearInput.setAttribute('aria-invalid', 'true');
+    const errorBottom = yearError.offsetTop + yearError.offsetHeight;
+    if (errorBottom > yearForm.scrollTop + yearForm.clientHeight) {
+      yearForm.scrollTop = errorBottom - yearForm.clientHeight;
+    }
     return;
   }
   chooseYear(year);

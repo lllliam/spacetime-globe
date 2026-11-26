@@ -1,6 +1,6 @@
 {
   "name": "spacetime-globe",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "private": true,
   "description": "时空地球 · Spacetime Globe，一本可以通过地球和时间打开的世界历史书",
   "scripts": {

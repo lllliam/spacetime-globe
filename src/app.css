@@ -126,7 +126,7 @@ html.reader-paper{color-scheme:light}
 /* ── 抽屉：三档吸附（peek / half / full），上拉即阅读 ── */
 #sheet-dim{position:fixed;inset:0;z-index:7;background:rgba(3,6,10,.5);
   opacity:0;transition:opacity .3s ease;pointer-events:none}
-#sheet-dim.show{opacity:1;pointer-events:auto}
+#sheet-dim.show{opacity:1;pointer-events:auto;touch-action:none}
 
 #sheet{position:fixed;inset:0 0 auto;z-index:8;height:var(--app-height);
   display:flex;flex-direction:column;visibility:hidden;overflow:hidden;

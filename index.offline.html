@@ -144,7 +144,7 @@ html.reader-paper{color-scheme:light}
 /* ── 抽屉：三档吸附（peek / half / full），上拉即阅读 ── */
 #sheet-dim{position:fixed;inset:0;z-index:7;background:rgba(3,6,10,.5);
   opacity:0;transition:opacity .3s ease;pointer-events:none}
-#sheet-dim.show{opacity:1;pointer-events:auto}
+#sheet-dim.show{opacity:1;pointer-events:auto;touch-action:none}
 
 #sheet{position:fixed;inset:0 0 auto;z-index:8;height:var(--app-height);
   display:flex;flex-direction:column;visibility:hidden;overflow:hidden;
@@ -608,7 +608,8 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
   transition:opacity .38s cubic-bezier(.22,.82,.26,1);
 }
 #hud{
-  position:fixed;top:calc(var(--safe-t) + 14px);left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));z-index:9;
+  --hud-gap:14px;
+  position:fixed;top:calc(var(--safe-t) + var(--hud-gap));left:max(18px,env(safe-area-inset-left,0px));right:max(18px,env(safe-area-inset-right,0px));z-index:9;
   display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:12px;
   padding:0;pointer-events:none;
   transition:opacity .38s cubic-bezier(.22,.82,.26,1),transform .38s cubic-bezier(.22,.82,.26,1);
@@ -645,8 +646,10 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 /* 轻量化深空磨砂年份直达条 */
 #year-form[hidden]{display:none}
 #year-form{
-  position:absolute;top:calc(100% + 10px);left:0;width:min(312px,calc(100vw - 36px));
-  max-height:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - 90px);overflow:auto;
+  --year-space:calc(var(--app-height) - var(--safe-t) - var(--usable-safe-b) - var(--hud-gap) - 8px);
+  --year-form-top:clamp(0px,calc(var(--year-space) - 124px),calc(100% + 10px));
+  position:absolute;top:var(--year-form-top);left:0;width:min(312px,calc(100vw - 36px));
+  max-height:calc(var(--year-space) - var(--year-form-top));overflow:auto;
   display:flex;flex-direction:column;gap:10px;padding:12px 13px 13px;z-index:14;pointer-events:auto;
   background:#121b24;color:#f0ebe0;
   border:1px solid rgba(255,255,255,.11);border-radius:16px;
@@ -829,7 +832,13 @@ body{background:radial-gradient(ellipse 110% 66% at 50% 37%,#152330 0%,var(--pag
 .view-switches [aria-checked="true"]:not(:disabled) i{background:rgba(181,63,41,.88)}
 .view-switches [aria-checked="true"]:not(:disabled) i::after{transform:translateX(14px);background:#fff9f2}
 
-#reset-view{width:100%;margin-top:3px}
+.view-actions{display:flex;align-items:center;gap:4px;margin-top:3px}
+#reset-view{flex:1;min-height:44px}
+#view-close{
+  min-width:44px;min-height:44px;padding:0 8px;border:0;border-radius:6px;
+  background:transparent;color:#f0ebe0;font:500 12px var(--font-sans);cursor:pointer;
+}
+#view-close:hover{background:rgba(224,178,115,.12)}
 #graphics-status{margin:7px 8px 0;color:#c4ccd5;font-size:12px}
 #offline-info{margin-top:7px;padding:7px 8px 0;border-top:1px solid rgba(255,255,255,.12);color:#c4ccd5;font-size:12px;line-height:1.5}
 #offline-retry{min-height:44px;border:0;background:transparent;padding:0;color:#f6e6cd;text-decoration:underline;display:block}
@@ -858,18 +867,18 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,ca
 #view-modes button:focus-visible{outline-offset:-2px}
 
 @media(min-width:720px){
-  #hud{top:calc(var(--safe-t) + 22px);left:max(28px,env(safe-area-inset-left,0px));right:max(28px,env(safe-area-inset-right,0px))}
+  #hud{--hud-gap:22px;left:max(28px,env(safe-area-inset-left,0px));right:max(28px,env(safe-area-inset-right,0px))}
   #year-num{font-size:34px}
   #view-panel{top:calc(var(--safe-t) + 68px);right:max(28px,env(safe-area-inset-right,0px))}
   #vernier{--vernier-rest:20px;width:min(420px,calc(100vw - max(80px,env(safe-area-inset-left,0px) + env(safe-area-inset-right,0px))))}
 }
 @media(max-width:520px){
-  #hud{top:calc(var(--safe-t) + 12px);left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px))}
+  #hud{--hud-gap:12px;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px))}
   #year-num{font-size:25px}
   #vernier{width:min(360px,calc(100vw - max(28px,env(safe-area-inset-left,0px) + env(safe-area-inset-right,0px))))}
 }
 @media(max-height:500px){
-  #hud{top:calc(var(--safe-t) + 8px)}
+  #hud{--hud-gap:8px}
   #year-num{font-size:22px}
   #vernier{--vernier-rest:8px}
 }
@@ -1116,7 +1125,10 @@ body.reading-open :is(#globe,#globe-fallback,#vec,#hud,#scrim,#sheet,#sheet-dim,
     <button type="button" id="toggle-labels" role="switch" aria-checked="true"><span>地名</span><i aria-hidden="true"></i></button>
     <button type="button" id="toggle-grid" role="switch" aria-checked="false"><span>经纬线</span><i aria-hidden="true"></i></button>
   </div>
-  <button type="button" id="reset-view">复位视角</button>
+  <div class="view-actions">
+    <button type="button" id="reset-view">复位视角</button>
+    <button type="button" id="view-close" aria-label="关闭地球视图">关闭</button>
+  </div>
   <p id="graphics-status" role="status" hidden>当前使用兼容地球渲染</p>
   <div id="offline-info" hidden>
     <span id="offline-status" role="status"></span>
@@ -3034,6 +3046,7 @@ let lastTapAt = 0, lastTapPos = { x: 0, y: 0 };
 
 canvas.addEventListener('pointerdown', (e) => {
   if (e.button !== 0) return;
+  if (session.mode === 'Explore') claimSession();
   exploreIntent();
   clearTimeout(globeTapTimer);
   globeTapTimer = 0;
@@ -3043,7 +3056,7 @@ canvas.addEventListener('pointerdown', (e) => {
   momentum.yaw = momentum.tilt = 0;
   try { canvas.setPointerCapture(e.pointerId); } catch (_) { }
   const dismissedYear = dismissYearFromGlobe();
-  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, t:performance.now(), moved:0, dismissedYear });
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, startX:e.clientX, startY:e.clientY, moved:0, dismissedYear });
   if (pointers.size === 1) {
     drag = { last: performance.now(), vy: 0, vt: 0 };
     pinch = null;
@@ -3107,7 +3120,8 @@ function endPointer(e) {
     if (snapToFit) zoomTo(1);
     else settlePan();
   }
-  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10 && performance.now() - p.t < 320) {
+  // A completed hold already cleared the pointers when it opened the chooser.
+  if (e.type === 'pointerup' && !p.dismissedYear && p.moved < 10) {
     const now = performance.now();
     const isDouble = lastTapAt > 0 && now - lastTapAt < 300 && Math.hypot(e.clientX - lastTapPos.x, e.clientY - lastTapPos.y) < 26;
     lastTapAt = now; lastTapPos = { x: e.clientX, y: e.clientY };
@@ -3133,6 +3147,7 @@ canvas.addEventListener('lostpointercapture', endPointer);
 
 canvas.addEventListener('wheel', (e) => {
   e.preventDefault();
+  if (session.mode === 'Explore') claimSession();
   zoomTo(clamp(state.zoom * Math.exp(-e.deltaY * 0.0016), 1, 6), e.clientX, e.clientY);
 }, { passive: false });
 
@@ -3343,6 +3358,7 @@ function sheetDragStart(e) {
   if (e.target.closest('button, a, input')) return;
   if (e.pointerType === 'mouse' && e.buttons !== 1) return;
   if (e.currentTarget === sheetScroll && sheetState.detent !== 'peek') return;
+  claimSession();
   stopSheetMotion();
   cancelAnimationFrame(liftRaf);
   momentum.yaw = momentum.tilt = 0;
@@ -3461,7 +3477,10 @@ grabEl.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown') closeSheet();
   else enterSheetReading();
 });
-dimEl.addEventListener('click', () => closeSheet());
+dimEl.addEventListener('click', () => {
+  claimSession();
+  closeSheet();
+});
 
 /* 内容：档案头 + 书，一列到底 */
 function renderEntity() {
@@ -3637,7 +3656,10 @@ function syncSheetIdentity() {
   toc.toggleAttribute('data-read-subject', Boolean(entity));
   toc.textContent = book ? savedSubjectProgress(book) ? '继续阅读' : '阅读历史' : '查看地图资料';
 }
-el('sheet-close').addEventListener('click', () => closeSheet());
+el('sheet-close').addEventListener('click', () => {
+  claimSession();
+  closeSheet();
+});
 el('sheet-toc').addEventListener('click', () => {
   if (state.focus) openBook({ resume: true });
 });
@@ -3751,9 +3773,20 @@ function createSession({ minYear, maxYear }) {
   let mode = 'Explore', explore = exploreState(), observe = null, lastRead = null;
   const read = readState();
   const progress = new Map();
+  function restoreSavedReading(value) {
+    if (value?.schemaVersion !== SESSION_SCHEMA) return;
+    lastRead = value.read && typeof value.read === 'object' ? readState(value.read) : null;
+    progress.clear();
+    if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
+      if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
+      const [key, item] = entry;
+      progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
+        disclosures: disclosures(item.disclosures) });
+    }
+  }
   return {
     get mode() { return mode; }, get explore() { return explore; }, get observe() { return observe; },
-    read, validYear, camera, position, frame, source,
+    read, validYear, camera, position, frame, source, restoreSavedReading,
     updateExplore(value) { if (mode === 'Explore') explore = exploreState(value); },
     enterRead(value) {
       if (mode === 'Read' || mode === 'Observe' && observe.origin !== 'Explore') return false;
@@ -3817,13 +3850,7 @@ function createSession({ minYear, maxYear }) {
     restore(value) {
       if (value?.schemaVersion !== SESSION_SCHEMA) return null;
       if (value.explore && typeof value.explore === 'object') explore = exploreState({ ...explore, ...value.explore });
-      lastRead = value.read && typeof value.read === 'object' ? readState(value.read) : null;
-      if (Array.isArray(value.progress)) for (const entry of value.progress.slice(-MAX_READING_PROGRESS)) {
-        if (!Array.isArray(entry) || !id(entry[0]) || !entry[1]) continue;
-        const [key, item] = entry;
-        progress.set(key, { chapter: id(item.chapter), position: position(item.position), scroll: number(item.scroll, 0, 1e7, 0),
-          disclosures: disclosures(item.disclosures) });
-      }
+      restoreSavedReading(value);
       const eventList = source(value.eventList);
       return { explore, read: value.mode === 'Read' ? lastRead : null,
         ...(value.mode==='Explore' && eventList.kind==='events' && eventList.year===explore.year && {eventList}) };
@@ -3832,7 +3859,20 @@ function createSession({ minYear, maxYear }) {
 }
 
 const session = createSession({ minYear: YMIN, maxYear: YMAX });
-let sessionReady = false, sessionWriteTimer = 0, lastSessionWrite = '';
+let sessionReady = false, sessionWriteTimer = 0;
+let storedSessionSnapshot = null, sessionBeforeAction = null;
+
+// A deliberate interaction can resume saving from this page using the latest
+// shared reading progress. Closing a page and reflowing its layout cannot.
+function claimSession() {
+  try {
+    const stored = localStorage.getItem(SESSION_KEY);
+    if (stored === storedSessionSnapshot) return;
+    try { session.restoreSavedReading(JSON.parse(stored)); } catch {}
+    storedSessionSnapshot = stored;
+    sessionBeforeAction = JSON.stringify(session.serialize());
+  } catch {}
+}
 
 function saveSession(immediate = false) {
   if (!sessionReady) return;
@@ -3842,10 +3882,13 @@ function saveSession(immediate = false) {
     return;
   }
   try {
+    const stored = localStorage.getItem(SESSION_KEY);
+    if (stored !== storedSessionSnapshot) return;
     const json = JSON.stringify(session.serialize());
-    if (json === lastSessionWrite) return;
+    if (json === stored || json === sessionBeforeAction) return;
     localStorage.setItem(SESSION_KEY, json);
-    lastSessionWrite = json;
+    storedSessionSnapshot = json;
+    sessionBeforeAction = null;
   } catch {}
 }
 
@@ -3932,7 +3975,10 @@ function summaryOffset(summary) {
 function restoreSession() {
   rememberExplore();
   let restored;
-  try { restored = session.restore(JSON.parse(localStorage.getItem(SESSION_KEY))); } catch {}
+  try {
+    storedSessionSnapshot = localStorage.getItem(SESSION_KEY);
+    restored = session.restore(JSON.parse(storedSessionSnapshot));
+  } catch {}
   if (restored) {
     restoreExploreView();
     if (restored.read) {
@@ -4091,12 +4137,14 @@ function openBook({ resume = false } = {}) {
   const focus = state.focus;
   const entity = focus && entityByKey(focus.layerId, focus.key, focus.id);
   if (!entity) return;
+  claimSession();
   const book = subjectBookForEntity(entity);
   const progress = resume ? savedSubjectProgress(book) : null;
   beginReading(entity, null, progress?.chapter, book, { resumePosition: progress?.position, resumeDisclosures: progress?.disclosures });
 }
 function beginReading(entity, topic, chapter, book = null, { source, entryYear = state.year, resumePosition, resumeDisclosures } = {}) {
   if (reading.active) return;
+  claimSession();
   rememberExplore();
   if (session.mode === 'Observe') session.updateObserve({ readingView: captureGlobeView(), readingMap: worldEvent.spec });
   const ref = entity && { layerId: entity.layerId, key: entity.key, name: entity.name };
@@ -4234,6 +4282,7 @@ function connectionsMarkup(topic, item) {
 function followReadingTopic(topicId, chapterId, trigger) {
   const target = TOPICS.find((t) => t.id === topicId);
   if (!target) return;
+  claimSession();
   const saved = session.readingProgress('topic:' + target.id);
   const detail = target.chapters.some(chapter => chapter.id === chapterId) ? chapterId : null;
   const position = detail && saved?.chapter === detail ? saved.position : null;
@@ -4242,6 +4291,7 @@ function followReadingTopic(topicId, chapterId, trigger) {
 }
 function navigateReading(target, trigger) {
   if (!reading.active) return;
+  claimSession();
   rememberReading();
   const linkYear = Number(trigger?.dataset.relationYear);
   const year = isHistoryYear(linkYear) ? linkYear : reading.year;
@@ -4332,6 +4382,7 @@ function renderReading() {
 function openReadingDetail(id, position = null, { restart = false, sequence = false, disclosures = [] } = {}) {
   if (!reading.active || !(reading.subject || reading.topic)?.chapters.some(chapter => chapter.id === id)) return;
   if (reading.detail === id && !restart) return;
+  claimSession();
   rememberReading();
   if (reading.directory) session.backReading();
   const previous = session.readingProgress(readingKey());
@@ -4358,6 +4409,7 @@ function readingIndex() {
 }
 function readingGoBack() {
   if (!reading.active || closeTopNavigationPanel()) return;
+  claimSession();
   rememberReading();
   if (reading.trail.length && (reading.directory || reading.linkEntry || !reading.detail)) session.backReading();
   else if (reading.detail) {
@@ -4374,6 +4426,7 @@ function readingGoBack() {
 }
 function closeReader() {
   if (!reading.active || closeTopNavigationPanel()) return;
+  claimSession();
   rememberReading();
   const source = reading.source;
   session.exitRead();
@@ -4494,6 +4547,22 @@ readingExit.addEventListener('click', closeReader);
 readingDirectory.addEventListener('click', readingIndex);
 readingLibrary.addEventListener('click', () => followSubject({ library: true }));
 
+// Only input can claim a stale page for reading. Scroll events also fire when
+// a position is restored or the reader is resized.
+bookBody.addEventListener('wheel', claimSession, { passive: true });
+let readingTouchStarted = false;
+bookBody.addEventListener('touchstart', () => { readingTouchStarted = true; }, { passive: true });
+bookBody.addEventListener('touchmove', () => {
+  if (!readingTouchStarted) return;
+  readingTouchStarted = false;
+  claimSession();
+}, { passive: true });
+bookBody.addEventListener('keydown', event => {
+  if (['PageUp', 'PageDown', 'Home', 'End', 'ArrowUp', 'ArrowDown', ' '].includes(event.key)) claimSession();
+});
+bookBody.addEventListener('click', event => {
+  if (event.target.closest('summary')) claimSession();
+}, true);
 bookBody.addEventListener('scroll', () => {
   if (!reading.active || readerResizeFrame) return;
   if (readerSizeChanged()) { reflowReading(); return; }
@@ -5329,6 +5398,7 @@ function showEventMap(spec, {animate = true} = {}) {
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
+  claimSession();
   event = canonicalEventById.get(event.id) || event;
   const memberIds = event.memberIds || [event.id];
   const year = worldEventYear(event);
@@ -5361,6 +5431,7 @@ function titleFromEventNote(event) {
 
 function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId = null} = {}) {
   if (scene?.status!=='available' || !reading.active) return;
+  claimSession();
   rememberReading();
   const returnView = captureGlobeView();
   if (!session.enterObserve({ kind:'scene', returnView,
@@ -5371,6 +5442,7 @@ function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId
 
 function returnToWorld() {
   if (session.mode !== 'Observe' || closeTopNavigationPanel()) return;
+  claimSession();
   const previous = session.returnFromObserve();
   worldEvent = null;
   pauseGlobe();
@@ -5638,6 +5710,7 @@ const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:
 const viewPanel = el('view-panel'), viewShade = el('view-shade'), hudViewBtn = el('hud-view');
 const viewModes = [...viewPanel.querySelectorAll('[data-view]')];
 let viewMotion = null, viewOpeningPress = false, resetAnim = 0;
+let viewTrigger = canvas;
 try {
   const display = JSON.parse(localStorage.getItem('globe.display.v4') || '{}');
   chrome.labels = display.labels !== false;
@@ -5719,7 +5792,7 @@ function focusActiveView() {
   viewModes.find(button => button.getAttribute('aria-pressed') === 'true')?.focus({preventScroll:true});
 }
 
-function showView(fromHold = false) {
+function showView(fromHold = false, trigger = canvas) {
   if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
   closeYearControl();
@@ -5732,6 +5805,7 @@ function showView(fromHold = false) {
   pointers.clear();
   drag = pinch = null;
   chrome.panel = true;
+  viewTrigger = trigger;
   viewOpeningPress = fromHold;
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
   canvas.inert = el('hud').inert = true;
@@ -5751,6 +5825,7 @@ function selectView(mode) {
 
 function commitYear(year) {
   if (session.mode !== 'Explore' || !session.validYear(year)) return;
+  claimSession();
   exploreIntent();
   pendingPolityTap = null;
   state.year = year;
@@ -5769,6 +5844,7 @@ function cancelResetAnim() {
 }
 
 function resetView(animate = true) {
+  if (session.mode === 'Explore') claimSession();
   closeSheet();
   cancelZoom();
   stopPanReturn();
@@ -5844,6 +5920,7 @@ viewShade.addEventListener('pointerdown', event => {
 for (const button of viewModes) button.addEventListener('click', () => selectView(button.dataset.view));
 for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
   el(id).addEventListener('click', () => {
+    claimSession();
     if (session.mode !== 'Explore') return;
     exploreIntent();
     chrome[key] = !chrome[key];
@@ -5866,7 +5943,11 @@ addEventListener('keydown', event => {
   }
 }, true);
 
-hudViewBtn.addEventListener('click', () => showView());
+hudViewBtn.addEventListener('click', () => showView(false, hudViewBtn));
+el('view-close').addEventListener('click', () => {
+  closeView(false);
+  viewTrigger.focus({preventScroll:true});
+});
 el('reset-view').addEventListener('click', () => {
   closeView();
   resetView();
@@ -5959,6 +6040,10 @@ yearForm.addEventListener('submit', (event) => {
   if (year === null) {
     yearError.textContent = '请输入' + yearLabel(YMIN) + '至 ' + yearLabel(YMAX) + '之间的年份。没有公元 0 年。';
     yearInput.setAttribute('aria-invalid', 'true');
+    const errorBottom = yearError.offsetTop + yearError.offsetHeight;
+    if (errorBottom > yearForm.scrollTop + yearForm.clientHeight) {
+      yearForm.scrollTop = errorBottom - yearForm.clientHeight;
+    }
     return;
   }
   chooseYear(year);

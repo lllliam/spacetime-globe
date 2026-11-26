@@ -3,6 +3,7 @@ const chrome = {panel:false, labels:true, grid:false, natural:false, followTime:
 const viewPanel = el('view-panel'), viewShade = el('view-shade'), hudViewBtn = el('hud-view');
 const viewModes = [...viewPanel.querySelectorAll('[data-view]')];
 let viewMotion = null, viewOpeningPress = false, resetAnim = 0;
+let viewTrigger = canvas;
 try {
   const display = JSON.parse(localStorage.getItem('globe.display.v4') || '{}');
   chrome.labels = display.labels !== false;
@@ -84,7 +85,7 @@ function focusActiveView() {
   viewModes.find(button => button.getAttribute('aria-pressed') === 'true')?.focus({preventScroll:true});
 }
 
-function showView(fromHold = false) {
+function showView(fromHold = false, trigger = canvas) {
   if (session.mode !== 'Explore' || !overlay.hidden) return;
   if (chrome.panel) { closeView(false); return; }
   closeYearControl();
@@ -97,6 +98,7 @@ function showView(fromHold = false) {
   pointers.clear();
   drag = pinch = null;
   chrome.panel = true;
+  viewTrigger = trigger;
   viewOpeningPress = fromHold;
   viewPanel.hidden = viewShade.hidden = viewPanel.inert = false;
   canvas.inert = el('hud').inert = true;
@@ -116,6 +118,7 @@ function selectView(mode) {
 
 function commitYear(year) {
   if (session.mode !== 'Explore' || !session.validYear(year)) return;
+  claimSession();
   exploreIntent();
   pendingPolityTap = null;
   state.year = year;
@@ -134,6 +137,7 @@ function cancelResetAnim() {
 }
 
 function resetView(animate = true) {
+  if (session.mode === 'Explore') claimSession();
   closeSheet();
   cancelZoom();
   stopPanReturn();
@@ -209,6 +213,7 @@ viewShade.addEventListener('pointerdown', event => {
 for (const button of viewModes) button.addEventListener('click', () => selectView(button.dataset.view));
 for (const [id,key] of [['toggle-labels','labels'],['toggle-grid','grid']]) {
   el(id).addEventListener('click', () => {
+    claimSession();
     if (session.mode !== 'Explore') return;
     exploreIntent();
     chrome[key] = !chrome[key];
@@ -231,7 +236,11 @@ addEventListener('keydown', event => {
   }
 }, true);
 
-hudViewBtn.addEventListener('click', () => showView());
+hudViewBtn.addEventListener('click', () => showView(false, hudViewBtn));
+el('view-close').addEventListener('click', () => {
+  closeView(false);
+  viewTrigger.focus({preventScroll:true});
+});
 el('reset-view').addEventListener('click', () => {
   closeView();
   resetView();

@@ -496,6 +496,7 @@ function showEventMap(spec, {animate = true} = {}) {
 
 function openWorldEvent(event) {
   if (!event || session.mode !== 'Explore') return;
+  claimSession();
   event = canonicalEventById.get(event.id) || event;
   const memberIds = event.memberIds || [event.id];
   const year = worldEventYear(event);
@@ -528,6 +529,7 @@ function titleFromEventNote(event) {
 
 function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId = null} = {}) {
   if (scene?.status!=='available' || !reading.active) return;
+  claimSession();
   rememberReading();
   const returnView = captureGlobeView();
   if (!session.enterObserve({ kind:'scene', returnView,
@@ -538,6 +540,7 @@ function openReadingScene(scene, trigger, {initialPlaceId = null, initialStageId
 
 function returnToWorld() {
   if (session.mode !== 'Observe' || closeTopNavigationPanel()) return;
+  claimSession();
   const previous = session.returnFromObserve();
   worldEvent = null;
   pauseGlobe();
