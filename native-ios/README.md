@@ -18,4 +18,4 @@
 
 ## 构建
 
-源码位于 `codex/ios-native`。从仓库根目录运行 `node native-ios/prepare-data.mjs` 和 `python3 native-ios/prepare-project.py`，再用 Xcode 构建生成的项目。GitHub Actions 中的 **Build native iOS IPA** 会验证现有内容、编译原生代码并生成未签名的真机包。地图与地表资料署名沿用项目首页。[项目资料说明](https://github.com/lllliam/spacetime-globe#数据与来源)
+源码位于 `codex/ios-native`。从仓库根目录运行 `node native-ios/prepare-data.mjs` 和 `python3 native-ios/prepare-project.py`，再用 Xcode 构建生成的项目。GitHub Actions 中的 **Build native iOS IPA** 会验证现有内容、编译原生代码并生成未签名的真机包。地图与地表资料署名沿用项目首页。[项目资料说明](https://github.com/lllliam/spacetime-globe#数据来源与许可)
