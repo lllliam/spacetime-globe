@@ -3570,5 +3570,1295 @@
       "scope": "核对年份口径、材料能支持的范围及读章关联。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-qi-linzi-jimo-landscape": {
+    "title": "临淄与即墨的都邑背景",
+    "date": "公元前 284—前 279 年 · 燕齐战事背景",
+    "start": -284,
+    "end": -279,
+    "context": true,
+    "summary": "临淄是齐都，即墨是齐国东部故城。齐都失守后，即墨与莒仍拒燕。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这个区间连接济西之后燕军入临淄及齐襄王回都。故城位置有调查材料，不单凭城址确定战事发生点。",
+        "refs": [
+          {
+            "sourceId": "linzi-city-survey",
+            "locator": "齐故城位置与大城、小城",
+            "note": "齐都临淄的遗址位置、都邑构成与分期"
+          },
+          {
+            "sourceId": "pingdu-jimo-site",
+            "locator": "大朱毛村一带与根据调查认定的城址区",
+            "note": "战国即墨的遗址区在今平度古岘一带，城址有多期遗存"
+          },
+          {
+            "sourceId": "shiji-yue-yi",
+            "locator": "燕昭王二十八年至燕惠王换将；乐毅遗燕惠王书",
+            "note": "燕联络列国、济西后燕军入临淄、燕惠王换将及乐毅奔赵"
+          },
+          {
+            "sourceId": "shiji-tian-dan",
+            "locator": "即墨拒燕、田单胜后迎齐襄王及篇末莒立王段",
+            "note": "莒与即墨各自抗燕、田单获启用及齐襄王归临淄"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "linzi-city-survey",
+        "title": "山东省志·文物库《临淄齐国故城》",
+        "url": "https://shandong-chorography.org/database/a/section/70/article/75/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "pingdu-jimo-site",
+        "title": "青岛市《平度即墨故城遗址》",
+        "url": "https://www.qingdao.gov.cn/lslm/zt/whyc/wwzl/202111/t20211126_3877114.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-yue-yi",
+        "title": "《史记·乐毅列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷080",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-tian-dan",
+        "title": "《史记·田单列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷082",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-jinan-chen-city-landscape": {
+    "title": "纪南城与陈城的地理背景",
+    "date": "公元前 280—前 276 年 · 秦攻鄢郢与楚保陈",
+    "start": -280,
+    "end": -276,
+    "context": true,
+    "summary": "荆州纪南城联系战国郢都，淮阳一带联系东迁后的陈城。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "两处为读章的地域参照。纪南城营建上限有不同判断，楚王东迁的具体路线和官民变化另查。",
+        "refs": [
+          {
+            "sourceId": "jinan-chu-city-study",
+            "locator": "摘要及纪南城分期、陈郢与寿郢的地望",
+            "note": "对楚纪南城年代另有分期，区分东迁前的晚段郢都、陈与寿春"
+          },
+          {
+            "sourceId": "chu-archaeology-review",
+            "locator": "江陵纪南城、楚皇城及《楚居》段",
+            "note": "记录旧发掘对纪南城年代的判断与楚居研究相关争论"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "jinan-chu-city-study",
+        "title": "尹弘兵《楚都纪南城探析：基于考古与出土文献新资料的考察》",
+        "url": "https://www.lsdlyj.com.cn/CN/PDF/47117",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "chu-archaeology-review",
+        "title": "湖北省文物考古研究院《楚文化考古研究的回顾与展望》",
+        "url": "https://www.hbww.org.cn/xlkd/p/7218.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-shangdang-gaoping-landscape": {
+    "title": "上党与高平的地理背景",
+    "date": "公元前 262—前 260 年 · 前因与主战阶段",
+    "start": -262,
+    "end": -260,
+    "context": true,
+    "summary": "长治盆地和高平遗址区可对照晋东南的地形与材料。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "前 262 年至前 260 年是上党争端与长平主战的阅读范围。永录发掘与调查名录提供不同层级的考古证据。",
+        "refs": [
+          {
+            "sourceId": "shangdang-basin-geography",
+            "locator": "地形及地理范围段",
+            "note": "长治与晋城盆地为晋东南历史上党地区的重要地形参照"
+          },
+          {
+            "sourceId": "gaoping-changping-survey",
+            "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+            "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+          },
+          {
+            "sourceId": "shiji-bai-qi-wang-jian",
+            "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+            "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shangdang-basin-geography",
+        "title": "长治市《上党郡（上党）》",
+        "url": "https://www.changzhi.gov.cn/ztzl/cjwmwz/shfs/202604/t20260403_3153936.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "gaoping-changping-survey",
+        "title": "晋城市政府《长平之战遗址保护规划》",
+        "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-bai-qi-wang-jian",
+        "title": "《史记·白起王翦列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷073",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-handan-after-changping-geography": {
+    "title": "秦围邯郸的都邑背景",
+    "date": "公元前 259—前 257 年 · 围邯郸与诸侯援赵",
+    "start": -259,
+    "end": -257,
+    "context": true,
+    "summary": "长平在晋东南，赵都邯郸另有故城遗址可参照。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "两处对应前后不同的战事。本区间用于阅读围邯郸，古代军事路线和各军驻地继续待查。",
+        "refs": [
+          {
+            "sourceId": "handan-zhao-capital",
+            "locator": "赵王城和大北城的地理及营建",
+            "note": "邯郸都邑遗址区的位置与布局"
+          },
+          {
+            "sourceId": "gaoping-changping-survey",
+            "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+            "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+          },
+          {
+            "sourceId": "tongjian-late-states-5",
+            "locator": "周赧王五十三、五十五至五十八年",
+            "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "handan-zhao-capital",
+        "title": "河北省文物考古研究院《赵邯郸故城》",
+        "url": "https://www.hbswwkg.com/2021-05/11/content_8500381.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "gaoping-changping-survey",
+        "title": "晋城市政府《长平之战遗址保护规划》",
+        "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "tongjian-late-states-5",
+        "title": "《资治通鉴》卷五《周纪五》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷005",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-min-and-jing-waterworks": {
+    "title": "岷江与泾水的两处引水背景",
+    "date": "约公元前 256—前 230 年 · 战国末期水利背景",
+    "start": -256,
+    "end": -230,
+    "context": true,
+    "summary": "成都平原与关中水利分别利用岷江、泾河的地形。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "时段用于阅读战国水利与秦廷政事。留存设施经长时段改建和维护，今图仅作地形对照。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-waterworks",
+            "locator": "蜀守冰凿离碓及郑国渠段",
+            "note": "记录蜀地水运与灌溉、关中引泾及郑国的叙事"
+          },
+          {
+            "sourceId": "unesco-dujiangyan-water-system",
+            "locator": "突出普遍价值与保存状况",
+            "note": "都江堰利用岷江分流，设施经后世维护与演变"
+          },
+          {
+            "sourceId": "zhengguo-canal-head",
+            "locator": "早期渠口、王桥镇与后世渠首迁移段",
+            "note": "早期引水口可参照泾河出山处，后世渠首有迁移及改建"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-waterworks",
+        "title": "《史记》卷二十九《河渠书》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029"
+      },
+      {
+        "id": "unesco-dujiangyan-water-system",
+        "title": "联合国教科文组织：青城山与都江堰水利工程",
+        "url": "https://whc.unesco.org/en/list/1001/"
+      },
+      {
+        "id": "zhengguo-canal-head",
+        "title": "上海市水务局《世界灌溉工程遗产：郑国渠》",
+        "url": "https://swj.sh.gov.cn/swhsd/20191125/0004-7731.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-han-wei-capitals-landscape": {
+    "title": "新郑与大梁的都邑背景",
+    "date": "公元前 231—前 225 年 · 韩地接收与魏都陷落",
+    "start": -231,
+    "end": -225,
+    "context": true,
+    "summary": "郑韩故城和开封一带分别提供两国末期都邑的线索。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "新郑的城址保存可调查的遗迹，大梁遗存深埋。传世记事、考古分期和现代水道需要同时辨别。",
+        "refs": [
+          {
+            "sourceId": "zheng-han-fieldwork",
+            "locator": "郑韩故城勘探、城墙、道路、手工业区",
+            "note": "新郑保存郑、韩相继使用的城址及多类遗存"
+          },
+          {
+            "sourceId": "kaifeng-city-strata",
+            "locator": "第343页前言及注3",
+            "note": "以开封一带参照深埋的大梁遗存"
+          },
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zheng-han-fieldwork",
+        "title": "樊温泉《郑韩故城近年来重要的考古发现与研究》",
+        "url": "https://www.hnswwkgyjy.cn/ueditor/php/upload/file/20220524/1653363574267571.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "kaifeng-city-strata",
+        "title": "孟凡人《北宋东京开封府城的形制布局》",
+        "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-chu-shouchun-royal-landscape": {
+    "title": "寿春都邑和武王墩墓区",
+    "date": "公元前 241—前 223 年 · 末期楚都阅读时段",
+    "start": -241,
+    "end": -223,
+    "context": true,
+    "summary": "安徽寿县一带的城址与以东墓地提供晚楚的地理和考古线索。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "史书记楚迁寿春，墓地和城址分别有发掘资料。背景结束取楚政权终局的一种主要节点，遗址使用不据此作统一断代。",
+        "refs": [
+          {
+            "sourceId": "shouchun-fieldwork",
+            "locator": "李喜兰《寿春城遗址历年考古工作概述》",
+            "note": "寿春城所见多处城垣、居住遗址和不同墓区"
+          },
+          {
+            "sourceId": "wuwangdun-archaeology",
+            "locator": "寿春周围墓葬分布、武王墩陵园与主墓出土段",
+            "note": "寿春以东发现大型陵园与战国晚期高等级墓葬资料"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shouchun-fieldwork",
+        "title": "河南省文物考古研究院《湘鄂豫皖楚文化研究会第十八次年会纪要》",
+        "url": "https://www.hnswwkgyjy.cn/NewsView.php?News_ID=2909",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "wuwangdun-archaeology",
+        "title": "湖北省文物考古研究院《安徽淮南武王墩发掘成果》",
+        "url": "https://hbww.org.cn/yjy_gzkg/p/10519.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-jixi-alliance-defeats-qi": {
+    "title": "列国会兵攻齐，燕军入临淄",
+    "date": "公元前 284 年 · 周赧王三十一年",
+    "start": -284,
+    "end": -284,
+    "summary": "齐军在济西失利，其后燕军进入齐都临淄。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用《通鉴》年次。各传世记述列出的参战和统军名单有出入。",
+        "refs": [
+          {
+            "sourceId": "tongjian-late-states-4",
+            "locator": "周赧王三十一、三十六、三十七年",
+            "note": "编入前284年燕齐战事、前279年齐复临淄、前278年秦取郢"
+          },
+          {
+            "sourceId": "shiji-yue-yi",
+            "locator": "燕昭王二十八年至燕惠王换将；乐毅遗燕惠王书",
+            "note": "燕联络列国、济西后燕军入临淄、燕惠王换将及乐毅奔赵"
+          },
+          {
+            "sourceId": "shiji-qi-jixia",
+            "locator": "齐湣王四十年、齐襄王与齐王建四十四年",
+            "note": "齐伐宋后遭列国攻击，齐襄王时期恢复及齐王建降秦"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "tongjian-late-states-4",
+        "title": "《资治通鉴》卷四《周纪四》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷004",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-yue-yi",
+        "title": "《史记·乐毅列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷080",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qi-jixia",
+        "title": "《史记》卷四十六《田敬仲完世家》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qi-restores-linzi": {
+    "title": "田单击退燕军，齐襄王回临淄",
+    "date": "公元前 279 年 · 周赧王三十六年",
+    "start": -279,
+    "end": -279,
+    "summary": "传世编年记田单率即墨守军转胜，迎齐襄王自莒返都。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用《通鉴》年次。具体城邑归附的时序和传世数字仍待考证。",
+        "refs": [
+          {
+            "sourceId": "tongjian-late-states-4",
+            "locator": "周赧王三十一、三十六、三十七年",
+            "note": "编入前284年燕齐战事、前279年齐复临淄、前278年秦取郢"
+          },
+          {
+            "sourceId": "shiji-tian-dan",
+            "locator": "即墨拒燕、田单胜后迎齐襄王及篇末莒立王段",
+            "note": "莒与即墨各自抗燕、田单获启用及齐襄王归临淄"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "tongjian-late-states-4",
+        "title": "《资治通鉴》卷四《周纪四》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷004",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-tian-dan",
+        "title": "《史记·田单列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷082",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-captures-chu-ying": {
+    "title": "白起取郢，楚王退保陈",
+    "date": "公元前 278 年 · 秦昭襄王二十九年",
+    "start": -278,
+    "end": -278,
+    "summary": "秦取郢置南郡，楚王东走，楚国统治中心移往陈。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《秦本纪》《楚世家》提供秦、楚各自纪事。两处地理入口只表示都邑区域。",
+        "refs": [
+          {
+            "sourceId": "qin-annals-reforms",
+            "locator": "秦昭襄王二十三、二十七至三十、四十七至五十年",
+            "note": "参与伐齐、秦攻鄢郢、长平与邯郸后续"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          },
+          {
+            "sourceId": "jinan-chu-city-study",
+            "locator": "摘要及纪南城分期、陈郢与寿郢的地望",
+            "note": "对楚纪南城年代另有分期，区分东迁前的晚段郢都、陈与寿春"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "qin-annals-reforms",
+        "title": "《史记》卷五《秦本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "jinan-chu-city-study",
+        "title": "尹弘兵《楚都纪南城探析：基于考古与出土文献新资料的考察》",
+        "url": "https://www.lsdlyj.com.cn/CN/PDF/47117",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-shangdang-offered-to-zhao": {
+    "title": "野王降秦与上党守臣求归赵",
+    "date": "公元前 262 年 · 周赧王五十三年",
+    "start": -262,
+    "end": -262,
+    "summary": "秦取野王之后，韩上党守臣冯亭遣使向赵，赵廷同意接纳。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按《通鉴》分年。受地的政治决策、军队开进与各地实际归属需分别查证。",
+        "refs": [
+          {
+            "sourceId": "tongjian-late-states-5",
+            "locator": "周赧王五十三、五十五至五十八年",
+            "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+          },
+          {
+            "sourceId": "shiji-bai-qi-wang-jian",
+            "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+            "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+          },
+          {
+            "sourceId": "shiji-zhao-jin-remnants",
+            "locator": "赵孝成王四年及邯郸相关段；幽缪王后段与太史公曰",
+            "note": "上党来使、赵廷讨论、长平及楚魏救赵、亡赵旧臣支持代王嘉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "tongjian-late-states-5",
+        "title": "《资治通鉴》卷五《周纪五》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-bai-qi-wang-jian",
+        "title": "《史记·白起王翦列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷073",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhao-jin-remnants",
+        "title": "《史记》卷四十三《赵世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷043",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-battle-of-changping": {
+    "title": "长平之战与秦军杀降",
+    "date": "公元前 260 年 · 秦昭襄王四十七年",
+    "start": -260,
+    "end": -260,
+    "summary": "秦赵在长平主战，赵军战败，大批降卒被杀见于传世记载。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用《秦本纪》与列传主战年。史书数字口径不同，高平局部发掘不能核定人数。",
+        "refs": [
+          {
+            "sourceId": "shiji-bai-qi-wang-jian",
+            "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+            "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+          },
+          {
+            "sourceId": "qin-annals-reforms",
+            "locator": "秦昭襄王二十三、二十七至三十、四十七至五十年",
+            "note": "参与伐齐、秦攻鄢郢、长平与邯郸后续"
+          },
+          {
+            "sourceId": "gaoping-changping-survey",
+            "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+            "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-bai-qi-wang-jian",
+        "title": "《史记·白起王翦列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷073",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qin-annals-reforms",
+        "title": "《史记》卷五《秦本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "gaoping-changping-survey",
+        "title": "晋城市政府《长平之战遗址保护规划》",
+        "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-siege-of-handan": {
+    "title": "秦军续攻邯郸",
+    "date": "公元前 258 年 · 周赧王五十七年",
+    "start": -258,
+    "end": -258,
+    "summary": "秦在前一年再度出兵；《通鉴》本年续记秦军攻邯郸与赵求援。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "单年对应续攻和围城中的交涉。秦方两篇传世纪事对再攻月份有出入。",
+        "refs": [
+          {
+            "sourceId": "tongjian-late-states-5",
+            "locator": "周赧王五十三、五十五至五十八年",
+            "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+          },
+          {
+            "sourceId": "qin-annals-reforms",
+            "locator": "秦昭襄王二十三、二十七至三十、四十七至五十年",
+            "note": "参与伐齐、秦攻鄢郢、长平与邯郸后续"
+          },
+          {
+            "sourceId": "shiji-bai-qi-wang-jian",
+            "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+            "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "tongjian-late-states-5",
+        "title": "《资治通鉴》卷五《周纪五》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "qin-annals-reforms",
+        "title": "《史记》卷五《秦本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-bai-qi-wang-jian",
+        "title": "《史记·白起王翦列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷073",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-handan-siege-relieved": {
+    "title": "楚魏来援，邯郸解围",
+    "date": "公元前 257 年 · 周赧王五十八年",
+    "start": -257,
+    "end": -257,
+    "summary": "楚魏出兵援赵，秦在邯郸未能破城并退出。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用《通鉴》年次。各篇对楚军将领的叙事着眼点有差异。",
+        "refs": [
+          {
+            "sourceId": "tongjian-late-states-5",
+            "locator": "周赧王五十三、五十五至五十八年",
+            "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+          },
+          {
+            "sourceId": "shiji-zhao-jin-remnants",
+            "locator": "赵孝成王四年及邯郸相关段；幽缪王后段与太史公曰",
+            "note": "上党来使、赵廷讨论、长平及楚魏救赵、亡赵旧臣支持代王嘉"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "tongjian-late-states-5",
+        "title": "《资治通鉴》卷五《周纪五》",
+        "url": "https://zh.wikisource.org/wiki/資治通鑑/卷005",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhao-jin-remnants",
+        "title": "《史记》卷四十三《赵世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷043",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-chu-moves-to-shouchun": {
+    "title": "楚迁都寿春",
+    "date": "公元前 241 年 · 楚考烈王二十二年",
+    "start": -241,
+    "end": -241,
+    "summary": "《楚世家》记楚东徙都寿春，仍命名为郢。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用楚考烈王二十二年的通行换算。都邑遗迹分别分期。",
+        "refs": [
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          },
+          {
+            "sourceId": "shouchun-fieldwork",
+            "locator": "李喜兰《寿春城遗址历年考古工作概述》",
+            "note": "寿春城所见多处城垣、居住遗址和不同墓区"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shouchun-fieldwork",
+        "title": "河南省文物考古研究院《湘鄂豫皖楚文化研究会第十八次年会纪要》",
+        "url": "https://www.hnswwkgyjy.cn/NewsView.php?News_ID=2909",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-zheng-capping-and-lao-ai": {
+    "title": "秦王政行冠礼与嫪毐之变",
+    "date": "公元前 238 年 · 秦王政九年",
+    "start": -238,
+    "end": -238,
+    "summary": "秦王政在雍行冠礼，秦本纪同年记嫪毐起事及其失败。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按秦王政九年换算；吕不韦免相见次年。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-withdraws-expulsion-order": {
+    "title": "秦廷逐客争议与撤令",
+    "date": "公元前 237 年 · 秦王政十年",
+    "start": -237,
+    "end": -237,
+    "summary": "《秦始皇本纪》记逐客议、李斯上书后停止逐客令。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用秦王政十年的换算。该年也记吕不韦免为秦相。《李斯列传》另述逐客议的起因。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "shiji-li-si-remonstrance",
+            "locator": "逐客与《谏逐客书》；末段回顾用客",
+            "note": "以郑国事为引，保存反对逐客的论辩"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-li-si-remonstrance",
+        "title": "《史记·李斯列传》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷087",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-conquers-han": {
+    "title": "秦俘韩王安，置颍川郡",
+    "date": "公元前 230 年 · 秦王政十七年",
+    "start": -230,
+    "end": -230,
+    "summary": "内史腾攻韩得韩王安，秦在其地置颍川郡见于本纪。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本年对应君主被俘与置郡；秦前一年接收韩南阳地，新郑以后仍见反抗记载。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "shiji-han-late",
+            "locator": "韩桓惠王十年、十四年；韩王安末年",
+            "note": "韩纪将野王、上党、长平列于不同年次，并写韩王安被虏"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-han-late",
+        "title": "《史记·韩世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷045",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-captures-zhao-king": {
+    "title": "秦擒赵王迁，赵公子嘉赴代",
+    "date": "公元前 228 年 · 秦王政十九年",
+    "start": -228,
+    "end": -228,
+    "summary": "秦取得赵王迁，赵公子嘉赴代延续宗室政权。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用秦年表，赵世家另列邯郸归秦月份。代政权于前 222 年结束。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "six-states-chronology",
+            "locator": "前284、前278、前260及秦王政十七至二十六年各栏",
+            "note": "列国和秦年序互校，楚逐年表另见楚王负刍的编年"
+          },
+          {
+            "sourceId": "shiji-zhao-jin-remnants",
+            "locator": "赵孝成王四年及邯郸相关段；幽缪王后段与太史公曰",
+            "note": "上党来使、赵廷讨论、长平及楚魏救赵、亡赵旧臣支持代王嘉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "six-states-chronology",
+        "title": "《史记》卷十五《六国年表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷015",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhao-jin-remnants",
+        "title": "《史记》卷四十三《赵世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷043",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-takes-yan-ji": {
+    "title": "秦取蓟，燕王退至辽东",
+    "date": "公元前 226 年 · 秦王政二十一年",
+    "start": -226,
+    "end": -226,
+    "summary": "燕都蓟被秦军攻下，燕王喜东走辽东。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这一年对应燕都失守，燕王随后仍在辽东，至前 222 年被俘。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "shiji-yan-late",
+            "locator": "燕昭王二十八年、燕惠王及燕王喜二十八至三十三年",
+            "note": "燕攻临淄、换将，蓟陷后燕王东走，末年被俘"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-yan-late",
+        "title": "《史记·燕召公世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷034",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-conquers-wei": {
+    "title": "大梁陷落，魏王请降",
+    "date": "公元前 225 年 · 秦王政二十二年",
+    "start": -225,
+    "end": -225,
+    "summary": "《秦始皇本纪》记秦将王贲用河沟水灌大梁，城坏后魏王请降。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用秦王政二十二年纪年。河沟地望和具体战国城界没有据今图复原。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "kaifeng-city-strata",
+            "locator": "第343页前言及注3",
+            "note": "以开封一带参照深埋的大梁遗存"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "kaifeng-city-strata",
+        "title": "孟凡人《北宋东京开封府城的形制布局》",
+        "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-ends-chu-resistance": {
+    "title": "楚国政权终结",
+    "date": "公元前 223 年 · 秦王政二十四年",
+    "start": -223,
+    "end": -223,
+    "summary": "《楚世家》《六国年表》本年记俘楚王；秦方本纪本年记昌平君和项燕败亡。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用前 223 年标记楚国政权终局。负刍被俘与项燕败亡在几种记载中先后不同。",
+        "refs": [
+          {
+            "sourceId": "six-states-chronology",
+            "locator": "前284、前278、前260及秦王政十七至二十六年各栏",
+            "note": "列国和秦年序互校，楚逐年表另见楚王负刍的编年"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          },
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "six-states-chronology",
+        "title": "《史记》卷十五《六国年表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷015",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-chu-late",
+        "title": "《史记·楚世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷040",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-conquers-yan-in-liaodong": {
+    "title": "秦攻辽东，燕王喜被俘",
+    "date": "公元前 222 年 · 秦王政二十五年",
+    "start": -222,
+    "end": -222,
+    "summary": "秦将王贲攻辽东，取得燕王喜。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用秦王政二十五年纪年。与前 226 年蓟陷及同年的代国终局分列。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "shiji-yan-late",
+            "locator": "燕昭王二十八年、燕惠王及燕王喜二十八至三十三年",
+            "note": "燕攻临淄、换将，蓟陷后燕王东走，末年被俘"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-yan-late",
+        "title": "《史记·燕召公世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷034",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-conquers-dai": {
+    "title": "秦俘代王嘉，代亡",
+    "date": "公元前 222 年 · 秦王政二十五年",
+    "start": -222,
+    "end": -222,
+    "summary": "秦军俘代王嘉，赵王室在代的政权终结。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用秦王政二十五年的换算，分开前 228 年邯郸政权失守与本年代亡。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "six-states-chronology",
+            "locator": "前284、前278、前260及秦王政十七至二十六年各栏",
+            "note": "列国和秦年序互校，楚逐年表另见楚王负刍的编年"
+          },
+          {
+            "sourceId": "shiji-zhao-jin-remnants",
+            "locator": "赵孝成王四年及邯郸相关段；幽缪王后段与太史公曰",
+            "note": "上党来使、赵廷讨论、长平及楚魏救赵、亡赵旧臣支持代王嘉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "six-states-chronology",
+        "title": "《史记》卷十五《六国年表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷015",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhao-jin-remnants",
+        "title": "《史记》卷四十三《赵世家》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷043",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-qin-conquers-qi": {
+    "title": "秦攻齐，齐王建失国",
+    "date": "公元前 221 年 · 秦王政二十六年",
+    "start": -221,
+    "end": -221,
+    "summary": "秦将王贲入齐并取得齐王建。六国王室的统治至此前后终结，秦廷随后议立皇帝称号。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按秦王政二十六年。两篇对齐的备战与归降有不同叙述，地方制度如何接收另见秦卷。",
+        "refs": [
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          },
+          {
+            "sourceId": "shiji-qi-jixia",
+            "locator": "齐湣王四十年、齐襄王与齐王建四十四年",
+            "note": "齐伐宋后遭列国攻击，齐襄王时期恢复及齐王建降秦"
+          },
+          {
+            "sourceId": "six-states-chronology",
+            "locator": "前284、前278、前260及秦王政十七至二十六年各栏",
+            "note": "列国和秦年序互校，楚逐年表另见楚王负刍的编年"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-qin-king-zheng",
+        "title": "《史记·秦始皇本纪》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷006",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qi-jixia",
+        "title": "《史记》卷四十六《田敬仲完世家》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7046"
+      },
+      {
+        "id": "six-states-chronology",
+        "title": "《史记》卷十五《六国年表》",
+        "url": "https://zh.wikisource.org/wiki/史記/卷015",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "核对年份口径、材料能支持的范围及读章关联。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

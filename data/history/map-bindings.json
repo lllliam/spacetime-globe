@@ -7270,6 +7270,93 @@
       },
       "target": {
         "bookId": "warring-states",
+        "chapterId": "chu-shouchun-and-qin-conquest"
+      },
+      "range": {
+        "from": -224,
+        "to": -223
+      },
+      "relation": "related",
+      "scope": "从秦国底图进入楚末两年的不同编年。地图的旧政权切片止于前224年。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "chu-shouchun-and-royal-tombs"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-conquers-yan-and-qi"
+      },
+      "range": {
+        "from": -227,
+        "to": -221
+      },
+      "relation": "related",
+      "scope": "从战国末秦的底图入读取燕、齐和秦改帝号。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-waterways-and-court"
+      },
+      "range": {
+        "from": -256,
+        "to": -230
+      },
+      "relation": "related",
+      "scope": "比较蜀、关中的地形与取水，按年次读秦廷逐客议。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-zhengguo-canal-head-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "changping-battle-and-evidence"
+      },
+      "range": {
+        "from": -262,
+        "to": -260
+      },
+      "relation": "related",
+      "scope": "从秦国同期底图进入长平编年与永录考古证据。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "changping-gaoping-fieldwork-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
         "chapterId": "zhang-yi-su-qin-diplomacy"
       },
       "range": {
@@ -7353,6 +7440,50 @@
       },
       "target": {
         "bookId": "warring-states",
+        "chapterId": "chu-shouchun-and-qin-conquest"
+      },
+      "range": {
+        "from": -241,
+        "to": -224
+      },
+      "relation": "related",
+      "scope": "从楚底图的晚期覆盖进入寿春、墓区和秦楚终局。前223年另有秦底图的读章入口。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "chu-shouchun-and-royal-tombs"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "chu-ying-to-chen"
+      },
+      "range": {
+        "from": -280,
+        "to": -276
+      },
+      "relation": "related",
+      "scope": "从楚的底图对照纪南城的遗址分期与楚移陈记事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "chu-jinan-ying-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Chu"
+      },
+      "target": {
+        "bookId": "warring-states",
         "chapterId": "wu-qi-appointments-in-chu"
       },
       "range": {
@@ -7426,6 +7557,49 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-conquers-yan-and-qi"
+      },
+      "range": {
+        "from": -222,
+        "to": -221
+      },
+      "relation": "related",
+      "scope": "从齐国底图进入《田敬仲完世家》及秦方所记齐的终局。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "yan-qi-jixi-and-restoration"
+      },
+      "range": {
+        "from": -284,
+        "to": -279
+      },
+      "relation": "related",
+      "scope": "从齐的底图进入济西、临淄与即墨、莒的文献与城址。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qi-jimo-pingdu-site"
     },
     {
       "map": {
@@ -7622,6 +7796,48 @@
       },
       "target": {
         "bookId": "warring-states",
+        "chapterId": "qin-conquers-yan-and-qi"
+      },
+      "range": {
+        "from": -227,
+        "to": -222
+      },
+      "relation": "related",
+      "scope": "从燕国底图进入蓟的失守和辽东另阶段的终结。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yan"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "yan-qi-jixi-and-restoration"
+      },
+      "range": {
+        "from": -284,
+        "to": -279
+      },
+      "relation": "related",
+      "scope": "从燕国底图接读诸国攻齐与燕惠王换将。各军实际活动另查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Yan"
+      },
+      "target": {
+        "bookId": "warring-states",
         "chapterId": "zhang-yi-su-qin-diplomacy"
       },
       "range": {
@@ -7653,6 +7869,70 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-takes-handan-and-dai"
+      },
+      "range": {
+        "from": -233,
+        "to": -228
+      },
+      "relation": "related",
+      "scope": "从赵国底图读李牧与邯郸，代的后续记事见章内。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "handan-siege-and-relief"
+      },
+      "range": {
+        "from": -259,
+        "to": -257
+      },
+      "relation": "related",
+      "scope": "从赵国底图读都邑受围、赵请援及楚魏救赵。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "changping-battle-and-evidence"
+      },
+      "range": {
+        "from": -262,
+        "to": -260
+      },
+      "relation": "related",
+      "scope": "从赵国同期底图进入上党争端与长平战事，考古点只标遗迹区。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "changping-gaoping-fieldwork-area"
     },
     {
       "map": {
@@ -7713,6 +7993,48 @@
       "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
       "audit": {
         "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-conquers-han-and-wei"
+      },
+      "range": {
+        "from": -227,
+        "to": -225
+      },
+      "relation": "related",
+      "scope": "从魏国底图进入大梁陷落及今开封一带的区域证据。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "handan-siege-and-relief"
+      },
+      "range": {
+        "from": -259,
+        "to": -257
+      },
+      "relation": "related",
+      "scope": "从魏国同期地图入口进入魏、赵交涉和无忌援赵的传世记事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {
@@ -7817,6 +8139,48 @@
       "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
       "audit": {
         "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-conquers-han-and-wei"
+      },
+      "range": {
+        "from": -231,
+        "to": -230
+      },
+      "relation": "related",
+      "scope": "从临近韩王国终局的底图进入秦接收韩地和颍川置郡。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "shangdang-feng-ting-and-zhao"
+      },
+      "range": {
+        "from": -263,
+        "to": -260
+      },
+      "relation": "related",
+      "scope": "从韩国读野王失守、冯亭遣使与赵接受上党，不以底图断定逐地归属。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {

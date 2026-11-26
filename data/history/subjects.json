@@ -2008,6 +2008,224 @@
         "scope": "核对遗址区参照、阅读年代和证据范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "qi-jimo-pingdu-site",
+      "type": "region",
+      "name": "平度古岘即墨故城",
+      "aliases": [
+        "战国即墨",
+        "即墨故城",
+        "平度古岘"
+      ],
+      "range": {
+        "from": -286,
+        "to": -279,
+        "dateLabel": "约公元前 286—前 279 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "今平度古岘一带为即墨故城参照，遗址的实际使用延续到其他时期。",
+      "sources": [
+        {
+          "id": "pingdu-jimo-site",
+          "title": "青岛市《平度即墨故城遗址》",
+          "url": "https://www.qingdao.gov.cn/lslm/zt/whyc/wwzl/202111/t20211126_3877114.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-tian-dan",
+          "title": "《史记·田单列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷082",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-jinan-ying-area",
+      "type": "region",
+      "name": "荆州纪南城遗址区",
+      "aliases": [
+        "纪南城",
+        "楚纪南故城",
+        "郢都"
+      ],
+      "range": {
+        "from": -280,
+        "to": -276,
+        "dateLabel": "约公元前 280—前 276 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "荆州城北的城址区可与楚末段失郢记事对读，历次营建及更早郢都另查。",
+      "sources": [
+        {
+          "id": "jinan-chu-city-study",
+          "title": "尹弘兵《楚都纪南城探析：基于考古与出土文献新资料的考察》",
+          "url": "https://www.lsdlyj.com.cn/CN/PDF/47117",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "chu-archaeology-review",
+          "title": "湖北省文物考古研究院《楚文化考古研究的回顾与展望》",
+          "url": "https://www.hbww.org.cn/xlkd/p/7218.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-chen-huaiyang-area",
+      "type": "region",
+      "name": "淮阳一带的陈城",
+      "aliases": [
+        "楚都陈",
+        "陈郢",
+        "淮阳"
+      ],
+      "range": {
+        "from": -278,
+        "to": -241,
+        "dateLabel": "约公元前 278—前 241 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以今河南淮阳一带参照陈地，传世的东迁记事与城址使用分期分别读。",
+      "sources": [
+        {
+          "id": "jinan-chu-city-study",
+          "title": "尹弘兵《楚都纪南城探析：基于考古与出土文献新资料的考察》",
+          "url": "https://www.lsdlyj.com.cn/CN/PDF/47117",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-chu-late",
+          "title": "《史记·楚世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷040",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "changping-gaoping-fieldwork-area",
+      "type": "region",
+      "name": "高平永录与长平遗址区",
+      "aliases": [
+        "长平",
+        "高平",
+        "永录",
+        "长平之战遗址"
+      ],
+      "range": {
+        "from": -262,
+        "to": -260,
+        "dateLabel": "约公元前 262—前 260 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "从高平区域读上党争端与长平主战年，永录出土证据的解释限于遗迹及调查范围。",
+      "sources": [
+        {
+          "id": "gaoping-changping-survey",
+          "title": "晋城市政府《长平之战遗址保护规划》",
+          "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-bai-qi-wang-jian",
+          "title": "《史记·白起王翦列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷073",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-shouchun-and-royal-tombs",
+      "type": "region",
+      "name": "寿春城及以东墓区",
+      "aliases": [
+        "寿春",
+        "寿郢",
+        "武王墩",
+        "楚都寿春"
+      ],
+      "range": {
+        "from": -241,
+        "to": -223,
+        "dateLabel": "约公元前 241—前 223 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "今寿县的考古区与以东高等级墓区提供晚楚都邑和礼制的区域参照。",
+      "sources": [
+        {
+          "id": "shouchun-fieldwork",
+          "title": "河南省文物考古研究院《湘鄂豫皖楚文化研究会第十八次年会纪要》",
+          "url": "https://www.hnswwkgyjy.cn/NewsView.php?News_ID=2909",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "wuwangdun-archaeology",
+          "title": "湖北省文物考古研究院《安徽淮南武王墩发掘成果》",
+          "url": "https://hbww.org.cn/yjy_gzkg/p/10519.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-zhengguo-canal-head-area",
+      "type": "region",
+      "name": "泾阳历代引泾渠首区",
+      "aliases": [
+        "郑国渠",
+        "泾阳",
+        "王桥",
+        "引泾渠首"
+      ],
+      "range": {
+        "from": -256,
+        "to": -230,
+        "dateLabel": "约公元前 256—前 230 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "用地理位置对照战国末期关中引水。历代渠首有移动，并区分后续设施。",
+      "sources": [
+        {
+          "id": "zhengguo-canal-head",
+          "title": "上海市水务局《世界灌溉工程遗产：郑国渠》",
+          "url": "https://swj.sh.gov.cn/swhsd/20191125/0004-7731.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qin-waterworks",
+          "title": "《史记》卷二十九《河渠书》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

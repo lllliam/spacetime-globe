@@ -3293,6 +3293,713 @@
         "scope": "遗址或区域位置、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "linzi-and-pingdu-jimo-sites",
+      "year": -284,
+      "date": "公元前 284—前 279 年 · 燕齐战事背景",
+      "title": "从齐都临淄看东部的即墨",
+      "summary": "失去都城后，齐的其他城邑在什么地方？",
+      "place": {
+        "label": "临淄齐国故城 · 齐都遗址区参照",
+        "lon": 118.338,
+        "lat": 36.89
+      },
+      "sources": [
+        {
+          "id": "linzi-city-survey",
+          "title": "山东省志·文物库《临淄齐国故城》",
+          "url": "https://shandong-chorography.org/database/a/section/70/article/75/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pingdu-jimo-site",
+          "title": "青岛市《平度即墨故城遗址》",
+          "url": "https://www.qingdao.gov.cn/lslm/zt/whyc/wwzl/202111/t20211126_3877114.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-yue-yi",
+          "title": "《史记·乐毅列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷080",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-tian-dan",
+          "title": "《史记·田单列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷082",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在齐国故城和即墨故城两处参照区之间观察齐国都邑与东部城邑的距离和地形。",
+          "refs": [
+            {
+              "sourceId": "linzi-city-survey",
+              "locator": "齐故城位置与大城、小城",
+              "note": "齐都临淄的遗址位置、都邑构成与分期"
+            },
+            {
+              "sourceId": "pingdu-jimo-site",
+              "locator": "大朱毛村一带与根据调查认定的城址区",
+              "note": "战国即墨的遗址区在今平度古岘一带，城址有多期遗存"
+            },
+            {
+              "sourceId": "shiji-yue-yi",
+              "locator": "燕昭王二十八年至燕惠王换将；乐毅遗燕惠王书",
+              "note": "燕联络列国、济西后燕军入临淄、燕惠王换将及乐毅奔赵"
+            },
+            {
+              "sourceId": "shiji-tian-dan",
+              "locator": "即墨拒燕、田单胜后迎齐襄王及篇末莒立王段",
+              "note": "莒与即墨各自抗燕、田单获启用及齐襄王归临淄"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qi-linzi-jimo-landscape",
+        "title": "从齐都临淄看东部的即墨",
+        "summary": "失去都城后，齐的其他城邑在什么地方？",
+        "places": [
+          {
+            "id": "jimo",
+            "name": "平度古岘一带",
+            "role": "战国即墨故城遗址区参照",
+            "lon": 120.26,
+            "lat": 36.68
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "linzi-city-survey",
+            "locator": "齐故城位置与大城、小城",
+            "note": "齐都临淄的遗址位置、都邑构成与分期"
+          },
+          {
+            "sourceId": "pingdu-jimo-site",
+            "locator": "大朱毛村一带与根据调查认定的城址区",
+            "note": "战国即墨的遗址区在今平度古岘一带，城址有多期遗存"
+          },
+          {
+            "sourceId": "shiji-yue-yi",
+            "locator": "燕昭王二十八年至燕惠王换将；乐毅遗燕惠王书",
+            "note": "燕联络列国、济西后燕军入临淄、燕惠王换将及乐毅奔赵"
+          },
+          {
+            "sourceId": "shiji-tian-dan",
+            "locator": "即墨拒燕、田单胜后迎齐襄王及篇末莒立王段",
+            "note": "莒与即墨各自抗燕、田单获启用及齐襄王归临淄"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "chu-jinan-and-huaiyang-chen",
+      "year": -278,
+      "date": "公元前 280—前 276 年 · 秦攻鄢郢与楚保陈",
+      "title": "从纪南城看向陈城",
+      "summary": "楚王离开江汉后，新的统治中心处于怎样的地理环境？",
+      "place": {
+        "label": "荆州纪南城 · 战国郢都遗址区参照",
+        "lon": 112.2,
+        "lat": 30.42
+      },
+      "sources": [
+        {
+          "id": "jinan-chu-city-study",
+          "title": "尹弘兵《楚都纪南城探析：基于考古与出土文献新资料的考察》",
+          "url": "https://www.lsdlyj.com.cn/CN/PDF/47117",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "chu-archaeology-review",
+          "title": "湖北省文物考古研究院《楚文化考古研究的回顾与展望》",
+          "url": "https://www.hbww.org.cn/xlkd/p/7218.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-chu-late",
+          "title": "《史记·楚世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷040",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "两处分别面向江汉平原和淮阳一带，适合对照都邑的空间转换。",
+          "refs": [
+            {
+              "sourceId": "jinan-chu-city-study",
+              "locator": "摘要及纪南城分期、陈郢与寿郢的地望",
+              "note": "对楚纪南城年代另有分期，区分东迁前的晚段郢都、陈与寿春"
+            },
+            {
+              "sourceId": "chu-archaeology-review",
+              "locator": "江陵纪南城、楚皇城及《楚居》段",
+              "note": "记录旧发掘对纪南城年代的判断与楚居研究相关争论"
+            },
+            {
+              "sourceId": "shiji-chu-late",
+              "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+              "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-jinan-chen-city-landscape",
+        "title": "从纪南城看向陈城",
+        "summary": "楚王离开江汉后，新的统治中心处于怎样的地理环境？",
+        "places": [
+          {
+            "id": "chen",
+            "name": "今淮阳陈城一带",
+            "role": "楚王东迁后的都邑区域参照",
+            "lon": 114.88,
+            "lat": 33.73
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "jinan-chu-city-study",
+            "locator": "摘要及纪南城分期、陈郢与寿郢的地望",
+            "note": "对楚纪南城年代另有分期，区分东迁前的晚段郢都、陈与寿春"
+          },
+          {
+            "sourceId": "chu-archaeology-review",
+            "locator": "江陵纪南城、楚皇城及《楚居》段",
+            "note": "记录旧发掘对纪南城年代的判断与楚居研究相关争论"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "gaoping-yonglu-and-shangdang-basin",
+      "year": -260,
+      "date": "公元前 262—前 260 年 · 前因与主战阶段",
+      "title": "永录遗迹与上党山地",
+      "summary": "发掘点与争端涉及的区域有什么尺度差别？",
+      "place": {
+        "label": "高平永录一带 · 有发掘记录的长平遗址参照",
+        "lon": 112.89,
+        "lat": 35.86
+      },
+      "sources": [
+        {
+          "id": "gaoping-changping-survey",
+          "title": "晋城市政府《长平之战遗址保护规划》",
+          "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shangdang-basin-geography",
+          "title": "长治市《上党郡（上党）》",
+          "url": "https://www.changzhi.gov.cn/ztzl/cjwmwz/shfs/202604/t20260403_3153936.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-bai-qi-wang-jian",
+          "title": "《史记·白起王翦列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷073",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "以高平永录的调查和发掘记录为起点，再观察长治盆地作为历史上党的一处地形参照。",
+          "refs": [
+            {
+              "sourceId": "gaoping-changping-survey",
+              "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+              "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+            },
+            {
+              "sourceId": "shangdang-basin-geography",
+              "locator": "地形及地理范围段",
+              "note": "长治与晋城盆地为晋东南历史上党地区的重要地形参照"
+            },
+            {
+              "sourceId": "shiji-bai-qi-wang-jian",
+              "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+              "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-shangdang-gaoping-landscape",
+        "title": "永录遗迹与上党山地",
+        "summary": "发掘点与争端涉及的区域有什么尺度差别？",
+        "places": [
+          {
+            "id": "shangdang",
+            "name": "长治盆地",
+            "role": "晋东南历史上党的地理参照",
+            "lon": 113.11,
+            "lat": 36.26
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "gaoping-changping-survey",
+            "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+            "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+          },
+          {
+            "sourceId": "shangdang-basin-geography",
+            "locator": "地形及地理范围段",
+            "note": "长治与晋城盆地为晋东南历史上党地区的重要地形参照"
+          },
+          {
+            "sourceId": "shiji-bai-qi-wang-jian",
+            "locator": "白起段秦昭王二十八年前后及四十四至五十年；王翦段",
+            "note": "鄢郢、野王、上党、长平及邯郸的传记叙事；李信、王翦攻楚与项燕、负刍记事"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "handan-and-changping-distinct-areas",
+      "year": -257,
+      "date": "公元前 259—前 257 年 · 围邯郸与诸侯援赵",
+      "title": "邯郸与长平的地理对照",
+      "summary": "长平与邯郸两次战事各处于怎样的地形？",
+      "place": {
+        "label": "邯郸赵王城一带 · 赵都西南片区参照",
+        "lon": 114.45,
+        "lat": 36.57
+      },
+      "sources": [
+        {
+          "id": "handan-zhao-capital",
+          "title": "河北省文物考古研究院《赵邯郸故城》",
+          "url": "https://www.hbswwkg.com/2021-05/11/content_8500381.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "gaoping-changping-survey",
+          "title": "晋城市政府《长平之战遗址保护规划》",
+          "url": "https://xxgk.jcgov.gov.cn/jcsrmzf/zc/qt/202502/P020250722554215677423.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "tongjian-late-states-5",
+          "title": "《资治通鉴》卷五《周纪五》",
+          "url": "https://zh.wikisource.org/wiki/資治通鑑/卷005",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从邯郸西南的赵都遗址区越过太行山地，比较晋东南的长平遗址区域，辨认两件史事的空间差异。",
+          "refs": [
+            {
+              "sourceId": "handan-zhao-capital",
+              "locator": "赵王城和大北城的地理及营建",
+              "note": "邯郸都邑遗址区的位置与布局"
+            },
+            {
+              "sourceId": "gaoping-changping-survey",
+              "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+              "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+            },
+            {
+              "sourceId": "tongjian-late-states-5",
+              "locator": "周赧王五十三、五十五至五十八年",
+              "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-handan-after-changping-geography",
+        "title": "邯郸与长平的地理对照",
+        "summary": "长平与邯郸两次战事各处于怎样的地形？",
+        "places": [
+          {
+            "id": "changping",
+            "name": "高平永录一带",
+            "role": "有发掘记录的长平遗址参照",
+            "lon": 112.89,
+            "lat": 35.86
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "handan-zhao-capital",
+            "locator": "赵王城和大北城的地理及营建",
+            "note": "邯郸都邑遗址区的位置与布局"
+          },
+          {
+            "sourceId": "gaoping-changping-survey",
+            "locator": "第15至18条，出土物、永录1号遗迹及骨骼暴露点",
+            "note": "高平有永录1号发掘记录和区域调查，若干暴露点经论证为普通墓葬"
+          },
+          {
+            "sourceId": "tongjian-late-states-5",
+            "locator": "周赧王五十三、五十五至五十八年",
+            "note": "区分上党归赵、长平、邯郸受围与解围的编年"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhengguo-and-dujiangyan-waterworks",
+      "year": -237,
+      "date": "约公元前 256—前 230 年 · 战国末期水利背景",
+      "title": "泾河渠首与都江堰",
+      "summary": "两条河出山时，哪里可以看出引水的地形条件？",
+      "place": {
+        "label": "泾阳王桥一带 · 历代引泾渠首区参照",
+        "lon": 108.6,
+        "lat": 34.62
+      },
+      "sources": [
+        {
+          "id": "shiji-qin-waterworks",
+          "title": "《史记》卷二十九《河渠书》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7029"
+        },
+        {
+          "id": "unesco-dujiangyan-water-system",
+          "title": "联合国教科文组织：青城山与都江堰水利工程",
+          "url": "https://whc.unesco.org/en/list/1001/"
+        },
+        {
+          "id": "zhengguo-canal-head",
+          "title": "上海市水务局《世界灌溉工程遗产：郑国渠》",
+          "url": "https://swj.sh.gov.cn/swhsd/20191125/0004-7731.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "关中与成都平原各有一处引水区域，观察河流从山地流向平原的地形差别。",
+          "refs": [
+            {
+              "sourceId": "shiji-qin-waterworks",
+              "locator": "蜀守冰凿离碓及郑国渠段",
+              "note": "记录蜀地水运与灌溉、关中引泾及郑国的叙事"
+            },
+            {
+              "sourceId": "unesco-dujiangyan-water-system",
+              "locator": "突出普遍价值与保存状况",
+              "note": "都江堰利用岷江分流，设施经后世维护与演变"
+            },
+            {
+              "sourceId": "zhengguo-canal-head",
+              "locator": "早期渠口、王桥镇与后世渠首迁移段",
+              "note": "早期引水口可参照泾河出山处，后世渠首有迁移及改建"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qin-min-and-jing-waterworks",
+        "title": "泾河渠首与都江堰",
+        "summary": "两条河出山时，哪里可以看出引水的地形条件？",
+        "places": [
+          {
+            "id": "dujiangyan",
+            "name": "都江堰岷江分水区",
+            "role": "蜀地引水遗产区参照",
+            "lon": 103.61,
+            "lat": 31
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "shiji-qin-waterworks",
+            "locator": "蜀守冰凿离碓及郑国渠段",
+            "note": "记录蜀地水运与灌溉、关中引泾及郑国的叙事"
+          },
+          {
+            "sourceId": "unesco-dujiangyan-water-system",
+            "locator": "突出普遍价值与保存状况",
+            "note": "都江堰利用岷江分流，设施经后世维护与演变"
+          },
+          {
+            "sourceId": "zhengguo-canal-head",
+            "locator": "早期渠口、王桥镇与后世渠首迁移段",
+            "note": "早期引水口可参照泾河出山处，后世渠首有迁移及改建"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "xinzheng-and-daliang-capitals",
+      "year": -225,
+      "date": "公元前 231—前 225 年 · 韩地接收与魏都陷落",
+      "title": "新郑与大梁的城市遗存",
+      "summary": "为什么两座都城留下的城市证据差别很大？",
+      "place": {
+        "label": "新郑郑韩故城 · 韩国都邑遗址区参照",
+        "lon": 113.72,
+        "lat": 34.4
+      },
+      "sources": [
+        {
+          "id": "zheng-han-fieldwork",
+          "title": "樊温泉《郑韩故城近年来重要的考古发现与研究》",
+          "url": "https://www.hnswwkgyjy.cn/ueditor/php/upload/file/20220524/1653363574267571.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "kaifeng-city-strata",
+          "title": "孟凡人《北宋东京开封府城的形制布局》",
+          "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-qin-king-zheng",
+          "title": "《史记·秦始皇本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷006",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "观察保存较多城垣遗迹的新郑和多期遗址相叠的开封，比较地表与地下材料的差别。",
+          "refs": [
+            {
+              "sourceId": "zheng-han-fieldwork",
+              "locator": "郑韩故城勘探、城墙、道路、手工业区",
+              "note": "新郑保存郑、韩相继使用的城址及多类遗存"
+            },
+            {
+              "sourceId": "kaifeng-city-strata",
+              "locator": "第343页前言及注3",
+              "note": "以开封一带参照深埋的大梁遗存"
+            },
+            {
+              "sourceId": "shiji-qin-king-zheng",
+              "locator": "秦王政九至十年、十六至二十六年",
+              "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-han-wei-capitals-landscape",
+        "title": "新郑与大梁的城市遗存",
+        "summary": "为什么两座都城留下的城市证据差别很大？",
+        "places": [
+          {
+            "id": "daliang",
+            "name": "今开封一带",
+            "role": "魏都大梁的区域参照",
+            "lon": 114.34,
+            "lat": 34.81
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zheng-han-fieldwork",
+            "locator": "郑韩故城勘探、城墙、道路、手工业区",
+            "note": "新郑保存郑、韩相继使用的城址及多类遗存"
+          },
+          {
+            "sourceId": "kaifeng-city-strata",
+            "locator": "第343页前言及注3",
+            "note": "以开封一带参照深埋的大梁遗存"
+          },
+          {
+            "sourceId": "shiji-qin-king-zheng",
+            "locator": "秦王政九至十年、十六至二十六年",
+            "note": "冠礼、嫪毐之变、免相与逐客政策及秦兼并诸国"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "shouchun-and-wuwangdun-areas",
+      "year": -235,
+      "date": "公元前 241—前 223 年 · 末期楚都阅读时段",
+      "title": "寿春城与武王墩陵园",
+      "summary": "晚楚都邑与较远的高等级墓地分别说明什么？",
+      "place": {
+        "label": "寿县寿春一带 · 寿春城考古区参照",
+        "lon": 116.8,
+        "lat": 32.57
+      },
+      "sources": [
+        {
+          "id": "shouchun-fieldwork",
+          "title": "河南省文物考古研究院《湘鄂豫皖楚文化研究会第十八次年会纪要》",
+          "url": "https://www.hnswwkgyjy.cn/NewsView.php?News_ID=2909",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "wuwangdun-archaeology",
+          "title": "湖北省文物考古研究院《安徽淮南武王墩发掘成果》",
+          "url": "https://hbww.org.cn/yjy_gzkg/p/10519.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-chu-late",
+          "title": "《史记·楚世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷040",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在寿春城址区与其以东的陵园区之间观察山地、水域及开阔地，比较城市与礼制遗存。",
+          "refs": [
+            {
+              "sourceId": "shouchun-fieldwork",
+              "locator": "李喜兰《寿春城遗址历年考古工作概述》",
+              "note": "寿春城所见多处城垣、居住遗址和不同墓区"
+            },
+            {
+              "sourceId": "wuwangdun-archaeology",
+              "locator": "寿春周围墓葬分布、武王墩陵园与主墓出土段",
+              "note": "寿春以东发现大型陵园与战国晚期高等级墓葬资料"
+            },
+            {
+              "sourceId": "shiji-chu-late",
+              "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+              "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-chu-shouchun-royal-landscape",
+        "title": "寿春城与武王墩陵园",
+        "summary": "晚楚都邑与较远的高等级墓地分别说明什么？",
+        "places": [
+          {
+            "id": "wuwangdun",
+            "name": "淮南武王墩一带",
+            "role": "寿春以东大型陵园参照",
+            "lon": 116.94,
+            "lat": 32.59
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "shouchun-fieldwork",
+            "locator": "李喜兰《寿春城遗址历年考古工作概述》",
+            "note": "寿春城所见多处城垣、居住遗址和不同墓区"
+          },
+          {
+            "sourceId": "wuwangdun-archaeology",
+            "locator": "寿春周围墓葬分布、武王墩陵园与主墓出土段",
+            "note": "寿春以东发现大型陵园与战国晚期高等级墓葬资料"
+          },
+          {
+            "sourceId": "shiji-chu-late",
+            "locator": "楚顷襄王二十至二十三年、考烈王六至七及二十二年、负刍四至五年",
+            "note": "秦取郢后楚保于陈，晚楚迁寿春；楚记救赵及王翦攻楚"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [
