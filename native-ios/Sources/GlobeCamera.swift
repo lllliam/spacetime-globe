@@ -268,22 +268,16 @@ final class GlobeViewport: ObservableObject {
         return CGRect(x:0,y:upper,width:size.width,height:max(0,size.height-upper-max(bottom,chromeBottom)))
     }
 
-    func composedAperture(in size: CGSize) -> CGRect {
-        let space = aperture(in:size)
-        let usableHeight = max(min(size.height * 0.27, size.width * 0.62),space.height)
-        return CGRect(x:space.minX,y:space.minY,width:space.width,height:usableHeight)
-    }
-
     func display(_ camera: GlobeCamera, in size: CGSize) -> GlobeCamera {
         guard size.height > 0 else { return camera }
-        let area = composedAperture(in:size)
+        let area = aperture(in:size)
         var result = camera
         result.verticalCenter = Double(area.midY/size.height).clamped(to:0...1)
         return result
     }
 
     func limit(_ camera: GlobeCamera, in size: CGSize, elastic: Bool = false) -> GlobeCamera {
-        camera.limited(to:size,in:composedAperture(in:size),elastic:elastic)
+        camera.limited(to:size,in:aperture(in:size),elastic:elastic)
     }
 
     func fit(_ coordinates: [[Double]], in size: CGSize, animated: Bool = true) {

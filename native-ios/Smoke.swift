@@ -117,11 +117,17 @@ enum Smoke {
         let body = try history.chapters.read(chapter)
         defaults.set(1453,forKey:"exploreYear")
         defaults.set(false,forKey:"selectionHaptics")
+        var legacyCamera = GlobeCamera()
+        legacyCamera.yaw = 2.29
+        legacyCamera.offsetX = 0.8
+        legacyCamera.offsetY = -0.6
+        defaults.set(try JSONEncoder().encode(legacyCamera),forKey:"exploreCamera")
         defaults.set(book.id,forKey:"lastReadingVolume")
         defaults.set(chapter.id,forKey:"lastReadingChapter")
         defaults.set(body.blocks[0].id,forKey:"readingAnchor:\(book.id)/\(chapter.id)")
         let session = SessionStore(archive:history.archive,index:history.index,defaults:defaults)
         precondition(session.explore.year == 1453 && !session.preferences.haptics)
+        precondition(session.explore.camera == legacyCamera.normalized())
         precondition(session.bookmark(for:book)?.block == body.blocks[0].id)
         session.open(ReadingNode(volume:book.id,chapter:chapter.id,entryYear:1500))
         session.record(ReadingPosition(volume:book.id,chapter:chapter.id,block:body.blocks[0].id,fraction:0.37))
@@ -131,6 +137,7 @@ enum Smoke {
         }
         session.save()
         let restored = SessionStore(archive:history.archive,index:history.index,defaults:defaults)
+        precondition(restored.explore.camera == legacyCamera.normalized())
         precondition(restored.observe == nil && restored.reading?.nodes.last?.entryYear == 1500)
         precondition(restored.position(volume:book,chapter:chapter)?.fraction == 0.37)
     }
