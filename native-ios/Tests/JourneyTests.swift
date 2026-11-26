@@ -2,6 +2,7 @@ import XCTest
 
 final class JourneyTests: XCTestCase {
     @MainActor func testExploreReadObserveAndReturn() {
+        continueAfterFailure = false
         let app = XCUIApplication()
         app.launch()
         let choose = app.buttons["choose-year"]
@@ -18,6 +19,12 @@ final class JourneyTests: XCTestCase {
         capture("02-regional",app)
         globe.pinch(withScale:2.1,velocity:1.5)
         capture("03-close",app)
+        globe.pinch(withScale:0.63,velocity:-1.4)
+        let northStart = app.coordinate(withNormalizedOffset:CGVector(dx:0.49,dy:0.26))
+        let northEnd = app.coordinate(withNormalizedOffset:CGVector(dx:0.49,dy:0.78))
+        northStart.press(forDuration:0.05,thenDragTo:northEnd)
+        XCTAssertTrue(choose.isHittable)
+        capture("03b-north",app)
         app.buttons["explore-options"].tap()
         app.buttons["复位视角"].tap()
 

@@ -58,6 +58,9 @@ struct ObservationView: View {
                                 guard !fitted else { return }
                                 fitted = true
                                 fit(frame,in:size,animated:false)
+                                if let place = observation.selectedPlace {
+                                    selectPlace(place,frame:frame,size:size,feedback:false)
+                                }
                             },
                             onRegions:{ mapRegion = $0.first },onPlace:{ selectPlace($0,frame:frame,size:size) })
                     .ignoresSafeArea()

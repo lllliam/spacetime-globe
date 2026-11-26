@@ -1,12 +1,22 @@
 import UIKit
 
+struct GlobeMarker {
+    let id: String
+    let place: ScenePlace
+}
+
 struct GlobeMarks {
     var places: [ScenePlace] = []
+    var explorationSites: [MapSceneSite] = []
     var routes: [SceneRoute] = []
     var focusPolities: [String] = []
     var selectedPlace: String?
 
-    var geometryKey: [String] { places.map(\.id) + routes.map(\.id) }
+    var geometryKey: [String] { places.map(\.id) + explorationSites.map(\.id) + routes.map(\.id) }
+    var isObserving: Bool { explorationSites.isEmpty }
+    var markers: [GlobeMarker] {
+        places.map { GlobeMarker(id:$0.id,place:$0) } + explorationSites.map { GlobeMarker(id:$0.id,place:$0.place) }
+    }
 }
 
 @MainActor
@@ -43,7 +53,7 @@ final class GlobeAnnotations {
     private let text = CALayer()
     private var regions: [AnchorGroup] = []
     private var regionGeneration: UUID?
-    private var placeGeometry: [(ScenePlace,SIMD3<Float>,CAShapeLayer)] = []
+    private var placeGeometry: [(GlobeMarker,SIMD3<Float>,CAShapeLayer)] = []
     private var routeGeometry: [(SceneRoute,[SIMD3<Float>],CAShapeLayer,CAShapeLayer)] = []
     private var marks = GlobeMarks()
     private var labels: [String: Label] = [:]
@@ -79,11 +89,12 @@ final class GlobeAnnotations {
         }
         if sceneChanged {
             artwork.sublayers = nil
-            placeGeometry = marks.places.map { place in
+            placeGeometry = marks.markers.map { marker in
+                let place = marker.place
                 let layer = CAShapeLayer()
                 layer.frame = artwork.bounds
                 artwork.addSublayer(layer)
-                return (place,GlobeProjection.vector(longitude:place.lon,latitude:place.lat),layer)
+                return (marker,GlobeProjection.vector(longitude:place.lon,latitude:place.lat),layer)
             }
             routeGeometry = marks.routes.map { route in
                 let shadow = CAShapeLayer(), line = CAShapeLayer()
@@ -131,23 +142,25 @@ final class GlobeAnnotations {
             CATransaction.commit()
             return
         }
-        placeHits = drawGeography(projection,in:area)
         let magnification = min(camera.zoom,projection.radius*2/max(1,projection.size.width)*1.07)
         let thresholds = [1.22, 2.05, 3.45]
         while tier < thresholds.count && magnification > thresholds[tier] + 0.04 { tier += 1 }
         while tier > 0 && magnification < thresholds[tier-1] - 0.09 { tier -= 1 }
 
+        let showSites = marks.isObserving || (tier >= 3 && showNames)
+        placeHits = drawGeography(projection,in:area,showSites:showSites)
         let shouldReflow = time - lastLayout > 1/26 || lastLayout < 0
         if shouldReflow { lastLayout = time }
         var candidates: [Candidate] = []
-        for (place,vector,_) in placeGeometry {
-            let front = place.id == marks.selectedPlace
+        for (marker,vector,_) in placeGeometry where showSites {
+            let place = marker.place
+            let front = marker.id == marks.selectedPlace
             guard let projected = projection.project(vector), projected.depth > 0.14,
                   area.contains(projected.point) else { continue }
             let point = CGPoint(x:projected.point.x + (front || place.precision == "region" ? 12 : 9),
                                 y:projected.point.y)
-            candidates.append(Candidate(id:place.id,name:place.name,anchors:[(0,point)],
-                                        priority:front ? 150 : 80,emphasized:front,place:true))
+            candidates.append(Candidate(id:marker.id,name:place.name,anchors:[(0,point)],
+                                        priority:front ? 150 : (marks.isObserving ? 80 : 22),emphasized:front,place:true))
         }
         let focused = Set(marks.focusPolities.map { $0.hasPrefix("polity:") ? $0 : "polity:" + $0 })
         if selected != nil || !focused.isEmpty || (showNames && tier > 0) {
@@ -189,7 +202,7 @@ final class GlobeAnnotations {
         var ordinary = 0
         var sites = 0
         let ordinaryLimit = selected == nil ? [0,5,12,22][tier] : [0,3,7,13][tier]
-        let placeLimit = [4,7,12,18][tier]
+        let placeLimit = marks.isObserving ? [4,7,12,18][tier] : 8
         for candidate in candidates {
             guard candidate.emphasized || (candidate.place ? sites < placeLimit : ordinary < ordinaryLimit),
                   !names.contains(candidate.name) else { continue }
@@ -285,7 +298,7 @@ final class GlobeAnnotations {
         labels[id] = entry
     }
 
-    private func drawGeography(_ frame: GlobeProjection, in area: CGRect) -> [Hit] {
+    private func drawGeography(_ frame: GlobeProjection, in area: CGRect, showSites: Bool) -> [Hit] {
         for (route,world,shadow,line) in routeGeometry {
             let points = world.map { frame.project($0)?.point }
             let path = CGMutablePath()
@@ -305,13 +318,14 @@ final class GlobeAnnotations {
             shadow.path = path
             line.path = path
         }
-        return placeGeometry.compactMap { place,world,layer in
-            guard let p = frame.project(world), p.depth > 0.055, area.contains(p.point) else {
+        return placeGeometry.compactMap { marker,world,layer in
+            let place = marker.place
+            guard showSites, let p = frame.project(world), p.depth > 0.055, area.contains(p.point) else {
                 layer.isHidden = true
                 return nil
             }
             layer.isHidden = false
-            let active = place.id == marks.selectedPlace
+            let active = marker.id == marks.selectedPlace
             let radius: CGFloat = active || place.precision == "region" ? 7 : 4
             let point = p.point
             let dot = CGRect(x:point.x-radius,y:point.y-radius,width:radius*2,height:radius*2)
@@ -331,7 +345,7 @@ final class GlobeAnnotations {
             layer.fillColor = place.precision == "region" ? gold.withAlphaComponent(0.19).cgColor :
                 (place.precision == "site" || active ? gold.cgColor : ink.cgColor)
             layer.lineDashPattern = place.precision == "region" ? [2,2] : nil
-            return Hit(id:place.id,frame:CGRect(x:point.x-22,y:point.y-22,width:44,height:44),place:true)
+            return Hit(id:marker.id,frame:CGRect(x:point.x-22,y:point.y-22,width:44,height:44),place:true)
         }
     }
 

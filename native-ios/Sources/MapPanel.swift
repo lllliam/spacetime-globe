@@ -47,8 +47,6 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
     private let compactHost = UIHostingController(rootView:AnyView(EmptyView()))
     private let fullHost = UIHostingController(rootView:AnyView(EmptyView()))
     private let scroll = UIScrollView()
-    private var fullLeading: NSLayoutConstraint?
-    private var fullTrailing: NSLayoutConstraint?
     private var fullTop: NSLayoutConstraint?
     private var fullBottom: NSLayoutConstraint?
     private var current: CGFloat = 0
@@ -100,12 +98,16 @@ final class PaperPanelController: UIViewController, UIScrollViewDelegate, UIGest
         fullHost.sizingOptions = .intrinsicContentSize
         let fullView = fullHost.view!
         fullView.translatesAutoresizingMaskIntoConstraints = false
-        fullTop = fullView.topAnchor.constraint(equalTo:scroll.contentLayoutGuide.topAnchor)
-        fullLeading = fullView.leadingAnchor.constraint(equalTo:scroll.contentLayoutGuide.leadingAnchor)
-        fullTrailing = scroll.contentLayoutGuide.trailingAnchor.constraint(equalTo:fullView.trailingAnchor)
-        fullBottom = scroll.contentLayoutGuide.bottomAnchor.constraint(equalTo:fullView.bottomAnchor)
-        NSLayoutConstraint.activate([fullTop!,fullLeading!,fullTrailing!,fullBottom!,
-                                     fullView.widthAnchor.constraint(equalTo:scroll.frameLayoutGuide.widthAnchor)])
+        let top = fullView.topAnchor.constraint(equalTo:scroll.contentLayoutGuide.topAnchor)
+        let bottom = scroll.contentLayoutGuide.bottomAnchor.constraint(equalTo:fullView.bottomAnchor)
+        fullTop = top
+        fullBottom = bottom
+        NSLayoutConstraint.activate([
+            top,bottom,
+            fullView.leadingAnchor.constraint(equalTo:scroll.contentLayoutGuide.leadingAnchor),
+            scroll.contentLayoutGuide.trailingAnchor.constraint(equalTo:fullView.trailingAnchor),
+            fullView.widthAnchor.constraint(equalTo:scroll.frameLayoutGuide.widthAnchor)
+        ])
         // Horizontal insets live inside the SwiftUI content. Keep the scroll layout one viewport wide.
         let pan = UIPanGestureRecognizer(target:self,action:#selector(dragPaper(_:)))
         pan.delegate = self

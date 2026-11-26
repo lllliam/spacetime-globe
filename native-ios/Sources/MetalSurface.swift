@@ -200,6 +200,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         let projection: GlobeProjection
         let aperture: CGRect
         let atlas: PaintedAtlas?
+        let sceneKey: String?
     }
 
     private struct Contact {
@@ -380,7 +381,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         annotations.render(projection,aperture:aperture,camera:camera,selected:config.selected,
                            showNames:config.showNames,screenScale:window?.screen.scale ?? contentScaleFactor,
                            time:CACurrentMediaTime(),reduced:config.reduced)
-        presented = Frame(camera:camera,projection:projection,aperture:aperture,atlas:config.data)
+        presented = Frame(camera:camera,projection:projection,aperture:aperture,atlas:config.data,sceneKey:config.sceneKey)
     }
 
     private func move(to target: GlobeCamera, animated: Bool) {
@@ -553,7 +554,8 @@ final class GlobeSurface: UIView, MTKViewDelegate {
 
     private func pick(_ point: CGPoint) {
         guard let config = configuration, config.interactive, let frame = presented,
-              frame.atlas?.generation == config.data?.generation, frame.aperture.contains(point) else { return }
+              frame.atlas?.generation == config.data?.generation, frame.sceneKey == config.sceneKey,
+              frame.aperture.contains(point) else { return }
         let coordinate = frame.camera.unproject(point,size:frame.projection.size)
         let overlaps = coordinate.flatMap { frame.atlas?.picks(at:$0) } ?? []
         if let hit = annotations.hit(point) {

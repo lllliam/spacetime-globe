@@ -53,6 +53,9 @@ enum Smoke {
         precondition(beyond.isEmpty)
         let modern = try atlas.paint(layer:.countries,year:Chronology.latest)
         precondition(modern.pick(at:beijing)?.id == "country:CN")
+        let siteYears = Set(archive.scenes.flatMap { $0.frames.map(\.year) })
+        let sites = siteYears.flatMap { archive.sites(in:$0) }
+        precondition(!sites.isEmpty && sites.allSatisfy { $0.place.precision == "site" && archive.scene($0.scene) != nil })
         let search = HistorySearch(archive:archive,index:history.index)
         precondition(search.find("明朝").contains { $0.title == "明朝" })
         let view = CGSize(width:390,height:844)

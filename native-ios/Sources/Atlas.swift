@@ -181,7 +181,7 @@ struct GlobeAtlas {
         }
     }
 
-    func paint(layer: GlobeLayer, year: Int, highResolution: Bool = false) throws -> PaintedAtlas {
+    func paint(layer: GlobeLayer, year: Int) throws -> PaintedAtlas {
         let shapes = try shapes(layer:layer, year:year)
         let width = shapes.isEmpty ? 2 : 2048, height = width / 2
         guard let image = CGContext(data:nil, width:width, height:height, bitsPerComponent:8,
@@ -241,9 +241,6 @@ struct GlobeAtlas {
 struct AtlasKey: Hashable {
     let layer: GlobeLayer
     let year: Int
-    var detail = false
-
-    var geometryYear: Int { layer == .timeline ? year : 0 }
 }
 
 actor MapCache {

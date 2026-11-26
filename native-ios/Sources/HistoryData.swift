@@ -413,6 +413,14 @@ struct ContentCatalog: Decodable {
     let events: [HistoryEvent]
 }
 
+struct MapSceneSite: Identifiable {
+    let scene: String
+    let stage: String
+    let place: ScenePlace
+
+    var id: String { scene + "/" + stage + "/" + place.id }
+}
+
 struct Archive {
     let volumes: [Volume]
     let events: [HistoryEvent]
@@ -421,6 +429,7 @@ struct Archive {
     private let eventIndex: [String: HistoryEvent]
     private let sceneIndex: [String: HistoryScene]
     private let pointYears: Set<Int>
+    private let mapSites: [Int:[MapSceneSite]]
 
     init(catalog: ContentCatalog, scenes: [HistoryScene]) {
         volumes = catalog.volumes
@@ -438,11 +447,25 @@ struct Archive {
         }, uniquingKeysWith: { primary, _ in primary })
         sceneIndex = Dictionary(scenes.filter { $0.status == "available" }.map { ($0.id, $0) },
                                 uniquingKeysWith: { primary, _ in primary })
+        var sites: [Int:[MapSceneSite]] = [:]
+        for scene in scenes where scene.status == "available" {
+            for frame in scene.frames {
+                for place in frame.places where place.precision == "site" {
+                    let recorded = sites[frame.year,default:[]]
+                    guard !recorded.contains(where:{
+                        $0.place.name == place.name && $0.place.lat == place.lat && $0.place.lon == place.lon
+                    }) else { continue }
+                    sites[frame.year,default:[]].append(MapSceneSite(scene:scene.id,stage:frame.id,place:place))
+                }
+            }
+        }
+        mapSites = sites
         pointYears = Set(events.filter { !$0.background }.map(\.from))
     }
 
     func volume(_ id: String) -> Volume? { volumeIndex[id] }
     func scene(_ id: String) -> HistoryScene? { sceneIndex[id] }
+    func sites(in year: Int) -> [MapSceneSite] { mapSites[year] ?? [] }
     func event(_ id: String) -> HistoryEvent? { eventIndex[id] }
     func events(in year: Int) -> [HistoryEvent] {
         events.drop(while: { $0.from > year }).filter { year <= $0.to }

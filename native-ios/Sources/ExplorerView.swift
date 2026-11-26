@@ -23,10 +23,18 @@ struct ExplorerView: View {
     }
 
     var body: some View {
+        let sites = atlasRequest.layer == .timeline ? content.archive.sites(in:requested) : []
         ZStack(alignment:.top) {
             NativeGlobe(cache:content.map,resources:content.resources,request:atlasRequest,viewport:viewport,
                         showNames:session.preferences.showNames,selected:picked?.id,
-                        haptics:session.preferences.haptics,onApplied:apply,onRegions:select,onSettled:saveCamera)
+                        marks:GlobeMarks(explorationSites:sites),
+                        haptics:session.preferences.haptics,onApplied:apply,onRegions:select,
+                        onPlace:{ id in
+                            guard let site = sites.first(where:{ $0.id == id }) else { return }
+                            if session.preferences.haptics { GlobeHaptics.selection() }
+                            session.startObservation(.scene(site.scene),stage:site.stage,place:site.place.id)
+                        },
+                        onSettled:saveCamera)
                 .ignoresSafeArea()
             VStack(spacing:0) {
                 header.mapChrome(top:true,viewport:viewport)
