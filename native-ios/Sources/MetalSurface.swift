@@ -184,6 +184,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         let reduced: Bool
         let interactive: Bool
         let allowsIdleRotation: Bool
+        let idleRotationSpeed: Double
         let boundaryFeedback: () -> Void
         let settled: (GlobeCamera) -> Void
         let regions: ([MapRegion]) -> Void
@@ -283,7 +284,15 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             previous?.viewport.onIdleChange = nil
             interruptIdle()
             current = value.viewport.camera
-            value.viewport.onIdleChange = { [weak self] in self?.refreshIdle() }
+            value.viewport.onIdleChange = { [weak self] source in
+                guard let self else { return }
+                if source == .menu {
+                    // The system menu can hand a contact to another window. Start a fresh observation.
+                    self.windowTouches.isEnabled = false
+                    self.windowTouches.isEnabled = true
+                }
+                self.refreshIdle()
+            }
             value.viewport.onChange = { [weak self] target,animated in
                 guard let self else { return }
                 if let target { self.move(to:target,animated:animated) }
@@ -303,13 +312,13 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             }
         }
         annotations.use(map:value.data,marks:value.marks,sceneChanged:sceneChanged)
+        observeTouches()
         if !value.active { suspend(); return }
         if previous?.interactive == true && !value.interactive {
             pendingTap?.cancel()
             pendingTap = nil
             lastTap = nil
         }
-        observeTouches()
         refreshIdle()
         requestFrame()
     }
@@ -366,7 +375,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
     }
 
     private func observeTouches() {
-        let target = configuration?.allowsIdleRotation == true ? window : nil
+        let target = configuration?.active == true && configuration?.allowsIdleRotation == true ? window : nil
         guard windowTouches.view !== target else { return }
         windowTouches.view?.removeGestureRecognizer(windowTouches)
         if let target { target.addGestureRecognizer(windowTouches) }
@@ -386,16 +395,23 @@ final class GlobeSurface: UIView, MTKViewDelegate {
 
     private func refreshIdle() {
         guard maySpin else { interruptIdle(); return }
-        guard idleSince == nil else { return }
-        let since = CACurrentMediaTime()
+        let now = CACurrentMediaTime()
+        let since = idleSince ?? now
         idleSince = since
+        guard !spinning, idleWake == nil else { return }
+        let remaining = GlobeIdleMotion.delay - (now - since)
+        if remaining <= 0 {
+            requestFrame()
+            return
+        }
         let wake = DispatchWorkItem { [weak self] in
-            guard let self, self.idleSince == since, self.maySpin else { return }
+            guard let self, self.idleSince == since else { return }
             self.idleWake = nil
-            self.requestFrame()
+            // Recheck both eligibility and the deadline. Neither a blocked nor an early wake may strand the timer.
+            self.refreshIdle()
         }
         idleWake = wake
-        DispatchQueue.main.asyncAfter(deadline:.now()+GlobeIdleMotion.delay,execute:wake)
+        DispatchQueue.main.asyncAfter(deadline:.now()+remaining,execute:wake)
     }
 
     private func updateFrameRate() {
@@ -433,11 +449,17 @@ final class GlobeSurface: UIView, MTKViewDelegate {
             if hypot(velocity.x,velocity.y) < 12 { velocity = .zero; finishMotion() }
             redraw = true
         }
-        if let since = idleSince, sender.targetTimestamp-since >= GlobeIdleMotion.delay, maySpin {
-            if !spinning { spinning = true; updateFrameRate() }
-            current.yaw = (current.yaw + GlobeIdleMotion.yawDelta(elapsed:elapsed,eligibleFor:sender.targetTimestamp-since))
-                .truncatingRemainder(dividingBy:2 * .pi)
-            redraw = true
+        if !maySpin {
+            interruptIdle()
+        } else if let since = idleSince, let config = configuration {
+            let duration = CACurrentMediaTime() - since
+            if duration >= GlobeIdleMotion.delay {
+                if !spinning { spinning = true; updateFrameRate() }
+                let delta = GlobeIdleMotion.yawDelta(elapsed:elapsed,eligibleFor:duration,speed:config.idleRotationSpeed)
+                current.yaw = (current.yaw + delta)
+                    .truncatingRemainder(dividingBy:2 * .pi)
+                redraw = true
+            }
         }
         if redraw {
             redraw = false
@@ -684,10 +706,10 @@ final class GlobeSurface: UIView, MTKViewDelegate {
 
 /// Watches touches anywhere in the window without winning a gesture or cancelling a control.
 private final class WindowTouches: UIGestureRecognizer {
-    private var count = 0
+    private var contacts = Set<ObjectIdentifier>()
     private let changed: (Bool) -> Void
 
-    var isDown: Bool { count > 0 }
+    var isDown: Bool { !contacts.isEmpty }
 
     init(changed: @escaping (Bool) -> Void) {
         self.changed = changed
@@ -701,23 +723,25 @@ private final class WindowTouches: UIGestureRecognizer {
     override func canBePrevented(by preventingGestureRecognizer: UIGestureRecognizer) -> Bool { false }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
-        let first = count == 0
-        count += touches.count
-        if first { changed(true) }
+        let first = contacts.isEmpty
+        contacts.formUnion(touches.map(ObjectIdentifier.init))
+        if first && isDown { changed(true) }
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) { end(touches.count) }
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) { end(touches.count) }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) { end(touches) }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent) { end(touches) }
 
     override func reset() {
-        if count > 0 { count = 0; changed(false) }
+        let wasDown = isDown
+        contacts.removeAll()
         super.reset()
+        if wasDown { changed(false) }
     }
 
-    private func end(_ removed: Int) {
-        guard count > 0 else { return }
-        count = max(0,count-removed)
-        if count == 0 {
+    private func end(_ touches: Set<UITouch>) {
+        let wasDown = isDown
+        contacts.subtract(touches.map(ObjectIdentifier.init))
+        if wasDown && !isDown {
             state = .failed
             changed(false)
         }

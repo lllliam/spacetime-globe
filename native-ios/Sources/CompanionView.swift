@@ -16,6 +16,29 @@ struct CompanionView: View {
                 Toggle("显示地名",isOn:$session.preferences.showNames).tint(Design.vermilion)
                 Toggle("触感反馈",isOn:$session.preferences.haptics).tint(Design.vermilion)
                 Divider()
+                Toggle("地球空闲自转",isOn:$session.preferences.idleRotation)
+                    .tint(Design.vermilion)
+                    .accessibilityIdentifier("idle-rotation-toggle")
+                VStack(alignment:.leading,spacing:3) {
+                    HStack {
+                        Text("自转速度")
+                        Spacer()
+                        Text(session.preferences.idleRotationSpeed.formatted(.number.precision(.fractionLength(0...2))) + "×")
+                            .monospacedDigit()
+                            .foregroundStyle(Design.quiet)
+                    }
+                    Slider(value:$session.preferences.idleRotationSpeed,in:GlobeIdleMotion.speedRange,step:0.25) {
+                        Text("自转速度")
+                    } minimumValueLabel: {
+                        Text("0.5×").font(.caption)
+                    } maximumValueLabel: {
+                        Text("2×").font(.caption)
+                    }
+                    .tint(Design.vermilion)
+                    .accessibilityIdentifier("idle-rotation-speed")
+                }
+                .disabled(!session.preferences.idleRotation)
+                Divider()
                 ReadingSettings(preferences:$session.preferences)
                 Divider()
                 version

@@ -164,9 +164,15 @@ private func smoothstep(_ from: Double, _ to: Double, _ value: Double) -> Double
 
 enum GlobeIdleMotion {
     static let delay = 6.5
+    static let speedRange = 0.5...2.0
+    static let defaultSpeed = 1.0
 
-    static func yawDelta(elapsed: Double, eligibleFor duration: Double) -> Double {
-        -0.04 * elapsed * smoothstep(delay,delay+1.35,duration)
+    static func clampedSpeed(_ value: Double) -> Double {
+        value.isFinite ? value.clamped(to:speedRange) : defaultSpeed
+    }
+
+    static func yawDelta(elapsed: Double, eligibleFor duration: Double, speed: Double = defaultSpeed) -> Double {
+        -0.04 * speed * elapsed * smoothstep(delay,delay+1.35,duration)
     }
 }
 
@@ -222,7 +228,7 @@ final class GlobeViewport: ObservableObject {
     private var touching = false
     private var touchesEndedAt = -Double.infinity
     var onChange: ((GlobeCamera?, Bool) -> Void)?
-    var onIdleChange: (() -> Void)?
+    var onIdleChange: ((IdleBlock) -> Void)?
     private var idleBlocks: Set<IdleBlock> = []
     var permitsIdle: Bool { idleBlocks.isEmpty }
 
@@ -239,7 +245,7 @@ final class GlobeViewport: ObservableObject {
 
     func setIdleBlock(_ source: IdleBlock, active: Bool) {
         let changed = active ? idleBlocks.insert(source).inserted : idleBlocks.remove(source) != nil
-        if changed { onIdleChange?() }
+        if changed { onIdleChange?(source) }
     }
 
     func setMapTouch(_ isDown: Bool) {

@@ -1,4 +1,5 @@
 import XCTest
+import UIKit
 
 final class JourneyTests: XCTestCase {
     @MainActor func testExploreReadObserveAndReturn() {
@@ -12,11 +13,22 @@ final class JourneyTests: XCTestCase {
         let rendered = XCTNSPredicateExpectation(predicate:NSPredicate(format:"enabled == true"),object:almanac)
         XCTAssertEqual(XCTWaiter.wait(for:[rendered],timeout:15),.completed)
 
+        app.buttons["explore-options"].tap()
+        app.buttons["设置与关于"].tap()
+        let rotation = app.switches["idle-rotation-toggle"]
+        let speed = app.sliders["idle-rotation-speed"]
+        XCTAssertTrue(rotation.waitForExistence(timeout:8))
+        XCTAssertTrue(speed.isEnabled)
+        rotation.tap()
+        XCTAssertFalse(speed.isEnabled)
+        rotation.tap()
+        XCTAssertTrue(speed.isEnabled)
+        speed.adjust(toNormalizedSliderPosition:1)
+        app.buttons["关闭"].tap()
+
         let globe = app.descendants(matching:.any)["history-globe"].firstMatch
         XCTAssertTrue(globe.waitForExistence(timeout:8))
         capture("01-global",app)
-        RunLoop.current.run(until:Date().addingTimeInterval(8.5))
-        capture("01b-idle",app)
         globe.pinch(withScale:2.3,velocity:1.5)
         capture("02-regional",app)
         globe.pinch(withScale:2.1,velocity:1.5)
@@ -30,6 +42,16 @@ final class JourneyTests: XCTestCase {
         globe.pinch(withScale:0.28,velocity:-1.25)
         capture("03c-global-return",app)
         XCTAssertEqual(choose.value as? String,"1499 年")
+        app.buttons["explore-options"].tap()
+        app.buttons["复位视角"].tap()
+        RunLoop.current.run(until:Date().addingTimeInterval(1))
+        let reset = globePixels(app)
+        RunLoop.current.run(until:Date().addingTimeInterval(9))
+        let idle = globePixels(app)
+        XCTAssertEqual(reset.count,idle.count)
+        let difference = zip(reset,idle).reduce(0.0) { $0 + abs(Double($1.0)-Double($1.1)) }
+        XCTAssertGreaterThan(difference/Double(max(1,reset.count)),2,"The globe should move after resetting and leaving it idle.")
+        capture("07-idle-after-reset",app)
         app.buttons["explore-options"].tap()
         app.buttons["复位视角"].tap()
 
@@ -74,6 +96,20 @@ final class JourneyTests: XCTestCase {
         app.buttons["close-reading"].tap()
         XCTAssertTrue(choose.waitForExistence(timeout:8))
         XCTAssertEqual(choose.value as? String,"1499 年")
+    }
+
+    @MainActor private func globePixels(_ app: XCUIApplication) -> [UInt8] {
+        guard let image = UIImage(data:app.screenshot().pngRepresentation)?.cgImage,
+              let crop = image.cropping(to:CGRect(x:image.width/5,y:image.height/3,
+                                                  width:image.width*3/5,height:image.height/4)),
+              let context = CGContext(data:nil,width:48,height:48,bitsPerComponent:8,bytesPerRow:48*4,
+                                      space:CGColorSpaceCreateDeviceRGB(),bitmapInfo:CGImageAlphaInfo.noneSkipLast.rawValue),
+              let data = context.data else {
+            XCTFail("Could not sample the visible globe.")
+            return []
+        }
+        context.draw(crop,in:CGRect(x:0,y:0,width:48,height:48))
+        return Array(UnsafeBufferPointer(start:data.assumingMemoryBound(to:UInt8.self),count:48*48*4))
     }
 
     @MainActor private func capture(_ name: String,_ app: XCUIApplication) {

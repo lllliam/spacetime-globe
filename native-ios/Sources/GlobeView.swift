@@ -13,6 +13,7 @@ struct NativeGlobe: View {
     var showPendingArt = true
     var haptics = true
     var allowsIdleRotation = false
+    var idleRotationSpeed = GlobeIdleMotion.defaultSpeed
     var onApplied: (AtlasKey, PaintedAtlas) -> Void = { _,_ in }
     var onRegions: ([MapRegion]) -> Void = { _ in }
     var onPlace: (String) -> Void = { _ in }
@@ -49,6 +50,7 @@ struct NativeGlobe: View {
                 marks:isCurrent ? marks : GlobeMarks(),sceneKey:isCurrent ? sceneKey : nil,
                 selected:isCurrent ? selected : nil,showNames:showNames && isCurrent,active:phase == .active,
                 reduced:reduceMotion,interactive:isCurrent,allowsIdleRotation:allowsIdleRotation,
+                idleRotationSpeed:GlobeIdleMotion.clampedSpeed(idleRotationSpeed),
                 boundaryFeedback:{ if haptics { GlobeHaptics.boundary() } },
                 settled:onSettled,regions:onRegions,place:onPlace
             ))

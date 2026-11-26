@@ -30,6 +30,7 @@ struct ExplorerView: View {
                         showNames:session.preferences.showNames,selected:picked?.id,
                         marks:GlobeMarks(explorationSites:sites),
                         haptics:session.preferences.haptics,allowsIdleRotation:allowsIdleRotation,
+                        idleRotationSpeed:session.preferences.idleRotationSpeed,
                         onApplied:apply,onRegions:select,
                         onPlace:{ id in
                             guard let site = sites.first(where:{ $0.id == id }) else { return }
@@ -77,7 +78,8 @@ struct ExplorerView: View {
     }
 
     private var allowsIdleRotation: Bool {
-        session.explore.selected == nil && picked == nil && !yearEditor && session.panel == nil &&
+        session.preferences.idleRotation && session.explore.selected == nil && picked == nil &&
+            !yearEditor && session.panel == nil &&
             preview == nil && pendingJump == nil && applied == atlasRequest
     }
 
@@ -117,25 +119,33 @@ struct ExplorerView: View {
 
     private var optionsMenu: UIMenu {
         var actions: [UIMenuElement] = [
-            UIAction(title:"历史书目",image:UIImage(systemName:"books.vertical")) { _ in session.panel = .library }
+            option("历史书目",symbol:"books.vertical") { session.panel = .library }
         ]
         if let recent = session.lastRead {
-            actions.append(UIAction(title:"继续阅读",image:UIImage(systemName:"bookmark")) { _ in
+            actions.append(option("继续阅读",symbol:"bookmark") {
                 session.open(ReadingNode(volume:recent.volume,chapter:recent.chapter))
             })
         }
         let layers = GlobeLayer.allCases.map { layer in
-            UIAction(title:layer.label,state:session.explore.layer == layer ? .on : .off) { _ in
+            option(layer.label,state:session.explore.layer == layer ? .on : .off) {
                 session.explore.layer = layer
             }
         }
         actions.append(UIMenu(title:"地图图层",options:.singleSelection,children:layers))
-        actions.append(UIAction(title:"显示地名",state:session.preferences.showNames ? .on : .off) { _ in
+        actions.append(option("显示地名",state:session.preferences.showNames ? .on : .off) {
             session.preferences.showNames.toggle()
         })
-        actions.append(UIAction(title:"复位视角",image:UIImage(systemName:"globe")) { _ in resetView() })
-        actions.append(UIAction(title:"设置与关于",image:UIImage(systemName:"gearshape")) { _ in session.panel = .options })
+        actions.append(option("复位视角",symbol:"globe",action:resetView))
+        actions.append(option("设置与关于",symbol:"gearshape") { session.panel = .options })
         return UIMenu(children:actions)
+    }
+
+    private func option(_ title: String, symbol: String? = nil, state: UIMenuElement.State = .off,
+                        action: @escaping () -> Void) -> UIAction {
+        UIAction(title:title,image:symbol.flatMap { UIImage(systemName:$0) },state:state) { _ in
+            viewport.setIdleBlock(.menu,active:false)
+            action()
+        }
     }
 
     private var mapCaption: String {
@@ -431,9 +441,7 @@ private struct ExplorerOptionsButton: UIViewRepresentable {
                                              willEndFor configuration: UIContextMenuConfiguration,
                                              animator: (any UIContextMenuInteractionAnimating)?) {
             super.contextMenuInteraction(interaction,willEndFor:configuration,animator:animator)
-            if let animator {
-                animator.addCompletion { [weak self] in self?.viewport?.setIdleBlock(.menu,active:false) }
-            } else { viewport?.setIdleBlock(.menu,active:false) }
+            viewport?.setIdleBlock(.menu,active:false)
         }
     }
 }

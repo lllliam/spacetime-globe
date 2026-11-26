@@ -56,6 +56,25 @@ struct Preferences: Codable, Equatable {
     var haptics = true
     var paper: ReaderPaper = .paper
     var textSize: ReadingSize = .standard
+    var idleRotation = true
+    var idleRotationSpeed = GlobeIdleMotion.defaultSpeed
+
+    private enum CodingKeys: String, CodingKey {
+        case showNames, haptics, paper, textSize, idleRotation, idleRotationSpeed
+    }
+
+    init() {}
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy:CodingKeys.self)
+        showNames = try values.decode(Bool.self,forKey:.showNames)
+        haptics = try values.decode(Bool.self,forKey:.haptics)
+        paper = try values.decode(ReaderPaper.self,forKey:.paper)
+        textSize = try values.decode(ReadingSize.self,forKey:.textSize)
+        idleRotation = try values.decodeIfPresent(Bool.self,forKey:.idleRotation) ?? true
+        let speed = try values.decodeIfPresent(Double.self,forKey:.idleRotationSpeed) ?? GlobeIdleMotion.defaultSpeed
+        idleRotationSpeed = GlobeIdleMotion.clampedSpeed(speed)
+    }
 }
 
 struct ExploreSession: Codable {
