@@ -76,15 +76,21 @@ jobs:
           print(next(device["udid"] for runtime in reversed(list(devices)) for device in runtime if device["name"] == "iPhone 17 Pro"))
           ')"
           echo "Building for the simulator"
+          simulator_package="$(mktemp -d /tmp/spacetime-simulator.XXXXXX)"
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
             -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
-            CODE_SIGNING_ALLOWED=NO build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
+            CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGN_IDENTITY=- \
+            build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
+          simulator_app="$simulator_package/SpacetimeGlobe.app"
+          bundle_id="$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$simulator_app/Info.plist")"
+          [ "$bundle_id" = io.github.lllliam.spacetimeglobe.native ]
+          codesign --verify --strict "$simulator_app"
           echo "Booting $simulator"
           xcrun simctl bootstatus "$simulator" -b
           echo "Installing the simulator build"
-          xcrun simctl install "$simulator" "$RUNNER_TEMP/native-sim/Build/Products/Debug-iphonesimulator/SpacetimeGlobe.app"
+          xcrun simctl install "$simulator" "$simulator_app"
           echo "Launching the simulator build"
-          xcrun simctl launch "$simulator" io.github.lllliam.spacetimeglobe.native
+          xcrun simctl launch "$simulator" "$bundle_id"
           sleep 6
           xcrun simctl io "$simulator" screenshot "$RUNNER_TEMP/native-simulator.png"
       - name: Upload native simulator evidence
