@@ -1,0 +1,65 @@
+name: Build native iOS IPA
+
+on:
+  push:
+    branches: [codex/ios-native]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-native-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  device:
+    runs-on: macos-26
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Verify canonical content and prepare the native bundle
+        run: |
+          node tools/verify-content.mjs
+          node build.mjs
+          git diff --exit-code -- index.html index.offline.html sw.js docs/CONTENT-COVERAGE.md data/topics.json
+          node native-ios/prepare-data.mjs
+          python3 native-ios/prepare-project.py
+      - name: Test native data decoding and map selection
+        run: |
+          swiftc -O native-ios/Sources/HistoryData.swift native-ios/Sources/Atlas.swift native-ios/Smoke.swift -o "$RUNNER_TEMP/native-smoke"
+          "$RUNNER_TEMP/native-smoke" native-ios/Resources
+      - name: Build for physical iPhones
+        run: |
+          set -o pipefail
+          xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
+            -configuration Release -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/native-device" \
+            CODE_SIGNING_ALLOWED=NO build > "$RUNNER_TEMP/native-build.log" 2>&1 || { tail -n 220 "$RUNNER_TEMP/native-build.log"; exit 1; }
+          tail -n 7 "$RUNNER_TEMP/native-build.log"
+      - name: Verify and package the unsigned IPA
+        run: |
+          set -euo pipefail
+          app="$RUNNER_TEMP/native-device/Build/Products/Release-iphoneos/SpacetimeGlobe.app"
+          [ "$(xcrun lipo -archs "$app/SpacetimeGlobe")" = arm64 ]
+          xcrun vtool -show-build "$app/SpacetimeGlobe" | awk '$1=="platform" && $2=="IOS" { ok=1 } END { exit !ok }'
+          [ "$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")" = io.github.lllliam.spacetimeglobe.native ]
+          [ "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$app/Info.plist")" = 16.0 ]
+          for file in native-ios/Resources/*; do cmp "$file" "$app/Resources/$(basename "$file")"; done
+          ! find "$app" -iname '*.html' -print -quit | grep .
+          ! xcrun otool -L "$app/SpacetimeGlobe" | grep WebKit.framework
+          mkdir -p "$RUNNER_TEMP/native-package/Payload" native-ios/dist
+          ditto "$app" "$RUNNER_TEMP/native-package/Payload/SpacetimeGlobe.app"
+          dist="$GITHUB_WORKSPACE/native-ios/dist"
+          (cd "$RUNNER_TEMP/native-package" && zip -q -r "$dist/SpacetimeGlobe-Native-0.1.0-unsigned.ipa" Payload)
+          (cd "$dist" && shasum -a 256 SpacetimeGlobe-Native-0.1.0-unsigned.ipa > SHA256.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SpacetimeGlobe-Native-iOS-unsigned
+          path: native-ios/dist/*
+          if-no-files-found: error
+          retention-days: 14
