@@ -992,5 +992,305 @@
       "scope": "年代范围、区域参照与相应的原生阅读入口。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-western-zhou-chengzhou": {
+    "title": "周初东方战事与成周",
+    "date": "约公元前 1046—前 1000 年",
+    "start": -1046,
+    "end": -1000,
+    "context": true,
+    "summary": "青铜器铭文与传世篇章记录了周初东方行动及成周营建的不同方面。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "本条采用西周早期的阅读区间。东方战事、何尊所记王年与洛阳盆地的考古层位分别校验。",
+        "refs": [
+          {
+            "sourceId": "eastern-campaign-epigraphy",
+            "locator": "西周铜器铭文实例，大保簋、方鼎、禽簋、何尊",
+            "note": "用不同器铭与传世史料对照周初克商后的冲突、东征和营洛"
+          },
+          {
+            "sourceId": "he-zun",
+            "locator": "何尊出土地点、铭文发现与铭文内容",
+            "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+          },
+          {
+            "sourceId": "chengzhou-sites",
+            "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+            "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+          },
+          {
+            "sourceId": "shangshu-shao",
+            "locator": "太保相宅、攻位、新邑与殷民有关段落",
+            "note": "文献叙述召公赴洛勘选、营建及人群参与"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "eastern-campaign-epigraphy",
+        "title": "李学勤《出土文献与古史重建》",
+        "url": "https://www.tsinghua.edu.cn/info/1662/58118.htm",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "he-zun",
+        "title": "宝鸡市文物局：何尊",
+        "url": "https://wwj.baoji.gov.cn/zzzb/wbwy/202505/t20250512_1147496.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "chengzhou-sites",
+        "title": "徐昭峰等《东周王城研究》成果说明",
+        "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shangshu-shao",
+        "title": "《尚书·召诰》",
+        "url": "https://zh.wikisource.org/zh-hans/尚書/召誥",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年度口径、证据限制与相应读章。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-western-zhou-regional-appointments": {
+    "title": "西周早期的地方册命与铭器",
+    "date": "约公元前 1046—前 950 年",
+    "start": -1046,
+    "end": -950,
+    "context": true,
+    "summary": "房山琉璃河与丹徒烟墩山的出土器物保存了两种地方任命材料。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "所列区间用于阅读西周早期册命和遗址材料，各件器的王年及地方地望需按铭文与地层核查。",
+        "refs": [
+          {
+            "sourceId": "ke-lei",
+            "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+            "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+          },
+          {
+            "sourceId": "liulihe-discoveries",
+            "locator": "地理位置、城址墓葬与太保墉燕铭文",
+            "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+          },
+          {
+            "sourceId": "yi-hou-gui",
+            "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+            "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ke-lei",
+        "title": "首都博物馆馆藏：克罍",
+        "url": "https://capitalmuseum.org.cn/collection/30a9844041e24d919ad497143c9db47b",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "liulihe-discoveries",
+        "title": "北京市房山区：琉璃河遗址考古材料",
+        "url": "https://www.bjfsh.gov.cn/ztzx/2025/gchx/kgyj/202505/t20250515_40088947.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yi-hou-gui",
+        "title": "国家博物馆馆藏：宜侯夨青铜簋",
+        "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202108/t20210802_250932.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年度口径、证据限制与相应读章。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zhao-campaign-jianghan": {
+    "title": "昭王南征与江汉西周遗存",
+    "date": "约公元前 1000—前 950 年",
+    "start": -1000,
+    "end": -950,
+    "context": true,
+    "summary": "传世记载与伐荆器铭保留战事线索，随州叶家山提供江汉地方群体的同期背景。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "约公元前 1000—前 950 年供对照王世与地方考古材料。叶家山的参照点用于定位墓地，南征行程待查。",
+        "refs": [
+          {
+            "sourceId": "jing-campaign-gui",
+            "locator": "器内铭文与伐荆段",
+            "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+          },
+          {
+            "sourceId": "zhou-annals",
+            "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+            "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+          },
+          {
+            "sourceId": "yejiashan-mounds",
+            "locator": "叶家山墓地位置图、墓葬组合与铭文",
+            "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "jing-campaign-gui",
+        "title": "中国国家博物馆馆藏：从王伐荆簋",
+        "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247363.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zhou-annals",
+        "title": "《史记》卷四《周本纪》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷004",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "yejiashan-mounds",
+        "title": "《随州叶家山西周曾侯墓地面面观》",
+        "url": "https://www.npm.gov.tw/NewChineseArtDownload.ashx?bid=2741",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年度口径、证据限制与相应读章。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-gonghe-first-year": {
+    "title": "《十二诸侯年表》的共和元年",
+    "date": "公元前 841 年 · 通行换算",
+    "start": -841,
+    "end": -841,
+    "summary": "《十二诸侯年表》以共和元年为起点，把周与各地诸侯的纪年并列。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "按通行换算标示年表的共和元年。《周本纪》和《系年》对这一时期由谁主持政务有不同记载，厉王出奔时间另须核对。",
+        "refs": [
+          {
+            "sourceId": "twelve-lords-table",
+            "locator": "表序、共和元年起首诸栏",
+            "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+          },
+          {
+            "sourceId": "gonghe-chronology",
+            "locator": "开篇及关于共和元年与宣王纪年的段落",
+            "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+          },
+          {
+            "sourceId": "xinian-gonghe",
+            "locator": "《系年》第一章引文和不同点读",
+            "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+          },
+          {
+            "sourceId": "zhou-annals",
+            "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+            "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "twelve-lords-table",
+        "title": "《史记》卷十四《十二诸侯年表》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷014",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "gonghe-chronology",
+        "title": "白光琦《宣幽二世年份考订》",
+        "url": "https://www.fdgwz.org.cn/Web/Show/2971",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xinian-gonghe",
+        "title": "孙振兴《清华简〈系年〉标点质疑一则》",
+        "url": "https://www.fdgwz.org.cn/Web/Show/1987",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zhou-annals",
+        "title": "《史记》卷四《周本纪》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷004",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年度口径、证据限制与相应读章。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-western-zhou-king-you": {
+    "title": "周幽王身亡与西周终结",
+    "date": "公元前 771 年 · 通行年序",
+    "start": -771,
+    "end": -771,
+    "summary": "《周本纪》和《系年》都记到周幽王之死，后者还写到携惠王被拥立。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用幽王十一年的通行换算。西周晚期政治崩解、王位争立和平王迁居属于一段相继发生的过程。",
+        "refs": [
+          {
+            "sourceId": "zhou-annals",
+            "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+            "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+          },
+          {
+            "sourceId": "xinian-early-chapters",
+            "locator": "第二章幽王、携惠王、平王各段；第三章商邑与西迁相关段",
+            "note": "早期东方战事和商奄人群西迁的一条书写传统；两周之际有不同表述"
+          },
+          {
+            "sourceId": "xinian-zhou-history",
+            "locator": "开篇及两周之际史事讨论",
+            "note": "《系年》记述周末王位争立、携惠王和平王东迁的过程"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zhou-annals",
+        "title": "《史记》卷四《周本纪》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷004",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xinian-early-chapters",
+        "title": "《清华简〈系年〉前四章发微》",
+        "url": "https://www.ctwx.tsinghua.edu.cn/__local/F/D0/00/EB79706B6AA558838BBA762F309_450D8DBD_C9867.pdf?e=.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xinian-zhou-history",
+        "title": "刘国忠《清华简与西周史研究》",
+        "url": "https://www.tsinghua.edu.cn/info/1662/83766.htm",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年度口径、证据限制与相应读章。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

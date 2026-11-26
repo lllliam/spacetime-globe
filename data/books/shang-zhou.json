@@ -3,7 +3,7 @@
   "title": "夏商与西周",
   "from": -1600,
   "to": -771,
-  "summary": "从二里头与早商遗址的分期出发，观察偃师、郑州、盘龙城和洹河流域的城市、作坊与金属往来。晚商甲骨和出土铭文为王室与聚落研究提供了同时代材料，随后接续克商与西周的政治变化。",
+  "summary": "从二里头的考古分期走到商代城址、铜料流通和殷墟甲骨，再用西周铭文、遗址和传世年表追查成周营建、地方政治与两周之际的变化。",
   "sources": [
     {
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
@@ -158,6 +158,138 @@
       "id": "huanbei-outer-ditch",
       "title": "洹北商城郭城考古进展",
       "url": "https://wenwu.hebei.gov.cn/system/2023/08/15/030241782.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhou-annals",
+      "title": "《史记》卷四《周本纪》",
+      "url": "https://zh.wikisource.org/zh-hans/史記/卷004",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "twelve-lords-table",
+      "title": "《史记》卷十四《十二诸侯年表》",
+      "url": "https://zh.wikisource.org/zh-hans/史記/卷014",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "gonghe-chronology",
+      "title": "白光琦《宣幽二世年份考订》",
+      "url": "https://www.fdgwz.org.cn/Web/Show/2971",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "xinian-gonghe",
+      "title": "孙振兴《清华简〈系年〉标点质疑一则》",
+      "url": "https://www.fdgwz.org.cn/Web/Show/1987",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "xinian-zhou-history",
+      "title": "刘国忠《清华简与西周史研究》",
+      "url": "https://www.tsinghua.edu.cn/info/1662/83766.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "xinian-early-chapters",
+      "title": "《清华简〈系年〉前四章发微》",
+      "url": "https://www.ctwx.tsinghua.edu.cn/__local/F/D0/00/EB79706B6AA558838BBA762F309_450D8DBD_C9867.pdf?e=.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "eastern-campaign-epigraphy",
+      "title": "李学勤《出土文献与古史重建》",
+      "url": "https://www.tsinghua.edu.cn/info/1662/58118.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shangshu-luo",
+      "title": "《尚书·洛诰》",
+      "url": "https://zh.wikisource.org/zh-hans/尚書/洛誥",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shangshu-shao",
+      "title": "《尚书·召诰》",
+      "url": "https://zh.wikisource.org/zh-hans/尚書/召誥",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "he-zun",
+      "title": "宝鸡市文物局：何尊",
+      "url": "https://wwj.baoji.gov.cn/zzzb/wbwy/202505/t20250512_1147496.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "baoji-inscriptions",
+      "title": "国家档案局：何尊等五组周代有铭青铜器",
+      "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/3ab95315183f4f9a894b60a85cacaf75.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "chengzhou-sites",
+      "title": "徐昭峰等《东周王城研究》成果说明",
+      "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "fenghao-chengzhou",
+      "title": "刘余力：丰镐与成周的遗址和互动",
+      "url": "https://culture.nwu.edu.cn/info/1142/3988.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "ke-lei",
+      "title": "首都博物馆馆藏：克罍",
+      "url": "https://capitalmuseum.org.cn/collection/30a9844041e24d919ad497143c9db47b",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liulihe-discoveries",
+      "title": "北京市房山区：琉璃河遗址考古材料",
+      "url": "https://www.bjfsh.gov.cn/ztzx/2025/gchx/kgyj/202505/t20250515_40088947.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yi-hou-gui",
+      "title": "国家博物馆馆藏：宜侯夨青铜簋",
+      "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202108/t20210802_250932.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "da-yu-ding",
+      "title": "中国国家博物馆馆藏：盂青铜鼎",
+      "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247375.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "jing-campaign-gui",
+      "title": "中国国家博物馆馆藏：从王伐荆簋",
+      "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247363.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yejiashan-mounds",
+      "title": "《随州叶家山西周曾侯墓地面面观》",
+      "url": "https://www.npm.gov.tw/NewChineseArtDownload.ashx?bid=2741",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zeng-state-research",
+      "title": "湖北省文物考古研究院：曾侯與编钟与叶家山墓地",
+      "url": "https://m-www.hbkgy.com/xlkd/p/5659.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "guoji-zibai-pan",
+      "title": "中国国家博物馆馆藏：虢季子白青铜盘",
+      "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247376.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "olympia-chronology",
+      "title": "国际奥委会博物馆：古代奥林匹克运动",
+      "url": "https://stillmed.olympics.com/media/Documents/Olympic-Games/Factsheets/The-Olympic-Games-of-the-Antiquity.pdf",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -1097,11 +1229,11 @@
     },
     {
       "id": "muye-fengjian",
-      "title": "牧野克商、周公制礼与宗法分封",
+      "title": "克商以后：东征、成周与周初礼制",
       "from": -1046,
       "to": -1000,
-      "summary": "利簋记载周武王克商的干支日，公元前 1046 年是一套综合推定。随后进入周初的东方战事、洛邑营建、诸侯与礼制。",
-      "spatialThesis": "起家关中渭水的周人以丰镐为政治心脏、洛邑（洛阳）为东方军事副都，把王室子弟与功臣像棋子一样沿着黄河与江淮撒向齐、鲁、燕、晋、卫等封国，织成一张覆盖华北的统治大网。",
+      "summary": "从利簋的克商纪日接到周初东方战事，比较何尊、册命器铭、地方墓葬和传世叙事。",
+      "spatialThesis": "关中的丰镐和洛阳盆地的成周留下王室活动的区域线索，地方墓地与铭文可帮助观察王室和不同聚落的联系。",
       "paragraphs": [
         {
           "heading": "从利簋的甲子日读克商",
@@ -1126,48 +1258,142 @@
           "id": "p-01"
         },
         {
-          "text": "但灭商只是开始，“小邦周”要统治人口与文化都远胜自己的“大邦殷”，立刻面临剧烈反弹。武王克商仅两年便病逝，年幼的成王继位，留守安阳监视商朝遗民的管叔、蔡叔竟然联合商纣之子武庚发动大规模叛乱，东方诸侯纷纷响应。",
+          "text": "《史记·周本纪》把成王初年的冲突同武庚、管叔和蔡叔联系起来。清华简《系年》也写到周人平定商邑和向东行动，材料对行动者和次序的叙述各有侧重。大保簋等出土铭文为周初战事提供了较早的参照。战事牵涉商遗民、周王室成员和地方人群，实际经过需要把这些材料放在一起核对。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-early-chapters",
+              "locator": "第二章幽王、携惠王、平王各段；第三章商邑与西迁相关段",
+              "note": "早期东方战事和商奄人群西迁的一条书写传统；两周之际有不同表述"
+            },
+            {
+              "sourceId": "eastern-campaign-epigraphy",
+              "locator": "西周铜器铭文实例，大保簋、方鼎、禽簋、何尊",
+              "note": "用不同器铭与传世史料对照周初克商后的冲突、东征和营洛"
+            }
           ],
-          "id": "p-02"
+          "id": "p-02",
+          "heading": "周初的东方冲突"
         },
         {
-          "heading": "周公东征与洛邑“宅兹中国”",
-          "text": "危急关头，武王之弟周公旦毅然摄政并亲率大军东征。历时三年苦战，周公彻底平定三监之乱与东夷反叛，把周朝势力一路推向泰山以东的山东半岛与燕山脚下。为长久控制东方，周公在伊洛盆地营建东都成周（洛阳），并在青铜礼器“何尊”上刻下了迄今所见最早的“中国”二字。",
+          "heading": "从何尊读到成周",
+          "text": "宝鸡贾村出土的何尊，记有周王与成周、对何的训诫，以及对武王克商后言辞的追述。《召诰》《洛诰》也保存了选址、营建及占卜的传世叙述。洛阳盆地瀍河一带的西周遗存为营建提供考古线索，铭文地名与具体建筑的位置仍须逐一比对。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "he-zun",
+              "locator": "何尊出土地点、铭文发现与铭文内容",
+              "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+            },
+            {
+              "sourceId": "baoji-inscriptions",
+              "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+              "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+            },
+            {
+              "sourceId": "shangshu-shao",
+              "locator": "太保相宅、攻位、新邑与殷民有关段落",
+              "note": "文献叙述召公赴洛勘选、营建及人群参与"
+            },
+            {
+              "sourceId": "shangshu-luo",
+              "locator": "周公复告、相宅卜涧瀍和命周公相关段",
+              "note": "文献记有选址、占卜以及周王与周公的行动叙述"
+            },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            }
           ],
           "callout": {
-            "label": "历史现场 · 陕西宝鸡出土“何尊”铭文",
-            "title": "“宅兹中国，自兹乂民”",
-            "text": "这件铸造于周成王五年的青铜酒器内底，清楚记录了周武王克商后告祭上天“我要居住在天下中央（中国），从这里治理民众”的宏愿——这是“中国”一词首次在出土文物中亮相。",
-            "id": "aside-03"
+            "label": "器物档案 · 宝鸡贾村出土何尊",
+            "title": "成周与铭文里的「中国」",
+            "text": "何尊的内底铭文写有「宅兹中国」，是目前已知很早的文字实例。这里的「中国」须按周初王室对中心地区的表述理解。器物出土地在宝鸡，铭文谈及成周，两项地理信息各有用途。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "he-zun",
+                "locator": "何尊出土地点、铭文发现与铭文内容",
+                "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+              },
+              {
+                "sourceId": "baoji-inscriptions",
+                "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+                "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+              },
+              {
+                "sourceId": "chengzhou-sites",
+                "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+                "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+              }
+            ]
           },
           "id": "p-03"
         },
         {
-          "heading": "以血缘锁疆土：分封制与宗法制",
-          "text": "面对辽阔而陌生的东方大地，周公没有简单沿用商朝松散的方国联盟，而是创造出一套精密的“武装殖民”体系——分封制。周天子把王室子弟（鲁、晋、燕、卫）与姜太公等异姓功臣（齐）分封到战略要冲筑城立国，同时用嫡长子继承为核心的宗法制规定大宗统领小宗，把政治等级牢牢焊进家族血缘之中。",
+          "heading": "册命怎样写下地方关系",
+          "text": "琉璃河克罍与克盉的铭文，记下周王命克到燕为侯。丹徒出土的宜侯夨簋，则保留改封、土地、城邑、人口和赐物的叙述。每件器物写下的是一次具体授任，考古还要到当地寻找城址、墓葬与不同群体的生活痕迹，才能理解王命怎样落实。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "liulihe-discoveries",
+              "locator": "地理位置、城址墓葬与太保墉燕铭文",
+              "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+            },
+            {
+              "sourceId": "yi-hou-gui",
+              "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+              "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+            }
           ],
           "id": "p-04"
         },
         {
-          "heading": "从鬼神威慑转向“敬德保民”",
-          "text": "更深刻的变化发生在思想深处。商朝笃信上帝永远庇佑商王，周公却从商朝覆亡中提炼出震撼后世的政治哲学——“天命靡常，惟德是辅”。上天不再偏爱某个血统，谁能敬畏天命、爱惜百姓，天命才归谁。这一“德治”转向彻底淡化了商代残酷的人祭风俗，奠定了中国人文理性的第一块基石。",
+          "heading": "周王怎样解释改朝换代",
+          "text": "大盂鼎铭文保存了周王对盂的训诫，也用前代君臣的行为解释商亡。这类训诫把王朝兴亡与臣下职责联系起来。它是王室在一次授任场合的表述，地方社会怎样理解、祭祀制度如何变化，还应另查各地区不同时代的遗存。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "da-yu-ding",
+              "locator": "器腹铭文，康王训诫、商亡和受赐",
+              "note": "周初王室铭文中训诫、前代覆亡的解释与实际授予"
+            },
+            {
+              "sourceId": "shangshu-shao",
+              "locator": "太保相宅、攻位、新邑与殷民有关段落",
+              "note": "文献叙述召公赴洛勘选、营建及人群参与"
+            }
           ],
           "id": "p-05"
         },
         {
-          "text": "配合分封与德治的，还有一整套细致入微的礼乐制度：天子九鼎八簋、诸侯七鼎六簋，从冠婚丧祭到朝聘宴饮皆有严明章法。成王、康王两代“刑错四十余年不用”，史称“成康之治”，华夏文化认同在悠扬的钟磬礼乐中悄然成型。",
+          "text": "同一件器物既可以用于礼仪，也会在埋藏之后成为墓葬组合的一部分。琉璃河和叶家山的墓地让考古学家比较墓的规模、位置、器具组合和铭文。把这些差异放回具体地点和年代去看，才能理解地方社会怎样表达地位。",
           "refs": [
-            "source-01"
+            {
+              "sourceId": "liulihe-discoveries",
+              "locator": "地理位置、城址墓葬与太保墉燕铭文",
+              "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+            },
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            }
           ],
-          "id": "p-06"
+          "id": "p-06",
+          "heading": "把礼器放回墓葬"
         }
       ],
       "contemporaries": [
@@ -1190,90 +1416,778 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "read-chengzhou-evidence",
+          "book": "shang-zhou",
+          "chapter": "chengzhou-eastern-settlement",
+          "label": "接着阅读 · 周初战事与成周",
+          "relation": "further",
+          "display": "从周初政治进入东方战事、器铭与洛阳盆地的遗迹。",
+          "evidence": [
+            {
+              "sourceId": "eastern-campaign-epigraphy",
+              "locator": "西周铜器铭文实例，大保簋、方鼎、禽簋、何尊",
+              "note": "用不同器铭与传世史料对照周初克商后的冲突、东征和营洛"
+            },
+            {
+              "sourceId": "he-zun",
+              "locator": "何尊出土地点、铭文发现与铭文内容",
+              "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+            },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
     },
     {
-      "id": "western-zhou-decline",
-      "title": "昭穆南征、国人暴动与犬戎破镐",
-      "from": -999,
-      "to": -771,
-      "summary": "西周中后期随着血缘疏远、土地赏赐殆尽与南方楚国、西北犬戎的夹击，王室权威日渐衰微；历经国人暴动与宣王中兴的回光返照，公元前 771 年犬戎攻破镐京，西周落幕。",
-      "spatialThesis": "关中镐京虽有秦岭与函谷关天险护卫东方，西北门户却直接敞向泾渭上游的游牧戎狄；一旦周王失去东方诸侯的军事输血，关中王畿便极易被西北骑兵突袭攻破。",
+      "id": "chengzhou-eastern-settlement",
+      "from": -1046,
+      "to": -1000,
+      "dateLabel": "约公元前 1046—前 1000 年",
+      "kind": "narrative",
+      "title": "周初东方战事与成周营建",
+      "summary": "将清华简、青铜器铭文与瀍河遗存对读，从周初冲突追踪另一个王室中心的形成。",
+      "spatialThesis": "何尊出土于关中西部，器内文字谈及成周。东西两地留下用途不同的证据。",
+      "spatialThesisId": "spatial-thesis",
       "paragraphs": [
         {
-          "heading": "昭王南征不复与穆王西游",
-          "text": "成康盛世过后，西周扩张很快碰到了地理边界。周昭王为了争夺汉水与长江中游的铜矿与南方霸权，亲率大军南征荆楚，却在汉水遭遇惨败、连王师六师覆没，昭王本人溺亡汉水，成为西周由盛转衰的第一道分水岭。",
+          "id": "p-01",
+          "heading": "克商之后还有冲突",
+          "text": "武王克商之后如何安置商地，传世《周本纪》保留了武庚和王室成员之间冲突的叙述。清华简《系年》第三章又从商邑与商奄等地点组织一段东方战事。金文可以和这些故事对照，但器铭通常只为某次行动或册命而铸。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-01"
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-early-chapters",
+              "locator": "第二章幽王、携惠王、平王各段；第三章商邑与西迁相关段",
+              "note": "早期东方战事和商奄人群西迁的一条书写传统；两周之际有不同表述"
+            },
+            {
+              "sourceId": "eastern-campaign-epigraphy",
+              "locator": "西周铜器铭文实例，大保簋、方鼎、禽簋、何尊",
+              "note": "用不同器铭与传世史料对照周初克商后的冲突、东征和营洛"
+            }
+          ]
         },
         {
-          "text": "其子周穆王精力充沛，一面西巡昆仑、远征犬戎，一面颁布《吕刑》试图以成文法规范统治；但连年远征极大消耗了王室财力。更深层的危机在于分封制本身的悖论：随着代际繁衍，王室可供分封赏赐的公田越来越少，而东方诸侯国却在各自封地内越做越大，对周天子的血缘敬畏日益淡薄。",
+          "id": "p-02",
+          "heading": "人群也因战事移动",
+          "text": "《系年》写到一部分商奄相关人群后来被迁往西方。它把东方冲突与后来的区域变化联在一起。竹简形成时代距离所述事件较远，研究还要分别查验出发与安置地点、迁徙时间和相关考古材料。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-02"
+            {
+              "sourceId": "xinian-early-chapters",
+              "locator": "第二章幽王、携惠王、平王各段；第三章商邑与西迁相关段",
+              "note": "早期东方战事和商奄人群西迁的一条书写传统；两周之际有不同表述"
+            }
+          ]
         },
         {
-          "heading": "公元前 841 年：国人暴动与“共和行政”",
-          "text": "危机在周厉王时期彻底引爆。为了弥补国库亏空，厉王强行推行“专利”政策，把原本允许平民采集渔猎的山林川泽收归王室垄断，并派卫巫监视民众言论，“道路以目”。公元前 841 年，忍无可忍的镐京平民（国人）持械冲入王宫，将厉王驱逐至彘地。",
+          "id": "p-03",
+          "heading": "营洛可以读到哪些动作",
+          "text": "《召诰》讲太保先到洛地察看选址，《洛诰》也写到占卜和各处地点。何尊铭文把成周与周王活动联系起来，器内还追述武王的言辞。结合这些材料，可以理解一个东部中心怎样进入王室政治。",
           "refs": [
-            "source-01"
-          ],
-          "callout": {
-            "label": "历史现场 · 公元前 841 年镐京",
-            "title": "中国历史精确纪年的第一年",
-            "text": "厉王出逃后，朝廷由贵族共伯和（一说周公与召公）共同执政十四年，史称“共和行政”。《史记·十二诸侯年表》正是从公元前 841 年开始，中国历史从此有了连续不断、精确到年的信史纪年。",
-            "id": "aside-03"
-          },
-          "id": "p-03"
+            {
+              "sourceId": "shangshu-shao",
+              "locator": "太保相宅、攻位、新邑与殷民有关段落",
+              "note": "文献叙述召公赴洛勘选、营建及人群参与"
+            },
+            {
+              "sourceId": "shangshu-luo",
+              "locator": "周公复告、相宅卜涧瀍和命周公相关段",
+              "note": "文献记有选址、占卜以及周王与周公的行动叙述"
+            },
+            {
+              "sourceId": "he-zun",
+              "locator": "何尊出土地点、铭文发现与铭文内容",
+              "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+            },
+            {
+              "sourceId": "baoji-inscriptions",
+              "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+              "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+            }
+          ]
         },
         {
-          "heading": "宣王中兴与千亩之败",
-          "text": "共和十四年后，周宣王即位，一度任用尹吉甫、方叔等名将北伐猃狁、南征淮夷，史称“宣王中兴”。但好景不长，宣王晚年干涉诸侯继承并强行在太原清查人口，随后在千亩之战中惨败于姜氏之戎，连王室禁军都损失殆尽，周天子的军事威严再也无法挽回。",
+          "id": "p-04",
+          "heading": "回到洛阳盆地的遗迹",
+          "text": "研究者把瀍河两岸的一批西周遗存同早期成周联系起来。涧河一带后来的东周王城，以及汉魏洛阳故城附近的周代遗存，又各有不同年代和解释。地图以洛阳盆地作参照，断定建筑所属的城市还须按出土层位。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-04"
-        },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            },
+            {
+              "sourceId": "fenghao-chengzhou",
+              "locator": "丰镐、周原、成周的区位与互动段",
+              "note": "关中丰镐与洛阳一带成周的相对区位，以及多处王室活动中心"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
         {
-          "heading": "幽王烽火与公元前 771 年镐京陷落",
-          "text": "周幽王继位后，宠爱褒姒而废黜申后与太子宜臼，彻底激怒了镇守西北咽喉的申侯。公元前 771 年，申侯联合犬戎大军直扑关中镐京，周幽王在骊山脚下被杀，宫室财宝焚掠一空。无论“烽火戏诸侯”是否带有后世文学渲染，一个铁一般的事实是：当王室遇险时，东方诸侯早已不再愿意倾力赴援。",
-          "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
-        },
-        {
-          "text": "残破的关中已无法立足。次年，在秦、晋、郑、卫等诸侯护送下，周平王狼狈东迁洛邑，史称“东周”。王室沦为名义上的礼仪共主，天下正式滑入长达五百五十年的春秋战国大裂变。",
-          "refs": [
-            "source-01"
-          ],
-          "id": "p-06"
+          "id": "he-zun-and-chengzhou",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "何尊",
+              "placeId": "baoji"
+            },
+            {
+              "blockId": "p-04",
+              "text": "瀍河两岸",
+              "placeId": "main"
+            }
+          ]
         }
       ],
       "related": [
         {
-          "book": "warring-states",
-          "label": "东迁洛邑后，列国如何在礼崩乐坏中走向变法与一统",
-          "id": "reading-01",
+          "id": "toward-regional-appointments",
+          "book": "shang-zhou",
+          "chapter": "western-zhou-regional-appointments",
+          "label": "接着阅读 · 册命怎样落到地方",
           "relation": "further",
+          "display": "从成周和早周王室的活动转向两处地方出土的命侯铭文。",
+          "evidence": [
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "yi-hou-gui",
+              "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+              "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "western-zhou-regional-appointments",
+      "from": -1046,
+      "to": -950,
+      "dateLabel": "约公元前 1046—前 950 年",
+      "kind": "narrative",
+      "title": "克罍与宜侯夨簋：地方册命的两份记录",
+      "summary": "走到房山琉璃河与丹徒烟墩山，比较王命、人口、城邑和不同地方的出土材料。",
+      "spatialThesis": "两件铭器出土于相距很远的地区，出土点让读者定位证据，器铭再用来查证具体的政治关系。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "同一座墓的两件器物",
+          "text": "房山琉璃河 M1193 出土克罍、克盉，两件器的铭文叙述同一次王命。王命克到燕任侯，铭文还涉及授予的人员。发现相同铭文有助于互校文字，两器仍属于同一组出土证据。",
+          "refs": [
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "liulihe-discoveries",
+              "locator": "地理位置、城址墓葬与太保墉燕铭文",
+              "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "文字之外，还有一座地方城址",
+          "text": "琉璃河的城址和墓地让册命记载有了考古语境。不同位置和规格的墓葬器物，可以与其他带燕字样的铭器相互参照。把这些材料放到地方地形上，才能进一步问建城与埋葬分别发生在什么时候、涉及哪些人。",
+          "refs": [
+            {
+              "sourceId": "liulihe-discoveries",
+              "locator": "地理位置、城址墓葬与太保墉燕铭文",
+              "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+            },
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "丹徒烟墩山的另一份册命",
+          "text": "丹徒烟墩山出土的宜侯夨簋，写有授侯、土地、城邑、人口与赐物。器铭还提到周王查看与早期战事和东方地区有关的图。它让我们看到另一份地方授任记录。被授地点的具体位置、器物如何到达出土地，还须联系周围遗址。",
+          "refs": [
+            {
+              "sourceId": "yi-hou-gui",
+              "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+              "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "人员和土地怎样进入政治关系",
+          "text": "两份铭文都让王命、受命者与所涉及的人群变得可辨认。相距甚远的两个个案，各有自己的出土语境。连同江汉地区曾侯墓地去看，可以继续追问地方统治群体怎样将王室关系写进器物、自身又留下怎样的遗迹。",
+          "refs": [
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "yi-hou-gui",
+              "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+              "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+            },
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "zhou-regional-bronze-inscriptions",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "琉璃河",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "丹徒烟墩山",
+              "placeId": "dantu"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-jianghan-zeng",
+          "book": "shang-zhou",
+          "chapter": "zhao-campaign-jianghan",
+          "label": "接着阅读 · 江汉的曾侯墓地与伐荆铭文",
+          "relation": "further",
+          "display": "用南方墓葬和器铭继续观察地方政治。",
+          "evidence": [
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            },
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhao-campaign-jianghan",
+      "from": -1000,
+      "to": -950,
+      "dateLabel": "约公元前 1000—前 950 年",
+      "kind": "narrative",
+      "title": "昭王南征与江汉地区的曾侯墓地",
+      "summary": "把伐荆器铭、昭王不返的传世叙事和随州地区出土墓地放在各自时序中。",
+      "spatialThesis": "关中和随州盆地的两个地理参照帮助观察南北距离，江汉墓地和南征铭文各自提供不同证据。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "一件簋能记下什么",
+          "text": "一件国博馆藏西周簋的作器者记下随王伐荆。馆方将器铭与昭王的南征相联系。这是参与者留下的简短纪念，可以确认这里写的是征伐和作器，还不能从中读出行军全程。",
+          "refs": [
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "昭王的结局如何被记载",
+          "text": "《周本纪》记昭王南巡狩没有返回，最后死于江上。它与器铭中的南方战事相互参照，材料却各自着眼于不同事件与尺度。具体渡河点、战斗经过、动机和损失规模仍需要其他证据。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "在随州读到地方群体",
+          "text": "随州叶家山发现西周早期的墓地，出土铜器铭文中有曾侯称谓。墓葬规格、器物组合和岗地上的位置，让研究者可以观察地方政治群体的地位与联系。墓地提供的是这一地区长期活动的证据。",
+          "refs": [
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            },
+            {
+              "sourceId": "zeng-state-research",
+              "locator": "叶家山墓地、曾侯與编钟及曾国始封各节",
+              "note": "曾侯墓地、后世编钟对始封的追述，以及江汉地区地方政治关系的解释"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "后来的铭文怎样追述开端",
+          "text": "后期曾侯與编钟的铭文也可用来讨论曾国的早期关系。它有自己的铸造年代，回顾早期史事时应与叶家山的层位与早期器物相互核验。这样可以避免把不同年代拥有相同称谓的人物或事件叠在同一张图上。",
+          "refs": [
+            {
+              "sourceId": "zeng-state-research",
+              "locator": "叶家山墓地、曾侯與编钟及曾国始封各节",
+              "note": "曾侯墓地、后世编钟对始封的追述，以及江汉地区地方政治关系的解释"
+            },
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "zhou-heartland-and-jianghan",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "叶家山",
+              "placeId": "main"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-zhou-late-records",
+          "book": "shang-zhou",
+          "chapter": "western-zhou-decline",
+          "label": "接着阅读 · 西周中后期的记录",
+          "relation": "further",
+          "display": "把南方战事与地方遗址的证据带回西周中后期的记录。",
+          "evidence": [
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            },
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gonghe-chronology-and-records",
+      "from": -841,
+      "to": -828,
+      "dateLabel": "约公元前 841—前 828 年",
+      "kind": "narrative",
+      "title": "共和元年：谁在理政，年表从哪里开始",
+      "summary": "对读《周本纪》《十二诸侯年表》与《系年》，看叙事、王年和公元纪年怎样相互参照。",
+      "spatialThesis": "年表把周王室与各诸侯的记录放到并列的栏里，文字中厉王所居地和王室政务则须各依材料定位。",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "找到表的第一行",
+          "text": "《十二诸侯年表》从共和元年列起，首行还并排登记多地君主的在位年。现代通行纪年把这年折为公元前 841 年。看年表时，可以先找到一列的王年，再向同一行的其他列寻找当时记下的事项。",
+          "refs": [
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            },
+            {
+              "sourceId": "gonghe-chronology",
+              "locator": "开篇及关于共和元年与宣王纪年的段落",
+              "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "王离开以后由谁理政",
+          "text": "《周本纪》记厉王出奔至彘，召公、周公共同主持政务。《系年》则在厉王出奔与宣王继位的叙事中提到共伯和。随着简文的点读与比对，具体怎样安排政务仍有不同解释。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-gonghe",
+              "locator": "《系年》第一章引文和不同点读",
+              "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "有王年就能换成公元前年份吗",
+          "text": "青铜器铭文有时记录王年、干支日和册命。宝鸡出土的逨器铭文就是考订历谱与世系的材料。要把器铭中的王年换成公元前年份，还得识别记年对应的是哪位王，并用其他器铭和历法互校。",
+          "refs": [
+            {
+              "sourceId": "baoji-inscriptions",
+              "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+              "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+            },
+            {
+              "sourceId": "gonghe-chronology",
+              "locator": "开篇及关于共和元年与宣王纪年的段落",
+              "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "回到连续记载的意义",
+          "text": "以共和元年为起点有助于并读西周晚期的诸侯纪年。表里的空缺、竹简的断句、某项政务由谁主持，属于各自独立的问题。当材料能互相定位时可以提出较具体的年代，证据尚不足时仍要保留余地。",
+          "refs": [
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            },
+            {
+              "sourceId": "xinian-gonghe",
+              "locator": "《系年》第一章引文和不同点读",
+              "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+            },
+            {
+              "sourceId": "gonghe-chronology",
+              "locator": "开篇及关于共和元年与宣王纪年的段落",
+              "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-zhou-succession",
+          "book": "shang-zhou",
+          "chapter": "western-zhou-decline",
+          "label": "回读 · 宣王、幽王与两周交替",
+          "relation": "further",
+          "display": "从纪年方法回到晚周材料中，比较王年与政治变动。",
+          "evidence": [
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            },
+            {
+              "sourceId": "xinian-zhou-history",
+              "locator": "开篇及两周之际史事讨论",
+              "note": "《系年》记述周末王位争立、携惠王和平王东迁的过程"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "western-zhou-decline",
+      "title": "西周中后期：南方、共和与王室东迁",
+      "from": -999,
+      "to": -771,
+      "summary": "把伐荆铭文、江汉墓葬、共和年表和战国竹简放在一起，理解西周晚期与东周开端怎样被记载。",
+      "spatialThesis": "从关中丰镐到江汉地区与洛阳盆地，各遗址保存不同时段的线索。遗址、行军地点与后世记载的地名需要区分。",
+      "paragraphs": [
+        {
+          "heading": "伐荆铭文与昭王不返",
+          "text": "中国国家博物馆所藏一件西周簋带有随王伐荆的铭文，馆方将其与昭王南征联系起来。《史记·周本纪》则叙述昭王南巡后没有返回。可以把两类材料放在一起讨论南方战事，但将它们合成一段完整行程，仍需要更多能定位的史料。",
+          "refs": [
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            },
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            }
+          ],
+          "id": "p-01"
+        },
+        {
+          "text": "《周本纪》把关于穆王的西行和刑罚叙述编入另一段王世。南方的叶家山墓地则以器物、墓葬和所在岗地展示西周早期地方群体的面貌。理解王室活动和地方变化时，年代、地名和器物归属应当逐项核对。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            },
+            {
+              "sourceId": "zeng-state-research",
+              "locator": "叶家山墓地、曾侯與编钟及曾国始封各节",
+              "note": "曾侯墓地、后世编钟对始封的追述，以及江汉地区地方政治关系的解释"
+            }
+          ],
+          "id": "p-02",
+          "heading": "穆王记载与南方地方社会"
+        },
+        {
+          "heading": "厉王出奔与共和纪年",
+          "text": "《周本纪》记厉王离开王都而居于彘，后来由召公、周公共理政事。清华简《系年》提到共伯和，保存了另一种关于这一时期政治安排的记载。《十二诸侯年表》以共和元年开列各国纪年，通常折算为公元前 841 年。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-gonghe",
+              "locator": "《系年》第一章引文和不同点读",
+              "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+            },
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            },
+            {
+              "sourceId": "gonghe-chronology",
+              "locator": "开篇及关于共和元年与宣王纪年的段落",
+              "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+            }
+          ],
+          "callout": {
+            "label": "纪年档案 · 《十二诸侯年表》",
+            "title": "共和元年怎样标在年表上",
+            "text": "年表的开端是共和元年，通常折为公元前 841 年。这个标记方便把周与诸侯的纪年对在一起。谁主持政事、厉王何时离开以及不同记载如何断句，仍需要逐一研究。",
+            "id": "aside-03",
+            "refs": [
+              {
+                "sourceId": "twelve-lords-table",
+                "locator": "表序、共和元年起首诸栏",
+                "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+              },
+              {
+                "sourceId": "gonghe-chronology",
+                "locator": "开篇及关于共和元年与宣王纪年的段落",
+                "note": "共和元年在连续纪年中的作用，公元前 841 年采用通行起点"
+              },
+              {
+                "sourceId": "xinian-gonghe",
+                "locator": "《系年》第一章引文和不同点读",
+                "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+              }
+            ]
+          },
+          "id": "p-03"
+        },
+        {
+          "heading": "宣王时期为何有不同记忆",
+          "text": "《史记》把宣王继位、后来的政事与千亩战事编入同一王世。晚西周虢季子白盘以纪功者的视角记录征伐和王室赏赐。把铭文与传世记载对读，可以看见不同事件、参与者及记录方式，还需要更多材料才能概括整个王世。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "guoji-zibai-pan",
+              "locator": "器内底释文、征伐与王室赏赐",
+              "note": "西周晚期的征伐纪功、赐物与王室关系"
+            },
+            {
+              "sourceId": "baoji-inscriptions",
+              "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+              "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+            }
+          ],
+          "id": "p-04"
+        },
+        {
+          "heading": "幽王之死与王位之争",
+          "text": "按通行年序，幽王死于公元前 771 年。《周本纪》和战国竹简《系年》都把周室内争与申、戎等力量的行动连在一起，但各自安排的人物与次序不同。《系年》尤其写到幽王死后另有人拥立携惠王，给王位之争保留了更多线索。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-zhou-history",
+              "locator": "开篇及两周之际史事讨论",
+              "note": "《系年》记述周末王位争立、携惠王和平王东迁的过程"
+            },
+            {
+              "sourceId": "xinian-early-chapters",
+              "locator": "第二章幽王、携惠王、平王各段；第三章商邑与西迁相关段",
+              "note": "早期东方战事和商奄人群西迁的一条书写传统；两周之际有不同表述"
+            }
+          ],
+          "id": "p-05"
+        },
+        {
+          "text": "传世叙事称平王向东至洛邑。《系年》补入携惠王与晋人介入等情节，使王位归属和迁居经过可以重新讨论。洛阳盆地不同城址和遗迹也有各自年代。沿这些问题继续读春秋，便能追问王室与各地方政治体的关系如何变化。",
+          "refs": [
+            {
+              "sourceId": "zhou-annals",
+              "locator": "周成王、昭王、穆王、厉王、宣王、幽王和平王各节",
+              "note": "东征、营洛、昭王出巡不返、共和和周末的传世叙事"
+            },
+            {
+              "sourceId": "xinian-zhou-history",
+              "locator": "开篇及两周之际史事讨论",
+              "note": "《系年》记述周末王位争立、携惠王和平王东迁的过程"
+            },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            }
+          ],
+          "id": "p-06",
+          "heading": "东迁是一段过程"
+        }
+      ],
+      "related": [
+        {
+          "id": "reading-01",
+          "book": "warring-states",
+          "chapter": "spring-autumn-hegemony",
+          "label": "接着阅读 · 春秋的王室与诸侯",
+          "relation": "further",
+          "display": "从平王东迁的多种记述走向春秋早期的郑、晋等地方政治。",
+          "evidence": [
+            {
+              "sourceId": "xinian-zhou-history",
+              "locator": "开篇及两周之际史事讨论",
+              "note": "《系年》记述周末王位争立、携惠王和平王东迁的过程"
+            },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-gonghe-chronology",
+          "book": "shang-zhou",
+          "chapter": "gonghe-chronology-and-records",
+          "label": "回读 · 共和与列国年表",
+          "relation": "further",
+          "display": "重新对照共和元年、厉王出奔与宣王继位的记载。",
+          "evidence": [
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            },
+            {
+              "sourceId": "xinian-gonghe",
+              "locator": "《系年》第一章引文和不同点读",
+              "note": "简文叙述厉王离开、共伯和以及宣王继位，讨论十四年与断句"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "目标章节和所引材料的接续范围。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "contemporaries": [
         {
-          "book": "greece-macedon",
-          "year": -776,
-          "label": "首届古代奥林匹克运动会举行",
-          "note": "就在西周灭亡前五年，古希腊在奥林匹亚举办了首届奥运会，东西方双双迈入轴心时代前夜。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "greece-macedon",
+          "chapter": "archaic-polis-colonization",
+          "year": -776,
+          "relation": "contemporary",
+          "label": "同期延伸 · 奥林匹亚的早期纪年",
+          "note": "前 776 年是古代奥运的传统记录起点。",
+          "display": "西周晚期和古风时期希腊在公元前八世纪有重叠。并读各自的传世年表怎样选择纪年起点。",
+          "evidence": [
+            {
+              "sourceId": "olympia-chronology",
+              "locator": "古代奥林匹亚与公元前 776 年记录段",
+              "note": "公元前 776 年作为古代奥运记载采用的起点"
+            },
+            {
+              "sourceId": "twelve-lords-table",
+              "locator": "表序、共和元年起首诸栏",
+              "note": "把共和元年作为列国纪年的编排起点，联系周王室与多个诸侯"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "公元前八世纪同期阅读与当地纪年口径。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
@@ -1285,6 +2199,10 @@
     "early-shang-walled-cities",
     "panlongcheng-site",
     "huanbei-shang-city",
-    "yinxu-late-shang-site"
+    "yinxu-late-shang-site",
+    "chengzhou-early-site-area",
+    "liulihe-western-zhou-yan",
+    "dantu-yihou-inscription-area",
+    "yejiashan-western-zhou-zeng"
   ]
 }

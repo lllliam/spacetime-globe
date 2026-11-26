@@ -1064,6 +1064,335 @@
       "openingBlockId": "opening-summary"
     },
     {
+      "id": "he-zun-and-chengzhou",
+      "year": -1020,
+      "date": "约公元前 1046—前 1000 年",
+      "title": "何尊的出土地与铭文中的成周",
+      "summary": "同一件器物，为什么要在地图上看两个地点？",
+      "place": {
+        "label": "洛阳瀍河一带 · 早期成周遗存的研究区",
+        "lon": 112.49,
+        "lat": 34.69
+      },
+      "sources": [
+        {
+          "id": "he-zun",
+          "title": "宝鸡市文物局：何尊",
+          "url": "https://wwj.baoji.gov.cn/zzzb/wbwy/202505/t20250512_1147496.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "baoji-inscriptions",
+          "title": "国家档案局：何尊等五组周代有铭青铜器",
+          "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/3ab95315183f4f9a894b60a85cacaf75.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "chengzhou-sites",
+          "title": "徐昭峰等《东周王城研究》成果说明",
+          "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "fenghao-chengzhou",
+          "title": "刘余力：丰镐与成周的遗址和互动",
+          "url": "https://culture.nwu.edu.cn/info/1142/3988.htm",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地图上辨认遗址和出土地",
+          "text": "宝鸡贾村是何尊的出土地。洛阳瀍河一带提供早期成周的考古线索，成周是器内铭文提及的地点。",
+          "refs": [
+            {
+              "sourceId": "he-zun",
+              "locator": "何尊出土地点、铭文发现与铭文内容",
+              "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+            },
+            {
+              "sourceId": "baoji-inscriptions",
+              "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+              "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+            },
+            {
+              "sourceId": "chengzhou-sites",
+              "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+              "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+            },
+            {
+              "sourceId": "fenghao-chengzhou",
+              "locator": "丰镐、周原、成周的区位与互动段",
+              "note": "关中丰镐与洛阳一带成周的相对区位，以及多处王室活动中心"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-western-zhou-chengzhou",
+        "title": "何尊的出土地与铭文中的成周",
+        "summary": "同一件器物，为什么要在地图上看两个地点？",
+        "places": [
+          {
+            "id": "baoji",
+            "name": "宝鸡贾村",
+            "role": "何尊出土地的区域参照",
+            "lon": 107.24,
+            "lat": 34.5
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "he-zun",
+            "locator": "何尊出土地点、铭文发现与铭文内容",
+            "note": "宝鸡贾村出土地、器内成周与宅兹中国相关铭文"
+          },
+          {
+            "sourceId": "baoji-inscriptions",
+            "locator": "五组器铭简介、何尊、逨盘与逨鼎条",
+            "note": "何尊、逨器的铭文类别及西周年代、册命和世系研究价值"
+          },
+          {
+            "sourceId": "chengzhou-sites",
+            "locator": "成果第一点，瀍河两岸、涧河两岸与汉魏洛阳故城的相关遗迹",
+            "note": "研究区分早期成周所在的瀍河片区、较晚的洛阳故城相关遗存、东周王城"
+          },
+          {
+            "sourceId": "fenghao-chengzhou",
+            "locator": "丰镐、周原、成周的区位与互动段",
+            "note": "关中丰镐与洛阳一带成周的相对区位，以及多处王室活动中心"
+          }
+        ],
+        "participants": [
+          {
+            "name": "当地遗址和出土铭器",
+            "role": "提供区域位置与历史材料"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区参照、年代与读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhou-regional-bronze-inscriptions",
+      "year": -1000,
+      "date": "约公元前 1046—前 950 年",
+      "title": "房山与丹徒：册命铭器的两个出土地",
+      "summary": "记下西周地方册命的两组铭器出土于哪里？",
+      "place": {
+        "label": "房山琉璃河 · 西周燕都城址与克罍出土的墓地区",
+        "lon": 116.05,
+        "lat": 39.6
+      },
+      "sources": [
+        {
+          "id": "ke-lei",
+          "title": "首都博物馆馆藏：克罍",
+          "url": "https://capitalmuseum.org.cn/collection/30a9844041e24d919ad497143c9db47b",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liulihe-discoveries",
+          "title": "北京市房山区：琉璃河遗址考古材料",
+          "url": "https://www.bjfsh.gov.cn/ztzx/2025/gchx/kgyj/202505/t20250515_40088947.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "yi-hou-gui",
+          "title": "国家博物馆馆藏：宜侯夨青铜簋",
+          "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202108/t20210802_250932.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地图上辨认遗址和出土地",
+          "text": "房山琉璃河的克罍与克盉出自同一处墓葬。丹徒烟墩山的宜侯夨簋保留另一组授任和赐物信息。",
+          "refs": [
+            {
+              "sourceId": "ke-lei",
+              "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+              "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+            },
+            {
+              "sourceId": "liulihe-discoveries",
+              "locator": "地理位置、城址墓葬与太保墉燕铭文",
+              "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+            },
+            {
+              "sourceId": "yi-hou-gui",
+              "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+              "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-western-zhou-regional-appointments",
+        "title": "房山与丹徒：册命铭器的两个出土地",
+        "summary": "记下西周地方册命的两组铭器出土于哪里？",
+        "places": [
+          {
+            "id": "dantu",
+            "name": "丹徒烟墩山一带",
+            "role": "宜侯夨簋的出土地",
+            "lon": 119.66,
+            "lat": 32.18
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "ke-lei",
+            "locator": "琉璃河 M1193、克罍与克盉铭文说明",
+            "note": "同墓同铭的克罍克盉、王命克为燕侯及所涉及的族属和人员"
+          },
+          {
+            "sourceId": "liulihe-discoveries",
+            "locator": "地理位置、城址墓葬与太保墉燕铭文",
+            "note": "房山琉璃河的城址、墓地和与燕有关的出土铭文"
+          },
+          {
+            "sourceId": "yi-hou-gui",
+            "locator": "江苏丹徒烟墩山出土地及器底册命铭文说明",
+            "note": "东部出土器铭详述迁封、土地、城邑、人口与赏赐"
+          }
+        ],
+        "participants": [
+          {
+            "name": "当地遗址和出土铭器",
+            "role": "提供区域位置与历史材料"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区参照、年代与读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhou-heartland-and-jianghan",
+      "year": -980,
+      "date": "约公元前 1000—前 950 年",
+      "title": "关中到江汉：丰镐与随州叶家山",
+      "summary": "关中王室活动区与随州早期墓地处于怎样的地理位置？",
+      "place": {
+        "label": "随州叶家山 · 江汉地区西周早期的曾侯墓地",
+        "lon": 113.4578,
+        "lat": 31.7561
+      },
+      "sources": [
+        {
+          "id": "yejiashan-mounds",
+          "title": "《随州叶家山西周曾侯墓地面面观》",
+          "url": "https://www.npm.gov.tw/NewChineseArtDownload.ashx?bid=2741",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zeng-state-research",
+          "title": "湖北省文物考古研究院：曾侯與编钟与叶家山墓地",
+          "url": "https://m-www.hbkgy.com/xlkd/p/5659.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "fenghao-chengzhou",
+          "title": "刘余力：丰镐与成周的遗址和互动",
+          "url": "https://culture.nwu.edu.cn/info/1142/3988.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "jing-campaign-gui",
+          "title": "中国国家博物馆馆藏：从王伐荆簋",
+          "url": "https://www.chnmuseum.cn/zp/zpml/csp/202008/t20200826_247363.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "在地图上辨认遗址和出土地",
+          "text": "丰镐在关中沣河一带，叶家山位于随州盆地的岗地。出土的曾侯相关铜器为认识长江中游地方政治提供材料。",
+          "refs": [
+            {
+              "sourceId": "yejiashan-mounds",
+              "locator": "叶家山墓地位置图、墓葬组合与铭文",
+              "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+            },
+            {
+              "sourceId": "zeng-state-research",
+              "locator": "叶家山墓地、曾侯與编钟及曾国始封各节",
+              "note": "曾侯墓地、后世编钟对始封的追述，以及江汉地区地方政治关系的解释"
+            },
+            {
+              "sourceId": "fenghao-chengzhou",
+              "locator": "丰镐、周原、成周的区位与互动段",
+              "note": "关中丰镐与洛阳一带成周的相对区位，以及多处王室活动中心"
+            },
+            {
+              "sourceId": "jing-campaign-gui",
+              "locator": "器内铭文与伐荆段",
+              "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-zhao-campaign-jianghan",
+        "title": "关中到江汉：丰镐与随州叶家山",
+        "summary": "关中王室活动区与随州早期墓地处于怎样的地理位置？",
+        "places": [
+          {
+            "id": "fenghao",
+            "name": "丰镐遗址区",
+            "role": "关中沣河一带的西周王室活动区",
+            "lon": 108.75,
+            "lat": 34.2
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "yejiashan-mounds",
+            "locator": "叶家山墓地位置图、墓葬组合与铭文",
+            "note": "叶家山的位置，早期曾侯墓地、器物及曾侯相关铭文"
+          },
+          {
+            "sourceId": "zeng-state-research",
+            "locator": "叶家山墓地、曾侯與编钟及曾国始封各节",
+            "note": "曾侯墓地、后世编钟对始封的追述，以及江汉地区地方政治关系的解释"
+          },
+          {
+            "sourceId": "fenghao-chengzhou",
+            "locator": "丰镐、周原、成周的区位与互动段",
+            "note": "关中丰镐与洛阳一带成周的相对区位，以及多处王室活动中心"
+          },
+          {
+            "sourceId": "jing-campaign-gui",
+            "locator": "器内铭文与伐荆段",
+            "note": "参加者以短铭记随王伐荆，国博联系昭王南征"
+          }
+        ],
+        "participants": [
+          {
+            "name": "当地遗址和出土铭器",
+            "role": "提供区域位置与历史材料"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区参照、年代与读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
       "id": "qin",
       "year": -221,
       "date": "前221—前206",

@@ -1065,6 +1065,150 @@
         "scope": "考古遗址的区域参照和覆盖年代。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "chengzhou-early-site-area",
+      "type": "region",
+      "name": "洛阳盆地早期成周线索",
+      "aliases": [
+        "成周",
+        "洛邑",
+        "瀍河"
+      ],
+      "range": {
+        "from": -1046,
+        "to": -1000,
+        "dateLabel": "约公元前 1046—前 1000 年",
+        "approximate": true
+      },
+      "scope": "洛阳盆地瀍河两岸的早期成周研究区。文献与铭文地点对应需按材料核对。",
+      "sources": [
+        {
+          "id": "chengzhou-sites",
+          "title": "徐昭峰等《东周王城研究》成果说明",
+          "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "he-zun",
+          "title": "宝鸡市文物局：何尊",
+          "url": "https://wwj.baoji.gov.cn/zzzb/wbwy/202505/t20250512_1147496.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shangshu-shao",
+          "title": "《尚书·召诰》",
+          "url": "https://zh.wikisource.org/zh-hans/尚書/召誥",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区域、出土材料与年代范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "liulihe-western-zhou-yan",
+      "type": "region",
+      "name": "琉璃河西周燕国遗址",
+      "aliases": [
+        "琉璃河",
+        "西周燕都",
+        "克罍"
+      ],
+      "range": {
+        "from": -1046,
+        "to": -950,
+        "dateLabel": "约公元前 1046—前 950 年",
+        "approximate": true
+      },
+      "scope": "房山琉璃河的西周早期城址、墓地与铭器。区间为所选材料的阅读范围。",
+      "sources": [
+        {
+          "id": "liulihe-discoveries",
+          "title": "北京市房山区：琉璃河遗址考古材料",
+          "url": "https://www.bjfsh.gov.cn/ztzx/2025/gchx/kgyj/202505/t20250515_40088947.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "ke-lei",
+          "title": "首都博物馆馆藏：克罍",
+          "url": "https://capitalmuseum.org.cn/collection/30a9844041e24d919ad497143c9db47b",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区域、出土材料与年代范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "dantu-yihou-inscription-area",
+      "type": "region",
+      "name": "丹徒烟墩山出土铭器",
+      "aliases": [
+        "宜侯夨簋",
+        "丹徒",
+        "烟墩山"
+      ],
+      "range": {
+        "from": -1046,
+        "to": -950,
+        "dateLabel": "约公元前 1046—前 950 年",
+        "approximate": true
+      },
+      "scope": "西周早期册命铭器的出土区，器文地望与政治范围须另据研究。",
+      "sources": [
+        {
+          "id": "yi-hou-gui",
+          "title": "国家博物馆馆藏：宜侯夨青铜簋",
+          "url": "https://www.chnmuseum.cn/zp/zpml/kgfjp/202108/t20210802_250932.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区域、出土材料与年代范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "yejiashan-western-zhou-zeng",
+      "type": "region",
+      "name": "叶家山早期曾侯墓地",
+      "aliases": [
+        "叶家山",
+        "曾侯",
+        "随州"
+      ],
+      "range": {
+        "from": -1000,
+        "to": -950,
+        "dateLabel": "约公元前 1000—前 950 年",
+        "approximate": true
+      },
+      "scope": "随州叶家山西周早期墓地。区间用于对照江汉地方材料，各墓自有分期。",
+      "sources": [
+        {
+          "id": "yejiashan-mounds",
+          "title": "《随州叶家山西周曾侯墓地面面观》",
+          "url": "https://www.npm.gov.tw/NewChineseArtDownload.ashx?bid=2741",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zeng-state-research",
+          "title": "湖北省文物考古研究院：曾侯與编钟与叶家山墓地",
+          "url": "https://m-www.hbkgy.com/xlkd/p/5659.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "遗址区域、出土材料与年代范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {
