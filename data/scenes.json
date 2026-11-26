@@ -6520,5 +6520,61 @@
         }
       ]
     }
+  },
+  {
+    "id": "central-plains-longshan-sites",
+    "topicEvent": "i-cn-central-plains-longshan-towns",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "question": "王城岗与平粮台各建在怎样的地形上？",
+      "dateLabel": "约公元前 2250—前 1950 年 · 城址对照时段",
+      "note": "王城岗坐落在颍河与五渡河之间的阶地，晚期大城外见壕沟。平粮台处在豫东洪泛平原稍高的位置，城内有屋旁沟渠与南门陶管。",
+      "limit": "标点用于定位两处遗址区。城墙、陶管和古河道的具体位置见发掘平面图。底图以约前 2075 年为观察参照。",
+      "naturalOnly": true,
+      "places": [
+        "wangchenggang",
+        "main"
+      ],
+      "placeNotes": {
+        "wangchenggang": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "longshan-walled-landscape",
+              "locator": "图 1、表 6",
+              "note": "王城岗遗址区参照点"
+            }
+          ]
+        },
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "longshan-walled-landscape",
+              "locator": "图 1、表 6",
+              "note": "平粮台遗址区参照点"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "longshan-walled-landscape",
+          "locator": "图 1、表 6",
+          "note": "两处城址地理参照、王城岗阶地与平粮台低地"
+        },
+        {
+          "sourceId": "pingliangtai-drainage",
+          "locator": "图 3–5",
+          "note": "平粮台南门陶管与居住区排水"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "两处城址相对位置、地形、可观察遗存及地图精度。",
+        "checkedAt": "2026-11-26"
+      }
+    }
   }
 ]

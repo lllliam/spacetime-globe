@@ -54,6 +54,7 @@ const batches=ledger(work);
 const accessed=new Map();
 const reviews=new Map();
 for(const batch of batches) {
+  const reviewedHere=new Set();
   for(const access of batch.access) {
     assert(access.status==='read' && access.url.startsWith('https://') &&
       access.locator && access.supports && access.limit && access.date,access.url);
@@ -61,18 +62,23 @@ for(const batch of batches) {
   }
   for(const record of batch.reviews) {
     const row=current.get(record.id);
-    assert(row && !reviews.has(record.id) && record.scope && record.disposition,record.id);
-    assert.equal(record.before,intake.get(record.id)?.digest ?? null,record.id+' 原稿不符');
-    assert.equal(record.after,row.digest,record.id+' 现稿不符');
+    const before=reviews.get(record.id)?.after ?? intake.get(record.id)?.digest ?? null;
+    assert(row && !reviewedHere.has(record.id) && record.scope && record.disposition &&
+      /^[a-f0-9]{64}$/.test(record.after),record.id);
+    assert.equal(record.before,before,record.id+' 原稿不符');
     assert(record.claims?.length,record.id+' 无论断证据');
     if(priority.includes(record.id)) assert(record.secondPass?.scope,record.id+' 缺高风险复核');
     for(const citation of record.claims) {
       const source=current.get(citation.source)?.data;
       assert(source && accessed.has(source.url) && citation.locator && citation.supports && citation.limit,record.id+' 缺可追溯证据 '+citation.source);
     }
-    exactRecords.set(record.id,{digest:row.digest,stage:'historical-world'});
     reviews.set(record.id,record);
+    reviewedHere.add(record.id);
   }
+}
+for(const [id,record] of reviews) {
+  assert.equal(record.after,current.get(id).digest,id+' 现稿不符');
+  exactRecords.set(id,{digest:record.after,stage:'historical-world'});
 }
 for(const [id,row] of current) {
   if(row.digest===intake.get(id)?.digest) continue;
@@ -106,7 +112,7 @@ const counts={
   intakeRemoved:count(intakeChanges,change=>change.change==='removed'),
   newHighRiskAtIntake:count(intakeChanges,change=>change.level===1&&change.status==='needs-review'),
   batchReviewed:reviews.size,
-  batchNewNonSources:count([...reviews.values()],record=>record.before===null),
+  batchNewNonSources:count([...reviews.keys()],id=>!intake.has(id)),
 };
 const result={
   phase06:'5bae983a9510987b63f4bb4b2af07ab8d9e5ecdd',

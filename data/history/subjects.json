@@ -586,6 +586,83 @@
       "scope": "南亚西北部现代国家，境内的印度河流域是哈拉帕文明及孔雀、贵霜、莫卧儿时期的重要历史舞台。",
       "maps": [{ "type": "country", "key": "PK" }],
       "audit": { "status": "checked", "scope": "现代国家边界身份已与《印度：从孔雀王朝到现代共和》相关条目区分。", "checkedAt": "2026-11-26" }
+    },
+    {
+      "id": "taosi-culture",
+      "type": "civilization",
+      "name": "陶寺文化",
+      "aliases": [
+        "陶寺城址",
+        "襄汾陶寺"
+      ],
+      "range": {
+        "from": -2300,
+        "to": -1900,
+        "approximate": true,
+        "dateLabel": "约公元前 2300—前 1900 年"
+      },
+      "scope": "以晋南襄汾陶寺遗址为代表的考古学文化。区间采用以陶寺遗址为依据的三期约数，早期起点另有较早估计。",
+      "sources": [
+        {
+          "id": "taosi-urbanization",
+          "title": "何驽《陶寺：史前中国作为政治中心的城市化实例》",
+          "url": "https://doi.org/10.1016/j.ara.2017.03.001",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "taosi-state-indicators",
+          "title": "何驽《从山西陶寺看中国早期国家的考古指标》",
+          "url": "https://www.socionauki.ru/journal/articles/1841593/",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "陶寺文化的考古身份、中心位置与分期口径。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "central-plains-longshan-sites",
+      "type": "region",
+      "name": "中原龙山城址",
+      "aliases": [
+        "王城岗",
+        "古城寨",
+        "平粮台"
+      ],
+      "range": {
+        "from": -2250,
+        "to": -1950,
+        "approximate": true,
+        "dateLabel": "约公元前 2250—前 1950 年 · 城址对照时段"
+      },
+      "scope": "以颍河流域、溱水阶地和豫东平原几处城址为例。所列时段用于对照各遗址的营建与使用，个别城址的年代另据发掘资料。",
+      "sources": [
+        {
+          "id": "longshan-walled-landscape",
+          "title": "Zhuang 等《古城寨及中原龙山晚期城址的水环境》",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/10162415/1/1-s2.0-S2352226722000794-main.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pingliangtai-drainage",
+          "title": "李春霞等《平粮台陶管排水与东亚季风区早期水管理》",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/10175539/1/s44221-023-00114-4.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "guchengzhai-fieldwork",
+          "title": "河南省文物考古研究院：古城寨遗址发掘资料",
+          "url": "https://en.hnswwkgyjy.cn/archaeologicalDiscoveries/details.html?id=7262304753864937472",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "城址的地形差异及对照时段。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

@@ -33,7 +33,12 @@ assert.equal(scene('alexander-eastward').status,'paused');
 assert.equal(scene('nanjing-treaty-ports').places.length,6);
 assert.equal(scene('boxer-crisis-1900').places.length,2);
 assert(model.books.flatMap(book=>book.chapters.flatMap(ch=>ch.sceneRefs || [])).filter(ref=>ref.id==='boxer-crisis-1900').length);
-assert.equal(model.scenes.length,48);
+assert.equal(model.scenes.length,files.get(scenesFile).length);
+const longshan = scene('central-plains-longshan-sites');
+assert.equal(longshan.topicEvent,'i-cn-central-plains-longshan-towns');
+assert.equal(longshan.naturalOnly,true);
+assert.deepEqual(longshan.places.map(({id,precision})=>[id,precision]),
+  [['wangchenggang','reference'],['main','reference']]);
 
 fail(obs=>{obs.steps[0].id=obs.steps[1].id;},/阶段 ID/);
 fail(obs=>{obs.steps[0].year=0;},/阶段年份/);
@@ -96,4 +101,4 @@ for (const value of [undefined,['met-manila-commerce']]) {
 assert.throws(()=>loadHistoryModel(root,editRelation('data/books/spain-portugal.json','conquistadors-silver-galleon','documented',link=>{
   link.chapter='invalid-chapter';
 })),/不存在的目标/);
-console.log('Observation model: 48 scenes, known/absent/empty stages, source and precision rules, paused entrances and all world-relation types passed.');
+console.log('Observation model: '+model.scenes.length+' scenes, known/absent/empty stages, source and precision rules, paused entrances and all world-relation types passed.');

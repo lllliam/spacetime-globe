@@ -308,5 +308,106 @@
       "scope": "石峁兴盛期与皇城台考古材料。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-taosi-settlement": {
+    "title": "陶寺城址与陶寺文化",
+    "date": "约公元前 2300—前 1900 年",
+    "start": -2300,
+    "end": -1900,
+    "context": true,
+    "summary": "晋南临汾盆地的一处大型聚落。早期的围区、储藏坑与墓地，为理解中期扩城和晚期变动提供了对照。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "陶寺的早、中、晚期依据陶器、地层和测年辨认。中期墙体围合范围明显扩大，晚期有建筑和墓葬受扰的迹象。所列区间采用一份研究的约数，早期起点另有较早估计。",
+        "refs": [
+          {
+            "sourceId": "taosi-urbanization",
+            "locator": "第 2.1–2.3 节、图 1–2",
+            "note": "三期、扩城和晚期变化"
+          },
+          {
+            "sourceId": "taosi-state-indicators",
+            "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+            "note": "中期城垣范围与较早的早期起点"
+          },
+          {
+            "sourceId": "taosi-identification",
+            "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+            "note": "地图使用陶寺城址的概略经纬度"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "taosi-urbanization",
+        "title": "何驽《陶寺：史前中国作为政治中心的城市化实例》",
+        "url": "https://doi.org/10.1016/j.ara.2017.03.001",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "taosi-state-indicators",
+        "title": "何驽《从山西陶寺看中国早期国家的考古指标》",
+        "url": "https://www.socionauki.ru/journal/articles/1841593/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "taosi-identification",
+        "title": "何驽《陶寺考古初显尧舜时代的“天下观”》",
+        "url": "https://www.cass.cn/xueshuchengguo/wenzhexuebulishixuebu/201506/t20150605_2023339.shtml",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "聚落年代、扩城、晚期的遗迹变化和地理参照。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-central-plains-longshan-towns": {
+    "title": "中原龙山城址与排水",
+    "date": "约公元前 2250—前 1950 年 · 城址对照时段",
+    "start": -2250,
+    "end": -1950,
+    "context": true,
+    "summary": "从颍河阶地上的王城岗到豫东洪泛平原上的平粮台，城墙、城壕和陶管适应着不同地形。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这里用平粮台主要活动的测年时段对照不同城址。王城岗有先后营建的小城与大城，古城寨有晚期龙山城墙，平粮台陶管则多与其较晚阶段的遗存相联系。",
+        "refs": [
+          {
+            "sourceId": "longshan-walled-landscape",
+            "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+            "note": "古城寨墙壕和王城岗大小城的相对顺序"
+          },
+          {
+            "sourceId": "pingliangtai-drainage",
+            "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+            "note": "测年区间以及不同设施的年代范围"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "longshan-walled-landscape",
+        "title": "Zhuang 等《古城寨及中原龙山晚期城址的水环境》",
+        "url": "https://discovery.ucl.ac.uk/id/eprint/10162415/1/1-s2.0-S2352226722000794-main.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "pingliangtai-drainage",
+        "title": "李春霞等《平粮台陶管排水与东亚季风区早期水管理》",
+        "url": "https://discovery.ucl.ac.uk/id/eprint/10175539/1/s44221-023-00114-4.pdf",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "城址对照时段、地理背景及遗迹用途。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

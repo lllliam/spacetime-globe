@@ -1,0 +1,1542 @@
+{
+  "id": "03-china-taosi-and-longshan",
+  "date": "2026-11-26",
+  "base": "160443e",
+  "access": [
+    {
+      "url": "https://doi.org/10.1016/j.ara.2017.03.001",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "何驽《陶寺：史前中国作为政治中心的城市化实例》",
+      "material": "发掘者发表的聚落考古研究，查阅论文全文的公开副本",
+      "locator": "第 2.1–2.3 节、图 1–2",
+      "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+      "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+    },
+    {
+      "url": "https://www.socionauki.ru/journal/articles/1841593/",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "何驽《从山西陶寺看中国早期国家的考古指标》",
+      "material": "发掘者对城垣和墓地的专题报告",
+      "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+      "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+      "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+    },
+    {
+      "url": "https://www.cass.cn/xueshuchengguo/wenzhexuebulishixuebu/201506/t20150605_2023339.shtml",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "何驽《陶寺考古初显尧舜时代的“天下观”》",
+      "material": "发掘者公开发表的释读假说与城址概略坐标",
+      "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+      "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+      "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+    },
+    {
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10162415/1/1-s2.0-S2352226722000794-main.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "Zhuang 等《古城寨及中原龙山晚期城址的水环境》",
+      "material": "发表版。古城寨原始发掘与地质考古，附其他城址比较资料",
+      "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+      "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+      "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+    },
+    {
+      "url": "https://www.whycyjy.sdu.edu.cn/__local/4/D9/5C/AD879AE60CB1EF8A30961F2DE5B_22912360_1705B3.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "方燕明《河南登封王城岗遗址考古新发现与早夏文化研究》",
+      "material": "发掘者发表的项目报告",
+      "locator": "《东方考古研究通讯》第五期，第 37 页",
+      "supports": "东西小城并列及保存情况、小城使用期归当地龙山二期、晚期大城的城墙与城壕",
+      "limit": "报告作小城使用期判断，具体各墙段的营建与废弃时间仍须按层位和样本核对。"
+    },
+    {
+      "url": "https://en.hnswwkgyjy.cn/archaeologicalDiscoveries/details.html?id=7262304753864937472",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "河南省文物考古研究院：古城寨遗址发掘资料",
+      "material": "发掘机构资料页与遗迹照片",
+      "locator": "遗址平面、城墙保存段及图 2–4",
+      "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+      "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+    },
+    {
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10175539/1/s44221-023-00114-4.pdf",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "李春霞等《平粮台陶管排水与东亚季风区早期水管理》",
+      "material": "《Nature Water》发表版。发掘、校正碳十四年代及沉积研究",
+      "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+      "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+      "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+    },
+    {
+      "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202509/t20250916_5915075.shtml",
+      "status": "read",
+      "date": "2026-11-26",
+      "title": "赵春青《新砦为早期夏都说》",
+      "material": "发掘者介绍遗址阶段、城壕与都邑假说",
+      "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+      "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+      "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "book/early-china-origins",
+      "before": "23ebf58e14077ec580499ff796accd7bd7e798450bf0bbab6379f0b915ac2100",
+      "after": "ebb581e9eedb1d5acbee93bb5b50aee3891de25e87136c0da0568d9802b564d4",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "书卷导语和新增主体引用",
+      "disposition": "沿用原卷起讫与已有论断证据，更新导语以纳入汾河流域和中原，并登记两处考古主体。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ]
+    },
+    {
+      "id": "text/book/early-china-origins/summary",
+      "before": "890d3b72936c9568b3e02278fbd44a671454a58060463234a30858c28ea57792",
+      "after": "875a360433bd180731f715a604b4a8ab2a862c443b41b064c6c7797a9fc63ac0",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "书卷导语和新增主体引用",
+      "disposition": "沿用原卷起讫与已有论断证据，更新导语以纳入汾河流域和中原，并登记两处考古主体。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/early-china-origins/shimao-stone-city/taosi-fen-river",
+      "before": null,
+      "after": "e65cb646ef8bf17135dcc16cea3f495ca298802681d7a7f5206138f6ef4019d7",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "石峁章通往陶寺章的阅读入口",
+      "disposition": "以时间重合及建筑环境为阅读理由。相关入口是延伸阅读，材料只支持各自的营建背景。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重新定位陶寺论文第 2 节和石峁现行章的起讫年代，核对进入的陶寺章节。"
+      }
+    },
+    {
+      "id": "book-chapter/early-china-origins/taosi-walls-and-burials",
+      "before": null,
+      "after": "f54b57063cea816fe7c9f1e380bb83e8b173a06ff812370bc501c5dc6df1128d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺章的题名、三期叙事范围与摘要",
+      "disposition": "以一组已发表的分期约数组织早、中、晚期，正文纳入另一早期起点估计。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/taosi-walls-and-burials/title",
+      "before": null,
+      "after": "80fc69ab5e956971520b81d93d9325248987e041ff7548b52b965b58ad2beed1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺章的题名、三期叙事范围与摘要",
+      "disposition": "以一组已发表的分期约数组织早、中、晚期，正文纳入另一早期起点估计。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/taosi-walls-and-burials/summary",
+      "before": null,
+      "after": "496751d6cd976e3d00944da575c2316b8a7bb752f4b6a6e073c4c2c3d988e57f",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺章的题名、三期叙事范围与摘要",
+      "disposition": "以一组已发表的分期约数组织早、中、晚期，正文纳入另一早期起点估计。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/taosi-walls-and-burials/dateLabel",
+      "before": null,
+      "after": "39900cc2b0f63456ca4de634886d97fdd82d60bc4652a2b94a85fbbcaef583b4",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺章的题名、三期叙事范围与摘要",
+      "disposition": "以一组已发表的分期约数组织早、中、晚期，正文纳入另一早期起点估计。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/taosi-walls-and-burials/p-01",
+      "before": null,
+      "after": "5dc1355207c9e74a5da32b30c92ec592a7e79de1c8772c21d14c0e373d67989b",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "三期年代、分期方法与早期起点差异",
+      "disposition": "采用前 2300／2100／2000／1900 年的一组约数，同时呈现另一研究的约前 2400 年起点。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重开何驽两份研究的分期段落，核对前 2300 与前 2400 年的差异仅用于这里的早期起点。"
+      }
+    },
+    {
+      "id": "book-paragraph/early-china-origins/taosi-walls-and-burials/p-02",
+      "before": null,
+      "after": "802b422095e5be8675a436ee60df793fdc41d37175c00fa95119e0e3f23cf839",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "早期围合、储藏与中期墙围面积",
+      "disposition": "将约 280 公顷用于中期城垣围合范围，说明其中包括南侧小围区，并保留早期外墙尚未全查清的限制。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重开专题报告第 3 图前后的中期围合说明及 Early period 的城墙段，核对面积口径与早期外墙保存。"
+      }
+    },
+    {
+      "id": "book-paragraph/early-china-origins/taosi-walls-and-burials/p-03",
+      "before": null,
+      "after": "1b36676be0eff7b15ef2458a5efcca8d2399b5e93bc10ace2bf4040305a7111a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "墓葬组合与居住、储藏遗迹对读",
+      "disposition": "记录大、小墓的器物差别与功能区分布，作为社会分层的多项线索。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/taosi-walls-and-burials/p-04",
+      "before": null,
+      "after": "cb50bb6de8e8ebbb7a4990b6555cfc2f0a49568ebf30b6ab9f827a8a05a3f54d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺晚期扰动与尧都释读",
+      "disposition": "记载建筑与墓葬受扰、局部设施重建及陶文释读分歧。遗迹的先后与传说身份各按其证据评价。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重查晚期段和朱书释读段，核对遗迹扰动的证据不指定责任方，尧字释读仍有分歧。"
+      }
+    },
+    {
+      "id": "book-chapter/early-china-origins/central-plains-longshan-towns",
+      "before": null,
+      "after": "fa70d17bafa06a3009a69d957dd2b5d64d0c29a43f84cd2ab9d7e1406e50684a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山章的对照范围与地形线索",
+      "disposition": "对照王城岗、古城寨、平粮台，年代用平粮台主要活动时段作参照，新砦承接部分沿相对分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        },
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/central-plains-longshan-towns/title",
+      "before": null,
+      "after": "8de9f7f71c754e413a3022db5908c83f249989602a0b89eba962fa772b55a251",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山章的对照范围与地形线索",
+      "disposition": "对照王城岗、古城寨、平粮台，年代用平粮台主要活动时段作参照，新砦承接部分沿相对分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        },
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/central-plains-longshan-towns/summary",
+      "before": null,
+      "after": "4021d796b0db23f4b0fd09a9d3b507a0a36d50ad9e52bac19d1b1d5ff5711823",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山章的对照范围与地形线索",
+      "disposition": "对照王城岗、古城寨、平粮台，年代用平粮台主要活动时段作参照，新砦承接部分沿相对分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        },
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/central-plains-longshan-towns/dateLabel",
+      "before": null,
+      "after": "4d6288d95f1062c3a59efc47b63a6a223bdfa7e5dc8f08c103f6854ec02171e1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山章的对照范围与地形线索",
+      "disposition": "对照王城岗、古城寨、平粮台，年代用平粮台主要活动时段作参照，新砦承接部分沿相对分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        },
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/early-china-origins/central-plains-longshan-towns/spatialThesis",
+      "before": null,
+      "after": "db2ab3cc0ddb13c820ad680e57883fbfb562edc04c0a8baef737c7d1efe57cf6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山章的对照范围与地形线索",
+      "disposition": "对照王城岗、古城寨、平粮台，年代用平粮台主要活动时段作参照，新砦承接部分沿相对分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        },
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/central-plains-longshan-towns/p-01",
+      "before": null,
+      "after": "525d46b68143460655050c85dbd280f332535523451f891ed59799d66d7dc57a",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "王城岗东、西小城与晚期大城",
+      "disposition": "依据原报告写小城使用期与晚期大城的相对先后，注明东城保存有限。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/wangchenggang-fieldwork",
+          "locator": "《东方考古研究通讯》第五期，第 37 页",
+          "statement": "东西小城并列及保存情况、小城使用期归当地龙山二期、晚期大城的城墙与城壕",
+          "result": "supported",
+          "supports": "东西小城并列及保存情况、小城使用期归当地龙山二期、晚期大城的城墙与城壕",
+          "limit": "报告作小城使用期判断，具体各墙段的营建与废弃时间仍须按层位和样本核对。"
+        },
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重开原报告第 37 页和比较研究表 6，核对小城使用期、城壕及大城晚于小城。"
+      }
+    },
+    {
+      "id": "book-paragraph/early-china-origins/central-plains-longshan-towns/p-02",
+      "before": null,
+      "after": "1a2ca96370ae579912bf2b3bb8bbc4881bc2122d314cdbb32365ddd75d3b7e43",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "古城寨地形、墙基、城壕和大型建筑遗迹",
+      "disposition": "以发掘资料介绍台地、夯土找平和东壕，不据基址推断具体统治者或王朝承继。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/early-china-origins/central-plains-longshan-towns/p-03",
+      "before": null,
+      "after": "41e88ca14c19a99ec9dc2f1d099781f51a6c996a0c9c278669f5701d5e84f71d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "平粮台两级排水和测年",
+      "disposition": "以 4200—3900 cal BP 换算为约前 2250—前 1950 年，按层位写陶管维修及分布，注明协作是研究者解释。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "对照研究的居住、排水段与图 3–5，区分主要活动区间和多数陶管关联样本的较晚区间。"
+      }
+    },
+    {
+      "id": "book-paragraph/early-china-origins/central-plains-longshan-towns/p-04",
+      "before": null,
+      "after": "cde01b0cbaf3ce63ca55048185f388870a6b1d41b556573d7c3f618fc37a0af9",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "新砦期的相对年代与二里头阅读入口",
+      "disposition": "用遗迹与器物分期承接二里头，保留新砦遗存能否对应传世都邑的证据界限。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重开赵春青的分期和城壕说明，核对新砦期的相对位置与作者推断的夏都名称。"
+      }
+    },
+    {
+      "id": "scene-ref/early-china-origins/central-plains-longshan-towns/central-plains-longshan-sites",
+      "before": null,
+      "after": "11ef5f9526a547d6779e2065d325d57ae6741f7ec04967a0f047607e82f94392",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "正文图版和地名入口",
+      "disposition": "在排水段之后挂载对照现场，按王城岗、平粮台两处遗址区定位。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "核对图 1、表 6 和平粮台图 3，两处地名入口只指向对应的遗址区参照点。"
+      }
+    },
+    {
+      "id": "place-link/early-china-origins/central-plains-longshan-towns/central-plains-longshan-sites/p-01/wangchenggang",
+      "before": null,
+      "after": "59dab66b6320f71693ae4d1768b4a8764431521c5c87b9b37f336fa3607330b8",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "正文图版和地名入口",
+      "disposition": "在排水段之后挂载对照现场，按王城岗、平粮台两处遗址区定位。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "核对图 1、表 6 和平粮台图 3，两处地名入口只指向对应的遗址区参照点。"
+      }
+    },
+    {
+      "id": "place-link/early-china-origins/central-plains-longshan-towns/central-plains-longshan-sites/p-03/main",
+      "before": null,
+      "after": "fb9173b89c135022871d3fa129bff955e875923e7603fc20934fc3f0f5df591c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "正文图版和地名入口",
+      "disposition": "在排水段之后挂载对照现场，按王城岗、平粮台两处遗址区定位。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "核对图 1、表 6 和平粮台图 3，两处地名入口只指向对应的遗址区参照点。"
+      }
+    },
+    {
+      "id": "relation/book/early-china-origins/central-plains-longshan-towns/toward-erlitou",
+      "before": null,
+      "after": "717c400b60bdd7d3cc01b69607d4e2dc44e6e62de81fefb93d65b0c493090204",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "新砦期的相对年代与二里头阅读入口",
+      "disposition": "用遗迹与器物分期承接二里头，保留新砦遗存能否对应传世都邑的证据界限。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/xinzhai-period",
+          "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+          "statement": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "result": "supported",
+          "supports": "新砦期晚于河南龙山文化而早于二里头文化，遗址发掘见墙与多重壕沟",
+          "limit": "作者提出的夏代都邑和文献人物对应属于历史解释，不能由考古分期单独确认。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "重开赵春青的分期和城壕说明，核对新砦期的相对位置与作者推断的夏都名称。"
+      }
+    },
+    {
+      "id": "article/china-early/longshan-town-landscapes",
+      "before": null,
+      "after": "e5bc853770b03ece69565736c668427a878df61dc93cfccbb43365753616df21",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "text/topic/china-early/longshan-town-landscapes/title",
+      "before": null,
+      "after": "90c6984e669138ce9e54526448af36f60cbb2ff98f8ba12a8e5f917b2b91a350",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "text/topic/china-early/longshan-town-landscapes/summary",
+      "before": null,
+      "after": "53ff0efd7bc63bebad2ef9f09d1e6f197c9e0e739c6ee2c2acc7941fb4f1bf25",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "block/topic/china-early/longshan-town-landscapes/compare-setting",
+      "before": null,
+      "after": "50819fa986b664b1aeff9bb09f75e1ec33eb48be366be7326cb7f4912f7ffe96",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "event-map/topic/china-early/longshan-town-landscapes",
+      "before": null,
+      "after": "4117a0ca2ea47f7f638b492be4469088153782df9008eac649d0cba60f792347",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "scene/central-plains-longshan-sites",
+      "before": null,
+      "after": "8e4dd5166ce756520db4018ca2e101b6008de21621019b1c08664c3b20277e4d",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "两处遗址的地图入口、说明、方位及精度",
+      "disposition": "把阶地及低平洪泛区放在自然底图上对照，点位是遗址区参照。观察年取时段内代表年。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查表 6 的经纬度与地形栏，并对照陶管平面图，点位不画作遗构或史前路线。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-taosi-settlement/title",
+      "before": null,
+      "after": "b13e0ee5c8b5b394ea5bc3a86d0c975861627f99be0e5428734acdda3c0898d2",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-taosi-settlement/summary",
+      "before": null,
+      "after": "af6dc3172484944d57029d141ed1657cdcd5cbe85e6093a5345070f5c9207b7c",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-taosi-settlement/date",
+      "before": null,
+      "after": "39900cc2b0f63456ca4de634886d97fdd82d60bc4652a2b94a85fbbcaef583b4",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "block/timeline/i-cn-taosi-settlement/p-01",
+      "before": null,
+      "after": "6082e89b7b2d39f6f57091d5d7d75721bb2ede5ac5b1f1f952724665e5221ad3",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-central-plains-longshan-towns/title",
+      "before": null,
+      "after": "12d686bc2999522fdf6785c3d97d1b987642b840b64749244af964e735a352a6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-central-plains-longshan-towns/summary",
+      "before": null,
+      "after": "883dbd3d20eb088be86afd08f18fcb468218d4717650d5767c13d58d5c550f60",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    },
+    {
+      "id": "text/timeline/i-cn-central-plains-longshan-towns/date",
+      "before": null,
+      "after": "4d6288d95f1062c3a59efc47b63a6a223bdfa7e5dc8f08c103f6854ec02171e1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    },
+    {
+      "id": "block/timeline/i-cn-central-plains-longshan-towns/p-01",
+      "before": null,
+      "after": "c8f02f2f51236f05183159ef92417601ae9ae79417fc22bf6be8294b9db7f354",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    },
+    {
+      "id": "event/i-cn-taosi-settlement",
+      "before": null,
+      "after": "b96f2de766b7544308ebc06eac305fb5119b3593b16636c03531041edf1a7405",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "event/i-cn-central-plains-longshan-towns",
+      "before": null,
+      "after": "75efeaed83fd1f743d64b6cdeac8d81060f932a912ba722ade901f4cc8f68e76",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    },
+    {
+      "id": "subject/taosi-culture",
+      "before": null,
+      "after": "f01374003aec5cca57dfa0a5eb85a9811d012ea301fec2ed85a79f35c01eb2e1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺文化的身份、代表遗址与时段",
+      "disposition": "以考古文化身份登记，范围为陶寺中心遗址的分期约数。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        }
+      ]
+    },
+    {
+      "id": "subject/central-plains-longshan-sites",
+      "before": null,
+      "after": "b724a5182c4352c6e8995c2c9a676b8b76a42c32aca8a136029f2d21a12f8704",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山部分城址的区域身份",
+      "disposition": "以区域条目登记已讨论的城址和对照时段，现有资料仅支持地理定位及个别城址分期。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/guchengzhai-fieldwork",
+          "locator": "遗址平面、城墙保存段及图 2–4",
+          "statement": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "result": "supported",
+          "supports": "晚期龙山城址位于溱水东岸阶地，城墙与大型夯土建筑基址的发现",
+          "limit": "建筑基址可比较布局和施工技术，具体用途及制度承继需要额外证据。"
+        }
+      ]
+    },
+    {
+      "id": "world-entry/i-cn-taosi-settlement",
+      "before": null,
+      "after": "9970d4f737e351e8865a2cb71880305a70119a70ebb667cf5bb055529dc63ba6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "陶寺年段背景、定位与阅读关联",
+      "disposition": "按三期框架显示背景，在临汾盆地用概略点定位，阅读入口通往陶寺章。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/taosi-urbanization",
+          "locator": "第 2.1–2.3 节、图 1–2",
+          "statement": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "result": "supported",
+          "supports": "基于碳十四与陶器类型的三期约数，早期居住与仓储分布，中期扩城和晚期遗迹受扰",
+          "limit": "分期界线为约数，早期起点另有更早估计。对权力性质及破坏原因的判断属于作者解释。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-state-indicators",
+          "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+          "statement": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "result": "supported",
+          "supports": "早期外墙仍有未查明部分、中期大城围合约 280 公顷、有明显差异的墓葬组合，以及约前 2400 年的另一早期起点",
+          "limit": "面积按中期城垣围合估计，包含较小围区。墓葬等级不能单独确认政体或传说人物。"
+        },
+        {
+          "source": "source/book/early-china-origins/taosi-identification",
+          "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+          "statement": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "result": "supported",
+          "supports": "发掘者对朱书字形有尧字释读，也记录了分歧，并给出城址经纬度约数",
+          "limit": "释读和地望对应属作者的解释，坐标只作遗址区参照。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查两份分期研究与何驽给出的概略经纬度，不把日期区间转成单年史事。"
+      }
+    },
+    {
+      "id": "world-entry/i-cn-central-plains-longshan-towns",
+      "before": null,
+      "after": "3949529b117f770baeff628d3328f1027bb7d1414855cd0cd7dded841953c7a7",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "中原龙山年段背景、定位与阅读关联",
+      "disposition": "用平粮台的主要活动时段做对照，地理入口用平粮台代表点，关联书卷和观察现场。",
+      "claims": [
+        {
+          "source": "source/book/early-china-origins/longshan-walled-landscape",
+          "locator": "第 2、3.1、5.2 节，图 1–2、表 6",
+          "statement": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "result": "supported",
+          "supports": "古城寨东壕与夯土墙、王城岗大小城的先后及河流阶地背景、平粮台洪泛平原背景和两处城址坐标",
+          "limit": "跨遗址表格汇集不同资料。城市位置、个别样本的年代、壕沟用途及政权身份各有不同证据范围。"
+        },
+        {
+          "source": "source/book/early-china-origins/pingliangtai-drainage",
+          "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+          "statement": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "result": "supported",
+          "supports": "主要活动期约 4200—3900 cal BP，居住区浅沟与南门陶管、反复维修的证据",
+          "limit": "以 1950 年为 BP 基准，换算取整。年代来自样本区间，家庭与社区分层协作是研究解释。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "reviewer": "同一编辑重新查阅资料",
+        "scope": "复查测年区间与表 6 坐标，将事件绑定到对照时段的章节及观察入口。"
+      }
+    }
+  ]
+}

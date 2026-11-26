@@ -4,11 +4,13 @@
   "from": -7100,
   "to": -1500,
   "dateLabel": "约公元前 7100—前 1500 年",
-  "summary": "从早期村落怎样取得食物开始，沿长江下游、陕北和伊洛盆地观察水利、石城、手工业和地位差异怎样改变聚落。最后回到一个需要分开检验的问题：考古发现能说明二里头怎样运作，现有材料能把它叫作夏都吗？",
+  "summary": "从早期村落怎样取得食物开始，沿长江下游、黄土高原、汾河流域和中原观察水利、筑城、手工业和地位差异怎样改变聚落。最后回到二里头，追问道路和作坊怎样运作，以及夏代归属还有哪些证据要核对。",
   "editorialNotice": "卷首部分早于地图的可选年份，可在书目中阅读。书内年代采用所引材料的近似区间。",
   "subjectIds": [
     "liangzhu-regional-state",
     "shimao-complex",
+    "taosi-culture",
+    "central-plains-longshan-sites",
     "erlitou-complex"
   ],
   "sources": [
@@ -70,6 +72,54 @@
       "id": "ur-royal-game",
       "title": "大英博物馆馆藏解说：乌尔王陵出土棋盘",
       "url": "https://artsandculture.google.com/asset/the-royal-game-of-ur/MwE2MMZNSKiTwQ?hl=en",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "taosi-urbanization",
+      "title": "何驽《陶寺：史前中国作为政治中心的城市化实例》",
+      "url": "https://doi.org/10.1016/j.ara.2017.03.001",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "taosi-state-indicators",
+      "title": "何驽《从山西陶寺看中国早期国家的考古指标》",
+      "url": "https://www.socionauki.ru/journal/articles/1841593/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "taosi-identification",
+      "title": "何驽《陶寺考古初显尧舜时代的“天下观”》",
+      "url": "https://www.cass.cn/xueshuchengguo/wenzhexuebulishixuebu/201506/t20150605_2023339.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "longshan-walled-landscape",
+      "title": "Zhuang 等《古城寨及中原龙山晚期城址的水环境》",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10162415/1/1-s2.0-S2352226722000794-main.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "wangchenggang-fieldwork",
+      "title": "方燕明《河南登封王城岗遗址考古新发现与早夏文化研究》",
+      "url": "https://www.whycyjy.sdu.edu.cn/__local/4/D9/5C/AD879AE60CB1EF8A30961F2DE5B_22912360_1705B3.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "guchengzhai-fieldwork",
+      "title": "河南省文物考古研究院：古城寨遗址发掘资料",
+      "url": "https://en.hnswwkgyjy.cn/archaeologicalDiscoveries/details.html?id=7262304753864937472",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pingliangtai-drainage",
+      "title": "李春霞等《平粮台陶管排水与东亚季风区早期水管理》",
+      "url": "https://discovery.ucl.ac.uk/id/eprint/10175539/1/s44221-023-00114-4.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "xinzhai-period",
+      "title": "赵春青《新砦为早期夏都说》",
+      "url": "https://www.cass.cn/xueshuchengguo/xscg_lsyjy/202509/t20250916_5915075.shtml",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -323,7 +373,219 @@
             }
           ]
         }
+      ],
+      "related": [
+        {
+          "id": "taosi-fen-river",
+          "book": "early-china-origins",
+          "chapter": "taosi-walls-and-burials",
+          "label": "同期延伸 · 汾河流域的陶寺",
+          "relation": "further",
+          "display": "从陕北石墙转向汾河东岸的夯土城址，看看同期另一处大型聚落怎样安排居住、仓储和墓地。",
+          "evidence": [
+            {
+              "sourceId": "taosi-urbanization",
+              "locator": "第 2.1–2.3 节、图 1–2",
+              "note": "陶寺早、中期的营建和功能分区"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "同期阅读入口和材料支持的建筑布局。",
+            "checkedAt": "2026-11-26"
+          }
+        }
       ]
+    },
+    {
+      "id": "taosi-walls-and-burials",
+      "from": -2300,
+      "to": -1900,
+      "dateLabel": "约公元前 2300—前 1900 年",
+      "kind": "narrative",
+      "title": "陶寺：汾河谷地的城墙与墓地",
+      "summary": "从早期围合、中期扩城到晚期改建和受扰的遗迹，辨认陶寺的社会分层与聚落变化。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "一座城有几层时间",
+          "text": "从山西襄汾的陶寺向西望，是临汾盆地里的汾河谷地。考古研究用陶器组合、地层关系和碳十四测年辨认聚落的变化。何驽在一份研究中把早期约定在前 2300—前 2100 年，中期在前 2100—前 2000 年，晚期在前 2000—前 1900 年。他在另一份研究中把早期起点上推到约前 2400 年。本章采用前一组约数，城墙和房屋的营建还要看各自的层位。",
+          "refs": [
+            {
+              "sourceId": "taosi-urbanization",
+              "locator": "第 2.1–2.3 节、图 1–2",
+              "note": "三期约数和分期依据"
+            },
+            {
+              "sourceId": "taosi-state-indicators",
+              "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+              "note": "早期起点也有约前 2400 年的估计"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "早期围合与中期扩城",
+          "text": "早期的中心围区先见沟，后来出现夯土墙，外围还有居住区和成组的储藏坑。早期外墙仍有未查明的部分。到中期，考古队辨认出约 280 公顷的大城围合范围，其中包括南部一处较小围区。沿着两期的平面图，可以看到围合空间怎样扩大，也能看出城墙所圈范围与整个聚落的范围口径不同。",
+          "refs": [
+            {
+              "sourceId": "taosi-urbanization",
+              "locator": "第 2.1 节、图 1",
+              "note": "早期围区、居住与储藏分布"
+            },
+            {
+              "sourceId": "taosi-state-indicators",
+              "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+              "note": "中期围合范围与早期城墙的发掘限度"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "墓地里的地位差异",
+          "text": "在早期墓地，有的大墓随葬彩绘陶盘、玉器和石磬，许多小墓随葬物很少或没有。同一片墓地里的尺度和器物组合差别很大，再对照遗址里的大型夯土基址、普通居住区和储藏坑，社会分层便有了几种相互参照的线索。",
+          "refs": [
+            {
+              "sourceId": "taosi-urbanization",
+              "locator": "第 2.1 节、图 1",
+              "note": "居住、储藏与墓地在聚落中的关系"
+            },
+            {
+              "sourceId": "taosi-state-indicators",
+              "locator": "History of Archaeology at the Site of Taosi，The Taosi City Wall，图 2–3",
+              "note": "不同墓葬尺度及器物组合"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "晚期遗迹与传世名字",
+          "text": "晚期地层里有遭破坏的建筑与墓葬，也有部分设施重建的线索。破坏由谁实施、前后变化该如何解释，仍须从各处遗迹继续追查。后世文献中的尧都常被拿来与陶寺对读，发掘者也提出过陶器朱书与尧有关的解释。字形的释读仍有分歧，地层能够确定的是聚落活动的先后。",
+          "refs": [
+            {
+              "sourceId": "taosi-urbanization",
+              "locator": "第 2.3 节",
+              "note": "晚期建筑与墓葬的扰动及部分重建"
+            },
+            {
+              "sourceId": "taosi-identification",
+              "locator": "多种证据显示陶寺都城遗址就是尧都一节，朱书陶文与约 N35°53′、E111°30′ 段",
+              "note": "尧都对应是一种解释，朱书释读有分歧"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "central-plains-longshan-towns",
+      "from": -2250,
+      "to": -1950,
+      "dateLabel": "约公元前 2250—前 1950 年 · 城址对照时段",
+      "kind": "narrative",
+      "title": "中原龙山：河边的城墙、壕沟与陶管",
+      "summary": "对照王城岗、古城寨和平粮台的营建方式，再从新砦的考古分期走向二里头。",
+      "spatialThesis": "颍河流域的阶地和豫东低平的洪泛平原，给筑城和排水带来不同的约束。",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "王城岗：小城与大城",
+          "text": "在今天河南登封的王城岗，城址坐落在颍河和五渡河一带的阶地上。发掘辨认出并列的东、西小城，东侧小城所存很少。发掘者把小城使用期放在该遗址的龙山二期。带壕沟的大城建得较晚，也属河南龙山文化晚期。把这些城址放回各自的层位，才能看出城垣和聚落布局经历了多次调整。",
+          "refs": [
+            {
+              "sourceId": "longshan-walled-landscape",
+              "locator": "图 1、表 6",
+              "note": "王城岗的河流阶地、大小城先后及大城壕沟"
+            },
+            {
+              "sourceId": "wangchenggang-fieldwork",
+              "locator": "《东方考古研究通讯》第五期，第 37 页",
+              "note": "小城遗迹的保存情况、小城使用期与大城的相对先后"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "古城寨：在低处先筑墙基",
+          "text": "在新密的古城寨，晚期龙山城址坐落在溱水东岸阶地。发掘者发现，筑墙前有些地段低洼不平，营建者用宽厚的夯土基础找平，再往上筑墙。城内还发现大型夯土建筑基址。东壕的沉积和墙基的做法，让人看到筑城者怎样利用、改造原有地形。",
+          "refs": [
+            {
+              "sourceId": "longshan-walled-landscape",
+              "locator": "第 3.1 节、图 2–4",
+              "note": "低洼墙址、夯土找平与东壕发掘"
+            },
+            {
+              "sourceId": "guchengzhai-fieldwork",
+              "locator": "遗址平面、城墙保存段及图 2–4",
+              "note": "城址期别、阶地和大型夯土基址"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "平粮台：雨水怎样出城",
+          "text": "豫东平原上的淮阳平粮台也有土墙和城门。成排房屋旁的浅沟把雨水导向南门附近，门区又发现陶管与沟槽。发掘层位显示，沟和陶管经过多次维修、更换。测年研究把这里的主要活动放在约前 2250—前 1950 年，多数陶管相关样本落在这个时段的较晚部分。研究者据设施分布提出，住户可能分别维护屋旁沟渠，门区排水则需要更广的协作。",
+          "refs": [
+            {
+              "sourceId": "pingliangtai-drainage",
+              "locator": "Occupation, hydraulic technologies and landscape，图 3–5",
+              "note": "主要活动年代、两级排水、维修和组织方式的解释"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "新砦：从地层读出过渡",
+          "text": "新密新砦也有城墙和多重壕沟。研究者从遗存组合中辨认出新砦期，将它放在河南龙山文化晚期与二里头文化之间。这个次序给陶器与建筑变化提供了一把时间尺。若要把某层遗存对应到传世记载中的夏代都邑或君主，还需要能确认名称与年代的证据。",
+          "refs": [
+            {
+              "sourceId": "xinzhai-period",
+              "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+              "note": "新砦期的相对位置、城壕以及都邑解释的性质"
+            }
+          ]
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "central-plains-longshan-sites",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "王城岗",
+              "placeId": "wangchenggang"
+            },
+            {
+              "blockId": "p-03",
+              "text": "平粮台",
+              "placeId": "main"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-erlitou",
+          "book": "early-china-origins",
+          "chapter": "erlitou-evidence-and-xia",
+          "label": "接着阅读 · 二里头的道路与作坊",
+          "relation": "further",
+          "display": "沿新砦期与二里头文化的相对年代向后读，看看伊洛盆地的遗迹怎样帮助研究者理解二里头。",
+          "evidence": [
+            {
+              "sourceId": "xinzhai-period",
+              "locator": "开篇的新砦期定位及新砦遗址发现城墙与壕沟一节",
+              "note": "河南龙山晚期、新砦期和二里头文化的相对顺序"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "考古分期和延伸阅读入口。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "spatialThesisId": "spatial-thesis"
     },
     {
       "id": "erlitou-evidence-and-xia",

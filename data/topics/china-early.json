@@ -119,6 +119,89 @@
       }
     },
     {
+      "id": "longshan-town-landscapes",
+      "year": -2075,
+      "date": "约公元前 2250—前 1950 年 · 城址对照时段",
+      "title": "中原龙山城址：从颍河阶地到豫东平原",
+      "summary": "用两处城址的位置对照河流阶地与低平洪泛区。",
+      "place": {
+        "label": "平粮台 · 低平洪泛区里的土城与排水沟管",
+        "lon": 114.933971,
+        "lat": 33.713598
+      },
+      "sources": [
+        {
+          "id": "longshan-walled-landscape",
+          "title": "Zhuang 等《古城寨及中原龙山晚期城址的水环境》",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/10162415/1/1-s2.0-S2352226722000794-main.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pingliangtai-drainage",
+          "title": "李春霞等《平粮台陶管排水与东亚季风区早期水管理》",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/10175539/1/s44221-023-00114-4.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "compare-setting",
+          "title": "顺着地势读城址",
+          "text": "王城岗坐落在颍河与五渡河之间的阶地，晚期大城外见壕沟。平粮台处在豫东洪泛平原稍高的位置，城内有屋旁沟渠与南门陶管。",
+          "refs": [
+            {
+              "sourceId": "longshan-walled-landscape",
+              "locator": "图 1、表 6",
+              "note": "两处城址地理参照、王城岗阶地与平粮台低地"
+            },
+            {
+              "sourceId": "pingliangtai-drainage",
+              "locator": "图 3–5",
+              "note": "平粮台南门陶管与居住区排水"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-central-plains-longshan-towns",
+        "title": "中原龙山城址：从颍河阶地到豫东平原",
+        "summary": "王城岗与平粮台各建在怎样的地形上？",
+        "places": [
+          {
+            "id": "wangchenggang",
+            "name": "王城岗",
+            "role": "颍河与五渡河之间的阶地城址",
+            "lon": 113.138091,
+            "lat": 34.406306
+          }
+        ],
+        "participants": [
+          {
+            "name": "王城岗与平粮台居民",
+            "role": "两处城址各自的营建与使用者"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "longshan-walled-landscape",
+            "locator": "图 1、表 6",
+            "note": "两处城址地理参照、王城岗阶地与平粮台低地"
+          },
+          {
+            "sourceId": "pingliangtai-drainage",
+            "locator": "图 3–5",
+            "note": "平粮台南门陶管与居住区排水"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "城址区参照点、地形与工程遗迹。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
       "id": "bronze",
       "year": -1046,
       "date": "约前1600—前256",
