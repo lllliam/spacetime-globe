@@ -1292,5 +1292,449 @@
       "scope": "年度口径、证据限制与相应读章。",
       "checkedAt": "2026-11-26"
     }
+  },
+  "i-cn-early-eastern-zhou-royal-city": {
+    "title": "平王东迁与洛阳王城",
+    "date": "公元前 8 世纪后段 · 早期东周",
+    "start": -770,
+    "end": -701,
+    "context": true,
+    "summary": "平王东迁有通行年序和基于简文的其他编年方案，洛阳王城的营建也跨越多个时期。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "这里使用早期东周的阅读区间。前 770 年是通行分期起点，《系年》所记拥立、驻留和再东徙另有解释。",
+        "refs": [
+          {
+            "sourceId": "shiji-zhou-eastward",
+            "locator": "周幽王、周平王与周桓王节",
+            "note": "平王迁雒邑、周桓王与郑交恶及伐郑的传世年序"
+          },
+          {
+            "sourceId": "xinian-eastward",
+            "locator": "第 92–94 页，第四节《系年》第二章简文及分句讨论",
+            "note": "携惠王、晋文侯、先驻京师后东徙等简文线索"
+          },
+          {
+            "sourceId": "eastward-reconstructed",
+            "locator": "第 193–194 页，第四节编年方案及东周始年讨论",
+            "note": "论文将《系年》与郑国简文互读，提出约前 759 年东徙的一种重建"
+          },
+          {
+            "sourceId": "royal-city-archaeology",
+            "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+            "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "shiji-zhou-eastward",
+        "title": "《史记》卷四《周本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7004",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "xinian-eastward",
+        "title": "贾连翔《清华简〈系年〉前四章发微》",
+        "url": "https://www.ctwx.tsinghua.edu.cn/__local/F/D0/00/EB79706B6AA558838BBA762F309_450D8DBD_C9867.pdf?e=.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "eastward-reconstructed",
+        "title": "杨博《由清华简郑国史料重拟两周之际编年》",
+        "url": "https://www.xsyk021.com/fileXSYK/journal/article/xsyk/2021/8/PDF/202108yangbo.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "royal-city-archaeology",
+        "title": "徐昭峰等《东周王城研究》成果说明",
+        "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-zheng-capital-landscape": {
+    "title": "春秋早段的郑国与新郑",
+    "date": "约公元前 750—前 650 年 · 春秋早段",
+    "start": -750,
+    "end": -650,
+    "context": true,
+    "summary": "从新郑都邑看周郑政治往来所在的地区。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "以考古城址作区域参照，设阅读区间配合周郑史事。故城另有后期郑国和韩国遗存。",
+        "refs": [
+          {
+            "sourceId": "zuo-yin",
+            "locator": "隐公三年传，周郑交质与取温麦、成周禾",
+            "note": "传文交代王廷卿士、交质及周郑争执"
+          },
+          {
+            "sourceId": "zuo-huan",
+            "locator": "桓公五年经与传，蔡卫陈从王、战于繻葛及夜劳王",
+            "note": "经记录随王伐郑者，传补战地、受伤和战后劳王"
+          },
+          {
+            "sourceId": "zheng-han-fieldwork",
+            "locator": "第 64–65 页概况、公共墓地与祭祀遗址，图 1",
+            "note": "郑韩先后建都，发掘揭示公共墓地、作坊和春秋郑国祭祀遗址"
+          },
+          {
+            "sourceId": "royal-city-archaeology",
+            "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+            "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-yin",
+        "title": "《左传·隐公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/隱公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zuo-huan",
+        "title": "《左传·桓公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/桓公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zheng-han-fieldwork",
+        "title": "樊温泉《郑韩故城近年来重要的考古发现与研究》",
+        "url": "https://www.hnswwkgyjy.cn/ueditor/php/upload/file/20220524/1653363574267571.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "royal-city-archaeology",
+        "title": "徐昭峰等《东周王城研究》成果说明",
+        "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-linzi-city-archaeology": {
+    "title": "临淄齐故城的营建",
+    "date": "约公元前 550—前 350 年 · 春秋晚段至战国中段的阅读区间",
+    "start": -550,
+    "end": -350,
+    "context": true,
+    "summary": "临淄齐都遗址保存了大小城和多期建筑遗存。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "设一段阅读区间对照大小城的分期。较早占用和城墙修筑可以分别讨论。《齐太公世家》记述齐桓公的活动早于这里的部分建筑遗存。",
+        "refs": [
+          {
+            "sourceId": "linzi-city-phases",
+            "locator": "开篇地理位置、大小城分期及南北功能区",
+            "note": "临淄故城处在淄河与系水之间，文章提出大城始于春秋晚期、小城始于战国早中期"
+          },
+          {
+            "sourceId": "shiji-qi-huan",
+            "locator": "齐桓公节，继位、管仲受任、援卫、召陵与葵丘",
+            "note": "记载齐桓公政权的形成、用臣与参与的列国交涉"
+          },
+          {
+            "sourceId": "linzi-city-survey",
+            "locator": "大小城相对位置、图 1-2 及分期讨论",
+            "note": "大城与西南小城的相对位置、水系及一项较早大城的年代解释"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "linzi-city-phases",
+        "title": "徐团辉《齐国故城小城的独特布局》",
+        "url": "https://www.cssn.cn/skgz/bwyc/202310/t20231027_5693144.shtml",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qi-huan",
+        "title": "《史记》卷三十二《齐太公世家》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷032",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "linzi-city-survey",
+        "title": "山东省志·文物库《临淄齐国故城》",
+        "url": "https://shandong-chorography.org/database/a/section/70/article/75/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-beizhao-jin-cemetery": {
+    "title": "北赵晋侯墓地与曲村遗存",
+    "date": "约公元前 850—前 730 年 · 两周之间的阅读区间",
+    "start": -850,
+    "end": -730,
+    "context": true,
+    "summary": "曲村—天马遗址内的高等级墓地留有西周晋人青铜铭器。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "设两周之际的阅读区间，墓地各组年代和器物王年需另核。",
+        "refs": [
+          {
+            "sourceId": "beizhao-excavation",
+            "locator": "图一北赵墓地位置及早期晋都地望讨论",
+            "note": "天马、曲村、北赵和墓地位置及晋早期城邑地望的不同看法"
+          },
+          {
+            "sourceId": "jin-su-bells",
+            "locator": "北赵 8 号墓与十六钟合读段",
+            "note": "两钟由 8 号墓发掘、另十四件经抢救入藏，铭文可按序联读"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "beizhao-excavation",
+        "title": "高去寻《北赵晋国墓地发掘的学术意义》",
+        "url": "https://www1.ihp.sinica.edu.tw/storage/publish3L/5-4.pdf",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "jin-su-bells",
+        "title": "上海博物馆《晋侯稣钟》",
+        "url": "https://www.shanghaimuseum.net/mu/asset2/20151230150415016/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-battle-of-zhege": {
+    "title": "周桓王伐郑与繻葛之战",
+    "date": "公元前 707 年 · 鲁桓公五年",
+    "start": -707,
+    "end": -707,
+    "summary": "《春秋》记蔡、卫、陈随周王伐郑，《左传》补写繻葛交战和战后问候。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用鲁桓公五年的通行换算。绘图所需的战场地点和军队行程有待单独校核。",
+        "refs": [
+          {
+            "sourceId": "zuo-huan",
+            "locator": "桓公五年经与传，蔡卫陈从王、战于繻葛及夜劳王",
+            "note": "经记录随王伐郑者，传补战地、受伤和战后劳王"
+          },
+          {
+            "sourceId": "shiji-zhou-eastward",
+            "locator": "周幽王、周平王与周桓王节",
+            "note": "平王迁雒邑、周桓王与郑交恶及伐郑的传世年序"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-huan",
+        "title": "《左传·桓公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/桓公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-zhou-eastward",
+        "title": "《史记》卷四《周本纪》",
+        "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7004",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-shaoling-covenant": {
+    "title": "诸侯与楚盟于召陵",
+    "date": "公元前 656 年 · 鲁僖公四年",
+    "start": -656,
+    "end": -656,
+    "summary": "齐、鲁等诸侯在蔡、楚方向行动，楚使屈完与诸侯在召陵结盟。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用鲁僖公四年的通行换算。经书记会盟，传文另有行动和交涉的叙述。",
+        "refs": [
+          {
+            "sourceId": "zuo-xi",
+            "locator": "僖公三、四、八、九、二十三至二十五、二十七至二十八、三十三年经传",
+            "note": "会盟参加者、召陵与城濮进程、晋王室关系及崤之战的史传叙述"
+          },
+          {
+            "sourceId": "shiji-qi-huan",
+            "locator": "齐桓公节，继位、管仲受任、援卫、召陵与葵丘",
+            "note": "记载齐桓公政权的形成、用臣与参与的列国交涉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-xi",
+        "title": "《左传·僖公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qi-huan",
+        "title": "《史记》卷三十二《齐太公世家》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷032",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-kuiqiu-covenant": {
+    "title": "葵丘会与盟",
+    "date": "公元前 651 年 · 鲁僖公九年",
+    "start": -651,
+    "end": -651,
+    "summary": "经文分别记夏会与秋盟，夏会参与者包括周廷官员和多国诸侯。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用鲁僖公九年的通行换算。夏会的参加名单、秋盟的记事和后世对霸业的评价各有范围。",
+        "refs": [
+          {
+            "sourceId": "zuo-xi",
+            "locator": "僖公三、四、八、九、二十三至二十五、二十七至二十八、三十三年经传",
+            "note": "会盟参加者、召陵与城濮进程、晋王室关系及崤之战的史传叙述"
+          },
+          {
+            "sourceId": "shiji-qi-huan",
+            "locator": "齐桓公节，继位、管仲受任、援卫、召陵与葵丘",
+            "note": "记载齐桓公政权的形成、用臣与参与的列国交涉"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-xi",
+        "title": "《左传·僖公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "shiji-qi-huan",
+        "title": "《史记》卷三十二《齐太公世家》",
+        "url": "https://zh.wikisource.org/zh-hans/史記/卷032",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-battle-of-chengpu": {
+    "title": "城濮之战",
+    "date": "公元前 632 年 · 鲁僖公二十八年",
+    "start": -632,
+    "end": -632,
+    "summary": "《春秋》记晋、齐、宋、秦一方与楚交战，楚军败绩。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用鲁僖公二十八年的通行换算。正文同时列出经传叙述与子犯编钟的研究入口。",
+        "refs": [
+          {
+            "sourceId": "zuo-xi",
+            "locator": "僖公三、四、八、九、二十三至二十五、二十七至二十八、三十三年经传",
+            "note": "会盟参加者、召陵与城濮进程、晋王室关系及崤之战的史传叙述"
+          },
+          {
+            "sourceId": "zifan-bells",
+            "locator": "第 68 页起，传世战事叙述与子犯编钟铭文",
+            "note": "以子犯编钟铭文与传世记载互证和对读，讨论同一人物的不同形象"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-xi",
+        "title": "《左传·僖公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "zifan-bells",
+        "title": "蔡哲茂《从故宫藏〈子犯编钟〉谈子犯的功劳与形象》",
+        "url": "https://www.npm.gov.tw/NewChineseArtDownload.ashx?bid=4177",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
+  },
+  "i-cn-jiantu-covenant": {
+    "title": "诸侯盟于践土",
+    "date": "公元前 632 年 · 鲁僖公二十八年",
+    "start": -632,
+    "end": -632,
+    "summary": "城濮之战之后，鲁、晋、齐等国会于践土，鲁公又到王所在之处朝见。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "采用鲁僖公二十八年的通行换算。城濮是交战，践土是同年其后的会盟，经文分列。",
+        "refs": [
+          {
+            "sourceId": "zuo-xi",
+            "locator": "僖公三、四、八、九、二十三至二十五、二十七至二十八、三十三年经传",
+            "note": "会盟参加者、召陵与城濮进程、晋王室关系及崤之战的史传叙述"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "zuo-xi",
+        "title": "《左传·僖公》",
+        "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "年次或背景区间口径、证据范围及阅读关联。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

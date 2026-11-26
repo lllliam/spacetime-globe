@@ -7307,5 +7307,259 @@
         "checkedAt": "2026-11-26"
       }
     }
+  },
+  {
+    "id": "luoyang-royal-city-and-chengzhou",
+    "topicEvent": "i-cn-early-eastern-zhou-royal-city",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "公元前 8 世纪后段 · 早期东周",
+      "question": "瀍河和涧河两处遗址区分别留下了什么？",
+      "note": "以涧河与瀍河的相对位置作参照。瀍河一带有西周遗存，东周王城在涧河一带，王城的内外城也分期营建。",
+      "limit": "两点定位遗址研究区。平王初次驻地、历次行程与各期城墙范围需要进一步查证。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "chan"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "royal-city-archaeology",
+              "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+              "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+            }
+          ]
+        },
+        "chan": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "royal-city-archaeology",
+              "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+              "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "royal-city-archaeology",
+          "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+          "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+        },
+        {
+          "sourceId": "xinian-eastward",
+          "locator": "第 92–94 页，第四节《系年》第二章简文及分句讨论",
+          "note": "携惠王、晋文侯、先驻京师后东徙等简文线索"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "地形、遗址区点位及其证据边界。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "wangcheng-and-zheng-capital",
+    "topicEvent": "i-cn-zheng-capital-landscape",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 750—前 650 年 · 春秋早段",
+      "question": "王室和郑国都邑各处在怎样的河流环境里？",
+      "note": "王城遗存位于洛阳涧河一带。郑韩故城在双洎河与黄水河交汇处，春秋与战国都邑的营建留下多期遗存。",
+      "limit": "两个点为都邑区域参照。繻葛交战地点与行军路线需要另证，后期建筑分布以发掘报告为准。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "wangcheng"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "zheng-han-site",
+              "locator": "双洎河、黄水河交汇及城址分区、出土器物段",
+              "note": "城址位置、郑韩相继建都、城内作坊和墓地的概略分布"
+            },
+            {
+              "sourceId": "zheng-han-fieldwork",
+              "locator": "第 64–65 页概况、公共墓地与祭祀遗址，图 1",
+              "note": "郑韩先后建都，发掘揭示公共墓地、作坊和春秋郑国祭祀遗址"
+            }
+          ]
+        },
+        "wangcheng": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "royal-city-archaeology",
+              "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+              "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "zheng-han-site",
+          "locator": "双洎河、黄水河交汇及城址分区、出土器物段",
+          "note": "城址位置、郑韩相继建都、城内作坊和墓地的概略分布"
+        },
+        {
+          "sourceId": "zheng-han-fieldwork",
+          "locator": "第 64–65 页概况、公共墓地与祭祀遗址，图 1",
+          "note": "郑韩先后建都，发掘揭示公共墓地、作坊和春秋郑国祭祀遗址"
+        },
+        {
+          "sourceId": "royal-city-archaeology",
+          "locator": "成果观点第 1、3、4 点，洛阳诸址及内外城分期",
+          "note": "瀍河一带早期成周研究区、涧河一带东周王城，及王城宫城与郭城分期"
+        },
+        {
+          "sourceId": "zuo-huan",
+          "locator": "桓公五年经与传，蔡卫陈从王、战于繻葛及夜劳王",
+          "note": "经记录随王伐郑者，传补战地、受伤和战后劳王"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "地形、遗址区点位及其证据边界。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "linzi-between-the-rivers",
+    "topicEvent": "i-cn-linzi-city-archaeology",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 550—前 350 年 · 春秋晚段至战国中段的阅读区间",
+      "question": "临淄故城靠着什么水系？保存下来的墙垣有多早？",
+      "note": "临淄故城在淄河和系水之间。小城位于大城西南。东西两侧的水系和两个城址区可以对照，现存墙垣的初建年代仍有不同意见。",
+      "limit": "两点用于辨认较晚形成的两个城址区，底图展示现代地形。古河道、各期墙垣和齐桓公时期建筑须据层位判断。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "small-city"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "开篇地理位置、大小城分期及南北功能区",
+              "note": "临淄故城处在淄河与系水之间，文章提出大城始于春秋晚期、小城始于战国早中期"
+            },
+            {
+              "sourceId": "linzi-city-survey",
+              "locator": "大小城相对位置、图 1-2 及分期讨论",
+              "note": "大城与西南小城的相对位置、水系及一项较早大城的年代解释"
+            }
+          ]
+        },
+        "small-city": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "linzi-city-phases",
+              "locator": "开篇地理位置、大小城分期及南北功能区",
+              "note": "临淄故城处在淄河与系水之间，文章提出大城始于春秋晚期、小城始于战国早中期"
+            },
+            {
+              "sourceId": "linzi-city-survey",
+              "locator": "大小城相对位置、图 1-2 及分期讨论",
+              "note": "大城与西南小城的相对位置、水系及一项较早大城的年代解释"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "linzi-city-phases",
+          "locator": "开篇地理位置、大小城分期及南北功能区",
+          "note": "临淄故城处在淄河与系水之间，文章提出大城始于春秋晚期、小城始于战国早中期"
+        },
+        {
+          "sourceId": "linzi-city-survey",
+          "locator": "大小城相对位置、图 1-2 及分期讨论",
+          "note": "大城与西南小城的相对位置、水系及一项较早大城的年代解释"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "地形、遗址区点位及其证据边界。",
+        "checkedAt": "2026-11-26"
+      }
+    }
+  },
+  {
+    "id": "beizhao-jin-cemetery-landscape",
+    "topicEvent": "i-cn-beizhao-jin-cemetery",
+    "observation": {
+      "kind": "comparison",
+      "status": "available",
+      "dateLabel": "约公元前 850—前 730 年 · 两周之间的阅读区间",
+      "question": "墓区和周边遗址各能为早期晋国提供怎样的证据？",
+      "note": "北赵高等级墓地位于曲村—天马遗址中。把墓地和曲村一带分开看，可以对应研究中的墓葬及聚落调查。",
+      "limit": "位置用于对照遗址研究区，古都边界和翼、绛等古地名的具体对应仍需考辨。",
+      "naturalOnly": true,
+      "places": [
+        "main",
+        "qucun"
+      ],
+      "placeNotes": {
+        "main": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "beizhao-excavation",
+              "locator": "图一北赵墓地位置及早期晋都地望讨论",
+              "note": "天马、曲村、北赵和墓地位置及晋早期城邑地望的不同看法"
+            },
+            {
+              "sourceId": "jin-su-bells",
+              "locator": "北赵 8 号墓与十六钟合读段",
+              "note": "两钟由 8 号墓发掘、另十四件经抢救入藏，铭文可按序联读"
+            }
+          ]
+        },
+        "qucun": {
+          "precision": "reference",
+          "evidence": [
+            {
+              "sourceId": "beizhao-excavation",
+              "locator": "图一北赵墓地位置及早期晋都地望讨论",
+              "note": "天马、曲村、北赵和墓地位置及晋早期城邑地望的不同看法"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "sourceId": "beizhao-excavation",
+          "locator": "图一北赵墓地位置及早期晋都地望讨论",
+          "note": "天马、曲村、北赵和墓地位置及晋早期城邑地望的不同看法"
+        },
+        {
+          "sourceId": "jin-su-bells",
+          "locator": "北赵 8 号墓与十六钟合读段",
+          "note": "两钟由 8 号墓发掘、另十四件经抢救入藏，铭文可按序联读"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "地形、遗址区点位及其证据边界。",
+        "checkedAt": "2026-11-26"
+      }
+    }
   }
 ]

@@ -7302,6 +7302,28 @@
     {
       "map": {
         "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qi-huan-and-early-alliances"
+      },
+      "range": {
+        "from": -685,
+        "to": -643
+      },
+      "relation": "related",
+      "scope": "从齐国底图主体查齐桓公时期的会盟和临淄考古分期资料。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图主体、覆盖时段与目标读章。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qi-jiang-era-linzi"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Jin"
       },
       "target": {
@@ -7316,6 +7338,50 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Jin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "chengpu-and-jiantu"
+      },
+      "range": {
+        "from": -636,
+        "to": -628
+      },
+      "relation": "related",
+      "scope": "从晋国底图主体查晋文公时期、城濮之战与践土会盟。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图主体、覆盖时段与目标读章。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "spring-autumn-jin"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Jin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "jin-lineages-and-beizhao"
+      },
+      "range": {
+        "from": -750,
+        "to": -651
+      },
+      "relation": "related",
+      "scope": "从晋国底图主体查曲沃支系与较早的晋侯墓地线索。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图主体、覆盖时段与目标读章。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "spring-autumn-jin"
     },
     {
       "map": {
@@ -7478,6 +7544,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zheng"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "zhou-zheng-and-zhege"
+      },
+      "range": {
+        "from": -750,
+        "to": -701
+      },
+      "relation": "related",
+      "scope": "从郑国底图主体查周郑关系与郑韩故城，版图用于时段参照。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图主体、覆盖时段与目标读章。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "spring-autumn-zheng-state"
     },
     {
       "map": {

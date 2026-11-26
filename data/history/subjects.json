@@ -1209,6 +1209,167 @@
         "scope": "遗址区域、出土材料与年代范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "eastern-zhou-royal-city-area",
+      "type": "region",
+      "name": "洛阳涧河东周王城遗址区",
+      "aliases": [
+        "东周王城",
+        "洛阳王城",
+        "涧河"
+      ],
+      "range": {
+        "from": -770,
+        "to": -256,
+        "dateLabel": "公元前 8 世纪后段至前 256 年 · 东周时期",
+        "approximate": true
+      },
+      "scope": "保护与研究所指遗址区。早期王城、战国郭城及平王首次驻地分别按各自证据核对。",
+      "sources": [
+        {
+          "id": "royal-city-archaeology",
+          "title": "徐昭峰等《东周王城研究》成果说明",
+          "url": "https://www.nopss.gov.cn/n1/2021/1026/c373410-32264810.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "xinian-eastward",
+          "title": "贾连翔《清华简〈系年〉前四章发微》",
+          "url": "https://www.ctwx.tsinghua.edu.cn/__local/F/D0/00/EB79706B6AA558838BBA762F309_450D8DBD_C9867.pdf?e=.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体身份、阅读时段、地理材料及范围限制。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "spring-autumn-zheng-state",
+      "type": "polity",
+      "name": "春秋的郑国",
+      "aliases": [
+        "郑国",
+        "郑",
+        "郑韩故城"
+      ],
+      "range": {
+        "from": -750,
+        "to": -650,
+        "dateLabel": "约公元前 750—前 650 年 · 本章阅读范围",
+        "approximate": true
+      },
+      "scope": "以周郑关系和新郑都邑为阅读重点；遗址还含更晚的郑国、韩国遗存。",
+      "sources": [
+        {
+          "id": "zuo-yin",
+          "title": "《左传·隐公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/隱公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zuo-huan",
+          "title": "《左传·桓公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/桓公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zheng-han-fieldwork",
+          "title": "樊温泉《郑韩故城近年来重要的考古发现与研究》",
+          "url": "https://www.hnswwkgyjy.cn/ueditor/php/upload/file/20220524/1653363574267571.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体身份、阅读时段、地理材料及范围限制。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qi-jiang-era-linzi",
+      "type": "polity",
+      "name": "齐桓公时期的齐国",
+      "aliases": [
+        "齐国",
+        "姜姓齐国",
+        "临淄"
+      ],
+      "range": {
+        "from": -685,
+        "to": -643,
+        "dateLabel": "公元前 685—前 643 年 · 齐桓公时期"
+      },
+      "scope": "以齐桓公和诸侯会盟为切入点，临淄现存大小城的年代须另核，底图疆域是时段示意。",
+      "sources": [
+        {
+          "id": "shiji-qi-huan",
+          "title": "《史记》卷三十二《齐太公世家》",
+          "url": "https://zh.wikisource.org/zh-hans/史記/卷032",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zuo-xi",
+          "title": "《左传·僖公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "linzi-city-phases",
+          "title": "徐团辉《齐国故城小城的独特布局》",
+          "url": "https://www.cssn.cn/skgz/bwyc/202310/t20231027_5693144.shtml",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体身份、阅读时段、地理材料及范围限制。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "spring-autumn-jin",
+      "type": "polity",
+      "name": "春秋前段的晋国",
+      "aliases": [
+        "晋国",
+        "晋",
+        "曲沃",
+        "北赵晋侯墓地"
+      ],
+      "range": {
+        "from": -770,
+        "to": -628,
+        "dateLabel": "公元前 770—前 628 年 · 本批所涉时段"
+      },
+      "scope": "以宗室竞争和晋文公时期为切入点，北赵晋侯墓地用于回看较早的晋国。底图疆域是时段示意。",
+      "sources": [
+        {
+          "id": "shiji-jin",
+          "title": "《史记》卷三十九《晋世家》",
+          "url": "https://zh.wikisource.org/zh-hans/史記/卷039",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zuo-xi",
+          "title": "《左传·僖公》",
+          "url": "https://zh.wikisource.org/zh-hans/春秋左氏傳/僖公",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "beizhao-excavation",
+          "title": "高去寻《北赵晋国墓地发掘的学术意义》",
+          "url": "https://www1.ihp.sinica.edu.tw/storage/publish3L/5-4.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "主体身份、阅读时段、地理材料及范围限制。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {
