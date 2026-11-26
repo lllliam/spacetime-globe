@@ -1,0 +1,10 @@
+{
+  "appId": "io.github.lllliam.spacetimeglobe",
+  "appName": "时空地球",
+  "webDir": "web",
+  "backgroundColor": "#0a1016",
+  "ios": {
+    "contentInset": "never",
+    "zoomEnabled": false
+  }
+}

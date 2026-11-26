@@ -1,0 +1,14 @@
+{
+  "name": "spacetime-globe-ios",
+  "private": true,
+  "scripts": {
+    "prepare:web": "node prepare-web.mjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.3",
+    "@capacitor/ios": "8.6.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.3"
+  }
+}

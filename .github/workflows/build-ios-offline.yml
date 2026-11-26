@@ -1,0 +1,71 @@
+name: Build offline iOS IPA
+
+on:
+  push:
+    branches: [codex/ios-offline]
+
+permissions:
+  contents: read
+
+jobs:
+  ipa:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Validate and build the offline page
+        run: |
+          xcodebuild -version
+          node tools/verify-content.mjs
+          node build.mjs
+          git diff --exit-code -- index.html index.offline.html sw.js docs/CONTENT-COVERAGE.md data/topics.json
+      - name: Prepare the iPhone application
+        working-directory: ios-app
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run prepare:web
+          npx --no-install cap add ios --packagemanager SPM
+          python3 prepare-native.py
+      - name: Build and verify the unsigned iPhone IPA
+        run: bash ios-app/build-ipa.sh
+      - name: Upload the unsigned installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpacetimeGlobe-iOS-unsigned
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ios-app/dist/*.ipa
+            ios-app/dist/*.ipa.sha256
+      - name: Launch the bundled page in an iPhone simulator
+        id: simulator
+        continue-on-error: true
+        working-directory: ios-app
+        run: |
+          simulator="$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          runtimes = json.load(sys.stdin)["devices"].values()
+          devices = [device for runtime in runtimes for device in runtime]
+          print(next(device["udid"] for device in reversed(devices) if device["name"] == "iPhone 17 Pro"))
+          ')"
+          xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Release \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath "$PWD/dist/build" \
+            CODE_SIGNING_ALLOWED=NO build
+          xcrun simctl bootstatus "$simulator" -b
+          xcrun simctl install "$simulator" dist/build/Build/Products/Release-iphonesimulator/App.app
+          xcrun simctl launch "$simulator" io.github.lllliam.spacetimeglobe
+          sleep 10
+          xcrun simctl io "$simulator" screenshot dist/ios-simulator.png
+      - name: Upload simulator launch evidence
+        if: steps.simulator.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpacetimeGlobe-iOS-simulator
+          retention-days: 14
+          path: ios-app/dist/ios-simulator.png
