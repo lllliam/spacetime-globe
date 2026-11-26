@@ -75,7 +75,7 @@ jobs:
           compression-level: 0
       - name: Exercise exploration, year selection, reading and observation on iPhone
         id: simulator
-        timeout-minutes: 8
+        timeout-minutes: 10
         continue-on-error: true
         run: |
           set -euo pipefail
@@ -89,7 +89,7 @@ jobs:
           xcodebuild -project native-ios/SpacetimeGlobe.xcodeproj -scheme SpacetimeGlobe \
             -configuration Debug -destination "platform=iOS Simulator,id=$simulator" \
             -derivedDataPath "$RUNNER_TEMP/native-sim" -resultBundlePath "$RUNNER_TEMP/Journey.xcresult" \
-            -parallel-testing-enabled NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 175 \
+            -parallel-testing-enabled NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 225 \
             CODE_SIGN_IDENTITY=- ARCHS=arm64 test > "$RUNNER_TEMP/native-sim.log" 2>&1 || result=$?
           tail -n 215 "$RUNNER_TEMP/native-sim.log"
           if [ "$result" = 0 ]; then

@@ -230,7 +230,10 @@ struct ObservationView: View {
         ForEach(Array(Set(frame.routes.map(\.precision))).sorted(),id:\.self) { precision in
             if let route = frame.routes.first(where:{ $0.precision == precision }) {
                 HStack(spacing:8) {
-                    Path { line in line.move(to:CGPoint(x:0,y:5)); line.addLine(to:CGPoint(x:23,y:5)) }
+                    Path { line in
+                        line.move(to:CGPoint(x:0,y:5))
+                        line.addLine(to:CGPoint(x:23,y:5))
+                    }
                         .stroke(Design.quiet,style:StrokeStyle(lineWidth:2,lineCap:.round,
                                 dash:precision == "attested" ? [] : precision == "approximate" ? [6,4] : [1,4]))
                         .frame(width:24,height:10)

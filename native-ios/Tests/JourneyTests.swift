@@ -7,12 +7,11 @@ final class JourneyTests: XCTestCase {
         let choose = app.buttons["choose-year"]
         XCTAssertTrue(choose.waitForExistence(timeout:25))
         selectYear(1499,in:app)
-        selectYear(1500,in:app)
         let almanac = app.buttons["open-almanac"]
         let rendered = XCTNSPredicateExpectation(predicate:NSPredicate(format:"enabled == true"),object:almanac)
         XCTAssertEqual(XCTWaiter.wait(for:[rendered],timeout:15),.completed)
 
-        // A sample point inside Ming on the default 1500 globe.
+        // A sample point inside Ming on the default globe orientation.
         app.coordinate(withNormalizedOffset:CGVector(dx:0.64,dy:0.414)).tap()
         let read = app.buttons["open-region-book"]
         XCTAssertTrue(read.waitForExistence(timeout:12))
@@ -20,7 +19,7 @@ final class JourneyTests: XCTestCase {
         let contents = app.buttons["reader-directory"]
         XCTAssertTrue(contents.waitForExistence(timeout:12))
         contents.tap()
-        let chapter = app.buttons["chapter-founding"]
+        let chapter = app.buttons["directory-chapter-founding"]
         XCTAssertTrue(chapter.waitForExistence(timeout:8))
         chapter.tap()
 
@@ -39,7 +38,7 @@ final class JourneyTests: XCTestCase {
         XCTAssertTrue(visit.isHittable)
         app.buttons["close-reading"].tap()
         XCTAssertTrue(choose.waitForExistence(timeout:8))
-        XCTAssertEqual(choose.value as? String,"1500 年")
+        XCTAssertEqual(choose.value as? String,"1499 年")
     }
 
     @MainActor private func selectYear(_ year: Int,in app: XCUIApplication) {

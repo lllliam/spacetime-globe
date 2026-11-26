@@ -5,6 +5,7 @@ struct ReadingView: View {
     @ObservedObject var session: SessionStore
     let reading: ReadingSession
     @State private var auxiliary: ReaderPanel?
+    @State private var openShelfAfterSheet = false
 
     private enum ReaderPanel: String, Identifiable {
         case contents, display
@@ -36,7 +37,12 @@ struct ReadingView: View {
             .overlay(alignment:.leading) {
                 EdgeReturn { session.backInReading() }.frame(width:15).accessibilityHidden(true)
             }
-            .sheet(item:$auxiliary) { panel in
+            .sheet(item:$auxiliary,onDismiss:{
+                if openShelfAfterSheet {
+                    openShelfAfterSheet = false
+                    session.panel = .library
+                }
+            }) { panel in
                 switch panel {
                 case .contents:
                     ChapterContents(volume:volume,current:chapter?.id,bookmark:session.bookmark(for:volume),
@@ -49,8 +55,8 @@ struct ReadingView: View {
                     PaperSheet(title:"阅读设置",paper:paper) {
                         ReadingSettings(preferences:$session.preferences)
                         PaperAction(title:"浏览历史书目",symbol:"books.vertical",paper:paper) {
+                            openShelfAfterSheet = true
                             auxiliary = nil
-                            DispatchQueue.main.asyncAfter(deadline:.now()+0.4) { session.panel = .library }
                         }
                     }
                 }
@@ -151,7 +157,7 @@ private struct ChapterContents: View {
     var body: some View {
         PaperSheet(title:"目录",subtitle:volume.title,paper:paper) {
             ForEach(volume.chapters) { chapter in
-                ChapterRow(chapter:chapter,marker:marker(chapter.id),paper:paper) { select(chapter) }
+                ChapterRow(chapter:chapter,marker:marker(chapter.id),paper:paper,inContents:true) { select(chapter) }
             }
         }
     }
@@ -167,6 +173,7 @@ private struct ChapterRow: View {
     let chapter: Chapter
     let marker: String?
     let paper: ReaderPaper
+    var inContents = false
     let action: () -> Void
 
     var body: some View {
@@ -182,7 +189,7 @@ private struct ChapterRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityIdentifier("chapter-" + chapter.id)
+        .accessibilityIdentifier((inContents ? "directory-chapter-" : "chapter-") + chapter.id)
     }
 }
 

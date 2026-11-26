@@ -174,6 +174,7 @@ struct ExplorerView: View {
 
     private func apply(_ key: AtlasKey,_ map: PaintedAtlas) {
         guard key.year == requested, key.layer == atlasRequest.layer else { return }
+        let changed = applied?.year != key.year || applied?.layer != key.layer
         applied = key
         appliedMap = map
         if let pendingJump, let shape = map.shapes.first(where:{ $0.region.id == pendingJump }) {
@@ -184,7 +185,7 @@ struct ExplorerView: View {
         } else if let current = session.explore.selected {
             let selection = map.shapes.first { $0.region.id == current }?.region
             picked = selection
-            coincident = []
+            if changed { coincident = [] }
             if selection == nil { session.explore.selected = nil; reframe(); session.scheduleSave() }
             else { reframe() }
         }
