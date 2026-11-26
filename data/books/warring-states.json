@@ -3,7 +3,7 @@
   "title": "春秋与战国",
   "from": -770,
   "to": -221,
-  "summary": "从东周王室、春秋诸侯关系读到晋楚角力、江淮水路与吴越兴亡，再看韩赵魏列侯、田氏掌齐和列国制度。经传、出土文字和都邑遗存各自标明证据范围。",
+  "summary": "从东周王室、春秋诸侯关系读到三晋、田齐与列国制度，再看魏赵齐争衡、巴蜀地方变化和中山的考古材料。经传、出土文字和都邑遗存各自标明证据范围。",
   "sources": [
     {
       "title": "大都会艺术博物馆《中国历代统治者与年表》",
@@ -360,6 +360,126 @@
       "id": "philip-coin-met",
       "title": "大都会艺术博物馆《腓力二世银四德拉克马》",
       "url": "https://www.metmuseum.org/art/collection/search/247145",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yinqueshan-bamboo",
+      "title": "国家档案局《银雀山汉墓竹简申报书》",
+      "url": "https://www.saac.gov.cn/mowcn/cn/6sbs/202512/d58b9dd7d61e4344a7a5c0a1699011f6.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "sun-bin-bamboo-text",
+      "title": "《孙膑兵法·擒庞涓》整理释文",
+      "url": "https://www.qiwentop.com/zi-zang/bing-jia/sun-bin-bing-fa/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "six-states-chronology",
+      "title": "《史记》卷十五《六国年表》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷015",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "daliang-chronology",
+      "title": "严可《魏国迁都大梁年代之争》",
+      "url": "https://www.cssn.cn/skgz/bwyc/202208/t20220803_5464162.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "kaifeng-city-strata",
+      "title": "孟凡人《北宋东京开封府城的形制布局》",
+      "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pujiang-boat-coffins",
+      "title": "成都市文物考古研究所公布蒲江战国船棺墓资料",
+      "url": "https://www.xinhuanet.com/politics/2017-02/08/c_1120432704.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "luojiaba-fieldwork",
+      "title": "四川省文物考古研究院《宣汉罗家坝遗址》",
+      "url": "https://www.sckg.com/shangzhou/1574.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "luojiaba-reassessment",
+      "title": "高大伦《读〈宣汉罗家坝〉札记》",
+      "url": "https://sckg.com/uploads/soft/20230509/2-230509154R0b3.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "huayang-shu",
+      "title": "常璩《华阳国志·蜀志》",
+      "url": "https://zh.wikisource.org/wiki/華陽國志/卷三",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qingchuan-field-law",
+      "title": "国家税务总局《战国·“更修田律”木牍》",
+      "url": "https://www.chinatax.gov.cn/chinatax/c103144/c5251333/content.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "qingchuan-excavation",
+      "title": "四川省文物管理委员会等《四川青川县战国墓发掘简报》",
+      "url": "https://www.sckg.com/uploads/soft/20230509/2-230509154309554.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-zhang-yi",
+      "title": "《史记》卷七十《张仪列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷070",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-su-qin",
+      "title": "《史记》卷六十九《苏秦列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷069",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "mawangdui-diplomatic-silk",
+      "title": "沈月《出土帛书〈战国纵横家书〉史料性质考论》",
+      "url": "https://imgapp.rednet.cn/rednetcms/pdf/2002.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "handan-zhao-capital",
+      "title": "河北省文物考古研究院《赵邯郸故城》",
+      "url": "https://www.hbswwkg.com/2021-05/11/content_8500381.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "handan-zhao-fieldwork",
+      "title": "河北省文物考古研究院《2023年度邯郸赵王城遗址考古工作》",
+      "url": "https://www.hbswwkg.com/2024-07/19/content_9209483.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhongshan-bronze-readings",
+      "title": "罗福颐《中山王墓鼎壶铭文小考》",
+      "url": "https://img.dpm.org.cn/Uploads/pdf/1582/T00081_00.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhongshan-archaeology",
+      "title": "河北省考古七十年回顾与展望·战国秦汉考古",
+      "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552622.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "macedon-crosses-hellespont",
+      "title": "大都会艺术博物馆《马其顿崛起与亚历山大的征服》",
+      "url": "https://www.metmuseum.org/de/essays/the-rise-of-macedonia-and-the-conquests-of-alexander-the-great",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "pujiang-excavation-study",
+      "title": "肖嶙等《成都蒲江飞虎村战国墓葬群出土青铜器的保护研究》",
+      "url": "https://www.cactch.org.cn/webfile/upload/2020/12-21/15-43-5702082014367183.pdf",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -3136,6 +3256,31 @@
             "scope": "前 344 年与前 221 年两组铭文的制度时段。",
             "checkedAt": "2026-11-26"
           }
+        },
+        {
+          "id": "toward-qin-shu",
+          "book": "warring-states",
+          "chapter": "qin-enters-shu-and-qingchuan",
+          "label": "延伸 · 青川所见田律",
+          "display": "沿秦国制度书写读到较晚的蜀地出土文书。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
         }
       ],
       "contemporaries": [
@@ -3269,39 +3414,93 @@
           }
         },
         {
-          "heading": "法家韩非与《孙子》《孙膑兵法》",
-          "text": "当战火愈演愈烈，仁义道德往往远水解不了近渴。集法家大成的韩非把“法、术、势”融为一炉，提出以严明法度与君主权威统一国家，令年轻的秦王嬴政拍案叫绝；兵家孙膑在桂陵、马陵之战中以“围魏救赵”与“减灶诱敌”击溃魏军，战争艺术演进至高度理性化。",
+          "id": "p-04",
+          "heading": "桂陵、马陵的记事与出土简文",
+          "text": "《魏世家》和《赵世家》记载了邯郸争夺及桂陵。《孙子吴起列传》的孙膑段和《魏世家》对马陵战事前的告急对象有不同说法，银雀山汉简《擒庞涓》又记桂陵。各篇还需同年表、分期和地理证据逐项核对。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-04"
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "孙膑节，邯郸、桂陵及后十三岁马陵段",
+              "note": "孙膑传涉及齐援赵、桂陵与马陵，写马陵前韩国向齐告急"
+            },
+            {
+              "sourceId": "sun-bin-bamboo-text",
+              "locator": "首篇《擒庞涓》，收束的桂陵与禽庞涓",
+              "note": "残简释文将擒庞涓放在桂陵叙事之中"
+            }
+          ]
         },
         {
-          "heading": "苏秦合纵与张仪连横",
-          "text": "面对秦国在公元前 316 年顺势吞并巴蜀、获得“天府之国”大粮仓后日益膨胀的体量，关东六国在外交上展开了精彩绝伦的博弈：苏秦奔走六国力倡“合纵”抗秦，张仪则凭三寸不烂之舌游说各国推行“连横”破盟。",
+          "id": "p-05",
+          "heading": "秦入蜀与列国外交的时序",
+          "text": "《秦本纪》将司马错伐蜀系在前 316 年，青川木牍又保存较晚的地方文书。张仪的仕宦见秦国纪年，马王堆帛书则提供苏秦及燕齐关系的材料。分别阅读这些年份，才能看出各次交涉面临的情况。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            },
+            {
+              "sourceId": "mawangdui-diplomatic-silk",
+              "locator": "《湖南社会科学》2020年第2期，第76–85页，马王堆墓出土及苏秦书信、游说故事分组",
+              "note": "研究根据文字内容区分苏秦有关书信与游说材料，提出不同的成文脉络"
+            }
+          ]
         },
         {
-          "text": "然而六国各自心怀鬼胎，每逢秦军威逼便竞相割地求和。公元前 260 年，唯一还能在野战中与秦军正面抗衡的赵国，终于在山西长平与秦军迎来了决定战国命运的终极对撞。",
+          "id": "p-06",
+          "heading": "由上党争端接读长平",
+          "text": "更晚的秦赵争斗还牵涉韩。秦方本纪写到攻韩上党、上党转向赵，随后记秦赵交战于长平。各方行动、具体年代与交战后果见后续章，重要数字须核对其他史料。",
           "refs": [
-            "source-01"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦昭襄王四十七年，上党与长平",
+              "note": "秦方本纪将上党争端及长平交战联系起来"
+            }
+          ]
         }
       ],
       "contemporaries": [
         {
-          "book": "greece-macedon",
-          "year": -334,
-          "label": "亚历山大东征与亚里士多德时代",
-          "note": "当商鞅变法、孟子庄子辩论之际，马其顿的亚历山大大帝正率军横扫波斯，亚里士多德在雅典创办吕克昂学园。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "greece-macedon",
+          "chapter": "macedon-alexander",
+          "year": -334,
+          "relation": "contemporary",
+          "label": "同期 · 亚历山大进入小亚细亚",
+          "note": "约前 334 年，魏与齐在徐州会盟并相互承认王号。约在同一时期，亚历山大率军进入小亚细亚。",
+          "display": "约前 334 年，魏与齐在徐州会盟并相互承认王号。约在同一时期，亚历山大率军进入小亚细亚。",
+          "evidence": [
+            {
+              "sourceId": "six-states-chronology",
+              "locator": "周显王三十五年，魏与齐会徐州相王",
+              "note": "该年表记魏与齐会盟、相王"
+            },
+            {
+              "sourceId": "macedon-crosses-hellespont",
+              "locator": "亚历山大在位、前334年越海及征服阿契美尼德段",
+              "note": "前334年亚历山大率军跨过赫勒斯滂海峡进入小亚细亚"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "两端年代和各自事件；作为同期对照。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
@@ -3402,6 +3601,952 @@
             "scope": "核对两章承接范围与材料。",
             "checkedAt": "2026-11-26"
           }
+        },
+        {
+          "id": "read-guiling-maling",
+          "book": "warring-states",
+          "chapter": "guiling-maling-texts",
+          "label": "细读 · 桂陵与马陵",
+          "display": "对读年表、纪事和出土简文。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "sun-bin-bamboo-text",
+              "locator": "首篇《擒庞涓》，收束的桂陵与禽庞涓",
+              "note": "残简释文将擒庞涓放在桂陵叙事之中"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-qin-in-shu",
+          "book": "warring-states",
+          "chapter": "qin-enters-shu-and-qingchuan",
+          "label": "细读 · 秦入蜀和青川木牍",
+          "display": "把战争纪事和较晚的文书分开。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-diplomatic-silk",
+          "book": "warring-states",
+          "chapter": "zhang-yi-su-qin-diplomacy",
+          "label": "细读 · 纵横家的不同材料",
+          "display": "从传世史书到马王堆帛书。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-zhang-yi",
+              "locator": "张仪任秦魏之职、司马错主张伐蜀及游说魏楚诸段",
+              "note": "传记保存了不同外交选择及人物对白，且把苏秦与张仪放在同一故事中"
+            },
+            {
+              "sourceId": "mawangdui-diplomatic-silk",
+              "locator": "《湖南社会科学》2020年第2期，第76–85页，马王堆墓出土及苏秦书信、游说故事分组",
+              "note": "研究根据文字内容区分苏秦有关书信与游说材料，提出不同的成文脉络"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-zhongshan",
+          "book": "warring-states",
+          "chapter": "zhongshan-lingshou-bronzes",
+          "label": "细读 · 中山与赵",
+          "display": "从赵世家对读平山器铭与墓地。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "guiling-maling-texts",
+      "from": -354,
+      "to": -341,
+      "dateLabel": "公元前 354—前 341 年 · 采用《六国年表》的常用换算",
+      "title": "桂陵与马陵，两场战事怎样被记下",
+      "summary": "从邯郸受围读起，再比较《史记》各篇和银雀山出土的简文。",
+      "spatialThesis": "邯郸能用遗址区定位，桂陵、马陵的古地名与战事细节另须考证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "先看邯郸的得失",
+          "text": "《魏世家》和《赵世家》都记魏攻邯郸、齐败魏于桂陵，也记魏后来归还邯郸，双方会盟。军队何时离开、都邑何时交还，在各篇文字中需要分别查对。",
+          "refs": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "桂陵还有一份出土文字",
+          "text": "临沂银雀山汉墓保存《孙膑兵法》相关竹简。整理后的《擒庞涓》把桂陵与庞涓被擒连在一起。《史记》的其他记载又让庞涓出现在马陵。两处记录的关系仍有解释空间，简文也有残缺。",
+          "refs": [
+            {
+              "sourceId": "yinqueshan-bamboo",
+              "locator": "真实性和完整性、出土地、核心文献及残损段",
+              "note": "汉墓同时保存《孙子兵法》《孙膑兵法》相关简文，部分简文断裂或残损"
+            },
+            {
+              "sourceId": "sun-bin-bamboo-text",
+              "locator": "首篇《擒庞涓》，收束的桂陵与禽庞涓",
+              "note": "残简释文将擒庞涓放在桂陵叙事之中"
+            },
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "孙膑节，邯郸、桂陵及后十三岁马陵段",
+              "note": "孙膑传涉及齐援赵、桂陵与马陵，写马陵前韩国向齐告急"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "马陵之战前，齐应谁所请",
+          "text": "《孙子吴起列传》的孙膑段写魏与赵攻韩、韩向齐告急；《魏世家》则写魏伐赵、齐救赵。两篇都写魏军在马陵失败，却交代了不同的战事起因。列传中广为流传的细节应按这种材料性质阅读。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-qi-reforms",
+              "locator": "孙膑节，邯郸、桂陵及后十三岁马陵段",
+              "note": "孙膑传涉及齐援赵、桂陵与马陵，写马陵前韩国向齐告急"
+            },
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "年表能做什么",
+          "text": "此处以常用编年将桂陵、马陵分别放在前 353 年和前 341 年。邯郸的都邑考古提供赵国活动的空间参照。两处战场的地望、队伍行程和战争细节仍需独立证据。",
+          "refs": [
+            {
+              "sourceId": "six-states-chronology",
+              "locator": "周显王十六、二十八年等各国对照栏",
+              "note": "提供战国列国年次和桂陵、马陵常用的编年参照"
+            },
+            {
+              "sourceId": "handan-zhao-capital",
+              "locator": "市区与西南郊位置、赵王城、大北城与城垣相关段",
+              "note": "邯郸都邑由赵王城、大北城两片主要遗址构成，后者多在今市区地下"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-wei-capital",
+          "book": "warring-states",
+          "chapter": "wei-anyi-and-daliang",
+          "label": "接读 · 魏都向东移动",
+          "display": "细辨战事和迁都的不同年序。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "daliang-chronology",
+              "locator": "六年、九年、二十九年及三十一年诸说",
+              "note": "各研究者分别据古本《竹书纪年》、史记及铭文讨论魏迁都年代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wei-anyi-and-daliang",
+      "from": -365,
+      "to": -339,
+      "dateLabel": "约公元前 365—前 339 年 · 迁都各说的阅读区间",
+      "title": "安邑与大梁，魏都怎样东移",
+      "summary": "把文献里的迁都顺序放回河东与开封两处遗址环境，区分王年、换算及城址证据。",
+      "spatialThesis": "夏县禹王城与今开封一带分别提供安邑、大梁的区域参照。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "安邑牵连魏国的西部政治",
+          "text": "《魏世家》将魏氏早期的活动与安邑联系起来。夏县禹王城发掘和调查发现不同年代的城址与作坊，研究者将大城同战国魏都安邑相联系。建筑分期和魏国都邑职能仍须按层位核查。",
+          "refs": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "wei-anyi-archaeology",
+              "locator": "相关考古发现段，夏县禹王城及大城",
+              "note": "将大城遗存与魏都安邑相联系"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "迁都是否发生在马陵之后",
+          "text": "《魏世家》将迁大梁放在惠王三十一年的秦、赵、齐攻魏之后。古本《竹书纪年》相关引文与器铭研究又引出较早的安排，如惠王六年或九年的解释。王年起算本身也有差别。把迁都只解释为马陵一战的结果，会抹去这些证据之间的分歧。",
+          "refs": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "daliang-chronology",
+              "locator": "六年、九年、二十九年及三十一年诸说",
+              "note": "各研究者分别据古本《竹书纪年》、史记及铭文讨论魏迁都年代"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "开封地表下面还有多期城市",
+          "text": "考古与历史地理研究将大梁与今开封一带联系，战国城址深埋，城墙走向主要依据有限的线索推测。地图上的开封点位只用来辨认区域，后来宋都的城垣与水系应回到宋代材料。",
+          "refs": [
+            {
+              "sourceId": "kaifeng-city-strata",
+              "locator": "第343页前言与脚注3，开封西北大梁及厚层覆盖",
+              "note": "把大梁与今开封一带联系起来，记录古城深埋与近似范围推测"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "把权力变化与城址变化并读",
+          "text": "魏面对秦、齐、赵等不同方向的竞争。《魏世家》用这层背景说明魏都变化，也记录魏在诸侯之间会盟的另一面。两处都邑相距甚远，从地图上可以比较所处地形及区域联系。",
+          "refs": [
+            {
+              "sourceId": "shiji-wei-early",
+              "locator": "魏惠王十七至三十一年，邯郸、桂陵、马陵与大梁",
+              "note": "魏围邯郸、齐军介入、魏归赵邯郸、马陵及迁大梁的纪事"
+            },
+            {
+              "sourceId": "wei-anyi-archaeology",
+              "locator": "相关考古发现段，夏县禹王城及大城",
+              "note": "将大城遗存与魏都安邑相联系"
+            },
+            {
+              "sourceId": "kaifeng-city-strata",
+              "locator": "第343页前言与脚注3，开封西北大梁及厚层覆盖",
+              "note": "把大梁与今开封一带联系起来，记录古城深埋与近似范围推测"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-early-anyi",
+          "book": "warring-states",
+          "chapter": "wei-wenhou-li-kui-and-grain",
+          "label": "回读 · 安邑与魏文侯",
+          "display": "回看禹王城考古与魏的早期制度。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "wei-anyi-archaeology",
+              "locator": "相关考古发现段，夏县禹王城及大城",
+              "note": "将大城遗存与魏都安邑相联系"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "wei-anyi-and-daliang-areas",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "今开封一带",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-01",
+              "text": "禹王城",
+              "placeId": "anyi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba-shu-local-societies",
+      "from": -430,
+      "to": -300,
+      "dateLabel": "约公元前 430—前 300 年 · 巴蜀地方史及墓葬的阅读区间",
+      "title": "战国巴蜀的地方社会与墓葬",
+      "summary": "从蒲江与宣汉的墓葬看地方社会，结合较晚的传世记载认识巴、蜀与苴在秦入蜀前后的处境。",
+      "spatialThesis": "蒲江靠近川西平原与山麓，罗家坝位于川东河流阶地，两处遗址各自分期。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "地方史里的多方关系",
+          "text": "常璩《华阳国志》记巴、蜀与苴彼此通好或冲突，也把这些关系放在秦入蜀以前。成书晚于战国，保存的是地方记忆和传世材料。它可以给地理与事件考证提供线索。",
+          "refs": [
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "蒲江河边的船棺墓",
+          "text": "蒲江县飞虎村墓群位于河流和山麓之间。战国中晚期的墓地保存船棺、陶铜器和漆木器，有巴蜀地方器形，也有秦式剑。清理和检测还发现部分铜器经铸造，部分铜盆经热锻。墓地各组器物需要分期，不能统一归入秦进入以前。",
+          "refs": [
+            {
+              "sourceId": "pujiang-boat-coffins",
+              "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+              "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+            },
+            {
+              "sourceId": "pujiang-excavation-study",
+              "locator": "第534页摘要、引言及第538页工艺结果",
+              "note": "飞虎村墓群属战国中晚期，见船棺及地方形制和秦式青铜器；所检部分器物分别见铸造、热锻痕迹。"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "宣汉罗家坝的多期墓葬",
+          "text": "罗家坝位于后河左岸的阶地，出土不同时期墓葬。有研究重新讨论其中一座墓的棺制，并辨认出楚式缶。器物的样式可以发生交流，棺制也可见于不同地方，解释时需结合墓葬和环境。",
+          "refs": [
+            {
+              "sourceId": "luojiaba-fieldwork",
+              "locator": "后河左岸位置及东周墓葬与出土器物",
+              "note": "罗家坝有多期遗存，东周墓葬及区域材料保存在川东河流阶地"
+            },
+            {
+              "sourceId": "luojiaba-reassessment",
+              "locator": "M33、船棺推测、楚式缶及区域比较",
+              "note": "不同葬制解释与楚式器物提供跨区域比较线索"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "哪些证据可以放在地图上",
+          "text": "两处遗址适合对照山麓与河流阶地。巴、蜀、苴在不同时期的实际管辖需要历史地理与更多地方材料，遗址的文化特色和政治边界各是一个问题。",
+          "refs": [
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            },
+            {
+              "sourceId": "pujiang-boat-coffins",
+              "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+              "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+            },
+            {
+              "sourceId": "luojiaba-fieldwork",
+              "locator": "后河左岸位置及东周墓葬与出土器物",
+              "note": "罗家坝有多期遗存，东周墓葬及区域材料保存在川东河流阶地"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-shu-after-qin",
+          "book": "warring-states",
+          "chapter": "qin-enters-shu-and-qingchuan",
+          "label": "接读 · 秦入蜀之后",
+          "display": "从地方材料读到行政安排及出土木牍。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            },
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "pujiang-and-luojiaba-cemeteries",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "飞虎村",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "罗家坝",
+              "placeId": "luojiaba"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qin-enters-shu-and-qingchuan",
+      "from": -316,
+      "to": -306,
+      "dateLabel": "公元前 316—前 306 年 · 征服和木牍阅读时段",
+      "title": "秦入蜀与青川田律木牍",
+      "summary": "从伐蜀的传世记事读到郝家坪的田律文书，追踪秦的地方建置和文书如何进入当地。",
+      "spatialThesis": "郝家坪木牍出土于青川，成都平原西南缘另有蜀地墓葬。秦行动的完整线路仍待分段考证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "前 316 年的纪事怎样写",
+          "text": "《秦本纪》将司马错伐蜀列在惠文王改元后的九年。《张仪列传》把伐蜀和其他对外选择写成辩论，常璩则补述苴与巴、蜀往来的地方叙事。几种材料分别保留秦廷、游说故事和地方传统的侧重点。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "shiji-zhang-yi",
+              "locator": "张仪任秦魏之职、司马错主张伐蜀及游说魏楚诸段",
+              "note": "传记保存了不同外交选择及人物对白，且把苏秦与张仪放在同一故事中"
+            },
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "入蜀之后还有多次政治安排",
+          "text": "《秦本纪》在后续年份记蜀侯、蜀相及冲突。《蜀志》也写册封、设置官员和移民，但年次与《秦本纪》并不完全对应。军事胜利之后，秦国还要多次介入地方安排。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "出土木牍写了什么",
+          "text": "青川郝家坪一座战国墓出土木牍，文字涉及更修田律，对田界与道路作规定。通行解释把文书所记命令换算为前 309 年。命令年、这份木牍的抄写与入葬日期各有时点。",
+          "refs": [
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从木牍走到田间还需要什么",
+          "text": "青川出土文书提供了制度抵达当地的材料。要判断农户如何划地，仍须找与地块、里邑、道路和官员实际工作有关的资料。蒲江的地方墓葬可作为对照，也需要按自身分期阅读。",
+          "refs": [
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            },
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            },
+            {
+              "sourceId": "pujiang-boat-coffins",
+              "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+              "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-ba-shu",
+          "book": "warring-states",
+          "chapter": "ba-shu-local-societies",
+          "label": "回读 · 巴蜀的地方遗址",
+          "display": "对照秦入蜀前后的地方记载和墓葬材料。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "huayang-shu",
+              "locator": "卷三第四至五节，巴、蜀与苴的关系及秦入蜀后安排",
+              "note": "地方史叙述巴、蜀、苴的交涉和秦入蜀前后变化"
+            },
+            {
+              "sourceId": "luojiaba-fieldwork",
+              "locator": "后河左岸位置及东周墓葬与出土器物",
+              "note": "罗家坝有多期遗存，东周墓葬及区域材料保存在川东河流阶地"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "qingchuan-and-pujiang-areas",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "青川郝家坪",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "蒲江",
+              "placeId": "pujiang"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhang-yi-su-qin-diplomacy",
+      "from": -328,
+      "to": -284,
+      "dateLabel": "约公元前 328—前 284 年 · 分时段阅读游说材料",
+      "title": "张仪、苏秦与不断改组的外交",
+      "summary": "把秦国纪年、传世游说故事和马王堆帛书分开，追踪列国根据当时形势作出的选择。",
+      "spatialThesis": "魏、秦、燕、齐在不同时段参与交涉。苏秦书信的出土地在长沙，信中政治活动主要涉及其他地区。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "张仪在秦、魏有不同职务",
+          "text": "《秦本纪》在惠文君十年记张仪相秦，后又写他相魏、复相秦。《张仪列传》集中保留他游说君主的段落。一人多次转换服务对象，反映了列国交涉的变化。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "shiji-zhang-yi",
+              "locator": "张仪任秦魏之职、司马错主张伐蜀及游说魏楚诸段",
+              "note": "传记保存了不同外交选择及人物对白，且把苏秦与张仪放在同一故事中"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "《史记》怎样把两人写成对手",
+          "text": "《苏秦列传》和《张仪列传》用合纵、连横串起许多游说故事，也把两人放入相互联系的叙事。司马迁在篇末承认流传事迹有异。检验一场交涉时，可先找国君、使者、参与诸侯和纪年。",
+          "refs": [
+            {
+              "sourceId": "shiji-su-qin",
+              "locator": "苏秦经营列国与太史公论异说段",
+              "note": "保存苏秦合纵的传世故事，并有史家对叙事异同的说明"
+            },
+            {
+              "sourceId": "shiji-zhang-yi",
+              "locator": "张仪任秦魏之职、司马错主张伐蜀及游说魏楚诸段",
+              "note": "传记保存了不同外交选择及人物对白，且把苏秦与张仪放在同一故事中"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "汉墓帛书让另一批材料可见",
+          "text": "长沙马王堆三号汉墓出土的《战国纵横家书》保存多篇涉及苏秦及燕、齐关系的文字。研究者区分书信和游说故事，从信中人物与事件重排部分活动时间。帛书和传世列传的叙事因而不能直接合并。",
+          "refs": [
+            {
+              "sourceId": "mawangdui-diplomatic-silk",
+              "locator": "《湖南社会科学》2020年第2期，第76–85页，马王堆墓出土及苏秦书信、游说故事分组",
+              "note": "研究根据文字内容区分苏秦有关书信与游说材料，提出不同的成文脉络"
+            },
+            {
+              "sourceId": "shiji-su-qin",
+              "locator": "苏秦经营列国与太史公论异说段",
+              "note": "保存苏秦合纵的传世故事，并有史家对叙事异同的说明"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "一次结盟也有自己的时限",
+          "text": "盟约能解决某时的出兵、互助或领地问题，君主去世或力量关系改变又会带来新的谈判。在阅读中把各次出使和承诺归回本来的时段，可以看见列国选择如何变化。",
+          "refs": [
+            {
+              "sourceId": "qin-annals-reforms",
+              "locator": "秦惠文君十年、惠文王更元九至十四年、武王二年、昭襄王四十七年",
+              "note": "张仪任职、司马错伐蜀、后来安排蜀侯与蜀相、秦武王纪年及秦赵长平之战"
+            },
+            {
+              "sourceId": "shiji-zhang-yi",
+              "locator": "张仪任秦魏之职、司马错主张伐蜀及游说魏楚诸段",
+              "note": "传记保存了不同外交选择及人物对白，且把苏秦与张仪放在同一故事中"
+            },
+            {
+              "sourceId": "mawangdui-diplomatic-silk",
+              "locator": "《湖南社会科学》2020年第2期，第76–85页，马王堆墓出土及苏秦书信、游说故事分组",
+              "note": "研究根据文字内容区分苏秦有关书信与游说材料，提出不同的成文脉络"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-zhongshan-and-yan",
+          "book": "warring-states",
+          "chapter": "zhongshan-lingshou-bronzes",
+          "label": "接读 · 中山器铭中的燕国变动",
+          "display": "从游说文字转向中山礼器的政治记载。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "mawangdui-diplomatic-silk",
+              "locator": "《湖南社会科学》2020年第2期，第76–85页，马王堆墓出土及苏秦书信、游说故事分组",
+              "note": "研究根据文字内容区分苏秦有关书信与游说材料，提出不同的成文脉络"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhao-handan-and-hufu",
+      "from": -386,
+      "to": -296,
+      "dateLabel": "公元前 386—前 296 年 · 邯郸与赵武灵王时期",
+      "title": "邯郸都邑与赵武灵王的变革",
+      "summary": "从赵敬侯建都及邯郸考古读到武灵王的服制和骑射措施，关注北部地方群体与赵廷的互动。",
+      "spatialThesis": "赵王城与大北城是邯郸的两片主要遗址区；赵与代、中山、林胡的关系按各自材料阅读。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "先看赵何时开始都邯郸",
+          "text": "《赵世家》在敬侯元年记赵始都邯郸，通常折算为前 386 年。邯郸故城的赵王城和大北城保存多时段遗迹，将文献的纪事与建筑分期对照，可以知道城是逐步营建的。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "handan-zhao-capital",
+              "locator": "市区与西南郊位置、赵王城、大北城与城垣相关段",
+              "note": "邯郸都邑由赵王城、大北城两片主要遗址构成，后者多在今市区地下"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "城门、台基与城里的活动",
+          "text": "考古在西南的赵王城发现城门、夯土台和壕沟等。东北的大北城多埋于今市区，可从调查辨认居民活动和城市空间。两片遗址的某处台基或城门究竟用于什么，仍须逐项发掘核对。",
+          "refs": [
+            {
+              "sourceId": "handan-zhao-capital",
+              "locator": "市区与西南郊位置、赵王城、大北城与城垣相关段",
+              "note": "邯郸都邑由赵王城、大北城两片主要遗址构成，后者多在今市区地下"
+            },
+            {
+              "sourceId": "handan-zhao-fieldwork",
+              "locator": "西城4号门、夯土台及外围壕沟工作段",
+              "note": "调查发现城门、台基、排水等不同遗存"
+            },
+            {
+              "sourceId": "zhongshan-archaeology",
+              "locator": "中山国灵寿城址及王陵、赵邯郸故城段",
+              "note": "平山灵寿城及其内外墓地布局与赵邯郸的都邑遗存可以参照"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "胡服和骑射在史书中是一组措施",
+          "text": "《赵世家》在武灵王十九年记服制争论与招募骑射，通行换算为前 307 年。传世叙述将改变服装和采用骑射联系到赵与邻近不同政治群体的处境。赵的变化也反映了同周邻群体的接触与学习。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "南北之间还有多种关系",
+          "text": "《赵世家》分别记林胡献马、赵使往其他诸侯，以及赵与中山反复交战、议和。不能用一个称呼概括所有北方群体。邯郸政令怎样进入地方，仍需要更多在地材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "toward-lingshou",
+          "book": "warring-states",
+          "chapter": "zhongshan-lingshou-bronzes",
+          "label": "接读 · 作为另一方的中山",
+          "display": "补上中山都邑与自身铭文。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "handan-zhao-and-dabei-cities",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "赵王城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "大北城",
+              "placeId": "dabeicheng"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhongshan-lingshou-bronzes",
+      "from": -380,
+      "to": -296,
+      "dateLabel": "约公元前 380—前 296 年 · 中山后来都邑与王陵",
+      "title": "中山灵寿的城址、王陵与铭文",
+      "summary": "用河北平山的王陵、铭文与同时代传世材料读中山如何表达自身立场、又如何面对赵国。",
+      "spatialThesis": "平山三汲一带是灵寿城址考古区，附近有不同墓区。地图点位只标示区域。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "从城址和附近墓区进入中山",
+          "text": "河北平山的灵寿城址及其内外的王陵是认识战国中山的重要材料。不同墓区的营建、随葬器物和城址布局可以相互比较，不能用一座墓代替整个都城。",
+          "refs": [
+            {
+              "sourceId": "zhongshan-archaeology",
+              "locator": "中山国灵寿城址及王陵、赵邯郸故城段",
+              "note": "平山灵寿城及其内外墓地布局与赵邯郸的都邑遗存可以参照"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "礼器刻铭保留中山自己的说法",
+          "text": "王墓出土有长篇刻铭的鼎与壶。铭文写王与相邦，也涉及燕国内部权力变动。它提供了中山政权的表达，可与传世史书对读，但一些字的释读还有出入。",
+          "refs": [
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "邻国关系也有和议和反复",
+          "text": "《赵世家》写武灵王时期赵多次进攻中山，又记中山献邑议和。对同一段时期，中山器铭的用语提供了自身政治视角，赵国世家则按赵君的年次编排。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "前 296 年的传世记事",
+          "text": "《赵世家》在惠文王三年记赵灭中山并迁其王，通常折算为前 296 年。遗址保留了中山在此以前的物质生活和政治表达，不能因政权终结就把地方社会的后续变化都归到这一年。",
+          "refs": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "zhongshan-archaeology",
+              "locator": "中山国灵寿城址及王陵、赵邯郸故城段",
+              "note": "平山灵寿城及其内外墓地布局与赵邯郸的都邑遗存可以参照"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "back-to-zhao-handan",
+          "book": "warring-states",
+          "chapter": "zhao-handan-and-hufu",
+          "label": "回读 · 赵国都邑与北部交往",
+          "display": "看对外政策与邯郸的地方材料。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-zhao-jin-remnants",
+              "locator": "赵敬侯元年、成侯攻战、武灵王十九至二十七年、惠文王三年",
+              "note": "赵都邯郸、赵武灵王的衣服和骑射措施、赵与中山多年争夺及中山亡国"
+            },
+            {
+              "sourceId": "handan-zhao-fieldwork",
+              "locator": "西城4号门、夯土台及外围壕沟工作段",
+              "note": "调查发现城门、台基、排水等不同遗存"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对两章承接范围与材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "lingshou-and-zhongshan-royal-tombs",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "灵寿城址",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-01",
+              "text": "王陵",
+              "placeId": "royal-tombs"
+            }
+          ]
         }
       ]
     },
@@ -3517,6 +4662,12 @@
     "zeng-leigudun-cemetery",
     "wei-anyi-yuwangcheng",
     "tian-qi-linzi-jixia",
-    "qin-yueyang-xianyang-sites"
+    "qin-yueyang-xianyang-sites",
+    "wei-daliang-kaifeng-area",
+    "warring-states-ba-luojiaba",
+    "warring-states-shu-pujiang",
+    "qin-qingchuan-haojiaping",
+    "zhao-handan-sites",
+    "zhongshan-lingshou-sites"
   ]
 }

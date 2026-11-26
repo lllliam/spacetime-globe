@@ -2814,6 +2814,485 @@
         "scope": "遗址或区域位置、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "wei-anyi-and-daliang-areas",
+      "year": -350,
+      "date": "约公元前 365—前 339 年 · 迁都各说的阅读区间",
+      "title": "从安邑看向大梁",
+      "summary": "两座都邑的地形与遗址状况有什么不同？",
+      "place": {
+        "label": "今开封一带 · 战国大梁的区域参照",
+        "lon": 114.34,
+        "lat": 34.81
+      },
+      "sources": [
+        {
+          "id": "wei-anyi-archaeology",
+          "title": "故宫博物院资料《海内皆臣岁丰登熟毋饥人砖》",
+          "url": "https://www.dpm.org.cn/Uploads/File/pdf/26/b8/d9/26b8d92a1195aa30c6807bc6d30b56fa.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "daliang-chronology",
+          "title": "严可《魏国迁都大梁年代之争》",
+          "url": "https://www.cssn.cn/skgz/bwyc/202208/t20220803_5464162.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "kaifeng-city-strata",
+          "title": "孟凡人《北宋东京开封府城的形制布局》",
+          "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从夏县城址区和开封地区分别观察河东与平原。今开封地面下叠压多期城市遗存。",
+          "refs": [
+            {
+              "sourceId": "wei-anyi-archaeology",
+              "locator": "相关考古发现段，夏县禹王城及大城",
+              "note": "将大城遗存与魏都安邑相联系"
+            },
+            {
+              "sourceId": "daliang-chronology",
+              "locator": "六年、九年、二十九年及三十一年诸说",
+              "note": "各研究者分别据古本《竹书纪年》、史记及铭文讨论魏迁都年代"
+            },
+            {
+              "sourceId": "kaifeng-city-strata",
+              "locator": "第343页前言与脚注3，开封西北大梁及厚层覆盖",
+              "note": "把大梁与今开封一带联系起来，记录古城深埋与近似范围推测"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wei-anyi-daliang-landscape",
+        "title": "从安邑看向大梁",
+        "summary": "两座都邑的地形与遗址状况有什么不同？",
+        "places": [
+          {
+            "id": "anyi",
+            "name": "夏县禹王城",
+            "role": "战国魏都安邑的城址区",
+            "lon": 111.18,
+            "lat": 35.18
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "wei-anyi-archaeology",
+            "locator": "相关考古发现段，夏县禹王城及大城",
+            "note": "将大城遗存与魏都安邑相联系"
+          },
+          {
+            "sourceId": "daliang-chronology",
+            "locator": "六年、九年、二十九年及三十一年诸说",
+            "note": "各研究者分别据古本《竹书纪年》、史记及铭文讨论魏迁都年代"
+          },
+          {
+            "sourceId": "kaifeng-city-strata",
+            "locator": "第343页前言与脚注3，开封西北大梁及厚层覆盖",
+            "note": "把大梁与今开封一带联系起来，记录古城深埋与近似范围推测"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "pujiang-and-luojiaba-cemeteries",
+      "year": -309,
+      "date": "约公元前 430—前 300 年 · 巴蜀地方史及墓葬的阅读区间",
+      "title": "蒲江船棺与罗家坝墓地",
+      "summary": "两处墓地与附近的山、水怎样相邻？",
+      "place": {
+        "label": "蒲江飞虎村一带 · 山麓船棺墓区",
+        "lon": 103.53,
+        "lat": 30.19
+      },
+      "sources": [
+        {
+          "id": "pujiang-boat-coffins",
+          "title": "成都市文物考古研究所公布蒲江战国船棺墓资料",
+          "url": "https://www.xinhuanet.com/politics/2017-02/08/c_1120432704.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "luojiaba-fieldwork",
+          "title": "四川省文物考古研究院《宣汉罗家坝遗址》",
+          "url": "https://www.sckg.com/shangzhou/1574.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "luojiaba-reassessment",
+          "title": "高大伦《读〈宣汉罗家坝〉札记》",
+          "url": "https://sckg.com/uploads/soft/20230509/2-230509154R0b3.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pujiang-excavation-study",
+          "title": "肖嶙等《成都蒲江飞虎村战国墓葬群出土青铜器的保护研究》",
+          "url": "https://www.cactch.org.cn/webfile/upload/2020/12-21/15-43-5702082014367183.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "蒲江点位在山麓与河谷一带。向东对照罗家坝，观察后河阶地与当地河谷的联系。",
+          "refs": [
+            {
+              "sourceId": "pujiang-boat-coffins",
+              "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+              "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+            },
+            {
+              "sourceId": "luojiaba-fieldwork",
+              "locator": "后河左岸位置及东周墓葬与出土器物",
+              "note": "罗家坝有多期遗存，东周墓葬及区域材料保存在川东河流阶地"
+            },
+            {
+              "sourceId": "luojiaba-reassessment",
+              "locator": "M33、船棺推测、楚式缶及区域比较",
+              "note": "不同葬制解释与楚式器物提供跨区域比较线索"
+            },
+            {
+              "sourceId": "pujiang-excavation-study",
+              "locator": "第534页摘要、引言及第538页工艺结果",
+              "note": "飞虎村墓群属战国中晚期，见船棺及地方形制和秦式青铜器；所检部分器物分别见铸造、热锻痕迹。"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-ba-shu-cemetery-landscapes",
+        "title": "蒲江船棺与罗家坝墓地",
+        "summary": "两处墓地与附近的山、水怎样相邻？",
+        "places": [
+          {
+            "id": "luojiaba",
+            "name": "宣汉罗家坝",
+            "role": "后河左岸遗址区",
+            "lon": 107.75,
+            "lat": 31.53
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "pujiang-boat-coffins",
+            "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+            "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+          },
+          {
+            "sourceId": "luojiaba-fieldwork",
+            "locator": "后河左岸位置及东周墓葬与出土器物",
+            "note": "罗家坝有多期遗存，东周墓葬及区域材料保存在川东河流阶地"
+          },
+          {
+            "sourceId": "luojiaba-reassessment",
+            "locator": "M33、船棺推测、楚式缶及区域比较",
+            "note": "不同葬制解释与楚式器物提供跨区域比较线索"
+          },
+          {
+            "sourceId": "pujiang-excavation-study",
+            "locator": "第534页摘要、引言及第538页工艺结果",
+            "note": "飞虎村墓群属战国中晚期，见船棺及地方形制和秦式青铜器；所检部分器物分别见铸造、热锻痕迹。"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qingchuan-and-pujiang-areas",
+      "year": -309,
+      "date": "公元前 316—前 306 年 · 征服和木牍阅读时段",
+      "title": "郝家坪木牍与蒲江地方遗存",
+      "summary": "同是墓葬证据，两处材料分别能回答什么？",
+      "place": {
+        "label": "青川乔庄南郊 · 郝家坪墓区参照",
+        "lon": 105.24,
+        "lat": 32.57
+      },
+      "sources": [
+        {
+          "id": "qingchuan-field-law",
+          "title": "国家税务总局《战国·“更修田律”木牍》",
+          "url": "https://www.chinatax.gov.cn/chinatax/c103144/c5251333/content.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qingchuan-excavation",
+          "title": "四川省文物管理委员会等《四川青川县战国墓发掘简报》",
+          "url": "https://www.sckg.com/uploads/soft/20230509/2-230509154309554.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "pujiang-boat-coffins",
+          "title": "成都市文物考古研究所公布蒲江战国船棺墓资料",
+          "url": "https://www.xinhuanet.com/politics/2017-02/08/c_1120432704.htm",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "青川郝家坪墓葬保存田律木牍，蒲江保留可对照的地方墓葬材料，两处相距较远。",
+          "refs": [
+            {
+              "sourceId": "qingchuan-field-law",
+              "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+              "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+            },
+            {
+              "sourceId": "qingchuan-excavation",
+              "locator": "墓地位置、50号墓和木牍登记段",
+              "note": "墓群在青川乔庄南郊郝家坪；报告记录50号墓出土木牍"
+            },
+            {
+              "sourceId": "pujiang-boat-coffins",
+              "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+              "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-qingchuan-qin-administration",
+        "title": "郝家坪木牍与蒲江地方遗存",
+        "summary": "同是墓葬证据，两处材料分别能回答什么？",
+        "places": [
+          {
+            "id": "pujiang",
+            "name": "蒲江飞虎村一带",
+            "role": "山麓船棺墓区",
+            "lon": 103.53,
+            "lat": 30.19
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "qingchuan-field-law",
+            "locator": "郝家坪50号墓、正文前309年改律及展品断代标签",
+            "note": "木牍来自青川郝家坪并记前309年更修田律；条目另列展品断代"
+          },
+          {
+            "sourceId": "qingchuan-excavation",
+            "locator": "墓地位置、50号墓和木牍登记段",
+            "note": "墓群在青川乔庄南郊郝家坪；报告记录50号墓出土木牍"
+          },
+          {
+            "sourceId": "pujiang-boat-coffins",
+            "locator": "飞虎村山麓与蒲江河、墓群和随葬器物段",
+            "note": "墓葬位于蒲江山麓与河流之间，船棺墓及陶铜漆木等器物提供蜀地资料"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "handan-zhao-and-dabei-cities",
+      "year": -307,
+      "date": "公元前 386—前 296 年 · 本章阅读时段",
+      "title": "赵王城与大北城",
+      "summary": "城垣、台基与居住活动怎样分布？",
+      "place": {
+        "label": "邯郸赵王城 · 故城西南片区",
+        "lon": 114.45,
+        "lat": 36.57
+      },
+      "sources": [
+        {
+          "id": "handan-zhao-capital",
+          "title": "河北省文物考古研究院《赵邯郸故城》",
+          "url": "https://www.hbswwkg.com/2021-05/11/content_8500381.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "handan-zhao-fieldwork",
+          "title": "河北省文物考古研究院《2023年度邯郸赵王城遗址考古工作》",
+          "url": "https://www.hbswwkg.com/2024-07/19/content_9209483.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "对照邯郸西南赵王城与今市区埋藏的大北城，结合城门、夯土台和居住遗存读城市的结构。",
+          "refs": [
+            {
+              "sourceId": "handan-zhao-capital",
+              "locator": "市区与西南郊位置、赵王城、大北城与城垣相关段",
+              "note": "邯郸都邑由赵王城、大北城两片主要遗址构成，后者多在今市区地下"
+            },
+            {
+              "sourceId": "handan-zhao-fieldwork",
+              "locator": "西城4号门、夯土台及外围壕沟工作段",
+              "note": "调查发现城门、台基、排水等不同遗存"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-handan-two-city-areas",
+        "title": "赵王城与大北城",
+        "summary": "城垣、台基与居住活动怎样分布？",
+        "places": [
+          {
+            "id": "dabeicheng",
+            "name": "邯郸旧市区",
+            "role": "大北城区域参照",
+            "lon": 114.48,
+            "lat": 36.61
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "handan-zhao-capital",
+            "locator": "市区与西南郊位置、赵王城、大北城与城垣相关段",
+            "note": "邯郸都邑由赵王城、大北城两片主要遗址构成，后者多在今市区地下"
+          },
+          {
+            "sourceId": "handan-zhao-fieldwork",
+            "locator": "西城4号门、夯土台及外围壕沟工作段",
+            "note": "调查发现城门、台基、排水等不同遗存"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "lingshou-and-zhongshan-royal-tombs",
+      "year": -310,
+      "date": "约公元前 330—前 296 年 · 战国后段阅读区间",
+      "title": "灵寿城址与中山王陵",
+      "summary": "都邑和西部墓区怎样分布？",
+      "place": {
+        "label": "平山三汲一带 · 滹沱河北岸灵寿城址区",
+        "lon": 114.24,
+        "lat": 38.34
+      },
+      "sources": [
+        {
+          "id": "zhongshan-archaeology",
+          "title": "河北省考古七十年回顾与展望·战国秦汉考古",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552622.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhongshan-bronze-readings",
+          "title": "罗福颐《中山王墓鼎壶铭文小考》",
+          "url": "https://img.dpm.org.cn/Uploads/pdf/1582/T00081_00.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从滹沱河北岸的城址区向西对照王陵分布，结合刻铭礼器观察中山王与相邦的表达。",
+          "refs": [
+            {
+              "sourceId": "zhongshan-archaeology",
+              "locator": "中山国灵寿城址及王陵、赵邯郸故城段",
+              "note": "平山灵寿城及其内外墓地布局与赵邯郸的都邑遗存可以参照"
+            },
+            {
+              "sourceId": "zhongshan-bronze-readings",
+              "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+              "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-zhongshan-lingshou-landscape",
+        "title": "灵寿城址与中山王陵",
+        "summary": "都邑和西部墓区怎样分布？",
+        "places": [
+          {
+            "id": "royal-tombs",
+            "name": "城址以西的墓区",
+            "role": "西部王陵分布区参照",
+            "lon": 114.21,
+            "lat": 38.35
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zhongshan-archaeology",
+            "locator": "中山国灵寿城址及王陵、赵邯郸故城段",
+            "note": "平山灵寿城及其内外墓地布局与赵邯郸的都邑遗存可以参照"
+          },
+          {
+            "sourceId": "zhongshan-bronze-readings",
+            "locator": "大鼎、方壶刻铭及所记燕国权力变动",
+            "note": "特定礼器写有中山王、相邦、燕国变乱及中山立场"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [

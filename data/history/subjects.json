@@ -1768,6 +1768,246 @@
         "scope": "核对遗址区参照、阅读年代和证据范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "wei-daliang-kaifeng-area",
+      "type": "region",
+      "name": "开封一带的战国大梁",
+      "aliases": [
+        "魏都大梁",
+        "大梁",
+        "开封"
+      ],
+      "range": {
+        "from": -365,
+        "to": -339,
+        "dateLabel": "约公元前 365—前 339 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "今开封为大梁的区域参照。迁都王年与战国城址范围仍有不同判断。",
+      "sources": [
+        {
+          "id": "daliang-chronology",
+          "title": "严可《魏国迁都大梁年代之争》",
+          "url": "https://www.cssn.cn/skgz/bwyc/202208/t20220803_5464162.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "kaifeng-city-strata",
+          "title": "孟凡人《北宋东京开封府城的形制布局》",
+          "url": "https://img.dpm.org.cn/Uploads/File/2019/11/25/u5ddbb7e042505.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-wei-early",
+          "title": "《史记》卷四十四《魏世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷044",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "warring-states-ba-luojiaba",
+      "type": "region",
+      "name": "宣汉罗家坝遗址区",
+      "aliases": [
+        "宣汉",
+        "罗家坝",
+        "后河",
+        "川东巴文化"
+      ],
+      "range": {
+        "from": -430,
+        "to": -316,
+        "dateLabel": "约公元前 430—前 316 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以宣汉后河左岸遗址区读东周墓葬和区域交流，各组墓葬按发掘分期。",
+      "sources": [
+        {
+          "id": "luojiaba-fieldwork",
+          "title": "四川省文物考古研究院《宣汉罗家坝遗址》",
+          "url": "https://www.sckg.com/shangzhou/1574.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "luojiaba-reassessment",
+          "title": "高大伦《读〈宣汉罗家坝〉札记》",
+          "url": "https://sckg.com/uploads/soft/20230509/2-230509154R0b3.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "warring-states-shu-pujiang",
+      "type": "region",
+      "name": "蒲江飞虎船棺墓区",
+      "aliases": [
+        "蒲江",
+        "飞虎村",
+        "船棺",
+        "蜀地墓葬"
+      ],
+      "range": {
+        "from": -430,
+        "to": -306,
+        "dateLabel": "约公元前 430—前 306 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以蒲江河与长秋山之间的墓区为参照，阅读跨越秦入蜀前后的地方材料。",
+      "sources": [
+        {
+          "id": "pujiang-boat-coffins",
+          "title": "成都市文物考古研究所公布蒲江战国船棺墓资料",
+          "url": "https://www.xinhuanet.com/politics/2017-02/08/c_1120432704.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "huayang-shu",
+          "title": "常璩《华阳国志·蜀志》",
+          "url": "https://zh.wikisource.org/wiki/華陽國志/卷三",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "qin-qingchuan-haojiaping",
+      "type": "region",
+      "name": "青川郝家坪战国墓区",
+      "aliases": [
+        "青川",
+        "郝家坪",
+        "青川木牍",
+        "更修田律"
+      ],
+      "range": {
+        "from": -316,
+        "to": -306,
+        "dateLabel": "约公元前 316—前 306 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "在青川县城南郊的墓区阅读田律木牍，区分命令、抄写和入葬时间。",
+      "sources": [
+        {
+          "id": "qingchuan-field-law",
+          "title": "国家税务总局《战国·“更修田律”木牍》",
+          "url": "https://www.chinatax.gov.cn/chinatax/c103144/c5251333/content.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qingchuan-excavation",
+          "title": "四川省文物管理委员会等《四川青川县战国墓发掘简报》",
+          "url": "https://www.sckg.com/uploads/soft/20230509/2-230509154309554.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-annals-reforms",
+          "title": "《史记》卷五《秦本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷005",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhao-handan-sites",
+      "type": "region",
+      "name": "赵都邯郸故城",
+      "aliases": [
+        "邯郸",
+        "赵王城",
+        "大北城",
+        "赵都"
+      ],
+      "range": {
+        "from": -386,
+        "to": -296,
+        "dateLabel": "约公元前 386—前 296 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以赵王城和大北城两片遗址区阅读赵都营建与生活，分期与范围按考古资料。",
+      "sources": [
+        {
+          "id": "handan-zhao-capital",
+          "title": "河北省文物考古研究院《赵邯郸故城》",
+          "url": "https://www.hbswwkg.com/2021-05/11/content_8500381.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "handan-zhao-fieldwork",
+          "title": "河北省文物考古研究院《2023年度邯郸赵王城遗址考古工作》",
+          "url": "https://www.hbswwkg.com/2024-07/19/content_9209483.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhongshan-lingshou-sites",
+      "type": "region",
+      "name": "中山灵寿城址与王陵",
+      "aliases": [
+        "中山",
+        "平山",
+        "灵寿",
+        "三汲",
+        "中山王墓"
+      ],
+      "range": {
+        "from": -380,
+        "to": -296,
+        "dateLabel": "约公元前 380—前 296 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以平山三汲一带的都邑和墓区为参照，城垣和王陵有各自的使用年代。",
+      "sources": [
+        {
+          "id": "zhongshan-archaeology",
+          "title": "河北省考古七十年回顾与展望·战国秦汉考古",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552622.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhongshan-bronze-readings",
+          "title": "罗福颐《中山王墓鼎壶铭文小考》",
+          "url": "https://img.dpm.org.cn/Uploads/pdf/1582/T00081_00.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-zhao-jin-remnants",
+          "title": "《史记》卷四十三《赵世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷043",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

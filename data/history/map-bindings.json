@@ -7270,6 +7270,49 @@
       },
       "target": {
         "bookId": "warring-states",
+        "chapterId": "zhang-yi-su-qin-diplomacy"
+      },
+      "range": {
+        "from": -328,
+        "to": -284
+      },
+      "relation": "related",
+      "scope": "从秦的底图入口读张仪任职、出使与游说故事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "qin-enters-shu-and-qingchuan"
+      },
+      "range": {
+        "from": -316,
+        "to": -306
+      },
+      "relation": "related",
+      "scope": "从同期秦底图进入伐蜀年次与青川田律，木牍出土地另以区域参照呈现。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "qin-qingchuan-haojiaping"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qin"
+      },
+      "target": {
+        "bookId": "warring-states",
         "chapterId": "qin-shang-yang-and-standard-sheng"
       },
       "range": {
@@ -7382,6 +7425,48 @@
       "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
       "audit": {
         "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "zhang-yi-su-qin-diplomacy"
+      },
+      "range": {
+        "from": -328,
+        "to": -284
+      },
+      "relation": "related",
+      "scope": "从齐的底图入口读帛书所见燕齐往来，分别核对传世传记的时间。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Qi"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "guiling-maling-texts"
+      },
+      "range": {
+        "from": -354,
+        "to": -341
+      },
+      "relation": "related",
+      "scope": "从齐的底图入口读桂陵和马陵，查对与魏的年次与战事。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {
@@ -7533,6 +7618,27 @@
     {
       "map": {
         "type": "polity",
+        "key": "Yan"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "zhang-yi-su-qin-diplomacy"
+      },
+      "range": {
+        "from": -328,
+        "to": -284
+      },
+      "relation": "related",
+      "scope": "从燕的底图入口读苏秦相关帛书与燕齐关系。书信各自断代。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Zhao"
       },
       "target": {
@@ -7547,6 +7653,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhao"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "zhao-handan-and-hufu"
+      },
+      "range": {
+        "from": -386,
+        "to": -296
+      },
+      "relation": "related",
+      "scope": "进入邯郸城址和武灵王时期的材料，理解赵与周邻的多种关系。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "zhao-handan-sites"
     },
     {
       "map": {
@@ -7586,6 +7714,49 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "guiling-maling-texts"
+      },
+      "range": {
+        "from": -354,
+        "to": -341
+      },
+      "relation": "related",
+      "scope": "从魏的底图入口读邯郸、桂陵与马陵的不同史料。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Wei"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "wei-anyi-and-daliang"
+      },
+      "range": {
+        "from": -365,
+        "to": -339
+      },
+      "relation": "related",
+      "scope": "进入安邑与大梁，分别阅读城址证据与迁都王年。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "wei-daliang-kaifeng-area"
     },
     {
       "map": {
@@ -7908,6 +8079,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Zhongshan"
+      },
+      "target": {
+        "bookId": "warring-states",
+        "chapterId": "zhongshan-lingshou-bronzes"
+      },
+      "range": {
+        "from": -366,
+        "to": -296
+      },
+      "relation": "related",
+      "scope": "从中山底图所覆盖的年段进入灵寿都邑、王陵和器铭。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "zhongshan-lingshou-sites"
     },
     {
       "map": {
