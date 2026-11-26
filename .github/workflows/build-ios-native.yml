@@ -76,7 +76,6 @@ jobs:
       - name: Exercise exploration, year selection, reading and observation on iPhone
         id: simulator
         timeout-minutes: 13
-        continue-on-error: true
         run: |
           set -euo pipefail
           simulator="$(xcrun simctl list devices available -j | python3 -c '

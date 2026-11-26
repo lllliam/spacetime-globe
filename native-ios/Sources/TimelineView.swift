@@ -7,7 +7,9 @@ struct HistoryTimeline: UIViewRepresentable {
     let hasEvent: (Int) -> Bool
     let haptics: Bool
     let reduceMotion: Bool
+    let allowsTouch: () -> Bool
     let onPreview: (Int) -> Void
+    let onCancel: () -> Void
     let onCommit: (Int) -> Void
 
     func makeCoordinator() -> Controller { Controller(self) }
@@ -30,6 +32,7 @@ struct HistoryTimeline: UIViewRepresentable {
         private var lastPreview: Int?
         private var lastFeedback = 0.0
         private var committed = false
+        private var interrupted = false
         private var atBoundary = false
         private var isTracking: Bool { control?.scroll.isDragging == true || control?.scroll.isDecelerating == true }
         private let spacing = 19.0
@@ -39,6 +42,7 @@ struct HistoryTimeline: UIViewRepresentable {
         func connect(_ control: TimelineControl) {
             self.control = control
             control.scroll.delegate = self
+            control.scroll.allowsTouch = { [weak self] in self?.input.allowsTouch() ?? false }
             control.scroll.decelerationRate = .fast
             control.scroll.bounces = false
             control.ruler.drawTicks = { [weak self] context,size in self?.draw(context,size:size) }
@@ -87,6 +91,7 @@ struct HistoryTimeline: UIViewRepresentable {
         func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             scaleDuringDrag = input.scale
             committed = false
+            interrupted = !input.allowsTouch()
             atBoundary = false
             lastPreview = input.year
             if input.haptics { GlobeHaptics.prepareSelection() }
@@ -94,7 +99,9 @@ struct HistoryTimeline: UIViewRepresentable {
 
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             control?.ruler.setNeedsDisplay()
-            guard !internalChange else { return }
+            guard !internalChange, scaleDuringDrag != nil else { return }
+            if !input.allowsTouch() { interrupted = true }
+            guard !interrupted else { return }
             let value = year(scrollView.contentOffset.x)
             guard lastPreview != value else { return }
             lastPreview = value
@@ -112,6 +119,11 @@ struct HistoryTimeline: UIViewRepresentable {
 
         func scrollViewWillEndDragging(_ scrollView: UIScrollView,withVelocity velocity: CGPoint,
                                        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+            if interrupted || !input.allowsTouch() {
+                interrupted = true
+                targetContentOffset.pointee.x = offset(input.year)
+                return
+            }
             if input.reduceMotion { targetContentOffset.pointee.x = scrollView.contentOffset.x }
             let candidate = year(targetContentOffset.pointee.x)
             targetContentOffset.pointee.x = offset(aligned(candidate))
@@ -134,17 +146,19 @@ struct HistoryTimeline: UIViewRepresentable {
         private func finish() {
             guard let control, !committed else { return }
             committed = true
-            let value = aligned(year(control.scroll.contentOffset.x))
+            let cancelled = interrupted || !input.allowsTouch()
+            let value = cancelled ? input.year : aligned(year(control.scroll.contentOffset.x))
             internalChange = true
             control.scroll.setContentOffset(CGPoint(x:offset(value),y:0),animated:false)
             internalChange = false
             scaleDuringDrag = nil
             control.accessibilityValue = eraYear(value) + " 年"
-            input.onCommit(value)
+            if cancelled { input.onCancel() }
+            else { input.onCommit(value) }
         }
 
         @objc private func tap(_ recognizer: UITapGestureRecognizer) {
-            guard let control else { return }
+            guard let control, input.allowsTouch() else { return }
             if isTracking { finish(); return }
             let position = recognizer.location(in:control).x
             let requested = year(control.scroll.contentOffset.x + position-control.bounds.midX)
@@ -209,7 +223,7 @@ struct HistoryTimeline: UIViewRepresentable {
 }
 
 final class TimelineControl: UIView {
-    let scroll = UIScrollView()
+    let scroll = Scroller()
     let ruler = Ruler()
     var layoutAction: (() -> Void)?
     var adjust: ((Int) -> Void)?
@@ -243,6 +257,14 @@ final class TimelineControl: UIView {
     }
     override func accessibilityIncrement() { adjust?(1) }
     override func accessibilityDecrement() { adjust?(-1) }
+
+    final class Scroller: UIScrollView {
+        var allowsTouch: () -> Bool = { true }
+
+        override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+            allowsTouch() && super.gestureRecognizerShouldBegin(gestureRecognizer)
+        }
+    }
 
     final class Ruler: UIView {
         var drawTicks: ((CGContext,CGSize) -> Void)?

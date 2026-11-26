@@ -175,6 +175,8 @@ final class GlobeViewport: ObservableObject {
     private(set) var top: CGFloat = 0
     private var bottom: CGFloat = 0
     private var chromeBottom: CGFloat = 0
+    private var touching = false
+    private var touchesEndedAt = -Double.infinity
     var onChange: ((GlobeCamera?, Bool) -> Void)?
 
     init(_ camera: GlobeCamera) {
@@ -188,6 +190,17 @@ final class GlobeViewport: ObservableObject {
     }
 
     func present(_ camera: GlobeCamera) { self.camera = camera }
+
+    func setMapTouch(_ isDown: Bool) {
+        guard touching != isDown else { return }
+        touching = isDown
+        if !isDown { touchesEndedAt = ProcessInfo.processInfo.systemUptime }
+    }
+
+    var permitsTimelineTouch: Bool {
+        // The two views can receive different fingers from the same UIKit event.
+        !touching && ProcessInfo.processInfo.systemUptime-touchesEndedAt > 0.12
+    }
 
     func protect(top: CGFloat? = nil, bottom: CGFloat? = nil, chromeBottom: CGFloat? = nil) {
         let newTop = top ?? self.top, newBottom = bottom ?? self.bottom

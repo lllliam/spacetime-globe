@@ -150,7 +150,10 @@ struct ExplorerView: View {
             .disabled(applied == nil || applied?.year != (preview ?? session.explore.year))
             .accessibilityIdentifier("open-almanac")
             HistoryTimeline(year:session.explore.year,scale:session.explore.scale,hasEvent:content.archive.hasEventStarting,
-                            haptics:session.preferences.haptics,reduceMotion:reduceMotion,onPreview:{ preview = $0 },
+                            haptics:session.preferences.haptics,reduceMotion:reduceMotion,
+                            allowsTouch:{ viewport.permitsTimelineTouch },
+                            onPreview:{ preview = $0 },
+                            onCancel:{ preview = nil; requested = session.explore.year },
                             onCommit:{ commit($0,feedback:false) })
                 .frame(height:55)
         }

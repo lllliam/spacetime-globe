@@ -25,6 +25,7 @@ final class JourneyTests: XCTestCase {
         northStart.press(forDuration:0.05,thenDragTo:northEnd)
         XCTAssertTrue(choose.isHittable)
         capture("03b-north",app)
+        XCTAssertEqual(choose.value as? String,"1499 年")
         app.buttons["explore-options"].tap()
         app.buttons["复位视角"].tap()
 

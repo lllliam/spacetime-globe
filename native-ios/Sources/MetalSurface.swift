@@ -319,6 +319,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         velocity = .zero
         contacts.removeAll()
         touchOrder.removeAll()
+        configuration?.viewport.setMapTouch(false)
         pendingTap?.cancel()
         pendingTap = nil
         lastTap = nil
@@ -428,6 +429,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         stabilize()
         if contacts.isEmpty {
+            configuration?.viewport.setMapTouch(true)
             didMove = false
             multiTouch = false
             limitFeedback = false
@@ -488,6 +490,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
         }
         remove(touches)
         if contacts.isEmpty {
+            configuration?.viewport.setMapTouch(false)
             if time-lastSample > 0.095 || multiTouch || !didMove || configuration?.reduced == true { velocity = .zero }
             if velocity == .zero { finishMotion() }
             else { motionTime = CACurrentMediaTime(); requestFrame() }
@@ -498,6 +501,7 @@ final class GlobeSurface: UIView, MTKViewDelegate {
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         remove(touches)
+        if contacts.isEmpty { configuration?.viewport.setMapTouch(false) }
         multiTouch = true
         clearTap()
         updateTouchBaseline(event)
