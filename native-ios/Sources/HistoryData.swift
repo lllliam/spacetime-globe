@@ -19,6 +19,12 @@ enum Chronology {
     static func offset(_ year: Int, _ delta: Int) -> Int { self.year(index(year) + delta).clamped(to: range) }
     static func accepts(_ year: Int) -> Bool { year != 0 && range.contains(year) }
 
+    static func numericYear(_ text: String, beforeCommonEra: Bool) -> Int? {
+        guard let number = Int(text), number > 0 else { return nil }
+        let year = beforeCommonEra ? -number : number
+        return accepts(year) ? year : nil
+    }
+
     static func parse(_ raw: String) -> Int? {
         let input = raw.trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "公元前", with: "-")
@@ -428,7 +434,7 @@ struct Archive {
     private let volumeIndex: [String: Volume]
     private let eventIndex: [String: HistoryEvent]
     private let sceneIndex: [String: HistoryScene]
-    private let pointYears: Set<Int>
+    let eventStartIndices: [Int]
     private let mapSites: [Int:[MapSceneSite]]
 
     init(catalog: ContentCatalog, scenes: [HistoryScene]) {
@@ -460,7 +466,8 @@ struct Archive {
             }
         }
         mapSites = sites
-        pointYears = Set(events.filter { !$0.background }.map(\.from))
+        eventStartIndices = events.filter { !$0.background && Chronology.accepts($0.from) }
+            .map { Chronology.index($0.from) }.sorted()
     }
 
     func volume(_ id: String) -> Volume? { volumeIndex[id] }
@@ -470,7 +477,6 @@ struct Archive {
     func events(in year: Int) -> [HistoryEvent] {
         events.drop(while: { $0.from > year }).filter { year <= $0.to }
     }
-    func hasEventStarting(in year: Int) -> Bool { pointYears.contains(year) }
 }
 
 actor ChapterStore {

@@ -2,14 +2,31 @@ import Foundation
 import Combine
 
 enum TimelineScale: Int, CaseIterable, Codable, Identifiable {
-    case year = 1, decade = 10, century = 100
+    case year = 1, fiveYears = 5, decade = 10, fiftyYears = 50, century = 100
+
     var id: Int { rawValue }
-    var label: String {
-        switch self {
-        case .year: return "逐年"
-        case .decade: return "十年"
-        case .century: return "百年"
-        }
+    var label: String { "\(rawValue) 年 / 格" }
+
+    static func nearest(to step: Double) -> Self {
+        allCases.min { abs(log(step / Double($0.rawValue))) < abs(log(step / Double($1.rawValue))) } ?? .year
+    }
+
+    static func zoomedStep(_ step: Double, by ratio: Double) -> Double {
+        (step / max(0.01,ratio)).clamped(to:1...100)
+    }
+}
+
+struct TimelinePosition {
+    static let tickSpacing = 22.0
+    var center: Double
+
+    init(year: Int) { center = Double(Chronology.index(year)) }
+
+    var bounds: ClosedRange<Double> { Double(Chronology.index(Chronology.first))...Double(Chronology.index(Chronology.latest)) }
+    var year: Int { Chronology.year(Int(center.clamped(to:bounds).rounded())) }
+
+    mutating func drag(points: Double, step: Double) {
+        center = (center - points * step / Self.tickSpacing).clamped(to:bounds)
     }
 }
 

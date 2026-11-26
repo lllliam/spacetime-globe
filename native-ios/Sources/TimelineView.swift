@@ -4,279 +4,493 @@ import UIKit
 struct HistoryTimeline: UIViewRepresentable {
     let year: Int
     let scale: TimelineScale
-    let hasEvent: (Int) -> Bool
+    let eventIndices: [Int]
     let haptics: Bool
     let reduceMotion: Bool
+    let active: Bool
     let allowsTouch: () -> Bool
     let onTracking: (Bool) -> Void
     let onPreview: (Int) -> Void
     let onCancel: () -> Void
     let onCommit: (Int) -> Void
+    let onScale: (TimelineScale) -> Void
+    let onChooseYear: () -> Void
 
-    func makeCoordinator() -> Controller { Controller(self) }
-
-    func makeUIView(context: Context) -> TimelineControl {
-        let control = TimelineControl()
-        context.coordinator.connect(control)
-        return control
-    }
-
-    func updateUIView(_ control: TimelineControl, context: Context) {
-        context.coordinator.update(self)
-    }
-
-    static func dismantleUIView(_ view: TimelineControl, coordinator: Controller) {
-        coordinator.input.onTracking(false)
-    }
-
-    final class Controller: NSObject, UIScrollViewDelegate {
-        var input: HistoryTimeline
-        private weak var control: TimelineControl?
-        private var scaleDuringDrag: TimelineScale?
-        private var internalChange = false
-        private var lastPreview: Int?
-        private var lastFeedback = 0.0
-        private var committed = false
-        private var interrupted = false
-        private var atBoundary = false
-        private var isTracking: Bool { control?.scroll.isDragging == true || control?.scroll.isDecelerating == true }
-        private let spacing = 19.0
-
-        init(_ input: HistoryTimeline) { self.input = input }
-
-        func connect(_ control: TimelineControl) {
-            self.control = control
-            control.scroll.delegate = self
-            control.scroll.allowsTouch = { [weak self] in self?.input.allowsTouch() ?? false }
-            control.scroll.decelerationRate = .fast
-            control.scroll.bounces = false
-            control.ruler.drawTicks = { [weak self] context,size in self?.draw(context,size:size) }
-            control.layoutAction = { [weak self] in self?.resize() }
-            control.adjust = { [weak self] delta in self?.step(delta) }
-            let tap = UITapGestureRecognizer(target:self,action:#selector(tap(_:)))
-            tap.cancelsTouchesInView = false
-            control.scroll.addGestureRecognizer(tap)
-            resize()
-        }
-
-        func update(_ new: HistoryTimeline) {
-            let changedScale = input.scale != new.scale
-            let changedYear = input.year != new.year
-            input = new
-            if !isTracking && (changedScale || changedYear) { resize() }
-            control?.ruler.setNeedsDisplay()
-        }
-
-        private var stride: Double { Double((scaleDuringDrag ?? input.scale).rawValue) }
-
-        private var maximum: Double {
-            Double(Chronology.index(Chronology.latest) - Chronology.index(Chronology.first)) * spacing / stride
-        }
-
-        private func offset(_ year: Int) -> Double {
-            Double(Chronology.index(year)-Chronology.index(Chronology.first)) * spacing / stride
-        }
-
-        private func year(_ offset: Double) -> Int {
-            let safe = offset.clamped(to:0...maximum)
-            let index = Int((safe*stride/spacing).rounded()) + Chronology.index(Chronology.first)
-            return Chronology.year(index)
-        }
-
-        private func resize() {
-            guard let control, !isTracking else { return }
-            internalChange = true
-            control.scroll.contentSize = CGSize(width:maximum+control.bounds.width,height:control.bounds.height)
-            control.scroll.contentOffset = CGPoint(x:offset(input.year),y:0)
-            internalChange = false
-            control.accessibilityValue = eraYear(input.year) + " 年"
-            control.ruler.setNeedsDisplay()
-        }
-
-        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-            input.onTracking(true)
-            scaleDuringDrag = input.scale
-            committed = false
-            interrupted = !input.allowsTouch()
-            atBoundary = false
-            lastPreview = input.year
-            if input.haptics { GlobeHaptics.prepareSelection() }
-        }
-
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            control?.ruler.setNeedsDisplay()
-            guard !internalChange, scaleDuringDrag != nil else { return }
-            if !input.allowsTouch() { interrupted = true }
-            guard !interrupted else { return }
-            let value = year(scrollView.contentOffset.x)
-            guard lastPreview != value else { return }
-            lastPreview = value
-            control?.accessibilityValue = eraYear(value) + " 年"
-            input.onPreview(value)
-            let boundary = value == Chronology.first || value == Chronology.latest
-            let tick = stride == 1 || value.isMultiple(of:Int(stride))
-            if input.haptics && boundary && !atBoundary { GlobeHaptics.boundary() }
-            else if input.haptics && tick && CACurrentMediaTime() - lastFeedback > 0.088 {
-                GlobeHaptics.selection()
-                lastFeedback = CACurrentMediaTime()
-            }
-            atBoundary = boundary
-        }
-
-        func scrollViewWillEndDragging(_ scrollView: UIScrollView,withVelocity velocity: CGPoint,
-                                       targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-            if interrupted || !input.allowsTouch() {
-                interrupted = true
-                targetContentOffset.pointee.x = offset(input.year)
-                return
-            }
-            if input.reduceMotion { targetContentOffset.pointee.x = scrollView.contentOffset.x }
-            let candidate = year(targetContentOffset.pointee.x)
-            targetContentOffset.pointee.x = offset(aligned(candidate))
-        }
-
-        private func aligned(_ candidate: Int) -> Int {
-            let step = Int(stride)
-            if step == 1 || candidate == Chronology.first || candidate == Chronology.latest { return candidate }
-            let nearest = Int((Double(candidate)/stride).rounded()) * step
-            let normalized = nearest == 0 ? (candidate < 0 ? -1 : 1) : nearest
-            return normalized.clamped(to:Chronology.range)
-        }
-
-        func scrollViewDidEndDragging(_ scrollView: UIScrollView,willDecelerate decelerate: Bool) {
-            if !decelerate { finish() }
-        }
-
-        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { finish() }
-
-        private func finish() {
-            guard let control, !committed else { return }
-            committed = true
-            let cancelled = interrupted || !input.allowsTouch()
-            let value = cancelled ? input.year : aligned(year(control.scroll.contentOffset.x))
-            internalChange = true
-            control.scroll.setContentOffset(CGPoint(x:offset(value),y:0),animated:false)
-            internalChange = false
-            scaleDuringDrag = nil
-            control.accessibilityValue = eraYear(value) + " 年"
-            if cancelled { input.onCancel() }
-            else { input.onCommit(value) }
-            input.onTracking(false)
-        }
-
-        @objc private func tap(_ recognizer: UITapGestureRecognizer) {
-            guard let control, input.allowsTouch() else { return }
-            if isTracking { finish(); return }
-            let position = recognizer.location(in:control).x
-            let requested = year(control.scroll.contentOffset.x + position-control.bounds.midX)
-            if requested != input.year { choose(requested) }
-        }
-
-        private func step(_ direction: Int) {
-            choose(Chronology.offset(input.year,direction * Int(stride)))
-        }
-
-        private func choose(_ newYear: Int) {
-            guard let control else { return }
-            internalChange = true
-            control.scroll.setContentOffset(CGPoint(x:offset(newYear),y:0),animated:false)
-            internalChange = false
-            if input.haptics && newYear != input.year { GlobeHaptics.selection() }
-            input.onCommit(newYear)
-        }
-
-        private func draw(_ context: CGContext,size: CGSize) {
-            guard let control else { return }
-            let mid = size.width/2, scroll = control.scroll.contentOffset.x
-            let start = year(Double(scroll - mid - 1))
-            let end = year(Double(scroll + mid + 1))
-            let unit = Int(stride)
-            let major = unit * 5
-            guard start <= end else { return }
-            for value in start...end where value != 0 {
-                let isTick = value.isMultiple(of:unit)
-                let event = input.hasEvent(value)
-                guard isTick || event else { continue }
-                let x = mid + offset(value) - scroll
-                guard x >= 0 && x <= size.width else { continue }
-                let opacity = min(1,min(x,size.width-x)/34)
-                if isTick {
-                    let large = value.isMultiple(of:major)
-                    context.setStrokeColor(UIColor(white:0.82,alpha:opacity * (large ? 0.65 : 0.37)).cgColor)
-                    context.setLineWidth(1)
-                    context.move(to:CGPoint(x:x,y:large ? 12 : 19))
-                    context.addLine(to:CGPoint(x:x,y:35))
-                    context.strokePath()
-                    if large {
-                        let label = NSAttributedString(string:eraYear(value),attributes:[
-                            .font:UIFont.monospacedDigitSystemFont(ofSize:10,weight:.regular),
-                            .foregroundColor:UIColor(white:0.86,alpha:opacity)
-                        ])
-                        label.draw(at:CGPoint(x:x-label.size().width/2,y:40))
-                    }
-                }
-                if event {
-                    context.setFillColor(UIColor(red:0.87,green:0.73,blue:0.47,alpha:opacity).cgColor)
-                    context.fillEllipse(in:CGRect(x:x-2,y:4,width:4,height:4))
-                }
-            }
-            context.setStrokeColor(UIColor(red:0.79,green:0.32,blue:0.24,alpha:1).cgColor)
-            context.setLineWidth(2)
-            context.move(to:CGPoint(x:mid,y:8))
-            context.addLine(to:CGPoint(x:mid,y:38))
-            context.strokePath()
-        }
-    }
+    func makeUIView(context: Context) -> TimelineControl { TimelineControl() }
+    func updateUIView(_ view: TimelineControl, context: Context) { view.configure(self) }
+    static func dismantleUIView(_ view: TimelineControl, coordinator: ()) { view.detach() }
 }
 
+/// The date at the cursor lives in chronological index space. Scale controls only its projection.
+@MainActor
 final class TimelineControl: UIView {
-    let scroll = Scroller()
-    let ruler = Ruler()
-    var layoutAction: (() -> Void)?
-    var adjust: ((Int) -> Void)?
-    private var lastSize = CGSize.zero
+    private enum Gesture { case waiting, drag, pinch, ignored }
+    private struct Zoom {
+        let distance: CGFloat
+        let step: Double
+    }
+    private struct Snap {
+        let start: Double
+        let end: Double
+        let began: CFTimeInterval
+    }
+    private struct Tick {
+        let index: Int
+        let x: CGFloat
+        let label: Bool
+    }
+    private final class FrameTarget: NSObject {
+        weak var view: TimelineControl?
+        @objc func tick(_ link: CADisplayLink) { view?.tick(link) }
+    }
+
+    private var input: HistoryTimeline?
+    private var position = TimelinePosition(year:1500)
+    private var committedYear = 1500
+    private var displayedYear = 1500
+    private var selectedScale = TimelineScale.year
+    private var step = 1.0
+    private var mode: Gesture = .waiting
+    private var contacts: [ObjectIdentifier:CGPoint] = [:]
+    private var order: [ObjectIdentifier] = []
+    private var touchOrigin = CGPoint.zero
+    private var zoom: Zoom?
+    private var snap: Snap?
+    private var hold: DispatchWorkItem?
+    private var velocity = 0.0
+    private var sampleTime = 0.0
+    private var frameTime = 0.0
+    private var feedbackTime = 0.0
+    private var coasting = false
+    private var tracking = false
+    private var hasPreview = false
+    private var link: CADisplayLink?
+    private let labels: [NSAttributedString.Key:Any] = [
+        .font:UIFont.monospacedDigitSystemFont(ofSize:10,weight:.regular),
+        .foregroundColor:UIColor(white:0.89,alpha:1)
+    ]
 
     override init(frame: CGRect) {
         super.init(frame:frame)
-        scroll.showsHorizontalScrollIndicator = false
-        scroll.showsVerticalScrollIndicator = false
-        scroll.contentInsetAdjustmentBehavior = .never
-        scroll.isAccessibilityElement = false
-        ruler.isOpaque = false
-        ruler.isUserInteractionEnabled = false
-        addSubview(scroll)
-        addSubview(ruler)
+        backgroundColor = .clear
+        isOpaque = false
+        isMultipleTouchEnabled = true
+        contentMode = .redraw
         isAccessibilityElement = true
-        accessibilityTraits = .adjustable
         accessibilityLabel = "历史时间轴"
         accessibilityIdentifier = "timeline-ruler"
-    }
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        scroll.frame = bounds
-        ruler.frame = bounds
-        if lastSize != bounds.size {
-            lastSize = bounds.size
-            layoutAction?()
-        }
-    }
-    override func accessibilityIncrement() { adjust?(1) }
-    override func accessibilityDecrement() { adjust?(-1) }
-
-    final class Scroller: UIScrollView {
-        var allowsTouch: () -> Bool = { true }
-
-        override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-            allowsTouch() && super.gestureRecognizerShouldBegin(gestureRecognizer)
-        }
+        accessibilityTraits = .adjustable
+        accessibilityHint = "上下轻扫调整年份，使用操作可以打开精确选年。"
+        accessibilityCustomActions = [
+            UIAccessibilityCustomAction(name:"精确选年") { [weak self] _ in
+                guard let self, self.input?.active == true else { return false }
+                self.openYearChooser()
+                return true
+            },
+            UIAccessibilityCustomAction(name:"前进一年") { [weak self] _ in self?.accessibilityStep(1) ?? false },
+            UIAccessibilityCustomAction(name:"后退一年") { [weak self] _ in self?.accessibilityStep(-1) ?? false }
+        ]
+        NotificationCenter.default.addObserver(self,selector:#selector(interrupt),name:UIApplication.willResignActiveNotification,object:nil)
     }
 
-    final class Ruler: UIView {
-        var drawTicks: ((CGContext,CGSize) -> Void)?
-        override func draw(_ rect: CGRect) {
-            if let context = UIGraphicsGetCurrentContext() { drawTicks?(context,bounds.size) }
+    required init?(coder: NSCoder) { nil }
+
+    func configure(_ next: HistoryTimeline) {
+        let previous = input
+        input = next
+        isUserInteractionEnabled = next.active
+        if previous == nil || previous?.year != next.year {
+            committedYear = next.year
+            if !tracking || !next.active {
+                position = TimelinePosition(year:next.year)
+                displayedYear = next.year
+            }
         }
+        if previous == nil {
+            selectedScale = next.scale
+            step = Double(next.scale.rawValue)
+        } else if selectedScale != next.scale {
+            selectedScale = next.scale
+            animateScale(to:next.scale)
+        }
+        if !next.active && previous?.active != false { resetInput(notify:false) }
+        updateAccessibility()
+        setNeedsDisplay()
+    }
+
+    func detach() {
+        NotificationCenter.default.removeObserver(self)
+        resetInput(notify:false)
+        input = nil
+        link?.invalidate()
+        link = nil
+    }
+
+    @objc private func interrupt() { resetInput(notify:true) }
+
+    private func setTracking(_ value: Bool) {
+        guard tracking != value else { return }
+        tracking = value
+        input?.onTracking(value)
+    }
+
+    private func resetInput(notify: Bool, clearContacts: Bool = true) {
+        hold?.cancel()
+        hold = nil
+        velocity = 0
+        coasting = false
+        zoom = nil
+        if clearContacts { contacts.removeAll(); order.removeAll() }
+        mode = .ignored
+        snap = nil
+        step = Double(selectedScale.rawValue)
+        position = TimelinePosition(year:committedYear)
+        displayedYear = committedYear
+        if hasPreview && notify { input?.onCancel() }
+        hasPreview = false
+        setTracking(false)
+        link?.isPaused = true
+        updateAccessibility()
+        setNeedsDisplay()
+    }
+
+    private func commit(_ year: Int, feedback: Bool = false) {
+        let changed = committedYear != year
+        let finishPreview = hasPreview
+        committedYear = year
+        displayedYear = year
+        position = TimelinePosition(year:year)
+        hasPreview = false
+        updateAccessibility()
+        setNeedsDisplay()
+        if feedback, changed, input?.haptics == true { GlobeHaptics.selection() }
+        if changed || finishPreview { input?.onCommit(year) }
+    }
+
+    private func publishPreview(at now: Double) {
+        let year = position.year
+        guard displayedYear != year else { return }
+        displayedYear = year
+        hasPreview = true
+        input?.onPreview(year)
+        updateAccessibility()
+        if input?.haptics == true, now-feedbackTime > 0.085 {
+            let boundary = year == Chronology.first || year == Chronology.latest
+            if boundary { GlobeHaptics.boundary() }
+            else if selectedScale == .year || year.isMultiple(of:selectedScale.rawValue) { GlobeHaptics.selection() }
+            feedbackTime = now
+        }
+    }
+
+    private func openYearChooser() {
+        resetInput(notify:true,clearContacts:false)
+        input?.onChooseYear()
+    }
+
+    private func updateAccessibility() {
+        accessibilityValue = "\(eraYear(displayedYear)) 年，\(selectedScale.label)"
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let input, input.active, input.allowsTouch(),
+              mode != .ignored || contacts.isEmpty else { return }
+        let starting = contacts.isEmpty
+        for touch in touches {
+            let id = ObjectIdentifier(touch)
+            contacts[id] = touch.location(in:self)
+            order.append(id)
+        }
+        coasting = false
+        velocity = 0
+        snap = nil
+        sampleTime = event?.timestamp ?? CACurrentMediaTime()
+        if starting {
+            setTracking(true)
+            touchOrigin = order.first.flatMap { contacts[$0] } ?? .zero
+            mode = .waiting
+            if input.haptics { GlobeHaptics.prepareSelection() }
+        }
+        hold?.cancel()
+        hold = nil
+        if contacts.count == 2 {
+            beginPinch()
+        } else if starting && contacts.count == 1 {
+            let hold = DispatchWorkItem { [weak self] in
+                guard let self, self.mode == .waiting, self.contacts.count == 1,
+                      self.input?.allowsTouch() == true else { return }
+                self.openYearChooser()
+            }
+            self.hold = hold
+            DispatchQueue.main.asyncAfter(deadline:.now()+0.43,execute:hold)
+        } else {
+            // Keep the current axis when an extra finger lands. Establish a fresh baseline on return to two.
+            if mode != .pinch { commit(position.year) }
+            mode = .pinch
+            zoom = nil
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard mode != .ignored, let input else { return }
+        guard input.active && input.allowsTouch() else { resetInput(notify:true,clearContacts:false); return }
+        let before = order.first.flatMap { contacts[$0] }
+        for touch in touches where contacts[ObjectIdentifier(touch)] != nil {
+            contacts[ObjectIdentifier(touch)] = touch.location(in:self)
+        }
+        let now = event?.timestamp ?? CACurrentMediaTime()
+        let elapsed = max(0.004,now-sampleTime)
+        defer { sampleTime = now }
+        if contacts.count == 2, let zoom, let distance = pinchDistance {
+            step = TimelineScale.zoomedStep(zoom.step,by:Double(distance/zoom.distance))
+            setNeedsDisplay()
+        } else if contacts.count == 1, let before, let id = order.first, let after = contacts[id] {
+            if mode == .waiting && hypot(after.x-touchOrigin.x,after.y-touchOrigin.y) > 6 {
+                hold?.cancel()
+                hold = nil
+                mode = .drag
+                position.drag(points:after.x-touchOrigin.x,step:step)
+            } else if mode == .drag {
+                position.drag(points:after.x-before.x,step:step)
+            } else { return }
+            let dx = Double(after.x-before.x)
+            velocity = (velocity*0.48 + dx/elapsed*0.52).clamped(to:-3100...3100)
+            publishPreview(at:now)
+            setNeedsDisplay()
+        }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let tap = touches.first?.location(in:self)
+        for touch in touches {
+            let id = ObjectIdentifier(touch)
+            contacts.removeValue(forKey:id)
+            order.removeAll { $0 == id }
+        }
+        hold?.cancel()
+        hold = nil
+        guard mode != .ignored else { return }
+        guard input?.allowsTouch() == true else { resetInput(notify:true,clearContacts:false); return }
+        if contacts.count == 2 {
+            beginPinch()
+            return
+        }
+        if contacts.count == 1 && mode == .pinch {
+            finishPinch()
+            mode = .drag
+            velocity = 0
+            sampleTime = event?.timestamp ?? CACurrentMediaTime()
+            return
+        }
+        guard contacts.isEmpty else { return }
+        let now = event?.timestamp ?? CACurrentMediaTime()
+        switch mode {
+        case .waiting:
+            if let tap, let tick = nearestTick(at:tap.x) { commit(Chronology.year(tick.index),feedback:true) }
+            else { commit(position.year) }
+        case .drag:
+            if input?.reduceMotion != true, now-sampleTime < 0.105, abs(velocity) > 140 {
+                coasting = true
+                frameTime = CACurrentMediaTime()
+                ensureFrame()
+                return
+            }
+            commit(position.year)
+        case .pinch:
+            finishPinch()
+        case .ignored:
+            break
+        }
+        if step != Double(selectedScale.rawValue) && snap == nil { animateScale(to:selectedScale) }
+        setTracking(snap != nil)
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        resetInput(notify:true)
+    }
+
+    private var pinchDistance: CGFloat? {
+        guard order.count == 2, let a = contacts[order[0]], let b = contacts[order[1]] else { return nil }
+        return max(10,hypot(a.x-b.x,a.y-b.y))
+    }
+
+    private func beginPinch() {
+        mode = .pinch
+        velocity = 0
+        // If a drag fed a visible preview into the cursor, keep that exact year as the zoom anchor.
+        commit(position.year)
+        zoom = pinchDistance.map { Zoom(distance:$0,step:step) }
+    }
+
+    private func finishPinch() {
+        zoom = nil
+        let next = TimelineScale.nearest(to:step)
+        if next != selectedScale {
+            selectedScale = next
+            input?.onScale(next)
+            if input?.haptics == true { GlobeHaptics.selection() }
+        }
+        animateScale(to:next)
+        updateAccessibility()
+    }
+
+    private func animateScale(to target: TimelineScale) {
+        let value = Double(target.rawValue)
+        if input?.reduceMotion == true || abs(step-value) < 0.01 {
+            step = value
+            snap = nil
+            setNeedsDisplay()
+        } else {
+            snap = Snap(start:step,end:value,began:CACurrentMediaTime())
+            if input?.active == true { setTracking(true) }
+            ensureFrame()
+        }
+    }
+
+    private func ensureFrame() {
+        if link == nil {
+            let target = FrameTarget()
+            target.view = self
+            let display = CADisplayLink(target:target,selector:#selector(FrameTarget.tick(_:)))
+            display.add(to:.main,forMode:.common)
+            link = display
+        }
+        link?.isPaused = false
+    }
+
+    private func tick(_ display: CADisplayLink) {
+        if coasting {
+            guard input?.active == true, input?.allowsTouch() == true else { resetInput(notify:true); return }
+            let dt = min(0.045,max(0,display.timestamp-frameTime))
+            frameTime = display.timestamp
+            let before = position.center
+            position.drag(points:velocity*dt,step:step)
+            velocity *= exp(-dt*4.8)
+            publishPreview(at:display.timestamp)
+            if abs(velocity) < 23 || (dt > 0 && position.center == before) {
+                coasting = false
+                commit(position.year)
+                if snap == nil && step != Double(selectedScale.rawValue) { animateScale(to:selectedScale) }
+            }
+        }
+        if let snap {
+            let fraction = ((CACurrentMediaTime()-snap.began)/0.24).clamped(to:0...1)
+            let ease = 1-pow(1-fraction,3)
+            step = snap.start * pow(snap.end/snap.start,ease)
+            if fraction >= 1 { step = snap.end; self.snap = nil }
+        }
+        setNeedsDisplay()
+        if !coasting && snap == nil {
+            if contacts.isEmpty { setTracking(false) }
+            display.isPaused = true
+        }
+    }
+
+    private func accessibilityStep(_ amount: Int) -> Bool {
+        guard input?.active == true else { return false }
+        resetInput(notify:true)
+        commit(Chronology.offset(committedYear,amount),feedback:true)
+        return true
+    }
+
+    override func accessibilityIncrement() { _ = accessibilityStep(selectedScale.rawValue) }
+    override func accessibilityDecrement() { _ = accessibilityStep(-selectedScale.rawValue) }
+
+    private var pointsPerYear: Double { TimelinePosition.tickSpacing / step }
+    private func x(_ index: Double) -> CGFloat { bounds.midX + (index-position.center)*pointsPerYear }
+
+    private func ticks(for scale: TimelineScale) -> [Tick] {
+        guard bounds.width > 0 else { return [] }
+        let unit = scale.rawValue
+        let screenSpan = Double(bounds.width/2+12)/pointsPerYear
+        let indices = position.bounds
+        let minIndex = Int(max(indices.lowerBound,ceil(position.center-screenSpan)))
+        let maxIndex = Int(min(indices.upperBound,floor(position.center+screenSpan)))
+        guard minIndex <= maxIndex else { return [] }
+        let firstYear = Chronology.year(minIndex)
+        let lastYear = Chronology.year(maxIndex)
+        let labelEvery = max(5,Int(ceil(55/max(1,Double(unit)*pointsPerYear))))
+        let initial = Int(ceil(Double(firstYear)/Double(unit)))*unit
+        guard initial <= lastYear else { return [] }
+        return stride(from:initial,through:lastYear,by:unit).compactMap { year in
+            guard year != 0 else {
+                guard minIndex <= 0, maxIndex >= 0, unit > 1 else { return nil }
+                return Tick(index:0,x:x(0),label:false)
+            }
+            let index = Chronology.index(year)
+            return Tick(index:index,x:x(Double(index)),label:(year/unit).isMultiple(of:labelEvery))
+        }
+    }
+
+    private func nearestTick(at location: CGFloat) -> Tick? {
+        let scale = TimelineScale.nearest(to:step)
+        guard let tick = ticks(for:scale).min(by:{ abs($0.x-location) < abs($1.x-location) }),
+              abs(tick.x-location) <= min(10,Double(scale.rawValue)*pointsPerYear/2) else { return nil }
+        return tick
+    }
+
+    override func draw(_ rect: CGRect) {
+        guard let ctx = UIGraphicsGetCurrentContext(), bounds.width > 0 else { return }
+        let levels = TimelineScale.allCases
+        let lower = levels.last { Double($0.rawValue) <= step } ?? .year
+        let higher = levels.first { Double($0.rawValue) > step } ?? lower
+        let span = log(Double(higher.rawValue)/Double(lower.rawValue))
+        let blend = span > 0 ? (log(step/Double(lower.rawValue))/span).clamped(to:0...1) : 0
+        drawTicks(lower,alpha:1-blend,in:ctx)
+        if blend > 0.001 { drawTicks(higher,alpha:blend,in:ctx) }
+        drawEvents(in:ctx)
+        ctx.setStrokeColor(UIColor(red:0.82,green:0.37,blue:0.27,alpha:1).cgColor)
+        ctx.setLineWidth(2)
+        ctx.move(to:CGPoint(x:bounds.midX,y:5))
+        ctx.addLine(to:CGPoint(x:bounds.midX,y:36))
+        ctx.strokePath()
+    }
+
+    private func drawTicks(_ scale: TimelineScale, alpha: Double, in ctx: CGContext) {
+        guard alpha > 0.001 else { return }
+        let spacing = Double(scale.rawValue)*pointsPerYear
+        let visibility = ((spacing-4)/6).clamped(to:0...1)*alpha
+        guard visibility > 0.001 else { return }
+        ctx.saveGState()
+        ctx.setAlpha(visibility)
+        ctx.setLineWidth(1)
+        for tick in ticks(for:scale) {
+            ctx.setStrokeColor(UIColor(white:0.87,alpha:tick.label ? 0.57 : 0.28).cgColor)
+            ctx.move(to:CGPoint(x:tick.x,y:tick.label ? 13 : 21))
+            ctx.addLine(to:CGPoint(x:tick.x,y:35))
+            ctx.strokePath()
+            if tick.label {
+                let text = NSAttributedString(string:eraYear(Chronology.year(tick.index)),attributes:labels)
+                text.draw(at:CGPoint(x:tick.x-text.size().width/2,y:38))
+            }
+        }
+        ctx.restoreGState()
+    }
+
+    private func drawEvents(in ctx: CGContext) {
+        guard let indices = input?.eventIndices else { return }
+        var total = 0
+        var start: CGFloat = 0
+        var sum: CGFloat = 0
+        func dot() {
+            guard total > 0 else { return }
+            let cx = sum/CGFloat(total)
+            let radius: CGFloat = total == 1 ? 1.65 : (total < 6 ? 2.25 : 3)
+            ctx.fillEllipse(in:CGRect(x:cx-radius,y:8-radius,width:2*radius,height:2*radius))
+        }
+        ctx.setFillColor(UIColor(red:0.86,green:0.73,blue:0.49,alpha:0.9).cgColor)
+        for index in indices {
+            let point = x(Double(index))
+            if point < -6 { continue }
+            if point > bounds.width+6 { break }
+            if total > 0 && point-start >= 13 {
+                dot()
+                total = 0
+                sum = 0
+            }
+            if total == 0 { start = point }
+            total += 1
+            sum += point
+        }
+        dot()
     }
 }

@@ -289,8 +289,9 @@ private struct Almanac: View {
         } else {
             VStack(spacing:0) {
                 let events = content.archive.events(in:year)
+                let related = context(for:events)
                 HStack(alignment:.top) {
-                    PaperHeader(title:"\(eraYear(year)) 年",subtitle:"这一年")
+                    PaperHeader(title:"这一年的世界",subtitle:"\(eraYear(year)) 年")
                     IconAction(icon:"xmark",label:"关闭史事",tint:Design.quiet) { dismiss() }
                 }
                 .padding(.horizontal,Design.inset).padding(.top,22).padding(.bottom,14)
@@ -299,7 +300,33 @@ private struct Almanac: View {
                         LazyVStack(alignment:.leading,spacing:12) {
                             if events.isEmpty { Text("这一年暂未收录史事").foregroundStyle(Design.quiet) }
                             timelineGroup(title:"当年史事",events:events.filter { !$0.background })
-                            timelineGroup(title:"长期历史背景",events:events.filter(\.background))
+                            timelineGroup(title:"历史背景",events:events.filter(\.background))
+                            if !related.subjects.isEmpty {
+                                groupTitle("历史主体")
+                                ForEach(related.subjects) { item in
+                                    ShelfRow(title:item.subject.name,label:item.volume.title) {
+                                        session.open(ReadingNode(volume:item.volume.id,chapter:item.chapter,entryYear:year),
+                                                     from:.year(year))
+                                    }
+                                }
+                            }
+                            if !related.books.isEmpty {
+                                groupTitle("相关书卷")
+                                ForEach(related.books) { item in
+                                    ShelfRow(title:item.volume.title,label:item.volume.chapter(item.chapter)?.title ?? item.volume.dateText) {
+                                        session.open(ReadingNode(volume:item.volume.id,chapter:item.chapter,entryYear:year),
+                                                     from:.year(year))
+                                    }
+                                }
+                            }
+                            if !related.scenes.isEmpty {
+                                groupTitle("历史观察现场")
+                                ForEach(related.scenes) { item in
+                                    ShelfRow(title:item.scene.title,label:item.frame?.dateLabel ?? "\(eraYear(item.frame?.year ?? item.scene.year)) 年") {
+                                        session.startObservation(.scene(item.scene.id),stage:item.frame?.id,source:.year(year))
+                                    }
+                                }
+                            }
                         }
                         .padding(.horizontal,Design.inset).padding(.bottom,25)
                     }
@@ -312,10 +339,59 @@ private struct Almanac: View {
         }
     }
 
+    private struct RelatedBook: Identifiable {
+        let volume: Volume
+        let chapter: String?
+        var id: String { volume.id }
+    }
+
+    private struct RelatedSubject: Identifiable {
+        let subject: AtlasIndex.Subject
+        let book: RelatedBook
+        var id: String { subject.id }
+        var volume: Volume { book.volume }
+        var chapter: String? { book.chapter }
+    }
+
+    private struct RelatedScene: Identifiable {
+        let scene: HistoryScene
+        let frame: SceneFrame?
+        var id: String { scene.id }
+    }
+
+    private func context(for events: [HistoryEvent]) -> (subjects:[RelatedSubject],books:[RelatedBook],scenes:[RelatedScene]) {
+        var subjectIDs = Set<String>()
+        let subjects: [RelatedSubject] = content.index.books.keys.sorted().compactMap { mapID in
+            guard mapID.hasPrefix("polity:"), let subject = content.index.subjects[mapID],
+                  let from = subject.from, from <= year, year <= (subject.to ?? year),
+                  let binding = content.index.bindings(mapID,in:year).first(where:{ $0.relation == "primary" }),
+                  let volume = content.archive.volume(binding.volume),
+                  subjectIDs.insert(subject.id).inserted else { return nil }
+            return RelatedSubject(subject:subject,book:RelatedBook(volume:volume,chapter:binding.chapter))
+        }.sorted { $0.subject.name.localizedStandardCompare($1.subject.name) == .orderedAscending }
+        var bookIDs = Set(subjects.map(\.volume.id))
+        let books = events.flatMap(\.reading).compactMap { item -> RelatedBook? in
+            guard let volume = content.archive.volume(item.volume), bookIDs.insert(volume.id).inserted else { return nil }
+            return RelatedBook(volume:volume,chapter:item.chapter)
+        }
+        let eventScenes = Set(events.compactMap(\.scene))
+        let scenes = content.archive.scenes.compactMap { scene -> RelatedScene? in
+            guard scene.status == "available" else { return nil }
+            let frame = scene.frames.first { $0.year == year }
+            guard frame != nil || scene.year == year || eventScenes.contains(scene.id) else { return nil }
+            return RelatedScene(scene:scene,frame:frame ?? scene.frames.first)
+        }
+        return (subjects,books,scenes)
+    }
+
+    private func groupTitle(_ title: String) -> some View {
+        Text(title).font(.subheadline.weight(.semibold))
+            .padding(.top,10).accessibilityAddTraits(.isHeader)
+    }
+
     @ViewBuilder private func timelineGroup(title: String,events: [HistoryEvent]) -> some View {
         if !events.isEmpty {
-            Text("\(title) · \(events.count)").font(.subheadline.weight(.semibold))
-                .padding(.top,10).accessibilityAddTraits(.isHeader)
+            groupTitle("\(title) · \(events.count)")
             ForEach(events) { event in
                 ShelfRow(title:event.title,label:([event.dateText] + Array(event.regions.prefix(2))).joined(separator:" · ")) {
                     last = event.id

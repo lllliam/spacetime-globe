@@ -6,12 +6,20 @@ final class JourneyTests: XCTestCase {
         continueAfterFailure = false
         let app = XCUIApplication()
         app.launch()
-        let choose = app.buttons["choose-year"]
+        let choose = app.buttons["open-almanac"]
         XCTAssertTrue(choose.waitForExistence(timeout:25))
         selectYear(1499,in:app)
-        let almanac = app.buttons["open-almanac"]
-        let rendered = XCTNSPredicateExpectation(predicate:NSPredicate(format:"enabled == true"),object:almanac)
-        XCTAssertEqual(XCTWaiter.wait(for:[rendered],timeout:15),.completed)
+        let scale = app.buttons["timeline-scale"]
+        scale.tap()
+        app.buttons["100 年 / 格"].tap()
+        XCTAssertEqual(choose.value as? String,"1499 年")
+        XCTAssertEqual(scale.value as? String,"100 年 / 格")
+        scale.tap()
+        app.buttons["1 年 / 格"].tap()
+        choose.tap()
+        XCTAssertTrue(app.staticTexts["这一年的世界"].waitForExistence(timeout:8))
+        app.buttons["关闭史事"].tap()
+        XCTAssertEqual(choose.value as? String,"1499 年")
 
         let globe = app.descendants(matching:.any)["history-globe"].firstMatch
         XCTAssertTrue(globe.waitForExistence(timeout:8))
@@ -123,14 +131,16 @@ final class JourneyTests: XCTestCase {
     }
 
     @MainActor private func selectYear(_ year: Int,in app: XCUIApplication) {
-        let choose = app.buttons["choose-year"]
-        choose.tap()
+        let choose = app.buttons["open-almanac"]
+        let ruler = app.descendants(matching:.any)["timeline-ruler"].firstMatch
+        XCTAssertTrue(ruler.waitForExistence(timeout:6))
+        ruler.press(forDuration:0.6)
         let field = app.textFields["year-input"]
         XCTAssertTrue(field.waitForExistence(timeout:5))
         field.tap()
-        let old = field.value as? String ?? ""
-        field.typeText(String(repeating:XCUIKeyboardKey.delete.rawValue,count:old.count))
         field.typeText(String(year))
+        XCTAssertEqual(field.value as? String,String(year))
+        if !app.buttons["submit-year"].isHittable { app.scrollViews.firstMatch.swipeUp() }
         let go = app.buttons["submit-year"]
         XCTAssertTrue(go.exists)
         go.tap()
