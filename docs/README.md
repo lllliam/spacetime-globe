@@ -8,6 +8,7 @@
 | [设计说明](DESIGN.md) | 视觉语言、交互与可访问入口 |
 | [工程架构](ARCHITECTURE.md) | 源码、数据、资产、工具和部署职责 |
 | [状态模型](STATE-MODEL.md) | 核心状态所有权、导航、持久化和兼容 |
+| [Historical World](HISTORICAL-WORLD.md) | 长期建设范围、证据规范与续接台账 |
 | [历史内容模型](HISTORY-MODEL.md) | 历史对象、稳定 ID、关系、地图绑定和数据迁移 |
 | [阅读与内容组织](READING.md) | 全屏阅读、书卷与专题、入口、章节及来源呈现 |
 | [历史现场与全球关联](HISTORICAL-SCENES.md) | 观察状态、空间证据精度、场景和关系类型 |

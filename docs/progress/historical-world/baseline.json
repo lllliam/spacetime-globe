@@ -1,0 +1,2964 @@
+{
+  "phase06": "5bae983a9510987b63f4bb4b2af07ab8d9e5ecdd",
+  "checkpoint": "2d8233be8fc5c54cffc5ddf7dc806c711ca8a7bc",
+  "intake": "acb675dbbdf075a8b6d1e0466735226b28b4a28c",
+  "counts": {
+    "originalTotal": 5576,
+    "phase07Disposed": 387,
+    "currentOriginalDisposed": 484,
+    "priorityAtDeferral": 106,
+    "currentPriorityRemaining": 100,
+    "inheritedPhase08Priority": 3,
+    "currentBatchPriority": 3,
+    "intakeAdded": 268,
+    "intakeModified": 78,
+    "intakeRemoved": 9,
+    "newHighRiskAtIntake": 0,
+    "batchReviewed": 28,
+    "batchNewNonSources": 9
+  },
+  "remainingPriority": [
+    "book-paragraph/achaemenid/satrap-revolt-and-alexander/p-05",
+    "block/british-empire/industrial-pax-britannica/aside-03",
+    "book-paragraph/caliphate/rashidun-conquests/p-03",
+    "book-paragraph/caliphate/rashidun-conquests/p-04",
+    "book-paragraph/caliphate/abbasid-baghdad-golden-age/p-03",
+    "block/caliphate/fragmentation-crusades-mongols/aside-05",
+    "book-paragraph/caliphate/fragmentation-crusades-mongols/p-06",
+    "book-paragraph/central-asia-silk-road/xiongnu-kushan-oasis-crossroads/p-03",
+    "book-paragraph/central-asia-silk-road/great-game-soviet-to-modern-central-asia/p-04",
+    "book-paragraph/ethiopia/aksum-red-sea/p-05",
+    "book-paragraph/ethiopia/zagwe-solomonic-highlands/p-03",
+    "book-paragraph/ethiopia/gondar-menelik-adwa/p-03",
+    "block/ethiopia/gondar-menelik-adwa/aside-05",
+    "book-paragraph/greece-macedon/archaic-polis-colonization/p-04",
+    "block/greece-macedon/archaic-polis-colonization/aside-05",
+    "book-paragraph/greece-macedon/classical-persian-peloponnesian/p-04",
+    "book-paragraph/italy-renaissance/foreign-rule-risorgimento/p-04",
+    "book-paragraph/italy-renaissance/modern-italy-europe-hub/p-01",
+    "block/italy-renaissance/modern-italy-europe-hub/aside-05",
+    "book-paragraph/japan/asuka-nara-heian/p-05",
+    "book-paragraph/japan/edo-sakoku-black-ships/p-04",
+    "book-paragraph/khmer/kulen-baray/p-05",
+    "block/khmer/kulen-baray/aside-05",
+    "block/khmer/angkor-wat-zenith/aside-05",
+    "book-paragraph/khmer/zhou-daguan-collapse/p-01",
+    "book-paragraph/khmer/zhou-daguan-collapse/p-06",
+    "book-paragraph/latin-america/caudillos-silver-export-boom/p-05",
+    "book-paragraph/latin-america/revolution-isi-cold-war/p-06",
+    "text/chapter/mainland-southeast-asia/ayutthaya-toungoo-and-lan-xang/title",
+    "text/chapter/mainland-southeast-asia/ayutthaya-toungoo-and-lan-xang/summary",
+    "book-paragraph/mainland-southeast-asia/ayutthaya-toungoo-and-lan-xang/p-03",
+    "book-paragraph/mainland-southeast-asia/ayutthaya-toungoo-and-lan-xang/p-06",
+    "book-paragraph/mainland-southeast-asia/independence-cold-war-and-mekong-modernity/p-02",
+    "block/mainland-southeast-asia/independence-cold-war-and-mekong-modernity/aside-05",
+    "book-paragraph/mali/mansa-musa-gold/p-03",
+    "book-paragraph/mali/timbuktu-ibn-battuta/p-06",
+    "book-paragraph/mali/songhai-atlantic-shift/p-05",
+    "block/mesoamerica-maya/olmec-zapotec-formative/aside-03",
+    "book-paragraph/mesoamerica-maya/classic-maya-city-states/p-05",
+    "block/mesoamerica-maya/postclassic-toltec-maya-andes/aside-02",
+    "book-paragraph/mesoamerica-maya/postclassic-toltec-maya-andes/p-06",
+    "book-paragraph/mesopotamia-near-east/sumer-akkad-ur/p-05",
+    "book-paragraph/mesopotamia-near-east/babylon-hittite-bronze-age/p-05",
+    "block/mesopotamia-near-east/neo-assyria-levant-iron-age/aside-03",
+    "book-paragraph/mongol-empire/chinggis-steppe-forging/p-04",
+    "block/mongol-empire/chinggis-steppe-forging/aside-04",
+    "text/book/mughal/summary",
+    "book-paragraph/mughal/akbar-mansabdar-tolerance/p-01",
+    "book-paragraph/mughal/jahangir-shah-jahan-silver-peak/p-02",
+    "book-paragraph/mughal/jahangir-shah-jahan-silver-peak/p-04",
+    "block/mughal/jahangir-shah-jahan-silver-peak/aside-04",
+    "block/netherlands-low-countries/dutch-revolt-republic/aside-06",
+    "book-paragraph/netherlands-low-countries/golden-age-finance-art/p-04",
+    "block/nordic-vikings/kalmar-union-hanseatic/aside-05",
+    "book-paragraph/oceania-australia/polynesian-wayfinding-tonga/p-01",
+    "book-paragraph/oceania-australia/polynesian-wayfinding-tonga/p-04",
+    "book-paragraph/oceania-australia/cook-convict-waitangi/p-03",
+    "book-paragraph/oceania-australia/modern-oceania-pacific/p-06",
+    "book-paragraph/persia-sasanian-safavid/sasanian-ctesiphon/p-02",
+    "book-paragraph/persia-sasanian-safavid/sasanian-ctesiphon/p-03",
+    "book-paragraph/persia-sasanian-safavid/ilkhanate-timurid-turmoil/p-01",
+    "book-paragraph/persia-sasanian-safavid/safavid-isfahan/p-03",
+    "book-paragraph/qing/empire/p-04",
+    "book-paragraph/qing/empire/p-06",
+    "book-paragraph/qing/crisis/p-04",
+    "book-paragraph/qing/abdication/p-04",
+    "book-paragraph/russia-ussr/peter-imperial-crisis/p-02",
+    "book-paragraph/russia-ussr/peter-imperial-crisis/p-03",
+    "block/russia-ussr/peter-imperial-crisis/aside-05",
+    "book-paragraph/russia-ussr/peter-imperial-crisis/p-06",
+    "book-paragraph/russia-ussr/cold-war-collapse-russia/p-01",
+    "book-paragraph/song/northern-founding/p-04",
+    "text/chapter/song/commercial-reform/summary",
+    "book-paragraph/song/commercial-reform/p-02",
+    "book-paragraph/song/southern-prosperity/p-01",
+    "book-paragraph/songhai/askia-muhammad-pilgrimage/p-01",
+    "book-paragraph/songhai/tondibi-muskets-collapse/p-01",
+    "book-paragraph/songhai/tondibi-muskets-collapse/p-03",
+    "book-paragraph/spain-portugal/iberian-union-fiscal-overstretch/p-02",
+    "book-paragraph/spain-portugal/bourbon-reforms-imperial-sunset/p-04",
+    "block/west-central-africa/postcolonial-west-central-africa/aside-04",
+    "book-paragraph/yuan/provinces-canal/p-03",
+    "book-paragraph/yuan/eurasia-quanzhou/p-01",
+    "book-paragraph/yuan/eurasia-quanzhou/p-03",
+    "block/yuan/red-turban-fall/aside-03",
+    "book-paragraph/yuan/red-turban-fall/p-05",
+    "block/topic/central-asia/republics/section-03",
+    "block/topic/europe-classical/polis/section-03",
+    "block/topic/europe-classical/hellenistic/section-05",
+    "text/topic/europe-classical/rome/summary",
+    "block/topic/europe-classical/rome/section-03",
+    "block/topic/europe-classical/late-antiquity/section-02",
+    "block/topic/europe-medieval/land-and-lordship/section-03",
+    "block/topic/islamic-networks/al-andalus/section-04",
+    "block/topic/islamic-networks/ocean-trade/section-04",
+    "block/topic/north-africa/fez/section-03",
+    "block/topic/south-asia-early/indus/section-04",
+    "block/topic/south-asia-modern/nationalism/section-03",
+    "block/topic/west-asia-ancient/babylon-law/section-05",
+    "scene/song-kaifeng-canal"
+  ],
+  "intakeChanges": [
+    {
+      "id": "block/ming/fall/aside-04",
+      "change": "modified",
+      "before": "40388c74a66fa3b9b29c4c95138c2db0822f72d030dd499e56bf875b61887972",
+      "atIntake": "7090401f6c40ab418b64e384f57aa450b9b20911637ac403177a930b82f9089b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "block/ming/founding/aside-02",
+      "change": "modified",
+      "before": "e2f591a7dff6d6bfc8d52df3489155eb3c3bbdb58ea570d85dac82a92dfe1765",
+      "atIntake": "9bd52a2e91f340507ff5bfe20c6d8ca4d5b83d35869119269a7baa9988a67d62",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "block/ming/mid-ming/aside-02",
+      "change": "modified",
+      "before": "14475b0606c333ae199e9cff5228930c9a5b143ac35dacabd8645d08bc5b5425",
+      "atIntake": "75149724e38313ee7ae36ca00bab15c94c24118449a1695dbee2b546ed4d6319",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "block/ming/silver/aside-02",
+      "change": "modified",
+      "before": "4a921716f38c481c992414961a86fa5a6e34f90cdc9791f989d73e3c70def3b4",
+      "atIntake": "a25e543189ff585ec6a77e0cee1c8b05dd7a6e89abec2ba4e3f7c891f879ade5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "block/ming/two-capitals/aside-04",
+      "change": "modified",
+      "before": "350983031131063ddc8e59df6c594d4758ec2cab64b1bd820facebd1677d0541",
+      "atIntake": "d5b3d70d7c0394a385a7b5fe9809343b2523c02473e07faaa9179031b89283c2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/canal-labor",
+      "change": "added",
+      "before": null,
+      "atIntake": "c47526f36ccbf0f47f58d93824d7ca1a23bcde6ed9f2d7f73bdc0daff767685a",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/coastal-frontier",
+      "change": "added",
+      "before": null,
+      "atIntake": "5cc10db40aaf676ea6e52f2b05b779d3d7ee39677cbd78397a78ac8b60ddae81",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/court-paperwork",
+      "change": "added",
+      "before": null,
+      "atIntake": "5534a0ffa450e76bf7fb30740711b342db77b9db489571dedc08f1f4d61d9854",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/fall",
+      "change": "modified",
+      "before": "88dd3633649e4d9f34bf800d6826f0ebf88666bba98fe99e7f3951e7b2494e82",
+      "atIntake": "6f338d4e7bc9a9bd2647210a775e9b7bceebb7170740092f990f153bffba6ce6",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/famine-rebellion",
+      "change": "added",
+      "before": null,
+      "atIntake": "472322a9cf52144c79d3a9dd85536a8fabaafe4769e99cd5c3e98aa1f10e1387",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/founding",
+      "change": "modified",
+      "before": "c439dc73777213394cc23ae6c33890c806382b5a90dfeb4ec0b79edb573690a1",
+      "atIntake": "c11b57a10ded4420b550afc6e4055f390489d50ea21ca7ae38ef8bdfbd2878d3",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/hongwu-court",
+      "change": "added",
+      "before": null,
+      "atIntake": "2504110d334d584c7184faa07b9f002d806353c878e227d25e978f59ebe0c50e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/households-garrisons",
+      "change": "added",
+      "before": null,
+      "atIntake": "4ddccb106b88ecc4acd3a4eb616d4b2aa4c37f136501225460af1468d31e22c5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/indian-ocean",
+      "change": "added",
+      "before": null,
+      "atIntake": "a010b3ce898ec55460fbeec985d5c8661c506536b100a523a287c02ad4705fe4",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/liaodong-tianqi",
+      "change": "added",
+      "before": null,
+      "atIntake": "2b6e17d96982bb276c315b7c757d74d69db854f28ce7acf842b40b413bcf4744",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/local-livelihoods",
+      "change": "added",
+      "before": null,
+      "atIntake": "8353b077e2234f724f5785ccf5360122d237f1fc3811f4c49a052563c7e109b0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/mid-ming",
+      "change": "modified",
+      "before": "efe7c5720541eeac7e5b9c37ec12992c36637c6123883bc59b88f2f75efee6c1",
+      "atIntake": "6ff984a65707054a6fb5f3b6793a8d4fc45344a39555b1b3b905a81ef20c84d3",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/print-and-knowledge",
+      "change": "added",
+      "before": null,
+      "atIntake": "f654eff143a54d1698e4aa99751b664c71b0cfb2385bc0bde6b4d0196b3393cc",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/renxuan",
+      "change": "added",
+      "before": null,
+      "atIntake": "07ef70eb74d8231153a43de6a7fd017cfb3c2dd35f2bfa5476ce5f136efb1820",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/silver",
+      "change": "modified",
+      "before": "4b9c0958e7772a0162d2acd00d10e6278ace9e8ed08252e74742c1109e940bbe",
+      "atIntake": "920cab7150a256f5d4205e28e0a2c4468835326ae6f0b7b3a0c0dfc93604e5b6",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/southern-ming",
+      "change": "added",
+      "before": null,
+      "atIntake": "86ad5bc2272880dd7e172521dc3b1aef6d4176be958873b060ac1c94712dbb9e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/two-capitals",
+      "change": "modified",
+      "before": "d7f04c237e33fd30fbea0929a3c136543451c5b582b9ffdcebf6645b1b1efd73",
+      "atIntake": "fa3aafc725dff18ac4d9df1618de2bb06335b386e8b0453c419a358bb95b04df",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/wanli-imjin",
+      "change": "added",
+      "before": null,
+      "atIntake": "37d6353cdd23767f25c855d64e8e0e51072589584f8fa49078ef871dd0d425fd",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/yuan-crisis",
+      "change": "added",
+      "before": null,
+      "atIntake": "b9d208ea65390359e2cd55a2983afaacb5c26dd4bb2c35d03e4ddf98a35a85c7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-chapter/ming/zhang-reform",
+      "change": "added",
+      "before": null,
+      "atIntake": "23a526b6ca42b261c54e9cebbe938ac3c021d3c8e9191abf4aa913bfb376cd68",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "30709d2daa21a9ba83e801884efd74a7d3e387c8580ae317cf5541f68431746b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "83aa69e8f5a63fcad22286357f8ef1fffd5a8f52ac5961911e4466bb080f0e69",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/canal-labor/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "cac3ce871ee368b0ebbb1a4a95259307d87cc9ace1199c8a623259271e2264e8",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "8f0fe66b38627b6cb52fc9a51653ddc5a7872f0e0665ba900768cf690b716125",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "1aa90f329fcf4950511abca4ec9e1fc64d4840dd1804f4d0fd5fbda657271a1b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/coastal-frontier/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "9a521d1e39f007029f0ebdb05271a3b28a19b7ef45a7158a0f73fc66d35f137e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "cbd4c8437bb71e6b81cc15b33bbb1aa01078858007a0679f989d776e09d6c099",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "13089a53152f0277d8efd7b9504fcf3353d4edc1a1d1f11ebd5f1f0da7d2a43c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/court-paperwork/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "8dc7ce1d39ae3a34ae2fd791f0994c2909f3110c4c6d7078d8df7d09e213b346",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-01",
+      "change": "modified",
+      "before": "f2e90896871802c792aabb445471f751e9cc85e8f05fe136608c01e2dcefbbe7",
+      "atIntake": "a9393d6169f67f1b92faad2fcc3de0ba9a4eef57bbe2df97f5bb692d2562d12f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-02",
+      "change": "modified",
+      "before": "fdd0f174b2920a35da048db204f2c3a9cda0c547535064a07b1e63c290a60635",
+      "atIntake": "af4522e03c59ba49700888d0efbde97bf7ec2a2f59fd2827c518f3af9aafd16a",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-03",
+      "change": "modified",
+      "before": "10b57cb1af055c4185fff3e85fc2cbea306ada453782382614119866d5a677ad",
+      "atIntake": "261944a5797d2b690c59cc27bed73cbd9f859787a770d2b7bc9ab2f1aa3df723",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-04",
+      "change": "modified",
+      "before": "cc0ca2403ca157a31d8e211134abd966e805e25bbc76036bbd15b573729fe372",
+      "atIntake": "8cdd2176c8d1e02c4851f0f22447a46a42103b034a5af3f7e0931c22dfe31b41",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-05",
+      "change": "modified",
+      "before": "13dcc27edc0e8c30710feb2c571f19f45c9a8cddfb1ac432d1f13b75b113b484",
+      "atIntake": "25a0edb379731cc70d42b577053b9edbf8239820bcaa141a36e78accaddc8ff2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/fall/p-06",
+      "change": "modified",
+      "before": "49f33f911f70b8feef74c941555038e94723aa0de963a481f544aedb469dd66c",
+      "atIntake": "2dcb4c6533f09e0219b7b48c52423e6f2000c16e90279c699a682a5f75b338dc",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "bc414dad8b446be16a587772d4d4fc79dd8e3601d7dffda775cbf170598cc93e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "3357864ee4890c4ff6fa1ca75f9238b53dc7bf39bd9251a1a5b2b30ba2b0dfba",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/famine-rebellion/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "ab4db8cd5b38a5d5d051c3f5d302671cd0acbcc4097ef45f90d3dac45b991086",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-01",
+      "change": "modified",
+      "before": "5bebf92133e1ce0cad7a8676dfdfeb8470c8ae7f41b62556ac2a0bb9d7763ae8",
+      "atIntake": "bdf9bc86f1ab06469ec7a339c6b56d6fe9f2d11ff9c83677be4afce9b83adfe1",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-02",
+      "change": "modified",
+      "before": "722fc27c32f38af14cd288f9cd1ba32e0e3c780c6f8c8d219ddbd213be04c8a7",
+      "atIntake": "2da1d9fefe97c16863e59bd122bdf79b8357d650a6b3ec4d56603fc352f3fc8e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-03",
+      "change": "modified",
+      "before": "af1017b66e0e8e439aecaa35c4b50a2e45bc521bfe54313b5b39144352e9c22f",
+      "atIntake": "647339ccf712395f0a0bc20426bae5b4c35913ca3fe722fc4eb04a08f4fbb39c",
+      "level": 1,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-04",
+      "change": "modified",
+      "before": "f5f89cf273bc415d453e5a2e3e98041a21e19003fdf151cf39ef6071f20ab174",
+      "atIntake": "94def7fa5baddb18fe7895b48defb1583ad56d9b7cb98be5a7541be4ec2c5f7c",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-05",
+      "change": "modified",
+      "before": "0c5c3fb4ade1d5e6db2d7564554f8ea436812838318a549a8e1ec1184e6e88fe",
+      "atIntake": "6045d843c9aba84cb1a903765ef68d56a4162e77a29bd9d54d347dc7b6941e26",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/founding/p-06",
+      "change": "modified",
+      "before": "dc6385ea85de0003be8232b6d557ade1a77dc643a89203e650780dfb9b328f67",
+      "atIntake": "2d286d1e68a15123d8fa49633a00ff0107cbe5a88054d0091aa6b40496fbdaa6",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "5abffec47bc83bf696e3bf67a46425e1972b11e12e43504ee892910c27b6ba3d",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "7f47083f1f633bbd402a7f93f067095dcd40f4265c6fcc4040d2903ada06a2b7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "ef14d3ea1de569e197daf0c7b637db4d5537afde623148af59ad8b972e940fc4",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/hongwu-court/p-04",
+      "change": "added",
+      "before": null,
+      "atIntake": "3586fcae449b7d0c7c6da382da5ca3753149f94e6cc6105d04a726c8c3c4253c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "5ebe4418ec797cbce277bd6485829d0b2154718bd82dec8b3ef21e24847c5268",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "26ab01f68970157211d9147c91c0c0e4753cc663313a75e60349c1ccb097cafd",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "40c90e5cdc167ace20a68fe3d9faf69b70b81b8123df5cabfe4f29b3f0d07daf",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/households-garrisons/p-04",
+      "change": "added",
+      "before": null,
+      "atIntake": "214bd7fe1ef44bc8311def96fb8172377868d1c08b0d850e25f13656d1024207",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "a569ed253ca3e26bb311e7a75acfe75363081c5bf79d6e21ccf3c00301eada28",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "af3bd0293c9291a309c6c21d27b367b6bf8c2078b5c6df08618e45ae8790f2d2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/indian-ocean/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "f0a3b24e96f138b00ba8f14e366f13076bfc2857e5fe7b19e60c94fa3ca4d1e7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "db89b0ce2a057987bfa1be893ebabb70cac4f770c07cebf364d1d427d30aebf8",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "c91f87c5b9788f91206b12303d5d2096f116cb8cf8fd57f416d2473b2bf0a996",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/liaodong-tianqi/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "a51b224f6550c1cc0f3c8e9b873e4e5df200f84dbd7c51285fc4ed953b0caa90",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "81375148631d7a45695e8ece1a687ee1eb9f27c83d7b3aa9a6a8914f769941fc",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "fcbb6310aa2d44b25946d4ff4fd72cdc48006d7c768159e9d68fa8a4f3de93e7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/local-livelihoods/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "6977a4d91efa912c40be1782b7462c42e305570626b0794e962caa9ce64f6930",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-01",
+      "change": "modified",
+      "before": "a6488725d12f67010bc0e147e4debed24e835f75a3d20056f94849b9e55ab07d",
+      "atIntake": "3e249f62339428f377ef5a2ae9fbe2f5b74507043147f1e6e8617d95bcf3c55f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-02",
+      "change": "modified",
+      "before": "cdc05b0ed65f3ceb8bc305424c0621057e3dd05a197afaed606208a141ea0666",
+      "atIntake": "49add069ae9f4865215ac9cee6d0c9938fa9f8901994c0b1530d1c32ef228199",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-03",
+      "change": "modified",
+      "before": "20ec43c56acb532d2ab442460cf6b98ae7062e52a649e0d111b09280cae73b2a",
+      "atIntake": "6aafe7cb0cad79e825539ef635284022cda2abcfdbf5145b15102209eba9e2ec",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-04",
+      "change": "modified",
+      "before": "b1dd2be03f1e4fcb25b1e755242be6e2c98f31a14bd80c528018b6c90a6301df",
+      "atIntake": "109ee54b0f1dff9dd79c15976b6f6584f3ca097fec5df126405853b207a4863e",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-05",
+      "change": "modified",
+      "before": "09dbad066da3fe6468022417bf79c7a953d3c6dc7d4beffb9651dbf2c759cd55",
+      "atIntake": "f762158eb5a31bfc68ade3eb386bd4806b76b740da2a4d87065106d74c109ab5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/mid-ming/p-06",
+      "change": "modified",
+      "before": "19338f04e7fec2540d178a7b8605849e6d10583cacfa3883b0346daf6974148e",
+      "atIntake": "cd779b653c619d2965b2d8e088b4440d8340bf6f9a8485ee34893d59960f2483",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "2147015e1f4d6e5fcea6ad0d91e6e59c28d828e109f55de6be07a8ddb3ed5121",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "6f266693dfdf0a62808569885aef4fb0ddac9d977fd3c5a489f7f9a243080c1e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/print-and-knowledge/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "8b64a6bb3c180ada6f5aff9e3a81de2c37eff20c39937ddc0df776a6da2f2569",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "abfb8960e41966959e3d04b088c03e0aac4d49a8032e5be136b871e495ba9dd1",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "fe4b3835c0c6ab0cdb83df4d2796c819622d8c0b692586f29c6b026a74f720e7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/renxuan/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "f1f507bbe2f09e6f5d0aa9d28e341f7c658c497c556d8dab0a1749f2afe29229",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-01",
+      "change": "modified",
+      "before": "5a59807e71f2d7ee16d83793bae91bc53aca36e5cd66ed9849ff89ccd169b1c7",
+      "atIntake": "759c1f699145bd2514c80187c6dfd6292345aba54212e844de2e713cb9c086cd",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-02",
+      "change": "modified",
+      "before": "ccc0c5883cdf68a02b692bbf81ec1e25fbd607830d5692015c0d5be0dcbef5ee",
+      "atIntake": "8bef07caa428e19414729e533a96ed9c2c8664ccd13497ccf5ed6462e67566ec",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-03",
+      "change": "modified",
+      "before": "7e349f0b11e8a948f5293f79a01d94140cca6763c1427a3d15ece2ecd0b6d6c3",
+      "atIntake": "929c44f81af6509002c9729b929df1ee1f4a224d9cdd77a3255312a58cc697dc",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-04",
+      "change": "modified",
+      "before": "4a844b9c486b8d4e2660748eea99f9fb28ac9786b5695d4daa103cb463f76f65",
+      "atIntake": "e6da7a0525adf41da64e687805106811e9852495dea0ab450d6e02b522e50666",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-05",
+      "change": "modified",
+      "before": "0809023dfa6661c38293d7d417e723beba162797c17742d73aafc248c85fb390",
+      "atIntake": "09987c38f81daadfe22ce717b1adffb7046cd82b6bbbc7881636b191f254fc2c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-06",
+      "change": "modified",
+      "before": "ae831e4018303d207e495b74f36b53d8520a69bb5cc21acaa20c282698e25dd0",
+      "atIntake": "6d815ac80184ad092d616a51cea30781e3fa4caa0d304893c3f3f3dfb6c923d6",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/silver/p-07",
+      "change": "modified",
+      "before": "777b98daad669d0a972789a1bceaa1235c0e985b011a00731f192c73f5f1df04",
+      "atIntake": "f12c21d2c7f0015741ced6d0b7b47c567659f11a39216022ba7134e491cb8732",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "1b425ede5dd5e5ce3ae4807422d00723a5b3e7f7e15de22f2d83ff592e9e44d0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "fa0c7b02eafb005c844fa733e0aa59d36a71ae0835999b495c1b6eb55fac45cb",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "934f2727ef14600c9c5183555037786ba3e1091fdd4bbf1aad7e9ede41cfd4cc",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/southern-ming/p-04",
+      "change": "added",
+      "before": null,
+      "atIntake": "f77b7d33bfe189580c1fdf1b1a194d4faf4c402b0af3b3ad8406ce4fc0fa8e30",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-01",
+      "change": "modified",
+      "before": "b02507560ffd27400914ac7d073eb0686c1493cbb4955e55ed21c7c5b75f1144",
+      "atIntake": "51c97bf636782f7c6c0a3fd1122aa7dc4b09a1e76ef5cd58e4920581ae25895d",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-02",
+      "change": "modified",
+      "before": "b904b6cddf586b7b93c8d98dcb454c0590b39606aa5d9bd5771162f5101b10d1",
+      "atIntake": "446862c0b67cb9046ec8e3c07efcb41184a1efcb87261fa4ca3e5e8b642b623d",
+      "level": 2,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-03",
+      "change": "modified",
+      "before": "290c0fe2b395af117142dea3d24ada8d41e1eac30739dd33c1b59c0f49ea2002",
+      "atIntake": "f44a6a0faa6fdf76a120d453b3b3bac154c469c0743abb62f325ed1adb73e336",
+      "level": 1,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-04",
+      "change": "modified",
+      "before": "f00cb6f1579501db413d967fad06659929dfa17f8bb7986104c5a15281da6d0d",
+      "atIntake": "40bff1dd15c4d3483be29072365e79f8ba94ee3d32ec9ddc3e03989cd9a1bd8f",
+      "level": 1,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-05",
+      "change": "modified",
+      "before": "d194f79c701267db7fcd06e8f00da0b0d722fe0528563e478a808d85482c070c",
+      "atIntake": "ab90b12af2ddf58bfcf736bf67f73273829ac91f847d5dcc147e28906484bd18",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/two-capitals/p-06",
+      "change": "modified",
+      "before": "d3d831198775190b2d138961ab47b30a0c6d44abbaca04bb9b1a362c63e8b4cc",
+      "atIntake": "b983e037a65eeed0ae26c6d11ebd23f7756e31d44951cf28fe32aa3f0a3e5517",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "cd7b917c9b67272b5dbfd3311e5cf4a8d1fd0370faad3b7c336f8eb995dfff59",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "af468aec43eaf106f530b1684f25812fa7450c31e04d517ab478168885508985",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/wanli-imjin/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "01928031a298671f1cca0ce85152720c477fa7f902fad1bb2b24fbe3951d5793",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "ae29400292fd1c653b50b449af3afce011febac914c4ac63d20c1816abc91815",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "cd82551de14c30c094cf6268a1e6dcc7cf19ee877736d1087a58f422bcc5553f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/yuan-crisis/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "52c0dbb40508c4b9ebc15ee3a31c71f10aad6ad7f8b99c45e329671a0b69ebf2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-01",
+      "change": "added",
+      "before": null,
+      "atIntake": "db05c923572cabe37fcf6a91c6caa847709852f68fb61a95cd1bdc005dd850da",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-02",
+      "change": "added",
+      "before": null,
+      "atIntake": "859ac731f6f84c47379333706c851d18d89f577d3b96137abab937c13548336f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "book-paragraph/ming/zhang-reform/p-03",
+      "change": "added",
+      "before": null,
+      "atIntake": "596499f8c81d45a13f61e3ee6b3ecbb2fc15c5d9439ecfdd137b0abe1545b244",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "event-group/algerian-war-1954",
+      "change": "added",
+      "before": null,
+      "atIntake": "9b6a7a97bb521fc933886fbde794ef6f32f4d7f63b825dcc9f410098deae4bf4",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/altan-khan-dalai-lama-1578",
+      "change": "added",
+      "before": null,
+      "atIntake": "d50dbcaffd0b9fde2c5a73faae6db1ce4d4f74132d865cf4c6f6a24aeda4f150",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/bar-kokhba-revolt-132",
+      "change": "added",
+      "before": null,
+      "atIntake": "b22588e2cb7bf9219537c8da950275a773287d96d0b325c5249b1b24e8538308",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/belgian-congo-1908",
+      "change": "added",
+      "before": null,
+      "atIntake": "9bb2e9c05b1d8724862c6ea80b1864cd98d79f277c849e85a2b34676879db418",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/burgundian-netherlands-1384",
+      "change": "added",
+      "before": null,
+      "atIntake": "124d8a66e98a5535c996ce53250df1eb4a63c4ed6ccf87221c89a349b1cdb5ae",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/byzantine-empire-330-1453",
+      "change": "added",
+      "before": null,
+      "atIntake": "244461b342ae7d3d0942b6fba7cce441ce5b2549fa4ed9f8151e1ce5f68aea55",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/cabral-reaches-brazil-1500",
+      "change": "added",
+      "before": null,
+      "atIntake": "03452cc63cc816e2c966535e8935d0b76302a681a84aab70f8fe756e4c9b9d40",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/cambodian-vietnamese-war-1978",
+      "change": "added",
+      "before": null,
+      "atIntake": "6014cb9684342271499e6a010f0a7cb28f7494326a3c06640277c6019e80ff9c",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/cold-war-1947",
+      "change": "added",
+      "before": null,
+      "atIntake": "ab5f0d4841889ea6d3c0cc487fc0980051dc2964622b76fed8448dee0b8c8c43",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/congo-free-state-1885",
+      "change": "added",
+      "before": null,
+      "atIntake": "09e2a2d73a6e78d4fc831eb547674bd69fd2ed003db405532b9590bc2a9fd16b",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/denmark-norway-union-1537",
+      "change": "added",
+      "before": null,
+      "atIntake": "6c32facf775b1e6bb0d37357dee3085d194d527ab63742c8a4935aafc8c25636",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/dissolution-of-czechoslovakia-1993",
+      "change": "added",
+      "before": null,
+      "atIntake": "90d6009f94ce0769c863ba5a7f04ae721ff9cd0cffb61c31923afe3435ed751a",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/edict-of-milan-313",
+      "change": "added",
+      "before": null,
+      "atIntake": "e45d37d3c88883648796f3a1aee3ecc7eef85ea1f15ec1be1794b563e81a315a",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/enlightenment-1637-1789",
+      "change": "added",
+      "before": null,
+      "atIntake": "c334f637ea8afc7a024d082998038be236a10f14752087ad8fec5c30dd6e45c8",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/fall-of-constantinople-1453",
+      "change": "added",
+      "before": null,
+      "atIntake": "47d6803767f353fffdbe424173363f019c632dac29cd289414eb9bf1ae4f6441",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/franco-prussian-war-1870",
+      "change": "added",
+      "before": null,
+      "atIntake": "366bd77fae60183d39fe5deb7c200cd7fbbce9a51e277c7a0cd4679bd7ef4784",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/gallipoli-anzac-wwi-1914",
+      "change": "added",
+      "before": null,
+      "atIntake": "a1aca88cc394b119b7ff557fc2775d4d5ae2cb20f73a6eaa25bfe780ef2ecade",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/iran-iraq-war-1980",
+      "change": "added",
+      "before": null,
+      "atIntake": "8422b6dff4ef0c0f5d3fec0c182ae0387895c2c269aa8f4ffb8de8debfa2a6e4",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/korean-war-1950",
+      "change": "added",
+      "before": null,
+      "atIntake": "db2eabce45ec1cdf71242af660d5e40227915b9f8d1fee773254d5d186e05df7",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/mongol-sack-of-baghdad-1258",
+      "change": "added",
+      "before": null,
+      "atIntake": "fa17e6fd3eecfe0be5e055d1cdd206954fd32e156e18fec4e3687949f0543e70",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/napoleonic-wars-1803",
+      "change": "added",
+      "before": null,
+      "atIntake": "333a08bb4680aa9b476cb8f4376cfc954cb926720f8b65fd00022041bb8e1364",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/peace-of-westphalia-1648",
+      "change": "added",
+      "before": null,
+      "atIntake": "b50a28c1d14f7bd44d498205e72bf754f7ad9b3fd8f9d62109758619ba515bb9",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/polish-lithuanian-commonwealth-1569",
+      "change": "added",
+      "before": null,
+      "atIntake": "de7c06fc8b239ec11b48316b69e96b4118665522e545dbe538f4b20d992e513f",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/reformation-1517-1648",
+      "change": "added",
+      "before": null,
+      "atIntake": "e6c5b96b004894ffe7a1aea51646ecaa7684e16c8e56113aa2083156fdac8125",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/separation-of-panama-1903",
+      "change": "added",
+      "before": null,
+      "atIntake": "fc83f90119ce1b8af0ffa95c65b191f7a6eec1747b29dbadc6cb72e3502f4453",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/siege-of-jerusalem-70",
+      "change": "added",
+      "before": null,
+      "atIntake": "1017120ef375ce0807205eb66befb0b33d205b6a7ebf8721eab319ca56cbc344",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/state-of-israel-1948",
+      "change": "added",
+      "before": null,
+      "atIntake": "8fee9a29760f7f3b10b9157374be4f445fe59cc661f9c3184b6bfa28fd18afc0",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/thirty-years-war-1618",
+      "change": "added",
+      "before": null,
+      "atIntake": "6e712305645252155153f2131b3d219612704ffd56e9d351d3334db7028b8a40",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/treaty-of-rome-1957",
+      "change": "added",
+      "before": null,
+      "atIntake": "40a402b1f72bcac12e6a48e1b3de00f905dbacb74bfb2bbec7f8bdffd8e89d80",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/treaty-of-verdun-843",
+      "change": "added",
+      "before": null,
+      "atIntake": "259a9d20ad4623cfe823ab4af2ec49ea2840fd70ec540435e8303198d72290f3",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/united-monarchy-of-israel",
+      "change": "added",
+      "before": null,
+      "atIntake": "70434e13414ed5b5f670a52ae8c1bac83f4a69efd94294dff21da474a1694095",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/vietnam-war-1955",
+      "change": "added",
+      "before": null,
+      "atIntake": "b91d0c0453e8a24b20a15543f6b078550ea9aa58c58f6a4d478f4bf73a5f785c",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/war-of-spanish-succession-1701",
+      "change": "added",
+      "before": null,
+      "atIntake": "8b91323334b3cc0b4ed2aa14eeef848f36bdf9e77a8d11710171dccf1dfd6992",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/war-of-the-pacific-1879",
+      "change": "added",
+      "before": null,
+      "atIntake": "63a7948c218a42e71b02ed885f68f2948c7c242e4621eef95a7fa2f9ab6cc715",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event-group/world-war-ii-1939",
+      "change": "added",
+      "before": null,
+      "atIntake": "b88121507e3184b6f1b1a1ffde0204aaab1f2ecc24d71f41cc9bcb3b72d9b7c2",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "event/i-010",
+      "change": "modified",
+      "before": "fe4fb4a3f6e4b88a4f9c234295f8c3b7b8eacf76db8e170cc31ef5091b1f7e11",
+      "atIntake": "fd1534f187ace4ff324a813d7975f10ce33379ebc8c70958b9fc8d2bdc12a9a5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "event/i-013",
+      "change": "modified",
+      "before": "4ca337bfbbeface3cf00aeead4c33ad5b8d9833bc846cf1334d8b2229bb956db",
+      "atIntake": "b0d6102aa9214cae7250549010cdbdccbcafdea94c1a3c568ffde96de531713c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "map/polity/Duchy of Burgundy/netherlands-low-countries/1568",
+      "change": "removed",
+      "before": "350ffe8cfcc48bd6c87578060ea28ccf8f72b0b9c99c5e4b4c372a8f5e111d30",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Great Mongol State/mongol-empire/1206",
+      "change": "removed",
+      "before": "b5865e95200087941dd7de57ae132119c1d28e258e9b553c1913d4178b1b9f00",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Hán/warring-states/-770",
+      "change": "removed",
+      "before": "1487b9eade0747270aebaaa439168c84260b8c8289bb08c43af967a319f9b2b2",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Kingdom of Kush/southern-eastern-africa/1000",
+      "change": "removed",
+      "before": "5eb17691ff3aee35c58a3873a9df3aeeb9cbe665f00c86dcc87b4d8d31fac2cf",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Mongol Khanate/mongol-empire/1206",
+      "change": "removed",
+      "before": "5951fa1d636523844860ccdda805262cfd8e3e31a5e96a8287fde5dfa52d826c",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Qi Kingdom/warring-states/-770",
+      "change": "removed",
+      "before": "5255a6364e49fba48ef6bab7450fac1e045d0609eaa190434fcde494f94770d8",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Xia/shang-zhou/-1600",
+      "change": "removed",
+      "before": "570208c588fad0ccfe84ced72a5bd7928ad3ee64bc2664b0cd6cdae1daa4eaa8",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Yan Kingdom/warring-states/-770",
+      "change": "removed",
+      "before": "d0352f3395939ddc3d7c90ef655a4bd4b62154b5c0c7bd677be554e220a1bbc2",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "map/polity/Yin/shang-zhou/-1600",
+      "change": "removed",
+      "before": "c092f604950a52f3ea8c3b297aa152b2feaa36f9b09d57e13b7427f1a51b407b",
+      "atIntake": null,
+      "level": 3,
+      "status": "retired"
+    },
+    {
+      "id": "relation/book/ming/fall/reading-01",
+      "change": "modified",
+      "before": "c2787956a561e3a40214cdb14c9d12a151affe0f6fbd212808b704a422cdf4c2",
+      "atIntake": "1e68fdb5b4c29e86c362888e66efe7186a938078fdb3aca66e4ec29efea8d963",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/fall/world-01",
+      "change": "modified",
+      "before": "5a2f8b56e71d1904fb75aa36734bcee3f6f4001eaca8addf9586ae2fd9b83570",
+      "atIntake": "2a1005a0307df94087e64185c0d5471dc55a0914a377f9871302ab0f2ee930ea",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/fall/world-02",
+      "change": "modified",
+      "before": "c34f0e8c18ef46ac51a07dc88233ff5cd3f0390dc95ba7294eadad264f5cd574",
+      "atIntake": "00bcc7dcd752694d27ff592b7e4ec7a50ffbb95d92f9e1ff5d283f5422cfa4be",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/founding/world-01",
+      "change": "modified",
+      "before": "07da73032485a45778d2ad2d4a977d3e0dc40f1182bc0c62295ebc4a795c4098",
+      "atIntake": "01a7be2621a63714236438f63ce84c8806777e8454a4eb6d1b7a2ce6513864d0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/founding/world-02",
+      "change": "modified",
+      "before": "6d0b3d9cf703650e61ea6b654f83a5993ba83667fd953c479955e74b29120417",
+      "atIntake": "4bd25b743d73c97900b5f782e002e96d58d2d57dbf28ae2a1e1f1f72dc4cf0b1",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/indian-ocean/reading-malacca",
+      "change": "added",
+      "before": null,
+      "atIntake": "412a4f0e5d054d63ccee3f5de407a94f429823234844433c17843179d578b5bd",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-01",
+      "change": "modified",
+      "before": "f242a8374c428dd1561855bf9ae765c41faa02b950b5a79168ced3218a1b9efe",
+      "atIntake": "f19feb5195343d166b676a00497a3eecaa53bfd945d34f8499683daa6902efb0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-02",
+      "change": "modified",
+      "before": "92cb956d92a08cef7ef22c7ef6a9284a20ed33ab050d566d5abe36eb3879079e",
+      "atIntake": "d24602980c0a88ef1241462478855d1eef166d93a9f5a108164b3ef528931f2a",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/mid-ming/world-03",
+      "change": "modified",
+      "before": "d2a42c67c4ca725a6371f90653c8cc84616479d7c649aca15908a4258cb58287",
+      "atIntake": "58404f9900a1c1d8b45489099e5ee527a8eac15279d3b6eb4246d846ff91383e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/silver/reading-manila",
+      "change": "added",
+      "before": null,
+      "atIntake": "0f3d33231167d331c0b6acec0738e13c500e810efc2abcb07bc1418dc3fbe1fe",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/silver/world-01",
+      "change": "modified",
+      "before": "98fb90fff614a8a3aeb6415f7423bfcbc70ce547d59dcbca172de576e2c2d46c",
+      "atIntake": "7d07433c307e290738c638ebfabf5ae4197b407dbeb05e54bde19f8ac182eb32",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/silver/world-02",
+      "change": "modified",
+      "before": "49a3a3fabea759410fb8357cfa58ac2805f627c250347d43ad939565d4338647",
+      "atIntake": "c568a8b939955c9cf3a190829cce39e091db9f38df5f003ab82175ed9e2cadd8",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/two-capitals/world-01",
+      "change": "modified",
+      "before": "6c215e13ea3af9837d7b5d9e815eda3f64a36d9dfb3c3cee70e00e609b2bec1a",
+      "atIntake": "66a7fdbaf74c1a2253bb56a37c2914acced029684aad7c0b6cd450a1cc02aba2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "relation/book/ming/wanli-imjin/reading-joseon",
+      "change": "added",
+      "before": null,
+      "atIntake": "f338c8afb6f322d15cfa3d1dd6dbe22df315f362bb4f520e03a41ec37a567041",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene-ref/ming/canal-labor/yongle-capitals",
+      "change": "added",
+      "before": null,
+      "atIntake": "91c105132091673d7bbdede3fd36aee36ae5741a39e1ef5a10771fda561c8ba3",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene-ref/ming/wanli-imjin/imjin-frontier",
+      "change": "added",
+      "before": null,
+      "atIntake": "60668f5bc3f083eeb29283debd4accb829d31297183923364213ca337ca066ba",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/imjin-frontier",
+      "change": "modified",
+      "before": "173eaf51beaaca19410443ed13b6197c64ecd5fac28b47bcbaf69ba3c1ce17a4",
+      "atIntake": "914f4b7946af6d2b6b35e339c66b2620f0f10874cca38bf08e4b0509a7d3b7c1",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/jingnan-campaign",
+      "change": "modified",
+      "before": "59a8b60fc5e22569bf939086faef185692c37db5f34577044d272a9a359aa764",
+      "atIntake": "db3f4e67d89caf5cbdca76a8e853312e8a555f4dbb73babba5c76e1d70659a6d",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/ming-beijing-1644",
+      "change": "modified",
+      "before": "c02f45dd160e5db545411a74dce1eb5ec75b51f58b7c4194864b4bf8b3efbea2",
+      "atIntake": "ca0d7203c1099ce57cb305b18d2f368fa6b89f88a122a2076c932a4c58078c71",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/ming-founding-1368",
+      "change": "modified",
+      "before": "fe1d61fac790d5a20e0a62346c30cb3c25c42325f3762d18ba2ae016cd0cc2a7",
+      "atIntake": "6b4082f63131f51da00981d9bb01bfc5b4977833ee2145e36262798be6435282",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/ming-global-silver",
+      "change": "modified",
+      "before": "6a9d62858519e5a94884da4322a6ea131b986925b75d8bd36bb1838a65ba3642",
+      "atIntake": "352c2de1568289a6151ccdb03e3af8844790378d1cbbb52a874981bc7af6fed1",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/ming-nine-garrisons",
+      "change": "modified",
+      "before": "6a534d1cb4c249b7eafe04ecb9c3f1482836681129f74e45176e5e8733758f4d",
+      "atIntake": "779a5f8a1fe48a8b499b0ff2d705724b69ffffbf92dae9e3894d2aef812ff2d0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/yongle-capitals",
+      "change": "modified",
+      "before": "cbd3a806abbac51415b441f0a1923c37e6fb981cf3adfa63deb1489c1dafb4e8",
+      "atIntake": "13e0692da5ec287a8895d4282feefc9398e75391161197b964dfb502f8ec7258",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "scene/zhenghe-voyages",
+      "change": "modified",
+      "before": "9cbabce658ffcd4aa38d5c4f089e6e8e4751332dd37bc6070539cdd984cb5e46",
+      "atIntake": "35830873eba47f068ca563c63b5526d3099283226476e6724ef2c8966df23289",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "source/book/ming/akhbar-tax-survey",
+      "change": "added",
+      "before": null,
+      "atIntake": "6d78b79a270d4d9df67ef9a92d579386cae2aea81a5dccf003a191069229525f",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/bl-catalan-atlas",
+      "change": "added",
+      "before": null,
+      "atIntake": "1fb1d2ac403b191598de3a1ce5ade7477b17b5114569d4457b78ff8bca119db3",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/bm-hongwu-note",
+      "change": "added",
+      "before": null,
+      "atIntake": "ec1325948de38c93f4bbcb9fba3cc1f49f395483d92a0cb0e5953ced6daf87f0",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/dpm-chenghua-cup",
+      "change": "added",
+      "before": null,
+      "atIntake": "a7bc7370287f49a6f2002e033344145dd21b0ec895a4f1395a39d29958112822",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/dpm-jingdezhen-excavation",
+      "change": "added",
+      "before": null,
+      "atIntake": "4fde4835fb96c38404ec793e296e65b3530c606ed5924588e7b34144c3250ea8",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/huaian-canal-gazetteer",
+      "change": "added",
+      "before": null,
+      "atIntake": "530d2bb466beee6a9962a9049167897a4294de7adf92784b50d0f9aaacd1c46f",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mariners-zheng-he",
+      "change": "added",
+      "before": null,
+      "atIntake": "ae106c521e663f8a0431312d949cd5111cb6e507ab78cfa471e3e896c6fab3c8",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/met-manila-trade",
+      "change": "added",
+      "before": null,
+      "atIntake": "c4bdac68d69d3e1bb5dc239a982ecce050b8e7b4632d59b0e0f7badd6acf109d",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/met-ottomans-constantinople",
+      "change": "added",
+      "before": null,
+      "atIntake": "90eae4b0de258e72819e4f4ee22b4c32c797ff74b89b1b771bd95ad509914057",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/met-ottomans-kosovo",
+      "change": "added",
+      "before": null,
+      "atIntake": "5ab4f9f04db7edd2dbef97ceffa2822091f6a47a8e7b2339704523d4c572bc65",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/met-ten-bamboo",
+      "change": "added",
+      "before": null,
+      "atIntake": "b51b68e964311dd811f4977a09c08a5d3b90136d91217b729cb2bbdf66387f3b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/ming-visualizing-work",
+      "change": "added",
+      "before": null,
+      "atIntake": "d9ad7205333a246c99e48dfe95b2dd2ed57e38ae9dfe7046f36d5ea8c7406cef",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-chenghua",
+      "change": "added",
+      "before": null,
+      "atIntake": "0a3df1404cd1c67c1e1c9e2260f9d3f7bb5f1ff5a79bf329c5b4c663f59036e9",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-chongzhen-early",
+      "change": "added",
+      "before": null,
+      "atIntake": "d2528386637070cc6e2b586d0b4514f970ebc7010b3b836df29ce989bef8ae67",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-chongzhen-fall",
+      "change": "added",
+      "before": null,
+      "atIntake": "e85364bad4037a8fd708d525c36aee0a0a09190e93fa94a9be5e26743d5d1c76",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-eunuch-offices",
+      "change": "added",
+      "before": null,
+      "atIntake": "fb78a44394b302045a43674d698667e00269db95fdd7b173692700975ca8390a",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-grain-transport",
+      "change": "added",
+      "before": null,
+      "atIntake": "6a365a6a756da006ed3450916ca5b9e4ad57c67333d6dc9b56261dea7f3c3c45",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-gui-yongli",
+      "change": "added",
+      "before": null,
+      "atIntake": "7b404cc937d408dd04acb20e865c47eb2f3a828a8627557ad137fb002705f626",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-hongwu-early",
+      "change": "added",
+      "before": null,
+      "atIntake": "a039870780094e932dda14345da4c531995d5dc606746726c5614dbcee8d0c4e",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-hongwu-late",
+      "change": "added",
+      "before": null,
+      "atIntake": "881fca0521823bc8fad2deed0bf1ae7180e37586675f24b3c61d23b35e31b25b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-hongxi",
+      "change": "added",
+      "before": null,
+      "atIntake": "8206e8beb2f75fff9fd153450b73b853a006c965114003aff49234b4aac92a5b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-hongzhi",
+      "change": "added",
+      "before": null,
+      "atIntake": "64052b4019f713084d3b2e2061dfdd4ff4e04efb2fd65e857a3387a09b3f15f4",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-households-land",
+      "change": "added",
+      "before": null,
+      "atIntake": "acb0e18c94e7733688caf63f3ee87e3b54f3cd2581d5e445c9fc02a075dfea14",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-jiajing-border",
+      "change": "added",
+      "before": null,
+      "atIntake": "fcbca2ce0d1f91fb3fdb36db705323a19bf4da39d2e0a3d4261482ef93f6ae90",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-jiajing-rite",
+      "change": "added",
+      "before": null,
+      "atIntake": "bcbcd16bfdd6a40b9c42d7f3c0a5cb80c082654b3f330f7edb42bc07dbdf74e4",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-jianwen",
+      "change": "added",
+      "before": null,
+      "atIntake": "dd0d5f178fb31790a0a316e29a3d12d74792acf9411d06c0e7c23b29132b563c",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-jingnan",
+      "change": "added",
+      "before": null,
+      "atIntake": "d9c51389cb67fd4529efe7f1de873fc39b03e4faef7f29831859e5dd7d89fb2f",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-levies",
+      "change": "added",
+      "before": null,
+      "atIntake": "b74c65c3671e21ecb1a6bf95b45ba5cf63b4784564b4d8711fc893e1a0d4101d",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-longqing",
+      "change": "added",
+      "before": null,
+      "atIntake": "9873a488dda299c1fbde16f5585b4f46c95e7673b5ae241d2a6f5c3cf777870a",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-offices",
+      "change": "added",
+      "before": null,
+      "atIntake": "590ce5ad16c44b51a40d29ea7ee8116b75d8976d3bb7297c53e752d0ac7a77e7",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-rise",
+      "change": "added",
+      "before": null,
+      "atIntake": "8214e9dcd5903313148a30c6b90e16b178c397bda1a55d8993d8069ea1ec55f2",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-tianqi",
+      "change": "added",
+      "before": null,
+      "atIntake": "5314d46bc49938d007b1dd76c8f4a57b1c8930565dfc2f2b5509202130e0aef7",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-tumu",
+      "change": "added",
+      "before": null,
+      "atIntake": "b34cd420ea5a77418ba26689ad67ecf6e38c3880f15833b2012c79be485b87f6",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-wanli",
+      "change": "added",
+      "before": null,
+      "atIntake": "087be2580aba8a672de59e589b97a1e811ce80bc5dd76f8591b99f2d73d9298e",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-wanli-early",
+      "change": "added",
+      "before": null,
+      "atIntake": "58c48cd7f6387075a58b88fc8d9e27561681de3d1e6830397ed716a0461653b1",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-wei-zhongxian",
+      "change": "added",
+      "before": null,
+      "atIntake": "2e40a8f17fc63f1e3735cf2c7c66837c95f789000ae1678d59a672b051240b68",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-xuande",
+      "change": "added",
+      "before": null,
+      "atIntake": "2e8eb03109d9c8c2c514019ca478106a46410d5be96d2e32c4395533518247b2",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-yongle-capital",
+      "change": "added",
+      "before": null,
+      "atIntake": "0d99d88fd6e538d2d8412de435476eda473448c6d66643f1ffafeb5b0de82063",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-yu-qian",
+      "change": "added",
+      "before": null,
+      "atIntake": "94f45ab0ef8a2a5d0520c9abd9778225ec86d974fdc3d31a8f0b64976440458d",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-zhang-juzheng",
+      "change": "added",
+      "before": null,
+      "atIntake": "9c7d0252368dc90a98d12b65a9bf27e9ca0e8904f193462c2d2cc0fbc7906905",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-zheng-he",
+      "change": "added",
+      "before": null,
+      "atIntake": "75e0f570b5e66f82228629618cf11a8692e6151dc2eece65bb22cf9188f9fb00",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-zhengde",
+      "change": "added",
+      "before": null,
+      "atIntake": "f014be29fe1ef0175c9b06fba18b9bf20874bfdebe71aea5576225391e9c6a08",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/mingshi-zhou-chen",
+      "change": "added",
+      "before": null,
+      "atIntake": "6599027c2593651cfcd900cdeabfbdc806ed8971526909c497a08f7d8047b626",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/ncert-mughal-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "99eecebd177e3db83c0b0327164c552b55c0eb4028f02712b47bef6922a0b0fb",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/ndl-dejima",
+      "change": "added",
+      "before": null,
+      "atIntake": "7f5c9a27c3595a7efe35f941d22df2d7bfb3f84c2c4a71c4fbbe94aae105833f",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/ndl-edo-trade",
+      "change": "added",
+      "before": null,
+      "atIntake": "d5493cf1846b11b0f8d5a9c64acef824f76e43e02adf604587ea28755c0ebfa3",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/qingshigao-hongtaiji",
+      "change": "added",
+      "before": null,
+      "atIntake": "cfabf898c77407faa481662e15af6cb3a207c8bd52178b70610fa9bd6e484c72",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/qingshigao-nurhaci",
+      "change": "added",
+      "before": null,
+      "atIntake": "363088a59f90fe959cfa9b3cc7f7ab23e6c5ef9223569b27134f2ee1cf7635ac",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/qingshigao-shunzhi",
+      "change": "added",
+      "before": null,
+      "atIntake": "18cc2fee88a60a200dce513735323a681fdd202f5fc5973dbcd7a7fe381e82b6",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/seonmyo-jungheungji",
+      "change": "added",
+      "before": null,
+      "atIntake": "82cc52b6e96edb7d1e2c90ad6b34f06b81eecb60302954065982854f83da8ed6",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/si-inka-conquest",
+      "change": "added",
+      "before": null,
+      "atIntake": "16417ed008fe88c97891a69e2425658ad111a73cc46d4a5b5ded0c7f3f3bd826",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/taijiang-zheng-records",
+      "change": "added",
+      "before": null,
+      "atIntake": "77d340e1d1a473abbf5240de8625dc883614763c549e1bd9f9219b0b8c83deca",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/twhistory-zheng-century",
+      "change": "added",
+      "before": null,
+      "atIntake": "ae7ae4980d2fe739dd9e0269ffd19acda48c3323eab459d343dbf75b75efe2f4",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/unesco-grain-canal",
+      "change": "added",
+      "before": null,
+      "atIntake": "d4367b341baf79b608f5ee4ec6db8b42f8e0b252d634833a46bdad935f9857b6",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/von-glahn-silver-markets",
+      "change": "added",
+      "before": null,
+      "atIntake": "dbcdf7323f28e7918b8ee941917c0aec689d801c1d32fdc31891ed026f31790b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/book/ming/yuanshi-river-1351",
+      "change": "added",
+      "before": null,
+      "atIntake": "cb1ff72e35f8ac9f80f8aae43dc7b7e413006ea3ce232006917dfa8632e4c126",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/imjin-frontier/phase08-seonmyo-jungheungji",
+      "change": "added",
+      "before": null,
+      "atIntake": "a5ca5cd603b0d858b300d0fb787c794270517079e39acb78bea320be13b28c3a",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/imjin-frontier/phase08-source-39",
+      "change": "added",
+      "before": null,
+      "atIntake": "1c07851c0a16d3b391b5b9dc4ac6266175689aba46e75adc82399616c1fef49b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/jingnan-campaign/phase08-mingshi-jingnan",
+      "change": "added",
+      "before": null,
+      "atIntake": "1ebae34dfa76e7bf473e54dcc2f16b23fe4e3de912d70abe74e507957cb95b38",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-beijing-1644/phase08-mingshi-chongzhen-fall",
+      "change": "added",
+      "before": null,
+      "atIntake": "62774c8ce8cdd7abfd637261237cb7990264baba523dc9d8927b0a8fc4c158fa",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-beijing-1644/phase08-mingshi-gui-yongli",
+      "change": "added",
+      "before": null,
+      "atIntake": "8ec2a55b7d4ecb1aafbf3d8b4383f4830519db09dbe961cc77e40d2df26e9409",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-beijing-1644/phase08-qingshigao-shunzhi",
+      "change": "added",
+      "before": null,
+      "atIntake": "345e583dde36809f86664e1a8a6ca28ac620184af963da261077338e313a4cb3",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-founding-1368/phase08-mingshi-hongwu-early",
+      "change": "added",
+      "before": null,
+      "atIntake": "b831859afffbf86a0f1ecb1d8acf81da7ec573ff3cb80cc6ee036c3349ee807e",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-founding-1368/phase08-mingshi-rise",
+      "change": "added",
+      "before": null,
+      "atIntake": "7ad6f384511cb3a7dd4313c3e6d54238b645d83d89c749741e4b54a4842be11a",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-global-silver/phase08-met-manila-trade",
+      "change": "added",
+      "before": null,
+      "atIntake": "2b78ef8e341c652d80f098ac3762752492930ddd65bf0eee0fc4bc4e4cc295dc",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-global-silver/phase08-mingshi-levies",
+      "change": "added",
+      "before": null,
+      "atIntake": "693c3721bed50517e8fb2f987e1ebb120264990a4fe78b62e8c043a06dbde0cf",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-global-silver/phase08-mingshi-longqing",
+      "change": "added",
+      "before": null,
+      "atIntake": "a6de36b074d75b7dc049fb569374f7c1de85f5b41b4867fe71ebcd8b21b1509c",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-global-silver/phase08-source-16",
+      "change": "added",
+      "before": null,
+      "atIntake": "123ec0d105b4775d227a42ed69ac6a251c464480ab8df6d61b7f50e9d1c36fa2",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-nine-garrisons/phase08-dpm-jingdezhen-excavation",
+      "change": "added",
+      "before": null,
+      "atIntake": "27b1f7c3baa0707e5cc94c56c9a743d77d0d7c44d7424a95f2f388503deb8856",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-nine-garrisons/phase08-mingshi-jiajing-border",
+      "change": "added",
+      "before": null,
+      "atIntake": "90ef1cca61d2e5e945117f1160b68e457d792dd8d3a282f405ebe7940d104aa9",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/ming-nine-garrisons/phase08-mingshi-tumu",
+      "change": "added",
+      "before": null,
+      "atIntake": "0327337a5325b630ef21d9c3e35dca0fc13405a6b3c385918586a88fd5f3739c",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/yongle-capitals/phase08-huaian-canal-gazetteer",
+      "change": "added",
+      "before": null,
+      "atIntake": "a532a056c5cadc1a108d574b9ed62758486a01c8c6880e3d0d362c7c5c8c451d",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/yongle-capitals/phase08-mingshi-grain-transport",
+      "change": "added",
+      "before": null,
+      "atIntake": "f9aa8408feae94bc0875b53d7afa20409c6bed155f229d16acb68f73c8a9f9b1",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/yongle-capitals/phase08-mingshi-yongle-capital",
+      "change": "added",
+      "before": null,
+      "atIntake": "ba72b916e177ca8750a8bbd2d4898fe44550efc341d5cd89b96457dad89863a2",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/yongle-capitals/phase08-mingshi-zhou-chen",
+      "change": "added",
+      "before": null,
+      "atIntake": "cc11065f4bfaa23b333d7c459b9f2083135c1bcbe3fda678168aecd43602e609",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/zhenghe-voyages/phase08-mariners-zheng-he",
+      "change": "added",
+      "before": null,
+      "atIntake": "873f4f96856bd5edec9a74db944c0beba07da3f0e3a07fd6e9293b3f403a161b",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "source/scene/zhenghe-voyages/phase08-mingshi-zheng-he",
+      "change": "added",
+      "before": null,
+      "atIntake": "4e4b4c89b2b3e2c0a4470a8fdfe65a9b5bf279220253c270263a100e9f74dccd",
+      "level": 3,
+      "status": "source-record"
+    },
+    {
+      "id": "subject/abbasid-caliphate",
+      "change": "added",
+      "before": null,
+      "atIntake": "b176f988acc7a359d52c9e97af591a3094c3abcc387107bb31b47df2cf7bec01",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/achaemenid-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "d5a03a18b117fffdf4209da31f8fd5d01d3ec4f76e518c55e6989a1dcd372c91",
+      "level": 3,
+      "status": "historical-world"
+    },
+    {
+      "id": "subject/aztec-triple-alliance",
+      "change": "added",
+      "before": null,
+      "atIntake": "8e821e45f14a57f1f26a68e7a0e3eba77f319c44758ab4eeb834fe470a579c27",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/byzantine-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "650063b19408d6fa853822ccaee78bb8f319c859bcaeb6483890d25f9b9fd625",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/chagatai-khanate",
+      "change": "added",
+      "before": null,
+      "atIntake": "ff8e439cabc263964f2380a7dbee76c03b7939fa1d670aec812a8a0fc0ceb804",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/country-china",
+      "change": "added",
+      "before": null,
+      "atIntake": "88cb88b58081b07529b7616ba1a0d8321087fbdac4bedb49aa57c783e282f3d5",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/country-kazakhstan",
+      "change": "added",
+      "before": null,
+      "atIntake": "b184e8d656c9ccff9b0e5d8c1898debbabdd542115ad5c2c282c70e461a6bfc3",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/country-pakistan",
+      "change": "added",
+      "before": null,
+      "atIntake": "376b6ada7957e49bf3cc7d0d168d118b21bb4d584fbf47d003668ee1d41239e6",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/delhi-sultanate",
+      "change": "added",
+      "before": null,
+      "atIntake": "834db70e75f8ae41f9dac1f1403f093e8fc1b96a8aa41ed0d15befd813d92a89",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/eastern-roman-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "78b45c0b770d9e6f5bdec28aced161d698a0d8cb39df3d7469839987c527812b",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/ethiopian-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "4fb2d589f7b895ac5ce67e4ce4dad4eb163261bfa8adacde32d8737245baf62c",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/gupta-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "7ac266e3b87b52c9f631d93b2e066a1402969806fdc853375e25eff60df2acf4",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/han-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "9506308efd9d1de12691de91fda835b258ac891247ce052c87cf3157770a4d81",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/holy-roman-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "828d241de4afd06ff1d7539d0823370a218cc87babd42942cf391730a4ac7f3d",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/inca-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "cbbd0039a2f484ea752d7581d46fc8f9b68268df216e7f594fd1df7637ac5511",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/joseon-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "9770ba397e5760692afaa0c92b2408b9ca83bc5cfa81b7d7d2df5fefae18f5a4",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/kazakh-khanate",
+      "change": "added",
+      "before": null,
+      "atIntake": "4f656502610584026112ed2f4c931650402687a627a20cead18c0a4776ca5e25",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/kingdom-of-england",
+      "change": "added",
+      "before": null,
+      "atIntake": "6376d4e3ffea2ff302da87f73bdfef0d9a1fc23746442c18a14d666e763e1256",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/kingdom-of-france",
+      "change": "added",
+      "before": null,
+      "atIntake": "863780ea402c0693deb3655fd9a90ab4c3fc9ed133a2ad02bed98a20609b9750",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/mali-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "3b863456f1f575825ea356e278b848a1d786670bcef764e9de8de6b5aa0d1ab1",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/maurya-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "d8a3780c8d9c829df09a8b93bba285bb824b4e81f1debcd4316e159704dddcca",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/mongol-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "bf194c85926c383c32073e9639d0cf86f3794e1cbf7c88d15210c206773a0c16",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/mughal-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "8377cbd81100b1dbfd409cb98d8c92f7f5550654495db66c61574b72caa7bef4",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/northern-song",
+      "change": "added",
+      "before": null,
+      "atIntake": "eb5c26095da58baf935d17c02945b1e164bef85eb36379d9b4cbbd77825208dc",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/ottoman-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "78cf613d32b8ad72b793e50fa49303f8bd3bec8c8ed981d62c2b3e695ce56462",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/polish-lithuanian-commonwealth",
+      "change": "added",
+      "before": null,
+      "atIntake": "f06c0e7d1c0960afc164b0243a5361cae2e8396db50def025b401cb337b4e044",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/prc-polity",
+      "change": "added",
+      "before": null,
+      "atIntake": "b9980983dead8c7e156071b940692c00653c4dc5f1641a7dcefdf6a0d9a97926",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/qin-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "0eebf5f9f9db4fe711f2c1f6ba73e393b78a4a3e25645b2ebab73fee4c61f4f1",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/qing-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "a202cb1757e9eb06f508a027429dfb569896d2e627efba2bae06b813ac3485c2",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/rashidun-caliphate",
+      "change": "added",
+      "before": null,
+      "atIntake": "7b358418770e9296f9b975b38c7adb15bf99ff3c0f4a5e2147288476b1d4c13e",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/roc-polity",
+      "change": "added",
+      "before": null,
+      "atIntake": "939062ffdeaa286bbcaf00b1b82d88ab40ff76ceb0ea76becd3d13a25d820fa9",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/roman-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "eae5cb57546f9afe67f8018c0cbc7b49710e950d7ba461bcd1df4c3c035a6782",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/russian-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "d74ffd59df55322677196acb43e53781946a0d59a76046d3bf68827163f02ac1",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/safavid-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "d19034ebe4e631b508cd0e9c4e2aae589b76d2ae261e0e24d8a91a480cb1d991",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/sasanian-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "a05bf91d029d2c4cbd20c59dae904a45ff9c412e23dc9e730750a6e62e244350",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/songhai-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "7b671fa4973410d06eb1977266761a871eca37a78f21082ed9e05c5f45ba52b6",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/southern-song",
+      "change": "added",
+      "before": null,
+      "atIntake": "aa5df9d7eb8e96367c4610d52709ca8fb8fcc39a4ab3202f0fde2abcb46b231d",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/soviet-union",
+      "change": "added",
+      "before": null,
+      "atIntake": "98733a2173ad5b1e805e0fa96493ba3b610fe6a2af3324490b7072bd1fcfb30a",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/state-of-qin",
+      "change": "added",
+      "before": null,
+      "atIntake": "1569e0f9f3c670b467063da1bfdc50c91fad0bfbdd713020907c29b689c9591c",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/sui-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "c575a60b102ffaaa819fbcc239dcd36419c42ddde0c0494cd1c7793fe0d3a4de",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/tang-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "42a4253c9d537d60dc4870c7b086483546b46e4b35f8b95733c455a4a7409ac3",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/timurid-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "2285cf7877e0bc7d37a2cc4595c403880af338b46a9972cf8717a1c4826fe4eb",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/tokugawa-shogunate",
+      "change": "added",
+      "before": null,
+      "atIntake": "37137139057805a7ac6efa9d397ca63492459873f8e87d0cc7dbd72895c261ff",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/umayyad-caliphate",
+      "change": "added",
+      "before": null,
+      "atIntake": "9ac2eb18f89ebec1ea544369db6d2d6669b72bb623f988c927a3c18c74465441",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/united-states-polity",
+      "change": "added",
+      "before": null,
+      "atIntake": "1f4143f8d6fee41c01e45b70377c7c2fbde56fa40712803f928c506cf82f877d",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/western-roman-empire",
+      "change": "added",
+      "before": null,
+      "atIntake": "baba8147eb085114f11d1d1c7bb505e0aa280f2e1930a371edceafa6f5913b34",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "subject/yuan-dynasty",
+      "change": "added",
+      "before": null,
+      "atIntake": "2709d53c144642c5906a6302b2e2136338754d3a92d3479c518cb6f65e88d4a3",
+      "level": 3,
+      "status": "needs-review"
+    },
+    {
+      "id": "text/book/ming/editorialNotice",
+      "change": "added",
+      "before": null,
+      "atIntake": "51c345820170b05d5730049adc93d0a465e011d5306358aecc46522507facf18",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/book/ming/summary",
+      "change": "modified",
+      "before": "7333c4f56500bd9776a27bcf36c653619ee7cfb1349de36b08ae551acd1e032e",
+      "atIntake": "c79d76f3d7c52efa10723b13011cbeb44af379ef038890bb9521f6960b5b855e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/spatialThesis",
+      "change": "added",
+      "before": null,
+      "atIntake": "8b233f634689baff99186d985d6f5a32515101f201d7b64af76c0245643dc897",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "fccc022f2c326069269cb234a9567eb43d56d62921ad3fabd1b0c44b94601f2b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/canal-labor/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "a6724806d65e6ec3bc0b111fef06b69d31f36d8caab85a27d68f3786685d1c8f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/scope",
+      "change": "added",
+      "before": null,
+      "atIntake": "4fb5154f61ba821b01da8d9d908278fab5e287407c21274462e2cd231e375be2",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "2cff9e2e9e3c07b2ae1b3d7864998dcab84cc13af64d661868adcfed257e007d",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/coastal-frontier/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "52266d6fa311a5623d2e8e7d8bf0d099cd1aa4824258fc46759e5eecdaaece8a",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/court-paperwork/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "f51a1d5f4090eeab293c3cfa9b848c49135664755fd26df4f12d30ffc9fc9e09",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/court-paperwork/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "da03fbdbe4ba3e14c8fa8dfcbaf24a5c3545f9f42bede4345563f400ae64c926",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/fall/spatialThesis",
+      "change": "modified",
+      "before": "c3d6f60676346d9e918b5811b2d338103fb0abca22bf98bff05152cca955908e",
+      "atIntake": "cfa5be2ebf27b52e22aa35ade160eb584ee8c2751ca3fc767730533283c51daf",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/fall/summary",
+      "change": "modified",
+      "before": "a71d2f9cdd1489358f1ad7582479c5283c279e4e4f27ad0f5ea7f42664b157a3",
+      "atIntake": "ae9e9e39c290aca1fcc20b0e95090d33ee33d1bbab8c6571be6634b5c3a210c4",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/fall/title",
+      "change": "modified",
+      "before": "da52968cf472860a285668324efd73931f0666b53f63e0cfb611a3fece112fb2",
+      "atIntake": "f1cdd736106af84138158984728bdef04d05805499772556bdf2fcf394018bfb",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/famine-rebellion/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "41d9d80c6bdb500718604e9fa2790f2f08ac2402fffeaf940d104c75353d8fda",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/famine-rebellion/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "f41dcbbb40cfe0e12b255e3f78199fe10e48f99c0cb7071458d8d9f7de49160f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/founding/spatialThesis",
+      "change": "modified",
+      "before": "c6c0daa23753c1ebb927d5cc602037f5706d7c5af9084baa36c8c64cf8636224",
+      "atIntake": "23b40f9f068cd04ce71cecb62e32d5046e22863eeabc327dd5b63dc2e0c9a940",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/founding/summary",
+      "change": "modified",
+      "before": "e6ac0ce56ddf45a80824e32597a2a38c891eac8c93c9caf8b6a2fb78f76dba70",
+      "atIntake": "90b2cdfe545a50ca658e46ea887a2e3bbcea13288531eaad9f39730a7ed280d5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/founding/title",
+      "change": "modified",
+      "before": "0ee8f85df245976f0e36d80d27cf386600a04368e55c4c769d7eaf88039b25cf",
+      "atIntake": "52a8835f090285354c6ac6303270ba8e153b075222d2f81b1615d69d4a6e454c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/hongwu-court/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "8c369ac3b4fc9ecf45f8d2023f5fb2bad858ce53a86e8d1cd80e698b3d423421",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/hongwu-court/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "7d4e0e25b932140e5d9c6651bd6f432ad16209095ec323e99814ca4f2820272f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/spatialThesis",
+      "change": "added",
+      "before": null,
+      "atIntake": "07910d3c2feb1b9780d22bab709954e5a780aa63e2b710976f75198463f5a4eb",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "2ef6d068a68a9f5b5d47737b96df822cbf796ed86fdf627b5ba6f74a810cdd9a",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/households-garrisons/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "6378f542926a8883f032c19eba55e04c3c04b62ba472c996f9d0c05bce26eae5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/spatialThesis",
+      "change": "added",
+      "before": null,
+      "atIntake": "da361cec90bec39c6bd7d6978e2acb69dccf4bcaa426f91775f133ba8b61b11c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "c500be05509ac8be5bf328def0825f02e9164981156388ae7b5ea4723d1478b0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/indian-ocean/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "e044b0d353be12625d36fc42b224695127141fb7573d43167f0d63f4f02dd08a",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/spatialThesis",
+      "change": "added",
+      "before": null,
+      "atIntake": "70019676e56d76aacf4d9e75834ccac74ba791936408bc6082b03ddfefdeb15f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "08d2f30a9d3504de1520920be3217a62b85bdcb4509b61fb3d1ed9370259ec93",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/liaodong-tianqi/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "d18044e9b72bc20106a51f0615d2273df3d939072a7cbf461efd5d0978b06287",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/local-livelihoods/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "126a610ff8b94dd7d5dedb6ab519fede1367c6f2757464c185d972e7a45ccb0e",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/local-livelihoods/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "c48203151a21751c19f7c6194625e213eeefe1740edb4371409062b49bd5bab7",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/spatialThesis",
+      "change": "modified",
+      "before": "ee01ef1ceda30960638b433fd31f2b09de57299992a28bde7d712b4020292b2e",
+      "atIntake": "2f99c64f845a29ac5e8607f5967a2a13b17205073baa6e0ef6a7759d66f09c23",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/summary",
+      "change": "modified",
+      "before": "3d11ebeca6bcdb3275a5246ea923fb8defcd82dbebc57a3e41a516b77d3468ee",
+      "atIntake": "6a30acb425da4b124adafeff77f517c067ca54ba7ca8bd3a2b635f9c726c77b3",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/mid-ming/title",
+      "change": "modified",
+      "before": "282917f21eca12e9ab8456385bddfc2cfa5c5239fb93175504cb6859ef009c34",
+      "atIntake": "4292b2f4a5044334181dbb4844ddc80242f2e0e8a1a2efa087fdd48ad6c2a446",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/print-and-knowledge/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "e35869fb9e703c7ae3773baf8cee06a680af8bb6fca3ebcc0a5bc945f9333967",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/print-and-knowledge/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "431a97ff89361900e67136d22ef787d0d6040c4f6dc139f3b1ede931753c816f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/renxuan/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "1a0ccc80b4aa29a2f02ac0477a02bfed6c5763d985d07bb56d047326d71ca827",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/renxuan/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "755a297b77ba209182db322df0eff922a05e437eb9ebc632f597161a4de9a467",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/silver/spatialThesis",
+      "change": "modified",
+      "before": "17ad75ddd5a5a4f0785a9abdeb6e137d41f184c9275e0b0a58abd32215de90b4",
+      "atIntake": "93909e8f5bba12944b137072d3d6590d8bb4fb35f9c2c6d5966305f6a5c1ed65",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/silver/summary",
+      "change": "modified",
+      "before": "d3551eb820d43dbd47a8b33385aa70f86a2358face14510d877bdb0805d047de",
+      "atIntake": "7f697090695ee7127593457177cefb23738d70f1d7c9d1ef6aa0895fadeb2ec4",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/silver/title",
+      "change": "modified",
+      "before": "a7b0b03d1f650f6e46853e1cd7ebdbc49e9daf5f0114b24b5c4ce3119870c07a",
+      "atIntake": "12e70cb6e2e510c9e2ba1c8bb52fd4fe9cade1d6d61cce184ae526d944b6d163",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/dateLabel",
+      "change": "added",
+      "before": null,
+      "atIntake": "64fd8c73d89e5394f214a1068c3f69dd2df8bfa80a7886740ce18b7f1d442310",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/scope",
+      "change": "added",
+      "before": null,
+      "atIntake": "c140eead4cb87d600e33c376f19f715f25409c91fc4d65b7d117f1c72edb04aa",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "2a986c81ada44393a28ed601f06250d27a388723cca5e687ed9f010e1e2b35f3",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/southern-ming/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "7ea101ffa5bf68bc5c238ae5b68d689a1bf9d208db9a60db1a0436fb9ca2fdab",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/spatialThesis",
+      "change": "modified",
+      "before": "3e63b6db2d05112ac46ab546cf4887988dd360038b8908e1e92871a768464851",
+      "atIntake": "5783807d05ea77dbed6ab37df69acf689a4e410d806ff35639174818520bd22b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/summary",
+      "change": "modified",
+      "before": "8ccfc3cd9957c0e33dc32c80e823f632d5debc86b4e57ce0a5bf68b1acb23aef",
+      "atIntake": "9438ef149a0b11e84181a11f2dd90a592aee8914f8aaa727e36fe9434431ea9b",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/two-capitals/title",
+      "change": "modified",
+      "before": "fc5844cd8e841816bf4861edc1b814e120aabb5ff2b58b5c2c682c56f889e22e",
+      "atIntake": "2985b385d4a5b9df42a7c3b8ebbdbc9fe38cdbdbce8706408b9808879f337b7c",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/spatialThesis",
+      "change": "added",
+      "before": null,
+      "atIntake": "20987e7bb20760cb9f829ecf553cbfb2726d46e92f36ba1acc5b630db8d16544",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "92165eeffe287e5293c1ac59af2be0e91b698203ec83b74d9693fa9e834c50c6",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/wanli-imjin/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "f6d08a413ce8119034939ea976bedd06ccabde49b546c7bc1e6ce1c9bf492149",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/dateLabel",
+      "change": "added",
+      "before": null,
+      "atIntake": "f2c750c0c1065740f79e60c8204cfa87f1cc7864ce1e3f1456e8dbf36fbaea7f",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/scope",
+      "change": "added",
+      "before": null,
+      "atIntake": "115d806f518a9b15225f71f9ca945d3ae7fc33e62ce6b7de0982098ee2ce24f5",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "39e5efdaea02e1dddb1557c5fd56a6cea3006e49b4f993ae24877c656aa0aeb8",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/yuan-crisis/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "2e4341a06e896bd2b819acff3a8a190e04da688fe286bbfe6b959f6021ec5ac0",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/zhang-reform/summary",
+      "change": "added",
+      "before": null,
+      "atIntake": "29b962a25a4da15dd9c6b5b613136e49c39ff133cbab482476c7fda02bd03082",
+      "level": 3,
+      "status": "phase-08"
+    },
+    {
+      "id": "text/chapter/ming/zhang-reform/title",
+      "change": "added",
+      "before": null,
+      "atIntake": "855be89c53b28ef7f936fc9dfdccb664ca996609a3763d4d657c81bf78e19563",
+      "level": 3,
+      "status": "phase-08"
+    }
+  ]
+}

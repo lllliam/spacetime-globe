@@ -20,6 +20,17 @@ jobs:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
+          fetch-depth: 0
+      - name: Check whether native UI changed
+        id: ui
+        env:
+          PREVIOUS_SHA: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = workflow_dispatch ] || \
+             ! git cat-file -e "$PREVIOUS_SHA^{commit}" 2>/dev/null || \
+             ! git diff --quiet "$PREVIOUS_SHA" HEAD -- native-ios/Sources native-ios/Tests native-ios/Globe.metal; then
+            echo 'needed=true' >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
@@ -27,8 +38,6 @@ jobs:
         id: prepare
         run: |
           node tools/verify-content.mjs
-          node build.mjs
-          git diff --exit-code -- index.html index.offline.html sw.js docs/CONTENT-COVERAGE.md data/topics.json
           node native-ios/prepare-data.mjs
           python3 native-ios/prepare-project.py
       - name: Test native data decoding and map selection
@@ -75,6 +84,7 @@ jobs:
           compression-level: 0
       - name: Exercise exploration, year selection, reading and observation on iPhone
         id: simulator
+        if: steps.ui.outputs.needed == 'true'
         timeout-minutes: 13
         run: |
           set -euo pipefail

@@ -162,10 +162,43 @@
       "id": "achaemenid-empire",
       "type": "polity",
       "name": "阿契美尼德帝国",
-      "range": { "from": -550, "to": -330 },
-      "scope": "居鲁士二世创立的古代波斯第一帝国，以行省总督、御道驿站与多元宽容治理横跨近东与埃及。",
-      "maps": [{ "type": "polity", "key": "Achaemenid Empire" }],
-      "audit": { "status": "checked", "scope": "主体名称、存续年代与地图映射依据公开标准史学分期核定。", "checkedAt": "2026-11-26" }
+      "range": {
+        "from": -550,
+        "to": -330
+      },
+      "scope": "采用约公元前 550 年至前 330 年的常用分期，从击败米底王到大流士三世身亡。底图记录另有其覆盖范围。",
+      "maps": [
+        {
+          "type": "polity",
+          "key": "Achaemenid Empire"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "常用分期、扩张阶段与巴比伦交接的材料范围。",
+        "checkedAt": "2026-11-26"
+      },
+      "summary": "居鲁士二世从伊朗高原扩张，先后取得米底、吕底亚和巴比伦。冈比西斯征服埃及，大流士一世以总督和道路组织统治。巴比伦编年史与居鲁士圆柱呈现当地的政权交接。",
+      "sources": [
+        {
+          "id": "source-01",
+          "title": "大都会艺术博物馆 · 阿契美尼德波斯帝国",
+          "url": "https://www.metmuseum.org/essays/the-achaemenid-persian-empire-550-330-b-c",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "nabonidus-chronicle",
+          "title": "《纳波尼德编年史》泥板 BM 35382（ABC 7）英译",
+          "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-7-nabonidus-chronicle/",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "cyrus-cylinder",
+          "title": "《居鲁士圆柱铭文》 · 大英博物馆译本",
+          "url": "https://exhibitions.asianart.org/exhibitions/the-cyrus-cylinder-and-ancient-persia-a-new-beginning/",
+          "checkedAt": "2026-11-26"
+        }
+      ]
     },
     {
       "id": "sasanian-empire",

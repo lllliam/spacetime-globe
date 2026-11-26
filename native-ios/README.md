@@ -1,4 +1,4 @@
-# 时空地球 iOS 原生版 0.4.0
+# 时空地球 iOS 原生版 0.4.1
 
 适用于 iOS 16 及以上的 iPhone。地球、时间轴、书卷与历史现场都可离线使用。外部史料网页需要联网。
 
@@ -25,3 +25,5 @@ python3 native-ios/prepare-project.py
 ~~~
 
 用 Xcode 打开生成的项目。GitHub Actions 可编译、检查并生成未签名真机 IPA。数据编译读取仓库现有历史资料和地图。原生产品规则见 [产品规范](PRODUCT.md)，数据与工程约定见 [架构规范](ARCHITECTURE.md)。
+
+历史内容批次与原资料位置见 [Historical World 检查点](../docs/progress/HISTORICAL-WORLD.md)。

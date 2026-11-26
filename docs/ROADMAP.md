@@ -21,4 +21,4 @@ Phase 01—09 的阶段性工程建设已收尾。`1.0.0-rc.1` 已公开上线�
 两条维护线共用同一仓库。公开产品在 `main` 维护，`develop/1.0` 保留为阶段建设记录。
 
 - **产品与工程**。处理实际使用反馈、缺陷、交互和视觉细节、性能、设备兼容及 PWA 离线能力。功能改进由产品负责人确认。人工与设备待验收按 [真机和人工清单](progress/phase-09/device-checklist.md) 追踪。
-- **历史与内容**。经授权恢复 Phase 07 存量审校，深化历史书卷和来源，完善历史地图、场景与全球关联，扩充内容覆盖。按稳定 ID 追踪证据和变化。[历史编辑规范](EDITORIAL-STANDARD.md) · [史料审校维护](SOURCE-AUDIT.md)
+- **历史与内容**。Historical World 已获授权续接 Phase 07，先合账，再处理重大风险、深化完整书卷和补足全球覆盖。以 `codex/ios-native` 的权威内容库为现行基线。[建设规范](HISTORICAL-WORLD.md) · [检查点](progress/HISTORICAL-WORLD.md)

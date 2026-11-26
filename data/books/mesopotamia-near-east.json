@@ -14,6 +14,48 @@
       "title": "大都会艺术博物馆《巴比伦的历史与艺术》",
       "url": "https://www.metmuseum.org/essays/babylon",
       "id": "source-02"
+    },
+    {
+      "id": "jerusalem-chronicle",
+      "title": "《尼布甲尼撒二世早年编年史》泥板 BM 21946（ABC 5）英译",
+      "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-5-jerusalem-chronicle",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "babylon-outer-wall",
+      "title": "巴比伦外墙铭文 · 大都会艺术博物馆藏品 86.11.60",
+      "url": "https://www.metmuseum.org/art/collection/search/321676",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "nabonidus-chronicle",
+      "title": "《纳波尼德编年史》泥板 BM 35382（ABC 7）英译",
+      "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-7-nabonidus-chronicle/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "herodotus-babylon",
+      "title": "希罗多德《历史》卷一英译",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Herodotus/1D*.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "cyrus-cylinder",
+      "title": "《居鲁士圆柱铭文》 · 大英博物馆译本",
+      "url": "https://exhibitions.asianart.org/exhibitions/the-cyrus-cylinder-and-ancient-persia-a-new-beginning/",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "ezra-1",
+      "title": "《以斯拉记》第 1 章",
+      "url": "https://bible.usccb.org/bible/ezra/1",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "babylon-site",
+      "title": "联合国教科文组织世界遗产名录 · 巴比伦",
+      "url": "https://whc.unesco.org/en/list/278/",
+      "checkedAt": "2026-11-26"
     }
   ],
   "chapters": [
@@ -266,20 +308,33 @@
     },
     {
       "id": "neo-babylon-cyrus-539",
-      "title": "新巴比伦盛景、巴比伦之囚与居鲁士入城",
+      "title": "从巴比伦外城墙到居鲁士入城",
       "from": -611,
       "to": -539,
-      "summary": "尼布甲尼撒二世将巴比伦打造成当时世界最宏伟的琉璃砖大都会，并攻灭犹大王国引发“巴比伦之囚”；然而末代君主的宗教裂痕让波斯王居鲁士于公元前 539 年几乎不战而克巴比伦。",
-      "spatialThesis": "新巴比伦承接了亚述留下的新月沃土遗产，却把精力倾注于幼发拉底河畔的首都奇观营造；当伊朗高原的阿契美尼德波斯整合米底与吕底亚形成半月形合围，古老的两河独立帝国时代便画上句号。",
+      "summary": "尼布甲尼撒二世把西征与王都营造并行推进。公元前 539 年，波斯军在奥皮斯作战，随后接管巴比伦。城墙遗迹、巴比伦泥板和希腊记述分别留下了城市与政权转换的线索。",
+      "spatialThesis": "卡尔凯美什的渡河战事与幼发拉底河畔的王都营造，分别说明新巴比伦如何面向黎凡特及经营首都。公元前 539 年的泥板记录也将底格里斯河畔的会战与巴比伦城的接管分开。",
       "paragraphs": [
         {
-          "heading": "尼布甲尼撒二世与世界第一大城",
-          "text": "瓜分亚述遗产后，那波帕拉沙尔之子尼布甲尼撒二世于公元前六零五年在卡尔凯美什击败北上增援的埃及军队，稳稳确立了新巴比伦在两河与叙利亚的霸权。随后四十余年间，他动用源源不断的战利品与商路税银大兴土木，将幼发拉底河穿城而过的巴比伦扩建为占地近千公顷、人口逾二十万的当时世界第一大都会。",
+          "heading": "卡尔凯美什与巴比伦外城墙",
+          "text": "公元前 605 年，王储尼布甲尼撒在幼发拉底河畔的卡尔凯美什击败埃及军队。父亲那波帕拉沙尔去世后，他返抵巴比伦继位。留存的一件王室铭文记述他在巴比伦修筑新的外城墙，考古工作也辨认出墙体遗迹。城墙和城门勾勒出王都建设的规模，外围实际居住密度仍不清楚。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "jerusalem-chronicle",
+              "locator": "正面第 1–11 行",
+              "note": "卡尔凯美什战事及父亡继位"
+            },
+            {
+              "sourceId": "babylon-outer-wall",
+              "locator": "藏品 86.11.60 馆藏说明前两段",
+              "note": "外墙营造与外围居住密度未知"
+            }
           ],
-          "id": "p-01"
+          "id": "p-01",
+          "audit": {
+            "status": "checked",
+            "scope": "前 605 年战事与继位、外城墙及人口估算边界",
+            "checkedAt": "2026-11-26"
+          }
         },
         {
           "text": "高耸的双重护城墙、供奉马尔杜克的埃萨吉拉大庙、直插云霄的七层埃特曼安吉通天塔，以及传说中为思乡的米底王后修筑的空中花园，共同构成了后世西方与中东记忆中“巴比伦”的原型。与此同时，巴比伦祭司在塔顶夜复一夜记录星辰运行，完善了六十进制历法、黄道十二宫与日月食推算，奠定了西方天文学的基石。",
@@ -305,29 +360,78 @@
           "id": "p-03"
         },
         {
-          "text": "新巴比伦的繁荣高度依赖尼布甲尼撒二世的个人威望，公元前五六二年他辞世后，短短七年间竟接连爆发三场宫廷政变。公元前五五六年登基的纳波尼德并非迦勒底王族，他笃信北方哈兰的月神欣，竟疏远巴比伦本土势力庞大的马尔杜克祭司集团，并长期离京远驻阿拉伯半岛绿洲泰马长达十年，留下太子伯沙撒代为理政。",
+          "text": "纳波尼德即位以后，曾在阿拉伯半岛的绿洲泰马长期驻留。编年史多次分列国王在泰马、王子及军官在巴比伦尼亚的情况，记载国王不在时部分新年仪式无法举行，神庙日常献祭仍有记录。国王长期离都改变了礼仪安排。后来波斯铭文对纳波尼德的指责，还须放在新政权争取承认的语境中阅读。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nabonidus-chronicle",
+              "locator": "第 II 栏第 5–8、10–12、19–25 行",
+              "note": "泰马驻留与祭祀记录"
+            },
+            {
+              "sourceId": "cyrus-cylinder",
+              "locator": "英译第 4–13 行",
+              "note": "新王铭文对前任国王的指责"
+            }
           ],
-          "id": "p-04"
+          "id": "p-04",
+          "audit": {
+            "status": "checked",
+            "scope": "泰马驻留及王权文书的立场",
+            "checkedAt": "2026-11-26"
+          }
         },
         {
-          "heading": "居鲁士入城与两河独立帝国的落幕",
-          "text": "就在巴比伦君臣离心、祭司暗怀怨望之际，东方伊朗高原的波斯王居鲁士二世迅速崛起，先后吞并米底王国与富庶的安纳托利亚吕底亚，将新巴比伦推入三面受敌的绝境。公元前五三九年秋，波斯军在奥皮斯击败巴比伦主力后，顺幼发拉底河引水改道潜入城中，几乎未遭激烈巷战便兵不血刃地占领了这座世界名城。",
+          "heading": "战场、城门与两种入城记载",
+          "text": "公元前 539 年，波斯军先与巴比伦军在奥皮斯交战。《纳波尼德编年史》随后记下西帕尔失守、乌格巴鲁率军进入巴比伦，以及居鲁士本人稍后进城。希罗多德另写了改道引水、士兵从河道进入的故事。巴比伦编年史没有记下这条进城路线。泥板所说的入城未战，描述的是接管城池的一个环节。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nabonidus-chronicle",
+              "locator": "第 III 栏第 12–22 行",
+              "note": "奥皮斯、西帕尔、两次入城、祭祀及神像返还"
+            },
+            {
+              "sourceId": "herodotus-babylon",
+              "locator": "卷一第 188–191 节",
+              "note": "引水入城故事的出处"
+            }
           ],
-          "id": "p-05"
+          "id": "p-05",
+          "audit": {
+            "status": "checked",
+            "scope": "分开奥皮斯作战、接管首都与引水说",
+            "checkedAt": "2026-11-26"
+          }
         },
         {
-          "text": "精明的居鲁士没有像昔日亚述人那样焚城拆庙，反而颁布著名的《居鲁士圆柱铭文》，自称奉马尔杜克之命解放巴比伦，恢复神庙祭祀并允许流亡犹太人重返耶路撒冷重建圣殿。巴比伦此后仍作为波斯王室冬都繁华了两个世纪，但自公元前五三九年起，延续两千五百年的本土两河独立帝国史正式落幕，近东转入波斯与希腊化大帝国的新纪元。",
+          "text": "新巴比伦王国在公元前 539 年失去首都。城里的礼仪和行政仍有后续记录：编年史记载任命官员及神像归还，居鲁士圆柱则以巴比伦王号和神庙语言表述新政权。《以斯拉记》第一章另外记载许可归返耶路撒冷与重建圣殿。阅读这些材料时，先辨认每份文献说的是哪一座城、哪些人和哪一种安排。",
           "refs": [
-            "source-01",
-            "source-02"
+            {
+              "sourceId": "nabonidus-chronicle",
+              "locator": "第 III 栏第 12–22 行",
+              "note": "奥皮斯、西帕尔、两次入城、祭祀及神像返还"
+            },
+            {
+              "sourceId": "cyrus-cylinder",
+              "locator": "英译第 12–26、30–36 行",
+              "note": "王权自述、神像与部分居民归返"
+            },
+            {
+              "sourceId": "ezra-1",
+              "locator": "第 1 章第 1–11 节正文",
+              "note": "归返耶路撒冷与重建圣殿的犹大传统"
+            },
+            {
+              "sourceId": "babylon-site",
+              "locator": "遗址简介、完整性及名录坐标",
+              "note": "城市遗迹与参照点"
+            }
           ],
-          "id": "p-06"
+          "id": "p-06",
+          "audit": {
+            "status": "checked",
+            "scope": "新巴比伦终点及不同地点的接管与归返材料",
+            "checkedAt": "2026-11-26"
+          }
         }
       ],
       "contemporaries": [
@@ -345,7 +449,33 @@
         }
       ],
       "kind": "narrative",
-      "spatialThesisId": "spatial-thesis"
+      "spatialThesisId": "spatial-thesis",
+      "related": [
+        {
+          "id": "babylon-from-persia",
+          "label": "从波斯扩张看巴比伦如何易手",
+          "book": "achaemenid",
+          "chapter": "cyrus-rise-and-tolerance",
+          "relation": "documented",
+          "time": {
+            "from": -539,
+            "to": -539
+          },
+          "display": "并读同一场政权交接的两端。编年史分别记录波斯军与居鲁士进入巴比伦。",
+          "evidence": [
+            {
+              "sourceId": "nabonidus-chronicle",
+              "locator": "第 III 栏第 12–22 行",
+              "note": "奥皮斯、西帕尔、两次入城、祭祀及神像返还"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "前 539 年波斯与巴比伦的直接交接。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
     }
   ]
 }

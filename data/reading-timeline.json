@@ -154,5 +154,69 @@
         "id": "source-01"
       }
     ]
+  },
+  "i-iq-cyrus-enters-babylon": {
+    "title": "居鲁士进入巴比伦",
+    "date": "公元前 539 年",
+    "summary": "在奥皮斯交战、西帕尔失守后，波斯军先进入巴比伦，居鲁士随后入城。",
+    "paragraphs": [
+      {
+        "id": "p-01",
+        "text": "《纳波尼德编年史》先记底格里斯河畔奥皮斯的战事，再记西帕尔未战失守。乌格巴鲁率军进入巴比伦，居鲁士本人在下一月进城。地图以现存巴比伦遗址作为城市参照。",
+        "refs": [
+          {
+            "sourceId": "nabonidus-chronicle",
+            "locator": "第 III 栏第 12–22 行",
+            "note": "奥皮斯、西帕尔、两次入城、祭祀及神像返还"
+          },
+          {
+            "sourceId": "babylon-site",
+            "locator": "遗址简介、完整性及名录坐标",
+            "note": "城市遗迹与参照点"
+          }
+        ]
+      },
+      {
+        "id": "p-02",
+        "text": "编年史写到神庙祭祀延续和神像归还。居鲁士圆柱把新王入城与马尔杜克的选择相连。两种材料让我们看到，夺取政权之后，城里仍要安排官员、护卫和礼仪。",
+        "refs": [
+          {
+            "sourceId": "nabonidus-chronicle",
+            "locator": "第 III 栏第 12–22 行",
+            "note": "奥皮斯、西帕尔、两次入城、祭祀及神像返还"
+          },
+          {
+            "sourceId": "cyrus-cylinder",
+            "locator": "英译第 12–26、30–36 行",
+            "note": "王权自述、神像与部分居民归返"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "nabonidus-chronicle",
+        "title": "《纳波尼德编年史》泥板 BM 35382（ABC 7）英译",
+        "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-7-nabonidus-chronicle/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "cyrus-cylinder",
+        "title": "《居鲁士圆柱铭文》 · 大英博物馆译本",
+        "url": "https://exhibitions.asianart.org/exhibitions/the-cyrus-cylinder-and-ancient-persia-a-new-beginning/",
+        "checkedAt": "2026-11-26"
+      },
+      {
+        "id": "babylon-site",
+        "title": "联合国教科文组织世界遗产名录 · 巴比伦",
+        "url": "https://whc.unesco.org/en/list/278/",
+        "checkedAt": "2026-11-26"
+      }
+    ],
+    "audit": {
+      "status": "checked",
+      "scope": "前 539 年入城次序及城址参照。圆柱用于说明新王的自述。",
+      "checkedAt": "2026-11-26"
+    }
   }
 }

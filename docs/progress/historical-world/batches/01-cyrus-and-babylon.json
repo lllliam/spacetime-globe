@@ -1,0 +1,801 @@
+{
+  "id": "01-cyrus-and-babylon",
+  "date": "2026-11-26",
+  "base": "acb675d",
+  "access": [
+    {
+      "url": "https://www.metmuseum.org/essays/the-achaemenid-persian-empire-550-330-b-c",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "大都会艺术博物馆策展部门历史概述",
+      "locator": "正文第 1–5 段及本篇题名",
+      "supports": "波斯帝国产生、萨第斯、埃及征服及大流士的制度背景",
+      "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+    },
+    {
+      "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-7-nabonidus-chronicle/",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "巴比伦编年泥板英译，A. K. Grayson 译经调整",
+      "locator": "第 II 栏 1–12、19–25 行及第 III 栏 12–22 行",
+      "supports": "米底军倒戈、泰马时期、奥皮斯与巴比伦交接的分段记载",
+      "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+    },
+    {
+      "url": "https://exhibitions.asianart.org/exhibitions/the-cyrus-cylinder-and-ancient-persia-a-new-beginning/",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "王权铭文，大英博物馆英译",
+      "locator": "英译第 4–36 行",
+      "supports": "新王对纳波尼德的指责、马尔杜克叙事、王号及神像和居民归返",
+      "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+    },
+    {
+      "url": "https://bible.usccb.org/bible/ezra/1",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "犹大传承的文本，USCCB 英译正文",
+      "locator": "第 1 章第 1–11 节正文",
+      "supports": "关于许可归返耶路撒冷、重建圣殿及归还器皿的叙述",
+      "limit": "仅使用通行英译正文，不据编者注把这段叙事与圆柱铭文认作同一政令，也不采用重建人数。"
+    },
+    {
+      "url": "https://www.livius.org/sources/content/mesopotamian-chronicles-content/abc-5-jerusalem-chronicle",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "巴比伦编年泥板英译，采 Grayson 与 Glassner 版本",
+      "locator": "正面第 1–11 行",
+      "supports": "王储战胜埃及军队、返回继位及编年定位",
+      "limit": "不采用叙述中无独立估算的全歼数字。泥板未涉及城市人口。"
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/321676",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "王室建造铭文及大都会艺术博物馆藏品释读",
+      "locator": "藏品 86.11.60 的引文、馆藏说明前两段",
+      "supports": "新外墙营造、遗迹辨认及外围居住密度未知",
+      "limit": "馆方提及规模判断，未给出足以据此核定人口的材料。"
+    },
+    {
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Herodotus/1D*.html",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "后世希腊文献，《历史》卷一，A. D. Godley 译本",
+      "locator": "卷一第 188–191 节",
+      "supports": "水道入城说的文字出处",
+      "limit": "属于在后记述，和泥板提供的进城信息不同。不能将其路线当确知地理事实。"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/278/",
+      "status": "read",
+      "date": "2026-11-26",
+      "material": "联合国教科文组织遗产名录与遗址界定",
+      "locator": "简介、完整性及名录坐标",
+      "supports": "新巴比伦的首都年代、城墙遗迹及遗址参照位置",
+      "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "text/book/achaemenid/summary",
+      "before": "76043cc63602c96865ffc3c8c62b55034a8d5d2bb593b1d7d17c0a89e9da28e4",
+      "after": "e97203b6568e0333fc0ba739fb17016a409519c3f4630e6562ba64fd7c33820c",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/source-01",
+          "locator": "正文第 1–5 段",
+          "statement": "波斯扩张的顺序及大流士治理的制度范围",
+          "result": "supported",
+          "supports": "波斯扩张的顺序及大流士治理的制度范围",
+          "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/achaemenid/cyrus-rise-and-tolerance/title",
+      "before": "c596b993c3cd949470913fbf863b7893d89931bcb53b0317927c949cf2a1d958",
+      "after": "7f100d3683ec0c58a4294dd72015630ef246cab04a9f7b53b88332edb59b388f",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 II 栏第 1–4 行、第 III 栏第 12–22 行",
+          "statement": "埃克巴坦那与巴比伦的夺取和接管",
+          "result": "supported",
+          "supports": "埃克巴坦那与巴比伦的夺取和接管",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/achaemenid/cyrus-rise-and-tolerance/summary",
+      "before": "4c5be2127ebe04b75ac135a6d04b74281426c88e69f287b1730b61368a7821db",
+      "after": "35aff3152f77cc091c538e1855d870390bc59f0298fa91733784b951083d3ae9",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 II 栏第 1–4 行、第 III 栏第 12–22 行",
+          "statement": "埃克巴坦那与巴比伦的夺取和接管",
+          "result": "supported",
+          "supports": "埃克巴坦那与巴比伦的夺取和接管",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/achaemenid/cyrus-rise-and-tolerance/spatialThesis",
+      "before": "15fb867b60f3a05d1ca7cd0ef76332d632921d635a2fe294428333588f77e4a7",
+      "after": "1ca5d8dfd3ee7f26ae711f48cf0d8834b73a91cd06e5f08fd4d7c1002a617b74",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 II 栏第 1–4 行、第 III 栏第 12–22 行",
+          "statement": "埃克巴坦那与巴比伦的夺取和接管",
+          "result": "supported",
+          "supports": "埃克巴坦那与巴比伦的夺取和接管",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-01",
+      "before": "e8009b710f6bd42822f106b7537486ba3772fe3f7a80d0f249179ebc3ed615d0",
+      "after": "8e77075e8fd76826fa414c37f273a585cf87740327238104be043236f4b3d8da",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "同一编辑重新打开《纳波尼德编年史》II.1–4，对照安善、倒戈、俘获和战利品。撤出年轻国王动机、将领待遇与族群融合推论。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 II 栏第 1–4 行",
+          "statement": "米底军倒戈、阿斯提阿格斯被俘及埃克巴坦那的战利品",
+          "result": "supported",
+          "supports": "米底军倒戈、阿斯提阿格斯被俘及埃克巴坦那的战利品",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "同一编辑重新打开《纳波尼德编年史》II.1–4，对照安善、倒戈、俘获和战利品。撤出年轻国王动机、将领待遇与族群融合推论。"
+      }
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-02",
+      "before": "76ac59fe976497840ee464dbdc5d269eaa6c84cc3125859829095f0655705865",
+      "after": "4fe62fa85e8921d5bda1a6f796b1ca9fa5926b4efd404c98d2420e21ee92c545",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "撤出骆驼战术与铸币首创断言，保留战争方向与萨第斯失守。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/source-01",
+          "locator": "正文第 2 段",
+          "statement": "吕底亚东进、撤回与萨第斯失守",
+          "result": "supported",
+          "supports": "吕底亚东进、撤回与萨第斯失守",
+          "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-03",
+      "before": "77660655c2fb0595d36becc87f5d3ab8b710e885c0111f855ca2fc0b112f9745",
+      "after": "a942f13309bdac4578f9aef07d096c856448bee9a637967d10f7d9e3d249ec27",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "分列奥皮斯战事与之后的入城，撤出祭司开门、牵神像和未经核实的动机。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "block/achaemenid/cyrus-rise-and-tolerance/aside-03",
+      "before": "54c6a836061626b823022ab267e20f7ef43f76735546f83e61e403074ee9418b",
+      "after": "7c7ae3e203bebe15562a893c0ed547245b1d84630da4b0779c00bf8eec2032f8",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "分列巴比伦铭文与耶路撒冷传统，撤出把犹大人和耶路撒冷写入圆柱的说法。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/cyrus-cylinder",
+          "locator": "英译第 12–26、30–36 行",
+          "statement": "王权自述、神像与部分居民归返",
+          "result": "supported",
+          "supports": "王权自述、神像与部分居民归返",
+          "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+        },
+        {
+          "source": "source/book/achaemenid/ezra-1",
+          "locator": "第 1 章第 1–11 节正文",
+          "statement": "归返耶路撒冷与重建圣殿的犹大传统",
+          "result": "supported",
+          "supports": "归返耶路撒冷与重建圣殿的犹大传统",
+          "limit": "仅使用通行英译正文，不据编者注把这段叙事与圆柱铭文认作同一政令，也不采用重建人数。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-04",
+      "before": "efdc96a0aae3bf00c6a036279e1d90a1c24a74924f776aeb5c0883a7db4b5657",
+      "after": "83870bb1882a11d67b946425c261b96f0225b62f3fb6bb95af1b13ce564ff476",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "同一编辑重看编年史 III.16–22 及圆柱有关王号与神像的行文，复核巴比伦地方纪载的适用范围。删除帝国统一宽容和没有镇压的推论。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/book/achaemenid/cyrus-cylinder",
+          "locator": "英译第 12–26、30–36 行",
+          "statement": "王权自述、神像与部分居民归返",
+          "result": "supported",
+          "supports": "王权自述、神像与部分居民归返",
+          "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "同一编辑重看编年史 III.16–22 及圆柱有关王号与神像的行文，复核巴比伦地方纪载的适用范围。删除帝国统一宽容和没有镇压的推论。"
+      }
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-05",
+      "before": "cc102e6ceb8cf59386d73090993e884e2cf55678772262eb31a07bb1b12f13be",
+      "after": "9a75603cfbe66602fb3c5dc3d590bbbd47ed9d7437b9eec8f10388b0953c4ca2",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "限缩居鲁士死因细节、跨沙漠情节与冈比西斯征服的范围。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/source-01",
+          "locator": "正文第 2–5 段",
+          "statement": "米底、吕底亚及波斯扩张时序",
+          "result": "supported",
+          "supports": "米底、吕底亚及波斯扩张时序",
+          "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/achaemenid/cyrus-rise-and-tolerance/p-06",
+      "before": "17b2cfe3b47a136137ffe257a403e2e64d487be08bbb69940784f88e7f457806",
+      "after": "830d2a0f97913757dfb9f53a1dacd94a4914728746fe89a641a213d6d701aa51",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "撤出十九处行省及大流士个人性格推断。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/source-01",
+          "locator": "正文第 2–5 段",
+          "statement": "米底、吕底亚及波斯扩张时序",
+          "result": "supported",
+          "supports": "米底、吕底亚及波斯扩张时序",
+          "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/achaemenid/cyrus-rise-and-tolerance/babylon-from-the-city",
+      "before": null,
+      "after": "b8b9c03428990ebbad282d45624f07e951d994f3b2f00004487ddd06614fd7e6",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "前 539 年同一政权交接的双向阅读关联。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/book/achaemenid/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/mesopotamia-near-east/neo-babylon-cyrus-539/title",
+      "before": "e7d1553b477d44006800fc65fc4616948e8a14aacb8482445b72ebcc89ab5363",
+      "after": "1a3ed92bc911de03a84098ba2ce7eec12bf1beb3a841be95a9e453b1a884e3a2",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/jerusalem-chronicle",
+          "locator": "正面第 1–11 行",
+          "statement": "卡尔凯美什与继位",
+          "result": "supported",
+          "supports": "卡尔凯美什与继位",
+          "limit": "不采用叙述中无独立估算的全歼数字。泥板未涉及城市人口。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/babylon-outer-wall",
+          "locator": "藏品 86.11.60 馆藏说明",
+          "statement": "巴比伦外墙的建造",
+          "result": "supported",
+          "supports": "巴比伦外墙的建造",
+          "limit": "馆方提及规模判断，未给出足以据此核定人口的材料。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/mesopotamia-near-east/neo-babylon-cyrus-539/summary",
+      "before": "e65c80cdb6a46f259a92e63a4e47a9dfdf016901dcb6625936c6d5491045edbc",
+      "after": "45e30b0f16183894d4dd3043c3cb4c4b5dc0ebc0a9504d64583c611762edd38c",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/jerusalem-chronicle",
+          "locator": "正面第 1–11 行",
+          "statement": "卡尔凯美什与继位",
+          "result": "supported",
+          "supports": "卡尔凯美什与继位",
+          "limit": "不采用叙述中无独立估算的全歼数字。泥板未涉及城市人口。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/babylon-outer-wall",
+          "locator": "藏品 86.11.60 馆藏说明",
+          "statement": "巴比伦外墙的建造",
+          "result": "supported",
+          "supports": "巴比伦外墙的建造",
+          "limit": "馆方提及规模判断，未给出足以据此核定人口的材料。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/chapter/mesopotamia-near-east/neo-babylon-cyrus-539/spatialThesis",
+      "before": "36e0f4287a56d0e5e30ef206e3efb393b1bcae352345bf6fb2bc4071161a1a33",
+      "after": "de9436bb7e89834c42038d88315ea1fa3f751f79567d982da272706f7121699a",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/jerusalem-chronicle",
+          "locator": "正面第 1–11 行",
+          "statement": "卡尔凯美什与继位",
+          "result": "supported",
+          "supports": "卡尔凯美什与继位",
+          "limit": "不采用叙述中无独立估算的全歼数字。泥板未涉及城市人口。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/babylon-outer-wall",
+          "locator": "藏品 86.11.60 馆藏说明",
+          "statement": "巴比伦外墙的建造",
+          "result": "supported",
+          "supports": "巴比伦外墙的建造",
+          "limit": "馆方提及规模判断，未给出足以据此核定人口的材料。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/mesopotamia-near-east/neo-babylon-cyrus-539/p-01",
+      "before": "6cf0d3756078907de19cb9b1633204ca2836a09e3e7c5484f5b557984bdee681",
+      "after": "86ba08eeb1e89a8513114aaf581350adf8e67c3e49fc16bb1c3437729dbaaee6",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "同一编辑重读 BM 21946 正面 1–11 行和馆藏 86.11.60 说明，区分王储、战事、继位、外墙与人口口径。撤出二十万、面积及世界排名。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/jerusalem-chronicle",
+          "locator": "正面第 1–11 行",
+          "statement": "卡尔凯美什战事及父亡继位",
+          "result": "supported",
+          "supports": "卡尔凯美什战事及父亡继位",
+          "limit": "不采用叙述中无独立估算的全歼数字。泥板未涉及城市人口。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/babylon-outer-wall",
+          "locator": "藏品 86.11.60 馆藏说明前两段",
+          "statement": "外墙营造与外围居住密度未知",
+          "result": "supported",
+          "supports": "外墙营造与外围居住密度未知",
+          "limit": "馆方提及规模判断，未给出足以据此核定人口的材料。"
+        }
+      ],
+      "secondPass": {
+        "date": "2026-11-26",
+        "scope": "同一编辑重读 BM 21946 正面 1–11 行和馆藏 86.11.60 说明，区分王储、战事、继位、外墙与人口口径。撤出二十万、面积及世界排名。"
+      }
+    },
+    {
+      "id": "book-paragraph/mesopotamia-near-east/neo-babylon-cyrus-539/p-04",
+      "before": "830d1e13ce5a94263717e1548e8d25be30b9edb77f8742849437a636cac6e953",
+      "after": "66acffa16ac61fa34b4fd3ed16bb98e05571f2d5cffb5b3936a855a677804531",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "以祭祀与宫廷两地的记录取代以信仰解释王国败亡。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 II 栏第 5–8、10–12、19–25 行",
+          "statement": "泰马驻留与祭祀记录",
+          "result": "supported",
+          "supports": "泰马驻留与祭祀记录",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/cyrus-cylinder",
+          "locator": "英译第 4–13 行",
+          "statement": "新王铭文对前任国王的指责",
+          "result": "supported",
+          "supports": "新王铭文对前任国王的指责",
+          "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/mesopotamia-near-east/neo-babylon-cyrus-539/p-05",
+      "before": "0a1a4cddcccbf63551b9c873f0cc93468d8d04c18cf5c136b29abfd36dbcd9dd",
+      "after": "efd92287f646dd56844d47ee3cfe884d4276c0d29d092e84dd8ec0f52f31a1c4",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "把引水说追溯到希罗多德，记录泥板只支持奥皮斯与入城时序。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/herodotus-babylon",
+          "locator": "卷一第 188–191 节",
+          "statement": "引水入城故事的出处",
+          "result": "supported",
+          "supports": "引水入城故事的出处",
+          "limit": "属于在后记述，和泥板提供的进城信息不同。不能将其路线当确知地理事实。"
+        }
+      ]
+    },
+    {
+      "id": "book-paragraph/mesopotamia-near-east/neo-babylon-cyrus-539/p-06",
+      "before": "754779db9ae3bb145c9e8b540989788e1ae5a2d4ca0c5d97038970ce3b392869",
+      "after": "73802795e4a97e71690656b8aaf4e6f02554d9f831936f734892762b543b8c2b",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "分开神庙、地方官员、归返传统与后世的政治分期，撤去笼统断代。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/cyrus-cylinder",
+          "locator": "英译第 12–26、30–36 行",
+          "statement": "王权自述、神像与部分居民归返",
+          "result": "supported",
+          "supports": "王权自述、神像与部分居民归返",
+          "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/ezra-1",
+          "locator": "第 1 章第 1–11 节正文",
+          "statement": "归返耶路撒冷与重建圣殿的犹大传统",
+          "result": "supported",
+          "supports": "归返耶路撒冷与重建圣殿的犹大传统",
+          "limit": "仅使用通行英译正文，不据编者注把这段叙事与圆柱铭文认作同一政令，也不采用重建人数。"
+        },
+        {
+          "source": "source/book/mesopotamia-near-east/babylon-site",
+          "locator": "遗址简介、完整性及名录坐标",
+          "statement": "城市遗迹与参照点",
+          "result": "supported",
+          "supports": "城市遗迹与参照点",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "relation/book/mesopotamia-near-east/neo-babylon-cyrus-539/babylon-from-persia",
+      "before": null,
+      "after": "75d67d1de1bb3e6f3316b6e1afa2e817fdb1e278bc4fd1c345290a6e2be33cd1",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "前 539 年同一政权交接的双向阅读关联。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/book/mesopotamia-near-east/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-iq-cyrus-enters-babylon/title",
+      "before": null,
+      "after": "7b591985bb505b58fcad1e9c9927de5f03a6204e69852a31d1bcb8d54fecbf3e",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址名录坐标与简介",
+          "statement": "遗址代表位置和城市年代",
+          "result": "supported",
+          "supports": "遗址代表位置和城市年代",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-iq-cyrus-enters-babylon/summary",
+      "before": null,
+      "after": "c5e9101b1ac3fc9c2ef75724fc6970f7536e20a48eea989d62a2cb93fd46f680",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址名录坐标与简介",
+          "statement": "遗址代表位置和城市年代",
+          "result": "supported",
+          "supports": "遗址代表位置和城市年代",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "text/timeline/i-iq-cyrus-enters-babylon/date",
+      "before": null,
+      "after": "28a83e6f9701b98d92c95a6fd7768527e1bf64ba6fdd6198f3a48b2841915d31",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址名录坐标与简介",
+          "statement": "遗址代表位置和城市年代",
+          "result": "supported",
+          "supports": "遗址代表位置和城市年代",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-iq-cyrus-enters-babylon/p-01",
+      "before": null,
+      "after": "a34125f5087353c0252742e52d26fef570e2cc80156056d494eecbf0955cd39e",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址简介、完整性及名录坐标",
+          "statement": "城市遗迹与参照点",
+          "result": "supported",
+          "supports": "城市遗迹与参照点",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "block/timeline/i-iq-cyrus-enters-babylon/p-02",
+      "before": null,
+      "after": "8a1586aec2ae96a6df7b730f89901c6d59c7b0e233e67a5fe1aec0070117b2bf",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "result": "supported",
+          "supports": "奥皮斯、西帕尔、两次入城、祭祀及神像返还",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/cyrus-cylinder",
+          "locator": "英译第 12–26、30–36 行",
+          "statement": "王权自述、神像与部分居民归返",
+          "result": "supported",
+          "supports": "王权自述、神像与部分居民归返",
+          "limit": "国家权力的自述，不能单凭这份文书确认普遍拥戴、各地一律执行或犹大归返回应。"
+        }
+      ]
+    },
+    {
+      "id": "event/i-iq-cyrus-enters-babylon",
+      "before": null,
+      "after": "15463e39f63d5d0aa248bc6fc40703b58fc40472af27fb863387f3078675dea7",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址名录坐标与简介",
+          "statement": "遗址代表位置和城市年代",
+          "result": "supported",
+          "supports": "遗址代表位置和城市年代",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    },
+    {
+      "id": "subject/achaemenid-empire",
+      "before": "d5a03a18b117fffdf4209da31f8fd5d01d3ec4f76e518c55e6989a1dcd372c91",
+      "after": "0c30f1ad58bac3778780c5f1d3e6d3aee15678506cf21a4691f3cee57545035e",
+      "date": "2026-11-26",
+      "action": "revise",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "用本批证据重新限定文字与内容范围。",
+      "claims": [
+        {
+          "source": "source/subject/achaemenid-empire/source-01",
+          "locator": "正文第 1–5 段",
+          "statement": "常用分期、波斯扩张与大流士一世的行省和道路",
+          "result": "supported",
+          "supports": "常用分期、波斯扩张与大流士一世的行省和道路",
+          "limit": "采用常用年代和明确的基本时序，不据概述中的宏观比较量化兵力或统一治理成效。"
+        },
+        {
+          "source": "source/subject/achaemenid-empire/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        }
+      ]
+    },
+    {
+      "id": "world-entry/i-iq-cyrus-enters-babylon",
+      "before": null,
+      "after": "9ff59e54d6bb17aa65ea3d3d5fc82ff6cc79dc58556d8546a8c13b8afef7aa15",
+      "date": "2026-11-26",
+      "action": "add",
+      "scope": "本批修改的身份、时序、地点与叙事边界。",
+      "disposition": "增加具有明确资料依据的史事、正文或阅读关联。",
+      "claims": [
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/nabonidus-chronicle",
+          "locator": "第 III 栏第 12–22 行",
+          "statement": "波斯军、居鲁士进城的时间次序",
+          "result": "supported",
+          "supports": "波斯军、居鲁士进城的时间次序",
+          "limit": "泥板有残缺。只采记录的活动与入城次序，不据此推定宫廷动机、死伤规模或整个帝国政策。"
+        },
+        {
+          "source": "source/timeline/i-iq-cyrus-enters-babylon/babylon-site",
+          "locator": "遗址名录坐标与简介",
+          "statement": "遗址代表位置和城市年代",
+          "result": "supported",
+          "supports": "遗址代表位置和城市年代",
+          "limit": "现代遗产区包括周边用地，遗址坐标只作城址参照。"
+        }
+      ]
+    }
+  ]
+}

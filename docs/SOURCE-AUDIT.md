@@ -39,7 +39,7 @@
 
 ## Phase 07 的实际查证
 
-获准续审后，以当时的 `main` 为现行内容起点，按历史报告复现暂存基线，并将暂存点至现行工作树之间的内容变更纳入稳定 ID 对照。`develop/1.0` 保留阶段记录供追溯。
+Phase 07 的原报告和产物保留作档案。Historical World 以 `codex/ios-native` 为续接基线，按稳定 ID 对照暂存稿、标杆稿和现行稿。
 
 来源台账按网址记录本轮实际查阅、仅见摘要、访问限制、失效和替代。批次再把材料定位到支持的论断，登记资料不能说明的范围。旧 `checkedAt`、链接档案和历史验收记录继续保留。标题、书商介绍和无法阅读的文件只可作为查找线索。[来源台账](progress/phase-07/sources.json) · [审校标准](EDITORIAL-STANDARD.md) · [阶段进度](progress/PHASE-07.md)
 
@@ -62,3 +62,7 @@ node tools/verify-editorial-audit.mjs <5bae983 解档根目录> --phase-08 <2d82
 同一命令加 `--write` 可重建 Phase 08 的变更对照和统计。Phase 07 原台账在此模式下按 `2d8233b` 只读复现，覆盖仍为 387／5,576、一级未审候选仍为 106。标杆批次记录实际访问、定位、能支撑的论断、限制和复核范围。工具检查当前稿保存旧稳定 ID、每个新来源具备访问记录、修订或新增对象有对应处置、证据定位可在访问记录中匹配。[批次记录](progress/phase-08/batches/) · [前后变更](progress/phase-08/changes.json) · [统计](progress/phase-08/summary.json)
 
 续审时先按稳定 ID 对照两个台账。Phase 08 修订版本的审校结果仅覆盖当批已检查的论断。核实同一旧对象时记入原存量身份一次，新增对象续列其独立范围，受影响的其余论断继续待核查。[Phase 07 暂存与恢复](progress/PHASE-07.md#暂存与恢复)
+
+## Historical World 现行账目
+
+从 [检查点](progress/HISTORICAL-WORLD.md) 进入现行优先队列与新批次。有版本差异时沿用原处置所涵盖的论断，稿件相符的 Phase 08 记录才合入现行账。同一存量身份计一次。新增、退役入口及新复核问题分别登记。

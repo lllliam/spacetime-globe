@@ -4,6 +4,8 @@
 
 ## 对象与权威数据
 
+Historical World 的现行审校以统一内容库中的稳定 ID 和论断为单位。书卷、年度总览和现场复用同一条权威历史记录。内容版本、证据与覆盖按 [建设规范](HISTORICAL-WORLD.md) 和 [检查点](progress/HISTORICAL-WORLD.md) 维护。
+
 | 对象 | 身份与维护位置 |
 | --- | --- |
 | 地理区域 `region` | `subjects.json` 中的编辑 ID。可用名称与范围说明表达江南、南亚次大陆等区域，允许未知边界 |
