@@ -2542,6 +2542,295 @@
         "scope": "核对区域参照及文献、考古的时间和空间范围。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "han-changan-palace-archaeology",
+      "type": "region",
+      "name": "早期汉长安宫址",
+      "aliases": [
+        "未央宫",
+        "长乐宫",
+        "汉长安城"
+      ],
+      "range": {
+        "from": -202,
+        "to": -188,
+        "dateLabel": "约公元前 202—前 188 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "两处宫址与汉长安城的区域参照，营建过程与考古分期各有证据。",
+      "sources": [
+        {
+          "id": "han-changan-archaeology",
+          "title": "中国社会科学院《汉魏两晋南北朝都城模式及其演变》",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552600.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-gaozu-early",
+          "title": "《史记·高祖本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷008",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-pingcheng-mayi-regions",
+      "type": "region",
+      "name": "晋北平城和马邑",
+      "aliases": [
+        "平城",
+        "白登",
+        "马邑"
+      ],
+      "range": {
+        "from": -201,
+        "to": -195,
+        "dateLabel": "约公元前 201—前 195 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以大同与朔州一带参照文献中的平城和马邑。白登受围点精确定位仍有讨论。",
+      "sources": [
+        {
+          "id": "baideng-historical-geography",
+          "title": "《山西通志》有关平城与白登的考辨",
+          "url": "https://ctext.org/wiki.pl?chapter=74121&if=en&remap=gb",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "han-northern-place-references",
+          "title": "香港中文大学《汉语多功能字库》历史地名资料",
+          "url": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/chinaPlaces.php?pid=040950000",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-zhangjiashan-tomb-area",
+      "type": "region",
+      "name": "荆州张家山汉墓",
+      "aliases": [
+        "张家山",
+        "张家山二四七号墓",
+        "江陵张家山"
+      ],
+      "range": {
+        "from": -188,
+        "to": -180,
+        "dateLabel": "约公元前 188—前 180 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "阅读区间取高后时期，墓地使用和随葬简的抄写年代需分别判断。",
+      "sources": [
+        {
+          "id": "zhangjiashan-excavation",
+          "title": "荆州地区博物馆《江陵张家山三座汉墓出土大批竹简》",
+          "url": "https://www.ncpssd.cn/Literature/articleinfo?from=Qikan_Article_Detail&id=1002281098&type=journalArticle",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhangjiashan-law-dating",
+          "title": "崔永东《张家山汉简中的法律思想》",
+          "url": "https://faxueyanjiu.ajcass.com/Admin/UploadFile/publish_article/2003/5/20030510.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-changsha-mawangdui-and-royal-tombs",
+      "type": "region",
+      "name": "马王堆与长沙王室墓区",
+      "aliases": [
+        "马王堆",
+        "长沙王陵",
+        "湘江西岸"
+      ],
+      "range": {
+        "from": -186,
+        "to": -157,
+        "dateLabel": "约公元前 186—前 157 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "马王堆为长沙国官员家族墓地，湘江西岸另有王室墓地，各墓有各自的年代证据。",
+      "sources": [
+        {
+          "id": "mawangdui-seals-and-family",
+          "title": "湖南省档案局《马王堆汉墓》",
+          "url": "https://sdaj.hunan.gov.cn/wszt/xxsl/msgj/200609/t20060927_1977757.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "changsha-royal-cemetery",
+          "title": "湖南省文物局《长沙王陵墓群十年考古新发现》",
+          "url": "https://wwj.hunan.gov.cn/wwj/c100310/c100313/202306/t20230619_29378786.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "nanyue-panyu-and-shixiongshan-sites",
+      "type": "region",
+      "name": "南越番禺与狮雄山遗址区",
+      "aliases": [
+        "番禺",
+        "南越国宫署",
+        "狮雄山",
+        "五华"
+      ],
+      "range": {
+        "from": -196,
+        "to": -157,
+        "dateLabel": "约公元前 196—前 157 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "为汉越交涉时段中的遗址参照。番禺木简和五华封泥分别讨论。",
+      "sources": [
+        {
+          "id": "nanyue-court-archives",
+          "title": "南越王博物院《南越国宫署遗址》展览资料",
+          "url": "https://www.nywmuseum.org.cn/Exhibition/BDetails/jbcl?nid=7695&sid=ztjl",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "nanyue-shixiongshan-sealings",
+          "title": "五华县《狮雄山秦汉建筑遗址》",
+          "url": "https://www.wuhua.gov.cn/xxgk/ztzl/rdzt/wwwh/content/post_2780652.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-jiangcun-baling-landscape",
+      "type": "region",
+      "name": "白鹿原江村霸陵",
+      "aliases": [
+        "霸陵",
+        "江村大墓",
+        "白鹿原"
+      ],
+      "range": {
+        "from": -180,
+        "to": -157,
+        "dateLabel": "约公元前 180—前 157 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "取文帝时期作为阅读区间。陵园范围、外藏坑和后期遗存按发掘材料区分。",
+      "sources": [
+        {
+          "id": "baling-jiangcun-excavation",
+          "title": "陕西文物部门公布江村大墓考古成果",
+          "url": "https://www.xinhuanet.com/2021-12/14/c_1128162799.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-wen-reign",
+          "title": "《史记·孝文本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷010",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-yangling-imperial-cemetery",
+      "type": "region",
+      "name": "渭北景帝阳陵",
+      "aliases": [
+        "汉阳陵",
+        "阳陵",
+        "景帝陵"
+      ],
+      "range": {
+        "from": -157,
+        "to": -141,
+        "dateLabel": "约公元前 157—前 141 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "以景帝在位时期作为阅读区间，园址各遗迹分开断代。",
+      "sources": [
+        {
+          "id": "yangling-excavation",
+          "title": "汉阳陵考古工作与发掘者说明",
+          "url": "https://cul.china.com.cn/2022-09/20/content_42113072.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-jing-reign",
+          "title": "《史记·孝景本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷011",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "han-liang-suiyang-and-mangdang-sites",
+      "type": "region",
+      "name": "梁都睢阳和芒砀山墓区",
+      "aliases": [
+        "睢阳",
+        "芒砀山",
+        "梁王陵"
+      ],
+      "range": {
+        "from": -154,
+        "to": -144,
+        "dateLabel": "约公元前 154—前 144 年 · 阅读区间",
+        "approximate": true
+      },
+      "scope": "对照景帝时的梁国、今商丘都邑区域和芒砀山的王室墓地。",
+      "sources": [
+        {
+          "id": "suiyang-urban-strata",
+          "title": "河南省文物考古研究院《商丘近年来城市考古与保护概述》",
+          "url": "https://cskg.hnswwkgyjy.cn/communication/media/details.html?id=7359154704951021568",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liang-mangdang-tombs",
+          "title": "河南博物院《玉韘形佩》考古背景",
+          "url": "https://www.chnmus.net/ch/collection/appraise/details.html?id=512155514609876059",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "audit": {
+        "status": "checked",
+        "scope": "核对遗址区参照、阅读年代和证据范围。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "mapSources": {

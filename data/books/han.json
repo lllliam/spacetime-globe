@@ -3,7 +3,7 @@
   "title": "汉朝",
   "from": -206,
   "to": 220,
-  "summary": "刘邦在楚汉战争后称帝，汉初郡县与诸侯王国并存，治理方式随后不断调整。此后四百年，两汉从长安一路向西凿穿河西走廊、对接中亚丝路，又在王莽改制与东汉洛阳中兴的起伏里，定型了儒法合流的官僚体制与延续两千年的“汉人”文化底座。",
+  "summary": "从楚汉交替到西汉早期，先看郡国和朝廷的政治安排，再用张家山法律简、各地考古与传世政令读地方行政、边地交涉及文景时期。此后四百年，两汉从长安一路向西凿穿河西走廊、对接中亚丝路，又在王莽改制与东汉洛阳中兴的起伏里，定型了儒法合流的官僚体制与延续两千年的“汉人”文化底座。",
   "sources": [
     {
       "title": "大都会艺术博物馆：汉朝",
@@ -126,6 +126,192 @@
       "id": "qin-nanyue-panyu-archaeology",
       "title": "南越王博物院《南越国宫署遗址》",
       "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liye-register-k27",
+      "title": "王子今《试说里耶户籍简所见“小上造”、“小女子”》",
+      "url": "https://www.ctwx.tsinghua.edu.cn/__local/9/6C/2C/F7EB2D1CE6D1DD3626A9D75153F_E201F579_A91C4.pdf?e=.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shuihudi-nlc-manuscripts",
+      "title": "国家图书馆《第一批国家珍贵古籍名录》",
+      "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-han-vassal-kings",
+      "title": "《史记·汉兴以来诸侯王年表》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷017",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-huaiyin-marquis",
+      "title": "《史记·淮阴侯列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷092",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-liu-jing-diplomacy",
+      "title": "《史记·刘敬叔孙通列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷099",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-empress-lu",
+      "title": "《史记·吕太后本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷009",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "hanshu-hui-reign",
+      "title": "《汉书·惠帝纪》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷002",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-wen-reign",
+      "title": "《史记·孝文本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷010",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-jing-reign",
+      "title": "《史记·孝景本纪》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷011",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-wu-king-liu-pi",
+      "title": "《史记·吴王濞列传》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷106",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-liang-xiao-king",
+      "title": "《史记·梁孝王世家》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷058",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "shiji-economic-records",
+      "title": "《史记·平准书》",
+      "url": "https://zh.wikisource.org/wiki/史記/卷030",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "han-kingdom-offices",
+      "title": "《西汉会要》卷五引《汉书·百官公卿表》",
+      "url": "https://ctext.org/wiki.pl?chapter=382723&if=gb",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "han-penalties-reform",
+      "title": "《汉书·刑法志》",
+      "url": "https://zh.wikisource.org/wiki/漢書/卷023",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "han-changan-archaeology",
+      "title": "中国社会科学院《汉魏两晋南北朝都城模式及其演变》",
+      "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552600.shtml",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhangjiashan-excavation",
+      "title": "荆州地区博物馆《江陵张家山三座汉墓出土大批竹简》",
+      "url": "https://www.ncpssd.cn/Literature/articleinfo?from=Qikan_Article_Detail&id=1002281098&type=journalArticle",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhangjiashan-law-dating",
+      "title": "崔永东《张家山汉简中的法律思想》",
+      "url": "https://faxueyanjiu.ajcass.com/Admin/UploadFile/publish_article/2003/5/20030510.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhangjiashan-household-law",
+      "title": "初山明《简牍文书学与法制史——以里耶秦简为例》",
+      "url": "https://leghist.project.sinica.edu.tw/pages/a2016/data_4_a2016_37-68.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "zhangjiashan-rehearing-case",
+      "title": "黄均镇《何处得申冤？秦与汉初乞鞫审理型态》",
+      "url": "https://www1.ihp.sinica.edu.tw/storage/publish4L/37-08%E9%BB%83%E5%9D%87%E9%8E%AE%E3%80%88%E4%BD%95%E8%99%95%E5%BE%97%E7%94%B3%E5%86%A4%EF%BC%9F%E7%A7%A6%E8%88%87%E6%BC%A2%E5%88%9D%E4%B9%9E%E9%9E%AB%E5%AF%A9%E7%90%86%E5%9E%8B%E6%85%8B%E3%80%89.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "mawangdui-seals-and-family",
+      "title": "湖南省档案局《马王堆汉墓》",
+      "url": "https://sdaj.hunan.gov.cn/wszt/xxsl/msgj/200609/t20060927_1977757.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "mawangdui-burial-chronology",
+      "title": "王人聪《长沙马王堆汉墓出土玺印与封泥略说》",
+      "url": "https://www.cuhk.edu.hk/ics/journal/articles/v33p011.pdf",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "changsha-royal-cemetery",
+      "title": "湖南省文物局《长沙王陵墓群十年考古新发现》",
+      "url": "https://wwj.hunan.gov.cn/wwj/c100310/c100313/202306/t20230619_29378786.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "nanyue-shixiongshan-sealings",
+      "title": "五华县《狮雄山秦汉建筑遗址》",
+      "url": "https://www.wuhua.gov.cn/xxgk/ztzl/rdzt/wwwh/content/post_2780652.html",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "nanyue-court-archives",
+      "title": "南越王博物院《南越国宫署遗址》展览资料",
+      "url": "https://www.nywmuseum.org.cn/Exhibition/BDetails/jbcl?nid=7695&sid=ztjl",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "baling-jiangcun-excavation",
+      "title": "陕西文物部门公布江村大墓考古成果",
+      "url": "https://www.xinhuanet.com/2021-12/14/c_1128162799.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "yangling-excavation",
+      "title": "汉阳陵考古工作与发掘者说明",
+      "url": "https://cul.china.com.cn/2022-09/20/content_42113072.htm",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "liang-mangdang-tombs",
+      "title": "河南博物院《玉韘形佩》考古背景",
+      "url": "https://www.chnmus.net/ch/collection/appraise/details.html?id=512155514609876059",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "suiyang-urban-strata",
+      "title": "河南省文物考古研究院《商丘近年来城市考古与保护概述》",
+      "url": "https://cskg.hnswwkgyjy.cn/communication/media/details.html?id=7359154704951021568",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "han-northern-place-references",
+      "title": "香港中文大学《汉语多功能字库》历史地名资料",
+      "url": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/chinaPlaces.php?pid=040950000",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "baideng-historical-geography",
+      "title": "《山西通志》有关平城与白登的考辨",
+      "url": "https://ctext.org/wiki.pl?chapter=74121&if=en&remap=gb",
+      "checkedAt": "2026-11-26"
+    },
+    {
+      "id": "plutarch-pydna",
+      "title": "普鲁塔克《埃米利乌斯·保卢斯传》",
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Lives/Aemilius%2A.html",
       "checkedAt": "2026-11-26"
     }
   ],
@@ -390,6 +576,31 @@
             "scope": "核对两章承接范围与材料。",
             "checkedAt": "2026-11-26"
           }
+        },
+        {
+          "id": "read-capital-after-accession",
+          "book": "han",
+          "chapter": "early-han-changan-palaces",
+          "label": "接读 · 从称帝到长安营建",
+          "display": "把即位、先都洛阳和入关后的城宫营建分开。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "han-changan-archaeology",
+              "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+              "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
         }
       ],
       "sceneRefs": [
@@ -413,11 +624,11 @@
     },
     {
       "id": "western-han",
-      "title": "从楚汉相争到文景休养",
+      "title": "西汉早期的郡国、法令与地方",
       "from": -206,
       "to": -141,
-      "summary": "从楚汉相争后的治理读到郡国并存、白登和早期政令调整，再接文景与七国之乱。",
-      "spatialThesis": "关中是汉初朝廷长期所在的区域，关东有多个诸侯王国。郡、国设置与后续变化可与楚汉之际的分封对读。",
+      "summary": "由建都、诸侯和汉匈交涉，读到吕后时代的法律简、文景的田租及刑制变化，以及七国之乱以后王国制度的调整。",
+      "spatialThesis": "长安、诸侯都邑与南北地方各有考古材料。郡国、匈奴和南越的关系按年代和地域观察。",
       "paragraphs": [
         {
           "id": "p-01",
@@ -454,14 +665,26 @@
           ]
         },
         {
-          "heading": "白登之围与黄老无为",
-          "text": "公元前 200 年，刘邦亲率大军北击匈奴，却被冒顿精骑围困在平城白登山整整七日，靠陈平奇计才勉强脱险。这场惨痛教训让汉初君臣彻底清醒：中原农耕区尚未恢复元气，绝无力与草原骑兵硬拼。朝廷遂采纳娄敬建议，以宗室女和亲、岁奉丝絮米酒换取边疆喘息。",
+          "id": "p-03",
+          "heading": "白登、和亲与边地关系",
+          "text": "高祖七年即前 200 年，本纪记平城一带被围，《匈奴列传》具体记白登。传世史料还写到后来的和亲、使节及赠物，同时记文帝时期再次交战。各次通使与战事分别查证。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-03"
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            },
+            {
+              "sourceId": "shiji-liu-jing-diplomacy",
+              "locator": "关中建都建议、使匈奴及和亲建议",
+              "note": "刘敬参与议都、使匈奴与建议婚姻和约的传世叙事"
+            }
+          ]
         },
         {
           "text": "《汉书》记载，汉文帝曾减免当年田租的一半，又在次年下诏免除田租。景帝即位之初仍按新诏调整田租。几次政令针对的是土地租税；研究汉初家庭负担，还需要查其他税目、徭役及各地执行记录。",
@@ -475,64 +698,1893 @@
               "sourceId": "hanshu-jing-land-tax",
               "locator": "景帝元年五月“令田半租”",
               "note": "景帝初命令田租减半，属于后来重新调整。"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
             }
           ],
           "callout": {
-            "label": "历史现场 · 汉初长安太仓与马政",
-            "title": "贯朽粟陈背后，是一代人的忍耐",
-            "text": "到汉景帝末年，京师钱库的贯钱绳索放到腐烂，太仓陈粮堆得溢到露天地里发霉，民间街巷到处是成群骏马。正是文景两代近五十年的克制与隐忍，才攒出了下一代汉武帝纵横大漠的全部本钱。",
+            "label": "对读材料 · 汉初田租",
+            "title": "诏令与地方册籍",
+            "text": "诏书可核对田租在各次政令中的变化。《户律》还让人看见田租册与其他籍册需要分报县廷。要了解一户的实际负担，仍需更多地方资料。",
             "id": "aside-04"
           },
-          "id": "p-04"
+          "id": "p-04",
+          "heading": "文景的田租与地方册籍"
         },
         {
-          "heading": "郡国并行的隐患与七国之乱",
-          "text": "汉初为了安抚地方与弥补直辖人手不足，在东部富庶地区分封了一批同姓诸侯王。这些王国自设官署、自收赋税、甚至自行铸钱煮盐——坐拥东南铜山与海盐的吴王刘濞，财富几乎堪比长安朝廷，诸侯坐大成了帝国腹心之患。",
+          "id": "p-05",
+          "heading": "王国怎样行使地方权力",
+          "text": "汉初诸侯王国有丞相、内史、中尉等官。长沙有相关印章的出土线索，吴国则在史书中以铜盐资源见称。王国财力、官员和与朝廷的关系都有差别。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-05"
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            },
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            }
+          ]
         },
         {
-          "text": "景帝采纳晁错建议强硬削藩，公元前 154 年吴楚等七国联兵西进。太尉周亚夫冷静放弃正面硬拼，坚壁不出、派轻骑抄断吴楚粮道，仅用三个月便瓦解叛军。战后朝廷收回诸侯王任官治民权，郡国并行名存实亡，长安终于彻底掌控了整个帝国。",
+          "id": "p-06",
+          "heading": "七国之乱与王国随后改官",
+          "text": "前 154 年吴楚等国起事，梁、齐、赵等地战事各有经过。景帝中五年另见诸侯丞相更名及天子置吏的记载。中六年梁国出现分封变化。前后数次改置逐年辨认。",
           "refs": [
-            "source-01",
-            "source-02",
-            "source-03"
-          ],
-          "id": "p-06"
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            }
+          ]
         }
       ],
       "sceneRefs": [],
       "contemporaries": [
         {
-          "book": "greece-macedon",
-          "year": -202,
-          "label": "西方的希腊化王国",
-          "note": "西汉在战后重新整合关中与诸侯时，地中海东部仍分布着托勒密、塞琉古等希腊化王国。",
           "id": "world-01",
-          "relation": "legacy",
+          "book": "greece-macedon",
+          "chapter": "hellenistic-rome",
+          "year": -168,
+          "relation": "contemporary",
+          "label": "同期 · 罗马与马其顿在彼得那交战",
+          "note": "前 168 年，汉文帝发布减免当年田租的诏令。同年罗马与马其顿在彼得那交战。两端分别按诏令和传世战史阅读。",
+          "display": "前 168 年，汉文帝发布减免当年田租的诏令。同年罗马与马其顿在彼得那交战。两端分别按诏令和传世战史阅读。",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wen-land-tax",
+              "locator": "文帝十二年、十三年，减田租、除田租与改刑诏",
+              "note": "列出减半、除田租和诏改肉刑的年次"
+            },
+            {
+              "sourceId": "plutarch-pydna",
+              "locator": "第16至23节及译注，彼得那战事和君主珀尔修斯",
+              "note": "罗马与马其顿在彼得那交战，记为前168年"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对文帝十二年、彼得那的通行纪年与目标章时段。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "related": [
         {
-          "topic": "china-early",
-          "chapter": "qin",
-          "label": "汉朝接过了秦建立的哪些制度",
           "id": "reading-01",
+          "book": "qin",
+          "chapter": "shuihudi-law-and-nan-commandery",
+          "label": "回读 · 睡虎地秦律与县务",
+          "display": "先读秦代的随葬规范和用文书的方式，再对照西汉律令。",
           "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "睡虎地同一秦墓出土多类秦代法律抄本"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ],
           "audit": {
-            "status": "legacy"
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-han-capital",
+          "book": "han",
+          "chapter": "early-han-changan-palaces",
+          "label": "细读 · 西汉初都与长安宫城",
+          "display": "分别看入关、营建宫室和长安城墙的时间。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "han-changan-archaeology",
+              "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+              "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-baideng-negotiation",
+          "book": "han",
+          "chapter": "baideng-and-han-xiongnu-negotiation",
+          "label": "细读 · 白登之后的汉匈交涉",
+          "display": "按不同年次阅读通使、和亲与边地冲突。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            },
+            {
+              "sourceId": "shiji-liu-jing-diplomacy",
+              "locator": "关中建都建议、使匈奴及和亲建议",
+              "note": "刘敬参与议都、使匈奴与建议婚姻和约的传世叙事"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-zhangjiashan-statutes",
+          "book": "han",
+          "chapter": "zhangjiashan-statutes-and-household-books",
+          "label": "细读 · 《二年律令》和户籍",
+          "display": "从汉初随葬简册看册籍如何报存。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-seven-kingdoms",
+          "book": "han",
+          "chapter": "seven-kingdoms-revolt-and-liang",
+          "label": "细读 · 七国之乱与其后改官",
+          "display": "读吴楚、梁及其他王国各自的活动。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
           }
         }
       ],
       "kind": "narrative",
       "spatialThesisId": "spatial-thesis"
+    },
+    {
+      "id": "early-han-changan-palaces",
+      "from": -202,
+      "to": -188,
+      "dateLabel": "公元前 202—前 188 年 · 初都关中、营宫与筑城",
+      "title": "从洛阳到长安，宫城怎样逐步建成",
+      "summary": "把迁都、未央宫营建和惠帝时多次筑城放回不同年份，再对照两处宫址。",
+      "spatialThesis": "汉长安城在今西安西北。长乐宫、未央宫是同一城里的不同区域，洛阳是此前的都城。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "称帝以后先都洛阳",
+          "text": "《高祖本纪》记刘邦称帝后先都洛阳，后来在刘敬、张良等人建议下西入关中。说客看重关中地势和后方条件，《萧相国世家》也记此前萧何已在关中办理供给。迁都的传世叙述可以同这些既有资源并读。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-liu-jing-diplomacy",
+              "locator": "关中建都建议、使匈奴及和亲建议",
+              "note": "刘敬参与议都、使匈奴与建议婚姻和约的传世叙事"
+            },
+            {
+              "sourceId": "shiji-xiao-he-records",
+              "locator": "楚汉至高祖十一年，关中文书、县邑和封侯段",
+              "note": "本篇叙萧何承接图书、留守并组织关中事务"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "宫殿和外城的年表不一样",
+          "text": "高祖七年的本纪记长乐宫成及丞相以下迁治。八年记萧何营建未央宫，九年又记未央宫成。《汉书·惠帝纪》另在惠帝三年、五年等处记录征发筑长安城，六年记城成。王朝有了都城以后，宫室、城墙和道路仍可持续建设。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "hanshu-hui-reign",
+              "locator": "惠帝三至六年，筑城、除挟书律等",
+              "note": "长安城工事分次进行，惠帝四年除挟书律"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "先认出两座宫，再找地层",
+          "text": "考古可从汉长安城南部高地上的未央宫和长乐宫阅读城市布局。未央宫在西，长乐宫在东。勘探和发掘能说明建筑的相对位置、台基和路网，确定某处建筑哪年开始、后来是否改建仍要看分期。",
+          "refs": [
+            {
+              "sourceId": "han-changan-archaeology",
+              "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+              "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "朝廷和地方档案处在不同尺度",
+          "text": "朝廷驻地和城里的官署是政治地理的一面。秦汉之际的县廷登记、王国印章和地方墓葬能提供另一些线索。读这些材料时，可以从都城的位置出发，再问某项政令经过哪些官署才到地方。",
+          "refs": [
+            {
+              "sourceId": "han-changan-archaeology",
+              "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+              "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-early-regional-rule",
+          "book": "han",
+          "chapter": "gaozu-commandery-and-kingdoms",
+          "label": "接读 · 长安以外的郡国",
+          "display": "观察诸王改封以及王国官署的材料。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "weiyang-and-changle-palace-sites",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "未央宫在西",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-03",
+              "text": "长乐宫在东",
+              "placeId": "changle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaozu-commandery-and-kingdoms",
+      "from": -202,
+      "to": -195,
+      "dateLabel": "公元前 202—前 195 年 · 高祖称帝后的郡国调整",
+      "title": "高祖时期的郡国与异姓诸王",
+      "summary": "循韩信、彭越和刘氏诸王的改封，分清皇帝任命的官与王国本有的机构。",
+      "spatialThesis": "长安朝廷、封国都邑和直辖郡县各有位置。诸王年表记录名号及更替，各国实际范围需逐时查证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "楚汉战争后的政治安排",
+          "text": "刘邦称帝后，郡县和诸侯王国同时存在。原有诸王和支持汉方的军事首领获得或调整封国，朝廷也直辖一些地方。同一片区域可能先后有不同王号，年表首先用来辨认谁在何时受封，以及何时更改。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "韩信从王到侯经历多次改变",
+          "text": "《淮阴侯列传》记韩信先得齐王号，后改楚王，再降为淮阴侯。高祖六年的本纪也记逮捕和更号。这些变化应分开读。列传所述密谋和罪名是传世叙事的一部分，任官封爵的时间另可对照本纪与表。",
+          "refs": [
+            {
+              "sourceId": "shiji-huaiyin-marquis",
+              "locator": "齐王、楚王、淮阴侯以及高祖末年",
+              "note": "区分韩信受封齐楚、降侯与后来被杀"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "王国不是同一时间改设",
+          "text": "韩信、彭越等人的结局与刘氏诸王分封在不同政治事件中出现。高祖末年有梁王彭越被诛及改立梁王的记事。长沙吴氏王国还有后来的政权延续。按国检查继承、改封或撤除，才能看到不同地方的安排。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "王国官署有哪些职能",
+          "text": "《百官公卿表》相关记载把王国丞相、内史、中尉分别与统属官员、治民和武职相联系。具体一国怎样设官，可以用官印、王国年表等查证。景帝后来改官的诏令也说明这些关系经过调整。",
+          "refs": [
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-changsha-regional-case",
+          "book": "han",
+          "chapter": "changsha-kingdom-and-mawangdui",
+          "label": "接读 · 长沙的王国材料",
+          "display": "把郡国制度与地方墓地和印章对读。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "baideng-and-han-xiongnu-negotiation",
+      "from": -201,
+      "to": -157,
+      "dateLabel": "公元前 201—前 157 年 · 白登及其后数朝交涉",
+      "title": "白登解围以后，汉与匈奴怎样来往",
+      "summary": "从韩王信、冒顿和白登读交战背景，再辨和亲、使节往来与文帝时的边地冲突。",
+      "spatialThesis": "马邑可从今朔州一带参照，平城可从今大同一带参照。白登的具体战场和行军线路另查。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "韩王信与匈奴同时出现在北边",
+          "text": "此处的韩王信是受封的韩王，与淮阴侯韩信是不同人物。《高祖本纪》和《匈奴列传》写韩王信所在马邑遭匈奴进攻，随后又有其降匈奴、汉军北进的记事。匈奴单于冒顿率领自己的政治力量，边地并非只有一个行动者。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "白登与平城的记载共有些什么",
+          "text": "高祖七年通常换算为前 200 年。本纪记平城一带被围七日，《匈奴列传》具体写白登及解围。今朔州一带可参照马邑，今大同一带可参照平城。传世的兵数、解围故事和具体山丘位置需要另证。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            },
+            {
+              "sourceId": "han-northern-place-references",
+              "locator": "朔州马邑沿革，平城与白登另据本纪和通志辨别",
+              "note": "今朔州一带可参照马邑。考订具体位置须按各时代县治及同名地名分别判断"
+            },
+            {
+              "sourceId": "baideng-historical-geography",
+              "locator": "大同附近白登、平城古城及同名白登地名段",
+              "note": "汇集平城、白登的不同历史地理说法，可用今大同一带参照"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "交战之后还有婚姻和互使",
+          "text": "《刘敬叔孙通列传》把婚姻、赠送物资和互通使节写入刘敬的建议。《匈奴列传》也记协议及送物。双方采用不同政治称号。之后仍有出使、冲突和重申关系，不能把白登以后的一切安排当作同一次谈判的结果。",
+          "refs": [
+            {
+              "sourceId": "shiji-liu-jing-diplomacy",
+              "locator": "关中建都建议、使匈奴及和亲建议",
+              "note": "刘敬参与议都、使匈奴与建议婚姻和约的传世叙事"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "文帝时和亲与交战仍可并存",
+          "text": "《匈奴列传》保留文帝时期的书信与使者往来，也记入朝那、萧关等地的战事。传世书信中双方说明边事、旧约与如何继续通使。书信保留的是交涉中的主张，边地居民的往来和冲突需要更多在地材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "compare-nanyue-envoys",
+          "book": "han",
+          "chapter": "nanyue-han-envoys-and-local-archives",
+          "label": "对读 · 南越的通使与册封",
+          "display": "比较南、北交涉各自的政治背景和材料。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "pingcheng-and-mayi-regions",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "今大同一带",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-02",
+              "text": "今朔州一带",
+              "placeId": "mayi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emperor-hui-and-lu-regency",
+      "from": -195,
+      "to": -180,
+      "dateLabel": "公元前 195—前 180 年 · 惠帝、少帝与高后称制",
+      "title": "惠帝与吕后执政的几个阶段",
+      "summary": "分清刘盈在位、高后临朝、封王以及前 180 年宫廷权力转移。",
+      "spatialThesis": "京师宫廷、受封各国与诸侯往来的地点都应按当时年次分别查证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "惠帝有自己的纪年和政令",
+          "text": "高祖去世后刘盈继位。《史记》把其间不少事情写进《吕太后本纪》，《汉书》另有《惠帝纪》。惠帝年间多次筑长安城，四年还记检省妨碍吏民的法令和除挟书律。这些记载各有年次。",
+          "refs": [
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "hanshu-hui-reign",
+              "locator": "惠帝三至六年，筑城、除挟书律等",
+              "note": "长安城工事分次进行，惠帝四年除挟书律"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "惠帝去世之后，高后临朝称制",
+          "text": "前 188 年惠帝去世，随后发生少帝继立和临朝称制。把高后作为皇太后执政与当时在位名号分开，有助于理解《史记》为什么以太后入本纪，另有以吕后执政年次记事的材料。",
+          "refs": [
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "hanshu-hui-reign",
+              "locator": "惠帝三至六年，筑城、除挟书律等",
+              "note": "长安城工事分次进行，惠帝四年除挟书律"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "吕氏与刘氏诸王的安置不断调整",
+          "text": "《吕太后本纪》记高后执政时封置吕氏诸王及刘氏王国的调整。谁能够任王在传世书里也有政治争论。王号、当时实际掌握的官署和作者对此事的评价，可分用本纪和诸侯表阅读。",
+          "refs": [
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "前 180 年不是一般的继承",
+          "text": "吕后去世后，周勃、陈平等人与宗室力量参与夺取权力，诸吕遭诛。《孝文本纪》随后写大臣派人迎代王入长安。前后人物的辩辞和罪名应联系参与者的立场，宫廷变局与各地政务也有不同时间。",
+          "refs": [
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-laws-of-lu-reign",
+          "book": "han",
+          "chapter": "zhangjiashan-statutes-and-household-books",
+          "label": "接读 · 高后年间的法律简",
+          "display": "沿《二年律令》进入地方文书规范。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-when-wen-succeeded",
+          "book": "han",
+          "chapter": "wen-emperor-accession-and-baling",
+          "label": "接读 · 代王入继",
+          "display": "沿吕后去世后的朝廷权力变化继续读。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhangjiashan-statutes-and-household-books",
+      "from": -188,
+      "to": -180,
+      "dateLabel": "约公元前 188—前 180 年 · 高后年间律令阅读区间",
+      "title": "张家山《二年律令》，县廷怎样收存户籍",
+      "summary": "从荆州张家山247号墓的历谱和律令，读田宅、名籍、上报县廷和封存。",
+      "spatialThesis": "荆州张家山为汉初墓简出土区域，湖南里耶的一户登记是较早秦代地方材料。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "两类文献出现在同一座墓",
+          "text": "荆州张家山247号汉墓发现多组竹简，《二年律令》和《奏谳书》为不同简册。同墓历谱的末年联系到吕后二年，即前 186 年，常用来说明二年所指。各条最早制定、抄到一起和入葬未必同年。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-excavation",
+              "locator": "M247、M249、M258的发现与位置",
+              "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "《户律》要求的册籍有好几种",
+          "text": "所见条文分列户籍、田地、房舍、田租等册籍，要求分别上报县廷。律文中的乡与县是办登记和接收记录的不同层级。同一人的住房、丁年和田租未必按一页、一类册籍合写。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "文书送达以后还要保管",
+          "text": "《户律》写将不同籍册置入筐或匣，闭合加印，另立地方存放并加封。县令或县丞与掌事官员在封存安排中有职责。这样可以依次辨认分类、上报、签封和存档几项工作，各县实际留存情况须见在地档案。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "与里耶一户材料怎么对读",
+          "text": "里耶北城壕出土的户籍K27记录一户人家，并用分栏安排姓名和身份。张家山汉简写的是汉代该怎样报存各类册籍。把实际登记和规范放在一起，能看到秦、汉的县都要用文书理事，具体登记格式仍要按实物辨认。",
+          "refs": [
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "里耶北城壕K11，K27五栏",
+              "note": "保存一户人员和身份的分栏记录"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-qin-county-docs",
+          "book": "qin",
+          "chapter": "liye-county-mail-and-records",
+          "label": "回读 · 里耶的秦县文书",
+          "display": "用秦代办事档案对照汉初的县廷报存。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "里耶北城壕K11，K27五栏",
+              "note": "保存一户人员和身份的分栏记录"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        },
+        {
+          "id": "read-hearing-files",
+          "book": "han",
+          "chapter": "zhangjiashan-reviewing-judgments",
+          "label": "接读 · 同墓出土的复审材料",
+          "display": "由律文进入旧案与廷尉文书。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            },
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "zhangjiashan-and-liye-manuscript-contexts",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "荆州张家山247号汉墓",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "里耶北城壕",
+              "placeId": "liye"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhangjiashan-reviewing-judgments",
+      "from": -188,
+      "to": -180,
+      "dateLabel": "约公元前 188—前 180 年 · 汉初随葬简册阅读区间",
+      "title": "从《奏谳书》看案卷怎样复查",
+      "summary": "沿服役者讲请求再审的一例，读旧案、县吏处理与廷尉文书的层次。",
+      "spatialThesis": "张家山是简册出土地，案件中的汧、雍是秦案地名。书写、办案与随葬有不同地点。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "案卷汇编和法律条文各有用途",
+          "text": "张家山《奏谳书》收录不同时代案件的文书。《二年律令》与它同出一墓，却保留不同类别的制度规定。具体案例可以呈现涉案材料怎样往来，选择、整理和随葬的目的仍可讨论。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-excavation",
+              "locator": "M247、M249、M258的发现与位置",
+              "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "讲请求复查的材料保留了谁的声音",
+          "text": "案例17记服役者讲要求乞鞫，即请求重新审理。他争辩原先定的盗牛之案。整理后的简文仍能分辨当事人陈说、原案处理和廷尉与地方官吏的往来。具体用字与第一次判案经过要分段读原释文。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "廷尉与县吏各有处理任务",
+          "text": "这份材料有廷尉兼对汧啬夫的文书，可以看到上级传下一项案务，地方继续核实材料和陈述。研究者还据类似案例区别复审的不同程序。一案留到今天，不意味着每个当事人都有相同的机会。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            },
+            {
+              "sourceId": "zhangjiashan-law-dating",
+              "locator": "开篇M247、《二年律令》和《奏谳书》、同墓历谱末年",
+              "note": "通常据历谱和内容联系吕后二年，区分法条集和案件文书集"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "为什么汉墓会留下秦案",
+          "text": "入葬地点在汉初的荆州，案例的文书却反映较早的秦。睡虎地秦墓所见《封诊式》等有治狱样式，张家山另见案卷汇集。两类材料可以比较书写及复查习惯，对具体案情仍要看文本先后。",
+          "refs": [
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "睡虎地同一秦墓出土多类秦代法律抄本"
+            },
+            {
+              "sourceId": "zhangjiashan-excavation",
+              "locator": "M247、M249、M258的发现与位置",
+              "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+            },
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wen-jing-penalties",
+          "book": "han",
+          "chapter": "wen-jing-tax-and-penalties",
+          "label": "接读 · 文景改刑",
+          "display": "比较旧案的文书流程与随后法条变化。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            },
+            {
+              "sourceId": "han-penalties-reform",
+              "locator": "文帝除肉刑令、景帝前元元年和中元六年以及箠令",
+              "note": "记录文帝改定旧刑、施笞的后果和景帝进一步调整"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "zhangjiashan-and-shuihudi-legal-texts",
+          "afterBlockId": "p-01",
+          "placeLinks": [
+            {
+              "blockId": "p-01",
+              "text": "张家山《奏谳书》",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "睡虎地秦墓",
+              "placeId": "shuihudi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "changsha-kingdom-and-mawangdui",
+      "from": -202,
+      "to": -157,
+      "dateLabel": "公元前 202—前 157 年 · 长沙国与马王堆的早期材料",
+      "title": "长沙国的官印、家族墓和王陵",
+      "summary": "从利苍墓所出官印读长沙国官职，再对照马王堆与湘江西侧王陵墓地。",
+      "spatialThesis": "马王堆墓区在今长沙城区东部，长沙王陵墓群有遗址分布在湘江西侧。两类墓地分别定位。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "长沙王国跨过几个执政阶段",
+          "text": "诸侯王年表可将吴氏长沙王的封立、继承和后来变化按时列出。长沙国与南越有接境及交涉的传世记述，也处在汉廷与周边关系中。地名出现并不确证每处乡邑的管辖线。",
+          "refs": [
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "墓里三方印各说明什么",
+          "text": "马王堆二号墓出土题有长沙丞相、利苍和侯印相关的实物。官职、姓名和爵位可用来辨认身份，有研究将其中两枚解释为仿制实用官印的随葬品。墓葬是个案，长沙国内各官署如何分工还应比对传世官制和其他材料。",
+          "refs": [
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            },
+            {
+              "sourceId": "mawangdui-burial-chronology",
+              "locator": "三墓的印文、打破关系和入葬纪年向度",
+              "note": "三号墓一般据随葬纪年联系文帝十二年，和另外两墓分别阅读"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "三号墓纪年不是所有帛书的写作年",
+          "text": "马王堆三号墓一般以随葬有纪年的文字联系文帝十二年，即前 168 年。放入墓中的书、图和器物可能更早制作。二号墓、三号墓和一号墓的年代应分别判断，不能把一家人叙成同时下葬。",
+          "refs": [
+            {
+              "sourceId": "mawangdui-burial-chronology",
+              "locator": "三墓的印文、打破关系和入葬纪年向度",
+              "note": "三号墓一般据随葬纪年联系文帝十二年，和另外两墓分别阅读"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "隔湘江看另一类墓地",
+          "text": "湘江西侧的长沙王陵墓群有发掘与调查材料，可以和马王堆的家族墓比较。两处在山地、河流和城邑之间的位置不同。先分清王室墓葬和国相家族，再问哪些器物和文字能说明王国内部。",
+          "refs": [
+            {
+              "sourceId": "changsha-royal-cemetery",
+              "locator": "发掘队介绍望城坡等长沙王陵墓群与各墓分期",
+              "note": "湘江西侧有多座王室相关墓葬，可与马王堆两类材料对读"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-nanyue-and-changsha",
+          "book": "han",
+          "chapter": "nanyue-han-envoys-and-local-archives",
+          "label": "接读 · 长沙以南的政权",
+          "display": "从接境交涉读番禺和五华两处地方证据。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            },
+            {
+              "sourceId": "nanyue-shixiongshan-sealings",
+              "locator": "狮雄山基址、作坊、定楬等封泥段",
+              "note": "五华有秦汉建筑遗迹和带定楬等文字的封泥"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "mawangdui-and-changsha-royal-tombs",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "马王堆二号墓",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "湘江西侧的长沙王陵墓群",
+              "placeId": "royal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nanyue-han-envoys-and-local-archives",
+      "from": -196,
+      "to": -157,
+      "dateLabel": "公元前 196—前 157 年 · 南越与汉廷交涉",
+      "title": "陆贾两次入南越，番禺怎样与汉廷交涉",
+      "summary": "对照册封、禁市和重新互使，再从番禺、五华的地方遗存读南越政权。",
+      "spatialThesis": "番禺可从今广州老城参照，粤东五华另有狮雄山遗址。两地与汉的关系并非同一套郡县。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "高祖时期的册封与通使",
+          "text": "《南越列传》在汉十一年记陆贾受命出使并册封赵佗为南越王，通常换算为前 196 年。册封用语和使节往来说明双方建立了关系。赵佗仍以当地政权管理番禺等地，接境的长沙国另有自己的官署。",
+          "refs": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "高后时期的限制引发了新的冲突",
+          "text": "传世记事提到限制向南越交易铁器，随后记录赵佗称帝号、与长沙附近发生冲突。文帝元年又有陆贾奉使，双方恢复交往。列传对公开称号及在本国的做法有不同叙述，具体日期、物资流向和控制范围仍须考证。",
+          "refs": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "番禺地下还有南越自己的文字记录",
+          "text": "今广州老城的南越国宫署遗址有多期文化堆积。井J264中见南越国木简，一些记录涉及籍簿和官职。留存的简牍能显示当地官府办过哪些事，所见不全属于赵佗时期，不能给每条都套上册封之年。",
+          "refs": [
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "宫署叠压层、秦与南越阶段",
+              "note": "今广州老城的宫署区有跨时段地层和南越国遗存"
+            },
+            {
+              "sourceId": "nanyue-court-archives",
+              "locator": "井J264木简和宫署区遗迹",
+              "note": "出土南越国文书含籍簿、职官和政务线索"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "五华封泥提供另一处地方材料",
+          "text": "五华狮雄山有建筑遗迹和写作定楬、定楬丞等的封泥。封泥曾用于封缄，给研究者提供有文字的行政线索。番禺和五华的遗迹各有分期，定楬古地的辖境和每处建筑的用途还要分别查证。",
+          "refs": [
+            {
+              "sourceId": "nanyue-shixiongshan-sealings",
+              "locator": "狮雄山基址、作坊、定楬等封泥段",
+              "note": "五华有秦汉建筑遗迹和带定楬等文字的封泥"
+            },
+            {
+              "sourceId": "nanyue-court-archives",
+              "locator": "井J264木简和宫署区遗迹",
+              "note": "出土南越国文书含籍簿、职官和政务线索"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-lingnan-under-qin",
+          "book": "qin",
+          "chapter": "qin-lingqu-and-lingnan-counties",
+          "label": "回读 · 秦末岭南的郡县",
+          "display": "沿秦的建置接到赵佗政权和后来两次通使。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            },
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "宫署叠压层、秦与南越阶段",
+              "note": "今广州老城的宫署区有跨时段地层和南越国遗存"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "nanyue-panyu-and-shixiongshan-sites",
+          "afterBlockId": "p-03",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "今广州老城",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "五华狮雄山",
+              "placeId": "shixiongshan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wen-emperor-accession-and-baling",
+      "from": -180,
+      "to": -157,
+      "dateLabel": "公元前 180—前 157 年 · 代王入继、文帝政局与霸陵",
+      "title": "代王入继与汉文帝的霸陵",
+      "summary": "从前 180 年长安的权力交接读到文帝的政令主张，并看考古怎样确认霸陵。",
+      "spatialThesis": "汉文帝由代地入继。其陵园以西安白鹿原江村及周边发掘为地理参照。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "代王何以成为皇帝",
+          "text": "《孝文本纪》记诸吕被诛后，大臣迎代王刘恒入继。刘恒先在代地为王，入长安后重新安排宫廷和官员。前 180 年对应受迎及即位，文帝元年常系在次年，两条纪年应并读。",
+          "refs": [
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            },
+            {
+              "sourceId": "shiji-empress-lu",
+              "locator": "惠帝在世、惠帝崩、称制、诸吕封王与八年政变",
+              "note": "按不同阶段记吕后与惠帝、少帝、吕氏及宗室关系"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "文帝政务不只有节俭叙事",
+          "text": "本纪写文帝安排从代来的人员，处理列侯、诸王和朝臣的关系。某些诸侯王重新受封，列侯奉令就国也有例外。施政的文字有取舍，实际变化可继续查诸侯王年表。",
+          "refs": [
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "霸陵地望为什么调整",
+          "text": "江村大墓位于白鹿原西部。考古工作结合墓园布局、石围界、外藏坑以及窦皇后陵的关系，与西汉早期帝陵比较，确认这片区域为霸陵。由文献地名到遗址定位，需要多类材料相互印证。",
+          "refs": [
+            {
+              "sourceId": "baling-jiangcun-excavation",
+              "locator": "江村位置、帝后陵园与外藏坑、弃旧定位的证据",
+              "note": "文献和陵区形制共同支持江村大墓为文帝霸陵"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "遗诏和外藏坑各能回答什么",
+          "text": "本纪记文帝在丧葬方面要求减少若干陈设和扰民事项。现有霸陵发掘涉及多处外藏坑，能说明陵园的一些组织与材料。诏书与考古资料可以互问，都要按其时间和出土单位阅读。",
+          "refs": [
+            {
+              "sourceId": "baling-jiangcun-excavation",
+              "locator": "江村位置、帝后陵园与外藏坑、弃旧定位的证据",
+              "note": "文献和陵区形制共同支持江村大墓为文帝霸陵"
+            },
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wen-jing-rules",
+          "book": "han",
+          "chapter": "wen-jing-tax-and-penalties",
+          "label": "接读 · 文景田租与刑制",
+          "display": "分年辨认田租诏令和刑罚变更。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "hanshu-wen-land-tax",
+              "locator": "文帝十二年、十三年，减田租、除田租与改刑诏",
+              "note": "列出减半、除田租和诏改肉刑的年次"
+            },
+            {
+              "sourceId": "han-penalties-reform",
+              "locator": "文帝除肉刑令、景帝前元元年和中元六年以及箠令",
+              "note": "记录文帝改定旧刑、施笞的后果和景帝进一步调整"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "yangling-and-jiangcun-baling-areas",
+          "afterBlockId": "p-03",
+          "scope": "场景年份用于读景帝营建阳陵，霸陵作为较早遗址参照。",
+          "placeLinks": [
+            {
+              "blockId": "p-03",
+              "text": "江村大墓",
+              "placeId": "baling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wen-jing-tax-and-penalties",
+      "from": -179,
+      "to": -144,
+      "dateLabel": "公元前 179—前 144 年 · 田租诏令与刑制调整",
+      "title": "文景的田租和刑罚，分哪几次改",
+      "summary": "对读文帝减免、景帝调整田租，以及前后数次改刑。",
+      "spatialThesis": "政令由朝廷发出。土地、户籍和诉讼如何入册，要另找地方简牍验证。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "田租减半和免除发生在不同年份",
+          "text": "《汉书·文帝纪》记文帝十二年减半征收当年的田租，十三年再下诏除田租，分别采用前 168 年、前 167 年。田租针对田地征纳，这是和其他财物、人口负担及徭役区分的起点。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wen-land-tax",
+              "locator": "文帝十二年、十三年，减田租、除田租与改刑诏",
+              "note": "列出减半、除田租和诏改肉刑的年次"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "景帝调整，仍需问执行到哪里",
+          "text": "《汉书·景帝纪》在元年五月记令田半租，依通行换算标前 156 年。律文中的造籍和地方材料能告诉读者查什么，比如登记田地、租额及交纳。这里能够确认的是传世诏令的口径，无法据它写出每一户的全部负担。",
+          "refs": [
+            {
+              "sourceId": "hanshu-jing-land-tax",
+              "locator": "景帝元年五月田半租、三年吴楚等事、七年易储以及后元三年",
+              "note": "分别提供田租、七国战事、储位和景帝末年记载"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "文帝改肉刑并未终结刑罚问题",
+          "text": "文帝十三年改刑，传世本纪和《刑法志》保留诏书与替代刑名。有些旧刑改为服役或笞刑，另有处罚仍很严重。按条文对照时，应区分朝廷的说明、替代方法及后来出现的后果。",
+          "refs": [
+            {
+              "sourceId": "hanshu-wen-land-tax",
+              "locator": "文帝十二年、十三年，减田租、除田租与改刑诏",
+              "note": "列出减半、除田租和诏改肉刑的年次"
+            },
+            {
+              "sourceId": "han-penalties-reform",
+              "locator": "文帝除肉刑令、景帝前元元年和中元六年以及箠令",
+              "note": "记录文帝改定旧刑、施笞的后果和景帝进一步调整"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "景帝继续调整笞刑",
+          "text": "《刑法志》记景帝时期再次改变笞的数额与执行方法。两朝数次下令之间，仍要追问原案如何判、官吏怎样实施。张家山的旧案可以提供观察相关制度的线索，各案应放回本来时间。",
+          "refs": [
+            {
+              "sourceId": "han-penalties-reform",
+              "locator": "文帝除肉刑令、景帝前元元年和中元六年以及箠令",
+              "note": "记录文帝改定旧刑、施笞的后果和景帝进一步调整"
+            },
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-jing-end",
+          "book": "han",
+          "chapter": "jing-emperor-yangling-and-succession",
+          "label": "接读 · 景帝时期的陵园与储位",
+          "display": "追踪景帝时期接续的政务、营建和立储。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "yangling-excavation",
+              "locator": "焦南峰介绍陵园、外藏坑、礼制和陵邑分区",
+              "note": "阳陵各区有帝后陵及外藏坑等多类遗迹"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wu-kingdom-copper-salt-and-centre",
+      "from": -196,
+      "to": -154,
+      "dateLabel": "公元前 196—前 154 年 · 吴国与朝廷的关系",
+      "title": "吴国的铜、盐及其与朝廷的关系",
+      "summary": "用吴王濞与《平准书》的记载说明地方资源，区分吴国实力、朝廷政策和削地争议。",
+      "spatialThesis": "吴国跨越若干地区，传世所说的矿、盐和都邑不应画在同一位置。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "刘濞受封在高祖后期的诸国调整中",
+          "text": "《吴王濞列传》把刘濞封吴与高祖末年黥布败亡之后的地域安排相接。吴王并非直接继承秦的一段边界。把王国年表同本纪对照，可以追踪东南封国名号和人事变化。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "铜、钱与盐在传世记事里怎样出现",
+          "text": "《吴王濞列传》和《平准书》都把吴王与铜山采铸、海盐资源联系起来。民间与官府用钱受到不同时期政策影响。史书的富强说法提供调查方向，不能直接算出吴国收入，亦不能规定所有王国都有相同财政能力。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-economic-records",
+              "locator": "汉兴物价、吴铜钱与后来的钱谷积累段",
+              "note": "按不同时段叙汉初经济、部分地区采铸和财政印象"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "削地争议还涉及其他国",
+          "text": "晁错等人的削地建议作用于多个王国。列传写削地决定与吴、楚等地起事的关系，也收录参与者的辩辞。把这些言论同实际封国调整分别列出，可以理解为什么冲突扩展。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "不要由一个王国代替郡国制度",
+          "text": "吴国的资源优势、楚与其他诸侯的决定、长沙官署和梁国选择各有材料。吴楚交战是朝廷与某些王国的冲突，参加与抵抗也随地区不同。后来的王国改官需另查景帝纪年。",
+          "refs": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-liang-xiao-king",
+              "locator": "梁都睢阳、吴楚之战及中六年梁王死后",
+              "note": "梁王刘武在战时防守、战后王国延续与分国"
+            },
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-war-of-kingdoms",
+          "book": "han",
+          "chapter": "seven-kingdoms-revolt-and-liang",
+          "label": "接读 · 吴楚起事和梁国防守",
+          "display": "分开各地战事与较晚的王国制度变化。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "id": "seven-kingdoms-revolt-and-liang",
+      "from": -154,
+      "to": -144,
+      "dateLabel": "公元前 154—前 144 年 · 七国战事、王国改官和梁分",
+      "title": "七国之乱与战后重整，梁国如何读",
+      "summary": "把吴楚、齐地和赵地的行动分开，接读睢阳防守与战后的王国官制、梁国变化。",
+      "spatialThesis": "今商丘一带为梁都睢阳的地理参照，芒砀山是王室墓区。城址与战场不能用墓区相替。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "同一年发生的战事有几条线",
+          "text": "前 154 年吴、楚、赵、胶西、胶东、菑川、济南等国起事。吴、楚进向梁国，部分王国又在齐临淄一带交战，赵的战事也有自己的过程。史书给各地结束的时间不同，不能把全局压到同一次战役。",
+          "refs": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "梁王面对的是本国都邑受攻",
+          "text": "《梁孝王世家》记刘武据睢阳、遣将抵抗，太尉周亚夫的汉军作战又有自己的阶段。商丘一带可参照古睢阳，今存城墙和地下多层建筑分别有年代。墓地、城址与史书战事是不同证据。",
+          "refs": [
+            {
+              "sourceId": "shiji-liang-xiao-king",
+              "locator": "梁都睢阳、吴楚之战及中六年梁王死后",
+              "note": "梁王刘武在战时防守、战后王国延续与分国"
+            },
+            {
+              "sourceId": "shiji-wu-king-liu-pi",
+              "locator": "封吴、铜盐段、削地与吴楚交战段",
+              "note": "刘濞经营吴国及削地争议、联兵起事、战事与败亡"
+            },
+            {
+              "sourceId": "suiyang-urban-strata",
+              "locator": "商丘古城正德苑等不同层次的考古",
+              "note": "今商丘有多期城市叠压与发掘区域，可作古睢阳的区域地理参照"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "战后王国仍存在，制度继续调整",
+          "text": "《孝景本纪》记景帝中五年把诸侯丞相改称相，相关制度记载还说明由朝廷为诸侯置吏。本书采用前 145 年标这个节点。其他官署、官员人选与地方落实有先后，郡国并存没有在前 154 年即告结束。",
+          "refs": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "从睢阳看向芒砀山的梁王陵",
+          "text": "景帝中六年梁孝王去世，史书记梁分为五。同年事与前 154 年梁国抵御吴楚相隔十年。今永城芒砀山的梁王陵提供新线索，每座王墓的年代和用途须依发掘资料单独核实。",
+          "refs": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "shiji-liang-xiao-king",
+              "locator": "梁都睢阳、吴楚之战及中六年梁王死后",
+              "note": "梁王刘武在战时防守、战后王国延续与分国"
+            },
+            {
+              "sourceId": "liang-mangdang-tombs",
+              "locator": "芒砀山及西汉梁王室陵墓段",
+              "note": "芒砀山多个山头保留梁国王室墓葬"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-kingdoms-under-gaozu",
+          "book": "han",
+          "chapter": "gaozu-commandery-and-kingdoms",
+          "label": "回读 · 各王国是怎样形成的",
+          "display": "对照汉初的封国与景帝时的改变。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "han-kingdom-offices",
+              "locator": "诸侯王、吴楚后令、景帝中五年",
+              "note": "王国本有行政职位，中五年令诸侯王不得复治国，朝廷为置吏"
+            },
+            {
+              "sourceId": "shiji-han-vassal-kings",
+              "locator": "序及汉初诸王、长沙与吴楚梁诸国表",
+              "note": "各地王国的始封、改封、除国和继承可以互相对照"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "liang-suiyang-and-mangdang-tombs",
+          "afterBlockId": "p-02",
+          "placeLinks": [
+            {
+              "blockId": "p-02",
+              "text": "商丘一带",
+              "placeId": "main"
+            },
+            {
+              "blockId": "p-04",
+              "text": "永城芒砀山",
+              "placeId": "mangdang"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jing-emperor-yangling-and-succession",
+      "from": -157,
+      "to": -141,
+      "dateLabel": "公元前 157—前 141 年 · 景帝时期至武帝继位",
+      "title": "汉阳陵、景帝晚年和武帝继位",
+      "summary": "把阳陵营建、储位变动和景帝末年分段读，再观察陵园如何呈现不同类型的材料。",
+      "spatialThesis": "渭河北岸汉阳陵与白鹿原霸陵分属不同帝陵。墓区与县邑行政也不能混为一个地点。",
+      "kind": "narrative",
+      "spatialThesisId": "spatial-thesis",
+      "paragraphs": [
+        {
+          "id": "p-01",
+          "heading": "从文帝去世到景帝调整政令",
+          "text": "文帝于前 157 年去世，刘启继位。次年按景帝元年纪并见田租诏令。七国战事、朝廷官署和王国关系在随后的年次出现，分别用本纪和其他材料核对。",
+          "refs": [
+            {
+              "sourceId": "shiji-wen-reign",
+              "locator": "代王应召、即位、文帝十二至十三年与后七年遗诏",
+              "note": "记代王入继、田租与改刑、遗诏和葬制要求"
+            },
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "hanshu-jing-land-tax",
+              "locator": "景帝元年五月田半租、三年吴楚等事、七年易储以及后元三年",
+              "note": "分别提供田租、七国战事、储位和景帝末年记载"
+            }
+          ]
+        },
+        {
+          "id": "p-02",
+          "heading": "阳陵营建与使用历经数年",
+          "text": "《孝景本纪》在前元五年记作阳陵、渭桥和募徙阳陵。考古所见汉阳陵包括帝后陵、外藏坑、陪葬区和陵邑相关遗迹。术语所指的陵园、县邑和役作应按发现单位及记事分辨。",
+          "refs": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "yangling-excavation",
+              "locator": "焦南峰介绍陵园、外藏坑、礼制和陵邑分区",
+              "note": "阳陵各区有帝后陵及外藏坑等多类遗迹"
+            }
+          ]
+        },
+        {
+          "id": "p-03",
+          "heading": "继承安排改变过",
+          "text": "《孝景本纪》记原太子刘荣被废为临江王，同年又立胶东王刘彻为太子，通常系于前 150 年。前 141 年景帝去世，刘彻才继位。立储、即位和建元应依各自的时间阅读。",
+          "refs": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            },
+            {
+              "sourceId": "hanshu-jing-land-tax",
+              "locator": "景帝元年五月田半租、三年吴楚等事、七年易储以及后元三年",
+              "note": "分别提供田租、七国战事、储位和景帝末年记载"
+            }
+          ]
+        },
+        {
+          "id": "p-04",
+          "heading": "和霸陵比较应该看哪一层",
+          "text": "白鹿原江村霸陵与渭河北岸阳陵可作区域对照。陵园面积、出土器物和葬礼的实际使用各是不同尺度。外藏坑的陶俑和器物可以反映随葬安排，也不能作为整个汉朝行政人员或军队的统计。",
+          "refs": [
+            {
+              "sourceId": "baling-jiangcun-excavation",
+              "locator": "江村位置、帝后陵园与外藏坑、弃旧定位的证据",
+              "note": "文献和陵区形制共同支持江村大墓为文帝霸陵"
+            },
+            {
+              "sourceId": "yangling-excavation",
+              "locator": "焦南峰介绍陵园、外藏坑、礼制和陵邑分区",
+              "note": "阳陵各区有帝后陵及外藏坑等多类遗迹"
+            }
+          ]
+        }
+      ],
+      "related": [
+        {
+          "id": "read-wudi-after-jing",
+          "book": "han",
+          "chapter": "wudi",
+          "label": "接读 · 汉武帝时期",
+          "display": "从前 141 年即位进入次年建元及后续年次。",
+          "relation": "further",
+          "evidence": [
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            }
+          ],
+          "audit": {
+            "status": "checked",
+            "scope": "核对章节承接和所引材料。",
+            "checkedAt": "2026-11-26"
+          }
+        }
+      ],
+      "sceneRefs": [
+        {
+          "id": "yangling-and-jiangcun-baling-areas",
+          "afterBlockId": "p-04",
+          "placeLinks": [
+            {
+              "blockId": "p-04",
+              "text": "白鹿原江村霸陵",
+              "placeId": "baling"
+            },
+            {
+              "blockId": "p-04",
+              "text": "渭河北岸阳陵",
+              "placeId": "main"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wudi",
@@ -835,6 +2887,14 @@
   ],
   "subjectIds": [
     "chu-han-pengcheng-area",
-    "chu-han-guangwu-area"
+    "chu-han-guangwu-area",
+    "han-changan-palace-archaeology",
+    "han-pingcheng-mayi-regions",
+    "han-zhangjiashan-tomb-area",
+    "han-changsha-mawangdui-and-royal-tombs",
+    "nanyue-panyu-and-shixiongshan-sites",
+    "han-jiangcun-baling-landscape",
+    "han-yangling-imperial-cemetery",
+    "han-liang-suiyang-and-mangdang-sites"
   ]
 }

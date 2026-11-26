@@ -401,6 +401,28 @@
     {
       "map": {
         "type": "polity",
+        "key": "Xiongnu"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "baideng-and-han-xiongnu-negotiation"
+      },
+      "range": {
+        "from": -201,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "由匈奴同期概略底图进入平城、马邑与汉匈交涉。具体驻军和控制线另查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-pingcheng-mayi-regions"
+    },
+    {
+      "map": {
+        "type": "polity",
         "key": "Kushan Empire"
       },
       "target": {
@@ -2538,6 +2560,287 @@
       "scope": "书卷涵盖此底图主体的历史或相关时期，入口按原书卷叙事范围沿用。",
       "audit": {
         "status": "legacy"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "jing-emperor-yangling-and-succession"
+      },
+      "range": {
+        "from": -157,
+        "to": -141
+      },
+      "relation": "related",
+      "scope": "从汉的底图进入阳陵和景帝后期继承变化。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-yangling-imperial-cemetery"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "seven-kingdoms-revolt-and-liang"
+      },
+      "range": {
+        "from": -154,
+        "to": -144
+      },
+      "relation": "related",
+      "scope": "从汉的底图读七国之乱、王国改官和梁国再分，睢阳与芒砀山提供区域参照。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-liang-suiyang-and-mangdang-sites"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wu-kingdom-copper-salt-and-centre"
+      },
+      "range": {
+        "from": -196,
+        "to": -154
+      },
+      "relation": "related",
+      "scope": "从同期汉图读吴国铜盐经营的传世记载和中央关系。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wen-jing-tax-and-penalties"
+      },
+      "range": {
+        "from": -179,
+        "to": -144
+      },
+      "relation": "related",
+      "scope": "从汉的底图读文景田租与刑罚诏令，各地执行须以地方记录追查。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "wen-emperor-accession-and-baling"
+      },
+      "range": {
+        "from": -180,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "从汉的底图读文帝由代入继，并进入白鹿原霸陵考古。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-jiangcun-baling-landscape"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "nanyue-han-envoys-and-local-archives"
+      },
+      "range": {
+        "from": -194,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "从汉的底图读与南越的交涉，番禺和五华各有出土证据。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "nanyue-panyu-and-shixiongshan-sites"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "changsha-kingdom-and-mawangdui"
+      },
+      "range": {
+        "from": -186,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "由同期汉图进入长沙国及马王堆的材料。王国边界按地方证据理解。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-changsha-mawangdui-and-royal-tombs"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "zhangjiashan-reviewing-judgments"
+      },
+      "range": {
+        "from": -187,
+        "to": -180
+      },
+      "relation": "related",
+      "scope": "从汉的同期底图读张家山案件材料。案件发生时间另见正文。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-zhangjiashan-tomb-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "zhangjiashan-statutes-and-household-books"
+      },
+      "range": {
+        "from": -188,
+        "to": -180
+      },
+      "relation": "related",
+      "scope": "从同期底图进入张家山墓与律令所见户籍、田籍。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-zhangjiashan-tomb-area"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "emperor-hui-and-lu-regency"
+      },
+      "range": {
+        "from": -195,
+        "to": -180
+      },
+      "relation": "related",
+      "scope": "从汉的同期底图读惠帝、少帝与高后临朝称制。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "baideng-and-han-xiongnu-negotiation"
+      },
+      "range": {
+        "from": -199,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "从汉的底图接读平城战事以后与匈奴的交涉。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "early-han-changan-palaces"
+      },
+      "range": {
+        "from": -200,
+        "to": -188
+      },
+      "relation": "related",
+      "scope": "从汉的底图进入长乐、未央两片宫址和都城营建。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "han-changan-palace-archaeology"
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Han Dynasty"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "gaozu-commandery-and-kingdoms"
+      },
+      "range": {
+        "from": -201,
+        "to": -195
+      },
+      "relation": "related",
+      "scope": "从汉的同期底图读高祖郡国并置和早期换封。王国和郡的实际范围按相关材料辨认。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
       }
     },
     {
@@ -9596,6 +9899,28 @@
       "audit": {
         "status": "legacy"
       }
+    },
+    {
+      "map": {
+        "type": "polity",
+        "key": "Nanyue"
+      },
+      "target": {
+        "bookId": "han",
+        "chapterId": "nanyue-han-envoys-and-local-archives"
+      },
+      "range": {
+        "from": -196,
+        "to": -157
+      },
+      "relation": "related",
+      "scope": "从南越同期底图进入陆贾出使、番禺木简和五华封泥。实控边界以在地材料考证。",
+      "audit": {
+        "status": "checked",
+        "scope": "底图覆盖、有效时段和相应书卷入口。",
+        "checkedAt": "2026-11-26"
+      },
+      "subjectId": "nanyue-panyu-and-shixiongshan-sites"
     }
   ]
 }

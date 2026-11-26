@@ -4723,6 +4723,813 @@
         "scope": "遗址或区域位置、年代和读章入口。",
         "checkedAt": "2026-11-26"
       }
+    },
+    {
+      "id": "weiyang-and-changle-palace-sites",
+      "year": -198,
+      "date": "公元前 202—前 188 年 · 初都关中、营宫与筑城",
+      "title": "未央宫与长乐宫",
+      "summary": "汉廷早期的两座宫殿在长安城的什么位置？",
+      "place": {
+        "label": "汉长安城未央宫一带 · 城南西侧的宫址参照",
+        "lon": 108.857,
+        "lat": 34.305
+      },
+      "sources": [
+        {
+          "id": "han-changan-archaeology",
+          "title": "中国社会科学院《汉魏两晋南北朝都城模式及其演变》",
+          "url": "https://www.cssn.cn/lsx/lsx_kgx/202210/t20221024_5552600.shtml",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-gaozu-early",
+          "title": "《史记·高祖本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷008",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "hanshu-hui-reign",
+          "title": "《汉书·惠帝纪》",
+          "url": "https://zh.wikisource.org/wiki/漢書/卷002",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在汉长安城南部比较东西两片宫址，并结合史书辨认丞相迁治和未央宫建成的先后。",
+          "refs": [
+            {
+              "sourceId": "han-changan-archaeology",
+              "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+              "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+            },
+            {
+              "sourceId": "shiji-gaozu-early",
+              "locator": "高祖五至七年、十一至十二年",
+              "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+            },
+            {
+              "sourceId": "hanshu-hui-reign",
+              "locator": "惠帝三至六年，筑城、除挟书律等",
+              "note": "长安城工事分次进行，惠帝四年除挟书律"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-early-han-changan-palace-landscape",
+        "title": "未央宫与长乐宫",
+        "summary": "汉廷早期的两座宫殿在长安城的什么位置？",
+        "places": [
+          {
+            "id": "changle",
+            "name": "汉长安城长乐宫一带",
+            "role": "城南东侧的宫址参照",
+            "lon": 108.883,
+            "lat": 34.307
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "han-changan-archaeology",
+            "locator": "西汉长安城考古发现，未央宫、长乐宫分布",
+            "note": "城址与主要宫殿在今西安西北，未央和长乐分居汉城南部东西"
+          },
+          {
+            "sourceId": "shiji-gaozu-early",
+            "locator": "高祖五至七年、十一至十二年",
+            "note": "朝廷西入关中、诸侯调整、未央宫、平城之围与惠帝继位"
+          },
+          {
+            "sourceId": "hanshu-hui-reign",
+            "locator": "惠帝三至六年，筑城、除挟书律等",
+            "note": "长安城工事分次进行，惠帝四年除挟书律"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "pingcheng-and-mayi-regions",
+      "year": -200,
+      "date": "约公元前 201—前 195 年 · 白登前后阅读区间",
+      "title": "平城与马邑",
+      "summary": "《史记》写到的平城、马邑各在晋北什么位置？",
+      "place": {
+        "label": "今大同一带 · 汉平城的区域参照",
+        "lon": 113.3,
+        "lat": 40.1
+      },
+      "sources": [
+        {
+          "id": "baideng-historical-geography",
+          "title": "《山西通志》有关平城与白登的考辨",
+          "url": "https://ctext.org/wiki.pl?chapter=74121&if=en&remap=gb",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "han-northern-place-references",
+          "title": "香港中文大学《汉语多功能字库》历史地名资料",
+          "url": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/chinaPlaces.php?pid=040950000",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-xiongnu-han-campaigns",
+          "title": "《史记》卷一百一十《匈奴列传》",
+          "url": "https://zh.wikisource.org/wiki/%E5%8F%B2%E8%A8%98/%E5%8D%B7110"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "由今大同一带向西南看今朔州一带，观察盆地和周边高地，再读《史记》所记的两个地点。",
+          "refs": [
+            {
+              "sourceId": "baideng-historical-geography",
+              "locator": "大同附近白登、平城古城及同名白登地名段",
+              "note": "汇集平城、白登的不同历史地理说法，可用今大同一带参照"
+            },
+            {
+              "sourceId": "han-northern-place-references",
+              "locator": "朔州马邑沿革，平城与白登另据本纪和通志辨别",
+              "note": "今朔州一带可参照马邑。考订具体位置须按各时代县治及同名地名分别判断"
+            },
+            {
+              "sourceId": "shiji-xiongnu-han-campaigns",
+              "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+              "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-pingcheng-mayi-frontier",
+        "title": "平城与马邑",
+        "summary": "《史记》写到的平城、马邑各在晋北什么位置？",
+        "places": [
+          {
+            "id": "mayi",
+            "name": "今朔州东北一带",
+            "role": "汉马邑的地名区域参照",
+            "lon": 112.52,
+            "lat": 39.37
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "baideng-historical-geography",
+            "locator": "大同附近白登、平城古城及同名白登地名段",
+            "note": "汇集平城、白登的不同历史地理说法，可用今大同一带参照"
+          },
+          {
+            "sourceId": "han-northern-place-references",
+            "locator": "朔州马邑沿革，平城与白登另据本纪和通志辨别",
+            "note": "今朔州一带可参照马邑。考订具体位置须按各时代县治及同名地名分别判断"
+          },
+          {
+            "sourceId": "shiji-xiongnu-han-campaigns",
+            "locator": "冒顿、老上单于段，马邑、白登、和亲、朝那萧关及使节文书",
+            "note": "匈奴发展与冒顿时期交战、围困后使节和约、文帝时反复交涉"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhangjiashan-and-liye-manuscript-contexts",
+      "year": -186,
+      "date": "约公元前 188—前 180 年 · 高后年间律令阅读区间",
+      "title": "张家山的《户律》与里耶的秦户籍",
+      "summary": "一份律令和一张户籍简各能回答哪些问题？",
+      "place": {
+        "label": "荆州古城外张家山一带 · 西汉早期墓区参照",
+        "lon": 112.18,
+        "lat": 30.34
+      },
+      "sources": [
+        {
+          "id": "zhangjiashan-excavation",
+          "title": "荆州地区博物馆《江陵张家山三座汉墓出土大批竹简》",
+          "url": "https://www.ncpssd.cn/Literature/articleinfo?from=Qikan_Article_Detail&id=1002281098&type=journalArticle",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhangjiashan-household-law",
+          "title": "初山明《简牍文书学与法制史——以里耶秦简为例》",
+          "url": "https://leghist.project.sinica.edu.tw/pages/a2016/data_4_a2016_37-68.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liye-register-k27",
+          "title": "王子今《试说里耶户籍简所见“小上造”、“小女子”》",
+          "url": "https://www.ctwx.tsinghua.edu.cn/__local/9/6C/2C/F7EB2D1CE6D1DD3626A9D75153F_E201F579_A91C4.pdf?e=.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从江汉平原的汉墓切换到酉水河畔的秦县遗址，比较随葬律令和地方登记表分别如何保存下来。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-excavation",
+              "locator": "M247、M249、M258的发现与位置",
+              "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+            },
+            {
+              "sourceId": "zhangjiashan-household-law",
+              "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+              "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+            },
+            {
+              "sourceId": "liye-register-k27",
+              "locator": "里耶北城壕K11，K27五栏",
+              "note": "保存一户人员和身份的分栏记录"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-zhangjiashan-liye-archive-landscapes",
+        "title": "张家山的《户律》与里耶的秦户籍",
+        "summary": "一份律令和一张户籍简各能回答哪些问题？",
+        "places": [
+          {
+            "id": "liye",
+            "name": "湖南龙山里耶一带",
+            "role": "秦代县廷及户籍文书出土区域",
+            "lon": 109.27,
+            "lat": 28.78
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zhangjiashan-excavation",
+            "locator": "M247、M249、M258的发现与位置",
+            "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+          },
+          {
+            "sourceId": "zhangjiashan-household-law",
+            "locator": "户律关于不同登记册上县廷、匣筐贮存、封印段",
+            "note": "户、田地及租等文书按类向县廷上报保管，律文写封存程序"
+          },
+          {
+            "sourceId": "liye-register-k27",
+            "locator": "里耶北城壕K11，K27五栏",
+            "note": "保存一户人员和身份的分栏记录"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "zhangjiashan-and-shuihudi-legal-texts",
+      "year": -186,
+      "date": "约公元前 188—前 180 年 · 汉初随葬简册阅读区间",
+      "title": "张家山和睡虎地的法律简",
+      "summary": "两地出土的简册保存了哪些不同的办案材料？",
+      "place": {
+        "label": "荆州古城外张家山一带 · 西汉早期墓区参照",
+        "lon": 112.18,
+        "lat": 30.34
+      },
+      "sources": [
+        {
+          "id": "zhangjiashan-excavation",
+          "title": "荆州地区博物馆《江陵张家山三座汉墓出土大批竹简》",
+          "url": "https://www.ncpssd.cn/Literature/articleinfo?from=Qikan_Article_Detail&id=1002281098&type=journalArticle",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "zhangjiashan-rehearing-case",
+          "title": "黄均镇《何处得申冤？秦与汉初乞鞫审理型态》",
+          "url": "https://www1.ihp.sinica.edu.tw/storage/publish4L/37-08%E9%BB%83%E5%9D%87%E9%8E%AE%E3%80%88%E4%BD%95%E8%99%95%E5%BE%97%E7%94%B3%E5%86%A4%EF%BC%9F%E7%A7%A6%E8%88%87%E6%BC%A2%E5%88%9D%E4%B9%9E%E9%9E%AB%E5%AF%A9%E7%90%86%E5%9E%8B%E6%85%8B%E3%80%89.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shuihudi-nlc-manuscripts",
+          "title": "国家图书馆《第一批国家珍贵古籍名录》",
+          "url": "https://www.nlc.cn/migrated/pcab.nlc.cn/gjml/gjzggj/201412/P020141217510201045887.pdf",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "沿江汉平原对照荆州和云梦的出土地点，比较《奏谳书》的案卷与《封诊式》所见文例。",
+          "refs": [
+            {
+              "sourceId": "zhangjiashan-excavation",
+              "locator": "M247、M249、M258的发现与位置",
+              "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+            },
+            {
+              "sourceId": "zhangjiashan-rehearing-case",
+              "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+              "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+            },
+            {
+              "sourceId": "shuihudi-nlc-manuscripts",
+              "locator": "编号00035至00037，封诊式、法律答问、效律",
+              "note": "睡虎地同一秦墓出土多类秦代法律抄本"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-early-han-case-collection-landscape",
+        "title": "张家山和睡虎地的法律简",
+        "summary": "两地出土的简册保存了哪些不同的办案材料？",
+        "places": [
+          {
+            "id": "shuihudi",
+            "name": "湖北云梦睡虎地一带",
+            "role": "秦代随葬法律简的墓区参照",
+            "lon": 113.75,
+            "lat": 31.02
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "zhangjiashan-excavation",
+            "locator": "M247、M249、M258的发现与位置",
+            "note": "张家山三座汉墓经科学清理，出土多批随葬材料"
+          },
+          {
+            "sourceId": "zhangjiashan-rehearing-case",
+            "locator": "材料三，《奏谳书》案例17，廷尉兼与汧啬夫文书",
+            "note": "秦案中的当事人请求复审、廷尉文书及县吏负责事项"
+          },
+          {
+            "sourceId": "shuihudi-nlc-manuscripts",
+            "locator": "编号00035至00037，封诊式、法律答问、效律",
+            "note": "睡虎地同一秦墓出土多类秦代法律抄本"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "mawangdui-and-changsha-royal-tombs",
+      "year": -168,
+      "date": "约公元前 186—前 157 年 · 长沙墓葬的阅读时段",
+      "title": "马王堆和湘江西岸的王陵",
+      "summary": "官员家族和王室的墓地各留下什么？",
+      "place": {
+        "label": "长沙马王堆一带 · 长沙国丞相家族墓区参照",
+        "lon": 113.04,
+        "lat": 28.2
+      },
+      "sources": [
+        {
+          "id": "mawangdui-seals-and-family",
+          "title": "湖南省档案局《马王堆汉墓》",
+          "url": "https://sdaj.hunan.gov.cn/wszt/xxsl/msgj/200609/t20060927_1977757.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "mawangdui-burial-chronology",
+          "title": "王人聪《长沙马王堆汉墓出土玺印与封泥略说》",
+          "url": "https://www.cuhk.edu.hk/ics/journal/articles/v33p011.pdf",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "changsha-royal-cemetery",
+          "title": "湖南省文物局《长沙王陵墓群十年考古新发现》",
+          "url": "https://wwj.hunan.gov.cn/wwj/c100310/c100313/202306/t20230619_29378786.html",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "在湘江两侧对照马王堆的封土、印章和随葬文字与西岸若干王室墓地。",
+          "refs": [
+            {
+              "sourceId": "mawangdui-seals-and-family",
+              "locator": "三墓关系及二号墓三方印",
+              "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+            },
+            {
+              "sourceId": "mawangdui-burial-chronology",
+              "locator": "三墓的印文、打破关系和入葬纪年向度",
+              "note": "三号墓一般据随葬纪年联系文帝十二年，和另外两墓分别阅读"
+            },
+            {
+              "sourceId": "changsha-royal-cemetery",
+              "locator": "发掘队介绍望城坡等长沙王陵墓群与各墓分期",
+              "note": "湘江西侧有多座王室相关墓葬，可与马王堆两类材料对读"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-changsha-mawangdui-royal-landscape",
+        "title": "马王堆和湘江西岸的王陵",
+        "summary": "官员家族和王室的墓地各留下什么？",
+        "places": [
+          {
+            "id": "royal",
+            "name": "长沙湘江西侧望城坡一带",
+            "role": "诸王墓群的一个区域参照",
+            "lon": 112.91,
+            "lat": 28.21
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "mawangdui-seals-and-family",
+            "locator": "三墓关系及二号墓三方印",
+            "note": "二号墓出土长沙丞相、利苍及侯印，与家族墓地身份相关"
+          },
+          {
+            "sourceId": "mawangdui-burial-chronology",
+            "locator": "三墓的印文、打破关系和入葬纪年向度",
+            "note": "三号墓一般据随葬纪年联系文帝十二年，和另外两墓分别阅读"
+          },
+          {
+            "sourceId": "changsha-royal-cemetery",
+            "locator": "发掘队介绍望城坡等长沙王陵墓群与各墓分期",
+            "note": "湘江西侧有多座王室相关墓葬，可与马王堆两类材料对读"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "nanyue-panyu-and-shixiongshan-sites",
+      "year": -179,
+      "date": "公元前 196—前 157 年 · 南越与汉廷交涉",
+      "title": "番禺宫署与五华狮雄山",
+      "summary": "珠江口的宫署和粤东的封泥各留下怎样的政务记录？",
+      "place": {
+        "label": "广州老城番禺一带 · 南越宫署发掘区参照",
+        "lon": 113.27,
+        "lat": 23.13
+      },
+      "sources": [
+        {
+          "id": "nanyue-court-archives",
+          "title": "南越王博物院《南越国宫署遗址》展览资料",
+          "url": "https://www.nywmuseum.org.cn/Exhibition/BDetails/jbcl?nid=7695&sid=ztjl",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "nanyue-shixiongshan-sealings",
+          "title": "五华县《狮雄山秦汉建筑遗址》",
+          "url": "https://www.wuhua.gov.cn/xxgk/ztzl/rdzt/wwwh/content/post_2780652.html",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-nanyue-qin",
+          "title": "《史记·南越列传》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷113",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "qin-nanyue-panyu-archaeology",
+          "title": "南越王博物院《南越国宫署遗址》",
+          "url": "https://www.nywmuseum.org.cn/News/Details/Exhibition?nid=7735",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "对照两处遗址的地理位置，再比较番禺的宫署木简和五华的封泥。",
+          "refs": [
+            {
+              "sourceId": "nanyue-court-archives",
+              "locator": "井J264木简和宫署区遗迹",
+              "note": "出土南越国文书含籍簿、职官和政务线索"
+            },
+            {
+              "sourceId": "nanyue-shixiongshan-sealings",
+              "locator": "狮雄山基址、作坊、定楬等封泥段",
+              "note": "五华有秦汉建筑遗迹和带定楬等文字的封泥"
+            },
+            {
+              "sourceId": "shiji-nanyue-qin",
+              "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+              "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+            },
+            {
+              "sourceId": "qin-nanyue-panyu-archaeology",
+              "locator": "宫署叠压层、秦与南越阶段",
+              "note": "今广州老城的宫署区有跨时段地层和南越国遗存"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-nanyue-panyu-shixiongshan-landscape",
+        "title": "番禺宫署与五华狮雄山",
+        "summary": "珠江口的宫署和粤东的封泥各留下怎样的政务记录？",
+        "places": [
+          {
+            "id": "shixiongshan",
+            "name": "五华狮雄山一带",
+            "role": "粤东秦汉遗址区参照",
+            "lon": 115.62,
+            "lat": 24.05
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "nanyue-court-archives",
+            "locator": "井J264木简和宫署区遗迹",
+            "note": "出土南越国文书含籍簿、职官和政务线索"
+          },
+          {
+            "sourceId": "nanyue-shixiongshan-sealings",
+            "locator": "狮雄山基址、作坊、定楬等封泥段",
+            "note": "五华有秦汉建筑遗迹和带定楬等文字的封泥"
+          },
+          {
+            "sourceId": "shiji-nanyue-qin",
+            "locator": "高帝十一年陆贾入南越、高后禁市铁器、文帝元年再使",
+            "note": "记汉与赵佗册封、限制铁器、冲突及再次往来"
+          },
+          {
+            "sourceId": "qin-nanyue-panyu-archaeology",
+            "locator": "宫署叠压层、秦与南越阶段",
+            "note": "今广州老城的宫署区有跨时段地层和南越国遗存"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "liang-suiyang-and-mangdang-tombs",
+      "year": -154,
+      "date": "公元前 154—前 144 年 · 七国战事、王国改官和梁分",
+      "title": "梁都睢阳与芒砀山墓区",
+      "summary": "战时守住的梁都和梁王室墓区各在什么地方？",
+      "place": {
+        "label": "今商丘睢阳一带 · 梁都睢阳区域参照",
+        "lon": 115.63,
+        "lat": 34.38
+      },
+      "sources": [
+        {
+          "id": "suiyang-urban-strata",
+          "title": "河南省文物考古研究院《商丘近年来城市考古与保护概述》",
+          "url": "https://cskg.hnswwkgyjy.cn/communication/media/details.html?id=7359154704951021568",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-liang-xiao-king",
+          "title": "《史记·梁孝王世家》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷058",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "liang-mangdang-tombs",
+          "title": "河南博物院《玉韘形佩》考古背景",
+          "url": "https://www.chnmus.net/ch/collection/appraise/details.html?id=512155514609876059",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "从今商丘一带的睢阳区域望向永城的芒砀山，分别读七国之乱中的梁国和随后的王室墓葬。",
+          "refs": [
+            {
+              "sourceId": "suiyang-urban-strata",
+              "locator": "商丘古城正德苑等不同层次的考古",
+              "note": "今商丘有多期城市叠压与发掘区域，可作古睢阳的区域地理参照"
+            },
+            {
+              "sourceId": "shiji-liang-xiao-king",
+              "locator": "梁都睢阳、吴楚之战及中六年梁王死后",
+              "note": "梁王刘武在战时防守、战后王国延续与分国"
+            },
+            {
+              "sourceId": "liang-mangdang-tombs",
+              "locator": "芒砀山及西汉梁王室陵墓段",
+              "note": "芒砀山多个山头保留梁国王室墓葬"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-liang-suiyang-mangdang-landscape",
+        "title": "梁都睢阳与芒砀山墓区",
+        "summary": "战时守住的梁都和梁王室墓区各在什么地方？",
+        "places": [
+          {
+            "id": "mangdang",
+            "name": "永城芒砀山一带",
+            "role": "西汉梁王室墓区参照",
+            "lon": 116.5,
+            "lat": 34.2
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "suiyang-urban-strata",
+            "locator": "商丘古城正德苑等不同层次的考古",
+            "note": "今商丘有多期城市叠压与发掘区域，可作古睢阳的区域地理参照"
+          },
+          {
+            "sourceId": "shiji-liang-xiao-king",
+            "locator": "梁都睢阳、吴楚之战及中六年梁王死后",
+            "note": "梁王刘武在战时防守、战后王国延续与分国"
+          },
+          {
+            "sourceId": "liang-mangdang-tombs",
+            "locator": "芒砀山及西汉梁王室陵墓段",
+            "note": "芒砀山多个山头保留梁国王室墓葬"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
+    },
+    {
+      "id": "yangling-and-jiangcun-baling-areas",
+      "year": -152,
+      "date": "公元前 157—前 141 年 · 景帝时期至武帝继位",
+      "title": "景帝阳陵与文帝霸陵",
+      "summary": "两处陵园的选址和外藏坑可以怎样对照？",
+      "place": {
+        "label": "渭河北岸汉阳陵一带 · 景帝陵园区域参照",
+        "lon": 108.94,
+        "lat": 34.45
+      },
+      "sources": [
+        {
+          "id": "yangling-excavation",
+          "title": "汉阳陵考古工作与发掘者说明",
+          "url": "https://cul.china.com.cn/2022-09/20/content_42113072.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "baling-jiangcun-excavation",
+          "title": "陕西文物部门公布江村大墓考古成果",
+          "url": "https://www.xinhuanet.com/2021-12/14/c_1128162799.htm",
+          "checkedAt": "2026-11-26"
+        },
+        {
+          "id": "shiji-jing-reign",
+          "title": "《史记·孝景本纪》",
+          "url": "https://zh.wikisource.org/wiki/史記/卷011",
+          "checkedAt": "2026-11-26"
+        }
+      ],
+      "openingBlockId": "opening-summary",
+      "sections": [
+        {
+          "id": "read-the-landscape",
+          "title": "对照遗址与地形",
+          "text": "比较渭河北岸与白鹿原的地形，以各自的发掘材料识别墓、陵园与外藏坑。",
+          "refs": [
+            {
+              "sourceId": "yangling-excavation",
+              "locator": "焦南峰介绍陵园、外藏坑、礼制和陵邑分区",
+              "note": "阳陵各区有帝后陵及外藏坑等多类遗迹"
+            },
+            {
+              "sourceId": "baling-jiangcun-excavation",
+              "locator": "江村位置、帝后陵园与外藏坑、弃旧定位的证据",
+              "note": "文献和陵区形制共同支持江村大墓为文帝霸陵"
+            },
+            {
+              "sourceId": "shiji-jing-reign",
+              "locator": "景帝三年、七年、中五至六年、后三年",
+              "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+            }
+          ]
+        }
+      ],
+      "mapStory": {
+        "worldEntryId": "i-cn-wen-jing-mausoleum-landscape",
+        "title": "景帝阳陵与文帝霸陵",
+        "summary": "两处陵园的选址和外藏坑可以怎样对照？",
+        "places": [
+          {
+            "id": "baling",
+            "name": "白鹿原江村霸陵一带",
+            "role": "文帝陵园区域参照",
+            "lon": 109.11,
+            "lat": 34.24
+          }
+        ],
+        "participants": [
+          {
+            "name": "地图所示历史地区",
+            "role": "用于对照史料与地理位置"
+          }
+        ],
+        "refs": [
+          {
+            "sourceId": "yangling-excavation",
+            "locator": "焦南峰介绍陵园、外藏坑、礼制和陵邑分区",
+            "note": "阳陵各区有帝后陵及外藏坑等多类遗迹"
+          },
+          {
+            "sourceId": "baling-jiangcun-excavation",
+            "locator": "江村位置、帝后陵园与外藏坑、弃旧定位的证据",
+            "note": "文献和陵区形制共同支持江村大墓为文帝霸陵"
+          },
+          {
+            "sourceId": "shiji-jing-reign",
+            "locator": "景帝三年、七年、中五至六年、后三年",
+            "note": "七国之乱、换储、王国官名、梁分与景帝终年"
+          }
+        ]
+      },
+      "audit": {
+        "status": "checked",
+        "scope": "遗址或区域位置、年代和读章入口。",
+        "checkedAt": "2026-11-26"
+      }
     }
   ],
   "connections": [
