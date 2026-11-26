@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 NAME = "SpacetimeGlobe"
 PROJECT = ROOT / f"{NAME}.xcodeproj"
 BUNDLE = "io.github.lllliam.spacetimeglobe.native"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 OBJECTS = {}
 
 
@@ -54,7 +54,7 @@ def configurations(settings):
 
 
 def prepare():
-    if not (ROOT / "Resources" / "Library.json").is_file():
+    if not (ROOT / "OfflineData" / "Library.json").is_file():
         raise SystemExit("Run node native-ios/prepare-data.mjs before generating the iOS project.")
     PROJECT.mkdir(exist_ok=True)
     icons = ROOT / "AppIcon.xcassets" / "AppIcon.appiconset"
@@ -85,7 +85,7 @@ def prepare():
 
     sources = [file_ref(file.name, "sourcecode.swift") for file in sorted((ROOT / "Sources").glob("*.swift"))]
     source_group = add("PBXGroup", children=sources, path="Sources", sourceTree="<group>")
-    resources = [file_ref("Resources", "folder"), file_ref("AppIcon.xcassets", "folder.assetcatalog")]
+    resources = [file_ref("OfflineData", "folder"), file_ref("AppIcon.xcassets", "folder.assetcatalog")]
     product = add("PBXFileReference", explicitFileType="wrapper.application", includeInIndex=0,
                   path=f"{NAME}.app", sourceTree="BUILT_PRODUCTS_DIR")
     products = add("PBXGroup", children=[product], name="Products", sourceTree="<group>")
@@ -94,7 +94,7 @@ def prepare():
         "PRODUCT_NAME": NAME,
         "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE,
         "MARKETING_VERSION": VERSION,
-        "CURRENT_PROJECT_VERSION": "1",
+        "CURRENT_PROJECT_VERSION": "2",
         "GENERATE_INFOPLIST_FILE": "NO",
         "INFOPLIST_FILE": f"{PROJECT.name}/Info.plist",
         "TARGETED_DEVICE_FAMILY": "1",

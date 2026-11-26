@@ -4,6 +4,19 @@ import Foundation
 enum Smoke {
     static func main() throws {
         let dir = URL(fileURLWithPath: CommandLine.arguments[1], isDirectory: true)
+        if CommandLine.arguments.count == 3 {
+            let app = URL(fileURLWithPath: CommandLine.arguments[2], isDirectory: true)
+            let bundle = Bundle(url: app)
+            precondition(bundle?.bundleIdentifier == "io.github.lllliam.spacetimeglobe.native")
+            guard let library = bundle?.url(forResource: "Library", withExtension: "json", subdirectory: "OfflineData") else {
+                throw CocoaError(.fileNoSuchFile)
+            }
+            let packaged = try Data(contentsOf: library)
+            let original = try Data(contentsOf: dir.appendingPathComponent("Library.json"))
+            precondition(packaged == original)
+            print("Foundation recognizes the native app identifier and bundled offline library.")
+            return
+        }
         let history = try OfflineHistory(directory: dir)
         let archive = history.archive
         let atlas = try GlobeAtlas(index: history.index, polygons: history.polygons)

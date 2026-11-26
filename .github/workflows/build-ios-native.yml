@@ -33,7 +33,7 @@ jobs:
       - name: Test native data decoding and map selection
         run: |
           swiftc -O native-ios/Sources/HistoryData.swift native-ios/Sources/Atlas.swift native-ios/Smoke.swift -o "$RUNNER_TEMP/native-smoke"
-          "$RUNNER_TEMP/native-smoke" native-ios/Resources
+          "$RUNNER_TEMP/native-smoke" native-ios/OfflineData
       - name: Build for physical iPhones
         run: |
           set -o pipefail
@@ -49,14 +49,21 @@ jobs:
           xcrun vtool -show-build "$app/SpacetimeGlobe" | awk '$1=="platform" && $2=="IOS" { ok=1 } END { exit !ok }'
           [ "$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")" = io.github.lllliam.spacetimeglobe.native ]
           [ "$(/usr/libexec/PlistBuddy -c 'Print MinimumOSVersion' "$app/Info.plist")" = 16.0 ]
-          for file in native-ios/Resources/*; do cmp "$file" "$app/Resources/$(basename "$file")"; done
+          "$RUNNER_TEMP/native-smoke" native-ios/OfflineData "$app"
+          for file in native-ios/OfflineData/*; do cmp "$file" "$app/OfflineData/$(basename "$file")"; done
           ! find "$app" -iname '*.html' -print -quit | grep .
           ! xcrun otool -L "$app/SpacetimeGlobe" | grep WebKit.framework
           mkdir -p "$RUNNER_TEMP/native-package/Payload" native-ios/dist
           ditto "$app" "$RUNNER_TEMP/native-package/Payload/SpacetimeGlobe.app"
           dist="$GITHUB_WORKSPACE/native-ios/dist"
-          (cd "$RUNNER_TEMP/native-package" && zip -q -r "$dist/SpacetimeGlobe-Native-0.1.0-unsigned.ipa" Payload)
-          (cd "$dist" && shasum -a 256 SpacetimeGlobe-Native-0.1.0-unsigned.ipa > SHA256.txt)
+          version="$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$app/Info.plist")"
+          ipa="SpacetimeGlobe-Native-$version-unsigned.ipa"
+          (cd "$RUNNER_TEMP/native-package" && zip -q -r "$dist/$ipa" Payload)
+          (cd "$dist" && shasum -a 256 "$ipa" > SHA256.txt)
+          # Validate signing on a separate copy. The distribution IPA stays unsigned.
+          ditto "$app" "$RUNNER_TEMP/signing-check.app"
+          codesign --force --sign - --timestamp=none "$RUNNER_TEMP/signing-check.app"
+          codesign --verify --strict "$RUNNER_TEMP/signing-check.app"
       - uses: actions/upload-artifact@v4
         with:
           name: SpacetimeGlobe-Native-iOS-unsigned
@@ -81,12 +88,8 @@ jobs:
             -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/native-sim" \
             ARCHS=arm64 CONFIGURATION_BUILD_DIR="$simulator_package" ENABLE_DEBUG_DYLIB=NO CODE_SIGNING_ALLOWED=NO \
             build > "$RUNNER_TEMP/native-sim-build.log" 2>&1 || { tail -n 120 "$RUNNER_TEMP/native-sim-build.log"; exit 1; }
-          simulator_app="$simulator_package/Test/SpacetimeGlobe.app"
-          mkdir "$simulator_package/Test"
-          ditto "$RUNNER_TEMP/native-device/Build/Products/Release-iphoneos/SpacetimeGlobe.app" "$simulator_app"
-          cp "$simulator_package/SpacetimeGlobe.app/SpacetimeGlobe" "$simulator_app/SpacetimeGlobe"
-          /usr/libexec/PlistBuddy -c 'Set :CFBundleSupportedPlatforms:0 iPhoneSimulator' "$simulator_app/Info.plist"
-          /usr/libexec/PlistBuddy -c 'Set DTPlatformName iphonesimulator' "$simulator_app/Info.plist"
+          simulator_app="$simulator_package/SpacetimeGlobe.app"
+          "$RUNNER_TEMP/native-smoke" native-ios/OfflineData "$simulator_app"
           bundle_id="$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$simulator_app/Info.plist")"
           [ "$bundle_id" = io.github.lllliam.spacetimeglobe.native ]
           codesign --force --sign - --timestamp=none "$simulator_app"

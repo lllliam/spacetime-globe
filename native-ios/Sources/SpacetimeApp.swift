@@ -34,9 +34,10 @@ private struct StartupView: View {
     private func load() async {
         error = nil
         do {
-            guard let resources = Bundle.main.resourceURL?.appendingPathComponent("Resources") else {
+            guard let library = Bundle.main.url(forResource: "Library", withExtension: "json", subdirectory: "OfflineData") else {
                 throw CocoaError(.fileNoSuchFile)
             }
+            let resources = library.deletingLastPathComponent()
             let result = try await Task.detached(priority: .userInitiated) {
                 let history = try OfflineHistory(directory: resources)
                 return (history, try GlobeAtlas(index: history.index, polygons: history.polygons))

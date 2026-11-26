@@ -5,7 +5,7 @@ import { loadHistoryModel } from '../tools/history-model.mjs';
 import history from '../src/history-rules.js';
 
 const root = new URL('../', import.meta.url);
-const bundle = new URL('./Resources/', import.meta.url);
+const bundle = new URL('./OfflineData/', import.meta.url);
 mkdirSync(bundle, { recursive: true });
 const model = loadHistoryModel(fileURLToPath(root));
 const { world } = model;

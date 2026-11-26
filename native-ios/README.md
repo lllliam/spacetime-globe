@@ -1,11 +1,11 @@
-# 时空地球原生版 0.1.0
+# 时空地球原生版 0.1.1
 
 适用于 **iOS 16 或更新版本的 iPhone**。SwiftUI 提供时间轴、书架和阅读界面，Metal 绘制地球。疆域、地表、正文和历史现场都随安装包提供，安装完成后可以在飞行模式下使用。史料原网页需要联网。
 
 ## 用 Windows 安装
 
 1. 解压安装包，从官网下载 Windows 版 Sideloadly，并按官网安装所需的 Apple 组件。[Sideloadly 官网](https://sideloadly.io/)
-2. 用数据线连接 iPhone，在手机上点「信任」，在 Sideloadly 中选择手机。拖入 `SpacetimeGlobe-Native-0.1.0-unsigned.ipa`，输入自己的 Apple ID，点 **Start**。
+2. 用数据线连接 iPhone，在手机上点「信任」，在 Sideloadly 中选择手机。拖入 `SpacetimeGlobe-Native-0.1.1-unsigned.ipa`，输入自己的 Apple ID，点 **Start**。
 3. 按 iPhone 的提示开启「设置 → 隐私与安全性 → 开发者模式」。如果提示未受信任，在「设置 → 通用 → VPN 与设备管理」中信任对应的开发者帐号，然后从桌面打开「时空地球」。[Apple 开发者模式说明](https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device)
 4. 免费 Apple ID 的签名有效期为 7 天。续签请保留原 App，使用同一 Apple ID 和 Bundle ID 覆盖安装。Sideloadly 也支持自动续签。[Sideloadly 续签说明](https://sideloadly.io/#faq)
 
