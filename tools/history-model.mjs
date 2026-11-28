@@ -162,7 +162,11 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
   check(books.length && topics.length,'历史库或专题库为空');
   const warnings = [];
   const texts = new Map(), mapStories = new Map(), eventLinks = new Map();
-  const bookChapter = (bookId,chapterId) => byBook.get(bookId)?.chapters?.find(c=>c.id===chapterId);
+  const bookChapter = (bookId,chapterId) => {
+    const chapters = byBook.get(bookId)?.chapters;
+    return chapters?.find(chapter=>chapter.id===chapterId) ??
+      chapters?.find(chapter=>chapter.aliases?.includes(chapterId));
+  };
   const topicChapter = (topicId,chapterId) => byTopic.get(topicId)?.chapters?.find(c=>c.id===chapterId);
   const narratedRange = item => !item ? undefined : item.from === undefined ? {from:item.year,to:item.year} : item;
   const topicRange = (id,chapterId) => chapterId ? narratedRange(topicChapter(id,chapterId)) : byTopic.get(id);
