@@ -326,11 +326,12 @@ export function loadHistoryModel(root, files = readHistorySources(root)) {
     target(bookId,chapterId,byBook,bookChapter,label);
     const event = events.get(key), book = byBook.get(bookId);
     const range = event && eventRange(event);
+    const chapter = chapterId && bookChapter(bookId,chapterId);
     check(range && !eventLinks.has(key) &&
-      (chapterId ? historyOverlaps(range,bookChapter(bookId,chapterId)) : historyOverlaps(range,book) ||
+      (chapter ? historyOverlaps(range,chapter) : historyOverlaps(range,book) ||
         book.chapters.some(ch=>historyOverlaps(range,ch) || historyOverlaps(range,ch.recommendation?.range ?? ch))),
       label + ' 事件与叙事年代不相交或有多个主入口');
-    eventLinks.set(key,chapterId ? [bookId,chapterId] : [bookId]);
+    eventLinks.set(key,chapter ? [bookId,chapter.id] : [bookId]);
   };
   for (const book of books) for (const chapter of book.chapters) for (const event of chapter.eventIds || []) {
     check(!mapStories.has(event) || historyIncludes(chapter,mapStories.get(event).year),
